@@ -6,7 +6,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     }
     return t;
 };
-define(["require", "exports", "../log/responseLogger", "./copySublist"], function (require, exports, responseLogger_1, copySublist_1) {
+define(["require", "exports", "../../log/responseLogger", "./copySublist"], function (require, exports, responseLogger_1, copySublist_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /** will copy all sublists from given one record to another */

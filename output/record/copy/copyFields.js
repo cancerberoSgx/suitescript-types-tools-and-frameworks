@@ -1,4 +1,4 @@
-define(["require", "exports", "N/record", "../log/responseLogger"], function (require, exports, record, responseLogger_1) {
+define(["require", "exports", "N/record", "../../log/responseLogger"], function (require, exports, record, responseLogger_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function copyFields(config) {

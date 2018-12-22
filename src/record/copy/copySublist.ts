@@ -1,5 +1,5 @@
-import { log } from '../log/responseLogger';
-import * as record from 'N/record';
+import { log } from '../../log/responseLogger';
+import { CopyRecordAbstractConfig } from '..';
 
 /** 
  * Clones given record's sublist to given target record. returns the new sublist id.  
@@ -37,10 +37,6 @@ export interface CloneSublistConfigSublist {
     ignoreLines?: number[];
 }
 
-export interface CloneSublistConfigRecord {
-    fromRecord: record.Record;
-    toRecord: record.Record;
-    dontSave?: boolean;
-}
-export interface CloneSublistConfig extends CloneSublistConfigSublist, CloneSublistConfigRecord {
+
+export interface CloneSublistConfig extends CloneSublistConfigSublist, CopyRecordAbstractConfig {
 }

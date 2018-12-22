@@ -1,4 +1,4 @@
-define(["require", "exports", "../log/responseLogger"], function (require, exports, responseLogger_1) {
+define(["require", "exports", "../../log/responseLogger"], function (require, exports, responseLogger_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**

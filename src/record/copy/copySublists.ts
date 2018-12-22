@@ -1,8 +1,9 @@
-import { log } from '../log/responseLogger';
-import { copySublist, CloneSublistConfigRecord } from './copySublist';
+import { log } from '../../log/responseLogger';
+import { copySublist, CloneSublistConfigSublist } from './copySublist';
+import { CopyRecordAbstractConfig } from '..';
 
 /** will copy all sublists from given one record to another */
-export function copySublists(config: CloneSublistsConfig): void {
+export function copySublists(config: CopySublistsConfig): void {
     const { fromRecord, toRecord, ignoreSublists = [], dontSave, customCloneSublistConfigs = {} } = config;
     const sublists = fromRecord.getSublists().filter(f => [...ignoreSublists].indexOf(f) === -1);
     log(`cloneSublists starts: sublists: ${sublists.join(',')}, fromRecord: ${fromRecord.id}, toRecord: ${toRecord.id}, dontSave: ${dontSave}, customCloneSublistConfigs: ${Object.keys(customCloneSublistConfigs).join(',')}`);
@@ -21,9 +22,9 @@ export function copySublists(config: CloneSublistsConfig): void {
     log(`cloneSublists ends: sublists: ${sublists.join(',')}, fromRecord: ${fromRecord.id}, toRecord: ${toRecord.id}`);
 }
 
-export interface CloneSublistsConfig extends CloneSublistConfigRecord {
+export interface CopySublistsConfig extends CopyRecordAbstractConfig {
     ignoreSublists?: string[];
     customCloneSublistConfigs?: {
-        [sublistId: string]: CloneSublistConfigRecord;
+        [sublistId: string]: CloneSublistConfigSublist;
     };
 }

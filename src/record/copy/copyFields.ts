@@ -1,5 +1,6 @@
 import * as record from 'N/record';
-import { log } from '../log/responseLogger';
+import { log } from '../../log/responseLogger';
+import { CopyRecordAbstractConfig } from '..';
 
 export function copyFields(config: CopyFieldsConfig): record.Record {
     let { fromRecord, toRecord= record.create({ type: config.fromRecord.type }), ignoreFields = [], customFieldValues = {} } = config;
@@ -13,12 +14,12 @@ export function copyFields(config: CopyFieldsConfig): record.Record {
     return toRecord;
 }
 
-export interface CopyFieldsConfig {
-    fromRecord: record.Record;
+export interface CopyFieldsConfig extends CopyRecordAbstractConfig{
+    // fromRecord: record.Record;
     customFieldValues?: {
         [id: string]: any;
     };
     /** if not provided a new record will be created */
-    toRecord?: record.Record
+    // toRecord: record.Record
     ignoreFields?: string[];
 }

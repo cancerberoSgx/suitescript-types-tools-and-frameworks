@@ -10,6 +10,7 @@ export function map(this: any, results: ResultSet,
     fn: (value: Result, index: number, array: Result[]) => Result, thisArg: any = this): Result[] {
     return toArray(results).map<Result>(fn, thisArg)
 }
+
 export function run(s: Search): Result[] {
     return toArray(s.run())
 } 

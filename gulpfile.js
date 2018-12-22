@@ -5,7 +5,8 @@ var shell = require('shelljs')
 var path = require('path')
 
 // "Constants"
-var watchFilter = 'output/**/*.js'
+var basePath = path.resolve('./output')
+var watchFilter = basePath+'/**/*.js'
 var account = 'TSTDRV1844288'
 var role = 3
 var folderPath = 'SuiteScripts'
@@ -24,7 +25,7 @@ gulp.task('default', () => {
       console.log('Watching: ' + watchFilter)
 
       watch(watchFilter, file => {
-        var suiteScriptPath = folderPath + '/' + path.basename(file.path)
+        var suiteScriptPath = folderPath + path.resolve(file.path).substring(basePath.length, path.resolve(file.path).length)
 
         console.log(
           `File changed. Uploading File: ${
@@ -37,7 +38,7 @@ gulp.task('default', () => {
           .then(
             r => console.log('  Uploaded File: ' + suiteScriptPath),
             err =>
-              console.log('  Failed to Upload File: ' + err, err, err.stack)
+              console.log('  Failed to Upload File: ', err+toString(), err,  err.stack)
           )
       })
 

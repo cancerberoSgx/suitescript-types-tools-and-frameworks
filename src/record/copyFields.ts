@@ -1,9 +1,8 @@
-
 import * as record from 'N/record';
-import { log } from './responseLogger';
+import { log } from '../log/responseLogger';
 
-export function copyFields(config: CloneRecordConfig): record.Record {
-    let { fromRecord, toRecord= record.create({ type: fromRecord.type }), ignoreFields = [], customFieldValues = {} } = config;
+export function copyFields(config: CopyFieldsConfig): record.Record {
+    let { fromRecord, toRecord= record.create({ type: config.fromRecord.type }), ignoreFields = [], customFieldValues = {} } = config;
     log(`target id: ${fromRecord && fromRecord.id}`);
     const fields = fromRecord.getFields().filter(f => [...(ignoreFields || []), 'id'].indexOf(f) === -1);
     log(`cloned fields: ${fields.join(', ')}`);
@@ -14,7 +13,7 @@ export function copyFields(config: CloneRecordConfig): record.Record {
     return toRecord;
 }
 
-export interface CloneRecordConfig {
+export interface CopyFieldsConfig {
     fromRecord: record.Record;
     customFieldValues?: {
         [id: string]: any;

@@ -1,4 +1,5 @@
-define(["require", "exports", "./responseLogger"], function (require, exports, responseLogger_1) {
+define(["require", "exports", "../log/responseLogger"], function (require, exports, responseLogger_1) {
+    "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
      * Clones given record's sublist to given target record. returns the new sublist id.

@@ -1,7 +1,7 @@
-import { copyFields } from './cloneRecord';
-import { RecordId } from './suitelet-sample1';
+import { copyFields } from '../record/copyFields';
+import { RecordId } from '../suitelet-sample1';
 import * as record from 'N/record';
-import { copySublists } from './cloneSublists';
+import { copySublists } from '../record/copySublists';
 
 
 export interface MoveCategoryConfig {

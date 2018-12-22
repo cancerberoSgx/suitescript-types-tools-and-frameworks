@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "outDir": "output",
     "module": "amd",
     "target": "es5",
     "moduleResolution": "node",
     "sourceMap": false,
     "newLine": "LF",
     "experimentalDecorators": true,
-    "noImplicitUseStrict": true,
+    "strict": true,
+    "outDir": "output",
     "baseUrl": ".",
+    // "rootDir": ".",
     "lib": [
       "es5",
       "es2015.promise",
@@ -23,5 +24,6 @@
         "node_modules/@hitc/netsuite-types/N/*"
       ]
     }
-  }
+  },
+  "exclude": ["./spec", "./output", "node_modules"]
 }

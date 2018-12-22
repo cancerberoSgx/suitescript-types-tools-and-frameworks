@@ -42,6 +42,6 @@ gulp.task('default', () => {
       })
 
       // execute typescript compiler watch:
-      shell.exec('node node_modules/typescript/bin/tsc -w', () => {})
+      shell.exec('npx tsc -w', () => {})
     })
 })

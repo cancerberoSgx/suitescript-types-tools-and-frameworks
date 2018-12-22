@@ -6,7 +6,8 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     }
     return t;
 };
-define(["require", "exports", "./responseLogger", "./cloneSublist"], function (require, exports, responseLogger_1, cloneSublist_1) {
+define(["require", "exports", "../log/responseLogger", "./copySublist"], function (require, exports, responseLogger_1, copySublist_1) {
+    "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /** will copy all sublists from given one record to another */
     function copySublists(config) {
@@ -17,13 +18,12 @@ define(["require", "exports", "./responseLogger", "./cloneSublist"], function (r
             var defaultCloneSublistConfig = { sublistId: sublistId, fromRecord: fromRecord, toRecord: toRecord, dontSave: dontSave };
             var finalSublistConfig = __assign({}, defaultCloneSublistConfig, (customCloneSublistConfigs[sublistId] || {}), { dontSave: true // we don't want to save the record until all sublists are cloned
              });
-            cloneSublist_1.copySublist(finalSublistConfig);
+            copySublist_1.copySublist(finalSublistConfig);
         });
         if (!dontSave) {
             toRecord.save();
         }
         responseLogger_1.log("cloneSublists ends: sublists: " + sublists.join(',') + ", fromRecord: " + fromRecord.id + ", toRecord: " + toRecord.id);
-        return null;
     }
     exports.copySublists = copySublists;
 });

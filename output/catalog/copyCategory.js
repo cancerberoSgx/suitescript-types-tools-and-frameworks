@@ -1,4 +1,5 @@
-define(["require", "exports", "./cloneRecord", "N/record", "./cloneSublists"], function (require, exports, cloneRecord_1, record, cloneSublists_1) {
+define(["require", "exports", "../record/copyFields", "N/record", "../record/copySublists"], function (require, exports, copyFields_1, record, copySublists_1) {
+    "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
      * Will move given category (and all its descendants to given target parent (targetId).
@@ -11,13 +12,13 @@ define(["require", "exports", "./cloneRecord", "N/record", "./cloneSublists"], f
      */
     function copyCategory(config) {
         var fromRecord = record.load({ type: 'commercecategory', id: config.categoryId });
-        var toRecord = cloneRecord_1.copyFields({
+        var toRecord = copyFields_1.copyFields({
             fromRecord: fromRecord,
             customFieldValues: { primaryparent: config.parentCategoryId },
             ignoreFields: ['lastmodifiedby', 'created']
         });
         // const toRecord = record.load({ type: 'commercecategory', id: newRecordId });
-        cloneSublists_1.copySublists({
+        copySublists_1.copySublists({
             fromRecord: fromRecord,
             toRecord: toRecord
         });

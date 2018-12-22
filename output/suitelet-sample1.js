@@ -2,7 +2,8 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./responseLogger", "./copyCategory"], function (require, exports, responseLogger_1, copyCategory_1) {
+define(["require", "exports", "./log/responseLogger", "./catalog/copyCategory"], function (require, exports, responseLogger_1, copyCategory_1) {
+    "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.onRequest = function (context) {
         responseLogger_1.initialize({ response: context.response, enabled: true });

@@ -1,4 +1,4 @@
-import { log } from './responseLogger';
+import { log } from '../log/responseLogger';
 import * as record from 'N/record';
 
 /** 

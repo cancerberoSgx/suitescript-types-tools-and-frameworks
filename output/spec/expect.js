@@ -30,7 +30,6 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
                     type: 'fail'
                 };
             }
-            console.log('pushing');
             i.results.push(result);
         };
         /** array or string to contain (.indexOf()) */
@@ -39,10 +38,10 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
             if (!i) {
                 throw new Error('expect() must be called inside it() : value was: ' + this.real);
             }
-            if (!Array.isArray(this.real) || typeof this.real === 'string') {
+            if (!Array.isArray(this.real) && typeof this.real !== 'string') {
                 throw new Error('toContain must be called with a array or string value and it was ' + (typeof this.real) + ' - ' + this.real);
             }
-            var message = "Expected [" + this.real.join(', ') + "] to contain \"" + value + "\"";
+            var message = "Expected " + (Array.isArray(this.real) ? "[" + this.real.join(', ') + "]" : "\"" + this.real + "\"") + " to contain \"" + value + "\"";
             var result;
             if (this.real.indexOf(value) === -1) {
                 result = {

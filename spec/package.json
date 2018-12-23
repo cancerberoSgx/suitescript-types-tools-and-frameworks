@@ -1,0 +1,25 @@
+{
+    "name": "sgurin-suitescript-utils-specs",
+    "version": "0.0.1",
+    "description": "TODO",
+    "main": "src/index.js",
+    "private": true,
+    "scripts": {},
+    "keywords": [
+        "SuiteScript",
+        "SuiteScript 2.0",
+        "NetSuite",
+        "utilities",
+        "TypeScript"
+    ],
+    "author": "Sebastián Gurin",
+    "license": "MIT",
+    "dependencies": {
+    },
+    "devDependencies": {
+        "@types/jasmine": "^3.3.5",
+        "jasmine": "^2.8.0",
+        "ts-node": "^7.0.1",
+        "typescript": "^2.6.2"
+    }
+}

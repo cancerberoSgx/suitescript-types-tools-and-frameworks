@@ -4,7 +4,10 @@
     "description": "TODO",
     "main": "src/index.js",
     "private": true,
-    "scripts": {},
+    "scripts": {
+        "run": "npx ts-node node_modules/jasmine/bin/jasmine.js",
+        "run-js": "rm -rf dist && npx tsc && mkdir -p dist/spec/support && cp -r spec/support/jasmine-js.json dist/spec/support/jasmine.json && cd dist && node ../node_modules/jasmine/bin/jasmine"
+    },
     "keywords": [
         "SuiteScript",
         "SuiteScript 2.0",

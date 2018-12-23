@@ -5,12 +5,13 @@
     "main": "src/index.js",
     "private": true,
     "scripts": {
-        "test": "echo 'no node-js tests yet' && exit 0 && npx ts-node spec/index.ts",
+        "test": "cd spec && npm run run",
+        "test-js": "cd spec && npm run run-js",
         "build": "npx tsc",
         "clean": "rm -rf output",
         "build-watch": "npx tsc -w",
         "dev": "npx gulp",
-        "all": "npm run clean && npm run build && npm test"
+        "all": "npm run clean && npm run build && npm test && npm run test-js"
     },
     "keywords": [
         "SuiteScript",

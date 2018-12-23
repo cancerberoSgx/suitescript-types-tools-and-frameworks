@@ -40,7 +40,6 @@ class ExpectImpl<R> implements Expect<R>{
         type: 'fail'
       }
     }
-    console.log('pushing')
     i.results.push(result)
   }
 

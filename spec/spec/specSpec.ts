@@ -11,7 +11,7 @@ describe('spec', () => {
 
           ssIt('can walk', ()=>{
             // const o = {a: 1}
-            // ssExpect('asdas').toContain('as')
+            ssExpect('asdas').toContain('as')
             ssExpect(Math.random()>2).toBe(true)
           })
 

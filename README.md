@@ -1,23 +1,43 @@
-Miscellaneous SuiteScript 2.0 high level utilities 
+# Miscellaneous SuiteScript 2.0 high level utilities and APIs
 
-(mostly loriented to SuiteCommerce catalogs)
+(mostly oriented to Commerce)
+
+# What
+
+ * SuiteScript 2.0 types thanks to project @hitc/netsuite-types
+ * basic developer tools to watch/build/deploy changes (`npm run dev`)
+ * Besides the types, this package contains some useful tools that can be imported and used from pure JavaScript projects.
 
 # Usage
 
-`npm run build` will generate usable SuiteScript 2.0 .files that you can copy to your project and import it (if you are working with pure .js)
+ * `npm run build` will generate usable SuiteScript 2.0 .files that you can copy to your project and import it (if you are working with pure .js)
+ * `npm run dev` to develop:
 
-If you are working with TypeScript, then is better to clone this repo, start your feature in src/ and import the utilities. Just make sure that:
+# Usage details: 
 
- * use `npm run dev` to develop:
- * Configure account, target folder, role, applicationId, etc in ./config.js file (this information is needed to deploy the generated scripts to netsuite)
+If you are working with TypeScript, then is better to clone this repository, start your feature in src/ and import the utilities. Just make sure that:
+ * Configure account, target folder, role, applicationId, etc in ./config.js file (this information is needed to deploy the generated scripts to NetSuite)
  * the first time you run it it will ask you for your email / password and this information will be stored in $(HOME)/netsuite_creds.js
 will:
  * make sure all your imports are relative, i.e : `import { copySublist } from '../record/copy/copySublist';`
  * import SuiteScript types like this: `import * as record from 'N/record';`
  * don't make radical changes in tsconfig.json since it needs that particular configuration in order the emitted .js to work
  * you will need to create the output folder structure manually in the file cabinet (by default SuiteScript folder) and upload script entry point manually.
-
  * ./src/suitelet-sample1.ts is a SuiteLet entry point example
+ * ./src/user-event-sample1.ts is a user event entry point example 
+
+# Limitations
+ 
+ * You need to respect current tsconfig.json
+ * always import files using relative names (fancy imports won't work)
+ * you can use all ecma syntax features but promises/await/async since NetSuite don't support setTimeout()
+
+# Status
+
+ * Record utilities: copyFields, copySublist, copySublists, 
+ * Commerce: copyCategory, moveCategory, removeCategory : to copy/move a category to another parent or remove it
+ * spec utilities : write TDD like with jasmine/jest/mocha using describe(), expect(), it() etc. Very basic but working support to test your code IN NetSuite and in node.js
+ * HttpResponse logger so is easy to debug when using SuiteLet, RestLet.
 
 # Objectives (short term)
 
@@ -39,3 +59,4 @@ will:
  * (for devtools) we could separate tslib.js so emitted files are smaller
  * fix credentials storing at $(HOME)/netsuite_creds.js - always ask for password and never save it.
  * research: browserify and have a single .js bundle? this would simplify the deploy ? Dont' know
+ * mode script entry point examples (schedule, restlet, client)

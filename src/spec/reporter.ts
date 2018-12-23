@@ -1,4 +1,4 @@
-import { DescribeResult, SpecRunner, SpecRunnerResult } from "./runner";
+import { SpecRunnerResult } from "./runner";
 
 export interface Reporter<Config extends ReportConfig, Result extends ReportResult> {
   render(config: ReportConfig): ReportResult

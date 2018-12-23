@@ -2,15 +2,14 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/responseLogger", "./spec/index"], function (require, exports, responseLogger_1, index_1) {
+define(["require", "exports", "./log/responseLogger", "./spec/index", "./spec/textReporter"], function (require, exports, responseLogger_1, index_1, textReporter_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.onRequest = function (context) {
         try {
             responseLogger_1.initialize({ response: context.response, enabled: true });
             runSomeSpecs();
-            var results = index_1.SpecRunner.getInstance().run();
-            responseLogger_1.log(JSON.stringify(results, null, 2));
+            // log(JSON.stringify(results,null, 2));
             // const newCategory = copyCategory({
             //     categoryId: 18,
             //     newPrimaryParent: null
@@ -44,5 +43,7 @@ define(["require", "exports", "./log/responseLogger", "./spec/index"], function 
                 index_1.expect(Math.random() > 2).toBe(true);
             });
         });
+        var result = index_1.SpecRunner.getInstance().run();
+        responseLogger_1.log(new textReporter_1.TextReporter().render({ result: result }).output);
     }
 });

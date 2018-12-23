@@ -13,7 +13,7 @@ define(["require", "exports"], function (require, exports) {
         for (var _i = 0; _i < arguments.length; _i++) {
             args[_i] = arguments[_i];
         }
-        response.writeLine({ output: args && args.join(', ') || '' });
+        response && response.writeLine({ output: args && args.join(', ') || '' });
     }
     exports.log = log;
     function setEnabled(enabled_) {

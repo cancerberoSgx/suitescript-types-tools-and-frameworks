@@ -1,3 +1,11 @@
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -11,6 +19,7 @@ define(["require", "exports"], function (require, exports) {
         };
         SpecRunner.prototype.run = function (config) {
             var _this = this;
+            var totalTime = Date.now();
             this.describes.forEach(function (d) {
                 _this._currentDescribe = d;
                 d.its.forEach(function (i) {
@@ -18,7 +27,9 @@ define(["require", "exports"], function (require, exports) {
                     i.fn();
                 });
             });
-            return this.getResults(this.describes);
+            var results = this.getResults(this.describes);
+            totalTime = Date.now() - totalTime;
+            return { results: results, totalTime: totalTime };
         };
         SpecRunner.prototype.getResults = function (describes) {
             var _this = this;
@@ -26,7 +37,7 @@ define(["require", "exports"], function (require, exports) {
                 return {
                     name: d.name,
                     specs: _this.getResults(d.describes),
-                    results: d.its.map(function (i) { return ({ name: i.name, results: i.results }); })
+                    results: d.its.map(function (i) { return (__assign({}, i)); })
                 };
             });
             return specs;

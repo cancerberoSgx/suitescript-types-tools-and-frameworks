@@ -1,4 +1,4 @@
-import { describe } from "src/spec";
+import { describe } from "../../spec";
 
 describe('search/results', ()=>{
   it('should pass', ()=>{

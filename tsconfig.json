@@ -15,9 +15,7 @@
     "baseUrl": ".",
     // "rootDir": ".",
     "lib": [
-      "es6",
-      "es2015.promise",
-      "dom"
+      "es5",
     ],
     "removeComments": false,
     "paths": {

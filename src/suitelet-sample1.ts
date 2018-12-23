@@ -56,7 +56,7 @@ ${error}
 ${Object.keys(error)}
 `);
   }
-}
+} 
 
 
 
@@ -73,5 +73,5 @@ function runSomeSpecs() {
     })
   })
   const result = SpecRunner.getInstance().run()
-  log(new TextReporter().render({ result }))
-}
+  log(new TextReporter().render({ result }).output)
+} 

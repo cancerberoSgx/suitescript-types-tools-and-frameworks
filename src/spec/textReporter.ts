@@ -1,6 +1,8 @@
 import { ReportConfig, Reporter, ReportResult } from "./reporter";
 import { DescribeResult, ItResult } from "./runner";
 import { ExpectResult } from "./expect";
+import { repeat, find } from "../misc";
+import { log } from "../log/responseLogger";
 
 export interface TextReportResult extends ReportResult {
   output: string
@@ -30,17 +32,18 @@ export class TextReporter implements Reporter<TextReportConfig, TextReportResult
 ${totalItCount} spec, ${totalItFail} failures
 Finished in ${this.config.result.totalTime/1000} seconds
 `
-    return {
+    return { 
       output
       // output: JSON.stringify(config.results, null, 2)
     }
-  }
+  } 
   renderDescribe(d: DescribeResult, indentLevel = 0): string {
     if (this.config.format === 'detailed') {
       return 'detailed format not implemented'
     }
     else {
-      const failIts = d.results.filter(i => i.results.find(r => r.type === 'fail'))
+      const failIts = d.results.filter(i => find(i.results, r => r.type === 'fail'))
+      // log('failIts1'+failIts) 
       if (failIts.length) {
         return `
 ${this.indent(indentLevel)}${d.name}: ${failIts.map(i => this.renderIt(i, indentLevel + 1))}`
@@ -54,6 +57,7 @@ ${this.indent(indentLevel)}${d.name}: ${failIts.map(i => this.renderIt(i, indent
       return 'detailed format not implemented'
     }
     else {
+      // log('i.results'+i.results)
       return `
 ${this.indent(indentLevel)}${i.name}: ${i.results.map(r => this.renderExpect(r, indentLevel + 1))}`
     }
@@ -69,26 +73,12 @@ ${this.indent(indentLevel)}${r.message}`
   }
 
   indent(indentLevel: number): string {
-    // if(this.config.format==='detailed'){
-    //   return 'detailed format not implemented'
-    // }
-    // else {
+    if(this.config.format==='detailed'){
+      return 'detailed format not implemented'
+    }
+    else {
     return `${repeat(indentLevel * this.config.tabSize!, ' ')}`
-    // }
+    }
 
   }
-}
-
-
-
-//TODO: move this to a misc.ts file. Use it in sublistUtil.ts getLines()
-export function array<T=number>(n: number, sample?: T): T[] {
-  const a: (T | number)[] = []
-  for (let i = 0; i < n; i++) {
-    a.push(typeof sample === 'undefined' ? i : sample)
-  }
-  return a as T[]
-}
-export function repeat(n: number, s: string): string {
-  return array(n, s).join('')
 }

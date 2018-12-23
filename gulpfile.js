@@ -6,15 +6,18 @@ var path = require('path')
 
 // "Constants"
 var basePath = path.resolve('./output')
-var watchFilter = basePath+'/**/*.js'
+var watchFilter = basePath + '/**/*.js'
 
-const  {account, role, folderPath, applicationId, nsVersion} = require('./config') 
+const { account, role, folderPath, applicationId, nsVersion, initialCompile = false } = require('./config')
 
 gulp.task('default', () => {
   var client = new nsutil.SuiteTalk()
   var creds = nsutil.Credentials
 
   console.log('Configuring SuiteTalk client...')
+
+  // shell.exec('npx tsc -w', () => { })
+
   client
     .init(creds.email, creds.password, account, role, applicationId, nsVersion)
     .then(() => {
@@ -26,7 +29,7 @@ gulp.task('default', () => {
 
         console.log(
           `File changed. Uploading File: ${
-            file.path
+          file.path
           } to file cabinet ${suiteScriptPath} ...`
         )
 
@@ -35,11 +38,14 @@ gulp.task('default', () => {
           .then(
             r => console.log('  Uploaded File: ' + suiteScriptPath),
             err =>
-              console.log('  Failed to Upload File: ', err+toString(), err,  err.stack)
+              console.log('  Failed to Upload File: ', err + toString(), err, err.stack)
           )
       })
 
-      // execute typescript compiler watch:
-      shell.exec('npx tsc -w', () => {})
+      // if (initialCompile) {
+        // setTimeout(() => {
+          shell.exec('npx tsc', () => { })
+        // }, 200);
+      // }
     })
 })

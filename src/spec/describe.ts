@@ -5,10 +5,8 @@ export interface SpecBaseWithoutParent {
   parent?: Describe
   name: string
   type: SpecType
-}
-// export interface SpecBaseWithParent extends SpecBaseWithoutParent {
-//   parent: SpecBaseWithParent|undefined
-// }
+} 
+
 export type DescribeFn = ()=>void
 
 export interface Describe extends SpecBaseWithoutParent {
@@ -18,12 +16,7 @@ export interface Describe extends SpecBaseWithoutParent {
   its: It[]
   fn : DescribeFn
 }
-// export interface SpecDescribeWithParent extends SpecBaseWithoutParent, SpecBaseWithParent {
-// }
 export type SpecType = 'normal'|'x'|'f'
-
-// export interface SpecWithParentDescribe extends SpecBaseWithoutParent {
-// }
 
 function createDescribe(name: string, fn: DescribeFn, type: SpecType){
   const parent = SpecRunner.getInstance()._currentDescribe

@@ -9,7 +9,6 @@ export function getLines(config: { record: Record, sublistId: string }): number[
         arr.push(counter++)
     }
     return arr;
-
     // return new Array().fill(0).map(i => counter++) // cant: syntax error
 
 }

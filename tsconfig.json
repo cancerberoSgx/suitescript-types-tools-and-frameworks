@@ -15,7 +15,7 @@
     "baseUrl": ".",
     // "rootDir": ".",
     "lib": [
-      "es5",
+      "es6",
       "es2015.promise",
       "dom"
     ],

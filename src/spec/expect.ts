@@ -1,22 +1,18 @@
 import { SpecRunner } from "./runner";
-import { It } from "./it";
 
 export function expect<R>(real: R): Expect<R> {
   return new ExpectImpl<R>(real)
 }
-
 
 export interface Expect<R> {
   toBe(expected: R): void
   toContain<T extends ValueOf<R, 0>>(value: T): void
 }
 
-
-
 class ExpectImpl<R> implements Expect<R>{
 
   constructor(protected real: R) {
-    // return this as any as Expect<R,E>
+
   }
 
   /** to be identical (===) */
@@ -44,7 +40,7 @@ class ExpectImpl<R> implements Expect<R>{
   }
 
   /** array or string to contain (.indexOf()) */
-  toContain<J extends ValueOf<R, 0>>(value: J|string): void {
+  toContain<J extends ValueOf<R, 0>>(value: J | string): void {
     const i = SpecRunner.getInstance()._currentIt
     if (!i) {
       throw new Error('expect() must be called inside it() : value was: ' + this.real)
@@ -68,8 +64,8 @@ class ExpectImpl<R> implements Expect<R>{
     }
     i.results.push(result)
   }
-
 }
+
 /** returns the type of the value with key K in the Mapped type T. Example: `type _string = ValueOf<A, 'a'>` . */
 type ValueOf<T extends { [k: number]: any }, K extends number> = T[K];
 
@@ -92,6 +88,5 @@ export interface ExpectResult {
   message: string
   error?: Error
 }
-
 
 export type SpecResultType = 'fail' | 'pass' | 'skip'

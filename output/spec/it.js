@@ -8,7 +8,6 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
         }
         var i = { parent: parent, fn: fn, name: name, type: type, results: [] };
         parent.its.push(i);
-        // fn()
     }
     function it(name, fn) {
         create(name, fn, 'normal');

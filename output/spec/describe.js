@@ -1,8 +1,6 @@
 define(["require", "exports", "./runner"], function (require, exports, runner_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    // export interface SpecWithParentDescribe extends SpecBaseWithoutParent {
-    // }
     function createDescribe(name, fn, type) {
         var parent = runner_1.SpecRunner.getInstance()._currentDescribe;
         var d = { parent: parent, its: [], fn: fn, name: name, type: type, describes: [] };

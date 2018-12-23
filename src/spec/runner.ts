@@ -1,7 +1,6 @@
-import { Describe } from "./describe";
+import { Describe, SpecType } from "./describe";
 import { It } from "./it";
 import { ExpectResult } from "./expect";
-
 
 /** user needs to instantiate this, add their describe functions and execute run() in order to run the tests adn obtain the results */
 export class SpecRunner {
@@ -14,8 +13,8 @@ export class SpecRunner {
   _currentDescribe: Describe | undefined
   _currentIt: It | undefined
   private constructor() { }
-
-  run(config?: SpecRunnerRunConfig): DescribeResult[] {
+  run(config?: SpecRunnerRunConfig): SpecRunnerResult {
+    let totalTime=Date.now()
     this.describes.forEach(d => {
       this._currentDescribe = d
       d.its.forEach(i => {
@@ -24,7 +23,9 @@ export class SpecRunner {
         i.fn()
       })
     })
-    return this.getResults(this.describes)
+    const results  =this.getResults(this.describes)
+    totalTime = Date.now()-totalTime
+    return {results, totalTime}
   }
 
   protected getResults(describes: Describe[]): DescribeResult[] {
@@ -32,17 +33,30 @@ export class SpecRunner {
       return {
         name: d.name,
         specs: this.getResults(d.describes),
-        results: d.its.map(i => ({ name: i.name, results: i.results }))
+        results: d.its.map(i => ({...i }))
       }
     })
     return specs
   }
 
 }
+
+export interface SpecRunnerResult {
+  results : DescribeResult[]
+  totalTime: number
+}
 export interface DescribeResult {
   name: string
   specs: DescribeResult[]
-  results: { name: string, results: ExpectResult[] }[]
+  /** internal it() results*/
+  results: ItResult[]
+}
+
+export interface ItResult{ 
+  name: string
+  type: SpecType
+  /** internal expect() results */
+  results: ExpectResult[] 
 }
 
 export interface SpecRunnerRunConfig {

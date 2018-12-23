@@ -8,7 +8,6 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
     var ExpectImpl = /** @class */ (function () {
         function ExpectImpl(real) {
             this.real = real;
-            // return this as any as Expect<R,E>
         }
         /** to be identical (===) */
         ExpectImpl.prototype.toBe = function (value) {

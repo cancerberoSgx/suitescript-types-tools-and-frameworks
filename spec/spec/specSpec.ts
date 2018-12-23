@@ -1,23 +1,23 @@
 import {describe as ssDescribe, it as ssIt, expect as ssExpect, SpecRunner} from '../../src/spec'
+import { TextReporter } from '../../src/spec/textReporter';
 describe('spec', () => {
     it('basic', () => {
         ssDescribe('Fruit', ()=>{
-          // console.log('ssd');
-          
           ssIt('can be eaten', ()=>{
-            // console.log('ssit');
             ssExpect([1,2,3]).toContain(2)
           })
 
           ssIt('can walk', ()=>{
-            // const o = {a: 1}
             ssExpect('asdas').toContain('as')
             ssExpect(Math.random()>2).toBe(true)
           })
 
         })
-        const results = SpecRunner.getInstance().run()
+        const result = SpecRunner.getInstance().run()
+        const results =result.results
         // console.log(JSON.stringify(results,null, 2));
+
+    console.log(   new TextReporter().render({result}).output)
 
         expect(results.length).toBe(1) // a single root describe
         expect(results[0].specs.length).toBe(0) // no internal describes
@@ -36,8 +36,5 @@ describe('spec', () => {
         expect(results[0].results[1].results[0].type).toBe('pass')
         expect(results[0].results[1].results[1].message).toBe('Expected \"false\" to be \"true\"')
         expect(results[0].results[1].results[1].type).toBe('fail')
-        
-        // expect(results[0].results[0].).toBe('can be eaten')
-        // expect(results[0].results[1].name).toBe('can walk')
     })
 })

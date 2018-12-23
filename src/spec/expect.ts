@@ -1,4 +1,5 @@
 import { SpecRunner } from "./runner";
+import { ValueOf } from "../misc";
 
 export function expect<R>(real: R): Expect<R> {
   return new ExpectImpl<R>(real)
@@ -33,7 +34,7 @@ class ExpectImpl<R> implements Expect<R>{
     else {
       result = {
         message,
-        type: 'fail'
+        type: 'pass'
       }
     }
     i.results.push(result)
@@ -66,8 +67,6 @@ class ExpectImpl<R> implements Expect<R>{
   }
 }
 
-/** returns the type of the value with key K in the Mapped type T. Example: `type _string = ValueOf<A, 'a'>` . */
-type ValueOf<T extends { [k: number]: any }, K extends number> = T[K];
 
 export function fail(label?: string) {
   return {

@@ -1,5 +1,5 @@
 import { log } from '../../log/responseLogger';
-import { CopyRecordAbstractConfig } from '../types';
+import { CopyRecordAbstractConfig } from './copyRecord';
 
 /** 
  * Clones given record's sublist to given target record. returns the new sublist id.  

@@ -26,7 +26,7 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
             else {
                 result = {
                     message: message,
-                    type: 'fail'
+                    type: 'pass'
                 };
             }
             i.results.push(result);

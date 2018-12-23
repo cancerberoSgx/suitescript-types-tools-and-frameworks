@@ -1,6 +1,6 @@
 import * as record from 'N/record';
 import { log } from '../../log/responseLogger';
-import { CopyRecordAbstractConfig } from '../types';
+import { CopyRecordAbstractConfig } from './copyRecord';
 
 export function copyFields(config: CopyFieldsConfig): record.Record {
     let { fromRecord, toRecord= record.create({ type: config.fromRecord.type }), ignoreFields = [], customFieldValues = {} } = config;

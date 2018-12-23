@@ -1,7 +1,7 @@
 import { delete as deleteRecord, load } from 'N/record';
 import { log } from '../log/responseLogger';
 import { getLines } from '../record/sublistUtil';
-import { RecordId } from '../record/types';
+import { RecordId } from '../record/typedRecord/RecordRef';
 
 
 export interface RemoveCategoryConfig {

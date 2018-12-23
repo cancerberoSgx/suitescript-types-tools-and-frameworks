@@ -34,7 +34,6 @@ Finished in ${this.config.result.totalTime/1000} seconds
 `
     return { 
       output
-      // output: JSON.stringify(config.results, null, 2)
     }
   } 
   renderDescribe(d: DescribeResult, indentLevel = 0): string {
@@ -43,7 +42,6 @@ Finished in ${this.config.result.totalTime/1000} seconds
     }
     else {
       const failIts = d.results.filter(i => find(i.results, r => r.type === 'fail'))
-      // log('failIts1'+failIts) 
       if (failIts.length) {
         return `
 ${this.indent(indentLevel)}${d.name}: ${failIts.map(i => this.renderIt(i, indentLevel + 1))}`
@@ -57,7 +55,6 @@ ${this.indent(indentLevel)}${d.name}: ${failIts.map(i => this.renderIt(i, indent
       return 'detailed format not implemented'
     }
     else {
-      // log('i.results'+i.results)
       return `
 ${this.indent(indentLevel)}${i.name}: ${i.results.map(r => this.renderExpect(r, indentLevel + 1))}`
     }

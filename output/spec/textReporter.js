@@ -22,7 +22,6 @@ define(["require", "exports", "../misc"], function (require, exports, misc_1) {
             output += "\n\n" + totalItCount + " spec, " + totalItFail + " failures\nFinished in " + this.config.result.totalTime / 1000 + " seconds\n";
             return {
                 output: output
-                // output: JSON.stringify(config.results, null, 2)
             };
         };
         TextReporter.prototype.renderDescribe = function (d, indentLevel) {
@@ -33,7 +32,6 @@ define(["require", "exports", "../misc"], function (require, exports, misc_1) {
             }
             else {
                 var failIts = d.results.filter(function (i) { return misc_1.find(i.results, function (r) { return r.type === 'fail'; }); });
-                // log('failIts1'+failIts) 
                 if (failIts.length) {
                     return "\n" + this.indent(indentLevel) + d.name + ": " + failIts.map(function (i) { return _this.renderIt(i, indentLevel + 1); });
                 }
@@ -48,7 +46,6 @@ define(["require", "exports", "../misc"], function (require, exports, misc_1) {
                 return 'detailed format not implemented';
             }
             else {
-                // log('i.results'+i.results)
                 return "\n" + this.indent(indentLevel) + i.name + ": " + i.results.map(function (r) { return _this.renderExpect(r, indentLevel + 1); });
             }
         };

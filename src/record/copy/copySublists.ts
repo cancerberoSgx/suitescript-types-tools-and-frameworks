@@ -1,6 +1,6 @@
 import { log } from '../../log/responseLogger';
 import { copySublist, CloneSublistConfigSublist } from './copySublist';
-import { CopyRecordAbstractConfig } from '../types';
+import { CopyRecordAbstractConfig } from './copyRecord';
 
 /** will copy all sublists from given one record to another */
 export function copySublists(config: CopySublistsConfig): void {

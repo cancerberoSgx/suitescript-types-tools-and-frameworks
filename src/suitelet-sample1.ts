@@ -10,14 +10,18 @@ import { removeCategory } from './catalog/removeCategory';
 import { load } from 'N/record';
 import { getLines } from './record/sublistUtil';
 import { moveCategory } from './catalog/moveCategory';
+import { runSpecs } from './__tests__';
 
 
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
   try {
     initializeLogger({ response: context.response, enabled: true })
 
-    runSomeSpecs()
+    // runSomeSpecs()
 
+    runSpecs()
+    log('foo2')
+ 
 
     // log(JSON.stringify(results,null, 2));
 
@@ -60,18 +64,18 @@ ${Object.keys(error)}
 
 
 
-import { describe, expect, it, SpecRunner } from './spec/index'
-import { TextReporter } from './spec/textReporter';
-function runSomeSpecs() {
-  describe('Fruit', () => {
-    it('can be eaten', () => {
-      expect([1, 2, 3]).toContain(2)
-    })
-    it('can walk', () => {
-      expect('asdas').toContain('as')
-      expect(Math.random() > 2).toBe(true)
-    })
-  })
-  const result = SpecRunner.getInstance().run()
-  log(new TextReporter().render({ result }).output)
-} 
+// import { describe, expect, it, SpecRunner } from './spec/index'
+// import { TextReporter } from './spec/textReporter';
+// function runSomeSpecs() {
+//   describe('Fruit', () => {
+//     it('can be eaten', () => {
+//       expect([1, 2, 3]).toContain(2)
+//     })
+//     it('can walk', () => {
+//       expect('asdas').toContain('as')
+//       expect(Math.random() > 2).toBe(true)
+//     })
+//   })
+//   const result = SpecRunner.getInstance().run()
+//   log(new TextReporter().render({ result }).output)
+// } 

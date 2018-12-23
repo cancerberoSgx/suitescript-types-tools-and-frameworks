@@ -16,14 +16,17 @@ gulp.task('default', () => {
 
   console.log('Configuring SuiteTalk client...')
 
-  // shell.exec('npx tsc -w', () => { })
-
   client
     .init(creds.email, creds.password, account, role, applicationId, nsVersion)
     .then(() => {
       console.log('SuiteTalk client configured.')
       console.log('Watching: ' + watchFilter)
 
+
+  if (!initialCompile) {
+    shell.exec('npx tsc')
+  }
+  
       watch(watchFilter, file => {
         var suiteScriptPath = folderPath + path.resolve(file.path).substring(basePath.length, path.resolve(file.path).length)
 
@@ -43,9 +46,9 @@ gulp.task('default', () => {
       })
 
       // if (initialCompile) {
-        // setTimeout(() => {
-          shell.exec('npx tsc', () => { })
-        // }, 200);
+      // setTimeout(() => {
+      shell.exec('npx tsc -w --preserveWatchOutput', () => { })
+      // }, 200);
       // }
     })
 })

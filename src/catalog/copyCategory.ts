@@ -1,8 +1,8 @@
 import { create, load, Record } from 'N/record';
 import { copyFields } from '../record/copy/copyFields';
 import { copySublist } from '../record/copy/copySublist';
-import { RecordId } from '../record/types';
 import { RemoveCategoryConfig } from './removeCategory';
+import { RecordId } from '../record/typedRecord/RecordRef';
 
 
 export interface CopyCategoryConfig extends RemoveCategoryConfig {

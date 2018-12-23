@@ -1,12 +1,11 @@
 import * as record from 'N/record';
-import { CopyRecordAbstractConfig } from '../types';
 import { CopyFieldsConfig, copyFields } from './copyFields';
 import { CopySublistsConfig, copySublists } from './copySublists';
 
 
-export interface CopyRecordConfig extends CopyRecordAbstractConfig, CopyFieldsConfig, CopySublistsConfig{
-    
-} 
+export interface CopyRecordConfig extends CopyRecordAbstractConfig, CopyFieldsConfig, CopySublistsConfig {
+
+}
 
 /**
  * Will move given category (and all its descendants to given target parent (targetId).
@@ -18,10 +17,15 @@ export interface CopyRecordConfig extends CopyRecordAbstractConfig, CopyFieldsCo
  * @returns the new category record
  */
 export function copyRecord(config: CopyRecordConfig): record.Record {
-    const toRecord = copyFields({
-        ...config as CopyFieldsConfig,
-    });
-    copySublists({...config as CopySublistsConfig});
-    record.detach
-    return toRecord;
-} 
+  const toRecord = copyFields({
+    ...config as CopyFieldsConfig,
+  });
+  copySublists({ ...config as CopySublistsConfig });
+  record.detach
+  return toRecord;
+}
+export interface CopyRecordAbstractConfig {
+  fromRecord: record.Record;
+  toRecord: record.Record;
+  dontSave?: boolean;
+}

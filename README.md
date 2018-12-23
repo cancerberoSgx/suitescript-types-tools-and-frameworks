@@ -29,7 +29,9 @@ will:
 # Limitations
  
  * You need to respect current tsconfig.json
- * always import files using relative names (fancy imports won't work)
+ * always import files using **exact relative names**: 
+   * Don't use index.ts shortcut, i.e: `from "../some/folder/index"` will work . `from "../some/folder"` wont
+   configure your editor to always create/suggest/fix imports as relatives, for example in vscode settings: "Typescript › Preferences: Import Module Specifier. Preferred path style for auto imports. == RELATIVE" 
  * you can use all ecma syntax features but promises/await/async since NetSuite don't support setTimeout()
 
 # Status

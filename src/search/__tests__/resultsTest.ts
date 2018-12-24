@@ -1,6 +1,4 @@
-import { describe, expect, it, } from "../../spec/index";
-import { create } from "N/search";
-import { run } from "../results";
+import { describe, it, expect } from "../../spec";
 
 export function resultsTest (){
 

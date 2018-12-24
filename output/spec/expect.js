@@ -33,10 +33,6 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
         };
         /** array or string to contain (.indexOf()) */
         ExpectImpl.prototype.toContain = function (value) {
-            var i = runner_1.SpecRunner.getInstance()._currentIt;
-            if (!i) {
-                throw new Error('expect() must be called inside it() : value was: ' + this.real);
-            }
             if (!Array.isArray(this.real) && typeof this.real !== 'string') {
                 throw new Error('toContain must be called with a array or string value and it was ' + (typeof this.real) + ' - ' + this.real);
             }
@@ -54,22 +50,30 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
                     type: 'pass'
                 };
             }
-            i.results.push(result);
+            addToCurrentIt(result);
         };
         return ExpectImpl;
     }());
     function fail(label) {
-        return {
+        addToCurrentIt({
             message: 'fail() called - ' + label,
-            resultType: 'fail'
-        };
+            type: 'fail'
+        });
     }
     exports.fail = fail;
     function skip(label) {
-        return {
+        addToCurrentIt({
             message: 'skip() called - ' + label,
-            resultType: 'skip'
-        };
+            type: 'skip'
+        });
     }
     exports.skip = skip;
+    function addToCurrentIt(result) {
+        var i = runner_1.SpecRunner.getInstance()._currentIt;
+        if (!i) {
+            throw new Error('expect() must be called inside it() : label was: ' + result.message);
+        }
+        console.log(result);
+        i.results.push(result);
+    }
 });

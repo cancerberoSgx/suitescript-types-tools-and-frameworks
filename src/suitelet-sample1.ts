@@ -64,9 +64,10 @@ ${Object.keys(error)}
 
 
 
-// import { describe, expect, it, SpecRunner } from './spec/index'
-// import { TextReporter } from './spec/textReporter';
-// function runSomeSpecs() {
+import { describe, expect, it, SpecRunner } from './spec/index'
+import { TextReporter } from './spec/textReporter';
+import { matrixItemTest } from './catalog/__tests__/matrixItemTest';
+function runSomeSpecs() {
 //   describe('Fruit', () => {
 //     it('can be eaten', () => {
 //       expect([1, 2, 3]).toContain(2)
@@ -76,6 +77,16 @@ ${Object.keys(error)}
 //       expect(Math.random() > 2).toBe(true)
 //     })
 //   })
-//   const result = SpecRunner.getInstance().run()
-//   log(new TextReporter().render({ result }).output)
-// } 
+
+// try {
+    
+  matrixItemTest()
+// } catch (error) {
+//     log('error')
+//     // @ts-ignore
+//     // const e = nlapiCreateError(error).toString()
+//     // log(e+'')
+// }
+  const result = SpecRunner.getInstance().run()
+  log(new TextReporter().render({ result }).output)
+}  

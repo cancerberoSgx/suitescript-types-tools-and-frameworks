@@ -25,7 +25,6 @@ function createDescribe(name: string, fn: DescribeFn, type: SpecType){
     SpecRunner.getInstance().describes.push(d)
   }
   else {
-
     parent.describes.push(d)
   }
   SpecRunner.getInstance()._currentDescribe = d

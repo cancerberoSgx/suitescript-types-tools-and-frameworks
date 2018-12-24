@@ -1,5 +1,6 @@
 import { SpecRunner } from "./runner";
 import { ValueOf } from "../misc";
+import { SpecError } from './describe';
 
 export function expect<R>(real: R): Expect<R> {
   return new ExpectImpl<R>(real)
@@ -66,10 +67,18 @@ class ExpectImpl<R> implements Expect<R>{
 
 
 export function fail(label?: string) {
+  const e = new Error('fail '+label)
+  const error = {...e,
+    nativeException: e,
+    isFail:true,
+    failLabel: label 
+  }
   addToCurrentIt({
     message: 'fail() called - ' + label,
-    type: 'fail'
+    type: 'fail', 
+    error
   })
+  throw error
 }
 
 export function skip(label?: string) {
@@ -82,7 +91,7 @@ export function skip(label?: string) {
 export interface ExpectResult {
   type: SpecResultType
   message: string
-  error?: Error
+  error?: SpecError
 }
 
 export type SpecResultType = 'fail' | 'pass' | 'skip'
@@ -92,7 +101,5 @@ function addToCurrentIt(result: ExpectResult) {
   if (!i) {
     throw new Error('expect() must be called inside it() : label was: ' + result.message)
   }
-  console.log(result);
-  
   i.results.push(result)
 }

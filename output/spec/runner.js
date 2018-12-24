@@ -37,7 +37,7 @@ define(["require", "exports"], function (require, exports) {
                 return {
                     name: d.name,
                     specs: _this.getResults(d.describes),
-                    results: d.its.map(function (i) { return (__assign({}, i)); })
+                    results: d.its.map(function (i) { return (__assign({}, i, { parent: undefined })); })
                 };
             });
             return specs;

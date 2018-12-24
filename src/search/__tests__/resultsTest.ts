@@ -1,4 +1,6 @@
 import { describe, it, expect } from "../../spec";
+import { create} from 'N/search';
+import { run } from '../results';
 
 export function resultsTest (){
 

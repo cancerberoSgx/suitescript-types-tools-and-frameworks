@@ -11,11 +11,19 @@ export type DescribeFn = ()=>void
 
 export interface Describe extends SpecBaseWithoutParent {
   /** internal describes */
-  describes: Describe[]
+  describes?: Describe[]
   /** internal its */
   its: It[]
+  error?: SpecError
   fn : DescribeFn
 }
+
+export interface SpecError{
+  nativeException: Error
+  isFail?: boolean
+  failLabel?: string
+}
+
 export type SpecType = 'normal'|'x'|'f'
 
 function createDescribe(name: string, fn: DescribeFn, type: SpecType){
@@ -25,10 +33,19 @@ function createDescribe(name: string, fn: DescribeFn, type: SpecType){
     SpecRunner.getInstance().describes.push(d)
   }
   else {
-    parent.describes.push(d)
+    (parent.describes||[]).push(d)
   }
   SpecRunner.getInstance()._currentDescribe = d
-  fn()
+  try {
+    d.fn()
+  }catch(err){
+    // TODO: support break on first error
+    d.error = {
+      nativeException: err,
+      isFail: err.isFail,
+      failLabel: err.failLabel
+    }
+  }
   SpecRunner.getInstance()._currentDescribe = parent
 }
 export function describe(name:string, fn: DescribeFn) {

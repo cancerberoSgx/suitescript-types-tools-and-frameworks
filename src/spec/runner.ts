@@ -1,4 +1,4 @@
-import { Describe, SpecType } from "./describe";
+import { Describe, SpecType, SpecError } from "./describe";
 import { It } from "./it";
 import { ExpectResult } from "./expect";
 
@@ -14,14 +14,27 @@ export class SpecRunner {
   _currentIt: It | undefined
   private constructor() { }
   
+  reset(){
+    this._currentDescribe=undefined
+    this._currentIt=undefined
+    this.describes = []
+  }
+  
   run(config?: SpecRunnerRunConfig): SpecRunnerResult {
     let totalTime=Date.now()
     this.describes.forEach(d => {
       this._currentDescribe = d
       d.its.forEach(i => {
-
         this._currentIt = i
-        i.fn()
+        try {
+          i.fn()
+        }catch(err){
+          // TODO: support break on first error
+          i.error = {
+            nativeException: err,
+            isFail: err.isFail
+          }
+        }
       })
     })
     const results  =this.getResults(this.describes)
@@ -33,7 +46,7 @@ export class SpecRunner {
     const specs = describes.map(d => {
       return {
         name: d.name,
-        specs: this.getResults(d.describes),
+        specs: this.getResults(d.describes||[]),
         results: d.its.map(i => ({...i, parent: undefined }))
       }
     })
@@ -58,6 +71,7 @@ export interface ItResult{
   type: SpecType
   /** internal expect() results */
   results: ExpectResult[] 
+  error?: SpecError
 }
 
 export interface SpecRunnerRunConfig {

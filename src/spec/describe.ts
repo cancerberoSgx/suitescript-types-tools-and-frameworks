@@ -21,7 +21,8 @@ export interface Describe extends SpecBaseWithoutParent {
 export interface SpecError{
   nativeException: Error
   isFail?: boolean
-  failLabel?: string
+  isSkip?: boolean
+  label?: string
 }
 
 export type SpecType = 'normal'|'x'|'f'
@@ -43,7 +44,7 @@ function createDescribe(name: string, fn: DescribeFn, type: SpecType){
     d.error = {
       nativeException: err,
       isFail: err.isFail,
-      failLabel: err.failLabel
+      label: err.failLabel
     }
   }
   SpecRunner.getInstance()._currentDescribe = parent

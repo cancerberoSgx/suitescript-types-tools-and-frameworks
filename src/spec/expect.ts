@@ -82,10 +82,18 @@ export function fail(label?: string) {
 }
 
 export function skip(label?: string) {
+  const e = new Error('fail '+label)
+  const error = {...e,
+    nativeException: e,
+    isSkip:true,
+    skipLabel: label 
+  }
   addToCurrentIt({
     message: 'skip() called - ' + label,
-    type: 'skip'
+    type: 'skip', 
+    error
   })
+  throw error
 }
 
 export interface ExpectResult {

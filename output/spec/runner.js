@@ -17,6 +17,11 @@ define(["require", "exports"], function (require, exports) {
         SpecRunner.getInstance = function () {
             return SpecRunner.instance;
         };
+        SpecRunner.prototype.reset = function () {
+            this._currentDescribe = undefined;
+            this._currentIt = undefined;
+            this.describes = [];
+        };
         SpecRunner.prototype.run = function (config) {
             var _this = this;
             var totalTime = Date.now();
@@ -24,7 +29,13 @@ define(["require", "exports"], function (require, exports) {
                 _this._currentDescribe = d;
                 d.its.forEach(function (i) {
                     _this._currentIt = i;
-                    i.fn();
+                    try {
+                        i.fn();
+                    }
+                    catch (err) {
+                        // TODO: support break on first error
+                        i.error = __assign({}, err);
+                    }
                 });
             });
             var results = this.getResults(this.describes);
@@ -36,7 +47,7 @@ define(["require", "exports"], function (require, exports) {
             var specs = describes.map(function (d) {
                 return {
                     name: d.name,
-                    specs: _this.getResults(d.describes),
+                    specs: _this.getResults(d.describes || []),
                     results: d.its.map(function (i) { return (__assign({}, i, { parent: undefined })); })
                 };
             });

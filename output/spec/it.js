@@ -6,6 +6,7 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
         if (!parent) {
             throw new Error('it() must be used inside describe(): ' + name);
         }
+        // if(parent.its)
         var i = { parent: parent, fn: fn, name: name, type: type, results: [] };
         parent.its.push(i);
     }

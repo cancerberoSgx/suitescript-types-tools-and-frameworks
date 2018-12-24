@@ -1,10 +1,7 @@
-import { describe as ssDescribe, expect as ssExpect, fail as ssFail, it as ssIt, SpecRunner } from '../../src/spec';
+import { describe as ssDescribe, expect as ssExpect, fail as ssFail, it as ssIt, SpecRunner, skip as ssSkip } from '../../src/spec';
 // import { TextReporter } from '../../src/spec/textReporter';
 describe('spec', () => {
     it('basic', () => {
-        // function test(){
-
-
         SpecRunner.getInstance().reset()
         ssDescribe('Fruit', () => {
             ssIt('can be eaten', () => {
@@ -18,8 +15,6 @@ describe('spec', () => {
 
         })
         const results = SpecRunner.getInstance().run().results
-        // }
-        // const result = 
         expect(results.length).toBe(1) // a single root describe
         expect(results[0].specs.length).toBe(0) // no internal describes
 
@@ -61,6 +56,46 @@ describe('spec', () => {
             const results = test()
             expect(results[0].results[0].results[0].type).toBe('pass')
             expect(results[0].results[0].results[1].type).toBe('fail')
+            expect(results[0].results[0].results[1].error!.isFail).toBe(true)
+        })
+        it('should  not keep executing the following its or statements', () => {
+            const results = test()
+            expect(results[0].results[0].results.length).toBe(2)
+            expect(flag).toBe(1)
+            expect(results[0].results[0].results[0].error).toBeUndefined()
+            expect(results[0].results[0].results[1].error).not.toBeUndefined()
+            expect(results[0].results[0].error).not.toBeUndefined()
+        })
+        it('should keep exec the following its() ', () => {
+            const results = test()
+            expect(results[0].results[1].error).toBeUndefined()
+            expect(results[0].results[1].results.length).toBe(1)
+            expect(flag2).toBe(2)
+        })
+    })
+    describe('skip', () => {
+        let flag = 1, flag2 = 1
+        function test() {
+            SpecRunner.getInstance().reset()
+            ssDescribe('d1', () => {
+                ssIt('must fail', () => {
+                    ssExpect(1).toBe(1)
+                    ssSkip('reason1')
+                    flag = 2
+                    ssExpect(2).toBe(2)
+                })
+                ssIt('must not fail2', () => {
+                    ssExpect(1).toBe(1)
+                    flag2 = 2
+                })
+            })
+            return SpecRunner.getInstance().run().results
+        }
+        it('should make the it fail and not interfere with previous ones', () => {
+            const results = test()
+            expect(results[0].results[0].results[0].type).toBe('pass')
+            expect(results[0].results[0].results[1].type).toBe('skip')
+            expect(results[0].results[0].results[1].error!.isSkip).toBe(true)
         })
         it('should  not keep executing the following its or statements', () => {
             const results = test()

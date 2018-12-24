@@ -30,10 +30,7 @@ export class SpecRunner {
           i.fn()
         }catch(err){
           // TODO: support break on first error
-          i.error = {
-            nativeException: err,
-            isFail: err.isFail
-          }
+          i.error = {...err}
         }
       })
     })

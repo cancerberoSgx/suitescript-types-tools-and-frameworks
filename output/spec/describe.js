@@ -8,10 +8,20 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
             runner_1.SpecRunner.getInstance().describes.push(d);
         }
         else {
-            parent.describes.push(d);
+            (parent.describes || []).push(d);
         }
         runner_1.SpecRunner.getInstance()._currentDescribe = d;
-        fn();
+        try {
+            d.fn();
+        }
+        catch (err) {
+            // TODO: support break on first error
+            d.error = {
+                nativeException: err,
+                isFail: err.isFail,
+                label: err.failLabel
+            };
+        }
         runner_1.SpecRunner.getInstance()._currentDescribe = parent;
     }
     function describe(name, fn) {

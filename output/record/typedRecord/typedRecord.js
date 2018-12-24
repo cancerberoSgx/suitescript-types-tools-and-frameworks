@@ -5,4 +5,9 @@ define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
 });
-// export type FieldValue = Date | number | number[] | string | string[] | boolean | null;
+// /** common sublist line fields - don't know if that exists */
+// export interface SublistFieldTypes {
+//   // counter: number // I think there is something that all sublist lines have
+// }
+// export interface SublistLine<Fields extends SublistFieldTypes = SublistFieldTypes>{
+// }

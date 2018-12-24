@@ -1,4 +1,4 @@
-define(["require", "exports", "N/record", "../../misc"], function (require, exports, record, misc_1) {
+define(["require", "exports", "N/record", "../misc"], function (require, exports, record, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function isRecordId(r) {

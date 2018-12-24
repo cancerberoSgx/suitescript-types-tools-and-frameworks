@@ -1,6 +1,5 @@
 import * as record from 'N/record';
-
-
+import { checkThrow } from '../misc';
 
 
 export type RecordId = number | string
@@ -32,7 +31,3 @@ export function asRecordOrThrow(rr: RecordOrRef): record.Record | undefined {
   return checkThrow(r, `Record doesn't exists`)
 }
 
-export function checkThrow<T>(r?:T, msg='Throwing on undefined value'):T{
-  if(!r){throw new Error(msg)}
-  return r
-}

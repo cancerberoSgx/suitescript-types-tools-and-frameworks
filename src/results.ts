@@ -1,4 +1,4 @@
-import {ResultSet, Result, Search} from 'N/search';
+import { ResultSet, Result, Search } from 'N/search';
 
 export function toArray(results: ResultSet): Result[] {
     const a: Result[] = []
@@ -8,6 +8,6 @@ export function toArray(results: ResultSet): Result[] {
 export function map<T>(results: ResultSet, fn): T[] {
     return toArray(results).map(fn)
 }
-export function run(s: Search): Result[]{
+export function run(s: Search): Result[] {
     return toArray(s.run())
 } 

@@ -1,12 +1,12 @@
 import * as record from 'N/record';
-import { copyFields, CopyRecordAbstractConfig, copySublists } from '..';
-import { CopyFieldsConfig } from './copyFields';
-import { CopySublistsConfig } from './copySublists';
+import { CopyRecordAbstractConfig } from '../types';
+import { CopyFieldsConfig, copyFields } from './copyFields';
+import { CopySublistsConfig, copySublists } from './copySublists';
 
 
 export interface CopyRecordConfig extends CopyRecordAbstractConfig, CopyFieldsConfig, CopySublistsConfig{
     
-}
+} 
 
 /**
  * Will move given category (and all its descendants to given target parent (targetId).
@@ -24,4 +24,4 @@ export function copyRecord(config: CopyRecordConfig): record.Record {
     copySublists({...config as CopySublistsConfig});
     record.detach
     return toRecord;
-}
+} 

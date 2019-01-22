@@ -15,4 +15,4 @@ export function log(...args: any[]) {
 }
 export function setEnabled(enabled_: boolean) {
     enabled = enabled_
-}   
+}    

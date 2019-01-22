@@ -8,8 +8,10 @@ define(["require", "exports", "N/record", "../../log/responseLogger"], function 
         responseLogger_1.log("cloned fields: " + fields.join(', '));
         customFieldValues = customFieldValues || {};
         fields.forEach(function (field) { return toRecord.setValue({ fieldId: field, value: (typeof customFieldValues[field] === 'undefined') ? fromRecord.getValue(field) : customFieldValues[field] }); });
-        var id = toRecord.save();
-        responseLogger_1.log("new record id : " + id);
+        if (!config.dontSave) {
+            var id = toRecord.save();
+            responseLogger_1.log("new record id : " + id);
+        }
         return toRecord;
     }
     exports.copyFields = copyFields;

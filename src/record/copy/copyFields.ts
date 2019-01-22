@@ -1,6 +1,6 @@
 import * as record from 'N/record';
 import { log } from '../../log/responseLogger';
-import { CopyRecordAbstractConfig } from '..';
+import { CopyRecordAbstractConfig } from '../types';
 
 export function copyFields(config: CopyFieldsConfig): record.Record {
     let { fromRecord, toRecord= record.create({ type: config.fromRecord.type }), ignoreFields = [], customFieldValues = {} } = config;
@@ -9,8 +9,10 @@ export function copyFields(config: CopyFieldsConfig): record.Record {
     log(`cloned fields: ${fields.join(', ')}`);
     customFieldValues = customFieldValues || {};
     fields.forEach(field => toRecord.setValue({ fieldId: field, value: (typeof customFieldValues[field] === 'undefined') ? fromRecord.getValue(field) : customFieldValues[field] }));
-    const id = toRecord.save();
-    log(`new record id : ${id}`);
+    if(!config.dontSave){
+        const id = toRecord.save();
+        log(`new record id : ${id}`);
+    }
     return toRecord;
 }
 
@@ -23,3 +25,4 @@ export interface CopyFieldsConfig extends CopyRecordAbstractConfig{
     // toRecord: record.Record
     ignoreFields?: string[];
 }
+ 

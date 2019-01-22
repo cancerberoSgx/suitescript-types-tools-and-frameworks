@@ -12,9 +12,19 @@ define(["require", "exports", "./log/responseLogger", "./catalog/copyCategory"],
                 categoryId: 18,
                 newPrimaryParent: null
             });
+            // copySublist({
+            //     fromRecord: load({id: 18, type: 'commercecategory'}),
+            //     sublistId: 'subcategories', 
+            //     toRecord: load({id: 28, type: 'commercecategory'})
+            // })
+            // copySublist({
+            //     fromRecord: load({id: 18, type: 'commercecategory'}),
+            //     sublistId: 'items', 
+            //     toRecord: load({id: 28, type: 'commercecategory'})
+            // })
         }
         catch (error) {
-            responseLogger_1.log('GENERAL error, ' + error);
+            responseLogger_1.log("General error: \n" + error + " \n" + Object.keys(error) + "\n");
         }
     };
 });

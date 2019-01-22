@@ -1,9 +1,9 @@
 import { log } from '../../log/responseLogger';
-import { CopyRecordAbstractConfig } from '..';
+import { CopyRecordAbstractConfig } from '../types';
 
 /** 
  * Clones given record's sublist to given target record. returns the new sublist id.  
- */
+ */ 
 export function copySublist(config: CloneSublistConfig) {
     const { fromRecord, toRecord, sublistId, dontSave, customSublistFieldValues = {}, ignoreLines = [], ignoreSublistFields = [] } = config;
     const sublistFields = fromRecord.getSublistFields({ sublistId }).filter(f => [...ignoreSublistFields].indexOf(f) === -1);
@@ -36,7 +36,7 @@ export interface CloneSublistConfigSublist {
     ignoreSublistFields?: string[];
     ignoreLines?: number[];
 }
-
+ 
 
 export interface CloneSublistConfig extends CloneSublistConfigSublist, CopyRecordAbstractConfig {
 }

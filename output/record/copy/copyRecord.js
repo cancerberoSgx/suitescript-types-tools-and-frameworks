@@ -6,7 +6,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     }
     return t;
 };
-define(["require", "exports", "N/record", ".."], function (require, exports, record, __1) {
+define(["require", "exports", "N/record", "./copyFields", "./copySublists"], function (require, exports, record, copyFields_1, copySublists_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
@@ -19,8 +19,8 @@ define(["require", "exports", "N/record", ".."], function (require, exports, rec
      * @returns the new category record
      */
     function copyRecord(config) {
-        var toRecord = __1.copyFields(__assign({}, config));
-        __1.copySublists(__assign({}, config));
+        var toRecord = copyFields_1.copyFields(__assign({}, config));
+        copySublists_1.copySublists(__assign({}, config));
         record.detach;
         return toRecord;
     }

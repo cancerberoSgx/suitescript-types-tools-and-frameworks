@@ -7,11 +7,8 @@ var path = require('path')
 // "Constants"
 var basePath = path.resolve('./output')
 var watchFilter = basePath+'/**/*.js'
-var account = 'TSTDRV1844288'
-var role = 3
-var folderPath = 'SuiteScripts'
-var applicationId = '7C642855-8B3E-4DAA-B7A2-CAEFB92365C0'
-var nsVersion = '2017_2'
+
+const  {account, role, folderPath, applicationId, nsVersion} = require('./config') 
 
 gulp.task('default', () => {
   var client = new nsutil.SuiteTalk()

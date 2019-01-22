@@ -1,24 +1,24 @@
 import { create, load, Record } from 'N/record';
 import { copyFields } from '../record/copy/copyFields';
 import { copySublist } from '../record/copy/copySublist';
-import { RecordId } from '../suitelet-sample1';
+import { RecordId } from '../record/types';
+import { RemoveCategoryConfig } from './removeCategory';
 
 
-export interface CopyCategoryConfig {
-    categoryId: RecordId
+export interface CopyCategoryConfig extends RemoveCategoryConfig {
     /** use null to move the category to the root */
     newPrimaryParent: RecordId | null
     dontSave?: boolean
-}
-
-
-
+} 
+ 
+ 
 /**
- * Will move given category (and all its descendants to given target parent (targetId).
+ * Will clone given category (and all its descendants to given target parent (targetId))
  *
- * Use targetId===null to move the category to the root (as primary category)
+ * Use targetId===null to copy the category to the root (as primary category)
  *
- * Important: It will actually clone (just) the given category in the parent and then move its direct children to the clone
+ * Important: It will actually clone the given category record (fields and 'subcategories', 'items' sublists) 
+ * and associate it to the new parent, so the result will be a new record. 
  * 
  * @returns the new category record
  */

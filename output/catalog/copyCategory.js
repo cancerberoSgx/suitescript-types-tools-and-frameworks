@@ -2,11 +2,12 @@ define(["require", "exports", "N/record", "../record/copy/copyFields", "../recor
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
-     * Will move given category (and all its descendants to given target parent (targetId).
+     * Will clone given category (and all its descendants to given target parent (targetId))
      *
-     * Use targetId===null to move the category to the root (as primary category)
+     * Use targetId===null to copy the category to the root (as primary category)
      *
-     * Important: It will actually clone (just) the given category in the parent and then move its direct children to the clone
+     * Important: It will actually clone the given category record (fields and 'subcategories', 'items' sublists)
+     * and associate it to the new parent, so the result will be a new record.
      *
      * @returns the new category record
      */

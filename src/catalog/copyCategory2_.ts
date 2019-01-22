@@ -1,6 +1,6 @@
 import { copy, load, Record } from 'N/record';
 import { log } from '../log/responseLogger';
-import { RecordId } from '../suitelet-sample1';
+import { RecordId } from '../record/types';
 import { CopyCategoryConfig } from './copyCategory';
 import { getLines } from '../record/sublistUtil';
 /** trying to use copy() but it doesn't work or I don't understand the API */

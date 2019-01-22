@@ -3,36 +3,50 @@
  * @NScriptType Suitelet
  */
  
-import {load} from 'N/record';
 import { EntryPoints } from 'N/types';
-import { initialize as initializeLogger, log } from './log/responseLogger';
 import { copyCategory } from './catalog/copyCategory';
-import { copySublist } from './record/copy/copySublist';
+import { initialize as initializeLogger, log } from './log/responseLogger';
+import { removeCategory } from './catalog/removeCategory';
+import { load } from 'N/record';
+import { getLines } from './record/sublistUtil';
+import { moveCategory } from './catalog/moveCategory';
 
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
     try {
         initializeLogger({ response: context.response, enabled: true })
-        const newCategory = copyCategory({
+        // const newCategory = copyCategory({
+        //     categoryId: 18,
+        //     newPrimaryParent: null
+        // })
+ 
+        const newCategory = moveCategory({
             categoryId: 18,
             newPrimaryParent: null
         })
-        // copySublist({
-        //     fromRecord: load({id: 18, type: 'commercecategory'}),
-        //     sublistId: 'subcategories', 
-        //     toRecord: load({id: 28, type: 'commercecategory'})
+
+        // log(`New category copied: ${newCategory.id}`)
+        // removeCategory({categoryId: 32})
+        // const record = load({id: 32, type: 'commercecategory'})
+        // getLines({record, sublistId: 'items'}).forEach(line=>{
+        //     log(`Removing items item ${record.getSublistValue({sublistId: 'items', fieldId: 'item', line: 0})}`)
+        //     record.removeLine({sublistId: 'items', line: 0})
         // })
-        // copySublist({
-        //     fromRecord: load({id: 18, type: 'commercecategory'}),
-        //     sublistId: 'items', 
-        //     toRecord: load({id: 28, type: 'commercecategory'})
-        // })
+        // record.save()
+        // record.removeSublistSubrecord({sublistId: 'items', line: 0, fieldId: 'item'})
+        // record.removeSublistSubrecord({sublistId: 'items', line})
     } catch (error) {
         log(`General error: 
-${error} 
+
+${error.type} ${error.name} ${error.code} ${error.message} 
+
+${(error.stack||[]).map((s:string)=>`${s}`).join('\n')}
+        Message: ${error.message}
+
+${error}
+ 
 ${Object.keys(error)}
 `);
     } 
 }
  
-export type RecordId = number | string
   

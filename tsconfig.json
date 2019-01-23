@@ -16,8 +16,6 @@
     // "rootDir": ".",
     "lib": [
       "es5",
-      "es2015.promise",
-      "dom"
     ],
     "removeComments": false,
     "paths": {

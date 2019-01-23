@@ -1,11 +1,12 @@
 {
     "name": "sgurin-suitescript-utils",
-    "version": "0.0.1",
-    "description": "TODO",
+    "version": "0.0.2",
+    "description": " Miscellaneous SuiteScript 2.0 high level utilities and APIs (mostly oriented to Commerce)",
     "main": "src/index.js",
     "private": true,
     "scripts": {
-        "test": "echo 'no node-js tests yet' && exit 0 && npx ts-node spec/index.ts",
+        "test": "cd spec && npm run run",
+        "test-js": "cd spec && npm run run-js",
         "build": "npx tsc",
         "clean": "rm -rf output",
         "build-watch": "npx tsc -w",
@@ -17,6 +18,10 @@
         "SuiteScript 2.0",
         "NetSuite",
         "utilities",
+        "high level APIs",
+        "API",
+        "testing",
+        "Commerce",
         "TypeScript"
     ],
     "author": "Sebastián Gurin",
@@ -24,11 +29,9 @@
     "dependencies": {},
     "devDependencies": {
         "@hitc/netsuite-types": "*",
-        "@types/jasmine": "^3.3.5",
         "@types/shelljs": "^0.8.1",
         "gulp": "^3.9.1",
         "gulp-watch": "^4.3.11",
-        "jasmine": "^2.8.0",
         "netsuite-uploader-util": "^1.1.3",
         "shelljs": "^0.7.8",
         "ts-node": "^7.0.1",

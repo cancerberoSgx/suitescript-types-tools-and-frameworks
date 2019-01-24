@@ -34,6 +34,7 @@ function checksum(s: string): number {
 };
 
 
+  // @ts-ignore
 type Fn<Args extends any[], Return extends any> = (...args: Args) => Return
 export function memoize<Args extends any[], Return extends any>(f: Fn<Args, Return>): Fn<Args, Return> {
 
@@ -49,6 +50,7 @@ export function memoize<Args extends any[], Return extends any>(f: Fn<Args, Retu
   */
   var cache: { [k: number]: Return } = {};
 
+  // @ts-ignore
   return function MemoizedFunction(...args: Args) {
     // Create a checksum of all the arguments, if any argument is available.
     var checksum_ = 0;

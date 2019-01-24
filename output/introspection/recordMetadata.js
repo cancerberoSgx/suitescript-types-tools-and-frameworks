@@ -1,11 +1,6 @@
 define(["require", "exports", "../record/recordRef"], function (require, exports, recordRef_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var FieldType;
-    (function (FieldType) {
-        FieldType[FieldType["string"] = 0] = "string";
-        FieldType[FieldType["boolean"] = 1] = "boolean";
-    })(FieldType || (FieldType = {})); // TODO - is there a record for extracting this ? 
     var RecordBuilder = /** @class */ (function () {
         // record! : Record
         // fields: Field[] = []

@@ -5,10 +5,18 @@
 define(["require", "exports", "./log/responseLogger", "./__tests__"], function (require, exports, responseLogger_1, __tests__1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // import * as nsError from 'N/error';
     exports.onRequest = function (context) {
-        // try {
-        responseLogger_1.initialize({ response: context.response, enabled: true });
-        __tests__1.runSpecs();
+        try {
+            responseLogger_1.initialize({ response: context.response, enabled: true });
+            __tests__1.runSpecs();
+        }
+        catch (ex) {
+            responseLogger_1.log("" + printError(ex));
+        }
+        function printError(ex) {
+            return "Error " + ex.name + " " + ex.message + " " + ex.fileName + " " + ex.lineNumber;
+        }
         // load({id: 18, type: 'commercecategory', })
         // @ts-ignore
         //       const i = firstNonMatrixItemResult() as any

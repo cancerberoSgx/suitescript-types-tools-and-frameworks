@@ -22,7 +22,7 @@ export function isRecordRef(r: RecordOrRefOrId|Result): r is RecordRef {
 export type RecordOrRefOrId = RecordOrRef | RecordId
 
 
-export function isRecord(r: RecordOrRefOrId): r is record.Record {
+export function isRecord(r: RecordOrRefOrId|Result): r is record.Record {
   return !isRecordRef(r)
 }
 /** type is needed in case they provide just an id*/
@@ -34,20 +34,22 @@ export function asRecord(rr: RecordOrRefResult): record.Record | undefined {
   //   }
   //   return record.load({ id: rr, type })
   // }
-  return isRecordRef(rr) ? record.load(rr) : isResult(rr) ? record.load({id: rr.id, type: rr.recordType+''}) : rr
+  // if(isRecord(rr)){return rr}
+
+  return isRecord(rr)? rr : isRecordRef(rr) ? record.load(rr) : record.load({id: rr.id, type: rr.recordType+''})
 }
+ 
+export function asRecordOrThrow(rr: RecordOrRefResult): record.Record {
+  return checkThrow(asRecord(rr), `Record doesn't exists`)
+}
+
 
 export type RecordOrRefResult = RecordOrRef|Result
 export function isResult(r: any): r is Result {
-  return r.recordType && r.columns && r.getAllValues
+  return typeof r === 'object'&&  !isRecord(r)
 }
 
 
 export function printRecordRef(rr: RecordRef) {
   return `Record(${rr.id}, ${rr.type})`
 }
-export function asRecordOrThrow(rr: RecordOrRef): record.Record {
-  let r = asRecord(rr)
-  return checkThrow(r, `Record doesn't exists`)
-}
-

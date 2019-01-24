@@ -22,20 +22,20 @@ define(["require", "exports", "N/record", "../misc"], function (require, exports
         //   }
         //   return record.load({ id: rr, type })
         // }
-        return isRecordRef(rr) ? record.load(rr) : isResult(rr) ? record.load({ id: rr.id, type: rr.recordType + '' }) : rr;
+        // if(isRecord(rr)){return rr}
+        return isRecord(rr) ? rr : isRecordRef(rr) ? record.load(rr) : record.load({ id: rr.id, type: rr.recordType + '' });
     }
     exports.asRecord = asRecord;
+    function asRecordOrThrow(rr) {
+        return misc_1.checkThrow(asRecord(rr), "Record doesn't exists");
+    }
+    exports.asRecordOrThrow = asRecordOrThrow;
     function isResult(r) {
-        return r.recordType && r.columns && r.getAllValues;
+        return typeof r === 'object' && !isRecord(r);
     }
     exports.isResult = isResult;
     function printRecordRef(rr) {
         return "Record(" + rr.id + ", " + rr.type + ")";
     }
     exports.printRecordRef = printRecordRef;
-    function asRecordOrThrow(rr) {
-        var r = asRecord(rr);
-        return misc_1.checkThrow(r, "Record doesn't exists");
-    }
-    exports.asRecordOrThrow = asRecordOrThrow;
 });

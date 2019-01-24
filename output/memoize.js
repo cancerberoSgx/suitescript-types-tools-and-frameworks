@@ -41,6 +41,7 @@ define(["require", "exports", "./spec/index"], function (require, exports, index
             by 32-bit checksums of argument-lists.
         */
         var cache = {};
+        // @ts-ignore
         return function MemoizedFunction() {
             var args = [];
             for (var _i = 0; _i < arguments.length; _i++) {

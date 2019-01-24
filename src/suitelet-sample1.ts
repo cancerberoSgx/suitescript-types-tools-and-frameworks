@@ -11,13 +11,21 @@ import { load, Type } from 'N/record';
 import { getLines } from './record/sublistUtil';
 import { moveCategory } from './catalog/moveCategory';
 import { runSpecs } from './__tests__';
+import { getObjectValueTypes } from './misc';
+// import * as nsError from 'N/error';
  
- 
+  
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
-  // try {
+  try {
     initializeLogger({ response: context.response, enabled: true })
     runSpecs()
-    
+  }catch(ex){
+
+    log(`${printError(ex)}`)
+  }
+  function printError(ex:Error&{fileName: string, lineNumber: number}):string {
+    return `Error ${ex.name} ${ex.message} ${ex.fileName} ${ex.lineNumber}`
+  }
     // load({id: 18, type: 'commercecategory', })
         // @ts-ignore
   //       const i = firstNonMatrixItemResult() as any

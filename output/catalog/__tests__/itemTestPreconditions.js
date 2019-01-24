@@ -1,4 +1,4 @@
-define(["require", "exports", "../matrixItem", "../../spec"], function (require, exports, matrixItem_1, spec_1) {
+define(["require", "exports", "../matrixItem", "../../spec/index"], function (require, exports, matrixItem_1, index_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function get() {
@@ -13,7 +13,7 @@ define(["require", "exports", "../matrixItem", "../../spec"], function (require,
             // in case we query from netsuite we must call skip() from here with description because they call us from it() so the test is skipped. it's not an error if we can't find records to test against with
             get: function () {
                 var i = matrixItem_1.findMatrixParent();
-                return i ? i.id : spec_1.skip('cannot fine a matrix parent item');
+                return i ? i.id : index_1.skip('cannot fine a matrix parent item');
                 // return '493'
             },
             enumerable: true,
@@ -22,7 +22,7 @@ define(["require", "exports", "../matrixItem", "../../spec"], function (require,
         Object.defineProperty(ItemTestPreconditionsForAwaLabsAccount.prototype, "oneMatrixChildId", {
             get: function () {
                 var i = matrixItem_1.findMatrixChild();
-                return i ? i.id : spec_1.skip('cannot fine a matrix child item');
+                return i ? i.id : index_1.skip('cannot fine a matrix child item');
                 // return '598'
             },
             enumerable: true,
@@ -31,7 +31,7 @@ define(["require", "exports", "../matrixItem", "../../spec"], function (require,
         Object.defineProperty(ItemTestPreconditionsForAwaLabsAccount.prototype, "oneNonMatrixId", {
             get: function () {
                 var i = matrixItem_1.findNonMatrixItem();
-                return i ? i.id : spec_1.skip('cannot fine a non matrix item');
+                return i ? i.id : index_1.skip('cannot fine a non matrix item');
                 // return i && i
                 // return '2267'
             },

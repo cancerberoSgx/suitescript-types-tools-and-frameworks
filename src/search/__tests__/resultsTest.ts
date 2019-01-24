@@ -1,4 +1,4 @@
-import { describe, it, expect } from "../../spec";
+import { describe, it, expect } from "../../spec/index";
 import { create} from 'N/search';
 import { run } from '../results';
 

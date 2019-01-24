@@ -20,7 +20,7 @@ export function findMatrixChild(id?: string): Result | undefined {
   });
   return isChild
 }
-export function findMatrixChildOrThrow(id?: string): Result | undefined {
+export function findMatrixChildOrThrow(id?: string): Result {
   return checkThrow(findMatrixChild(id), 'cannot find matrix child item with id ' + id)
 }
 export function isMatrixChild(id: string): boolean {
@@ -45,7 +45,7 @@ export function findMatrix(id?: string): Result | undefined {
   });
   return found
 }
-export function findMatrixOrThrow(id: string): Result | undefined {
+export function findMatrixOrThrow(id: string): Result {
   return checkThrow(findMatrix(id), 'cannot find matrix item with id ' + id)
 }
 

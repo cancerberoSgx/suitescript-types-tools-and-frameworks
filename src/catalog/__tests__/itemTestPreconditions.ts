@@ -1,5 +1,5 @@
 import { findNonMatrixItem, findMatrixParent, findMatrixChild } from '../matrixItem';
-import { skip } from '../../spec';
+import { skip } from '../../spec/index';
 
 export interface ItemTestPreconditions {
     readonly oneMatrixParentId: string
@@ -9,7 +9,7 @@ export interface ItemTestPreconditions {
 }
 export function get(): ItemTestPreconditions {
     return instance
-}
+} 
 class ItemTestPreconditionsForAwaLabsAccount implements ItemTestPreconditions {
     // TODO: search dont hard code
     // in case we query from netsuite we must call skip() from here with description because they call us from it() so the test is skipped. it's not an error if we can't find records to test against with

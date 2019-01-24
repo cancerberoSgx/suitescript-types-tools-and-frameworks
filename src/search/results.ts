@@ -31,5 +31,19 @@ export function find(results: ResultSet, predicate: (r: Result, index?: number) 
         return true
     })
     return found
-} 
+}  
 
+/** array.filter() like function. it won't convert the whole results into an array but iterate throug the result set to be more performant */
+export function filter(results: ResultSet, predicate: (r: Result, index?: number) => boolean): Result[] {
+    const found : Result[]= [] = []
+    let index = 0
+    results.each(r => {
+        if (predicate(r, index)) {
+            found .push(r)
+            // return false
+        }
+        index++
+        return true
+    })
+    return found
+} 

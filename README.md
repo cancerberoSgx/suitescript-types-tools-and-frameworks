@@ -54,6 +54,8 @@ will:
 
 # TODO
 
+ * gulp uploads all files at startup - a cheap solution is to store hash of those uploaded to see if they changed and only upload them if so
+ * memorize for test preconditions
  * maybe we can create an API that we can use to access filesystem, instead of suitetalk, like mkdir -p , write, read, globs, etc
  * be able to run specs (jasmine/jest like API if possible)
  * create folder structure in file cabinet automatically

@@ -1,3 +1,4 @@
 node_modules
 spec/jasmine.*s
 dist
+auxiliary-projects

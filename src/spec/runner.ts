@@ -28,11 +28,12 @@ export class SpecRunner {
         this._currentIt = i
         try {
           i.fn()
-        }catch(err){
+        }
+        catch(err){
           // TODO: support break on first error
           i.error = {...err}
         }
-      })
+      }) 
     })
     const results  =this.getResults(this.describes)
     totalTime = Date.now()-totalTime

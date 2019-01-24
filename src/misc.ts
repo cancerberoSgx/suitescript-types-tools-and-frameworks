@@ -34,12 +34,12 @@ export function checkThrow<T>(r?:T, msg='Throwing on undefined value'):T{
   if(!r){throw new Error(msg)}
   return r
 }
-
+ 
 export type MapStringKeySameTypeValues< T extends any = any> = {[key: string]: T}
 // export type TypedMapStringKey<T extends EmptyObject> = {[key: StringKeyOf<T>]: ValueOfStringKey<T, typeof key>}
 export type EmptyObject = {}
 
-
+ 
 
 export interface TypedMap<PropTypes extends EmptyObject>  {
   get<T extends StringKeyOf<PropTypes>>(name:T): ValueOfStringKey<PropTypes, T>
@@ -49,8 +49,21 @@ export class TypedMapImpl<PropTypes extends EmptyObject> implements TypedMap<Pro
   public constructor(private props: PropTypes){}
   get<T extends StringKeyOf<PropTypes>>(name:T): ValueOfStringKey<PropTypes, T>{
     return this.props[name]
-  }
+  } 
   set<T extends StringKeyOf<PropTypes>>(name:T, value: ValueOfStringKey<PropTypes, T>):void{
     this.props[ name]=value
   }
+}
+
+
+export function getObjectKeys(o : any): string[]{
+  const a = []
+  for(let k in o) {
+    a.push(k)
+  }
+  return a
+}
+export type typeofType =  "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
+export function getObjectValueTypes(o : any): {key: string, typeOfValue: typeofType}[]{
+  return getObjectKeys(o).map(key=>({key: key+'', typeOfValue: typeof o[key]}))
 }

@@ -44,4 +44,16 @@ define(["require", "exports"], function (require, exports) {
         return TypedMapImpl;
     }());
     exports.TypedMapImpl = TypedMapImpl;
+    function getObjectKeys(o) {
+        var a = [];
+        for (var k in o) {
+            a.push(k);
+        }
+        return a;
+    }
+    exports.getObjectKeys = getObjectKeys;
+    function getObjectValueTypes(o) {
+        return getObjectKeys(o).map(function (key) { return ({ key: key + '', typeOfValue: typeof o[key] }); });
+    }
+    exports.getObjectValueTypes = getObjectValueTypes;
 });

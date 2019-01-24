@@ -34,4 +34,19 @@ define(["require", "exports"], function (require, exports) {
         return found;
     }
     exports.find = find;
+    /** array.filter() like function. it won't convert the whole results into an array but iterate throug the result set to be more performant */
+    function filter(results, predicate) {
+        var found = [];
+        var index = 0;
+        results.each(function (r) {
+            if (predicate(r, index)) {
+                found.push(r);
+                // return false
+            }
+            index++;
+            return true;
+        });
+        return found;
+    }
+    exports.filter = filter;
 });

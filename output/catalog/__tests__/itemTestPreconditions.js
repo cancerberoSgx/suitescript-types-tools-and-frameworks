@@ -1,4 +1,4 @@
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "../matrixItem", "../../spec"], function (require, exports, matrixItem_1, spec_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function get() {
@@ -12,22 +12,28 @@ define(["require", "exports"], function (require, exports) {
             // TODO: search dont hard code
             // in case we query from netsuite we must call skip() from here with description because they call us from it() so the test is skipped. it's not an error if we can't find records to test against with
             get: function () {
-                return '493';
+                var i = matrixItem_1.findMatrixParent();
+                return i ? i.id : spec_1.skip('cannot fine a matrix parent item');
+                // return '493'
             },
             enumerable: true,
             configurable: true
         });
         Object.defineProperty(ItemTestPreconditionsForAwaLabsAccount.prototype, "oneMatrixChildId", {
             get: function () {
-                return '598';
+                var i = matrixItem_1.findMatrixChild();
+                return i ? i.id : spec_1.skip('cannot fine a matrix child item');
+                // return '598'
             },
             enumerable: true,
             configurable: true
         });
         Object.defineProperty(ItemTestPreconditionsForAwaLabsAccount.prototype, "oneNonMatrixId", {
             get: function () {
-                // findNonMatrixItem()
-                return '2267';
+                var i = matrixItem_1.findNonMatrixItem();
+                return i ? i.id : spec_1.skip('cannot fine a non matrix item');
+                // return i && i
+                // return '2267'
             },
             enumerable: true,
             configurable: true

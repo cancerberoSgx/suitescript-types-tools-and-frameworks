@@ -2,58 +2,75 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/responseLogger", "./__tests__", "./spec/index", "./spec/textReporter", "./catalog/__tests__/matrixItemTest"], function (require, exports, responseLogger_1, __tests__1, index_1, textReporter_1, matrixItemTest_1) {
+define(["require", "exports", "./log/responseLogger", "./__tests__"], function (require, exports, responseLogger_1, __tests__1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.onRequest = function (context) {
-        try {
-            responseLogger_1.initialize({ response: context.response, enabled: true });
-            // runSomeSpecs()
-            __tests__1.runSpecs();
-            responseLogger_1.log('foo2');
-            // log(JSON.stringify(results,null, 2));
-            // const newCategory = copyCategory({
-            //     categoryId: 18,
-            //     newPrimaryParent: null
-            // })
-            // const newCategory = moveCategory({
-            //     categoryId: 18,
-            //     newPrimaryParent: null
-            // })
-            // log(`New category copied: ${newCategory.id}`)
-            // removeCategory({categoryId: 32})
-            // const record = load({id: 32, type: 'commercecategory'})
-            // getLines({record, sublistId: 'items'}).forEach(line=>{
-            //     log(`Removing items item ${record.getSublistValue({sublistId: 'items', fieldId: 'item', line: 0})}`)
-            //     record.removeLine({sublistId: 'items', line: 0})
-            // })
-            // record.save()
-            // record.removeSublistSubrecord({sublistId: 'items', line: 0, fieldId: 'item'})
-            // record.removeSublistSubrecord({sublistId: 'items', line})
-        }
-        catch (error) {
-            responseLogger_1.log("General error: \n\n" + error.type + " " + error.name + " " + error.code + " " + error.message + " \n\n" + (error.stack || []).map(function (s) { return "" + s; }).join('\n') + "\n        Message: " + error.message + "\n\n" + error + "\n \n" + Object.keys(error) + "\n");
-        }
-    };
-    function runSomeSpecs() {
-        //   describe('Fruit', () => {
-        //     it('can be eaten', () => {
-        //       expect([1, 2, 3]).toContain(2)
-        //     })
-        //     it('can walk', () => {
-        //       expect('asdas').toContain('as')
-        //       expect(Math.random() > 2).toBe(true)
-        //     })
-        //   })
         // try {
-        matrixItemTest_1.matrixItemTest();
-        // } catch (error) {
-        //     log('error')
-        //     // @ts-ignore
-        //     // const e = nlapiCreateError(error).toString()
-        //     // log(e+'')
-        // }
-        var result = index_1.SpecRunner.getInstance().run();
-        responseLogger_1.log(new textReporter_1.TextReporter().render({ result: result }).output);
-    }
+        responseLogger_1.initialize({ response: context.response, enabled: true });
+        __tests__1.runSpecs();
+        // load({id: 18, type: 'commercecategory', })
+        // @ts-ignore
+        //       const i = firstNonMatrixItemResult() as any
+        // log('seba'+(!!i))
+        //       log(`${JSON.stringify(i && getObjectValueTypes(i))}
+        //       ${JSON.stringify(i!.toJSON(), null, 2)}
+        //       ${JSON.stringify(load({id: i.id, type: i.recordType}), null, 2)}`)
+        // runSomeSpecs()
+        // log('foo2')
+        // log(JSON.stringify(results,null, 2));
+        // const newCategory = copyCategory({
+        //     categoryId: 18,
+        //     newPrimaryParent: null
+        // })
+        // const newCategory = moveCategory({
+        //     categoryId: 18,
+        //     newPrimaryParent: null
+        // })
+        // log(`New category copied: ${newCategory.id}`)
+        // removeCategory({categoryId: 32})
+        // const record = load({id: 32, type: 'commercecategory'})
+        // getLines({record, sublistId: 'items'}).forEach(line=>{
+        //     log(`Removing items item ${record.getSublistValue({sublistId: 'items', fieldId: 'item', line: 0})}`)
+        //     record.removeLine({sublistId: 'items', line: 0})
+        // })
+        // record.save()
+        // record.removeSublistSubrecord({sublistId: 'items', line: 0, fieldId: 'item'})
+        // record.removeSublistSubrecord({sublistId: 'items', line})
+        //   } catch (error) {
+        //     log(`General error: 
+        // ${error.type} ${error.name} ${error.code} ${error.message} 
+        // ${(error.stack || []).map((s: string) => `${s}`).join('\n')}
+        //         Message: ${error.message}
+        // ${error}
+        // ${Object.keys(error)}
+        // `);
+        //   }
+    };
 });
+// import { describe, expect, it, SpecRunner } from './spec/index'
+// import { TextReporter } from './spec/textReporter';
+// import { matrixItemTest } from './catalog/__tests__/matrixItemTest';
+// import { getObjectValueTypes } from './misc';
+// import { findNonMatrixItem } from './catalog/matrixItem';
+// function runSomeSpecs() {
+//   describe('Fruit', () => {
+//     it('can be eaten', () => {
+//       expect([1, 2, 3]).toContain(2)
+//     })
+//     it('can walk', () => {
+//       expect('asdas').toContain('as')
+//       expect(Math.random() > 2).toBe(true)
+//     })
+//   })
+// try {
+//   matrixItemTest()
+// // } catch (error) {
+// //     log('error')
+// //     // @ts-ignore
+// //     // const e = nlapiCreateError(error).toString()
+// //     // log(e+'')
+// // }
+//   const result = SpecRunner.getInstance().run()
+//   log(new TextReporter().render({ result }).output)
+// }  

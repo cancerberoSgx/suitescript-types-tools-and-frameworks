@@ -44,7 +44,7 @@ class ExpectImpl<R> implements Expect<R>{
   /** array or string to contain (.indexOf()) */
   toContain<J extends ValueOf<R, 0>>(value: J | string): void {
 
-    if (!Array.isArray(this.real) && typeof this.real !== 'string') {
+    if (!Array.isArray(this.real) && typeof this.real !== 'string') { 
       throw new Error('toContain must be called with a array or string value and it was ' + (typeof this.real) + ' - ' + this.real)
     }
     const message = `Expected ${Array.isArray(this.real) ? `[${this.real.join(', ')}]` : `"${this.real}"`} to contain "${value}"`
@@ -57,8 +57,8 @@ class ExpectImpl<R> implements Expect<R>{
     }
     else {
       result = {
-        message,
-        type: 'pass'
+        message, 
+        type: 'pass' 
       }
     }
     addToCurrentIt(result)
@@ -81,7 +81,7 @@ export function fail(label?: string) {
   throw error
 }
 
-export function skip(label?: string) {
+export function skip(label?: string): any {
   const e = new Error('fail '+label)
   const error = {...e,
     nativeException: e,

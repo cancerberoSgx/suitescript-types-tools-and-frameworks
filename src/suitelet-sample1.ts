@@ -7,20 +7,32 @@ import { EntryPoints } from 'N/types';
 import { copyCategory } from './catalog/copyCategory';
 import { initialize as initializeLogger, log } from './log/responseLogger';
 import { removeCategory } from './catalog/removeCategory';
-import { load } from 'N/record';
+import { load, Type } from 'N/record';
 import { getLines } from './record/sublistUtil';
 import { moveCategory } from './catalog/moveCategory';
 import { runSpecs } from './__tests__';
-
-
+ 
+ 
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
-  try {
+  // try {
     initializeLogger({ response: context.response, enabled: true })
+    runSpecs()
+    
+    // load({id: 18, type: 'commercecategory', })
+        // @ts-ignore
+  //       const i = firstNonMatrixItemResult() as any
+  // log('seba'+(!!i))
+  //       log(`${JSON.stringify(i && getObjectValueTypes(i))}
+        
+
+  //       ${JSON.stringify(i!.toJSON(), null, 2)}
+        
+
+  //       ${JSON.stringify(load({id: i.id, type: i.recordType}), null, 2)}`)
 
     // runSomeSpecs()
 
-    runSpecs()
-    log('foo2')
+    // log('foo2')
  
 
     // log(JSON.stringify(results,null, 2));
@@ -47,27 +59,29 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
     // record.save()
     // record.removeSublistSubrecord({sublistId: 'items', line: 0, fieldId: 'item'})
     // record.removeSublistSubrecord({sublistId: 'items', line})
-  } catch (error) {
-    log(`General error: 
+//   } catch (error) {
+//     log(`General error: 
 
-${error.type} ${error.name} ${error.code} ${error.message} 
+// ${error.type} ${error.name} ${error.code} ${error.message} 
 
-${(error.stack || []).map((s: string) => `${s}`).join('\n')}
-        Message: ${error.message}
+// ${(error.stack || []).map((s: string) => `${s}`).join('\n')}
+//         Message: ${error.message}
 
-${error}
+// ${error}
  
-${Object.keys(error)}
-`);
-  }
+// ${Object.keys(error)}
+// `);
+//   }
 } 
 
 
 
-import { describe, expect, it, SpecRunner } from './spec/index'
-import { TextReporter } from './spec/textReporter';
-import { matrixItemTest } from './catalog/__tests__/matrixItemTest';
-function runSomeSpecs() {
+// import { describe, expect, it, SpecRunner } from './spec/index'
+// import { TextReporter } from './spec/textReporter';
+// import { matrixItemTest } from './catalog/__tests__/matrixItemTest';
+// import { getObjectValueTypes } from './misc';
+// import { findNonMatrixItem } from './catalog/matrixItem';
+// function runSomeSpecs() {
 //   describe('Fruit', () => {
 //     it('can be eaten', () => {
 //       expect([1, 2, 3]).toContain(2)
@@ -80,13 +94,13 @@ function runSomeSpecs() {
 
 // try {
     
-  matrixItemTest()
-// } catch (error) {
-//     log('error')
-//     // @ts-ignore
-//     // const e = nlapiCreateError(error).toString()
-//     // log(e+'')
-// }
-  const result = SpecRunner.getInstance().run()
-  log(new TextReporter().render({ result }).output)
-}  
+//   matrixItemTest()
+// // } catch (error) {
+// //     log('error')
+// //     // @ts-ignore
+// //     // const e = nlapiCreateError(error).toString()
+// //     // log(e+'')
+// // }
+//   const result = SpecRunner.getInstance().run()
+//   log(new TextReporter().render({ result }).output)
+// }  

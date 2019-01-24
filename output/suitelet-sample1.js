@@ -2,7 +2,7 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/responseLogger", "./spec/index", "./spec/textReporter"], function (require, exports, responseLogger_1, index_1, textReporter_1) {
+define(["require", "exports", "./log/responseLogger", "./spec/index", "./spec/textReporter", "./catalog/__tests__/matrixItemTest"], function (require, exports, responseLogger_1, index_1, textReporter_1, matrixItemTest_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.onRequest = function (context) {
@@ -34,15 +34,16 @@ define(["require", "exports", "./log/responseLogger", "./spec/index", "./spec/te
         }
     };
     function runSomeSpecs() {
-        index_1.describe('Fruit', function () {
-            index_1.it('can be eaten', function () {
-                index_1.expect([1, 2, 3]).toContain(2);
-            });
-            index_1.it('can walk', function () {
-                index_1.expect('asdas').toContain('as');
-                index_1.expect(Math.random() > 2).toBe(true);
-            });
-        });
+        //   describe('Fruit', () => {
+        //     it('can be eaten', () => {
+        //       expect([1, 2, 3]).toContain(2)
+        //     })
+        //     it('can walk', () => {
+        //       expect('asdas').toContain('as')
+        //       expect(Math.random() > 2).toBe(true)
+        //     })
+        //   })
+        matrixItemTest_1.matrixItemTest();
         var result = index_1.SpecRunner.getInstance().run();
         responseLogger_1.log(new textReporter_1.TextReporter().render({ result: result }).output);
     }

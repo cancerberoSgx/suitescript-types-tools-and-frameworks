@@ -29,11 +29,11 @@ class ExpectImpl<R> implements Expect<R>{
         message,
         type: 'fail'
       }
-    }
+    } 
     else {
       result = {
         message,
-        type: 'fail'
+        type: 'pass'
       }
     }
     i.results.push(result)

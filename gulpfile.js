@@ -44,7 +44,7 @@ gulp.task('default', () => {
 
       // if (initialCompile) {
         // setTimeout(() => {
-          shell.exec('npx tsc', () => { })
+          shell.exec('npx tsc -w', () => { })
         // }, 200);
       // }
     })

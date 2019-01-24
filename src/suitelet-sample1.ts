@@ -62,16 +62,19 @@ ${Object.keys(error)}
 
 import { describe, expect, it, SpecRunner } from './spec/index'
 import { TextReporter } from './spec/textReporter';
+import { matrixItemTest } from './catalog/__tests__/matrixItemTest';
 function runSomeSpecs() {
-  describe('Fruit', () => {
-    it('can be eaten', () => {
-      expect([1, 2, 3]).toContain(2)
-    })
-    it('can walk', () => {
-      expect('asdas').toContain('as')
-      expect(Math.random() > 2).toBe(true)
-    })
-  })
+//   describe('Fruit', () => {
+//     it('can be eaten', () => {
+//       expect([1, 2, 3]).toContain(2)
+//     })
+//     it('can walk', () => {
+//       expect('asdas').toContain('as')
+//       expect(Math.random() > 2).toBe(true)
+//     })
+//   })
+
+  matrixItemTest()
   const result = SpecRunner.getInstance().run()
   log(new TextReporter().render({ result }).output)
-} 
+}  

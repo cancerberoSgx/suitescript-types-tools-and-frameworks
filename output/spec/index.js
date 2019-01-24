@@ -4,5 +4,7 @@ define(["require", "exports", "./describe", "./it", "./expect", "./runner"], fun
     exports.describe = describe_1.describe;
     exports.it = it_1.it;
     exports.expect = expect_1.expect;
+    exports.fail = expect_1.fail;
+    exports.skip = expect_1.skip;
     exports.SpecRunner = runner_1.SpecRunner;
 });

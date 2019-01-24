@@ -1,6 +1,25 @@
 define(["require", "exports", "N/search", "../misc", "../search/results"], function (require, exports, search_1, misc_1, results_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    function findById(id, columns) {
+        if (columns === void 0) { columns = []; }
+        return results_1.find(search_1.create({
+            type: search_1.Type.ITEM,
+            filters: id ? [['internalid', search_1.Operator.ANYOF, id]] : [],
+            columns: columns
+        }).run(), function (result) {
+            return true;
+        });
+    }
+    exports.findById = findById;
+    function findByIdOrThrow(id) {
+        return misc_1.checkThrow(findById(id), 'cannot find item with id ' + id);
+    }
+    exports.findByIdOrThrow = findByIdOrThrow;
+    function existsItemWithId(id) {
+        return !!findById(id);
+    }
+    exports.existsItemWithId = existsItemWithId;
     function findMatrixChild(id) {
         var isChild;
         var filter = ['matrixchild', search_1.Operator.IS, 'T'];
@@ -31,7 +50,7 @@ define(["require", "exports", "N/search", "../misc", "../search/results"], funct
         //   ['internalid', Operator.ANYOF, id],
         //   'AND',
         //   ['matrix', Operator.IS, 'T']
-        // ]
+        // ] 
         var filter = ['matrix', search_1.Operator.IS, 'T'];
         search_1.create({
             type: search_1.Type.ITEM,

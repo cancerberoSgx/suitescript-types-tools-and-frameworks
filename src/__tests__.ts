@@ -11,10 +11,13 @@ import { recordMetadataTest } from './introspection/recordMetadataTest';
 export function runSpecs(){ 
   SpecRunner.getInstance().reset()
   resultsTest()
-  matrixItemTest() 
-  memoizeTests()
-  recordMetadataTest() 
-   
+  matrixItemTest()  
+//   memoizeTests()
+//   recordMetadataTest() 
+    
   const result = SpecRunner.getInstance().run()
-  log(new TextReporter().render({ result, format: 'detailed' }).output)
+  log(new TextReporter().render({ 
+      result, 
+    //   format: 'detailed' 
+    }).output)
 }  

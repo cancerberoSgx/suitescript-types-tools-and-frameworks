@@ -27,19 +27,19 @@ export class TextReporter implements Reporter<TextReportConfig, TextReportResult
     .forEach(d=>d.results.filter(i=>i.type!=='x')//TODO:fit and fdescribe
     .forEach(i=>{
       totalItCount++
-      const expectFailed = i.results.filter(r=>{
+      const expectFail =i.results.filter(r=>{
         totalExpectCount++
         return r.type==='fail'
       }).length
-      totalExpectFail+= totalExpectFail
-      if(totalExpectFail){
+      totalExpectFail+= expectFail
+      if(expectFail){
         totalItFail++
       }
     })
     )
     output+=`
-${totalItCount} spec, ${totalItFail} failures ${this.config.format==='detailed' ? `
-${totalExpectCount} expect(), ${totalExpectFail} failures` : ``}
+${totalItCount} spec, ${totalItFail} failures ${(this.config.format==='detailed' || true) ? `
+${totalExpectCount} expectations, ${totalExpectFail} failures` : ``}
 Finished in ${this.config.result.totalTime/1000} seconds
 `
     return { 

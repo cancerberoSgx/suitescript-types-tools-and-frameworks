@@ -16,7 +16,7 @@ class ExpectImpl<R> implements Expect<R>{
   constructor(protected real: R) {
 
   }
-
+ 
   /** to be identical (===) */
   toBe(value: R) {
 

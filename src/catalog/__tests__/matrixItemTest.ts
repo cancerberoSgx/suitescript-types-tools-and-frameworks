@@ -1,6 +1,8 @@
 import { describe, expect, fail, it, skip } from "../../spec/index";
-import { findMatrixChild, findMatrixChildOrThrow, isMatrixChild, isMatrixParent } from "../matrixItem";
+import { findMatrixChild, findMatrixChildOrThrow, isMatrixChild, isMatrixParent, findById } from "../matrixItem";
 import { get } from './itemTestPreconditions';
+import { log } from '../../log/responseLogger';
+import * as search from 'N/search'
 
 export function matrixItemTest() {
 
@@ -30,7 +32,6 @@ export function matrixItemTest() {
         return skip('there are no matrix child in the account')
       }
       const found = findMatrixChild()
-      // expect(!!found).toBe(true)
       if (!found) {
         return fail(`get().oneMatrixChildId ${get().oneMatrixChildId} not found`)
       }
@@ -73,6 +74,33 @@ export function matrixItemTest() {
     })
   })
 
+  describe('catalog/matrixItem/findById', () => {  
+    it('should find an item by id', () => {
+      expect(!!findById(get().oneMatrixParentId)).toBe(true)
+      expect(!!findById(get().oneNonMatrixId)).toBe(true)
+      expect(!!findById(get().oneMatrixChildId)).toBe(true)
+    }) 
+    it('should not find an non existing id', () => {
+        expect(!!findById(get().nonExistentItemId)).toBe(false)
+    })
+    it('should return columns', () => {
+        let r = findById(get().oneMatrixParentId, ['parent1'])
+        if(!r){
+            return fail(`get().oneMatrixParentId ${get().oneMatrixParentId} not found`)
+        }
+        expect(!!r.getText('parent')).toBe(false)
+        r = findById(get().oneMatrixChildId, ['parent'])
+        if(!r){
+            return fail(`get().oneMatrixChildId ${get().oneMatrixChildId} not found`)
+        }
+        expect(!!r.getText('parent')).toBe(true)
+        r = findById(get().oneNonMatrixId, ['parent'])
+        if(!r){
+            return fail(`get().oneNonMatrixId ${get().oneNonMatrixId} not found`)
+        }
+        expect(!!r.getText('parent')).toBe(false)
+    })
+  })
 
 
 }

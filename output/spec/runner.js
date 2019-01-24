@@ -6,7 +6,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     }
     return t;
 };
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "../log/responseLogger"], function (require, exports, responseLogger_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /** user needs to instantiate this, add their describe functions and execute run() in order to run the tests adn obtain the results */
@@ -35,6 +35,7 @@ define(["require", "exports"], function (require, exports) {
                     catch (err) {
                         // TODO: support break on first error
                         i.error = __assign({}, err);
+                        responseLogger_1.log("Error: " + err.type + ", " + err.name + "\nCause: " + err.message + "\nStack Trace: \n" + (err.stack || []).join('\n'));
                     }
                 });
             });

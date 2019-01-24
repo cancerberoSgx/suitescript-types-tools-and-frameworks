@@ -18,16 +18,16 @@ define(["require", "exports", "../misc"], function (require, exports, misc_1) {
                 .forEach(function (d) { return d.results.filter(function (i) { return i.type !== 'x'; }) //TODO:fit and fdescribe
                 .forEach(function (i) {
                 totalItCount++;
-                var expectFailed = i.results.filter(function (r) {
+                var expectFail = i.results.filter(function (r) {
                     totalExpectCount++;
                     return r.type === 'fail';
                 }).length;
-                totalExpectFail += totalExpectFail;
-                if (totalExpectFail) {
+                totalExpectFail += expectFail;
+                if (expectFail) {
                     totalItFail++;
                 }
             }); });
-            output += "\n" + totalItCount + " spec, " + totalItFail + " failures " + (this.config.format === 'detailed' ? "\n" + totalExpectCount + " expect(), " + totalExpectFail + " failures" : "") + "\nFinished in " + this.config.result.totalTime / 1000 + " seconds\n";
+            output += "\n" + totalItCount + " spec, " + totalItFail + " failures " + ((this.config.format === 'detailed' || true) ? "\n" + totalExpectCount + " expectations, " + totalExpectFail + " failures" : "") + "\nFinished in " + this.config.result.totalTime / 1000 + " seconds\n";
             return {
                 output: output
             };

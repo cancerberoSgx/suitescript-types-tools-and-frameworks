@@ -27,7 +27,6 @@ define(["require", "exports", "../../spec/index", "../matrixItem", "./itemTestPr
                     return index_1.skip('there are no matrix child in the account');
                 }
                 var found = matrixItem_1.findMatrixChild();
-                // expect(!!found).toBe(true)
                 if (!found) {
                     return index_1.fail("get().oneMatrixChildId " + itemTestPreconditions_1.get().oneMatrixChildId + " not found");
                 }
@@ -67,6 +66,33 @@ define(["require", "exports", "../../spec/index", "../matrixItem", "./itemTestPr
             });
             index_1.it('should return false for non existent item', function () {
                 index_1.expect(matrixItem_1.isMatrixParent(itemTestPreconditions_1.get().nonExistentItemId)).toBe(false);
+            });
+        });
+        index_1.describe('catalog/matrixItem/findById', function () {
+            index_1.it('should find an item by id', function () {
+                index_1.expect(!!matrixItem_1.findById(itemTestPreconditions_1.get().oneMatrixParentId)).toBe(true);
+                index_1.expect(!!matrixItem_1.findById(itemTestPreconditions_1.get().oneNonMatrixId)).toBe(true);
+                index_1.expect(!!matrixItem_1.findById(itemTestPreconditions_1.get().oneMatrixChildId)).toBe(true);
+            });
+            index_1.it('should not find an non existing id', function () {
+                index_1.expect(!!matrixItem_1.findById(itemTestPreconditions_1.get().nonExistentItemId)).toBe(false);
+            });
+            index_1.it('should return columns', function () {
+                var r = matrixItem_1.findById(itemTestPreconditions_1.get().oneMatrixParentId, ['parent1']);
+                if (!r) {
+                    return index_1.fail("get().oneMatrixParentId " + itemTestPreconditions_1.get().oneMatrixParentId + " not found");
+                }
+                index_1.expect(!!r.getText('parent')).toBe(false);
+                r = matrixItem_1.findById(itemTestPreconditions_1.get().oneMatrixChildId, ['parent']);
+                if (!r) {
+                    return index_1.fail("get().oneMatrixChildId " + itemTestPreconditions_1.get().oneMatrixChildId + " not found");
+                }
+                index_1.expect(!!r.getText('parent')).toBe(true);
+                r = matrixItem_1.findById(itemTestPreconditions_1.get().oneNonMatrixId, ['parent']);
+                if (!r) {
+                    return index_1.fail("get().oneNonMatrixId " + itemTestPreconditions_1.get().oneNonMatrixId + " not found");
+                }
+                index_1.expect(!!r.getText('parent')).toBe(false);
             });
         });
     }

@@ -1,6 +1,7 @@
 import { Describe, SpecType, SpecError } from "./describe";
 import { It } from "./it";
 import { ExpectResult } from "./expect";
+import { log } from '../log/responseLogger';
 
 /** user needs to instantiate this, add their describe functions and execute run() in order to run the tests adn obtain the results */
 export class SpecRunner {
@@ -32,8 +33,12 @@ export class SpecRunner {
         catch(err){
           // TODO: support break on first error
           i.error = {...err}
+          log(`Error: ${err.type}, ${err.name}
+Cause: ${err.message}
+Stack Trace: 
+${(err.stack||[]).join('\n')}`)
         }
-      }) 
+      })
     })
     const results  =this.getResults(this.describes)
     totalTime = Date.now()-totalTime

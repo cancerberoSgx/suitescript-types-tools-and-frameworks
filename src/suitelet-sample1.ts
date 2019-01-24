@@ -74,7 +74,15 @@ function runSomeSpecs() {
 //     })
 //   })
 
+// try {
+    
   matrixItemTest()
+// } catch (error) {
+//     log('error')
+//     // @ts-ignore
+//     // const e = nlapiCreateError(error).toString()
+//     // log(e+'')
+// }
   const result = SpecRunner.getInstance().run()
   log(new TextReporter().render({ result }).output)
 }  

@@ -13,6 +13,7 @@ export class SpecRunner {
   _currentDescribe: Describe | undefined
   _currentIt: It | undefined
   private constructor() { }
+  
   run(config?: SpecRunnerRunConfig): SpecRunnerResult {
     let totalTime=Date.now()
     this.describes.forEach(d => {
@@ -33,7 +34,7 @@ export class SpecRunner {
       return {
         name: d.name,
         specs: this.getResults(d.describes),
-        results: d.its.map(i => ({...i }))
+        results: d.its.map(i => ({...i, parent: undefined }))
       }
     })
     return specs

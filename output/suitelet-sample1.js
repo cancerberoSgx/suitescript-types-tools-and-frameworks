@@ -43,7 +43,14 @@ define(["require", "exports", "./log/responseLogger", "./spec/index", "./spec/te
         //       expect(Math.random() > 2).toBe(true)
         //     })
         //   })
+        // try {
         matrixItemTest_1.matrixItemTest();
+        // } catch (error) {
+        //     log('error')
+        //     // @ts-ignore
+        //     // const e = nlapiCreateError(error).toString()
+        //     // log(e+'')
+        // }
         var result = index_1.SpecRunner.getInstance().run();
         responseLogger_1.log(new textReporter_1.TextReporter().render({ result: result }).output);
     }

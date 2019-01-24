@@ -19,6 +19,12 @@ export function findMatrixChild(id: string):  Result|undefined {
   return isChild
 }
 
+export function findMatrixChildOrThrow(id: string): Result|undefined  {
+    const result =findMatrixChild(id)
+    if(!result){throw 'cannot find matrix child'}
+    return result
+  }
+  
 export function isMatrixChild(id: string): boolean {
   return !!findMatrixChild(id)
 }
@@ -68,11 +74,11 @@ export function findMatrixParent(id: string): Result | undefined {
 
 export function isMatrixParent(id: string): boolean {
   return !!findMatrixParent(id)
-}
+} 
 
 
 export function firstNonMatrixItem(): Result | undefined {
-  const result = find(create({
+  return find(create({
     type: Type.ITEM,
     filters: [
       [
@@ -82,10 +88,6 @@ export function firstNonMatrixItem(): Result | undefined {
       ]
     ]
   }).run(), result => {
-    // log(result.id)
     return false
-    // found = result
-    // return false
   })
-  return result || undefined
 }

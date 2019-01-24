@@ -17,6 +17,14 @@ define(["require", "exports", "N/search", "../search/results"], function (requir
         return isChild;
     }
     exports.findMatrixChild = findMatrixChild;
+    function findMatrixChildOrThrow(id) {
+        var result = findMatrixChild(id);
+        if (!result) {
+            throw 'cannot find matrix child';
+        }
+        return result;
+    }
+    exports.findMatrixChildOrThrow = findMatrixChildOrThrow;
     function isMatrixChild(id) {
         return !!findMatrixChild(id);
     }
@@ -67,7 +75,7 @@ define(["require", "exports", "N/search", "../search/results"], function (requir
     }
     exports.isMatrixParent = isMatrixParent;
     function firstNonMatrixItem() {
-        var result = results_1.find(search_1.create({
+        return results_1.find(search_1.create({
             type: search_1.Type.ITEM,
             filters: [
                 [
@@ -77,12 +85,8 @@ define(["require", "exports", "N/search", "../search/results"], function (requir
                 ]
             ]
         }).run(), function (result) {
-            // log(result.id)
             return false;
-            // found = result
-            // return false
         });
-        return result || undefined;
     }
     exports.firstNonMatrixItem = firstNonMatrixItem;
 });

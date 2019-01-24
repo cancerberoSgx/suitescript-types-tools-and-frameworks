@@ -60,3 +60,26 @@ will:
  * fix credentials storing at $(HOME)/netsuite_creds.js - always ask for password and never save it.
  * research: browserify and have a single .js bundle? this would simplify the deploy ? Dont' know
  * mode script entry point examples (schedule, restlet, client)
+
+<!-- 
+
+    //         function f(){
+                
+    // // @ts-ignore
+    //             throw  nlapiCreateError(new Error('asdasd'))
+    //         }
+    //         f()1		var e = new Error()
+// 2		function keys(e){
+//     3		var s = ''
+//     4		for(i in e){
+//     5		s+=(', '+i+':'+typeof e[i])
+//     6		}
+//     7		return s
+//     8		}
+//     9		 
+//     10		 
+//     11		try {throw new Error('thrown')}
+//     12		catch(er){
+//     13		var t = 1
+//     14		}
+//     15		var A = 1 -->

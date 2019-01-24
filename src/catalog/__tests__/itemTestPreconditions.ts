@@ -8,7 +8,7 @@ export interface ItemTestPreconditions {
 export function get(): ItemTestPreconditions {
     return instance
 }
-class ItemTestPreconditionsImpl implements ItemTestPreconditions {
+class ItemTestPreconditionsForAwaLabsAccount implements ItemTestPreconditions {
     // TODO: search dont hard code
     // in case we query from netsuite we must call skip() from here with description because they call us from it() so the test is skipped. it's not an error if we can't find records to test against with
     get oneMatrixParentId(): string {
@@ -25,4 +25,4 @@ class ItemTestPreconditionsImpl implements ItemTestPreconditions {
         return '678222' // TODO
     }
 }
-const instance = new ItemTestPreconditionsImpl()
+const instance = new ItemTestPreconditionsForAwaLabsAccount()

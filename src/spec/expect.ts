@@ -29,7 +29,7 @@ class ExpectImpl<R> implements Expect<R>{
         message,
         type: 'fail'
       }
-    } 
+    }
     else {
       result = {
         message,
@@ -41,10 +41,7 @@ class ExpectImpl<R> implements Expect<R>{
 
   /** array or string to contain (.indexOf()) */
   toContain<J extends ValueOf<R, 0>>(value: J | string): void {
-    const i = SpecRunner.getInstance()._currentIt
-    if (!i) {
-      throw new Error('expect() must be called inside it() : value was: ' + this.real)
-    }
+
     if (!Array.isArray(this.real) && typeof this.real !== 'string') {
       throw new Error('toContain must be called with a array or string value and it was ' + (typeof this.real) + ' - ' + this.real)
     }
@@ -62,25 +59,26 @@ class ExpectImpl<R> implements Expect<R>{
         type: 'pass'
       }
     }
-    i.results.push(result)
+    addToCurrentIt(result)
   }
 }
+
 
 /** returns the type of the value with key K in the Mapped type T. Example: `type _string = ValueOf<A, 'a'>` . */
 type ValueOf<T extends { [k: number]: any }, K extends number> = T[K];
 
 export function fail(label?: string) {
-  return {
+  addToCurrentIt({
     message: 'fail() called - ' + label,
-    resultType: 'fail'
-  }
+    type: 'fail'
+  })
 }
 
 export function skip(label?: string) {
-  return {
+  addToCurrentIt({
     message: 'skip() called - ' + label,
-    resultType: 'skip'
-  }
+    type: 'skip'
+  })
 }
 
 export interface ExpectResult {
@@ -90,3 +88,13 @@ export interface ExpectResult {
 }
 
 export type SpecResultType = 'fail' | 'pass' | 'skip'
+
+function addToCurrentIt(result: ExpectResult) {
+  const i = SpecRunner.getInstance()._currentIt
+  if (!i) {
+    throw new Error('expect() must be called inside it() : label was: ' + result.message)
+  }
+  console.log(result);
+  
+  i.results.push(result)
+}

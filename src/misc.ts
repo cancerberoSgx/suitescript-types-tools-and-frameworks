@@ -1,6 +1,3 @@
-
-
-
 //TODO: move this to a misc.ts file. Use it in sublistUtil.ts getLines()
 export function array<T=number>(n: number, sample?: T): T[] {
   const a: (T | number)[] = []
@@ -12,8 +9,6 @@ export function array<T=number>(n: number, sample?: T): T[] {
 export function repeat(n: number, s: string): string {
   return array(n, s).join('')
 }
-
-
 export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[])=>boolean):T|undefined {
   for (let i = 0; i < a.length; i++) {
     const v = a[i];
@@ -55,7 +50,6 @@ export class TypedMapImpl<PropTypes extends EmptyObject> implements TypedMap<Pro
   }
 }
 
-
 export function getObjectKeys(o : any): string[]{
   const a = []
   for(let k in o) {
@@ -63,6 +57,7 @@ export function getObjectKeys(o : any): string[]{
   }
   return a
 }
+
 export type typeofType =  "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
 export function getObjectValueTypes(o : any): {key: string, typeOfValue: typeofType}[]{
   return getObjectKeys(o).map(key=>({key: key+'', typeOfValue: typeof o[key]}))

@@ -25,7 +25,9 @@ export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[]) => 
     }
   }
 }
-
+export function objectKeys<Field extends EmptyObject = EmptyObject>(o: Field):StringKeyOf<Field>[] {
+  return Object.keys(o) as StringKeyOf<Field>[]
+}
 
 
 // types

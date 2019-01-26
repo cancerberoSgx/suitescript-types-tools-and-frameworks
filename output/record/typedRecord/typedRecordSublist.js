@@ -7,19 +7,44 @@ define(["require", "exports", "../../misc/misc"], function (require, exports, mi
             this.sublistId = sublistId;
             this.sublistFieldImpl = sublistFieldImpl;
         }
+        LineImpl.prototype.getArrayItem = function (n) {
+            return this.line(n);
+        };
+        LineImpl.prototype.setArrayItem = function (n, t) {
+            this.setLine(n, t);
+        };
         LineImpl.prototype.get = function (fieldId, line) {
             return this.typedRecord.nsRecord.getSublistValue({ sublistId: this.sublistId, line: line, fieldId: fieldId });
         };
         LineImpl.prototype.set = function (fieldId, line, V) {
             this.typedRecord.nsRecord.setSublistValue({ sublistId: this.sublistId, line: line, fieldId: fieldId, value: V });
         };
+        LineImpl.prototype.append = function (f) {
+            this.typedRecord.nsRecord.insertLine({ line: this.lineCount(), sublistId: this.sublistId });
+        };
+        LineImpl.prototype.remove = function (line) {
+            if (line === void 0) { line = this.lineCount(); }
+            this.typedRecord.nsRecord.removeLine({ line: line, sublistId: this.sublistId });
+        };
         LineImpl.prototype.line = function (l) {
+            return this.getLine(l);
+        };
+        LineImpl.prototype.getLine = function (l) {
             return new this.sublistFieldImpl(l);
+        };
+        LineImpl.prototype.setLine = function (l, f) {
+            var _this = this;
+            misc_1.objectKeys(f).forEach(function (fieldId) { return _this.set(fieldId, l, f[fieldId]); });
         };
         Object.defineProperty(LineImpl.prototype, "lines", {
             get: function () {
                 var _this = this;
                 return this.linesIndexes().map(function (l) { return _this.line(l); });
+            },
+            set: function (value) {
+                var _this = this;
+                this.linesIndexes().forEach(function (line) { return _this.typedRecord.nsRecord.removeLine({ sublistId: _this.sublistId, line: line }); });
+                value.forEach(function (field) { return _this.append(field); });
             },
             enumerable: true,
             configurable: true

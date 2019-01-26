@@ -31,4 +31,10 @@ export class AccessorArray<T extends any = any> {
   
   get '8' (){return this.get(8)}
   set '8' (val:T){this.set(8, val)}
+  
+  get '9' (){return this.get(9)}
+  set '9' (val:T){this.set(9, val)}
+  
+  get '10' (){return this.get(10)}
+  set '10' (val:T){this.set(10, val)}
 }

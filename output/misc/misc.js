@@ -37,6 +37,10 @@ define(["require", "exports", "N/util"], function (require, exports, util_1) {
         }
     }
     exports.find = find;
+    function objectKeys(o) {
+        return Object.keys(o);
+    }
+    exports.objectKeys = objectKeys;
     function checkThrow(r, msg) {
         if (msg === void 0) { msg = 'Throwing on undefined value'; }
         if (!r) {

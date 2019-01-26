@@ -1,11 +1,11 @@
-import { loadOrThrow } from './typedRecordFactory';
+import { loadOrThrow } from './typedRecordOperations';
 
 export function typedRecordTest(){
   // const ref = {id: 33, type: 'commercecategory'}
   // const r = load({id: 33, type: 'commercecategory'})
   // const c = new commercecategoryRecordImpl(ref)
   // c.fields.addtohead = 'hi'
-  
+   
   const c = loadOrThrow({id: 33, type: 'commercecategory'})
   console.log(`${c.fields.created}, ${c.fields.lastmodified}, ${c.fields.primaryparent}, ${c.fields.name}`);
 

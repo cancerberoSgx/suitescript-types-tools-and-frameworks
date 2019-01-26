@@ -1,6 +1,8 @@
-import { getType } from './getType';
-import { RecordMetadata } from './metadataTypes';
-import { indent } from './util';
+import { getType } from '../getType';
+import { RecordMetadata } from '../metadataTypes';
+import { indent } from '../util';
+
+
 export function generateRecord(config: {
   data: RecordMetadata;
 }): string {

@@ -1,0 +1,2965 @@
+{
+  "label": "Item",
+  "id": "item",
+  "supportCustomFields": true,
+  "searchOnly": true,
+  "supportDeletedRecordSearch": true,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "accbookrevrecforecastrule",
+      "type": "select",
+      "label": "Accounting Book Rev Rec Forecast Rule"
+    },
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accountingbookamortization",
+      "type": "select",
+      "label": "Accounting Book Amortization Schedule"
+    },
+    {
+      "id": "accountingbookcreateplanson",
+      "type": "select",
+      "label": "Accounting Book Create Revenue Plans On"
+    },
+    {
+      "id": "accountingbookrevrecrule",
+      "type": "select",
+      "label": "Accounting Book Revenue Recognition Rule"
+    },
+    {
+      "id": "accountingbookrevrecschedule",
+      "type": "select",
+      "label": "Accounting Book Rev. Rec. Schedule"
+    },
+    {
+      "id": "alternatedemandsourceitem",
+      "type": "select",
+      "label": "Alternate Source Item"
+    },
+    {
+      "id": "atpleadtime",
+      "type": "float",
+      "label": "ATP Lead Time"
+    },
+    {
+      "id": "atpmethod",
+      "type": "select",
+      "label": "Default ATP Method"
+    },
+    {
+      "id": "autoleadtime",
+      "type": "checkbox",
+      "label": "Auto-Calculate Lead Time"
+    },
+    {
+      "id": "autopreferredstocklevel",
+      "type": "checkbox",
+      "label": "Auto-Calculate Preferred Stock Level"
+    },
+    {
+      "id": "autoreorderpoint",
+      "type": "checkbox",
+      "label": "Auto-Calculate Reorder Point"
+    },
+    {
+      "id": "availabletopartners",
+      "type": "checkbox",
+      "label": "Available to Partners"
+    },
+    {
+      "id": "averagecost",
+      "type": "currency",
+      "label": "Average Cost"
+    },
+    {
+      "id": "backwardconsumptiondays",
+      "type": "integer",
+      "label": "Backward Consumption Days"
+    },
+    {
+      "id": "binnumber",
+      "type": "text",
+      "label": "Bin Number"
+    },
+    {
+      "id": "binonhandavail",
+      "type": "float",
+      "label": "Bin On Hand Available"
+    },
+    {
+      "id": "binonhandcount",
+      "type": "float",
+      "label": "Bin On Hand Count"
+    },
+    {
+      "id": "bomquantity",
+      "type": "float",
+      "label": "BOM Quantity"
+    },
+    {
+      "id": "buildentireassembly",
+      "type": "checkbox",
+      "label": "Build Sub-Assemblies"
+    },
+    {
+      "id": "buildtime",
+      "type": "float",
+      "label": "Work Order Lead Time"
+    },
+    {
+      "id": "buyitnowprice",
+      "type": "currency",
+      "label": "eBay Buy It Now Price"
+    },
+    {
+      "id": "caption",
+      "type": "text",
+      "label": "Store Display Name"
+    },
+    {
+      "id": "category",
+      "type": "multiselect",
+      "label": "Category"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "component",
+      "type": "select",
+      "label": "Component Item"
+    },
+    {
+      "id": "componentof",
+      "type": "select",
+      "label": "Component Of"
+    },
+    {
+      "id": "componentyield",
+      "type": "float",
+      "label": "Component Yield"
+    },
+    {
+      "id": "contingentrevenuehandling",
+      "type": "checkbox",
+      "label": "Eligible For Contingent Revenue Handling"
+    },
+    {
+      "id": "copydescription",
+      "type": "checkbox",
+      "label": "Copy SO Descr."
+    },
+    {
+      "id": "correlateditem",
+      "type": "select",
+      "label": "Correlated Item"
+    },
+    {
+      "id": "correlateditemcorrelation",
+      "type": "float",
+      "label": "Correlated Item Correlation"
+    },
+    {
+      "id": "correlateditemcount",
+      "type": "integer",
+      "label": "Correlated Item Count"
+    },
+    {
+      "id": "correlateditemlift",
+      "type": "float",
+      "label": "Correlated Item Lift"
+    },
+    {
+      "id": "correlateditempurchaserate",
+      "type": "float",
+      "label": "Correlated Item PurchaseRate"
+    },
+    {
+      "id": "cost",
+      "type": "currency",
+      "label": "Purchase Price"
+    },
+    {
+      "id": "costaccountingstatus",
+      "type": "select",
+      "label": "Cost Accounting Status"
+    },
+    {
+      "id": "costcategory",
+      "type": "select",
+      "label": "Cost Category"
+    },
+    {
+      "id": "costestimate",
+      "type": "float",
+      "label": "Item Defined Cost"
+    },
+    {
+      "id": "costestimatetype",
+      "type": "select",
+      "label": "Cost Estimate Type"
+    },
+    {
+      "id": "costingmethod",
+      "type": "select",
+      "label": "Costing Method"
+    },
+    {
+      "id": "countryofmanufacture",
+      "type": "select",
+      "label": "Manufacturer Country"
+    },
+    {
+      "id": "created",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "createjob",
+      "type": "checkbox",
+      "label": "Create Job"
+    },
+    {
+      "id": "createrevenueplanson",
+      "type": "select",
+      "label": "Create Revenue Plans On"
+    },
+    {
+      "id": "currentstandardcost",
+      "type": "currency",
+      "label": "Current Standard Cost"
+    },
+    {
+      "id": "currentstdcosteffectivedate",
+      "type": "date",
+      "label": "Current Standard Cost Effective Date"
+    },
+    {
+      "id": "dateviewed",
+      "type": "datetime",
+      "label": "Date Viewed"
+    },
+    {
+      "id": "daysbeforeexpiration",
+      "type": "float",
+      "label": "Days Before Expiration"
+    },
+    {
+      "id": "defaultreturncost",
+      "type": "currency",
+      "label": "Default Return Cost"
+    },
+    {
+      "id": "deferrevrec",
+      "type": "checkbox",
+      "label": "Hold Revenue Recognition"
+    },
+    {
+      "id": "demandmodifier",
+      "type": "percent",
+      "label": "Estimated Demand Change"
+    },
+    {
+      "id": "demandsource",
+      "type": "select",
+      "label": "Demand Source"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "directrevenueposting",
+      "type": "checkbox",
+      "label": "Direct Revenue Posting"
+    },
+    {
+      "id": "displayinebaystore",
+      "type": "checkbox",
+      "label": "eBay Store"
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "label": "Display Name"
+    },
+    {
+      "id": "distributioncategory",
+      "type": "select",
+      "label": "Distribution Category"
+    },
+    {
+      "id": "distributionnetwork",
+      "type": "select",
+      "label": "Distribution Network"
+    },
+    {
+      "id": "dontshowprice",
+      "type": "checkbox",
+      "label": "Don't Show Price"
+    },
+    {
+      "id": "ebayitemdescription",
+      "type": "clobtext",
+      "label": "eBay Description"
+    },
+    {
+      "id": "ebayitemsubtitle",
+      "type": "text",
+      "label": "eBay Subtitle"
+    },
+    {
+      "id": "ebayitemtitle",
+      "type": "text",
+      "label": "eBay Title"
+    },
+    {
+      "id": "ebayrelistingoption",
+      "type": "select",
+      "label": "eBay Relisting Option"
+    },
+    {
+      "id": "effectivebomcontrol",
+      "type": "select",
+      "label": "Effective BOM Control"
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "label": "Effective Date"
+    },
+    {
+      "id": "effectiverevision",
+      "type": "select",
+      "label": "Effective Revision"
+    },
+    {
+      "id": "endauctionswhenoutofstock",
+      "type": "checkbox",
+      "label": "eBay End Auctions When Out of Stock"
+    },
+    {
+      "id": "excludefromsitemap",
+      "type": "checkbox",
+      "label": "Exclude From Sitemap"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "featureddescription",
+      "type": "clobtext",
+      "label": "Featured Description"
+    },
+    {
+      "id": "feeddescription",
+      "type": "clobtext",
+      "label": "Feed Description"
+    },
+    {
+      "id": "feedname",
+      "type": "text",
+      "label": "Feed Name"
+    },
+    {
+      "id": "fixedlotsize",
+      "type": "float",
+      "label": "Fixed Lot Size"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "forwardconsumptiondays",
+      "type": "integer",
+      "label": "Forward Consumption Days"
+    },
+    {
+      "id": "fraudrisk",
+      "type": "select",
+      "label": "Fraud Risk"
+    },
+    {
+      "id": "froogleproductfeed",
+      "type": "checkbox",
+      "label": "Google Base Product Feed"
+    },
+    {
+      "id": "fxcost",
+      "type": "currency",
+      "label": "Purchase Price (Foreign Currency)"
+    },
+    {
+      "id": "generateaccruals",
+      "type": "checkbox",
+      "label": "Generate Accruals"
+    },
+    {
+      "id": "giftcertauthcode",
+      "type": "text",
+      "label": "Gift Certificate Code"
+    },
+    {
+      "id": "giftcertemail",
+      "type": "text",
+      "label": "Gift Certificate To (Email)"
+    },
+    {
+      "id": "giftcertexpdate",
+      "type": "date",
+      "label": "Gift Certificate Expiration Date"
+    },
+    {
+      "id": "giftcertfrom",
+      "type": "text",
+      "label": "Gift Certificate From (Name)"
+    },
+    {
+      "id": "giftcertmsg",
+      "type": "text",
+      "label": "Gift Certificate Message"
+    },
+    {
+      "id": "giftcertorigamt",
+      "type": "text",
+      "label": "Gift Certificate Original Amount"
+    },
+    {
+      "id": "giftcertrecipient",
+      "type": "text",
+      "label": "Gift Certificate To (Name)"
+    },
+    {
+      "id": "imageurl",
+      "type": "text",
+      "label": "Image URL"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "inventorylocation",
+      "type": "select",
+      "label": "Inventory Location"
+    },
+    {
+      "id": "invtclassification",
+      "type": "select",
+      "label": "Inventory Classification"
+    },
+    {
+      "id": "invtcountinterval",
+      "type": "integer",
+      "label": "Inventory Count Interval"
+    },
+    {
+      "id": "isavailable",
+      "type": "checkbox",
+      "label": "Is Available?"
+    },
+    {
+      "id": "isdropshipitem",
+      "type": "checkbox",
+      "label": "Drop Ship Item"
+    },
+    {
+      "id": "isfulfillable",
+      "type": "checkbox",
+      "label": "Can be Fulfilled"
+    },
+    {
+      "id": "isgcocompliant",
+      "type": "checkbox",
+      "label": "Google Checkout Compliant"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "islotitem",
+      "type": "checkbox",
+      "label": "Is Lot Numbered Item"
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "label": "Display in Web Site"
+    },
+    {
+      "id": "ispreferredvendor",
+      "type": "checkbox",
+      "label": "Vendor is Preferred"
+    },
+    {
+      "id": "isserialitem",
+      "type": "checkbox",
+      "label": "Is Serialized Item"
+    },
+    {
+      "id": "isspecialorderitem",
+      "type": "checkbox",
+      "label": "Special Order Item"
+    },
+    {
+      "id": "isspecialworkorderitem",
+      "type": "checkbox",
+      "label": "Special Work Order Item"
+    },
+    {
+      "id": "isstorepickupallowed",
+      "type": "checkbox",
+      "label": "Store Pickup Allowed"
+    },
+    {
+      "id": "issueproduct",
+      "type": "select",
+      "label": "Product"
+    },
+    {
+      "id": "istaxable",
+      "type": "checkbox",
+      "label": "Taxable"
+    },
+    {
+      "id": "isvsoebundle",
+      "type": "checkbox",
+      "label": "Is VSOE Bundle?"
+    },
+    {
+      "id": "iswip",
+      "type": "checkbox",
+      "label": "WIP"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name (Internal)"
+    },
+    {
+      "id": "itemurl",
+      "type": "text",
+      "label": "Item URL"
+    },
+    {
+      "id": "lastinvtcountdate",
+      "type": "date",
+      "label": "Last Inventory Count Date"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastpurchaseprice",
+      "type": "currency",
+      "label": "Last Purchase Price"
+    },
+    {
+      "id": "lastquantityavailablechange",
+      "type": "datetime",
+      "label": "Last Quantity Available Change"
+    },
+    {
+      "id": "leadtime",
+      "type": "integer",
+      "label": "Lead Time"
+    },
+    {
+      "id": "listingduration",
+      "type": "select",
+      "label": "eBay Duration"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationallowstorepickup",
+      "type": "checkbox",
+      "label": "Location Allow Store Pickup"
+    },
+    {
+      "id": "locationatpleadtime",
+      "type": "float",
+      "label": "Location ATP Lead Time"
+    },
+    {
+      "id": "locationaveragecost",
+      "type": "currency",
+      "label": "Location Average Cost"
+    },
+    {
+      "id": "locationbuildtime",
+      "type": "float",
+      "label": "Location Work Order Lead Time"
+    },
+    {
+      "id": "locationcost",
+      "type": "currency",
+      "label": "Location Standard Cost"
+    },
+    {
+      "id": "locationcostaccountingstatus",
+      "type": "select",
+      "label": "Location Cost Accounting Status"
+    },
+    {
+      "id": "locationdefaultreturncost",
+      "type": "currency",
+      "label": "Location Default Return Cost"
+    },
+    {
+      "id": "locationdemandsource",
+      "type": "select",
+      "label": "Location Demand Source"
+    },
+    {
+      "id": "locationfixedlotsize",
+      "type": "float",
+      "label": "Location Fixed Lot Size"
+    },
+    {
+      "id": "locationinvtclassification",
+      "type": "select",
+      "label": "Location Inventory Classification"
+    },
+    {
+      "id": "locationinvtcountinterval",
+      "type": "integer",
+      "label": "Location Inventory Count Interval"
+    },
+    {
+      "id": "locationlastinvtcountdate",
+      "type": "date",
+      "label": "Location Last Inventory Count Date"
+    },
+    {
+      "id": "locationleadtime",
+      "type": "integer",
+      "label": "Location Lead Time"
+    },
+    {
+      "id": "locationnextinvtcountdate",
+      "type": "date",
+      "label": "Location Next Inventory Count Date"
+    },
+    {
+      "id": "locationpreferredstocklevel",
+      "type": "float",
+      "label": "Location Preferred Stock Level"
+    },
+    {
+      "id": "locationqtyavailforstorepickup",
+      "type": "float",
+      "label": "Location Available for Store Pickup"
+    },
+    {
+      "id": "locationquantityavailable",
+      "type": "float",
+      "label": "Location Available"
+    },
+    {
+      "id": "locationquantitybackordered",
+      "type": "float",
+      "label": "Location Back Ordered"
+    },
+    {
+      "id": "locationquantitycommitted",
+      "type": "float",
+      "label": "Location Committed"
+    },
+    {
+      "id": "locationquantityintransit",
+      "type": "float",
+      "label": "Location In Transit"
+    },
+    {
+      "id": "locationquantityonhand",
+      "type": "float",
+      "label": "Location On Hand"
+    },
+    {
+      "id": "locationquantityonorder",
+      "type": "float",
+      "label": "Location On Order"
+    },
+    {
+      "id": "locationreorderpoint",
+      "type": "float",
+      "label": "Location Reorder Point"
+    },
+    {
+      "id": "locationsafetystocklevel",
+      "type": "float",
+      "label": "Location Safety Stock Level"
+    },
+    {
+      "id": "locationstorepickupbufferstock",
+      "type": "float",
+      "label": "Location Store Pickup Buffer Stock"
+    },
+    {
+      "id": "locationsupplylotsizingmethod",
+      "type": "select",
+      "label": "Location Supply Lot Sizing Method"
+    },
+    {
+      "id": "locationsupplytype",
+      "type": "select",
+      "label": "Location Supply Type"
+    },
+    {
+      "id": "locationtotalvalue",
+      "type": "currency",
+      "label": "Location Total Value"
+    },
+    {
+      "id": "manufacturer",
+      "type": "text",
+      "label": "Manufacturer"
+    },
+    {
+      "id": "manufactureraddr1",
+      "type": "text",
+      "label": "Manufacturer Address"
+    },
+    {
+      "id": "manufacturercity",
+      "type": "text",
+      "label": "Manufacturer City"
+    },
+    {
+      "id": "manufacturerstate",
+      "type": "text",
+      "label": "Manufacturer State"
+    },
+    {
+      "id": "manufacturertariff",
+      "type": "text",
+      "label": "Manufacturer Tariff"
+    },
+    {
+      "id": "manufacturertaxid",
+      "type": "text",
+      "label": "Manufacturer Tax Id"
+    },
+    {
+      "id": "manufacturerzip",
+      "type": "text",
+      "label": "Manufacturer Zip"
+    },
+    {
+      "id": "matchbilltoreceipt",
+      "type": "checkbox",
+      "label": "Match Bill To Receipt"
+    },
+    {
+      "id": "matrix",
+      "type": "checkbox",
+      "label": "Matrix Item"
+    },
+    {
+      "id": "matrixchild",
+      "type": "checkbox",
+      "label": "Matrix Child Item"
+    },
+    {
+      "id": "maximumquantity",
+      "type": "integer",
+      "label": "Maximum Quantity"
+    },
+    {
+      "id": "metataghtml",
+      "type": "clobtext",
+      "label": "Meta Tag Html"
+    },
+    {
+      "id": "minimumquantity",
+      "type": "integer",
+      "label": "Minimum Quantity"
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "label": "MOSS Applies"
+    },
+    {
+      "id": "mpn",
+      "type": "text",
+      "label": "MPN"
+    },
+    {
+      "id": "multmanufactureaddr",
+      "type": "checkbox",
+      "label": "Multiple Manufacture Addresses"
+    },
+    {
+      "id": "nextagcategory",
+      "type": "text",
+      "label": "NexTag Category"
+    },
+    {
+      "id": "nextagproductfeed",
+      "type": "checkbox",
+      "label": "NexTag Product Feed"
+    },
+    {
+      "id": "nextinvtcountdate",
+      "type": "date",
+      "label": "Next Inventory Count Date"
+    },
+    {
+      "id": "numactivelistings",
+      "type": "integer",
+      "label": "eBay Active Listings"
+    },
+    {
+      "id": "numberalloweddownloads",
+      "type": "float",
+      "label": "Number of Allowed Downloads"
+    },
+    {
+      "id": "numcurrentlylisted",
+      "type": "integer",
+      "label": "eBay Quantity Currently Listed"
+    },
+    {
+      "id": "obsoletedate",
+      "type": "date",
+      "label": "Obsolete Date"
+    },
+    {
+      "id": "obsoleterevision",
+      "type": "select",
+      "label": "Obsolete Revision"
+    },
+    {
+      "id": "offersupport",
+      "type": "checkbox",
+      "label": "Offer Support"
+    },
+    {
+      "id": "onlinecustomerprice",
+      "type": "currency",
+      "label": "Online Customer Price"
+    },
+    {
+      "id": "onspecial",
+      "type": "checkbox",
+      "label": "On Special"
+    },
+    {
+      "id": "othervendor",
+      "type": "select",
+      "label": "Vendor"
+    },
+    {
+      "id": "outofstockbehavior",
+      "type": "select",
+      "label": "Out Of Stock Behavior"
+    },
+    {
+      "id": "overallquantitypricingtype",
+      "type": "select",
+      "label": "Overall Qty. Pricing Type"
+    },
+    {
+      "id": "pagetitle",
+      "type": "text",
+      "label": "Page Title"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Sub-Item Of"
+    },
+    {
+      "id": "preferencecriterion",
+      "type": "text",
+      "label": "Preference Criterion"
+    },
+    {
+      "id": "preferredbin",
+      "type": "checkbox",
+      "label": "Preferred Bin"
+    },
+    {
+      "id": "preferredlocation",
+      "type": "select",
+      "label": "Preferred Location"
+    },
+    {
+      "id": "preferredstocklevel",
+      "type": "float",
+      "label": "Preferred Stock Level"
+    },
+    {
+      "id": "preferredstockleveldays",
+      "type": "integer",
+      "label": "Preferred Stock Level Days"
+    },
+    {
+      "id": "price",
+      "type": "currency",
+      "label": "Sales Price"
+    },
+    {
+      "id": "pricesincludetax",
+      "type": "checkbox",
+      "label": "Prices Include Tax"
+    },
+    {
+      "id": "pricinggroup",
+      "type": "select",
+      "label": "Pricing Group"
+    },
+    {
+      "id": "primarycategory",
+      "type": "integer",
+      "label": "eBay Category Id"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "purchaseunit",
+      "type": "select",
+      "label": "Purchase Unit"
+    },
+    {
+      "id": "quantityavailable",
+      "type": "float",
+      "label": "Available"
+    },
+    {
+      "id": "quantitybackordered",
+      "type": "float",
+      "label": "Back Ordered"
+    },
+    {
+      "id": "quantitycommitted",
+      "type": "float",
+      "label": "Committed"
+    },
+    {
+      "id": "quantityonhand",
+      "type": "float",
+      "label": "On Hand"
+    },
+    {
+      "id": "quantityonorder",
+      "type": "float",
+      "label": "On Order"
+    },
+    {
+      "id": "quantitypricingschedule",
+      "type": "select",
+      "label": "Qty. Pricing Schedule"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "reordermultiple",
+      "type": "integer",
+      "label": "Reorder Multiple"
+    },
+    {
+      "id": "reorderpoint",
+      "type": "float",
+      "label": "Reorder Point"
+    },
+    {
+      "id": "reserveprice",
+      "type": "currency",
+      "label": "eBay Reserve Price"
+    },
+    {
+      "id": "revrecforecastrule",
+      "type": "select",
+      "label": "Rev Rec Forecast Rule"
+    },
+    {
+      "id": "revrecschedule",
+      "type": "select",
+      "label": "Rev. Rec. Schedule"
+    },
+    {
+      "id": "safetystocklevel",
+      "type": "float",
+      "label": "Safety Stock Level"
+    },
+    {
+      "id": "safetystockleveldays",
+      "type": "integer",
+      "label": "Safety Stock Level Days"
+    },
+    {
+      "id": "salesdescription",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "label": "Sale Unit"
+    },
+    {
+      "id": "sameasprimarybookamortization",
+      "type": "checkbox",
+      "label": "Same as Primary Book Amortization"
+    },
+    {
+      "id": "sameasprimarybookrevrec",
+      "type": "checkbox",
+      "label": "Same as Primary Book Rev. Rec."
+    },
+    {
+      "id": "schedulebcode",
+      "type": "select",
+      "label": "Schedule B Code"
+    },
+    {
+      "id": "schedulebnumber",
+      "type": "text",
+      "label": "Schedule B Number"
+    },
+    {
+      "id": "schedulebquantity",
+      "type": "text",
+      "label": "Schedule B Quantity"
+    },
+    {
+      "id": "searchkeywords",
+      "type": "text",
+      "label": "Search Keywords"
+    },
+    {
+      "id": "seasonaldemand",
+      "type": "checkbox",
+      "label": "Seasonal Demand"
+    },
+    {
+      "id": "sellonebay",
+      "type": "checkbox",
+      "label": "eBay Auction"
+    },
+    {
+      "id": "serialnumber",
+      "type": "text",
+      "label": "Serial/Lot Number"
+    },
+    {
+      "id": "serialnumberlocation",
+      "type": "select",
+      "label": "Serial/Lot Number Location"
+    },
+    {
+      "id": "shipindividually",
+      "type": "checkbox",
+      "label": "Ships Individually"
+    },
+    {
+      "id": "shippackage",
+      "type": "select",
+      "label": "Shipping Package"
+    },
+    {
+      "id": "shippingrate",
+      "type": "currency",
+      "label": "Shipping Rate"
+    },
+    {
+      "id": "shoppingdotcomcategory",
+      "type": "text",
+      "label": "Shopping Category"
+    },
+    {
+      "id": "shoppingproductfeed",
+      "type": "checkbox",
+      "label": "Shopping Product Feed"
+    },
+    {
+      "id": "shopzillacategoryid",
+      "type": "integer",
+      "label": "Shopzilla Category Id"
+    },
+    {
+      "id": "shopzillaproductfeed",
+      "type": "checkbox",
+      "label": "Shopzilla Product Feed"
+    },
+    {
+      "id": "sitemappriority",
+      "type": "float",
+      "label": "Sitemap Priority"
+    },
+    {
+      "id": "softdescriptor",
+      "type": "select",
+      "label": "Soft Descriptor"
+    },
+    {
+      "id": "startingprice",
+      "type": "currency",
+      "label": "eBay Starting Price"
+    },
+    {
+      "id": "stockdescription",
+      "type": "text",
+      "label": "Stock Description"
+    },
+    {
+      "id": "stockunit",
+      "type": "select",
+      "label": "Stock Unit"
+    },
+    {
+      "id": "storedescription",
+      "type": "clobtext",
+      "label": "Store Description"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subtype",
+      "type": "select",
+      "label": "Sub Type"
+    },
+    {
+      "id": "supplylotsizingmethod",
+      "type": "select",
+      "label": "Supply Lot Sizing Method"
+    },
+    {
+      "id": "supplyreplenishmentmethod",
+      "type": "select",
+      "label": "Replenishment Method"
+    },
+    {
+      "id": "supplytype",
+      "type": "select",
+      "label": "Supply Type"
+    },
+    {
+      "id": "taxcode",
+      "type": "select",
+      "label": "Tax Code"
+    },
+    {
+      "id": "taxschedule",
+      "type": "select",
+      "label": "Tax Schedule"
+    },
+    {
+      "id": "thumbnailurl",
+      "type": "text",
+      "label": "Thumbnail URL"
+    },
+    {
+      "id": "totalvalue",
+      "type": "currency",
+      "label": "Total Value"
+    },
+    {
+      "id": "tracklandedcost",
+      "type": "checkbox",
+      "label": "Track Landed Cost"
+    },
+    {
+      "id": "transferprice",
+      "type": "float",
+      "label": "Transfer Price"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "label": "Units Type"
+    },
+    {
+      "id": "upccode",
+      "type": "text",
+      "label": "UPC Code"
+    },
+    {
+      "id": "urlcomponent",
+      "type": "text",
+      "label": "URL Component"
+    },
+    {
+      "id": "usebins",
+      "type": "checkbox",
+      "label": "Use Bins"
+    },
+    {
+      "id": "usecomponentyield",
+      "type": "checkbox",
+      "label": "Use Component Yield"
+    },
+    {
+      "id": "usemarginalrates",
+      "type": "checkbox",
+      "label": "Use Marginal Rates"
+    },
+    {
+      "id": "vendor",
+      "type": "select",
+      "label": "Preferred Vendor"
+    },
+    {
+      "id": "vendorcode",
+      "type": "text",
+      "label": "Vendor Code"
+    },
+    {
+      "id": "vendorcost",
+      "type": "currency",
+      "label": "Vendor Price"
+    },
+    {
+      "id": "vendorcostentered",
+      "type": "currency",
+      "label": "Vendor Price (Entered)"
+    },
+    {
+      "id": "vendorname",
+      "type": "text",
+      "label": "Vendor Name"
+    },
+    {
+      "id": "vendorpricecurrency",
+      "type": "select",
+      "label": "Vendor Price Currency"
+    },
+    {
+      "id": "vsoedeferral",
+      "type": "select",
+      "label": "Deferral"
+    },
+    {
+      "id": "vsoedelivered",
+      "type": "checkbox",
+      "label": "Default as Delivered"
+    },
+    {
+      "id": "vsoepermitdiscount",
+      "type": "select",
+      "label": "Permit Discount"
+    },
+    {
+      "id": "vsoeprice",
+      "type": "float",
+      "label": "VSOE Price"
+    },
+    {
+      "id": "vsoesopgroup",
+      "type": "select",
+      "label": "Allocation Type"
+    },
+    {
+      "id": "website",
+      "type": "select",
+      "label": "Web Site"
+    },
+    {
+      "id": "weight",
+      "type": "float",
+      "label": "Weight"
+    },
+    {
+      "id": "yahooproductfeed",
+      "type": "checkbox",
+      "label": "Yahoo Shopping Product Feed"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accbookrevrecforecastrule",
+      "type": "select",
+      "label": "Accounting Book Rev Rec Forecast Rule"
+    },
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accountingbookamortization",
+      "type": "select",
+      "label": "Accounting Book Amortization Schedule"
+    },
+    {
+      "id": "accountingbookcreateplanson",
+      "type": "select",
+      "label": "Accounting Book Create Revenue Plans On"
+    },
+    {
+      "id": "accountingbookrevrecrule",
+      "type": "select",
+      "label": "Accounting Book Revenue Recognition Rule"
+    },
+    {
+      "id": "accountingbookrevrecschedule",
+      "type": "select",
+      "label": "Accounting Book Rev. Rec. Schedule"
+    },
+    {
+      "id": "alternatedemandsourceitem",
+      "type": "text",
+      "label": "Alternate Source Item"
+    },
+    {
+      "id": "assetaccount",
+      "type": "select",
+      "label": "Asset Account"
+    },
+    {
+      "id": "atpleadtime",
+      "type": "float",
+      "label": "ATP Lead Time"
+    },
+    {
+      "id": "atpmethod",
+      "type": "text",
+      "label": "Default ATP Method"
+    },
+    {
+      "id": "autoleadtime",
+      "type": "checkbox",
+      "label": "Auto Lead Time"
+    },
+    {
+      "id": "autopreferredstocklevel",
+      "type": "checkbox",
+      "label": "Auto Stock Level"
+    },
+    {
+      "id": "autoreorderpoint",
+      "type": "checkbox",
+      "label": "Auto Reorder Point"
+    },
+    {
+      "id": "availabletopartners",
+      "type": "checkbox",
+      "label": "Available to Partners"
+    },
+    {
+      "id": "averagecost",
+      "type": "currency2",
+      "label": "Average Cost"
+    },
+    {
+      "id": "backwardconsumptiondays",
+      "type": "integer",
+      "label": "Backward Consumption Days"
+    },
+    {
+      "id": "baseprice",
+      "type": "currency2",
+      "label": "Base Price"
+    },
+    {
+      "id": "billexchratevarianceacct",
+      "type": "select",
+      "label": "Bill Exchange Rate Variance Account"
+    },
+    {
+      "id": "billpricevarianceacct",
+      "type": "select",
+      "label": "Bill Price Variance Account"
+    },
+    {
+      "id": "billqtyvarianceacct",
+      "type": "select",
+      "label": "Bill Quantity Variance Account"
+    },
+    {
+      "id": "binnumber",
+      "type": "text",
+      "label": "Bin Number"
+    },
+    {
+      "id": "binonhandavail",
+      "type": "float",
+      "label": "Bin On Hand Available"
+    },
+    {
+      "id": "binonhandcount",
+      "type": "float",
+      "label": "Bin On Hand Count"
+    },
+    {
+      "id": "bomquantity",
+      "type": "float",
+      "label": "BOM Quantity"
+    },
+    {
+      "id": "buildentireassembly",
+      "type": "checkbox",
+      "label": "Build Sub-Assemblies"
+    },
+    {
+      "id": "buildtime",
+      "type": "float",
+      "label": "Work Order Lead Time"
+    },
+    {
+      "id": "buyitnowprice",
+      "type": "currency",
+      "label": "eBay Buy It Now Price"
+    },
+    {
+      "id": "category",
+      "type": "text",
+      "label": "Category"
+    },
+    {
+      "id": "categorynohierarchy",
+      "type": "text",
+      "label": "Category (no hierarchy)"
+    },
+    {
+      "id": "categorypreferred",
+      "type": "text",
+      "label": "Category (preferred)"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "classnohierarchy",
+      "type": "select",
+      "label": "Class (no hierarchy)"
+    },
+    {
+      "id": "componentyield",
+      "type": "float",
+      "label": "Component Yield"
+    },
+    {
+      "id": "contingentrevenuehandling",
+      "type": "checkbox",
+      "label": "Eligible for Contingent Revenue Handling"
+    },
+    {
+      "id": "copydescription",
+      "type": "checkbox",
+      "label": "Copy SO Descr."
+    },
+    {
+      "id": "correlateditem",
+      "type": "select",
+      "label": "Correlated Item"
+    },
+    {
+      "id": "correlateditemcorrelation",
+      "type": "float",
+      "label": "Correlated Item Correlation"
+    },
+    {
+      "id": "correlateditemcount",
+      "type": "integer",
+      "label": "Correlated Item Count"
+    },
+    {
+      "id": "correlateditemlift",
+      "type": "float",
+      "label": "Correlated Item Lift"
+    },
+    {
+      "id": "correlateditempurchaserate",
+      "type": "float",
+      "label": "Correlated Item Purchase Rate"
+    },
+    {
+      "id": "cost",
+      "type": "currency2",
+      "label": "Purchase Price"
+    },
+    {
+      "id": "costaccountingstatus",
+      "type": "text",
+      "label": "Cost Accounting Status"
+    },
+    {
+      "id": "costcategory",
+      "type": "text",
+      "label": "Cost Category"
+    },
+    {
+      "id": "costestimate",
+      "type": "currency2",
+      "label": "Item Defined Cost"
+    },
+    {
+      "id": "costestimatetype",
+      "type": "text",
+      "label": "Cost Estimate Type"
+    },
+    {
+      "id": "costingmethod",
+      "type": "select",
+      "label": "Costing Method"
+    },
+    {
+      "id": "countryofmanufacture",
+      "type": "text",
+      "label": "Manufacturer Country"
+    },
+    {
+      "id": "created",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "createjob",
+      "type": "checkbox",
+      "label": "Create Job"
+    },
+    {
+      "id": "createrevenueplanson",
+      "type": "select",
+      "label": "Create Revenue Plans On"
+    },
+    {
+      "id": "currentstandardcost",
+      "type": "currency2",
+      "label": "Current Standard Cost"
+    },
+    {
+      "id": "currentstdcosteffectivedate",
+      "type": "date",
+      "label": "Current Standard Cost Effective Date"
+    },
+    {
+      "id": "custreturnvarianceaccount",
+      "type": "select",
+      "label": "Customer Return Variance Account"
+    },
+    {
+      "id": "dateviewed",
+      "type": "datetime",
+      "label": "Date Viewed"
+    },
+    {
+      "id": "daysbeforeexpiration",
+      "type": "text",
+      "label": "Days Before Expiration"
+    },
+    {
+      "id": "defaultreturncost",
+      "type": "currency2",
+      "label": "Default Return Cost"
+    },
+    {
+      "id": "deferredexpenseaccount",
+      "type": "select",
+      "label": "Deferred Expense Account"
+    },
+    {
+      "id": "deferredrevenueaccount",
+      "type": "select",
+      "label": "Deferred Revenue Account"
+    },
+    {
+      "id": "deferrevrec",
+      "type": "checkbox",
+      "label": "Hold Revenue Recognition"
+    },
+    {
+      "id": "demandmodifier",
+      "type": "percent",
+      "label": "Expected Demand Change"
+    },
+    {
+      "id": "demandsource",
+      "type": "text",
+      "label": "Demand Source"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "departmentnohierarchy",
+      "type": "select",
+      "label": "Department (no hierarchy)"
+    },
+    {
+      "id": "directrevenueposting",
+      "type": "checkbox",
+      "label": "Direct Revenue Posting"
+    },
+    {
+      "id": "displayinebaystore",
+      "type": "checkbox",
+      "label": "eBay Store"
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "label": "Display Name"
+    },
+    {
+      "id": "distributioncategory",
+      "type": "text",
+      "label": "Distribution Category"
+    },
+    {
+      "id": "distributionnetwork",
+      "type": "text",
+      "label": "Distribution Network"
+    },
+    {
+      "id": "dontshowprice",
+      "type": "checkbox",
+      "label": "Don't Show Price"
+    },
+    {
+      "id": "ebayitemdescription",
+      "type": "clobtext",
+      "label": "eBay Description"
+    },
+    {
+      "id": "ebayitemsubtitle",
+      "type": "text",
+      "label": "eBay Subtitle"
+    },
+    {
+      "id": "ebayitemtitle",
+      "type": "text",
+      "label": "eBay Title"
+    },
+    {
+      "id": "ebayrelistingoption",
+      "type": "text",
+      "label": "eBay Relisting Option"
+    },
+    {
+      "id": "effectivebomcontrol",
+      "type": "text",
+      "label": "Effective BOM Control"
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "label": "Effective Date"
+    },
+    {
+      "id": "effectiverevision",
+      "type": "select",
+      "label": "Effective Revision"
+    },
+    {
+      "id": "endauctionswhenoutofstock",
+      "type": "checkbox",
+      "label": "eBay End Auctions When Out of Stock"
+    },
+    {
+      "id": "excludefromsitemap",
+      "type": "checkbox",
+      "label": "Exclude from Sitemap"
+    },
+    {
+      "id": "expenseaccount",
+      "type": "select",
+      "label": "Expense/COGS Account"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "featureddescription",
+      "type": "clobtext",
+      "label": "Featured Description"
+    },
+    {
+      "id": "feeddescription",
+      "type": "text",
+      "label": "Feed Description"
+    },
+    {
+      "id": "feedname",
+      "type": "text",
+      "label": "Feed Name"
+    },
+    {
+      "id": "fixedlotsize",
+      "type": "float",
+      "label": "Fixed Lot Size"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "forwardconsumptiondays",
+      "type": "integer",
+      "label": "Forward Consumption Days"
+    },
+    {
+      "id": "fraudrisk",
+      "type": "select",
+      "label": "Fraud Risk"
+    },
+    {
+      "id": "froogleproductfeed",
+      "type": "checkbox",
+      "label": "Google Base Product Feed"
+    },
+    {
+      "id": "fxcost",
+      "type": "currency2",
+      "label": "Purchase Price (Foreign Currency)"
+    },
+    {
+      "id": "gainlossaccount",
+      "type": "select",
+      "label": "Gain/Loss Account"
+    },
+    {
+      "id": "generateaccruals",
+      "type": "checkbox",
+      "label": "Generate Accruals"
+    },
+    {
+      "id": "giftcertauthcode",
+      "type": "text",
+      "label": "Gift Certificate Auth Code"
+    },
+    {
+      "id": "giftcertemail",
+      "type": "text",
+      "label": "Gift Certificate To (Email)"
+    },
+    {
+      "id": "giftcertexpirationdate",
+      "type": "text",
+      "label": "Gift Certificate Exp Date"
+    },
+    {
+      "id": "giftcertfrom",
+      "type": "text",
+      "label": "Gift Certificate From (Name)"
+    },
+    {
+      "id": "giftcertmessage",
+      "type": "text",
+      "label": "Gift Certificate Message"
+    },
+    {
+      "id": "giftcertoriginalamount",
+      "type": "text",
+      "label": "Gift Certificate Orig Amount"
+    },
+    {
+      "id": "giftcertrecipient",
+      "type": "text",
+      "label": "Gift Certificate To (Name)"
+    },
+    {
+      "id": "hits",
+      "type": "integer",
+      "label": "# Times Viewed"
+    },
+    {
+      "id": "imageurl",
+      "type": "text",
+      "label": "Image URL"
+    },
+    {
+      "id": "incomeaccount",
+      "type": "select",
+      "label": "Income Account"
+    },
+    {
+      "id": "intercodefrevaccount",
+      "type": "select",
+      "label": "Intercompany Deferred Revenue Account"
+    },
+    {
+      "id": "intercoexpenseaccount",
+      "type": "select",
+      "label": "Intercompany Expense/COGS Account"
+    },
+    {
+      "id": "intercoincomeaccount",
+      "type": "select",
+      "label": "Intercompany Income Account"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "inventorylocation",
+      "type": "select",
+      "label": "Inventory Location"
+    },
+    {
+      "id": "invtclassification",
+      "type": "text",
+      "label": "Inventory Classification"
+    },
+    {
+      "id": "invtcountinterval",
+      "type": "integer",
+      "label": "Inventory Count Interval"
+    },
+    {
+      "id": "isavailable",
+      "type": "checkbox",
+      "label": "Is Available?"
+    },
+    {
+      "id": "isdropshipitem",
+      "type": "checkbox",
+      "label": "Drop Ship Item"
+    },
+    {
+      "id": "isfulfillable",
+      "type": "checkbox",
+      "label": "Can be Fulfilled"
+    },
+    {
+      "id": "isgcocompliant",
+      "type": "checkbox",
+      "label": "Google Checkout Compliant"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "islotitem",
+      "type": "checkbox",
+      "label": "Is Lot Numbered Item"
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "label": "Display in Web Site"
+    },
+    {
+      "id": "isserialitem",
+      "type": "checkbox",
+      "label": "Is Serialized Item"
+    },
+    {
+      "id": "isspecialorderitem",
+      "type": "checkbox",
+      "label": "Special Order Item"
+    },
+    {
+      "id": "isspecialworkorderitem",
+      "type": "checkbox",
+      "label": "Special Work Order Item"
+    },
+    {
+      "id": "isstorepickupallowed",
+      "type": "checkbox",
+      "label": "Store Pickup Allowed"
+    },
+    {
+      "id": "issueproduct",
+      "type": "select",
+      "label": "Product"
+    },
+    {
+      "id": "istaxable",
+      "type": "checkbox",
+      "label": "Taxable"
+    },
+    {
+      "id": "isvsoebundle",
+      "type": "checkbox",
+      "label": "Is VSOE Bundle?"
+    },
+    {
+      "id": "iswip",
+      "type": "checkbox",
+      "label": "WIP"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "itemurl",
+      "type": "text",
+      "label": "Item URL"
+    },
+    {
+      "id": "lastinvtcountdate",
+      "type": "date",
+      "label": "Last Inventory Count Date"
+    },
+    {
+      "id": "lastpurchaseprice",
+      "type": "currency",
+      "label": "Last Purchase Price"
+    },
+    {
+      "id": "lastquantityavailablechange",
+      "type": "datetime",
+      "label": "Last Quantity Available Change"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "leadtime",
+      "type": "integer",
+      "label": "Lead Time"
+    },
+    {
+      "id": "liabilityaccount",
+      "type": "select",
+      "label": "Liability Account"
+    },
+    {
+      "id": "listingduration",
+      "type": "text",
+      "label": "eBay Duration"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationallowstorepickup",
+      "type": "checkbox",
+      "label": "Location Allow Store Pickup"
+    },
+    {
+      "id": "locationatpleadtime",
+      "type": "float",
+      "label": "Location ATP Lead Time"
+    },
+    {
+      "id": "locationaveragecost",
+      "type": "currency2",
+      "label": "Location Average Cost"
+    },
+    {
+      "id": "locationbinquantityavailable",
+      "type": "float",
+      "label": "Location Bin Available"
+    },
+    {
+      "id": "locationbuildtime",
+      "type": "float",
+      "label": "Location Work Order Lead Time"
+    },
+    {
+      "id": "locationcost",
+      "type": "currency",
+      "label": "Location Standard Cost"
+    },
+    {
+      "id": "locationcostaccountingstatus",
+      "type": "text",
+      "label": "Location Cost Accounting Status"
+    },
+    {
+      "id": "locationdefaultreturncost",
+      "type": "currency2",
+      "label": "Location Default Return Cost"
+    },
+    {
+      "id": "locationdemandsource",
+      "type": "text",
+      "label": "Location Demand Source"
+    },
+    {
+      "id": "locationfixedlotsize",
+      "type": "float",
+      "label": "Location Fixed Lot Size"
+    },
+    {
+      "id": "locationinvtclassification",
+      "type": "text",
+      "label": "Location Inventory Classification"
+    },
+    {
+      "id": "locationinvtcountinterval",
+      "type": "integer",
+      "label": "Location Inventory Count Interval"
+    },
+    {
+      "id": "locationlastinvtcountdate",
+      "type": "date",
+      "label": "Location Last Inventory Count Date"
+    },
+    {
+      "id": "locationleadtime",
+      "type": "integer",
+      "label": "Location Lead Time"
+    },
+    {
+      "id": "locationnextinvtcountdate",
+      "type": "date",
+      "label": "Location Next Inventory Count Date"
+    },
+    {
+      "id": "locationnohierarchy",
+      "type": "select",
+      "label": "Location (no hierarchy)"
+    },
+    {
+      "id": "locationpreferredstocklevel",
+      "type": "float",
+      "label": "Location Preferred Stock Level"
+    },
+    {
+      "id": "locationqtyavailforstorepickup",
+      "type": "float",
+      "label": "Location Available for Store Pickup"
+    },
+    {
+      "id": "locationquantityavailable",
+      "type": "float",
+      "label": "Location Available"
+    },
+    {
+      "id": "locationquantitybackordered",
+      "type": "float",
+      "label": "Location Back Ordered"
+    },
+    {
+      "id": "locationquantitycommitted",
+      "type": "float",
+      "label": "Location Committed"
+    },
+    {
+      "id": "locationquantityintransit",
+      "type": "float",
+      "label": "Location In Transit"
+    },
+    {
+      "id": "locationquantityonhand",
+      "type": "float",
+      "label": "Location On Hand"
+    },
+    {
+      "id": "locationquantityonorder",
+      "type": "float",
+      "label": "Location On Order"
+    },
+    {
+      "id": "locationreorderpoint",
+      "type": "float",
+      "label": "Location Reorder Point"
+    },
+    {
+      "id": "locationsafetystocklevel",
+      "type": "float",
+      "label": "Location Safety Stock Level"
+    },
+    {
+      "id": "locationstorepickupbufferstock",
+      "type": "float",
+      "label": "Location Store Pickup Buffer Stock"
+    },
+    {
+      "id": "locationsupplylotsizingmethod",
+      "type": "text",
+      "label": "Location Supply Lot Sizing Method"
+    },
+    {
+      "id": "locationsupplytype",
+      "type": "text",
+      "label": "Location Supply Type"
+    },
+    {
+      "id": "locationtotalvalue",
+      "type": "currency2",
+      "label": "Location Total Value"
+    },
+    {
+      "id": "manufacturer",
+      "type": "text",
+      "label": "Manufacturer"
+    },
+    {
+      "id": "manufactureraddr1",
+      "type": "text",
+      "label": "Manufacturer Address"
+    },
+    {
+      "id": "manufacturercity",
+      "type": "text",
+      "label": "Manufacturer City"
+    },
+    {
+      "id": "manufacturerstate",
+      "type": "text",
+      "label": "Manufacturer State"
+    },
+    {
+      "id": "manufacturertariff",
+      "type": "text",
+      "label": "Manufacturer Tariff"
+    },
+    {
+      "id": "manufacturertaxid",
+      "type": "text",
+      "label": "Manufacturer Tax Id"
+    },
+    {
+      "id": "manufacturerzip",
+      "type": "text",
+      "label": "Manufacturer Zip"
+    },
+    {
+      "id": "matchbilltoreceipt",
+      "type": "checkbox",
+      "label": "Match Bill To Receipt"
+    },
+    {
+      "id": "maximumquantity",
+      "type": "text",
+      "label": "Maximum Quantity"
+    },
+    {
+      "id": "memberitem",
+      "type": "select",
+      "label": "Member Item"
+    },
+    {
+      "id": "memberquantity",
+      "type": "float",
+      "label": "Member Quantity"
+    },
+    {
+      "id": "metataghtml",
+      "type": "clobtext",
+      "label": "Meta Tag Html"
+    },
+    {
+      "id": "minimumquantity",
+      "type": "text",
+      "label": "Minimum Quantity"
+    },
+    {
+      "id": "modified",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "label": "MOSS Applies"
+    },
+    {
+      "id": "mpn",
+      "type": "text",
+      "label": "MPN"
+    },
+    {
+      "id": "multmanufactureaddr",
+      "type": "checkbox",
+      "label": "Multiple Manufacture Addresses"
+    },
+    {
+      "id": "nextagcategory",
+      "type": "text",
+      "label": "NexTag Category"
+    },
+    {
+      "id": "nextagproductfeed",
+      "type": "checkbox",
+      "label": "NexTag Product Feed"
+    },
+    {
+      "id": "nextinvtcountdate",
+      "type": "date",
+      "label": "Next Inventory Count Date"
+    },
+    {
+      "id": "nopricemessage",
+      "type": "text",
+      "label": "No Price Message"
+    },
+    {
+      "id": "numactivelistings",
+      "type": "integer",
+      "label": "eBay Active Listings"
+    },
+    {
+      "id": "numberalloweddownloads",
+      "type": "text",
+      "label": "Number of Allowed Downloads"
+    },
+    {
+      "id": "numcurrentlylisted",
+      "type": "integer",
+      "label": "eBay Quantity Currently Listed"
+    },
+    {
+      "id": "obsoletedate",
+      "type": "date",
+      "label": "Obsolete Date"
+    },
+    {
+      "id": "obsoleterevision",
+      "type": "select",
+      "label": "Obsolete Revision"
+    },
+    {
+      "id": "offersupport",
+      "type": "checkbox",
+      "label": "Offer Support"
+    },
+    {
+      "id": "onlinecustomerprice",
+      "type": "currency",
+      "label": "Online Customer Price"
+    },
+    {
+      "id": "onlineprice",
+      "type": "currency",
+      "label": "Online Price"
+    },
+    {
+      "id": "onspecial",
+      "type": "checkbox",
+      "label": "On Special"
+    },
+    {
+      "id": "otherprices",
+      "type": "currency",
+      "label": "Other Prices"
+    },
+    {
+      "id": "othervendor",
+      "type": "select",
+      "label": "Vendor"
+    },
+    {
+      "id": "outofstockbehavior",
+      "type": "text",
+      "label": "Out Of Stock Behavior"
+    },
+    {
+      "id": "outofstockmessage",
+      "type": "text",
+      "label": "Out Of Stock Message"
+    },
+    {
+      "id": "overallquantitypricingtype",
+      "type": "select",
+      "label": "Overall Qty. Pricing Type"
+    },
+    {
+      "id": "pagetitle",
+      "type": "textarea",
+      "label": "Page Title"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    },
+    {
+      "id": "preferencecriterion",
+      "type": "text",
+      "label": "Preference Criterion"
+    },
+    {
+      "id": "preferredbin",
+      "type": "checkbox",
+      "label": "Preferred Bin"
+    },
+    {
+      "id": "preferredlocation",
+      "type": "select",
+      "label": "Preferred Location"
+    },
+    {
+      "id": "preferredstocklevel",
+      "type": "float",
+      "label": "Preferred Stock Level"
+    },
+    {
+      "id": "preferredstockleveldays",
+      "type": "integer",
+      "label": "Days Supply"
+    },
+    {
+      "id": "pricesincludetax",
+      "type": "checkbox",
+      "label": "Prices Include Tax"
+    },
+    {
+      "id": "pricinggroup",
+      "type": "select",
+      "label": "Pricing Group"
+    },
+    {
+      "id": "primarycategory",
+      "type": "text",
+      "label": "eBay Category Id"
+    },
+    {
+      "id": "prodpricevarianceacct",
+      "type": "select",
+      "label": "Production Price Variance Account"
+    },
+    {
+      "id": "prodqtyvarianceacct",
+      "type": "select",
+      "label": "Production Quantity Variance Account"
+    },
+    {
+      "id": "purchasedescription",
+      "type": "text",
+      "label": "Purchase Description"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "purchasepricevarianceacct",
+      "type": "select",
+      "label": "Purchase Price Variance Account"
+    },
+    {
+      "id": "purchaseunit",
+      "type": "select",
+      "label": "Purchase Unit"
+    },
+    {
+      "id": "quantityavailable",
+      "type": "float",
+      "label": "Available"
+    },
+    {
+      "id": "quantitybackordered",
+      "type": "float",
+      "label": "Back Ordered"
+    },
+    {
+      "id": "quantitycommitted",
+      "type": "float",
+      "label": "Committed"
+    },
+    {
+      "id": "quantityonhand",
+      "type": "float",
+      "label": "On Hand"
+    },
+    {
+      "id": "quantityonorder",
+      "type": "float",
+      "label": "On Order"
+    },
+    {
+      "id": "quantitypricingschedule",
+      "type": "select",
+      "label": "Quantity Pricing Schedule"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "reordermultiple",
+      "type": "integer",
+      "label": "Reorder Multiple"
+    },
+    {
+      "id": "reorderpoint",
+      "type": "float",
+      "label": "Reorder Point"
+    },
+    {
+      "id": "reserveprice",
+      "type": "currency",
+      "label": "eBay Reserve Price"
+    },
+    {
+      "id": "revrecforecastrule",
+      "type": "select",
+      "label": "Rev Rec Forecast Rule"
+    },
+    {
+      "id": "revreclassfxaccount",
+      "type": "select",
+      "label": "Foreign Currency Adjustment Account"
+    },
+    {
+      "id": "revrecschedule",
+      "type": "select",
+      "label": "Rev. Rec. Schedule"
+    },
+    {
+      "id": "roundupascomponent",
+      "type": "checkbox",
+      "label": "Round Up Quantity as Component"
+    },
+    {
+      "id": "safetystocklevel",
+      "type": "float",
+      "label": "Safety Stock Level"
+    },
+    {
+      "id": "safetystockleveldays",
+      "type": "integer",
+      "label": "Safety Stock Days"
+    },
+    {
+      "id": "salesdescription",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "salestaxcode",
+      "type": "select",
+      "label": "Tax Code"
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "label": "Sale Unit"
+    },
+    {
+      "id": "sameasprimarybookamortization",
+      "type": "checkbox",
+      "label": "Same as Primary Book Amortization"
+    },
+    {
+      "id": "sameasprimarybookrevrec",
+      "type": "checkbox",
+      "label": "Same as Primary Book Rev. Rec."
+    },
+    {
+      "id": "schedulebcode",
+      "type": "text",
+      "label": "Schedule B Code"
+    },
+    {
+      "id": "schedulebnumber",
+      "type": "text",
+      "label": "Schedule B Number"
+    },
+    {
+      "id": "schedulebquantity",
+      "type": "text",
+      "label": "Schedule B Quantity"
+    },
+    {
+      "id": "scrapacct",
+      "type": "select",
+      "label": "Scrap Account"
+    },
+    {
+      "id": "searchkeywords",
+      "type": "text",
+      "label": "Search Keywords"
+    },
+    {
+      "id": "seasonaldemand",
+      "type": "checkbox",
+      "label": "Seasonal Demand"
+    },
+    {
+      "id": "sellonebay",
+      "type": "checkbox",
+      "label": "eBay Auction"
+    },
+    {
+      "id": "serialnumber",
+      "type": "text",
+      "label": "Serial/Lot Number"
+    },
+    {
+      "id": "serialnumberlocation",
+      "type": "text",
+      "label": "Serial/Lot Number Location"
+    },
+    {
+      "id": "shipindividually",
+      "type": "checkbox",
+      "label": "Ships Individually"
+    },
+    {
+      "id": "shippackage",
+      "type": "select",
+      "label": "Shipping Package"
+    },
+    {
+      "id": "shippingrate",
+      "type": "currency",
+      "label": "Shipping Rate"
+    },
+    {
+      "id": "shoppingdotcomcategory",
+      "type": "text",
+      "label": "Shopping.com Category"
+    },
+    {
+      "id": "shoppingproductfeed",
+      "type": "checkbox",
+      "label": "Shopping.com Product Feed"
+    },
+    {
+      "id": "shopzillacategoryid",
+      "type": "integer",
+      "label": "Shopzilla Category Id"
+    },
+    {
+      "id": "shopzillaproductfeed",
+      "type": "checkbox",
+      "label": "Shopzilla Product Feed"
+    },
+    {
+      "id": "sitemappriority",
+      "type": "float",
+      "label": "Sitemap Priority"
+    },
+    {
+      "id": "softdescriptor",
+      "type": "select",
+      "label": "Soft Descriptor"
+    },
+    {
+      "id": "startingprice",
+      "type": "currency",
+      "label": "eBay Starting Price"
+    },
+    {
+      "id": "stockdescription",
+      "type": "text",
+      "label": "Stock Description"
+    },
+    {
+      "id": "stockunit",
+      "type": "select",
+      "label": "Stock Unit"
+    },
+    {
+      "id": "storedescription",
+      "type": "text",
+      "label": "Store Description"
+    },
+    {
+      "id": "storedetaileddescription",
+      "type": "clobtext",
+      "label": "Detailed Description"
+    },
+    {
+      "id": "storedisplayimage",
+      "type": "select",
+      "label": "Store Display Image"
+    },
+    {
+      "id": "storedisplayname",
+      "type": "text",
+      "label": "Store Display Name"
+    },
+    {
+      "id": "storedisplaythumbnail",
+      "type": "select",
+      "label": "Store Display Thumbnail"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "subtype",
+      "type": "text",
+      "label": "SubType"
+    },
+    {
+      "id": "supplylotsizingmethod",
+      "type": "text",
+      "label": "Supply Lot Sizing Method"
+    },
+    {
+      "id": "supplyreplenishmentmethod",
+      "type": "text",
+      "label": "Replenishment Method"
+    },
+    {
+      "id": "supplytype",
+      "type": "text",
+      "label": "Supply Type"
+    },
+    {
+      "id": "taxschedule",
+      "type": "select",
+      "label": "Tax Schedule"
+    },
+    {
+      "id": "thumbnailurl",
+      "type": "text",
+      "label": "Thumbnail URL"
+    },
+    {
+      "id": "totalvalue",
+      "type": "currency2",
+      "label": "Total Value"
+    },
+    {
+      "id": "tracklandedcost",
+      "type": "checkbox",
+      "label": "Track Landed Cost"
+    },
+    {
+      "id": "transferprice",
+      "type": "currency2",
+      "label": "Transfer Price"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "unbuildvarianceaccount",
+      "type": "select",
+      "label": "Unbuild Variance Account"
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "label": "Units Type"
+    },
+    {
+      "id": "upccode",
+      "type": "text",
+      "label": "UPC Code"
+    },
+    {
+      "id": "urlcomponent",
+      "type": "text",
+      "label": "URL Component"
+    },
+    {
+      "id": "usebins",
+      "type": "checkbox",
+      "label": "Use Bins"
+    },
+    {
+      "id": "usecomponentyield",
+      "type": "checkbox",
+      "label": "Use Component Yield"
+    },
+    {
+      "id": "usemarginalrates",
+      "type": "checkbox",
+      "label": "Use Marginal Rates"
+    },
+    {
+      "id": "vendor",
+      "type": "select",
+      "label": "Preferred Vendor"
+    },
+    {
+      "id": "vendorcode",
+      "type": "text",
+      "label": "Vendor Code"
+    },
+    {
+      "id": "vendorcost",
+      "type": "currency",
+      "label": "Vendor Price"
+    },
+    {
+      "id": "vendorcostentered",
+      "type": "currency",
+      "label": "Vendor Price (Entered)"
+    },
+    {
+      "id": "vendorname",
+      "type": "text",
+      "label": "Vendor Name"
+    },
+    {
+      "id": "vendorpricecurrency",
+      "type": "text",
+      "label": "Vendor Price Currency"
+    },
+    {
+      "id": "vendorschedule",
+      "type": "select",
+      "label": "Vendor Schedule"
+    },
+    {
+      "id": "vendreturnvarianceaccount",
+      "type": "select",
+      "label": "Vendor Return Variance Account"
+    },
+    {
+      "id": "vsoedeferral",
+      "type": "select",
+      "label": "Deferral"
+    },
+    {
+      "id": "vsoedelivered",
+      "type": "checkbox",
+      "label": "Default as Delivered"
+    },
+    {
+      "id": "vsoepermitdiscount",
+      "type": "select",
+      "label": "Permit Discount"
+    },
+    {
+      "id": "vsoeprice",
+      "type": "currency2",
+      "label": "VSOE Price"
+    },
+    {
+      "id": "vsoesopgroup",
+      "type": "checkbox",
+      "label": "Allocation Type"
+    },
+    {
+      "id": "website",
+      "type": "select",
+      "label": "Web Site"
+    },
+    {
+      "id": "weight",
+      "type": "float",
+      "label": "Weight"
+    },
+    {
+      "id": "weightunit",
+      "type": "select",
+      "label": "Weight Units"
+    },
+    {
+      "id": "wipacct",
+      "type": "select",
+      "label": "WIP Account"
+    },
+    {
+      "id": "wipvarianceacct",
+      "type": "select",
+      "label": "WIP Cost Variance Account"
+    },
+    {
+      "id": "yahooproductfeed",
+      "type": "checkbox",
+      "label": "Yahoo Shopping Product Feed"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "assemblyitembillofmaterials",
+      "description": "Assembly Item Bill of Materials",
+      "actualName": "Assembly Item Bill of Materials"
+    },
+    {
+      "id": "binonhand",
+      "description": "Bin On Hand",
+      "actualName": "Item Bin Number"
+    },
+    {
+      "id": "effectiverevision",
+      "description": "Effective Revision",
+      "actualName": "Item Revision"
+    },
+    {
+      "id": "inventorydetail",
+      "description": "Inventory Detail",
+      "actualName": "Inventory Detail"
+    },
+    {
+      "id": "inventorylocation",
+      "description": "Inventory Location",
+      "actualName": "Location"
+    },
+    {
+      "id": "inventorynumber",
+      "description": "Inventory Number",
+      "actualName": "Inventory Numbers"
+    },
+    {
+      "id": "inventorynumberbinonhand",
+      "description": "Inventory Number/Bin on Hand",
+      "actualName": "Inventory Number Bin"
+    },
+    {
+      "id": "obsoleterevision",
+      "description": "Obsolete Revision",
+      "actualName": "Item Revision"
+    },
+    {
+      "id": "preferredlocation",
+      "description": "Preferred Location",
+      "actualName": "Location"
+    },
+    {
+      "id": "preferredvendor",
+      "description": "Preferred Vendor",
+      "actualName": "Vendor"
+    },
+    {
+      "id": "pricing",
+      "description": "Pricing",
+      "actualName": "Pricing"
+    },
+    {
+      "id": "shopper",
+      "description": "Shopper",
+      "actualName": "Customer"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    },
+    {
+      "id": "vendor",
+      "description": "Vendor",
+      "actualName": "Vendor"
+    }
+  ]
+}

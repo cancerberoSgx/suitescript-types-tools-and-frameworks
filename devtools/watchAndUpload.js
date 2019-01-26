@@ -18,12 +18,12 @@ module.exports = async function () {
 
     watchAndUpload(client, watchFilter, folderPath, basePath, uploadConcurrency)
 
-    shell.exec('npx tsc -w', () => { })
+    shell.exec('npx tsc -w --preserveWatchOutput', () => { })
   }
   catch (ex) {
     console.error(`NetSuite Authentication failed `, ex, ex.toString(), ex.stack)
   }
-}
+} 
 
 
 

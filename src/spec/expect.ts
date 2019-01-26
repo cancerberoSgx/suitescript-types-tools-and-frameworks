@@ -1,5 +1,5 @@
 import { SpecRunner } from "./runner";
-import { ValueOf } from "../misc";
+import { ValueOf } from "../misc/misc";
 import { SpecError } from './describe';
 
 export function expect<R>(real: R): Expect<R> {

@@ -1,7 +1,9 @@
-import { NativeError } from './nstypes';
-import { nanoTime } from '@hitc/netsuite-types/N/util';
+import { NativeError } from '../nstypes';
+import { nanoTime } from 'N/util';
 
-//TODO: move this to a misc.ts file. Use it in sublistUtil.ts getLines()
+
+// collections
+ 
 export function array<T=number>(n: number, sample?: T): T[] {
   const a: (T | number)[] = []
   for (let i = 0; i < n; i++) {
@@ -21,6 +23,10 @@ export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[]) => 
   }
 }
 
+
+
+// types
+
 /** returns the type of the value with key K in the Mapped type T. Example: `type _string = ValueOf<A, 'a'>` . */
 export type ValueOf<T extends { [k: number]: any }, K extends number> = T[K];
 export type ValueOfStringKey<T extends { [k: string]: any }, K extends string> = T[K];
@@ -32,13 +38,8 @@ export function checkThrow<T>(r?: T, msg = 'Throwing on undefined value'): T {
   if (!r) { throw new Error(msg) }
   return r
 }
-
 export type MapStringKeySameTypeValues<T extends any = any> = { [key: string]: T }
-// export type TypedMapStringKey<T extends EmptyObject> = {[key: StringKeyOf<T>]: ValueOfStringKey<T, typeof key>}
 export type EmptyObject = {}
-
-
-
 export interface TypedMap<PropTypes extends EmptyObject> {
   get<T extends StringKeyOf<PropTypes>>(name: T): ValueOfStringKey<PropTypes, T>
   set<T extends StringKeyOf<PropTypes>>(name: T, value: ValueOfStringKey<PropTypes, T>): void
@@ -53,6 +54,8 @@ export class TypedMapImpl<PropTypes extends EmptyObject> implements TypedMap<Pro
   }
 }
 
+
+
 export function printNativeError(error: NativeError) {
   return `${error && error.type}, ${error && error.name}
 Cause: ${error && error.message}
@@ -60,14 +63,15 @@ Stack Trace:
 ${(error.stack && Array.isArray(error.stack)) ? error.stack.map(s => repeat(2, ' ') + s).join('\n') : error.stack}`
 }
 
+
+
 export function printMs(ms: number, config: { minutes?: boolean, seconds?: boolean, ms?: boolean } = { minutes: false, seconds: true, ms: true }) {
   config = { ...{ minutes: false, seconds: true, ms: true }, ...config }
   const seconds = config.seconds && Math.floor(ms / 1000)
   const minutes = config.minutes && seconds && Math.floor(seconds / 60)
-  const milliseconds = config.ms && ms % 1000 || ms
+  const milliseconds = config.ms && Math.floor(ms % 1000 || ms)
   return `${minutes ? `${minutes} minutes ` : ''}${seconds ? `${seconds} seconds ` : ''}${milliseconds ? `${milliseconds} milliseconds ` : ''}`
 }
-
 export function now(unit: 'milliseconds' | 'nanoseconds' = 'milliseconds') {
   return unit === 'milliseconds' ? nanosecondsToMilliseconds(nanoTime()) : nanoTime()
 }

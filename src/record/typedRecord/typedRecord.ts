@@ -3,7 +3,7 @@
 // IDEA: consume record definition XML and from there generate the concrete record generics declaration code. Could also be quering the record type with suitesscript
 
 import * as record from "N/record";
-import { StringKeyOf, TODO, TypedMap, ValueOfStringKey } from '../../misc';
+import { StringKeyOf, TODO, TypedMap, ValueOfStringKey } from '../../misc/misc';
 import {  FieldTypes } from './fieldTypes';
 
 export interface Record<Fields extends FieldTypes = FieldTypes, Sublists extends SublistTypes = SublistTypes> {

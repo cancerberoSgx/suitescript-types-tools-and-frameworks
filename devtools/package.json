@@ -1,0 +1,28 @@
+{
+    "name": "suitescript-suitetalk-devtools",
+    "version": "0.0.2",
+    "description": "developer tools for TypeScript SuiteScript projects using @hitc/netsuite-types2 with authentication, upload and file watch, support.",
+    "private": false,
+    "scripts": {
+    },
+    "keywords": [
+        "SuiteScript",
+        "SuiteScript 2.0",
+        "NetSuite",
+        "utilities",
+        "high level APIs",
+        "API",
+        "testing",
+        "Commerce",
+        "TypeScript"
+    ],
+    "author": "Sebastián Gurin",
+    "license": "MIT",
+    "devDependencies": {
+        "gulp-watch": "^4.3.11",
+        "hasha": "^3.0.0",
+        "netsuite-uploader-util": "^1.1.3",
+        "p-queue": "^3.0.0",
+        "shelljs": "^0.7.8"
+    }
+}

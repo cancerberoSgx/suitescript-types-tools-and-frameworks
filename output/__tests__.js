@@ -1,4 +1,4 @@
-define(["require", "exports", "./spec/runner", "./spec/textReporter", "./log/log", "./search/__tests__/resultsTest", "./catalog/__tests__/matrixItemTest", "./record/__tests__/recordRefTest", "./misc"], function (require, exports, runner_1, textReporter_1, log_1, resultsTest_1, matrixItemTest_1, recordRefTest_1, misc_1) {
+define(["require", "exports", "./spec/runner", "./spec/textReporter", "./log/log", "./search/__tests__/resultsTest", "./catalog/__tests__/matrixItemTest", "./record/__tests__/recordRefTest", "./misc/misc"], function (require, exports, runner_1, textReporter_1, log_1, resultsTest_1, matrixItemTest_1, recordRefTest_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function runSpecs() {

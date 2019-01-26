@@ -3,7 +3,7 @@ import { It } from "./it";
 import { ExpectResult } from "./expect";
 import { log } from "../log/log";
 import { printError } from './textReporter';
-import { printNativeError, now } from '../misc';
+import { printNativeError, now } from '../misc/misc';
 
 /** user needs to instantiate this, add their describe functions and execute run() in order to run the tests adn obtain the results */
 export class SpecRunner {

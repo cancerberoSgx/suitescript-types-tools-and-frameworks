@@ -6,7 +6,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
     }
     return t;
 };
-define(["require", "exports", "../log/log", "./textReporter", "../misc"], function (require, exports, log_1, textReporter_1, misc_1) {
+define(["require", "exports", "../log/log", "./textReporter", "../misc/misc"], function (require, exports, log_1, textReporter_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /** user needs to instantiate this, add their describe functions and execute run() in order to run the tests adn obtain the results */

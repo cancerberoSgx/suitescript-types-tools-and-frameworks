@@ -1,7 +1,7 @@
 import { ReportConfig, Reporter, ReportResult } from "./reporter";
 import { DescribeResult, ItResult } from "./runner";
 import { ExpectResult } from "./expect";
-import { repeat, find, printNativeError, printMs } from "../misc";
+import { repeat, find, printNativeError, printMs } from "../misc/misc";
 import { log } from "../log/log";
 import { Describe, SpecError } from './describe';
 import { NativeError } from '../nstypes';

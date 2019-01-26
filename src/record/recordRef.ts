@@ -1,5 +1,5 @@
 import * as record from 'N/record';
-import { checkThrow } from '../misc';
+import { checkThrow } from '../misc/misc';
 import { Result } from '@hitc/netsuite-types/N/search';
 
 

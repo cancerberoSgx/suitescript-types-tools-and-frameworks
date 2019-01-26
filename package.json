@@ -10,7 +10,7 @@
         "build": "npx tsc",
         "clean": "rm -rf output",
         "build-watch": "npx tsc -w",
-        "dev": "npx gulp",
+        "dev": "node devtools/dev",
         "all": "npm run clean && npm run build && npm test"
     },
     "keywords": [
@@ -26,13 +26,9 @@
     ],
     "author": "Sebastián Gurin",
     "license": "MIT",
-    "dependencies": {
-        "xml2js": "^0.4.19"
-    },
     "devDependencies": {
         "@hitc/netsuite-types": "file:../../git/typings-suitescript-2.0",
         "@types/shelljs": "^0.8.1",
-        "gulp": "^3.9.1",
         "gulp-watch": "^4.3.11",
         "hasha": "^3.0.0",
         "netsuite-uploader-util": "^1.1.3",

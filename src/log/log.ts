@@ -1,5 +1,5 @@
 // import { response } from './responseLogger';
-import { printMs } from '../misc';
+import { printMs } from '../misc/misc';
 import { nanoTime } from 'N/util'
 
 // export interface LoggerConfig{}

@@ -1,4 +1,4 @@
-define(["require", "exports", "N/search", "../misc", "../search/results"], function (require, exports, search_1, misc_1, results_1) {
+define(["require", "exports", "N/search", "../misc/misc", "../search/results"], function (require, exports, search_1, misc_1, results_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function findById(id, columns) {

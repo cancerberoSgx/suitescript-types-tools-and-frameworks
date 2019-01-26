@@ -1,4 +1,4 @@
-define(["require", "exports", "../misc", "../log/log"], function (require, exports, misc_1, log_1) {
+define(["require", "exports", "../misc/misc", "../log/log"], function (require, exports, misc_1, log_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var TextReporter = /** @class */ (function () {

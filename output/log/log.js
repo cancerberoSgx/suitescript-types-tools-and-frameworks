@@ -1,4 +1,4 @@
-define(["require", "exports", "../misc", "N/util"], function (require, exports, misc_1, util_1) {
+define(["require", "exports", "../misc/misc", "N/util"], function (require, exports, misc_1, util_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var defaultLogger;

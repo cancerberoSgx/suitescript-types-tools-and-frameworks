@@ -1,5 +1,5 @@
 import { create, Operator, Result, Type } from 'N/search';
-import { checkThrow } from '../misc';
+import { checkThrow } from '../misc/misc';
 import { find } from '../search/results';
 
 export function findById(id?: string, columns: string[]=[]): Result | undefined {

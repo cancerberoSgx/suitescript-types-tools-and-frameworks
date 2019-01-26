@@ -22,6 +22,12 @@ define(["require", "exports", "N/util"], function (require, exports, util_1) {
         return array(n, s).join('');
     }
     exports.repeat = repeat;
+    function indent(i, tabSize) {
+        if (i === void 0) { i = 1; }
+        if (tabSize === void 0) { tabSize = 2; }
+        return repeat(i * tabSize, ' ');
+    }
+    exports.indent = indent;
     function find(a, predicate) {
         for (var i = 0; i < a.length; i++) {
             var v = a[i];

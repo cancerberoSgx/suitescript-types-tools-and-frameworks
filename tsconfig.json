@@ -28,5 +28,5 @@
     }
   },
   "typeAcquisition": {"enable": false},
-  "exclude": ["./spec", "./output", "node_modules", "auxiliary-projects"]
+  "exclude": ["./spec", "./output", "./metadataFromRecordBrowser", "node_modules", "auxiliary-projects"]
 }

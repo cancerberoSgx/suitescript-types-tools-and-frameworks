@@ -2,6 +2,7 @@
 
 import { TypedRecord, TypedRecordImpl } from '../typedRecord';
 import { Record } from 'N/record'
+import { RecordOrRefResult } from '../../recordRef';
 
 /** 
  * Commerce Category Fields Definition.
@@ -198,8 +199,11 @@ export interface commercecategoryRecord extends TypedRecord<commercecategoryFiel
 
 }
 export class commercecategoryRecordImpl extends TypedRecordImpl<commercecategoryFields> implements commercecategoryRecord {
-  constructor(public nsRecord: Record) {
-    super(nsRecord)
+  constructor(nsRecordOrRefOrResult: RecordOrRefResult) {
+    super(nsRecordOrRefOrResult)
+
+    this._fields = new commercecategoryFieldsImpl(this)
+    // this._sublists = new commercecategoryFieldsImpl(this)
   }
 }
 

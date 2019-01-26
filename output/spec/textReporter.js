@@ -76,7 +76,7 @@ define(["require", "exports", "../misc/misc", "../log/log"], function (require, 
             //   return 'detailed format not implemented'
             // }
             // else {
-            return "" + misc_1.repeat(indentLevel * this.config.tabSize, ' ');
+            return "" + misc_1.indent(indentLevel * this.config.tabSize);
             // }
         };
         return TextReporter;

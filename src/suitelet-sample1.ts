@@ -18,79 +18,17 @@ import { actionsExperiment1 } from './experiments/actions1';
 import { writeRecordJsonInResponse } from './introspection/dumpRecordToJsonResponse';
 import { recordToJsonTest1 } from './experiments/recordToJson1';
 import { recordFieldsTypesTest1 } from './experiments/recordFieldsTypesTest1';
+import { typedRecordTest } from './record/typedRecord/typedRecordTest';
 // import { getObjectValueTypes } from './misc';
 // import * as nsError from 'N/error';
 
-// //@ts-ignore
-// var GLOBAL = this
-// GLOBAL.pepe=1
-// GLOBAL.GLOBAL=GLOBAL
-
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
-  // context.response
-  // recordToJsonTest1(context.response)
-  
-  // try {
-    // setde
     setDefaultLogger(new ResponseLogger(context.response))
 
-    recordFieldsTypesTest1(context.response)
+    typedRecordTest()
 
-    // actionsExperiment1()
-    // console.log('hello using console.log')
-    // console.time('timetest')  
-    // initializeLogger({ response: context.response, enabled: true })
-    // runSpecs()
-    // console.timeEnd('timetest')
-  // }catch(ex){  
-
-  // var o = {a: 1, b: 'asdas'}
-// //@ts-ignore
-//   const This = this
-//     console.log(`
-
-// this: 
-// ${printObjectValueTypes(This)}
-
-// context: 
-// ${printObjectValueTypes(context)}
-
-// exports: 
-// ${printObjectValueTypes(exports)}
-
-// require: 
-// ${printObjectValueTypes (require)}
-
-// require.toUrl() : 
-// ${(require as any).toUrl.toString()}
-// `)
-
-
-  // }
-  // function printError(ex:Error&{fileName: string, lineNumber: number}):string {
-  //   return `Error ${ex.name} ${ex.message} ${ex.fileName} ${ex.lineNumber}`
-  // }
-    // load({id: 18, type: 'commercecategory', })
-        // @ts-ignore
-  //       const i = firstNonMatrixItemResult() as any
-  // log('seba'+(!!i))
-  //       log(`${JSON.stringify(i && getObjectValueTypes(i))}
-        
-
-  //       ${JSON.stringify(i!.toJSON(), null, 2)}
-        
-
-  //       ${JSON.stringify(load({id: i.id, type: i.recordType}), null, 2)}`)
-
-    // runSomeSpecs()
-
-    // log('foo2')
- 
-
-    // log(JSON.stringify(results,null, 2));
-
-
+    
     // const newCategory = copyCategory({
     //     categoryId: 18,
     //     newPrimaryParent: null

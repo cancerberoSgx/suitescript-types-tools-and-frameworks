@@ -2,58 +2,14 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/log", "./log/responseLogger", "./experiments/recordFieldsTypesTest1"], function (require, exports, log_1, responseLogger_1, recordFieldsTypesTest1_1) {
+define(["require", "exports", "./log/log", "./log/responseLogger", "./record/typedRecord/typedRecordTest"], function (require, exports, log_1, responseLogger_1, typedRecordTest_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // import { getObjectValueTypes } from './misc';
     // import * as nsError from 'N/error';
-    // //@ts-ignore
-    // var GLOBAL = this
-    // GLOBAL.pepe=1
-    // GLOBAL.GLOBAL=GLOBAL
     exports.onRequest = function (context) {
-        // context.response
-        // recordToJsonTest1(context.response)
-        // try {
-        // setde
         log_1.setDefaultLogger(new responseLogger_1.ResponseLogger(context.response));
-        recordFieldsTypesTest1_1.recordFieldsTypesTest1(context.response);
-        // actionsExperiment1()
-        // console.log('hello using console.log')
-        // console.time('timetest')  
-        // initializeLogger({ response: context.response, enabled: true })
-        // runSpecs()
-        // console.timeEnd('timetest')
-        // }catch(ex){  
-        // var o = {a: 1, b: 'asdas'}
-        // //@ts-ignore
-        //   const This = this
-        //     console.log(`
-        // this: 
-        // ${printObjectValueTypes(This)}
-        // context: 
-        // ${printObjectValueTypes(context)}
-        // exports: 
-        // ${printObjectValueTypes(exports)}
-        // require: 
-        // ${printObjectValueTypes (require)}
-        // require.toUrl() : 
-        // ${(require as any).toUrl.toString()}
-        // `)
-        // }
-        // function printError(ex:Error&{fileName: string, lineNumber: number}):string {
-        //   return `Error ${ex.name} ${ex.message} ${ex.fileName} ${ex.lineNumber}`
-        // }
-        // load({id: 18, type: 'commercecategory', })
-        // @ts-ignore
-        //       const i = firstNonMatrixItemResult() as any
-        // log('seba'+(!!i))
-        //       log(`${JSON.stringify(i && getObjectValueTypes(i))}
-        //       ${JSON.stringify(i!.toJSON(), null, 2)}
-        //       ${JSON.stringify(load({id: i.id, type: i.recordType}), null, 2)}`)
-        // runSomeSpecs()
-        // log('foo2')
-        // log(JSON.stringify(results,null, 2));
+        typedRecordTest_1.typedRecordTest();
         // const newCategory = copyCategory({
         //     categoryId: 18,
         //     newPrimaryParent: null

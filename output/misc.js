@@ -1,4 +1,12 @@
-define(["require", "exports"], function (require, exports) {
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
+define(["require", "exports", "@hitc/netsuite-types/N/util"], function (require, exports, util_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     //TODO: move this to a misc.ts file. Use it in sublistUtil.ts getLines()
@@ -44,16 +52,26 @@ define(["require", "exports"], function (require, exports) {
         return TypedMapImpl;
     }());
     exports.TypedMapImpl = TypedMapImpl;
-    function getObjectKeys(o) {
-        var a = [];
-        for (var k in o) {
-            a.push(k);
-        }
-        return a;
+    function printNativeError(error) {
+        return (error && error.type) + ", " + (error && error.name) + "\nCause: " + (error && error.message) + "\nStack Trace: \n" + ((error.stack && Array.isArray(error.stack)) ? error.stack.map(function (s) { return repeat(2, ' ') + s; }).join('\n') : error.stack);
     }
-    exports.getObjectKeys = getObjectKeys;
-    function getObjectValueTypes(o) {
-        return getObjectKeys(o).map(function (key) { return ({ key: key + '', typeOfValue: typeof o[key] }); });
+    exports.printNativeError = printNativeError;
+    function printMs(ms, config) {
+        if (config === void 0) { config = { minutes: false, seconds: true, ms: true }; }
+        config = __assign({ minutes: false, seconds: true, ms: true }, config);
+        var seconds = config.seconds && Math.floor(ms / 1000);
+        var minutes = config.minutes && seconds && Math.floor(seconds / 60);
+        var milliseconds = config.ms && ms % 1000 || ms;
+        return "" + (minutes ? minutes + " minutes " : '') + (seconds ? seconds + " seconds " : '') + (milliseconds ? milliseconds + " milliseconds " : '');
     }
-    exports.getObjectValueTypes = getObjectValueTypes;
+    exports.printMs = printMs;
+    function now(unit) {
+        if (unit === void 0) { unit = 'milliseconds'; }
+        return unit === 'milliseconds' ? nanosecondsToMilliseconds(util_1.nanoTime()) : util_1.nanoTime();
+    }
+    exports.now = now;
+    function nanosecondsToMilliseconds(n) {
+        return n / 1e+6;
+    }
+    exports.nanosecondsToMilliseconds = nanosecondsToMilliseconds;
 });

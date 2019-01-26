@@ -1,4 +1,4 @@
-import { log } from '../../log/responseLogger';
+import { log } from "../../log/log";
 import { CopyRecordAbstractConfig } from './copyRecord';
 
 /** 

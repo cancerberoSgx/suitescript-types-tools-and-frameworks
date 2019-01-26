@@ -1,8 +1,10 @@
 import { ReportConfig, Reporter, ReportResult } from "./reporter";
 import { DescribeResult, ItResult } from "./runner";
 import { ExpectResult } from "./expect";
-import { repeat, find } from "../misc";
-import { log } from "../log/responseLogger";
+import { repeat, find, printNativeError, printMs } from "../misc";
+import { log } from "../log/log";
+import { Describe, SpecError } from './describe';
+import { NativeError } from '../nstypes';
 
 export interface TextReportResult extends ReportResult {
   output: string
@@ -26,6 +28,9 @@ export class TextReporter implements Reporter<TextReportConfig, TextReportResult
     this.config.result.results
     .forEach(d=>d.results.filter(i=>i.type!=='x')//TODO:fit and fdescribe
     .forEach(i=>{
+      if(i.error){
+        log(printError(i.error, i, d))
+      }
       totalItCount++
       const expectFail =i.results.filter(r=>{
         totalExpectCount++
@@ -40,12 +45,15 @@ export class TextReporter implements Reporter<TextReportConfig, TextReportResult
     output+=`
 ${totalItCount} spec, ${totalItFail} failures ${(this.config.format==='detailed' || true) ? `
 ${totalExpectCount} expectations, ${totalExpectFail} failures` : ``}
-Finished in ${this.config.result.totalTime/1000} seconds
+Finished in ${printMs(this.config.result.totalTime, {seconds: true, ms: true})}
 `
     return { 
       output
     }
   } 
+//   printError(i: It, d: Describe): string {
+//     
+//       }
   renderDescribe(d: DescribeResult, indentLevel = 0): string {
     // if (this.config.format === 'detailed') {
     //   return 'detailed format not implemented'
@@ -67,17 +75,17 @@ ${this.indent(indentLevel)}${d.name}: ${failIts.map(i => this.renderIt(i, indent
     // }
     // else {
       return `
-${this.indent(indentLevel)}${i.name}: ${i.results.map(r => this.renderExpect(r, indentLevel + 1))}`
+${this.indent(indentLevel)}${i.name}: ${i.results.filter(r => this.config.format==='detailed' || r.type=== 'fail').map((r, index) => this.renderExpect(r, index, indentLevel + 1))}`
     }
   // }
-
-  renderExpect(r: ExpectResult, indentLevel: number): any {
+  
+  renderExpect(r: ExpectResult, index: number, indentLevel: number): any {
     // if (this.config.format === 'detailed') {
     //   return 'detailed format not implemented'
     // }
     // else {
       return `
-${this.indent(indentLevel)}${r.message}`
+${this.indent(indentLevel)}${r.message} (expect #${index+1})`
     // }
   }
 
@@ -90,4 +98,10 @@ ${this.indent(indentLevel)}${r.message}`
     // }
 
   }
+}
+
+export function 
+printError(error: SpecError, i?: ItResult, d?: DescribeResult): any {
+  return `Error: in ${d&&d.name} - ${i&&i.name}:
+  ${printNativeError(error.nativeException)}`
 }

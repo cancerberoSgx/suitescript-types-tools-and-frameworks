@@ -2,21 +2,44 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/responseLogger", "./__tests__"], function (require, exports, responseLogger_1, __tests__1) {
+define(["require", "exports", "./log/log", "./__tests__", "./log/responseLogger"], function (require, exports, log_1, __tests__1, responseLogger_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // import { getObjectValueTypes } from './misc';
     // import * as nsError from 'N/error';
+    // //@ts-ignore
+    // var GLOBAL = this
+    // GLOBAL.pepe=1
+    // GLOBAL.GLOBAL=GLOBAL
     exports.onRequest = function (context) {
-        try {
-            responseLogger_1.initialize({ response: context.response, enabled: true });
-            __tests__1.runSpecs();
-        }
-        catch (ex) {
-            responseLogger_1.log("" + printError(ex));
-        }
-        function printError(ex) {
-            return "Error " + ex.name + " " + ex.message + " " + ex.fileName + " " + ex.lineNumber;
-        }
+        // try {
+        // setde
+        log_1.setDefaultLogger(new responseLogger_1.ResponseLogger(context.response));
+        // console.log('hello using console.log')
+        console.time('timetest');
+        // initializeLogger({ response: context.response, enabled: true })
+        __tests__1.runSpecs();
+        console.timeEnd('timetest');
+        // }catch(ex){  
+        // var o = {a: 1, b: 'asdas'}
+        // //@ts-ignore
+        //   const This = this
+        //     console.log(`
+        // this: 
+        // ${printObjectValueTypes(This)}
+        // context: 
+        // ${printObjectValueTypes(context)}
+        // exports: 
+        // ${printObjectValueTypes(exports)}
+        // require: 
+        // ${printObjectValueTypes (require)}
+        // require.toUrl() : 
+        // ${(require as any).toUrl.toString()}
+        // `)
+        // }
+        // function printError(ex:Error&{fileName: string, lineNumber: number}):string {
+        //   return `Error ${ex.name} ${ex.message} ${ex.fileName} ${ex.lineNumber}`
+        // }
         // load({id: 18, type: 'commercecategory', })
         // @ts-ignore
         //       const i = firstNonMatrixItemResult() as any

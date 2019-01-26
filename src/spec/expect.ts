@@ -69,7 +69,7 @@ class ExpectImpl<R> implements Expect<R>{
 export function fail(label?: string) {
   const e = new Error('fail '+label)
   const error = {...e,
-    nativeException: e,
+    nativeException: e as any,
     isFail:true,
     failLabel: label 
   }
@@ -84,7 +84,7 @@ export function fail(label?: string) {
 export function skip(label?: string): any {
   const e = new Error('fail '+label)
   const error = {...e,
-    nativeException: e,
+    nativeException: e as any,
     isSkip:true,
     skipLabel: label 
   }

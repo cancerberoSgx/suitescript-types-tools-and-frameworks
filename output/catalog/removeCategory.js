@@ -1,4 +1,4 @@
-define(["require", "exports", "N/record", "../log/responseLogger", "../record/sublistUtil"], function (require, exports, record_1, responseLogger_1, sublistUtil_1) {
+define(["require", "exports", "N/record", "../log/log", "../record/sublistUtil"], function (require, exports, record_1, log_1, sublistUtil_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
@@ -8,31 +8,31 @@ define(["require", "exports", "N/record", "../log/responseLogger", "../record/su
      *  * then remove the record
      */
     function removeCategory(config) {
-        responseLogger_1.log("removeCategory: starts for " + config.categoryId);
+        log_1.log("removeCategory: starts for " + config.categoryId);
         var record = record_1.load({ id: config.categoryId, type: 'commercecategory' });
-        responseLogger_1.log("removeCategory: removing category's subcategories");
+        log_1.log("removeCategory: removing category's subcategories");
         sublistUtil_1.getLines({ record: record, sublistId: 'subcategories' }).forEach(function (line) {
             record.removeLine({ line: line, sublistId: 'subcategories', ignoreRecalc: true });
         });
-        responseLogger_1.log("removeCategory: removing category's items");
+        log_1.log("removeCategory: removing category's items");
         sublistUtil_1.getLines({ record: record, sublistId: 'items' }).forEach(function (line) {
             // HEADS UP line: 0 because we are removing if not UNEXPECTED_ERROR
-            responseLogger_1.log("removing line " + line + " sublistId items, currentValueFieldItem: " + record.getSublistValue({ sublistId: 'items', line: 0, fieldId: 'item' }) + ", currentValueFieldprimarycategory: " + record.getSublistValue({ sublistId: 'items', line: 0, fieldId: 'primarycategory' }));
+            log_1.log("removing line " + line + " sublistId items, currentValueFieldItem: " + record.getSublistValue({ sublistId: 'items', line: 0, fieldId: 'item' }) + ", currentValueFieldprimarycategory: " + record.getSublistValue({ sublistId: 'items', line: 0, fieldId: 'primarycategory' }));
             record.removeLine({ line: 0, sublistId: 'items', ignoreRecalc: true });
         });
         var parentId = record_1.load({ id: config.categoryId, type: 'commercecategory' }).getValue('primaryparent');
-        responseLogger_1.log("removeCategory: removing category from parent " + parentId);
+        log_1.log("removeCategory: removing category from parent " + parentId);
         if (parentId) {
             var parent_1 = record_1.load({ id: parentId + '', type: 'commercecategory' });
             sublistUtil_1.getLines({ record: parent_1, sublistId: 'subcategories' }).forEach(function (line) {
                 if (parent_1.getSublistValue({ sublistId: 'subcategories', line: line, fieldId: 'subcategory' }) == parent_1.id) {
-                    responseLogger_1.log("removeCategory: removing category from parent found at line " + line);
+                    log_1.log("removeCategory: removing category from parent found at line " + line);
                     parent_1.removeLine({ line: line, sublistId: 'subcategories', ignoreRecalc: true });
                 }
             });
             parent_1.save();
         }
-        responseLogger_1.log("removeCategory: removing category record " + parentId);
+        log_1.log("removeCategory: removing category record " + parentId);
         record.save();
         record_1.delete({ id: record.id, type: 'commercecategory', });
     }

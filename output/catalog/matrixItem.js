@@ -21,19 +21,16 @@ define(["require", "exports", "N/search", "../misc", "../search/results"], funct
     }
     exports.existsItemWithId = existsItemWithId;
     function findMatrixChild(id) {
-        var isChild;
         var filter = ['matrixchild', search_1.Operator.IS, 'T'];
-        search_1.create({
+        return results_1.find(search_1.create({
             type: search_1.Type.ITEM,
             filters: id ? [
                 ['internalid', search_1.Operator.ANYOF, id],
                 'AND', filter
             ] : filter
-        }).run().each(function (item) {
-            isChild = item;
-            return false;
+        }).run(), function (result) {
+            return true;
         });
-        return isChild;
     }
     exports.findMatrixChild = findMatrixChild;
     function findMatrixChildOrThrow(id) {
@@ -45,21 +42,13 @@ define(["require", "exports", "N/search", "../misc", "../search/results"], funct
     }
     exports.isMatrixChild = isMatrixChild;
     function findMatrix(id) {
-        var found;
-        // [
-        //   ['internalid', Operator.ANYOF, id],
-        //   'AND',
-        //   ['matrix', Operator.IS, 'T']
-        // ] 
         var filter = ['matrix', search_1.Operator.IS, 'T'];
-        search_1.create({
+        return results_1.find(search_1.create({
             type: search_1.Type.ITEM,
             filters: id ? [['internalid', search_1.Operator.ANYOF, id], 'AND', filter] : filter
-        }).run().each(function (item) {
-            found = item;
-            return false;
+        }).run(), function (result) {
+            return true;
         });
-        return found;
     }
     exports.findMatrix = findMatrix;
     function findMatrixOrThrow(id) {
@@ -72,23 +61,20 @@ define(["require", "exports", "N/search", "../misc", "../search/results"], funct
     }
     exports.isMatrix = isMatrix;
     function findMatrixParent(id) {
-        var found; // TODO use find()
         var filter = [
             ['matrix', search_1.Operator.IS, 'T'],
             'AND',
             ['matrixchild', search_1.Operator.IS, 'F']
         ];
-        search_1.create({
+        return results_1.find(search_1.create({
             type: search_1.Type.ITEM,
             filters: id ? [
                 ['internalid', search_1.Operator.ANYOF, id],
                 'AND', filter
             ] : filter
-        }).run().each(function (item) {
-            found = item;
-            return false;
+        }).run(), function (result) {
+            return true;
         });
-        return found;
     }
     exports.findMatrixParent = findMatrixParent;
     function findMatrixParentOrThrow(id) {
@@ -99,10 +85,6 @@ define(["require", "exports", "N/search", "../misc", "../search/results"], funct
         return !!findMatrixParent(id);
     }
     exports.isMatrixParent = isMatrixParent;
-    // export function findNonMatrixItemRecord(id: string): record.Record|undefined {
-    //   const result = findNonMatrixItem(id)
-    //   return result ? asRecord(result) : undefined
-    // }
     function firstNonMatrixItem() {
         return findNonMatrixItem();
     }
@@ -113,20 +95,6 @@ define(["require", "exports", "N/search", "../misc", "../search/results"], funct
             'AND',
             ['matrixchild', search_1.Operator.IS, 'F']
         ];
-        // if (id) {
-        //   filters = [
-        //     ['internalid', Operator.ANYOF, id],
-        //     'AND',
-        //     [
-        //       ['matrix', Operator.IS, 'T'],
-        //       'AND',
-        //       ['matrixchild', Operator.IS, 'F']
-        //     ]
-        //   ]
-        // }
-        // else {
-        //   filters = 
-        // }
         return results_1.find(search_1.create({
             type: search_1.Type.ITEM,
             filters: id ? [

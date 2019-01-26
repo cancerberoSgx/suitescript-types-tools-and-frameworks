@@ -6,18 +6,27 @@ define(["require", "exports", "N/record", "../misc"], function (require, exports
     }
     exports.isRecordId = isRecordId;
     function isRecordRef(r) {
-        return !!((typeof r.getLineCount === 'undefined') && r.id && r.type);
+        return !!(
+        // ((typeof (r as record.Record).getLineCount === 'undefined') &&
+        !isRecord(r) &&
+            r.id && r.type //&&
+        // (typeof (r as record.Record).findMatrixSublistLineWIthValue === 'undefined')
+        );
     }
     exports.isRecordRef = isRecordRef;
     function isRecord(r) {
-        return !isRecordRef(r);
+        return (
+        // !isRecordRef(r) &&
+        (typeof r.setValue !== 'undefined') && !!r.getFields && !!r.getSublistFields
+        // (typeof (r as record.Record).getCurrentMatrixSublistValue !== 'undefined')
+        );
     }
     exports.isRecord = isRecord;
     /** type is needed in case they provide just an id*/
     function asRecord(rr) {
         // let rref: RecordOrRef = rr
         // if (isRecordId(rr)) {
-        //   if (!type) {
+        //   if (!type) { 
         //     throw new Error('asRecord() requires a type in case just an id is given')
         //   }
         //   return record.load({ id: rr, type })

@@ -20,19 +20,16 @@ export function existsItemWithId(id: string): boolean {
 
  
 export function findMatrixChild(id?: string): Result | undefined {
-    let isChild: Result | undefined
     const filter = ['matrixchild', Operator.IS, 'T']
-    create({
+    return find(create({
         type: Type.ITEM,
         filters: id ? [
             ['internalid', Operator.ANYOF, id],
             'AND', filter
         ] : filter
-    }).run().each(item => {
-        isChild = item;
-        return false
-    });
-    return isChild
+    }).run(), result => {
+        return true
+    })
 }
 export function findMatrixChildOrThrow(id?: string): Result {
     return checkThrow(findMatrixChild(id), 'cannot find matrix child item with id ' + id)
@@ -43,27 +40,17 @@ export function isMatrixChild(id: string): boolean {
 
 
 export function findMatrix(id?: string): Result | undefined {
-    var found: Result | undefined
-    // [
-    //   ['internalid', Operator.ANYOF, id],
-    //   'AND',
-    //   ['matrix', Operator.IS, 'T']
-    // ] 
     const filter = ['matrix', Operator.IS, 'T']
-    create({
+    return find(create({
         type: Type.ITEM,
         filters: id ? [['internalid', Operator.ANYOF, id], 'AND', filter] : filter
-    }).run().each(item => {
-        found = item
-        return false
-    });
-    return found
+    }).run(), result => {
+        return true
+    })
 }
 export function findMatrixOrThrow(id: string): Result {
     return checkThrow(findMatrix(id), 'cannot find matrix item with id ' + id)
 }
-
-
 /** return true if item is matrix parent or child  */
 export function isMatrix(id: string): boolean {
     return !!findMatrix(id)
@@ -71,22 +58,19 @@ export function isMatrix(id: string): boolean {
 
 
 export function findMatrixParent(id?: string): Result | undefined {
-    let found: Result | undefined // TODO use find()
     const filter = [
         ['matrix', Operator.IS, 'T'],
         'AND',
         ['matrixchild', Operator.IS, 'F']
     ]
-    create({
+    return find(create({
         type: Type.ITEM,
         filters: id ? [
             ['internalid', Operator.ANYOF, id],
             'AND', filter] : filter
-    }).run().each(item => {
-        found = item;
-        return false
-    });
-    return found
+    }).run(), result => {
+        return true
+    })
 }
 export function findMatrixParentOrThrow(id: string): Result | undefined {
     return checkThrow(findMatrixParent(id), 'cannot find matrix parent item with id ' + id)
@@ -95,13 +79,6 @@ export function isMatrixParent(id: string): boolean {
     return !!findMatrixParent(id)
 }
 
-
-
-
-// export function findNonMatrixItemRecord(id: string): record.Record|undefined {
-//   const result = findNonMatrixItem(id)
-//   return result ? asRecord(result) : undefined
-// }
 
 export function firstNonMatrixItem(): Result | undefined {
     return findNonMatrixItem()
@@ -113,20 +90,6 @@ export function findNonMatrixItem(id?: string): Result | undefined {
         'AND',
         ['matrixchild', Operator.IS, 'F']
     ]
-    // if (id) {
-    //   filters = [
-    //     ['internalid', Operator.ANYOF, id],
-    //     'AND',
-    //     [
-    //       ['matrix', Operator.IS, 'T'],
-    //       'AND',
-    //       ['matrixchild', Operator.IS, 'F']
-    //     ]
-    //   ]
-    // }
-    // else {
-    //   filters = 
-    // }
     return find(create({
         type: Type.ITEM,
         filters: id ? [

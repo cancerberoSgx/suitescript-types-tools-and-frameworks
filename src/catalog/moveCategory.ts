@@ -1,5 +1,5 @@
 import { load, Record, delete as deleteRecord } from 'N/record';
-import { log } from '../log/responseLogger';
+import { log } from "../log/log";
 import { getLines } from '../record/sublistUtil';
 import { copyCategory, CopyCategoryConfig } from './copyCategory';
 import { removeCategory } from './removeCategory';

@@ -1,5 +1,5 @@
 import * as record from 'N/record';
-import { log } from '../../log/responseLogger';
+import { log } from "../../log/log";
 import { CopyRecordAbstractConfig } from './copyRecord';
 
 export function copyFields(config: CopyFieldsConfig): record.Record {

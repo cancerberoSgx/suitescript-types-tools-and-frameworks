@@ -1,3 +1,6 @@
+import { NativeError } from './nstypes';
+import { nanoTime } from '@hitc/netsuite-types/N/util';
+
 //TODO: move this to a misc.ts file. Use it in sublistUtil.ts getLines()
 export function array<T=number>(n: number, sample?: T): T[] {
   const a: (T | number)[] = []
@@ -9,14 +12,14 @@ export function array<T=number>(n: number, sample?: T): T[] {
 export function repeat(n: number, s: string): string {
   return array(n, s).join('')
 }
-export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[])=>boolean):T|undefined {
+export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[]) => boolean): T | undefined {
   for (let i = 0; i < a.length; i++) {
     const v = a[i];
-    if(predicate(v, i, a)){
+    if (predicate(v, i, a)) {
       return v
-    }  
+    }
   }
-} 
+}
 
 /** returns the type of the value with key K in the Mapped type T. Example: `type _string = ValueOf<A, 'a'>` . */
 export type ValueOf<T extends { [k: number]: any }, K extends number> = T[K];
@@ -25,40 +28,49 @@ export type ValueOfNumberKey<T extends { [k: number]: any }, K extends number> =
 export type StringKeyOf<T extends any> = Extract<keyof T, string>;
 
 export type TODO = any
-export function checkThrow<T>(r?:T, msg='Throwing on undefined value'):T{
-  if(!r){throw new Error(msg)}
+export function checkThrow<T>(r?: T, msg = 'Throwing on undefined value'): T {
+  if (!r) { throw new Error(msg) }
   return r
 }
- 
-export type MapStringKeySameTypeValues< T extends any = any> = {[key: string]: T}
+
+export type MapStringKeySameTypeValues<T extends any = any> = { [key: string]: T }
 // export type TypedMapStringKey<T extends EmptyObject> = {[key: StringKeyOf<T>]: ValueOfStringKey<T, typeof key>}
 export type EmptyObject = {}
 
- 
 
-export interface TypedMap<PropTypes extends EmptyObject>  {
-  get<T extends StringKeyOf<PropTypes>>(name:T): ValueOfStringKey<PropTypes, T>
-  set<T extends StringKeyOf<PropTypes>>(name:T, value: ValueOfStringKey<PropTypes, T>):void
+
+export interface TypedMap<PropTypes extends EmptyObject> {
+  get<T extends StringKeyOf<PropTypes>>(name: T): ValueOfStringKey<PropTypes, T>
+  set<T extends StringKeyOf<PropTypes>>(name: T, value: ValueOfStringKey<PropTypes, T>): void
 }
 export class TypedMapImpl<PropTypes extends EmptyObject> implements TypedMap<PropTypes> {
-  public constructor(private props: PropTypes){}
-  get<T extends StringKeyOf<PropTypes>>(name:T): ValueOfStringKey<PropTypes, T>{
+  public constructor(private props: PropTypes) { }
+  get<T extends StringKeyOf<PropTypes>>(name: T): ValueOfStringKey<PropTypes, T> {
     return this.props[name]
-  } 
-  set<T extends StringKeyOf<PropTypes>>(name:T, value: ValueOfStringKey<PropTypes, T>):void{
-    this.props[ name]=value
+  }
+  set<T extends StringKeyOf<PropTypes>>(name: T, value: ValueOfStringKey<PropTypes, T>): void {
+    this.props[name] = value
   }
 }
 
-export function getObjectKeys(o : any): string[]{
-  const a = []
-  for(let k in o) {
-    a.push(k)
-  }
-  return a
+export function printNativeError(error: NativeError) {
+  return `${error && error.type}, ${error && error.name}
+Cause: ${error && error.message}
+Stack Trace: 
+${(error.stack && Array.isArray(error.stack)) ? error.stack.map(s => repeat(2, ' ') + s).join('\n') : error.stack}`
 }
 
-export type typeofType =  "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function"
-export function getObjectValueTypes(o : any): {key: string, typeOfValue: typeofType}[]{
-  return getObjectKeys(o).map(key=>({key: key+'', typeOfValue: typeof o[key]}))
+export function printMs(ms: number, config: { minutes?: boolean, seconds?: boolean, ms?: boolean } = { minutes: false, seconds: true, ms: true }) {
+  config = { ...{ minutes: false, seconds: true, ms: true }, ...config }
+  const seconds = config.seconds && Math.floor(ms / 1000)
+  const minutes = config.minutes && seconds && Math.floor(seconds / 60)
+  const milliseconds = config.ms && ms % 1000 || ms
+  return `${minutes ? `${minutes} minutes ` : ''}${seconds ? `${seconds} seconds ` : ''}${milliseconds ? `${milliseconds} milliseconds ` : ''}`
+}
+
+export function now(unit: 'milliseconds' | 'nanoseconds' = 'milliseconds') {
+  return unit === 'milliseconds' ? nanosecondsToMilliseconds(nanoTime()) : nanoTime()
+}
+export function nanosecondsToMilliseconds(n: number) {
+  return n / 1e+6
 }

@@ -11,17 +11,17 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
             (parent.describes || []).push(d);
         }
         runner_1.SpecRunner.getInstance()._currentDescribe = d;
-        try {
-            d.fn();
-        }
-        catch (err) {
-            // TODO: support break on first error
-            d.error = {
-                nativeException: err,
-                isFail: err.isFail,
-                label: err.failLabel
-            };
-        }
+        // try {
+        d.fn();
+        // } catch (err) {
+        // log('Exception catch in describe fn() ' + d.name);
+        // TODO: support break on first error
+        // d.error = {
+        //   nativeException: err,
+        //   isFail: err.isFail,
+        //   label: err.failLabel
+        // }
+        // }
         runner_1.SpecRunner.getInstance()._currentDescribe = parent;
     }
     function describe(name, fn) {

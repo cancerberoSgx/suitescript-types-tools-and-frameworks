@@ -1,56 +1,90 @@
-define(["require", "exports", "../record/recordRef"], function (require, exports, recordRef_1) {
+define(["require", "exports", "../record/recordRef", "../log/log"], function (require, exports, recordRef_1, log_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var RecordBuilder = /** @class */ (function () {
-        // record! : Record
-        // fields: Field[] = []
-        // sublists: Sublist[] = []
-        function RecordBuilder(r) {
-            this.r = r;
+        function RecordBuilder() {
         }
-        RecordBuilder.prototype.extract = function () {
+        RecordBuilder.prototype.extractRecord = function (r) {
+            var fields = this.extractFields(r);
+            var sublists = this.extractSublists(r);
+            return {
+                fields: fields,
+                sublists: sublists
+            };
+        };
+        RecordBuilder.prototype.extractFields = function (r) {
             var _this = this;
-            var fields = this.r.getFields().map(function (fieldId) { return _this.extractField(_this.r.getField({ fieldId: fieldId })); });
-            var sublists = this.r.getSublists().map(function (sublistId) { return _this.extractSublist(_this.r.getSublist({ sublistId: sublistId }), sublistId); });
-            return {
-                fields: fields, sublists: sublists
-            };
+            return r.getFields()
+                .map(function (fieldId) { return _this.extractField(r, fieldId); })
+                .filter(function (f) { return !!f; });
         };
-        RecordBuilder.prototype.extractSublist = function (s, sublistId) {
+        RecordBuilder.prototype.extractField = function (r, fieldId) {
+            if (fieldId.indexOf('sys_') === 0) {
+                return {
+                    id: fieldId, type: 'text'
+                };
+            }
+            var field = r.getField({ fieldId: fieldId });
+            if (field) {
+                return { id: field.id, name: field.label, type: field.type };
+            }
+            else {
+                this.log('Cannot get record field (getField) with id ' + fieldId);
+            }
+        };
+        RecordBuilder.prototype.log = function (s) {
+            log_1.log(s);
+        };
+        RecordBuilder.prototype.extractSublists = function (r) {
             var _this = this;
-            var fields = this.r.getSublistFields({ sublistId: sublistId }).map(function (fieldId) {
-                return _this.extractSublistField(s, sublistId, s.getField({ id: fieldId }), fieldId);
-            });
+            return r.getSublists()
+                .map(function (sublistId) { return _this.extractSublist(r, sublistId); })
+                .filter(function (s) { return !!s; });
+        };
+        RecordBuilder.prototype.extractSublist = function (r, sublistId) {
+            var name;
+            try {
+                var s = r.getSublist({ sublistId: sublistId });
+                name = s && s.name;
+            }
+            catch (error) {
+            }
+            var fields = this.extractSublistFields(r, sublistId);
             return {
-                id: sublistId,
-                fields: fields
+                id: sublistId, fields: fields, name: name
             };
         };
-        RecordBuilder.prototype.extractSublistField = function (s, sublistId, f, fieldId) {
-            // return this.r.getSublistFields({ sublistId }).map(fieldId => {
-            // const f = s.getField({ id: f.id })
-            return {
-                id: fieldId,
-                type: f.type.toString()
-            };
-            // })
+        RecordBuilder.prototype.extractSublistFields = function (r, sublistId) {
+            var _this = this;
+            var sublistFields = [];
+            try {
+                sublistFields = r.getSublistFields({ sublistId: sublistId });
+            }
+            catch (error) {
+                this.log('Exception when r.getSublistFields({ sublistId }) for sublistId==' + sublistId);
+            }
+            return sublistFields
+                .filter(function (f) { return f.indexOf('sys_') !== 0; })
+                .map(function (fieldId) { return _this.extractSublistField(r, sublistId, fieldId); });
         };
-        RecordBuilder.prototype.extractField = function (f) {
-            // const f = t
+        RecordBuilder.prototype.extractSublistField = function (r, sublistId, fieldId) {
             return {
-                id: f.id,
-                type: f.type
+                id: fieldId
             };
+            // let name:string|undefined, type: string|undefined
+            // try {
+            //   const f = 
+            // } catch (error) {
+            // }
+            // throw new Error('Method not implemented.');
         };
         return RecordBuilder;
     }());
     function getRecordTypeMetadata(rr) {
-        var r = recordRef_1.asRecord(rr);
-        if (!r) {
-            return;
-        }
-        var builder = new RecordBuilder(r);
-        return builder.extract();
+        // if (!r) { return }
+        var builder = new RecordBuilder();
+        var r = recordRef_1.asRecordOrThrow(rr);
+        return builder.extractRecord(r);
     }
     exports.getRecordTypeMetadata = getRecordTypeMetadata;
 });

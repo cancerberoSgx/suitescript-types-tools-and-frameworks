@@ -78,7 +78,7 @@ define(["require", "exports", "../../spec/index", "../matrixItem", "./itemTestPr
                 index_1.expect(!!matrixItem_1.findById(itemTestPreconditions_1.get().nonExistentItemId)).toBe(false);
             });
             index_1.it('should return columns', function () {
-                var r = matrixItem_1.findById(itemTestPreconditions_1.get().oneMatrixParentId, ['parent1']);
+                var r = matrixItem_1.findById(itemTestPreconditions_1.get().oneMatrixParentId, ['parent']);
                 if (!r) {
                     return index_1.fail("get().oneMatrixParentId " + itemTestPreconditions_1.get().oneMatrixParentId + " not found");
                 }

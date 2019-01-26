@@ -1,7 +1,7 @@
 import { describe, expect, fail, it, skip } from "../../spec/index";
 import { findMatrixChild, findMatrixChildOrThrow, isMatrixChild, isMatrixParent, findById } from "../matrixItem";
 import { get } from './itemTestPreconditions';
-import { log } from '../../log/responseLogger';
+import { log } from "../../log/log";
 import * as search from 'N/search'
 
 export function matrixItemTest() {
@@ -84,7 +84,7 @@ export function matrixItemTest() {
         expect(!!findById(get().nonExistentItemId)).toBe(false)
     })
     it('should return columns', () => {
-        let r = findById(get().oneMatrixParentId, ['parent1'])
+        let r = findById(get().oneMatrixParentId, ['parent'])
         if(!r){
             return fail(`get().oneMatrixParentId ${get().oneMatrixParentId} not found`)
         }

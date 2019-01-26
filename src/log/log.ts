@@ -1,19 +1,38 @@
-// import { response } from './responseLogger';
 import { printMs } from '../misc/misc';
 import { nanoTime } from 'N/util'
 
-// export interface LoggerConfig{}
 export interface Logger {
-  // initialize(config?: LoggerConfig):void
   log(...args: any[]): void
 }
 
 let defaultLogger: Logger | undefined
 
+/** user must call setDefaultLogger() before using log(). Requiring this module and setting a default logger will let available a global `console` object so console.log() will be available and will use the installed Logger. Example: 
+
+```
+export let onRequest: EntryPoints.Suitelet.onRequest = context => {
+  setDefaultLogger(new ResponseLogger(context.response))
+  console.log('hello using console.log')
+  console.time('first')  
+  console.timeEnd('first')
+})
+```
+ */
 export function setDefaultLogger(logger: Logger) {
   defaultLogger = logger
 }
 
+/** user must call setDefaultLogger() before using log(). Requiring this module and setting a default logger will let available a global `console` object so console.log() will be available and will use the installed Logger. Example: 
+
+```
+export let onRequest: EntryPoints.Suitelet.onRequest = context => {
+  setDefaultLogger(new ResponseLogger(context.response))
+  console.log('hello using console.log')
+  console.time('first')  
+  console.timeEnd('first')
+})
+```
+ */
 export function log(...args: any[]): void {
   if (!defaultLogger) {
     throw new Error('you need to call setDefaultLogger before calling log()')

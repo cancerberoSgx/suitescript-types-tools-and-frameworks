@@ -14,6 +14,10 @@ import { moveCategory } from './catalog/moveCategory';
 import { runSpecs } from './__tests__';
 import { getObjectKeysTypesAndValues, printNamedTypedArray, printNamedTyped, getObjectValueTypes, printObjectValueTypes } from './introspection/objectExplorer';
 import { ResponseLogger } from './log/responseLogger';
+import { actionsExperiment1 } from './experiments/actions1';
+import { writeRecordJsonInResponse } from './introspection/dumpRecordToJsonResponse';
+import { recordToJsonTest1 } from './experiments/recordToJson1';
+import { recordFieldsTypesTest1 } from './experiments/recordFieldsTypesTest1';
 // import { getObjectValueTypes } from './misc';
 // import * as nsError from 'N/error';
 
@@ -23,14 +27,22 @@ import { ResponseLogger } from './log/responseLogger';
 // GLOBAL.GLOBAL=GLOBAL
 
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
+
+  // context.response
+  // recordToJsonTest1(context.response)
+  
   // try {
     // setde
     setDefaultLogger(new ResponseLogger(context.response))
+
+    recordFieldsTypesTest1(context.response)
+
+    // actionsExperiment1()
     // console.log('hello using console.log')
-    console.time('timetest')  
+    // console.time('timetest')  
     // initializeLogger({ response: context.response, enabled: true })
-    runSpecs()
-    console.timeEnd('timetest')
+    // runSpecs()
+    // console.timeEnd('timetest')
   // }catch(ex){  
 
   // var o = {a: 1, b: 'asdas'}

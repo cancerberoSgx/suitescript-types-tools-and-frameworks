@@ -2,10 +2,32 @@ define(["require", "exports", "../misc/misc", "N/util"], function (require, expo
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var defaultLogger;
+    /** user must call setDefaultLogger() before using log(). Requiring this module and setting a default logger will let available a global `console` object so console.log() will be available and will use the installed Logger. Example:
+    
+    ```
+    export let onRequest: EntryPoints.Suitelet.onRequest = context => {
+      setDefaultLogger(new ResponseLogger(context.response))
+      console.log('hello using console.log')
+      console.time('first')
+      console.timeEnd('first')
+    })
+    ```
+     */
     function setDefaultLogger(logger) {
         defaultLogger = logger;
     }
     exports.setDefaultLogger = setDefaultLogger;
+    /** user must call setDefaultLogger() before using log(). Requiring this module and setting a default logger will let available a global `console` object so console.log() will be available and will use the installed Logger. Example:
+    
+    ```
+    export let onRequest: EntryPoints.Suitelet.onRequest = context => {
+      setDefaultLogger(new ResponseLogger(context.response))
+      console.log('hello using console.log')
+      console.time('first')
+      console.timeEnd('first')
+    })
+    ```
+     */
     function log() {
         var args = [];
         for (var _i = 0; _i < arguments.length; _i++) {

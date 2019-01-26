@@ -3,6 +3,7 @@ import { findById, findByIdOrThrow } from '../../catalog/matrixItem';
 import { get } from '../../catalog/__tests__/itemTestPreconditions';
 import { RecordRef, asRecordOrThrow, isRecord } from '../recordRef';
 import { log } from "../../log/log";
+import { printObjectValueTypes } from '../../introspection/objectExplorer';
 
 export function recordRefTest() {
 
@@ -18,6 +19,12 @@ export function recordRefTest() {
       // log(record.toString())
       // // throw 'hello hello'
       expect(isRecord(record)).toBe(true)
+      // console.log(printObjectValueTypes(record));
+      //@ts-ignore
+      console.log(JSON.stringify(record.toJSON(), null, 2));
+      
+      
+      // record.
     })
 
     it('should return a record when a Result is given', () => {

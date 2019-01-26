@@ -13,15 +13,15 @@ export interface Record<Fields extends FieldTypes = FieldTypes, Sublists extends
   id: string
   externalId: string
 
-  getFieldValue<T extends StringKeyOf<Fields>>(name:T): ValueOfStringKey<Fields, T>
-  setFieldValue<T extends StringKeyOf<Fields>>(name:T, value: ValueOfStringKey<Fields, T>): this
+  // getFieldValue<T extends StringKeyOf<Fields>>(name:T): ValueOfStringKey<Fields, T>
+  // setFieldValue<T extends StringKeyOf<Fields>>(name:T, value: ValueOfStringKey<Fields, T>): this
   fields: TypedMap<Fields>
 
   lines:TypedMap<Sublists>
   // sublists: SublistsTypes
-  copyFieldsFrom(config: TODO): this
-  copySublistsFrom(config: TODO): this
-  remove(config: TODO): void
+  // copyFieldsFrom(config: TODO): this
+  // copySublistsFrom(config: TODO): this
+  // remove(config: TODO): void
 }
 // export interface FieldsAttribute<Fields extends FieldTypes = FieldTypes> { 
 //   get<T extends StringKeyOf<Fields>>(name:T): ValueOfStringKey<Fields, T>

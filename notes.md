@@ -1,3 +1,25 @@
+types can be obtained from wsdl - cxsd http://127.0.0.1:8080/list.accounting.xsd https://system.netsuite.com/download/WSDL_v2017_2_0.zip
+
+
+this can be done in the UI to get sublist fields names and types:
+
+
+function extractTypesFromUIMachine(m) {
+  const types = m.miniform_elem_types
+  return m.getFormFieldNames().map((n, i) => ({ name: n, type: types[i] }))
+}   
+
+require([], function () {
+  // const machine = this.subcategories_machine
+  const machine = this.machines.subcategories
+  const sublistFields = extractTypesFromUIMachine(machine)
+  console.log(sublistFields);
+})
+
+
+
+
+
 if a sublist has no lines, then is not possible to obtain Line Fields metadata like type or isMandateory. Can record.addNewLine be used to create an object like this ?
 
 

@@ -1,21 +1,32 @@
 import { RecordId } from '../recordRef';
-import { NSBoolean, NSDate, NSRecordType } from '../../nstypes';
+import { TypedMap, EmptyObject } from '../../misc/misc';
 
-interface DefaultFieldTypes {
+
+// Approach 2 : code generation from 
+
+
+
+// Approach 1: Use TypedMap so user perform record.fields.get('foo') and is typed
+export interface Fields<PropTypes extends CommonFields = CommonFields> extends TypedMap<PropTypes> {
+
 }
-export interface FieldTypes {
+class FieldsImpl<PropTypes extends EmptyObject> implements Fields<PropTypes> {
+  get<T extends Extract<keyof PropTypes, string>>(name: T): PropTypes[T] {
+    throw new Error('Method not implemented.');
+  }  set<T extends Extract<keyof PropTypes, string>>(name: T, value: PropTypes[T]): void {
+    throw new Error('Method not implemented.');
+  }
+
+
+}
+
+interface CommonFields{
   // common record fields getters
   id: RecordId
   externalId: string
-  description: string
-  isinactive: NSBoolean
-  created: NSDate  //TODO: could se use Date instead of strings ?
-  type: NSRecordType
+  // description: string
+  isinactive: boolean
+  created: Date 
+  lastmodified: Date
+  type: string
 }
-
-
-export interface CustomRecordFieldTypes extends FieldTypes{
-  // TODO: common fields for CRs
-  }
-
-export type FieldId = string

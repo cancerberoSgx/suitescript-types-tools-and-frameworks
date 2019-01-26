@@ -13,6 +13,10 @@ define(["require", "exports", "../../spec/index", "../../catalog/matrixItem", ".
                 // log(record.toString())
                 // // throw 'hello hello'
                 index_1.expect(recordRef_1.isRecord(record)).toBe(true);
+                // console.log(printObjectValueTypes(record));
+                //@ts-ignore
+                console.log(JSON.stringify(record.toJSON(), null, 2));
+                // record.
             });
             index_1.it('should return a record when a Result is given', function () {
                 var result = matrixItem_1.findByIdOrThrow(itemTestPreconditions_1.get().oneMatrixParentId);

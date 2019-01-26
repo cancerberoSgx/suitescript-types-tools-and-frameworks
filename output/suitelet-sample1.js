@@ -2,7 +2,7 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/log", "./__tests__", "./log/responseLogger"], function (require, exports, log_1, __tests__1, responseLogger_1) {
+define(["require", "exports", "./log/log", "./log/responseLogger", "./experiments/recordFieldsTypesTest1"], function (require, exports, log_1, responseLogger_1, recordFieldsTypesTest1_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // import { getObjectValueTypes } from './misc';
@@ -12,14 +12,18 @@ define(["require", "exports", "./log/log", "./__tests__", "./log/responseLogger"
     // GLOBAL.pepe=1
     // GLOBAL.GLOBAL=GLOBAL
     exports.onRequest = function (context) {
+        // context.response
+        // recordToJsonTest1(context.response)
         // try {
         // setde
         log_1.setDefaultLogger(new responseLogger_1.ResponseLogger(context.response));
+        recordFieldsTypesTest1_1.recordFieldsTypesTest1(context.response);
+        // actionsExperiment1()
         // console.log('hello using console.log')
-        console.time('timetest');
+        // console.time('timetest')  
         // initializeLogger({ response: context.response, enabled: true })
-        __tests__1.runSpecs();
-        console.timeEnd('timetest');
+        // runSpecs()
+        // console.timeEnd('timetest')
         // }catch(ex){  
         // var o = {a: 1, b: 'asdas'}
         // //@ts-ignore

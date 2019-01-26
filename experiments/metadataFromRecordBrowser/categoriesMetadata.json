@@ -1,0 +1,884 @@
+{
+  "fields": [
+    {
+      "id": "addtohead",
+      "type": "richtext",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Addition to <head>",
+      "required": false
+    },
+    {
+      "id": "catalog",
+      "type": "select",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Catalog",
+      "required": true
+    },
+    {
+      "id": "created",
+      "type": "date",
+      "jsType": "Date",
+      "nlapiSubmitField": false,
+      "label": "Creation Date/Time",
+      "required": false
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false
+    },
+    {
+      "id": "displayinsite",
+      "type": "select",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Display in Web Site",
+      "required": false
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false
+    },
+    {
+      "id": "lastmodified",
+      "type": "date",
+      "jsType": "Date",
+      "nlapiSubmitField": false,
+      "label": "Last Modified",
+      "required": false
+    },
+    {
+      "id": "lastmodifiedby",
+      "type": "select",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Modified By",
+      "required": false
+    },
+    {
+      "id": "metadescription",
+      "type": "text",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Meta Description",
+      "required": false
+    },
+    {
+      "id": "metakeywords",
+      "type": "text",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Meta Keywords",
+      "required": false
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true
+    },
+    {
+      "id": "origbinactive",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false
+    },
+    {
+      "id": "pagebanner",
+      "type": "select",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Page Banner",
+      "required": false
+    },
+    {
+      "id": "pageheading",
+      "type": "text",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Heading",
+      "required": false
+    },
+    {
+      "id": "pagetitle",
+      "type": "text",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Page Title",
+      "required": false
+    },
+    {
+      "id": "primaryparent",
+      "type": "select",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Primary Parent",
+      "required": false
+    },
+    {
+      "id": "sequencenumber",
+      "type": "integer",
+      "jsType": "number",
+      "nlapiSubmitField": false,
+      "label": "Sequence Number",
+      "required": false
+    },
+    {
+      "id": "sitemappriority",
+      "type": "select",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Sitemap Priority",
+      "required": false
+    },
+    {
+      "id": "thumbnail",
+      "type": "select",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "Thumbnail Image",
+      "required": false
+    },
+    {
+      "id": "urlfragment",
+      "type": "text",
+      "jsType": "string",
+      "nlapiSubmitField": false,
+      "label": "URL Fragment",
+      "required": true
+    },
+    {
+      "id": "version",
+      "type": "integer",
+      "jsType": "number",
+      "nlapiSubmitField": false,
+      "label": "Version",
+      "required": false
+    }
+  ],
+  "sublists": [
+    {
+      "id": "items",
+      "name": "Items",
+      "fields": [
+        {
+          "id": "item",
+          "type": "select",
+          "jsType": "string",
+          "label": "Items",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "primarycategory",
+          "type": "checkbox",
+          "jsType": "boolean",
+          "label": "Primary Category",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sequencenumber",
+          "type": "integer",
+          "jsType": "number",
+          "label": "Sequence Number",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "subcategories",
+      "name": "Subcategories",
+      "fields": [
+        {
+          "id": "addtoheadoverride",
+          "type": "richtext",
+          "jsType": "string",
+          "label": "Addition to &lt;head&gt; Override",
+          "required": false,
+          "help": "Addition to head override when used as a subcategory for the specified parent category. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "descriptionoverride",
+          "type": "text",
+          "jsType": "string",
+          "label": "Description Override",
+          "required": false,
+          "help": "Category description when used as a subcategory for the specified parent. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "displayinsiteoverride",
+          "type": "select",
+          "jsType": "string",
+          "label": "Display in Web Site Override",
+          "required": false,
+          "help": "Display in site override value when used as a subcategory for the specified parent. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "metadescriptionoverride",
+          "type": "text",
+          "jsType": "string",
+          "label": "Meta Description Override",
+          "required": false,
+          "help": "Meta description override when used as a subcategory. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "metakeywordsoverride",
+          "type": "text",
+          "jsType": "string",
+          "label": "Meta Keywords Override",
+          "required": false,
+          "help": "Meta key word override when used as a subcategory for the specified parent category. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "nameoverride",
+          "type": "text",
+          "jsType": "string",
+          "label": "Name Override",
+          "required": false,
+          "help": "Category name override when used as a subcategory for the specified parent category. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "pagebanneroverride",
+          "type": "select",
+          "jsType": "string",
+          "label": "Page Banner Override",
+          "required": false,
+          "help": "Page banner image override when used as a subcategory for the specified parent category. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "pageheadingoverride",
+          "type": "text",
+          "jsType": "string",
+          "label": "Heading Override",
+          "required": false,
+          "help": "Page heading override when used as a subcategory for the specified parent category. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "pagetitleoverride",
+          "type": "text",
+          "jsType": "string",
+          "label": "Title Override",
+          "required": false,
+          "help": "Page title override value when used as a subcategory for the specified parent category. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "sequencenumber",
+          "type": "integer",
+          "jsType": "number",
+          "label": "Sequence Number",
+          "required": false,
+          "help": "Sequence number when used as a subcategory for a specified parent."
+        },
+        {
+          "id": "sitemappriorityoverride",
+          "type": "select",
+          "jsType": "string",
+          "label": "Sitemap Priority Override",
+          "required": false,
+          "help": "Site map priority override value when used as a subcategory for a specified parent. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "subcategory",
+          "type": "select",
+          "jsType": "string",
+          "label": "Subcategory",
+          "required": true,
+          "help": "Name of category assigned as a subcategory."
+        },
+        {
+          "id": "thumbnailoverride",
+          "type": "select",
+          "jsType": "string",
+          "label": "Thumbnail Image Override",
+          "required": false,
+          "help": "Override thumbnail image when used as a subcategory for the specified parent. If this is blank the value from the category record is used."
+        },
+        {
+          "id": "urlfragmentoverride",
+          "type": "text",
+          "jsType": "string",
+          "label": "URL Fragment Override",
+          "required": false,
+          "help": "URL fragment when used as a subcategory for the specified parent category. If this is blank the value from the category record is used."
+        }
+      ]
+    },
+    {
+      "id": "urls",
+      "name": "URLs",
+      "fields": [
+        {
+          "id": "fullurl",
+          "type": "text",
+          "jsType": "string",
+          "label": "Full Url",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "jsType": "number",
+          "label": "Internal ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "idpath",
+          "type": "text",
+          "jsType": "string",
+          "label": "ID Path",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "jsType": "boolean",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "nestlevel",
+          "type": "integer",
+          "jsType": "number",
+          "label": "Level",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "addtohead",
+      "type": "text",
+      "jsType": "string",
+      "label": "Add to Head"
+    },
+    {
+      "id": "catalog",
+      "type": "select",
+      "jsType": "string",
+      "label": "Catalog"
+    },
+    {
+      "id": "created",
+      "type": "date",
+      "jsType": "Date",
+      "label": "Creation Date/Time"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "jsType": "string",
+      "label": "Description"
+    },
+    {
+      "id": "displayinsite",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Display in Web Site"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "jsType": "string",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "jsType": "string",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fullurl",
+      "type": "text",
+      "jsType": "string",
+      "label": "Full URL"
+    },
+    {
+      "id": "idpath",
+      "type": "text",
+      "jsType": "string",
+      "label": "ID Path"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "jsType": "string",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Inactive"
+    },
+    {
+      "id": "isprimaryurl",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Is Primary URL"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "jsType": "string",
+      "label": "Item"
+    },
+    {
+      "id": "itemcategory",
+      "type": "select",
+      "jsType": "string",
+      "label": "Item Category ID"
+    },
+    {
+      "id": "itemdescription",
+      "type": "textarea",
+      "jsType": "string",
+      "label": "Item Description"
+    },
+    {
+      "id": "lastmodified",
+      "type": "date",
+      "jsType": "Date",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastmodifiedby",
+      "type": "select",
+      "jsType": "string",
+      "label": "Modified By"
+    },
+    {
+      "id": "metadescription",
+      "type": "text",
+      "jsType": "string",
+      "label": "Meta Description"
+    },
+    {
+      "id": "metakeywords",
+      "type": "text",
+      "jsType": "string",
+      "label": "Meta Keywords"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "jsType": "string",
+      "label": "Name"
+    },
+    {
+      "id": "nestlevel",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Nest Level"
+    },
+    {
+      "id": "pageheading",
+      "type": "text",
+      "jsType": "string",
+      "label": "Page Heading"
+    },
+    {
+      "id": "pagetitle",
+      "type": "text",
+      "jsType": "string",
+      "label": "Page Title"
+    },
+    {
+      "id": "primarycategory",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Primary Category of Item"
+    },
+    {
+      "id": "primaryparent",
+      "type": "select",
+      "jsType": "string",
+      "label": "Primary Parent"
+    },
+    {
+      "id": "sequencenumber",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Sequence Number"
+    },
+    {
+      "id": "site",
+      "type": "select",
+      "jsType": "string",
+      "label": "Site"
+    },
+    {
+      "id": "sitemappriority",
+      "type": "float",
+      "jsType": "number",
+      "label": "Sitemap Priority"
+    },
+    {
+      "id": "subcatdisplayinsiteoverride",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Subcategory Display In Site Override"
+    },
+    {
+      "id": "subcatid",
+      "type": "select",
+      "jsType": "string",
+      "label": "Subcategory ID"
+    },
+    {
+      "id": "subcatparent",
+      "type": "select",
+      "jsType": "string",
+      "label": "Subcategory Parent ID"
+    },
+    {
+      "id": "urlfragment",
+      "type": "text",
+      "jsType": "string",
+      "label": "URL"
+    },
+    {
+      "id": "version",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Version"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "addtohead",
+      "type": "text",
+      "jsType": "string",
+      "label": "Add to Head"
+    },
+    {
+      "id": "catalog",
+      "type": "select",
+      "jsType": "string",
+      "label": "Catalog"
+    },
+    {
+      "id": "created",
+      "type": "date",
+      "jsType": "Date",
+      "label": "Creation Date/Time"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "jsType": "string",
+      "label": "Description"
+    },
+    {
+      "id": "displayinsite",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Display in Web Site"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "jsType": "string",
+      "label": "External ID"
+    },
+    {
+      "id": "fullurl",
+      "type": "text",
+      "jsType": "string",
+      "label": "Full URL"
+    },
+    {
+      "id": "idpath",
+      "type": "text",
+      "jsType": "string",
+      "label": "ID Path"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "jsType": "string",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Inactive"
+    },
+    {
+      "id": "isprimaryurl",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Is Primary URL"
+    },
+    {
+      "id": "itemdescription",
+      "type": "textarea",
+      "jsType": "string",
+      "label": "Item Description"
+    },
+    {
+      "id": "itemid",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Item ID"
+    },
+    {
+      "id": "itemsequencenumber",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Item Sequence Number"
+    },
+    {
+      "id": "lastmodified",
+      "type": "date",
+      "jsType": "Date",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastmodifiedby",
+      "type": "select",
+      "jsType": "string",
+      "label": "Modified By"
+    },
+    {
+      "id": "metadescription",
+      "type": "text",
+      "jsType": "string",
+      "label": "Meta Description"
+    },
+    {
+      "id": "metakeywords",
+      "type": "text",
+      "jsType": "string",
+      "label": "Meta Tag HTML"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "jsType": "string",
+      "label": "Name"
+    },
+    {
+      "id": "nestlevel",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Nest Level"
+    },
+    {
+      "id": "pagebanner",
+      "type": "image",
+      "jsType": "string",
+      "label": "Category Page Banner"
+    },
+    {
+      "id": "pagebannerurl",
+      "type": "text",
+      "jsType": "string",
+      "label": "Category Page Banner URL"
+    },
+    {
+      "id": "pageheading",
+      "type": "text",
+      "jsType": "string",
+      "label": "Page Heading"
+    },
+    {
+      "id": "pagetitle",
+      "type": "text",
+      "jsType": "string",
+      "label": "Page Title"
+    },
+    {
+      "id": "primarycategory",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Primary Category of Item"
+    },
+    {
+      "id": "primaryparent",
+      "type": "select",
+      "jsType": "string",
+      "label": "Primary Parent"
+    },
+    {
+      "id": "sequencenumber",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Sequence Number"
+    },
+    {
+      "id": "sitemappriority",
+      "type": "float",
+      "jsType": "number",
+      "label": "Sitemap Priority"
+    },
+    {
+      "id": "subcataddtoheadoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Add to Head Override"
+    },
+    {
+      "id": "subcatdescoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Description Override"
+    },
+    {
+      "id": "subcatdisplayinsiteoverride",
+      "type": "checkbox",
+      "jsType": "boolean",
+      "label": "Subcategory Display In Site Override"
+    },
+    {
+      "id": "subcatid",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Subcategory ID"
+    },
+    {
+      "id": "subcatmetadescoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Meta Description Override"
+    },
+    {
+      "id": "subcatmetakeywordsoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Meta Keywords Override"
+    },
+    {
+      "id": "subcatnameoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Name Override"
+    },
+    {
+      "id": "subcatpagebanneroverride",
+      "type": "select",
+      "jsType": "string",
+      "label": "Subcategory Page Banner Override"
+    },
+    {
+      "id": "subcatpagebannerurloverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Page Banner URL Override"
+    },
+    {
+      "id": "subcatpageheadingoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Page Heading Override"
+    },
+    {
+      "id": "subcatpagetitleoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Page Title Override"
+    },
+    {
+      "id": "subcatparent",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Subcategory Parent ID"
+    },
+    {
+      "id": "subcatsequencenumber",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Subcategory Sequence Number"
+    },
+    {
+      "id": "subcatthumbnailoverride",
+      "type": "select",
+      "jsType": "string",
+      "label": "Subcategory Thumbnail Override"
+    },
+    {
+      "id": "subcatthumbnailurloverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory Thumbnail URL Override"
+    },
+    {
+      "id": "subcaturlfragmentoverride",
+      "type": "text",
+      "jsType": "string",
+      "label": "Subcategory URL Fragment Override"
+    },
+    {
+      "id": "thumbnail",
+      "type": "image",
+      "jsType": "string",
+      "label": "Category Thumbnail"
+    },
+    {
+      "id": "thumbnailurl",
+      "type": "text",
+      "jsType": "string",
+      "label": "Category Thumbnail URL"
+    },
+    {
+      "id": "urlcommcat",
+      "type": "integer",
+      "jsType": "number",
+      "label": "URL Category"
+    },
+    {
+      "id": "urlcommcatassoc",
+      "type": "integer",
+      "jsType": "number",
+      "label": "URL Category Association"
+    },
+    {
+      "id": "urlfragment",
+      "type": "text",
+      "jsType": "string",
+      "label": "URL"
+    },
+    {
+      "id": "version",
+      "type": "integer",
+      "jsType": "number",
+      "label": "Version"
+    }
+  ]
+}

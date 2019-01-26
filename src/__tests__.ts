@@ -10,15 +10,13 @@ import { printNativeError } from './misc/misc';
   
 export function runSpecs(){ 
 
-//@ts-ignore
-GLOBAL1 = 123
 
   try {    
   const result = SpecRunner.getInstance().run({
     specs: [
       recordRefTest, 
-      resultsTest,
-      matrixItemTest,
+      // resultsTest,
+      // matrixItemTest,
       // recordMetadataTest
     ],
     reset: true

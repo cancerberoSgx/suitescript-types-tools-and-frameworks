@@ -1,11 +1,8 @@
 import * as record from "N/record";
 import { Record } from 'N/record';
-import { StringKeyOf } from '../../misc/misc';
-// import { CommercategoryRecord, CommercategoryRecordImpl, CommercecategoryFields2, CommercecategoryFields2Impl } from './CommerceCategory';
 import { CommonFields } from './fieldTypes';
-import { commercecategoryFields, commercecategoryRecord } from './generated/commercecategory';
 import { RecordOrRefResult, asRecordOrThrow } from '../recordRef';
-// import { commercecategoryFields, commercecategoryRecordImpl } from './generated/commercecategory';
+import { RecordType } from './generated/recordConstructor';
 
 export interface TypedRecord<Fields extends CommonFields = CommonFields, Sublists extends SublistTypes = SublistTypes> {
   readonly nsRecord: record.Record
@@ -24,7 +21,6 @@ export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublist
   protected _fields: Fields = null as any
   constructor(nsRecordOrRefOrResult: RecordOrRefResult) {
     this.nsRecord = asRecordOrThrow(nsRecordOrRefOrResult)
-    // this.nsRecord = r
   }
   public get id(): string {
     return this.nsRecord.id + ''
@@ -33,15 +29,9 @@ export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublist
     return this.nsRecord.type + '' as any
   }
   public get fields(): Fields {
-    // if (!this._fields) {
-      // s
-    // }
     return this._fields
   }
   public get sublists(): Sublists {
-    // if (!this._sublists) {
-    //   this._sublists = recordFieldConstructorImpl[this.type](this) as any
-    // }
     return this._sublists
   }
 }
@@ -54,7 +44,6 @@ export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublist
 // export type recordConstructors = {
 //   'commercecategory': (r: Record) => commercecategoryRecord
 // }
-export type RecordType = StringKeyOf<recordTypes>
 // type recordFieldTypes = {
 //   'commercecategory': CommercecategoryFields2
 // }

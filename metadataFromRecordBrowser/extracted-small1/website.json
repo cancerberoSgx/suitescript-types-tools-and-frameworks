@@ -1,0 +1,1279 @@
+{
+  "label": "Website",
+  "id": "website",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "analyticsclickattributes",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Analytics Click Attributes",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "analyticssubmitattributes",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Analytics Submit Attributes",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "autodownloadmedia",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Automatically download published site media items",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cartdisplayorder",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Display Order of Cart Items",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cartupsellitems",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Items to Upsell in Cart",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "categorylistlayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Category List Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccformtemplate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccrequireauth",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Require Authorization for Credit Card Transactions",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "checkoutdomain",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Checkout URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "colorset",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Color Theme",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "confpagetrackinghtml",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Order Tracking Script HTML",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cookiepolicy",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Cookie Policy",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createcustomersascompanies",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Create Customers as Companies",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "custromeregistrationtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer registration is",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultcustomercategory",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Customer Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaulthostingroot",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Hosting Root",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultshippingcountry",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Shipping Country for Checkout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultshippingmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Web Site Shipping Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "descriptionfontsize",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "Description Font Size",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "displaycompanyfield",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display Company Field on Registration Page",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Display Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "displayunsubscribe",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display Unsubscribe to Email Checkbox on Registration Page",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doctypehtml",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Document Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "emailfooter",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Footer Text",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "emailheader",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Header Text",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enablegaintegration",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Enable Google Analytics Integration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "font",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Font",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "gconotificationurl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Google Notification URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "giftcerteaffectsminamount",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Gift Certificate Affects Minimum Order Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "hidepaymentpagewhennobalance",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Hide payment page if order total equals zero",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "igniteedition",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includeuncategorizeditems",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Uncategorized Items",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includevatwithprices",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Prices Include Tax",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Internal Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "invoiceformtemplate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Invoice Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isscriptablecartandcheckout",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Scriptable Cart and Checkout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "iswebstoreoffline",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Take Web Site Offline for Maintenance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "iswsdk",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "WSDK",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemlistlayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Item List Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemtemplateaccountingtitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Item Drilldown Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemtemplateinformationitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Info Item Drilldown Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "legacycategorydescriptions",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Legacy Category Descriptions",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "legacydenselistsupport",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Legacy Dense List Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "legacyimageattributetags",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Legacy Tag Support for Images",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "legacynavigationlinks",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Legacy Navigation Style",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "legacywelcomepage",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Legacy Welcome Page Style",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nameorig",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "noactivatetabonhostedpages",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Don't Activate Hosted Page Tabs",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "onlinepricelevel",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Price Level",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "outofstockitems",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Store Out Of Stock Items",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "outputlinebreaksasbr",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Output Line Breaks as &lt;br&gt;",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pagealign",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Page Alignment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pagewidth",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Page Width",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pagezoom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Zoom",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "passpromocodetocheckout",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Pass URL Promotion Code to Checkout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "relateditemsdescription",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Related Items",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "relateditemslayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Related Items Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requestshippingaddressfirst",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Ask For Shipping Address First",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requirecompanyfield",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Mandatory",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requireloginforpricing",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Require Login For Pricing",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requireshippinginformation",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Shipping Information is Required",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requiretermsandconditions",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Require Terms and Conditions",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesordertype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sales Order Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "savecreditinfo",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Save Credit Card Info by Default",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "scripttemplatecreditcard",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Scripting Template (Credit Card)",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "scripttemplateinvoice",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Scripting Template (Invoice)",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchcategorylistlayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Category List Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchforcategories",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Categories",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchforinformationitems",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Information Items",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchformitemlistlayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item List Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchitemlistlayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item List Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchlinkform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Search Link Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchportletdisplay",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Global Search",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchportletform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Search Portlet Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchresultforinvalidurls",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Return Invalid URLs as Search Results",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "semailaddrforerror",
+      "type": "emails",
+      "nlapiSubmitField": false,
+      "label": "Email To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipstoallcountries",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Web Store Ships to all countries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipstocountries",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Countries Web Store Ships To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showbillingaddress",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display Billing Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showcartsummaryportlet",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Cart Summary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showcookieconsentbanner",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Cookie Consent Banner",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showcurrencyportlet",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Web Site Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showextendedcart",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Extended Cart",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shownavigationportlet",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Navigation Portlet",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showordertrackinglink",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display Order Tracking Link",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showpofieldonpayment",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display Purchase Order Field on Payment Info Page",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showquantitypricinginlists",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Quantity Pricing in Lists",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showsavecreditinfo",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display 'Save My Credit Card Info' Field",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showsearchportlet",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Search",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showshippingestimator",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Shipping Estimator in Cart",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showtellafriendlink",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show \"Tell a Friend\" Link",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "siteloginrequired",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Password-Protect Entire Site",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "siteportletstyle",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Site Portlet Style",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sitetabalignment",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Site Tab Alignment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sitetabstyle",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Site Tab Style",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "siteusescarttags",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Site Uses Cart Summary Tags",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "siteusesdropshadows",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Site Uses Drop Shadows",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sstoreemailaddrforcopy",
+      "type": "emails",
+      "nlapiSubmitField": false,
+      "label": "Email To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sstoreemailaddrforgiftconfcopy",
+      "type": "emails",
+      "nlapiSubmitField": false,
+      "label": "Email To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sstoreemailaddrforgiftcopy",
+      "type": "emails",
+      "nlapiSubmitField": false,
+      "label": "Email To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storealias",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "http://devbox6.corp.netsuite.com/",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storeemail",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "Default Web Store Email From Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "termsandconditionshtml",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Terms and Conditions HTML",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "textgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Text Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "titlefontsize",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "Title Font Size",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "upselldescription",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Upsell",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upsellitems",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Items to Upsell",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upsellitemslayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Upsell Items Layout",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upsellminimumcorrelation",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Minimum Correlation",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upsellminimumcount",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Minimum Count",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upsellminimumlift",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Minimum Lift",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "urlformat",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Format",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "useurlfileextension",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use File Extension",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "websitehomepage",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Home Page",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "websitehomepagetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Home Page Type",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "websitelogo",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Logo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "websitelogoalign",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Logo Alignment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "websitelogolinkurl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Logo Link URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "websitescope",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Scope",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "websitetheme",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Web Site Theme",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "webstoreadditembehavior",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "After shopper adds an item to the cart",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "webstoremetatags",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Addition to <head>",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wsdkcancelcarturl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shopping cart page Continue Shopping link URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wsdkcancelcheckouturl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Checkout page Cancel link URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wsdkcancelloginurl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Login/registration page Cancel link URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wsdkcompletecheckouturl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "URL to go to after checkout is complete",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wsdkcompleteloginurl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "URL to go to after login/registration is complete",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "cartcolumn",
+      "label": "Cart",
+      "fields": [
+        {
+          "id": "show",
+          "type": "checkbox",
+          "label": "Show",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "width",
+          "type": "float",
+          "label": "Width (%)",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "shoppingdomain",
+      "label": "Domain Names",
+      "fields": [
+        {
+          "id": "domain",
+          "type": "text",
+          "label": "Domain Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "hostingroot",
+          "type": "select",
+          "label": "HTML Hosting Root",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary Web Site URL",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "notfoundpage",
+          "type": "select",
+          "label": "Not-Found Page",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "touchpoints",
+          "type": "namevaluelist",
+          "label": "Touch Points",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "sitecurrency",
+      "label": "Currency",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isdefault",
+          "type": "radio",
+          "label": "Default",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isonline",
+          "type": "checkbox",
+          "label": "Online",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "minimumorderamount",
+          "type": "currency",
+          "label": "Minimum Order Amount",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "sitelanguage",
+      "label": "Languages",
+      "fields": [
+        {
+          "id": "isdefault",
+          "type": "radio",
+          "label": "Default",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isonline",
+          "type": "checkbox",
+          "label": "Online",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "locale",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "siteregion",
+      "label": "Subsidiaries",
+      "fields": [
+        {
+          "id": "displayname",
+          "type": "text",
+          "label": "Display Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isdefault",
+          "type": "radio",
+          "label": "Default",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isonline",
+          "type": "checkbox",
+          "label": "Online",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "paypalaccount",
+          "type": "select",
+          "label": "PayPal Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiary",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "storetab",
+      "label": "Tabs",
+      "fields": [
+        {
+          "id": "tabdescription",
+          "type": "text",
+          "label": "Tab Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "tabname",
+          "type": "text",
+          "label": "Tab Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "tabtype",
+          "type": "text",
+          "label": "Tab Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "advanced",
+      "label": "Advanced"
+    },
+    {
+      "name": "analytics",
+      "label": "Analytics"
+    },
+    {
+      "name": "appearance",
+      "label": "Appearance"
+    },
+    {
+      "name": "cart",
+      "label": "Cart"
+    },
+    {
+      "name": "email",
+      "label": "Email"
+    },
+    {
+      "name": "external",
+      "label": "External"
+    },
+    {
+      "name": "general",
+      "label": "Setup"
+    },
+    {
+      "name": "legacy",
+      "label": "Legacy"
+    },
+    {
+      "name": "search",
+      "label": "Search"
+    },
+    {
+      "name": "shopping",
+      "label": "Shopping"
+    },
+    {
+      "name": "shoppingdomainstab",
+      "label": "Domains"
+    },
+    {
+      "name": "upsell",
+      "label": "Upsell"
+    }
+  ],
+  "transformTypes": []
+}

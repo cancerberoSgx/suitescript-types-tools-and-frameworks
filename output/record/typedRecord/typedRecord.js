@@ -6,7 +6,6 @@ define(["require", "exports", "../recordRef"], function (require, exports, recor
             this._sublists = null;
             this._fields = null;
             this.nsRecord = recordRef_1.asRecordOrThrow(nsRecordOrRefOrResult);
-            // this.nsRecord = r
         }
         Object.defineProperty(TypedRecordImpl.prototype, "id", {
             get: function () {
@@ -24,9 +23,6 @@ define(["require", "exports", "../recordRef"], function (require, exports, recor
         });
         Object.defineProperty(TypedRecordImpl.prototype, "fields", {
             get: function () {
-                // if (!this._fields) {
-                // s
-                // }
                 return this._fields;
             },
             enumerable: true,
@@ -34,9 +30,6 @@ define(["require", "exports", "../recordRef"], function (require, exports, recor
         });
         Object.defineProperty(TypedRecordImpl.prototype, "sublists", {
             get: function () {
-                // if (!this._sublists) {
-                //   this._sublists = recordFieldConstructorImpl[this.type](this) as any
-                // }
                 return this._sublists;
             },
             enumerable: true,

@@ -1,6 +1,4 @@
-import { load } from 'N/record';
-import { commercecategoryRecordImpl } from './generated/commercecategory';
-import { loadOrThrow } from './generatedFactory';
+import { loadOrThrow } from './generated/recordConstructor';
 
 // import { load, loadOrThrow } from './typedRecord';
 

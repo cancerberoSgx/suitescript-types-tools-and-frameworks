@@ -241,11 +241,12 @@ define(["require", "exports", "../typedRecord"], function (require, exports, typ
     exports.commercecategoryFieldsImpl = commercecategoryFieldsImpl;
     var commercecategoryRecordImpl = /** @class */ (function (_super) {
         __extends(commercecategoryRecordImpl, _super);
-        function commercecategoryRecordImpl(nsRecordOrRefOrResult) {
-            var _this = _super.call(this, nsRecordOrRefOrResult) || this;
+        function commercecategoryRecordImpl(nsRecord) {
+            var _this = _super.call(this, nsRecord) || this;
+            _this.nsRecord = nsRecord;
             _this._fields = new commercecategoryFieldsImpl(_this);
             return _this;
-            // this._sublists = new commercecategoryFieldsImpl(this)
+            // this._sublists = commercecategorynew FieldsImpl(this)
         }
         return commercecategoryRecordImpl;
     }(typedRecord_1.TypedRecordImpl));

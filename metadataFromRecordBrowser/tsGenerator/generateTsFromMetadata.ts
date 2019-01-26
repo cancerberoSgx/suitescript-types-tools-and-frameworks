@@ -5,13 +5,16 @@
 import { readFileSync, writeFileSync } from 'fs';
 import { RecordMetadata } from './metadataTypes';
 import { generateRecord } from './generateRecord';
-import { ls, mkdir } from 'shelljs';
+import { ls, mkdir, rm } from 'shelljs';
 import { join, resolve, basename } from 'path';
 import { indent } from './util';
 
-interface ProjectConfig { inputFolder: string, outputFolder: string, typedRecordImportBase: string }
+interface ProjectConfig { inputFolder: string, outputFolder: string, typedRecordImportBase: string, cleanOutput?: boolean }
 
 export function generateProject(config: ProjectConfig) {
+  if(config.cleanOutput){
+    rm('-rf', config.outputFolder)
+  }
   const { inputFolder, outputFolder, typedRecordImportBase } = config
   const recordIds: string[] = []
   mkdir('-p', outputFolder)
@@ -49,6 +52,7 @@ export type recordTypes = {
 '${id}': ${id}RecordImpl
 `.trim()).join(`,\n${indent()}`)}
 }
+export type RecordType = StringKeyOf<recordTypes>
 export type recordConstructors = {
   ${config.recordIds.map(id => `
 '${id}': (r: record.Record) => ${id}Record

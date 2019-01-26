@@ -15,6 +15,7 @@ export type recordTypes = {
   'transaction': transactionRecordImpl,
   'website': websiteRecordImpl
 }
+export type RecordType = StringKeyOf<recordTypes>
 export type recordConstructors = {
   'cmscontent': (r: record.Record) => cmscontentRecord,
   'commercecategory': (r: record.Record) => commercecategoryRecord,

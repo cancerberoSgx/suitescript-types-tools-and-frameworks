@@ -73,7 +73,7 @@ export function generateSearchJoins(config: FileConfig): { output: string } {
   const { data } = config;
   const output = `
 /** ${data.label} (${data.id}) Search Joins definitions. */
-export interface ${data.id}SearchJoin {${data.searchJoins.map(c => {
+export interface ${data.id}SearchJoinTypes {${data.searchJoins.map(c => {
     return `
 /** ${data.id}'s ${c.id} search filter. ${c.description}. Actual name: ${c.actualName}. */
 ${indent()}${c.id}: '${c.id}';

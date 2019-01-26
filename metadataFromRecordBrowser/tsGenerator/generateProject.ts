@@ -39,15 +39,18 @@ export function generateProject(config: ProjectConfig) {
       config.generateAfter({ ...config, recordIds });
     });
 
-  writeFileSync(join(outputFolder, 'index.ts'), generateIndex({ recordIds, typedRecordImportBase }))
+  writeFileSync(join(outputFolder, 'index.ts'), generateIndex({ ...config, recordIds }))
 }
 
 const recordIdFilePaths : {[s:string]:string}= {}
 export function getMetadataFilePathForRecord(id:string){
   return recordIdFilePaths[id]
 }
-function generateIndex(config: { recordIds: string[], typedRecordImportBase: string }) {
-  return `${config.recordIds.map(id => `export * from './${id}';`).join(`\n`)}`
+
+function generateIndex(config: { recordIds: string[] }& ProjectConfig) {
+  return ls('-R', config.outputFolder)//.map(f => join(resolve(config.outputFolder), f))
+    .filter(f => f.endsWith('.ts'))
+    .map(f=> `export * from './${basename(f, '.ts')}';`).join(`\n`)
 }
 
 export function readMetadata(f: string, config?: ProjectConfig): RecordMetadata {

@@ -33,7 +33,7 @@ export function objectKeys<Field extends EmptyObject = EmptyObject>(o: Field):St
 // types
 
 /** returns the type of the value with key K in the Mapped type T. Example: `type _string = ValueOf<A, 'a'>` . */
-export type ValueOf<T extends { [k: number]: any }, K extends number> = T[K];
+export type ValueOf<T extends any, K extends string|number> = T[K];
 export type ValueOfStringKey<T extends { [k: string]: any }, K extends string> = T[K];
 export type ValueOfNumberKey<T extends { [k: number]: any }, K extends number> = T[K];
 export type StringKeyOf<T extends any> = Extract<keyof T, string>;

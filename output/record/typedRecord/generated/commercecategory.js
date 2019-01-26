@@ -9,7 +9,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "../typedRecord"], function (require, exports, typedRecord_1) {
+define(["require", "exports", "../typedRecord", "../typedRecordSublist"], function (require, exports, typedRecord_1, typedRecordSublist_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var commercecategoryFieldsImpl = /** @class */ (function () {
@@ -239,14 +239,49 @@ define(["require", "exports", "../typedRecord"], function (require, exports, typ
         return commercecategoryFieldsImpl;
     }());
     exports.commercecategoryFieldsImpl = commercecategoryFieldsImpl;
+    var commercecategory_items_SublistFieldImpl = /** @class */ (function (_super) {
+        __extends(commercecategory_items_SublistFieldImpl, _super);
+        function commercecategory_items_SublistFieldImpl(typedRecord, line) {
+            var _this = _super.call(this, typedRecord, line) || this;
+            _this.typedRecord = typedRecord;
+            _this.line = line;
+            _this.sublistId = 'items';
+            return _this;
+        }
+        Object.defineProperty(commercecategory_items_SublistFieldImpl.prototype, "descriptionoverride", {
+            get: function () {
+                return this.getSublistValue('name');
+            },
+            set: function (value) {
+                this.setSublistValue('name', value);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return commercecategory_items_SublistFieldImpl;
+    }(typedRecordSublist_1.SublistFieldImpl));
+    var commercecategory_SublistsImpl = /** @class */ (function () {
+        function commercecategory_SublistsImpl(typedRecord) {
+            this.typedRecord = typedRecord;
+        }
+        Object.defineProperty(commercecategory_SublistsImpl.prototype, "items", {
+            get: function () {
+                // return new commercecategory_items_LineImpl(this.typedRecord, 'items') // cache
+                return new typedRecordSublist_1.LineImpl(this.typedRecord, 'items', commercecategory_items_SublistFieldImpl);
+            },
+            enumerable: true,
+            configurable: true
+        });
+        return commercecategory_SublistsImpl;
+    }());
     var commercecategoryRecordImpl = /** @class */ (function (_super) {
         __extends(commercecategoryRecordImpl, _super);
         function commercecategoryRecordImpl(nsRecord) {
             var _this = _super.call(this, nsRecord) || this;
             _this.nsRecord = nsRecord;
             _this._fields = new commercecategoryFieldsImpl(_this);
+            _this._sublists = new commercecategory_SublistsImpl(_this);
             return _this;
-            // this._sublists = commercecategorynew FieldsImpl(this)
         }
         return commercecategoryRecordImpl;
     }(typedRecord_1.TypedRecordImpl));

@@ -60,7 +60,7 @@ export type recordConstructors = {
 `.trim()).join(`,\n${indent()}`)}
 }
 
-export const recordConstructorsImpl: recordConstructors = {
+exportconst recordConstructorsImpl: recordConstructors = {
   ${config.recordIds.map(id => `
   '${id}': (r: record.Record) => new ${id}RecordImpl(r) 
   `.trim()).join(`,\n${indent()}`)}

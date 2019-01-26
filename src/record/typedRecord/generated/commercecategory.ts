@@ -2,6 +2,7 @@
 
 import { TypedRecord, TypedRecordImpl } from '../typedRecord';
 import { Record } from 'N/record';
+import { LineImpl, Line, SublistFieldImpl } from '../typedRecordSublist';
 
 
 
@@ -196,20 +197,62 @@ export class commercecategoryFieldsImpl implements commercecategoryFields {
 }
 
 
+
+
+interface commercecategory_items_SublistField {
+  descriptionoverride?: string
+  // primarycategory?: boolean
+  // item: number
+  // isprimary: boolean
+}
+class commercecategory_items_SublistFieldImpl extends SublistFieldImpl implements commercecategory_items_SublistField {
+  constructor(protected typedRecord: TypedRecord, protected line: number) {
+    super(typedRecord, line)
+    this.sublistId = 'items'
+  }
+  public get descriptionoverride(): string | undefined {
+    return this.getSublistValue('name') as any
+  }
+  public set descriptionoverride(value: string | undefined) {
+    this.setSublistValue('name', value)
+  }
+}
+
+// class commercecategory_items_LineImpl extends LineImpl<commercecategory_items_SublistField>{
+//   constructor(protected typedRecord: TypedRecord, protected sublistId: string) {
+//     super(typedRecord, sublistId)
+//     this.sublistFieldImpl = commercecategory_items_SublistFieldImpl as any
+//   }
+// }
+interface commercecategory_Sublists {
+  readonly items: Line<commercecategory_items_SublistField>
+  // subcategories: any,
+  // urls: any
+}
+class commercecategory_SublistsImpl implements commercecategory_Sublists {
+  constructor(protected typedRecord: TypedRecord) {
+  }
+  public get items(): Line<commercecategory_items_SublistField> {
+    // return new commercecategory_items_LineImpl(this.typedRecord, 'items') // cache
+    return new LineImpl<commercecategory_items_SublistField>(this.typedRecord, 'items', commercecategory_items_SublistFieldImpl as any)
+  }
+}
+
+
 /** 
  * Commerce Category Record Definition.
  * Record's Internal Id: commercecategory. 
  * Supports Custom Fields: true 
  */
-export interface commercecategoryRecord extends TypedRecord<commercecategoryFields> {
+export interface commercecategoryRecord extends TypedRecord<commercecategoryFields, commercecategory_Sublists> {
 
 }
 
-export class commercecategoryRecordImpl extends TypedRecordImpl<commercecategoryFields> implements commercecategoryRecord {
+export class commercecategoryRecordImpl extends TypedRecordImpl<commercecategoryFields, commercecategory_Sublists> implements commercecategoryRecord {
   constructor(public nsRecord: Record) {
     super(nsRecord)
     this._fields = new commercecategoryFieldsImpl(this);
-    // this._sublists = commercecategorynew FieldsImpl(this)
+    this._sublists = new commercecategory_SublistsImpl(this)
   }
 }
 

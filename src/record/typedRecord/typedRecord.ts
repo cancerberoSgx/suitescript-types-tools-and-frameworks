@@ -1,21 +1,19 @@
 import * as record from "N/record";
 import { Record } from 'N/record';
-import { CommonFields } from './fieldTypes';
 import { RecordOrRefResult, asRecordOrThrow } from '../recordRef';
 import { RecordType } from './generated/recordConstructor';
+import { EmptyObject, StringKeyOf, ValueOf, ValueOfStringKey, repeat, array } from '../../misc/misc';
+import { getLines } from '../sublistUtil';
 
-export interface TypedRecord<Fields extends CommonFields = CommonFields, Sublists extends SublistTypes = SublistTypes> {
+export interface TypedRecord<Fields extends EmptyObject = EmptyObject, Sublists extends EmptyObject = EmptyObject> {
   readonly nsRecord: record.Record
-
   readonly id: string
   readonly type: RecordType
-
   readonly fields: Fields
-
   readonly sublists: Sublists
 }
 
-export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublists extends SublistTypes = SublistTypes> implements TypedRecord<Fields, Sublists> {
+export class TypedRecordImpl<Fields extends EmptyObject = EmptyObject, Sublists extends EmptyObject = EmptyObject> implements TypedRecord<Fields, Sublists> {
   nsRecord: Record
   protected _sublists: Sublists = null as any
   protected _fields: Fields = null as any
@@ -34,60 +32,228 @@ export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublist
   public get sublists(): Sublists {
     return this._sublists
   }
+  save(options?: SaveOptions){
+    this.nsRecord.save(options)
+  }
 }
 
-
-// const c: CommercategoryRecord = null as any as CommercategoryRecord
-// export type recordTypes = {
-//   'commercecategory': commercecategoryRecord
-// }
-// export type recordConstructors = {
-//   'commercecategory': (r: Record) => commercecategoryRecord
-// }
-// type recordFieldTypes = {
-//   'commercecategory': CommercecategoryFields2
-// }
-// export type recordFieldConstructors = {
-//   'commercecategory': (r: TypedRecord) => commercecategoryFields
-// }
-
-
-
-
-// export function createRecordField<T extends RecordType>(r: TypedRecord): ValueOfStringKey<recordFieldTypes, T> {
-//   return recordFieldConstructorImpl[r.type](r)
-// }
-// export interface FieldsAttribute<Fields extends FieldTypes = FieldTypes> { 
-//   get<T extends StringKeyOf<Fields>>(name:T): ValueOfStringKey<Fields, T>
-//   set<T extends StringKeyOf<Fields>>(name:T, value: ValueOfStringKey<Fields, T>): this
-// }
-
-export type DefaultSublistFieldTypes = {
-  // common fields in all sublists ?
+interface SaveOptions {
+  /** Indicates whether to enable sourcing during the record update. Defaults to true. */
+  enableSourcing?: boolean;
+  /** Indicates whether to ignore mandatory fields during record submission. Default is false. */
+  ignoreMandatoryFields?: boolean;
 }
-export interface SublistTypes<SublistFieldTypes extends DefaultSublistFieldTypes=DefaultSublistFieldTypes> {
-  // id: string
-  // parentRecord: TypedRecord
-  // lineCount(): number
-  // empty(): void
-  // getFieldNames(): (keyof SublistFieldTypes)[]
-  // getLines(range?: [number, number]): SublistFieldTypes[]
-  // getLine(line: number): SublistFieldTypes
-  // setLine(line: number, value: SublistFieldTypes): void
-  // addLine(line: number, value: SublistFieldTypes): void
-  // addLines(line: number, value: SublistFieldTypes[]): void
-  // removeLine(line: number): void
-  // setField<T extends StringKeyOf<SublistFieldTypes>>(fieldRef: SublistFieldRef, value: ValueOfStringKey<SublistFieldTypes, T>): void
-  // getField<T extends StringKeyOf<SublistFieldTypes>>(fieldRef: SublistFieldRef): ValueOfStringKey<SublistFieldTypes, T>
-}
-// export interface SublistFieldRef {
-//   line: number
-//   fieldId: string
+
+// // /** the api should allow the user to do somethin like 
+// //  * `const line = c2.sublists.subcategories.line(1).primarycategory` 
+// //  * - all typed - line will have an interface and types
+// //  * 
+// //  * also let's try that the following works:
+// //  * 
+// //  * `c2.sublists.subcategories[1].primarycategory`
+// //  * */
+// // interface Sublist<Field extends EmptyObject = EmptyObject > {
+// //   // fields(): string[]
+// //   line(n:number): Line<Field>
+// //   // line: Field[]
+  
+// // }
+
+
+// // interface commercecategory_items_SublistField {
+//   // name?: string
+//   // item: number
+//   // isprimary: boolean
+// // }
+// // interface commercecategory_items_Field {
+// //   name?: string
+// //   // item: number
+// //   // isprimary: boolean
+// // }
+// // interface commercecategory_items_Line extends Line<commercecategory_items_SublistField>{
+// //   }
+
+// // class SublistImpl implements Sublist<{foo: string}> {
+  
+
+// // }
+
+// // interface LineFieldValueOptions<Field extends EmptyObject = EmptyObject>{
+// //   fieldId: StringKeyOf<Field>
+// //   line: number
+
+// // }
+// // for each sublist we must create a class just like we did for each Field
+
+// class commercecategory_items_SublistFieldImpl implements commercecategory_items_SublistField {
+//   constructor(protected typedRecord: TypedRecord,  protected line: number){ 
+//   }
+//   public get name(): string|undefined {
+//     return this.typedRecord.nsRecord.getSublistValue({sublistId: 'items', fieldId: 'name', line: this.line}) as any;
+//     // throw 1
+//   }
+//   public set name(value:string | undefined) {
+//     this.typedRecord.nsRecord.setSublistValue({sublistId: 'items', fieldId: 'name', line: this.line, value : value as any}) as any;
+//     // throw 1
+//   }
 // }
 
-// /** common sublist line fields - don't know if that exists */
-// export interface SublistFieldTypes {
-//   // counter: number // I think there is something that all sublist lines have
+// // interface LL<Field extends EmptyObject = EmptyObject, K extends StringKeyOf<Field>=StringKeyOf<Field>> {
+// // // [n: number]: ValueOfStringKey<Field, K>
+
+// // }
+
+// interface commercecategory_items_SublistField {
+//   name?: string
+//   // item: number
+//   // isprimary: boolean
+//   }
+
+// interface Line<Field extends EmptyObject = EmptyObject> {
+//   get<K extends StringKeyOf<Field>=StringKeyOf<Field>>(fieldId: K, line: number): ValueOfStringKey<Field, K>
+//   set<K extends StringKeyOf<Field>=StringKeyOf<Field>>(fieldId: K, line: number, V: ValueOfStringKey<Field, K>,):void
+//   line (l: number):Field
+//   lines: Field[]
+//   lineCount(): number
+//   linesIndexes(): number[]
 // }
-// export interface SublistLine<Fields extends SublistFieldTypes = SublistFieldTypes>{
+// class LineImpl<Field extends EmptyObject = EmptyObject> implements Line<Field> {
+
+//   constructor(protected typedRecord: TypedRecord, protected sublistId: string){ 
+//   }
+//   get<K extends StringKeyOf<Field>=StringKeyOf<Field>>(fieldId: K, line: number): ValueOfStringKey<Field, K>{
+//     return this.typedRecord.nsRecord.getSublistValue({sublistId: this.sublistId, line: line, fieldId}) as any
+//   }
+//   set<K extends StringKeyOf<Field>=StringKeyOf<Field>>(fieldId: K, line: number, V: ValueOfStringKey<Field, K>):void{
+// this.typedRecord.nsRecord.setSublistValue({sublistId: this.sublistId, line: line, fieldId, value: V as any})
+//   }
+//   line (l: number):Field{
+//     return new this.sublistFieldImpl(l) as any as Field
+//   }
+//   get lines(): Field[] {
+//     return this.linesIndexes().map(l=>this.line(l))
+//   }
+//   lineCount(): number{
+//     return this.typedRecord.nsRecord.getLineCount({sublistId: this.sublistId})
+//   }
+//   linesIndexes(): number[] {
+//     return array(this.lineCount()).map((l, i)=>i)
+//   }
+//   protected sublistFieldImpl!:  {new (l: number): Field} //  = null as any as {new (options: {sublistId: string}): Field}
 // }
+// class commercecategory_items_LineImpl extends LineImpl<commercecategory_items_SublistField>{
+//   protected sublistFieldImpl = commercecategory_items_SublistFieldImpl as any
+//   // line (l: number):commercecategory_items_SublistField{
+//   //   return new commercecategory_items_SublistFieldImpl(this.typedRecord , l)
+//   // }
+// }
+// interface commercecategory_Sublists{
+//   readonly items: Line<commercecategory_items_SublistField>
+//   // subcategories: any,
+//   // urls: any
+// }
+// class commercecategory_SublistsImpl implements commercecategory_Sublists {
+//   // private _items: commercecategory_items_SublistField;
+//   constructor(protected typedRecord: TypedRecord){ 
+//   }
+
+//   public get items(): Line<commercecategory_items_SublistField> {
+//     return new commercecategory_items_LineImpl(this.typedRecord, 'items')
+//   }
+//   // public set items(value: Line<commercecategory_items_SublistField>) {
+//   //   // HEADS UP ! assigning the sublist.items directly users can assign the whole sublist !
+
+//   //   getLines({record: this.typedRecord.nsRecord, sublistId: 'items' }).forEach(line => {
+//   //     this.typedRecord.nsRecord.removeLine({ line: 0, sublistId: 'items', ignoreRecalc: true })
+//   // })
+//   // value.lines()
+
+//   //   this.typedRecord.nsRecord.
+//   //   this._items = value;
+//   // }
+// }
+
+
+// export interface commercecategoryRecord extends TypedRecord<{}, commercecategory_Sublists> {
+
+// }
+
+// export class commercecategoryRecordImpl extends TypedRecordImpl<{}, commercecategory_Sublists> implements commercecategoryRecord {
+//   constructor(public nsRecord: Record) {
+//     super(nsRecord)
+//     this._sublists = new commercecategory_SublistsImpl(this)
+//   }
+// }
+
+// let c: commercecategoryRecord = null as any as commercecategoryRecord
+// const s: string|undefined = c.sublists.items.get('name', 123)
+// c.sublists.items.line(0).name = '123'
+// c.sublists.items.lines[0].name = '123'
+
+
+
+// // interface LinesValue<Field extends EmptyObject = EmptyObject> {
+// //   line: number, 
+// //   fieldId: StringKeyOf<Field>
+// // }
+// // class Lines<Field extends EmptyObject = EmptyObject>
+// // //  extends AccessorArray<Field> 
+// //  {
+// //     constructor(protected nsRecord: Record, protected sublistId: string) {
+// //     // super()
+// //   }
+
+// //   getValue(options: LineFieldValueOptions<Field>){
+
+// //   }
+
+//   // private _dd: ValueOfStringKey<Field, 'dd'> = null as any;
+//   // public get dd(): ValueOfStringKey<Field, 'dd'> {
+//   //   return this._dd;
+//   // }
+//   // public set dd(value: ValueOfStringKey<Field, 'dd'>) {
+//   //   this._dd = value;
+//   // }
+  
+//   // get value<
+//   // K extends StringKeyOf<Field> = StringKeyOf<Field>, 
+//   // V extends ValueOfStringKey<Field, K> = ValueOfStringKey<Field, K>>
+//   // (lv: LinesValue<Field>): V{
+//   //   return this.nsRecord.getSublistValue({...lv, sublistId: this.sublistId}) as any 
+//   // }
+
+//   // set value<
+//   // K extends StringKeyOf<Field> = StringKeyOf<Field>, 
+//   // V extends ValueOfStringKey<Field, K> = ValueOfStringKey<Field, K>>
+//   // (lv: LinesValue<Field>, value: V){
+//   //   this.nsRecord.setSublistValue({...lv, sublistId: this.sublistId, value: value as any}) as any 
+//   // }
+
+
+//   // line(n: number): Line<Field>{
+//   //   return new LineImpl<Field>(this.nsRecord) // TODO : cache
+//   // }
+//   // get(n: number): Field{
+//   //   return new SublistFieldImpl(this)
+//   // }
+//   // set(n: number, f: Field):void{
+    
+//   // }
+// // }
+
+// // interface Line<Field extends EmptyObject = EmptyObject> {
+// //   constructor(protected nsRecord: Record) {
+// //     // super()
+// //   }
+// // }
+// // class LineImpl<Field extends EmptyObject = EmptyObject> implements Line<Field> {
+
+// // }
+// // class SublistFieldImpl {
+  
+// //   public get value() : string {
+// //     return 
+// //   }
+
+  
+// // }

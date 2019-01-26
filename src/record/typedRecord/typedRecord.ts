@@ -1,28 +1,78 @@
-// super typed netsuite record type
-// there is a super generic record definition that let declare concrete records by just declaring its fields and sublists generics. 
-// IDEA: consume record definition XML and from there generate the concrete record generics declaration code. Could also be quering the record type with suitesscript
-
 import * as record from "N/record";
-import { StringKeyOf, TODO, TypedMap, ValueOfStringKey } from '../../misc/misc';
-import {  FieldTypes } from './fieldTypes';
+import { Record } from 'N/record';
+import { StringKeyOf, ValueOfStringKey } from '../../misc/misc';
+import { asRecordOrThrow, RecordOrRefResult } from '../recordRef';
+import { CommercategoryRecord, CommercategoryRecordImpl } from './CommerceCategory';
+import { CommonFields } from './fieldTypes';
 
-export interface Record<Fields extends FieldTypes = FieldTypes, Sublists extends SublistTypes = SublistTypes> {
-  nsRecord: record.Record
+export interface TypedRecord<Fields extends CommonFields = CommonFields, Sublists extends SublistTypes = SublistTypes> {
+  readonly nsRecord: record.Record
 
-  // wrap id and type with getters
-  id: string
-  externalId: string
+  readonly id: string
+  readonly type: RecordType
 
-  // getFieldValue<T extends StringKeyOf<Fields>>(name:T): ValueOfStringKey<Fields, T>
-  // setFieldValue<T extends StringKeyOf<Fields>>(name:T, value: ValueOfStringKey<Fields, T>): this
-  fields: TypedMap<Fields>
+  readonly fields: Fields
 
-  lines:TypedMap<Sublists>
-  // sublists: SublistsTypes
-  // copyFieldsFrom(config: TODO): this
-  // copySublistsFrom(config: TODO): this
-  // remove(config: TODO): void
+  readonly sublists: Sublists
 }
+
+export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublists extends SublistTypes = SublistTypes> implements TypedRecord<Fields, Sublists> {
+
+  nsRecord: Record
+  constructor(nsRecordOrRefOrResult: RecordOrRefResult) {
+    this.nsRecord = asRecordOrThrow(nsRecordOrRefOrResult)
+  }
+  public get id(): string {
+    return this.nsRecord.id + ''
+  }
+  public get type(): RecordType {
+    return this.nsRecord.type + '' as any
+  }
+  public get fields(): Fields {
+    throw 'not impl'
+  }
+  public get sublists(): Sublists {
+    throw 'not impl'
+  }
+}
+
+
+// const c: CommercategoryRecord = null as any as CommercategoryRecord
+type recordTypes = {
+  'commercecategory': CommercategoryRecord
+}
+type recordConstructors = {
+  'commercecategory': (r: Record) => CommercategoryRecord
+}
+const recordConstructorsImpl: recordConstructors = {
+  'commercecategory': (r: Record) => { return new CommercategoryRecordImpl(r) }
+}
+// type recordFieldTypes = {
+//   'commercecategory': CommercecategoryFields2
+// }
+// type recordFieldConstructors = {
+//   'commercecategory': (r: TypedRecord)=>CommercecategoryFields2
+// }
+type RecordType = StringKeyOf<recordTypes>
+
+// const recordFieldConstructorImpl: recordFieldConstructors= {
+//   'commercecategory': (r: TypedRecord)=>{return new CommercecategoryFields2Impl(r)}
+// }
+// export function createRecordField<T extends RecordType>(r: TypedRecord): ValueOfStringKey<recordFieldTypes, T> {
+//   return recordFieldConstructorImpl[r.type](r)
+// }
+
+
+
+export function load<T extends StringKeyOf<recordTypes>>(options: {id: string, type: T}): ValueOfStringKey<recordTypes, T> | undefined {
+  const r = record.load(options)
+  return recordConstructorsImpl[options.type](r)
+}
+export function create<T extends StringKeyOf<recordTypes>>(options: {id: string, type: T}): ValueOfStringKey<recordTypes, T> | undefined {
+  const r = record.create(options)
+  return recordConstructorsImpl[options.type](r)
+}
+
 // export interface FieldsAttribute<Fields extends FieldTypes = FieldTypes> { 
 //   get<T extends StringKeyOf<Fields>>(name:T): ValueOfStringKey<Fields, T>
 //   set<T extends StringKeyOf<Fields>>(name:T, value: ValueOfStringKey<Fields, T>): this
@@ -32,24 +82,24 @@ export type DefaultSublistFieldTypes = {
   // common fields in all sublists ?
 }
 export interface SublistTypes<SublistFieldTypes extends DefaultSublistFieldTypes=DefaultSublistFieldTypes> {
-  id: string
-  parentRecord: Record
-  lineCount(): number
-  empty(): void
-  getFieldNames(): (keyof SublistFieldTypes)[]
-  getLines(range?: [number, number]): SublistFieldTypes[]
-  getLine(line:number): SublistFieldTypes
-  setLine(line:number, value: SublistFieldTypes): void
-  addLine(line: number, value: SublistFieldTypes):void
-  addLines(line: number, value: SublistFieldTypes[]):void
-  removeLine(line: number): void
-  setField<T extends StringKeyOf<SublistFieldTypes>>(fieldRef: SublistFieldRef, value: ValueOfStringKey<SublistFieldTypes, T>):void
-  getField<T extends StringKeyOf<SublistFieldTypes>>(fieldRef: SublistFieldRef): ValueOfStringKey<SublistFieldTypes, T>
+  // id: string
+  // parentRecord: TypedRecord
+  // lineCount(): number
+  // empty(): void
+  // getFieldNames(): (keyof SublistFieldTypes)[]
+  // getLines(range?: [number, number]): SublistFieldTypes[]
+  // getLine(line: number): SublistFieldTypes
+  // setLine(line: number, value: SublistFieldTypes): void
+  // addLine(line: number, value: SublistFieldTypes): void
+  // addLines(line: number, value: SublistFieldTypes[]): void
+  // removeLine(line: number): void
+  // setField<T extends StringKeyOf<SublistFieldTypes>>(fieldRef: SublistFieldRef, value: ValueOfStringKey<SublistFieldTypes, T>): void
+  // getField<T extends StringKeyOf<SublistFieldTypes>>(fieldRef: SublistFieldRef): ValueOfStringKey<SublistFieldTypes, T>
 }
-export interface SublistFieldRef {
-  line: number
-  fieldId: string
-}
+// export interface SublistFieldRef {
+//   line: number
+//   fieldId: string
+// }
 
 // /** common sublist line fields - don't know if that exists */
 // export interface SublistFieldTypes {

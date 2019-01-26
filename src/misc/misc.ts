@@ -14,6 +14,9 @@ export function array<T=number>(n: number, sample?: T): T[] {
 export function repeat(n: number, s: string): string {
   return array(n, s).join('')
 }
+export function indent(i: number=1, tabSize=2): string {
+  return repeat(i*tabSize, ' ')
+}
 export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[]) => boolean): T | undefined {
   for (let i = 0; i < a.length; i++) {
     const v = a[i];
@@ -42,6 +45,10 @@ export type MapStringKeySameTypeValues<T extends any = any> = { [key: string]: T
 export type EmptyObject = {}
 export interface TypedMap<PropTypes extends EmptyObject> {
   get<T extends StringKeyOf<PropTypes>>(name: T): ValueOfStringKey<PropTypes, T>
+  set<T extends StringKeyOf<PropTypes>>(name: T, value: ValueOfStringKey<PropTypes, T>): void
+}
+export interface TypedMapAndUndefinedGetter<PropTypes extends EmptyObject> {
+  get<T extends StringKeyOf<PropTypes>>(name: T): ValueOfStringKey<PropTypes, T>|undefined
   set<T extends StringKeyOf<PropTypes>>(name: T, value: ValueOfStringKey<PropTypes, T>): void
 }
 export class TypedMapImpl<PropTypes extends EmptyObject> implements TypedMap<PropTypes> {

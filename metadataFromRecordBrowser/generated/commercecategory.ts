@@ -1,6 +1,6 @@
-
 // This file is auto generated, do not edit it. 
-import {TypedRecord} from '../../../ src/record/typedRecord/TypedRecord'
+
+import { TypedRecord, TypedRecordImpl } from '../typedRecord';
 
 /** 
  * Commerce Category Fields Definition.
@@ -188,6 +188,17 @@ export class commercecategoryFieldsImpl implements commercecategoryFields {
   }
   public set version(value: number | undefined) {
     this.typedRecord.nsRecord.setValue('version', value as any)
+  }
+}
+
+
+
+export interface commercecategoryRecord extends TypedRecord<commercecategoryFields> {
+
+}
+export class commercecategoryRecordImpl extends TypedRecordImpl<commercecategoryFields> implements commercecategoryRecord {
+  constructor(public nsRecord: Record) {
+    super(nsRecord)
   }
 }
 

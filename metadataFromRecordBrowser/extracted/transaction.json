@@ -1,0 +1,3265 @@
+{
+  "label": "Transaction",
+  "id": "transaction",
+  "supportCustomFields": true,
+  "searchOnly": true,
+  "supportDeletedRecordSearch": true,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "accounttype",
+      "type": "select",
+      "label": "Account Type"
+    },
+    {
+      "id": "actualshipdate",
+      "type": "date",
+      "label": "Actual Ship/Receipt Date"
+    },
+    {
+      "id": "altsalesamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales)"
+    },
+    {
+      "id": "altsalesnetamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales Net)"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "amountpaid",
+      "type": "currency",
+      "label": "Amount Paid"
+    },
+    {
+      "id": "amountremaining",
+      "type": "currency",
+      "label": "Amount Remaining"
+    },
+    {
+      "id": "amountunbilled",
+      "type": "currency",
+      "label": "Amount Unbilled"
+    },
+    {
+      "id": "anylineitem",
+      "type": "multiselect",
+      "label": "Item On Any Line"
+    },
+    {
+      "id": "appliedtoforeignamount",
+      "type": "currency",
+      "label": "Applied To Link Amount (Foreign Currency)"
+    },
+    {
+      "id": "appliedtoisfxvariance",
+      "type": "checkbox",
+      "label": "Applied To Is FxVariance"
+    },
+    {
+      "id": "appliedtolinkamount",
+      "type": "currency",
+      "label": "Applied To Link Amount"
+    },
+    {
+      "id": "appliedtolinktype",
+      "type": "select",
+      "label": "Applied To Link Type"
+    },
+    {
+      "id": "appliedtotransaction",
+      "type": "select",
+      "label": "Applied To Transaction"
+    },
+    {
+      "id": "applyingforeignamount",
+      "type": "currency",
+      "label": "Applying Link Amount (Foreign Currency)"
+    },
+    {
+      "id": "applyingisfxvariance",
+      "type": "checkbox",
+      "label": "Applying Is FxVariance"
+    },
+    {
+      "id": "applyinglinkamount",
+      "type": "currency",
+      "label": "Applying Link Amount"
+    },
+    {
+      "id": "applyinglinktype",
+      "type": "select",
+      "label": "Applying Link Type"
+    },
+    {
+      "id": "applyingtransaction",
+      "type": "select",
+      "label": "Applying Transaction"
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "authcode",
+      "type": "text",
+      "label": "Auth. Code"
+    },
+    {
+      "id": "autocalculatelag",
+      "type": "checkbox",
+      "label": "Auto-calculate Lag"
+    },
+    {
+      "id": "avsstreetmatch",
+      "type": "select",
+      "label": "AVS Street Match"
+    },
+    {
+      "id": "avszipmatch",
+      "type": "select",
+      "label": "AVS Zip Match"
+    },
+    {
+      "id": "billable",
+      "type": "checkbox",
+      "label": "Billable"
+    },
+    {
+      "id": "billcounty",
+      "type": "text",
+      "label": "Billing County/State"
+    },
+    {
+      "id": "billeddate",
+      "type": "date",
+      "label": "Date Billed"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "billingstatus",
+      "type": "checkbox",
+      "label": "Billing Status"
+    },
+    {
+      "id": "billingtransaction",
+      "type": "select",
+      "label": "Billing Transaction"
+    },
+    {
+      "id": "billvariancestatus",
+      "type": "select",
+      "label": "Bill Variance Status"
+    },
+    {
+      "id": "binnumber",
+      "type": "text",
+      "label": "Transaction Bin Number"
+    },
+    {
+      "id": "binnumberquantity",
+      "type": "float",
+      "label": "Transaction Bin Quantity"
+    },
+    {
+      "id": "bookspecifictransaction",
+      "type": "checkbox",
+      "label": "Book Specific Transaction"
+    },
+    {
+      "id": "buildentireassembly",
+      "type": "checkbox",
+      "label": "Build Sub-Assemblies"
+    },
+    {
+      "id": "buildvariance",
+      "type": "float",
+      "label": "Build Variance"
+    },
+    {
+      "id": "built",
+      "type": "float",
+      "label": "Built"
+    },
+    {
+      "id": "canhavestackablepromotions",
+      "type": "checkbox",
+      "label": "Can have stackable promotions"
+    },
+    {
+      "id": "catchupperiod",
+      "type": "select",
+      "label": "Catch Up Period"
+    },
+    {
+      "id": "cccustomercode",
+      "type": "text",
+      "label": "CC Customer Code"
+    },
+    {
+      "id": "ccexpiredate",
+      "type": "date",
+      "label": "CC Expire Date"
+    },
+    {
+      "id": "ccname",
+      "type": "text",
+      "label": "Credit Cardholder Name"
+    },
+    {
+      "id": "ccnumber",
+      "type": "ccnumber",
+      "label": "Credit Card Number"
+    },
+    {
+      "id": "chargetype",
+      "type": "select",
+      "label": "Charge Type"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "cleared",
+      "type": "checkbox",
+      "label": "Cleared"
+    },
+    {
+      "id": "closed",
+      "type": "checkbox",
+      "label": "Closed"
+    },
+    {
+      "id": "closedate",
+      "type": "date",
+      "label": "Date Closed"
+    },
+    {
+      "id": "cogs",
+      "type": "checkbox",
+      "label": "COGS Line"
+    },
+    {
+      "id": "commissioneffectivedate",
+      "type": "date",
+      "label": "Commission Effective Date"
+    },
+    {
+      "id": "commit",
+      "type": "select",
+      "label": "Commit"
+    },
+    {
+      "id": "confirmationnumber",
+      "type": "text",
+      "label": "Confirmation Number"
+    },
+    {
+      "id": "contribution",
+      "type": "integer",
+      "label": "Contribution %"
+    },
+    {
+      "id": "costcomponentamount",
+      "type": "currency",
+      "label": "Cost Component Amount"
+    },
+    {
+      "id": "costcomponentcategory",
+      "type": "select",
+      "label": "Cost Component Category"
+    },
+    {
+      "id": "costcomponentitem",
+      "type": "select",
+      "label": "Cost Component Item"
+    },
+    {
+      "id": "costcomponentquantity",
+      "type": "float",
+      "label": "Cost Component Quantity"
+    },
+    {
+      "id": "costcomponentstandardcost",
+      "type": "float",
+      "label": "Cost Component Standard Cost"
+    },
+    {
+      "id": "costestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Line)"
+    },
+    {
+      "id": "costestimaterate",
+      "type": "currency",
+      "label": "Est. Unit Cost"
+    },
+    {
+      "id": "costestimatetype",
+      "type": "select",
+      "label": "Cost Estimate Type"
+    },
+    {
+      "id": "createdby",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "label": "Created From"
+    },
+    {
+      "id": "creditamount",
+      "type": "currency",
+      "label": "Amount (Credit)"
+    },
+    {
+      "id": "cscmatch",
+      "type": "select",
+      "label": "CSC Match"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "customersubof",
+      "type": "select",
+      "label": "Customer Sub of"
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "label": "Custom Form"
+    },
+    {
+      "id": "customgl",
+      "type": "checkbox",
+      "label": "Custom GL"
+    },
+    {
+      "id": "custtype",
+      "type": "select",
+      "label": "Customer Category"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "daysopen",
+      "type": "integer",
+      "label": "Days Open"
+    },
+    {
+      "id": "daysoverdue",
+      "type": "integer",
+      "label": "Days Overdue"
+    },
+    {
+      "id": "debitamount",
+      "type": "currency",
+      "label": "Amount (Debit)"
+    },
+    {
+      "id": "deferredrevenue",
+      "type": "currency",
+      "label": "Amount (Deferred)"
+    },
+    {
+      "id": "deferrevrec",
+      "type": "checkbox",
+      "label": "Delay Rev. Rec."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "depositdate",
+      "type": "date",
+      "label": "Date Deposited/Refunded"
+    },
+    {
+      "id": "deposittransaction",
+      "type": "select",
+      "label": "Deposit/Refund Transaction"
+    },
+    {
+      "id": "draccount",
+      "type": "select",
+      "label": "Deferred Revenue Reclassification Account"
+    },
+    {
+      "id": "duedate",
+      "type": "date",
+      "label": "Due Date/Receive By"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "label": "Employee"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "label": "Name"
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "label": "Estimate/Opportunity Status"
+    },
+    {
+      "id": "estgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Line)"
+    },
+    {
+      "id": "estgrossprofitpct",
+      "type": "percent",
+      "label": "Est. Gross Profit Percent (Line)"
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency",
+      "label": "Exchange Rate"
+    },
+    {
+      "id": "excludecommission",
+      "type": "checkbox",
+      "label": "Exclude Commissions"
+    },
+    {
+      "id": "excludefromraterequest",
+      "type": "checkbox",
+      "label": "Exclude Item from Rate Request"
+    },
+    {
+      "id": "expectedclosedate",
+      "type": "date",
+      "label": "Expected Close Date"
+    },
+    {
+      "id": "expectedreceiptdate",
+      "type": "date",
+      "label": "Expected Receipt Date"
+    },
+    {
+      "id": "expensedate",
+      "type": "date",
+      "label": "Expense Date"
+    },
+    {
+      "id": "expreports",
+      "type": "select",
+      "label": "Expense Category"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "finchrg",
+      "type": "checkbox",
+      "label": "Finance Charge"
+    },
+    {
+      "id": "firmed",
+      "type": "checkbox",
+      "label": "Firmed"
+    },
+    {
+      "id": "forecasttype",
+      "type": "select",
+      "label": "Forecast Type"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "fulfillingtransaction",
+      "type": "select",
+      "label": "Fulfilling/Receiving Transaction"
+    },
+    {
+      "id": "fxaccount",
+      "type": "select",
+      "label": "Foreign Currency Adjustment Revenue Account"
+    },
+    {
+      "id": "fxamount",
+      "type": "currency",
+      "label": "Amount (Foreign Currency)"
+    },
+    {
+      "id": "fxcostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Line) (Foreign Currency)"
+    },
+    {
+      "id": "fxcostestimaterate",
+      "type": "currency",
+      "label": "Est. Unit Cost (Foreign Currency)"
+    },
+    {
+      "id": "fxestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Line) (Foreign Currency)"
+    },
+    {
+      "id": "fxtrancostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "fxvsoeallocation",
+      "type": "currency",
+      "label": "VSOE Allocation (Foreign Currency)"
+    },
+    {
+      "id": "fxvsoeamount",
+      "type": "currency",
+      "label": "VSOE Amount (Foreign Currency)"
+    },
+    {
+      "id": "fxvsoeprice",
+      "type": "currency",
+      "label": "VSOE Price (Foreign Currency)"
+    },
+    {
+      "id": "gcoavailabeltocharge",
+      "type": "checkbox",
+      "label": "Available to Charge"
+    },
+    {
+      "id": "gcoavailabletorefund",
+      "type": "currency",
+      "label": "Funds Available to Refund"
+    },
+    {
+      "id": "gcoavsstreetmatch",
+      "type": "text",
+      "label": "AVS Street Match (Google)"
+    },
+    {
+      "id": "gcoavszipmatch",
+      "type": "text",
+      "label": "AVS Zip Match (Google)"
+    },
+    {
+      "id": "gcobuyeraccountage",
+      "type": "integer",
+      "label": "Buyer Account Age"
+    },
+    {
+      "id": "gcobuyerip",
+      "type": "text",
+      "label": "Buyer IP Address"
+    },
+    {
+      "id": "gcochargeamount",
+      "type": "currency",
+      "label": "Requested Charge Amount"
+    },
+    {
+      "id": "gcochargebackamount",
+      "type": "currency",
+      "label": "Chargeback Amount"
+    },
+    {
+      "id": "gcoconfirmedchargedtotal",
+      "type": "currency",
+      "label": "Charge Amount Confirmed"
+    },
+    {
+      "id": "gcoconfirmedrefundedtotal",
+      "type": "currency",
+      "label": "Confirmed Refund Amount"
+    },
+    {
+      "id": "gcocreditcardnumber",
+      "type": "text",
+      "label": "Credit Card (Google)"
+    },
+    {
+      "id": "gcocscmatch",
+      "type": "text",
+      "label": "CSC Match (Google)"
+    },
+    {
+      "id": "gcofinancialstate",
+      "type": "text",
+      "label": "Google Order Financial State"
+    },
+    {
+      "id": "gcofulfillmentstate",
+      "type": "text",
+      "label": "Google Order Fulfillment State"
+    },
+    {
+      "id": "gcoorderid",
+      "type": "text",
+      "label": "Google Order ID"
+    },
+    {
+      "id": "gcoordertotal",
+      "type": "currency",
+      "label": "Google Order Total"
+    },
+    {
+      "id": "gcopromotionamount",
+      "type": "currency",
+      "label": "Google Checkout Promotion Amount"
+    },
+    {
+      "id": "gcopromotionname",
+      "type": "text",
+      "label": "Google Checkout Promotion"
+    },
+    {
+      "id": "gcorefundamount",
+      "type": "currency",
+      "label": "Requested Refund Amount"
+    },
+    {
+      "id": "gcoshippingtotal",
+      "type": "currency",
+      "label": "Google Shipping Total"
+    },
+    {
+      "id": "gcostatechangeddetail",
+      "type": "text",
+      "label": "Reason for Cancellation"
+    },
+    {
+      "id": "giftcertificate",
+      "type": "text",
+      "label": "Gift Certificate"
+    },
+    {
+      "id": "grossamount",
+      "type": "currency",
+      "label": "Amount (Gross)"
+    },
+    {
+      "id": "includeinforecast",
+      "type": "checkbox",
+      "label": "Include in Forecast"
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "label": "Incoterm"
+    },
+    {
+      "id": "intercostatus",
+      "type": "select",
+      "label": "Intercompany Status"
+    },
+    {
+      "id": "intercotransaction",
+      "type": "select",
+      "label": "Paired Intercompany Transaction"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "invsoebundle",
+      "type": "checkbox",
+      "label": "In VSOE Bundle"
+    },
+    {
+      "id": "isallocation",
+      "type": "checkbox",
+      "label": "Is Allocation"
+    },
+    {
+      "id": "isbackflush",
+      "type": "checkbox",
+      "label": "Backflush"
+    },
+    {
+      "id": "iscustomapproval",
+      "type": "checkbox",
+      "label": "Custom Approval"
+    },
+    {
+      "id": "isgcochargeback",
+      "type": "checkbox",
+      "label": "Chargeback"
+    },
+    {
+      "id": "isgcochargeconfirmed",
+      "type": "checkbox",
+      "label": "Charge Confirmed"
+    },
+    {
+      "id": "isgcopaymentguaranteed",
+      "type": "checkbox",
+      "label": "Payment Guaranteed by Google"
+    },
+    {
+      "id": "isgcorefundconfirmed",
+      "type": "checkbox",
+      "label": "Refund Confirmed"
+    },
+    {
+      "id": "isinsidedelivery",
+      "type": "checkbox",
+      "label": "Is Inside Delivery"
+    },
+    {
+      "id": "isinsidepickup",
+      "type": "checkbox",
+      "label": "Is Inside Pickup"
+    },
+    {
+      "id": "isintercompanyadjustment",
+      "type": "checkbox",
+      "label": "Is Intercompany Adjustment"
+    },
+    {
+      "id": "ispaypalmeth",
+      "type": "checkbox",
+      "label": "Is PayPal Payment Method"
+    },
+    {
+      "id": "isreversal",
+      "type": "checkbox",
+      "label": "Is Reversal"
+    },
+    {
+      "id": "isrevrectransaction",
+      "type": "checkbox",
+      "label": "Is Amortization/Revenue Recognition"
+    },
+    {
+      "id": "isscrap",
+      "type": "checkbox",
+      "label": "Is Scrap"
+    },
+    {
+      "id": "isshipaddress",
+      "type": "checkbox",
+      "label": "Residential Address"
+    },
+    {
+      "id": "istransferpricecosting",
+      "type": "checkbox",
+      "label": "Use Item Cost as Transfer Cost"
+    },
+    {
+      "id": "isvsoealloc",
+      "type": "checkbox",
+      "label": "VSOE Allocation Line"
+    },
+    {
+      "id": "iswip",
+      "type": "checkbox",
+      "label": "WIP"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "itemfulfillmentchoice",
+      "type": "select",
+      "label": "Fulfillment Choice (Line Level)"
+    },
+    {
+      "id": "itemrevision",
+      "type": "select",
+      "label": "Item Revision"
+    },
+    {
+      "id": "itemsubof",
+      "type": "select",
+      "label": "Item Sub of"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Date Last Modified"
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "label": "Lead Source"
+    },
+    {
+      "id": "line",
+      "type": "integer",
+      "label": "Line"
+    },
+    {
+      "id": "lineuniquekey",
+      "type": "integer",
+      "label": "Line Unique Key"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "mainline",
+      "type": "checkbox",
+      "label": "Main Line"
+    },
+    {
+      "id": "mainname",
+      "type": "select",
+      "label": "Main Line Name"
+    },
+    {
+      "id": "matchbilltoreceipt",
+      "type": "checkbox",
+      "label": "Match Bill To Receipt"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "memomain",
+      "type": "text",
+      "label": "Memo (Main)"
+    },
+    {
+      "id": "memorized",
+      "type": "checkbox",
+      "label": "Memorized"
+    },
+    {
+      "id": "merchantaccount",
+      "type": "text",
+      "label": "Credit Card Processor"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Message"
+    },
+    {
+      "id": "multisubsidiary",
+      "type": "checkbox",
+      "label": "Intercompany"
+    },
+    {
+      "id": "netamount",
+      "type": "currency",
+      "label": "Amount (Net)"
+    },
+    {
+      "id": "nextapprover",
+      "type": "select",
+      "label": "Next Approver"
+    },
+    {
+      "id": "nextbilldate",
+      "type": "date",
+      "label": "Next Bill Date"
+    },
+    {
+      "id": "nonreimbursable",
+      "type": "checkbox",
+      "label": "Non-reimbursable"
+    },
+    {
+      "id": "number",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "opportunity",
+      "type": "select",
+      "label": "Opportunity"
+    },
+    {
+      "id": "otherrefnum",
+      "type": "text",
+      "label": "PO/Check Number"
+    },
+    {
+      "id": "packagecount",
+      "type": "integer",
+      "label": "Package Count"
+    },
+    {
+      "id": "paidtransaction",
+      "type": "select",
+      "label": "Paid Transaction"
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "label": "Partner"
+    },
+    {
+      "id": "partnercontribution",
+      "type": "integer",
+      "label": "Partner Contribution %"
+    },
+    {
+      "id": "partnerrole",
+      "type": "select",
+      "label": "Partner Role"
+    },
+    {
+      "id": "partnerteammember",
+      "type": "select",
+      "label": "Partner Team Member"
+    },
+    {
+      "id": "payingtransaction",
+      "type": "select",
+      "label": "Paying Transaction"
+    },
+    {
+      "id": "paymenteventdate",
+      "type": "datetime",
+      "label": "Payment Event Date"
+    },
+    {
+      "id": "paymenteventholdreason",
+      "type": "select",
+      "label": "Payment Event Hold Reason"
+    },
+    {
+      "id": "paymenteventpurchasecardused",
+      "type": "checkbox",
+      "label": "Payment Event Purchase Card Used"
+    },
+    {
+      "id": "paymenteventpurchasedatasent",
+      "type": "checkbox",
+      "label": "Payment Event Purchase Data Sent"
+    },
+    {
+      "id": "paymenteventresult",
+      "type": "select",
+      "label": "Payment Event Result"
+    },
+    {
+      "id": "paymenteventtype",
+      "type": "select",
+      "label": "Payment Event Type"
+    },
+    {
+      "id": "paymenthold",
+      "type": "checkbox",
+      "label": "Payment Hold"
+    },
+    {
+      "id": "paymentmethod",
+      "type": "select",
+      "label": "Payment Method"
+    },
+    {
+      "id": "paypalpending",
+      "type": "checkbox",
+      "label": "Pending PayPal Authorization"
+    },
+    {
+      "id": "paypalstatus",
+      "type": "text",
+      "label": "PayPal Payment Status"
+    },
+    {
+      "id": "paypaltranid",
+      "type": "text",
+      "label": "PayPal Transaction ID"
+    },
+    {
+      "id": "pnrefnum",
+      "type": "text",
+      "label": "P/N Ref"
+    },
+    {
+      "id": "poastext",
+      "type": "text",
+      "label": "PO/Check ID"
+    },
+    {
+      "id": "posting",
+      "type": "checkbox",
+      "label": "Posting"
+    },
+    {
+      "id": "postingperiod",
+      "type": "period",
+      "label": "Period"
+    },
+    {
+      "id": "pricelevel",
+      "type": "select",
+      "label": "Price Level"
+    },
+    {
+      "id": "printedpickingticket",
+      "type": "checkbox",
+      "label": "Printed Picking Ticket"
+    },
+    {
+      "id": "probability",
+      "type": "integer",
+      "label": "Probability"
+    },
+    {
+      "id": "projectedamount",
+      "type": "currency",
+      "label": "Projected Total"
+    },
+    {
+      "id": "projecttask",
+      "type": "select",
+      "label": "Project Task"
+    },
+    {
+      "id": "promocode",
+      "type": "select",
+      "label": "Promotion"
+    },
+    {
+      "id": "purchaseorder",
+      "type": "select",
+      "label": "Purchase Order"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "quantitybilled",
+      "type": "float",
+      "label": "Quantity Billed"
+    },
+    {
+      "id": "quantitycommitted",
+      "type": "float",
+      "label": "Quantity Committed"
+    },
+    {
+      "id": "quantitypacked",
+      "type": "float",
+      "label": "Quantity Packed"
+    },
+    {
+      "id": "quantitypicked",
+      "type": "float",
+      "label": "Quantity Picked"
+    },
+    {
+      "id": "quantityrevcommitted",
+      "type": "float",
+      "label": "Quantity Rev. Committed"
+    },
+    {
+      "id": "quantityshiprecv",
+      "type": "float",
+      "label": "Quantity Shipped/Received"
+    },
+    {
+      "id": "recognizedrevenue",
+      "type": "currency",
+      "label": "Amount (Recognized)"
+    },
+    {
+      "id": "recordtype",
+      "type": "text",
+      "label": "Record Type"
+    },
+    {
+      "id": "revcommitstatus",
+      "type": "select",
+      "label": "Rev. Commit. Status"
+    },
+    {
+      "id": "revcommittingstatus",
+      "type": "checkbox",
+      "label": "Revenue Committing Status"
+    },
+    {
+      "id": "revcommittingtransaction",
+      "type": "select",
+      "label": "Revenue Committing Transaction"
+    },
+    {
+      "id": "revenuestatus",
+      "type": "select",
+      "label": "Revenue Status"
+    },
+    {
+      "id": "reversaldate",
+      "type": "date",
+      "label": "Reversal Date"
+    },
+    {
+      "id": "reversalnumber",
+      "type": "text",
+      "label": "Reversal Number"
+    },
+    {
+      "id": "revrecenddate",
+      "type": "date",
+      "label": "Rev. Rec. End Date"
+    },
+    {
+      "id": "revreconrevcommitment",
+      "type": "checkbox",
+      "label": "Rev. Rec. On Rev. Committment"
+    },
+    {
+      "id": "revrecstartdate",
+      "type": "date",
+      "label": "Rev. Rec. Start Date"
+    },
+    {
+      "id": "revrecterminmonths",
+      "type": "integer",
+      "label": "Rev. Rec. Term in Months"
+    },
+    {
+      "id": "saleseffectivedate",
+      "type": "date",
+      "label": "Sales Effective Date"
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "label": "Sales Order"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "salesteammember",
+      "type": "select",
+      "label": "Sales Team Member"
+    },
+    {
+      "id": "salesteamrole",
+      "type": "select",
+      "label": "Sales Team Role"
+    },
+    {
+      "id": "schedulingmethod",
+      "type": "select",
+      "label": "Scheduling Method"
+    },
+    {
+      "id": "serialnumber",
+      "type": "text",
+      "label": "Transaction Serial/Lot Number"
+    },
+    {
+      "id": "serialnumbercost",
+      "type": "currency",
+      "label": "Transaction Serial/Lot Amount"
+    },
+    {
+      "id": "serialnumbercostadjustment",
+      "type": "currency",
+      "label": "Transaction Serial/Lot Cost Adjustment"
+    },
+    {
+      "id": "serialnumberquantity",
+      "type": "float",
+      "label": "Transaction Serial/Lot Number Quantity"
+    },
+    {
+      "id": "shipcarrier",
+      "type": "select",
+      "label": "Shipping Carrier"
+    },
+    {
+      "id": "shipcomplete",
+      "type": "checkbox",
+      "label": "Ship Complete"
+    },
+    {
+      "id": "shipcounty",
+      "type": "text",
+      "label": "Shipping County/State"
+    },
+    {
+      "id": "shipdate",
+      "type": "date",
+      "label": "Ship Date"
+    },
+    {
+      "id": "shipgroup",
+      "type": "integer",
+      "label": "Ship Group"
+    },
+    {
+      "id": "shipmethod",
+      "type": "select",
+      "label": "Ship Via"
+    },
+    {
+      "id": "shipping",
+      "type": "checkbox",
+      "label": "Shipping Line"
+    },
+    {
+      "id": "shiprecvstatus",
+      "type": "checkbox",
+      "label": "Fulfillment/Receipt Status"
+    },
+    {
+      "id": "shiprecvstatusline",
+      "type": "checkbox",
+      "label": "Fulfillment/Receipt Status (Line Level)"
+    },
+    {
+      "id": "shipto",
+      "type": "select",
+      "label": "Ship To"
+    },
+    {
+      "id": "source",
+      "type": "select",
+      "label": "Source"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "taxitem",
+      "type": "select",
+      "label": "Tax Item"
+    },
+    {
+      "id": "taxline",
+      "type": "checkbox",
+      "label": "Tax Line"
+    },
+    {
+      "id": "taxperiod",
+      "type": "period",
+      "label": "Tax Period"
+    },
+    {
+      "id": "taxrate",
+      "type": "currency",
+      "label": "Rate"
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "label": "Terms"
+    },
+    {
+      "id": "termsofsale",
+      "type": "select",
+      "label": "Terms Of Sale"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "label": "To Be Emailed"
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "label": "To Be Printed"
+    },
+    {
+      "id": "tosubsidiary",
+      "type": "select",
+      "label": "To Subsidiary"
+    },
+    {
+      "id": "totalamount",
+      "type": "currency",
+      "label": "Amount (Transaction Total)"
+    },
+    {
+      "id": "trackingnumbers",
+      "type": "text",
+      "label": "Tracking Number"
+    },
+    {
+      "id": "trancostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction)"
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "tranestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction)"
+    },
+    {
+      "id": "tranestgrossprofitpct",
+      "type": "percent",
+      "label": "Est. Gross Profit Percent (Transaction)"
+    },
+    {
+      "id": "tranfxestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "label": "Number/ID"
+    },
+    {
+      "id": "tranisvsoebundle",
+      "type": "checkbox",
+      "label": "Transaction Is VSOE Bundle"
+    },
+    {
+      "id": "transactiondiscount",
+      "type": "checkbox",
+      "label": "Transaction discount"
+    },
+    {
+      "id": "transactionlinetype",
+      "type": "select",
+      "label": "Transaction Line Type"
+    },
+    {
+      "id": "transactionnumber",
+      "type": "text",
+      "label": "Transaction Number"
+    },
+    {
+      "id": "transferlocation",
+      "type": "select",
+      "label": "To Location"
+    },
+    {
+      "id": "transferorderquantitycommitted",
+      "type": "float",
+      "label": "Transfer Order Quantity Committed"
+    },
+    {
+      "id": "transferorderquantitypacked",
+      "type": "float",
+      "label": "Transfer Order Quantity Packed"
+    },
+    {
+      "id": "transferorderquantitypicked",
+      "type": "float",
+      "label": "Transfer Order Quantity Picked"
+    },
+    {
+      "id": "transferorderquantityreceived",
+      "type": "float",
+      "label": "Transfer Order Quantity Received"
+    },
+    {
+      "id": "transferorderquantityshipped",
+      "type": "float",
+      "label": "Transfer Order Quantity Fulfilled"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "unit",
+      "type": "select",
+      "label": "Units"
+    },
+    {
+      "id": "unitcostoverride",
+      "type": "currency",
+      "label": "Unit Cost Override"
+    },
+    {
+      "id": "vendtype",
+      "type": "select",
+      "label": "Vendor Category"
+    },
+    {
+      "id": "visibletocustomer",
+      "type": "checkbox",
+      "label": "Available In Customer Center"
+    },
+    {
+      "id": "voided",
+      "type": "checkbox",
+      "label": "Voided"
+    },
+    {
+      "id": "vsoeallocation",
+      "type": "currency",
+      "label": "VSOE Allocation"
+    },
+    {
+      "id": "vsoeamount",
+      "type": "currency",
+      "label": "VSOE Amount"
+    },
+    {
+      "id": "vsoedeferral",
+      "type": "select",
+      "label": "Deferral"
+    },
+    {
+      "id": "vsoedelivered",
+      "type": "checkbox",
+      "label": "Delivered"
+    },
+    {
+      "id": "vsoepermitdiscount",
+      "type": "select",
+      "label": "Permit Discount"
+    },
+    {
+      "id": "vsoeprice",
+      "type": "currency",
+      "label": "VSOE Price"
+    },
+    {
+      "id": "website",
+      "type": "select",
+      "label": "Web Site"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "abbrev",
+      "type": "text",
+      "label": "Abbrev. Type"
+    },
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "accounttype",
+      "type": "text",
+      "label": "Account Type"
+    },
+    {
+      "id": "actualshipdate",
+      "type": "date",
+      "label": "Actual Ship/Receipt Date"
+    },
+    {
+      "id": "altsalesamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales)"
+    },
+    {
+      "id": "altsalesnetamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales Net)"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "amountpaid",
+      "type": "currency",
+      "label": "Amount Paid"
+    },
+    {
+      "id": "amountremaining",
+      "type": "currency",
+      "label": "Amount Remaining"
+    },
+    {
+      "id": "amountunbilled",
+      "type": "currency",
+      "label": "Amount Unbilled"
+    },
+    {
+      "id": "appliedtoforeignamount",
+      "type": "currency",
+      "label": "Applied To Link Amount (Foreign Currency)"
+    },
+    {
+      "id": "appliedtoisfxvariance",
+      "type": "checkbox",
+      "label": "Applied To Link Is FxVariance"
+    },
+    {
+      "id": "appliedtolinkamount",
+      "type": "currency",
+      "label": "Applied To Link Amount"
+    },
+    {
+      "id": "appliedtolinktype",
+      "type": "select",
+      "label": "Applied To Link Type"
+    },
+    {
+      "id": "appliedtotransaction",
+      "type": "select",
+      "label": "Applied To Transaction"
+    },
+    {
+      "id": "applyingforeignamount",
+      "type": "currency",
+      "label": "Applying Link Amount (Foreign Currency)"
+    },
+    {
+      "id": "applyingisfxvariance",
+      "type": "checkbox",
+      "label": "Applying Link Is FxVariance"
+    },
+    {
+      "id": "applyinglinkamount",
+      "type": "currency",
+      "label": "Applying Link Amount"
+    },
+    {
+      "id": "applyinglinktype",
+      "type": "select",
+      "label": "Applying Link Type"
+    },
+    {
+      "id": "applyingtransaction",
+      "type": "select",
+      "label": "Applying Transaction"
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "authcode",
+      "type": "text",
+      "label": "Auth. Code"
+    },
+    {
+      "id": "autocalculatelag",
+      "type": "checkbox",
+      "label": "Auto-calculate Lag"
+    },
+    {
+      "id": "avsstreetmatch",
+      "type": "text",
+      "label": "AVS Street Match"
+    },
+    {
+      "id": "avszipmatch",
+      "type": "text",
+      "label": "AVS Zip Match"
+    },
+    {
+      "id": "billable",
+      "type": "checkbox",
+      "label": "Billable"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billeddate",
+      "type": "date",
+      "label": "Date Billed"
+    },
+    {
+      "id": "billingamount",
+      "type": "currency2",
+      "label": "Billing Amount"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "billingtransaction",
+      "type": "select",
+      "label": "Billing Transaction"
+    },
+    {
+      "id": "billvariancestatus",
+      "type": "text",
+      "label": "Bill Variance Status"
+    },
+    {
+      "id": "binnumber",
+      "type": "text",
+      "label": "Transaction Bin Number"
+    },
+    {
+      "id": "binnumberquantity",
+      "type": "float",
+      "label": "Transaction Bin Quantity"
+    },
+    {
+      "id": "buildentireassembly",
+      "type": "checkbox",
+      "label": "Build Sub-Assemblies"
+    },
+    {
+      "id": "buildvariance",
+      "type": "float",
+      "label": "Build Variance"
+    },
+    {
+      "id": "built",
+      "type": "float",
+      "label": "Built"
+    },
+    {
+      "id": "canhavestackablepromotions",
+      "type": "checkbox",
+      "label": "Can have stackable promotions"
+    },
+    {
+      "id": "catchupperiod",
+      "type": "text",
+      "label": "Catch Up Period"
+    },
+    {
+      "id": "cccustomercode",
+      "type": "text",
+      "label": "CC Customer Code"
+    },
+    {
+      "id": "ccexpdate",
+      "type": "mmyydate",
+      "label": "CC Expire Date"
+    },
+    {
+      "id": "ccholdername",
+      "type": "text",
+      "label": "Credit Cardholder Name"
+    },
+    {
+      "id": "ccnumber",
+      "type": "ccnumber",
+      "label": "Credit Card Number"
+    },
+    {
+      "id": "ccstreet",
+      "type": "text",
+      "label": "Card Street"
+    },
+    {
+      "id": "cczipcode",
+      "type": "text",
+      "label": "Card Zip Code"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "classnohierarchy",
+      "type": "select",
+      "label": "Class (no hierarchy)"
+    },
+    {
+      "id": "cleared",
+      "type": "checkbox",
+      "label": "Cleared"
+    },
+    {
+      "id": "closed",
+      "type": "checkbox",
+      "label": "Closed"
+    },
+    {
+      "id": "closedate",
+      "type": "date",
+      "label": "Date Closed"
+    },
+    {
+      "id": "cogsamount",
+      "type": "currency2",
+      "label": "COGS Amount"
+    },
+    {
+      "id": "commissioneffectivedate",
+      "type": "date",
+      "label": "Commission Effective Date"
+    },
+    {
+      "id": "commit",
+      "type": "select",
+      "label": "Commit"
+    },
+    {
+      "id": "confirmationnumber",
+      "type": "text",
+      "label": "Confirmation Number"
+    },
+    {
+      "id": "contribution",
+      "type": "percent",
+      "label": "Contribution %"
+    },
+    {
+      "id": "contributionprimary",
+      "type": "percent",
+      "label": "Primary Sales Rep Contribution %"
+    },
+    {
+      "id": "costcomponentamount",
+      "type": "currency",
+      "label": "Cost Component Amount"
+    },
+    {
+      "id": "costcomponentcategory",
+      "type": "text",
+      "label": "Cost Component Category"
+    },
+    {
+      "id": "costcomponentitem",
+      "type": "text",
+      "label": "Cost Component Item"
+    },
+    {
+      "id": "costcomponentquantity",
+      "type": "float",
+      "label": "Cost Component Quantity"
+    },
+    {
+      "id": "costcomponentstandardcost",
+      "type": "float",
+      "label": "Cost Component Standard Cost"
+    },
+    {
+      "id": "costestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Line)"
+    },
+    {
+      "id": "costestimaterate",
+      "type": "currency",
+      "label": "Est. Unit Cost"
+    },
+    {
+      "id": "costestimatetype",
+      "type": "text",
+      "label": "Cost Estimate Type"
+    },
+    {
+      "id": "createdby",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "label": "Created From"
+    },
+    {
+      "id": "creditamount",
+      "type": "currency",
+      "label": "Amount (Credit)"
+    },
+    {
+      "id": "cscmatch",
+      "type": "text",
+      "label": "CSC Match"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "label": "Custom Form"
+    },
+    {
+      "id": "customgl",
+      "type": "checkbox",
+      "label": "Custom GL"
+    },
+    {
+      "id": "custtype",
+      "type": "select",
+      "label": "Customer Category"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "daysopen",
+      "type": "integer",
+      "label": "Days Open"
+    },
+    {
+      "id": "daysoverdue",
+      "type": "integer",
+      "label": "Days Overdue"
+    },
+    {
+      "id": "debitamount",
+      "type": "currency",
+      "label": "Amount (Debit)"
+    },
+    {
+      "id": "deferredrevenue",
+      "type": "currency",
+      "label": "Amount (Deferred)"
+    },
+    {
+      "id": "deferrevrec",
+      "type": "checkbox",
+      "label": "Delay Rev. Rec."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "departmentnohierarchy",
+      "type": "select",
+      "label": "Department (no hierarchy)"
+    },
+    {
+      "id": "depositdate",
+      "type": "date",
+      "label": "Date Deposited/Refunded"
+    },
+    {
+      "id": "deposittransaction",
+      "type": "select",
+      "label": "Deposit/Refund Transaction"
+    },
+    {
+      "id": "discountamount",
+      "type": "currency",
+      "label": "Amount Discount"
+    },
+    {
+      "id": "docunit",
+      "type": "text",
+      "label": "Transaction Units"
+    },
+    {
+      "id": "draccount",
+      "type": "text",
+      "label": "Deferred Revenue Reclassification Account"
+    },
+    {
+      "id": "duedate",
+      "type": "date",
+      "label": "Due Date/Receive By"
+    },
+    {
+      "id": "effectiverate",
+      "type": "currency2",
+      "label": "Effective Rate"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "label": "Name"
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "label": "Estimate/Opportunity Status"
+    },
+    {
+      "id": "estgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Line)"
+    },
+    {
+      "id": "estgrossprofitpct",
+      "type": "percent",
+      "label": "Est. Gross Profit Percent (Line)"
+    },
+    {
+      "id": "estgrossprofitpercent",
+      "type": "percent",
+      "label": "Est. Gross Profit Percent (Transaction)"
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "label": "Exchange Rate"
+    },
+    {
+      "id": "excludecommission",
+      "type": "checkbox",
+      "label": "Exclude Commissions"
+    },
+    {
+      "id": "excludefromraterequest",
+      "type": "checkbox",
+      "label": "Exclude Item from Rate Request"
+    },
+    {
+      "id": "expectedclosedate",
+      "type": "date",
+      "label": "Expected Close"
+    },
+    {
+      "id": "expectedreceiptdate",
+      "type": "date",
+      "label": "Expected Receipt Date"
+    },
+    {
+      "id": "expensecategory",
+      "type": "select",
+      "label": "Expense Category"
+    },
+    {
+      "id": "expensedate",
+      "type": "date",
+      "label": "Expense Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "firmed",
+      "type": "checkbox",
+      "label": "Firmed"
+    },
+    {
+      "id": "forecasttype",
+      "type": "select",
+      "label": "Forecast Type"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "fulfillingtransaction",
+      "type": "select",
+      "label": "Fulfilling/Receiving Transaction"
+    },
+    {
+      "id": "fxaccount",
+      "type": "text",
+      "label": "Foreign Currency Adjustment Revenue Account"
+    },
+    {
+      "id": "fxamount",
+      "type": "currency",
+      "label": "Amount (Foreign Currency)"
+    },
+    {
+      "id": "fxcostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Line) (Foreign Currency)"
+    },
+    {
+      "id": "fxcostestimaterate",
+      "type": "currency",
+      "label": "Est. Unit Cost (Foreign Currency)"
+    },
+    {
+      "id": "fxestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Line) (Foreign Currency)"
+    },
+    {
+      "id": "fxtrancostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "fxvsoeallocation",
+      "type": "currency",
+      "label": "VSOE Allocation (Foreign Currency)"
+    },
+    {
+      "id": "fxvsoeamount",
+      "type": "currency",
+      "label": "VSOE Amount (Foreign Currency)"
+    },
+    {
+      "id": "fxvsoeprice",
+      "type": "currency2",
+      "label": "VSOE Price (Foreign Currency)"
+    },
+    {
+      "id": "gcoavailabeltocharge",
+      "type": "currency",
+      "label": "Funds Available to Process"
+    },
+    {
+      "id": "gcoavailabletorefund",
+      "type": "currency",
+      "label": "Funds Available to Refund"
+    },
+    {
+      "id": "gcoavsstreetmatch",
+      "type": "text",
+      "label": "AVS Street Match (Google)"
+    },
+    {
+      "id": "gcoavszipmatch",
+      "type": "text",
+      "label": "AVS Zip Match (Google)"
+    },
+    {
+      "id": "gcobuyeraccountage",
+      "type": "integer",
+      "label": "Buyer Account Age"
+    },
+    {
+      "id": "gcobuyerip",
+      "type": "text",
+      "label": "Buyer IP Address"
+    },
+    {
+      "id": "gcochargeamount",
+      "type": "currency",
+      "label": "Pending Charges"
+    },
+    {
+      "id": "gcochargebackamount",
+      "type": "currency",
+      "label": "Chargeback Amount"
+    },
+    {
+      "id": "gcoconfirmedchargedtotal",
+      "type": "currency",
+      "label": "Charge Amount Confirmed"
+    },
+    {
+      "id": "gcoconfirmedrefundedtotal",
+      "type": "currency",
+      "label": "Confirmed Refund Amount"
+    },
+    {
+      "id": "gcocreditcardnumber",
+      "type": "text",
+      "label": "Credit Card (Google)"
+    },
+    {
+      "id": "gcocscmatch",
+      "type": "text",
+      "label": "CSC Match (Google)"
+    },
+    {
+      "id": "gcofinancialstate",
+      "type": "text",
+      "label": "Google Order Financial State"
+    },
+    {
+      "id": "gcofulfillmentstate",
+      "type": "text",
+      "label": "Google Order Fulfillment State"
+    },
+    {
+      "id": "gcoorderid",
+      "type": "text",
+      "label": "Google Order ID"
+    },
+    {
+      "id": "gcoordertotal",
+      "type": "currency",
+      "label": "Google Order Total"
+    },
+    {
+      "id": "gcopromotionamount",
+      "type": "currency",
+      "label": "Google Checkout Promotion Amount"
+    },
+    {
+      "id": "gcopromotionname",
+      "type": "text",
+      "label": "Google Checkout Promotion"
+    },
+    {
+      "id": "gcorefundamount",
+      "type": "currency",
+      "label": "Pending Refund Amount"
+    },
+    {
+      "id": "gcoshippingtotal",
+      "type": "currency",
+      "label": "Google Shipping Total"
+    },
+    {
+      "id": "gcostatechangeddetail",
+      "type": "text",
+      "label": "Reason for Cancellation"
+    },
+    {
+      "id": "giftcert",
+      "type": "text",
+      "label": "Gift Certificate"
+    },
+    {
+      "id": "grossamount",
+      "type": "currency",
+      "label": "Amount (Gross)"
+    },
+    {
+      "id": "includeinforecast",
+      "type": "checkbox",
+      "label": "Include in Forecast"
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "label": "Incoterm"
+    },
+    {
+      "id": "intercostatus",
+      "type": "select",
+      "label": "Intercompany Status"
+    },
+    {
+      "id": "intercotransaction",
+      "type": "text",
+      "label": "Paired Intercompany Transaction"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "invsoebundle",
+      "type": "checkbox",
+      "label": "In VSOE Bundle"
+    },
+    {
+      "id": "isallocation",
+      "type": "checkbox",
+      "label": "Is Allocation"
+    },
+    {
+      "id": "isbackflush",
+      "type": "checkbox",
+      "label": "Backflush"
+    },
+    {
+      "id": "iscustomapproval",
+      "type": "checkbox",
+      "label": "Custom Approval"
+    },
+    {
+      "id": "isgcochargeback",
+      "type": "checkbox",
+      "label": "Chargeback"
+    },
+    {
+      "id": "isgcochargeconfirmed",
+      "type": "checkbox",
+      "label": "Charge Confirmed"
+    },
+    {
+      "id": "isgcopaymentguaranteed",
+      "type": "checkbox",
+      "label": "Payment Guaranteed by Google"
+    },
+    {
+      "id": "isgcorefundconfirmed",
+      "type": "checkbox",
+      "label": "Refund Confirmed"
+    },
+    {
+      "id": "isinsidedelivery",
+      "type": "checkbox",
+      "label": "Is Inside Delivery"
+    },
+    {
+      "id": "isinsidepickup",
+      "type": "checkbox",
+      "label": "Is Inside Pickup"
+    },
+    {
+      "id": "isintercompanyadjustment",
+      "type": "checkbox",
+      "label": "Is Intercompany Adjustment"
+    },
+    {
+      "id": "isreversal",
+      "type": "checkbox",
+      "label": "Is Reversal"
+    },
+    {
+      "id": "isrevrectransaction",
+      "type": "checkbox",
+      "label": "Is Amortization/Revenue Recognition"
+    },
+    {
+      "id": "isscrap",
+      "type": "checkbox",
+      "label": "Is Scrap"
+    },
+    {
+      "id": "isshipaddress",
+      "type": "checkbox",
+      "label": "Residential Address"
+    },
+    {
+      "id": "istransferpricecosting",
+      "type": "checkbox",
+      "label": "Use Item Cost as Transfer Cost"
+    },
+    {
+      "id": "iswip",
+      "type": "checkbox",
+      "label": "WIP"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "itemfulfillmentchoice",
+      "type": "select",
+      "label": "Fulfillment Choice (Line Level)"
+    },
+    {
+      "id": "itemrevision",
+      "type": "select",
+      "label": "Item Revision"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "label": "Lead Source"
+    },
+    {
+      "id": "line",
+      "type": "integer",
+      "label": "Line ID"
+    },
+    {
+      "id": "linesequencenumber",
+      "type": "integer",
+      "label": "Line Sequence Number"
+    },
+    {
+      "id": "lineuniquekey",
+      "type": "integer",
+      "label": "Line Unique Key"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationnohierarchy",
+      "type": "select",
+      "label": "Location (no hierarchy)"
+    },
+    {
+      "id": "mainline",
+      "type": "text",
+      "label": "*"
+    },
+    {
+      "id": "mainname",
+      "type": "select",
+      "label": "Main Line Name"
+    },
+    {
+      "id": "matchbilltoreceipt",
+      "type": "checkbox",
+      "label": "Match Bill To Receipt"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "memomain",
+      "type": "text",
+      "label": "Memo (Main)"
+    },
+    {
+      "id": "memorized",
+      "type": "checkbox",
+      "label": "Memorized"
+    },
+    {
+      "id": "merchantaccount",
+      "type": "select",
+      "label": "Credit Card Processor"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Message"
+    },
+    {
+      "id": "multisubsidiary",
+      "type": "checkbox",
+      "label": "Intercompany"
+    },
+    {
+      "id": "netamount",
+      "type": "currency",
+      "label": "Amount (Net)"
+    },
+    {
+      "id": "netamountnotax",
+      "type": "currency",
+      "label": "Amount (Net of Tax)"
+    },
+    {
+      "id": "nextapprover",
+      "type": "select",
+      "label": "Next Approver"
+    },
+    {
+      "id": "nextbilldate",
+      "type": "date",
+      "label": "Next Bill Date"
+    },
+    {
+      "id": "nonreimbursable",
+      "type": "checkbox",
+      "label": "Non-reimbursable"
+    },
+    {
+      "id": "opportunity",
+      "type": "select",
+      "label": "Opportunity"
+    },
+    {
+      "id": "options",
+      "type": "namevaluelist",
+      "label": "Options"
+    },
+    {
+      "id": "originator",
+      "type": "select",
+      "label": "Originator"
+    },
+    {
+      "id": "otherrefnum",
+      "type": "text",
+      "label": "PO/Check Number"
+    },
+    {
+      "id": "packagecount",
+      "type": "integer",
+      "label": "Package Count"
+    },
+    {
+      "id": "paidamount",
+      "type": "currency2",
+      "label": "Paid Amount"
+    },
+    {
+      "id": "paidtransaction",
+      "type": "select",
+      "label": "Paid Transaction"
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "label": "Partner"
+    },
+    {
+      "id": "partnercontribution",
+      "type": "percent",
+      "label": "Partner Contribution %"
+    },
+    {
+      "id": "partnerrole",
+      "type": "select",
+      "label": "Partner Role"
+    },
+    {
+      "id": "partnerteammember",
+      "type": "select",
+      "label": "Partner Team Member"
+    },
+    {
+      "id": "payingamount",
+      "type": "currency2",
+      "label": "Paying Amount"
+    },
+    {
+      "id": "payingtransaction",
+      "type": "select",
+      "label": "Paying Transaction"
+    },
+    {
+      "id": "paymenteventdate",
+      "type": "datetime",
+      "label": "Payment Event Date"
+    },
+    {
+      "id": "paymenteventholdreason",
+      "type": "text",
+      "label": "Payment Event Hold Reason"
+    },
+    {
+      "id": "paymenteventpurchasecardused",
+      "type": "checkbox",
+      "label": "Payment Event Purchase Card Used"
+    },
+    {
+      "id": "paymenteventpurchasedatasent",
+      "type": "checkbox",
+      "label": "Payment Event Purchase Data Sent"
+    },
+    {
+      "id": "paymenteventresult",
+      "type": "text",
+      "label": "Payment Event Result"
+    },
+    {
+      "id": "paymenteventtype",
+      "type": "text",
+      "label": "Payment Event Type"
+    },
+    {
+      "id": "paymenthold",
+      "type": "checkbox",
+      "label": "Payment Hold"
+    },
+    {
+      "id": "paymentmethod",
+      "type": "select",
+      "label": "Payment Method"
+    },
+    {
+      "id": "paypalpending",
+      "type": "checkbox",
+      "label": "Pending PayPal Authorization"
+    },
+    {
+      "id": "paypalstatus",
+      "type": "text",
+      "label": "PayPal Payment Status"
+    },
+    {
+      "id": "paypaltranid",
+      "type": "text",
+      "label": "PayPal Transaction ID"
+    },
+    {
+      "id": "payrollbatch",
+      "type": "text",
+      "label": "Payroll Batch"
+    },
+    {
+      "id": "pnrefnum",
+      "type": "text",
+      "label": "P/N Ref"
+    },
+    {
+      "id": "porate",
+      "type": "currency2",
+      "label": "PO Rate"
+    },
+    {
+      "id": "posting",
+      "type": "checkbox",
+      "label": "Posting"
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "label": "Period"
+    },
+    {
+      "id": "pricelevel",
+      "type": "select",
+      "label": "Price Level"
+    },
+    {
+      "id": "print",
+      "type": "text",
+      "label": "Print"
+    },
+    {
+      "id": "probability",
+      "type": "percent",
+      "label": "Probability"
+    },
+    {
+      "id": "projectedamount",
+      "type": "currency",
+      "label": "Projected Total"
+    },
+    {
+      "id": "projecttask",
+      "type": "select",
+      "label": "Project task"
+    },
+    {
+      "id": "promocode",
+      "type": "select",
+      "label": "Promotion"
+    },
+    {
+      "id": "purchaseorder",
+      "type": "select",
+      "label": "Purchase Order"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "quantitybilled",
+      "type": "float",
+      "label": "Quantity Billed"
+    },
+    {
+      "id": "quantitycommitted",
+      "type": "float",
+      "label": "Quantity Committed"
+    },
+    {
+      "id": "quantitypacked",
+      "type": "float",
+      "label": "Quantity Packed"
+    },
+    {
+      "id": "quantitypicked",
+      "type": "float",
+      "label": "Quantity Picked"
+    },
+    {
+      "id": "quantityrevcommitted",
+      "type": "float",
+      "label": "Quantity Rev. Committed"
+    },
+    {
+      "id": "quantityshiprecv",
+      "type": "float",
+      "label": "Quantity Fulfilled/Received"
+    },
+    {
+      "id": "quantityuom",
+      "type": "float",
+      "label": "Quantity in Transaction Units"
+    },
+    {
+      "id": "rate",
+      "type": "currency2",
+      "label": "Item Rate"
+    },
+    {
+      "id": "realizedgainpostingtransaction",
+      "type": "select",
+      "label": "Realized Gain Posting Transaction"
+    },
+    {
+      "id": "recognizedrevenue",
+      "type": "currency",
+      "label": "Amount (Recognized)"
+    },
+    {
+      "id": "recordtype",
+      "type": "text",
+      "label": "Record Type"
+    },
+    {
+      "id": "revcommitstatus",
+      "type": "text",
+      "label": "Rev. Commit. Status"
+    },
+    {
+      "id": "revcommittingtransaction",
+      "type": "select",
+      "label": "Revenue Committing Transaction"
+    },
+    {
+      "id": "revenuestatus",
+      "type": "text",
+      "label": "Revenue Status"
+    },
+    {
+      "id": "reversaldate",
+      "type": "date",
+      "label": "Reversal Date"
+    },
+    {
+      "id": "reversalnumber",
+      "type": "text",
+      "label": "Reversal Number"
+    },
+    {
+      "id": "revrecenddate",
+      "type": "date",
+      "label": "Rev. Rec. End Date"
+    },
+    {
+      "id": "revreconrevcommitment",
+      "type": "checkbox",
+      "label": "Rev. Rec. On Rev. Committment"
+    },
+    {
+      "id": "revrecstartdate",
+      "type": "date",
+      "label": "Rev. Rec. Start Date"
+    },
+    {
+      "id": "rgaccount",
+      "type": "select",
+      "label": "Realized Gain Account"
+    },
+    {
+      "id": "rgamount",
+      "type": "currency",
+      "label": "Realized Gain Amount"
+    },
+    {
+      "id": "saleseffectivedate",
+      "type": "date",
+      "label": "Sales Effective Date"
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "label": "Sales Order"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "salesteammember",
+      "type": "select",
+      "label": "Sales Team Member"
+    },
+    {
+      "id": "salesteamrole",
+      "type": "select",
+      "label": "Sales Team Role"
+    },
+    {
+      "id": "schedulingmethod",
+      "type": "text",
+      "label": "Scheduling Method"
+    },
+    {
+      "id": "serialnumber",
+      "type": "text",
+      "label": "Transaction Serial/Lot Number"
+    },
+    {
+      "id": "serialnumbercost",
+      "type": "currency",
+      "label": "Transaction Serial/Lot Number Amount"
+    },
+    {
+      "id": "serialnumbercostadjustment",
+      "type": "currency",
+      "label": "Transaction Serial/Lot Number Cost Adjustment"
+    },
+    {
+      "id": "serialnumberquantity",
+      "type": "float",
+      "label": "Transaction Serial/Lot Number Quantity"
+    },
+    {
+      "id": "serialnumbers",
+      "type": "text",
+      "label": "Serial/Lot Numbers"
+    },
+    {
+      "id": "shipcarrier",
+      "type": "select",
+      "label": "Shipping Carrier"
+    },
+    {
+      "id": "shipcomplete",
+      "type": "checkbox",
+      "label": "Ship Complete"
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "shipdate",
+      "type": "date",
+      "label": "Ship Date"
+    },
+    {
+      "id": "shipgroup",
+      "type": "integer",
+      "label": "Ship Group"
+    },
+    {
+      "id": "shipmethod",
+      "type": "select",
+      "label": "Ship Via"
+    },
+    {
+      "id": "shippingamount",
+      "type": "currency",
+      "label": "Amount (Shipping)"
+    },
+    {
+      "id": "shiprecvstatusline",
+      "type": "checkbox",
+      "label": "Fulfilled/Received (Line Level)"
+    },
+    {
+      "id": "shipto",
+      "type": "select",
+      "label": "Ship To"
+    },
+    {
+      "id": "signedamount",
+      "type": "currency",
+      "label": "Amount (Signed)"
+    },
+    {
+      "id": "source",
+      "type": "select",
+      "label": "Source"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "statusref",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "taxamount",
+      "type": "currency",
+      "label": "Amount (Tax)"
+    },
+    {
+      "id": "taxcode",
+      "type": "select",
+      "label": "Tax Item"
+    },
+    {
+      "id": "taxline",
+      "type": "checkbox",
+      "label": "Tax Line"
+    },
+    {
+      "id": "taxperiod",
+      "type": "select",
+      "label": "Tax Period"
+    },
+    {
+      "id": "taxtotal",
+      "type": "currency",
+      "label": "Amount (Tax Total)"
+    },
+    {
+      "id": "terminmonths",
+      "type": "integer",
+      "label": "Rev. Rec. Term in Months"
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "label": "Terms"
+    },
+    {
+      "id": "termsofsale",
+      "type": "text",
+      "label": "Terms Of Sale"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "label": "To Be Emailed"
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "label": "To Be Printed"
+    },
+    {
+      "id": "tosubsidiary",
+      "type": "select",
+      "label": "To Subsidiary"
+    },
+    {
+      "id": "tosubsidiarynohierarchy",
+      "type": "select",
+      "label": "To Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "label": "Amount (Transaction Total)"
+    },
+    {
+      "id": "totalcostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction)"
+    },
+    {
+      "id": "trackingnumbers",
+      "type": "text",
+      "label": "Tracking Numbers"
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "tranestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction)"
+    },
+    {
+      "id": "tranfxestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "tranisvsoebundle",
+      "type": "checkbox",
+      "label": "Transaction Is VSOE Bundle"
+    },
+    {
+      "id": "transactiondiscount",
+      "type": "checkbox",
+      "label": "Transaction Discount"
+    },
+    {
+      "id": "transactionlinetype",
+      "type": "select",
+      "label": "Transaction Line Type"
+    },
+    {
+      "id": "transactionnumber",
+      "type": "text",
+      "label": "Transaction Number"
+    },
+    {
+      "id": "transferlocation",
+      "type": "select",
+      "label": "To Location"
+    },
+    {
+      "id": "transferorderitemline",
+      "type": "text",
+      "label": "Transfer Order Item Line Id"
+    },
+    {
+      "id": "transferorderquantitycommitted",
+      "type": "float",
+      "label": "Transfer Order Quantity Committed"
+    },
+    {
+      "id": "transferorderquantitypacked",
+      "type": "float",
+      "label": "Transfer Order Quantity Packed"
+    },
+    {
+      "id": "transferorderquantitypicked",
+      "type": "float",
+      "label": "Transfer Order Quantity Picked"
+    },
+    {
+      "id": "transferorderquantityreceived",
+      "type": "float",
+      "label": "Transfer Order Quantity Received"
+    },
+    {
+      "id": "transferorderquantityshipped",
+      "type": "float",
+      "label": "Transfer Order Quantity Shipped"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "unit",
+      "type": "text",
+      "label": "Units"
+    },
+    {
+      "id": "unitcostoverride",
+      "type": "currency",
+      "label": "Unit Cost Override"
+    },
+    {
+      "id": "vendtype",
+      "type": "select",
+      "label": "Vendor Category"
+    },
+    {
+      "id": "visibletocustomer",
+      "type": "checkbox",
+      "label": "Available In Customer Center"
+    },
+    {
+      "id": "vsoeallocation",
+      "type": "currency",
+      "label": "VSOE Allocation"
+    },
+    {
+      "id": "vsoeamount",
+      "type": "currency",
+      "label": "VSOE Amount"
+    },
+    {
+      "id": "vsoedeferral",
+      "type": "text",
+      "label": "Deferral"
+    },
+    {
+      "id": "vsoedelivered",
+      "type": "checkbox",
+      "label": "Delivered"
+    },
+    {
+      "id": "vsoepermitdiscount",
+      "type": "text",
+      "label": "Permit Discount"
+    },
+    {
+      "id": "vsoeprice",
+      "type": "currency2",
+      "label": "VSOE Price"
+    },
+    {
+      "id": "website",
+      "type": "text",
+      "label": "Web Site"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "account",
+      "description": "Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "accountingperiod",
+      "description": "Accounting Period",
+      "actualName": "Accounting Period"
+    },
+    {
+      "id": "accountingtransaction",
+      "description": "Multi-Book Accounting Transaction",
+      "actualName": "Multi-Book Accounting Transaction"
+    },
+    {
+      "id": "advancetoapplyaccount",
+      "description": "Advance to Apply Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "billingaddress",
+      "description": "Billing Address",
+      "actualName": "Address"
+    },
+    {
+      "id": "case",
+      "description": "Case",
+      "actualName": "Case"
+    },
+    {
+      "id": "contactprimary",
+      "description": "Contact (Primary)",
+      "actualName": "Contact"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "customermain",
+      "description": "Customer (Main Line)",
+      "actualName": "Customer"
+    },
+    {
+      "id": "department",
+      "description": "Department",
+      "actualName": "Department"
+    },
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "expensecategory",
+      "description": "Expense Category",
+      "actualName": "Expense Category"
+    },
+    {
+      "id": "inventorydetail",
+      "description": "Inventory Detail",
+      "actualName": "Inventory Detail"
+    },
+    {
+      "id": "itemnumber",
+      "description": "Item Number",
+      "actualName": "Inventory Numbers"
+    },
+    {
+      "id": "job",
+      "description": "Job",
+      "actualName": "Job"
+    },
+    {
+      "id": "jobmain",
+      "description": "Job (Main Line)",
+      "actualName": "Job"
+    },
+    {
+      "id": "leadsource",
+      "description": "Lead Source",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "location",
+      "description": "Location",
+      "actualName": "Location"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "mfgplannedtime",
+      "description": "Manufacturing Planned Time",
+      "actualName": "Manufacturing Planned Time"
+    },
+    {
+      "id": "payrollitem",
+      "description": "Payroll Item",
+      "actualName": "Payroll Item"
+    },
+    {
+      "id": "projecttask",
+      "description": "Project task",
+      "actualName": "Project Task"
+    },
+    {
+      "id": "requestor",
+      "description": "Requestor",
+      "actualName": "Employee"
+    },
+    {
+      "id": "revision",
+      "description": "Revision",
+      "actualName": "Item Revision"
+    },
+    {
+      "id": "revrecschedule",
+      "description": "Rev Rec Schedule",
+      "actualName": "Revenue Recognition Schedules"
+    },
+    {
+      "id": "salesrep",
+      "description": "Sales Rep",
+      "actualName": "Employee"
+    },
+    {
+      "id": "shippingaddress",
+      "description": "Shipping Address",
+      "actualName": "Address"
+    },
+    {
+      "id": "subsidiary",
+      "description": "Subsidiary",
+      "actualName": "Subsidiary"
+    },
+    {
+      "id": "task",
+      "description": "Task",
+      "actualName": "Task"
+    },
+    {
+      "id": "taxdetail",
+      "description": "Tax Detail",
+      "actualName": "Tax Detail"
+    },
+    {
+      "id": "taxitem",
+      "description": "Tax Item",
+      "actualName": "Tax Code"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    },
+    {
+      "id": "vendor",
+      "description": "Vendor",
+      "actualName": "Vendor"
+    }
+  ]
+}

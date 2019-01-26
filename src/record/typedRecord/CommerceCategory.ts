@@ -3,9 +3,10 @@
 
 import { Record } from 'N/record';
 import { TypedRecord, TypedRecordImpl } from './typedRecord';
+import { CommonFields } from './fieldTypes';
 
 
-export interface CommercecategoryFields2 {
+export interface CommercecategoryFields2 extends CommonFields{
   addtohead: string | undefined // this property is optional
   created: Date
 }

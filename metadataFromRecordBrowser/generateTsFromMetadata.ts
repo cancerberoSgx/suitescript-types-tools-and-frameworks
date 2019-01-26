@@ -13,6 +13,7 @@ interface RecordMetadata {
   sublists: Sublist[]
   searchFilters: AbstractField[]
   searchColumns: AbstractField[]
+  searchJoins:  {id: string, description: string, actualName: strin}[]
 }
 interface AbstractField {
   type: Type,
@@ -56,10 +57,28 @@ function getType(t: Type): string {
 
 export function generateRecord(config : {file: string, typedRecordImportBase: string} ): string{
   const data: RecordMetadata = JSON.parse(readFileSync(config.file).toString())
-return `
-// This file is auto generated, do not edit it. 
-import {TypedRecord} from '${config.typedRecordImportBase}/TypedRecord'
+return `// This file is auto generated, do not edit it. 
+
+import { TypedRecord, TypedRecordImpl } from '${config.typedRecordImportBase}typedRecord';
+import { Record } from 'N/record';
+
 ${generateFields(data)}
+
+/** 
+ * ${data.label} Record Definition.
+ * Record's Internal Id: ${data.id}. 
+ * Supports Custom Fields: ${data.supportCustomFields} 
+ */
+export interface ${data.id}Record extends TypedRecord<${data.id}Fields> {
+
+}
+
+export class ${data.id}RecordImpl extends TypedRecordImpl<${data.id}Fields> implements ${data.id}Record {
+  constructor(public nsRecord: Record) {
+    super(nsRecord)
+  }
+}
+
 `
 }
 
@@ -128,5 +147,5 @@ export function indent(i: number=1, tabSize=2): string {
 mkdir('-p', 'generated')
 writeFileSync('generated/commercecategory.ts', generateRecord({
   file: './extracted/commercecategory.json', 
-  typedRecordImportBase: '../../../src/record/typedRecord'}))
+  typedRecordImportBase: '../'}))
 // console.log(generateRecord({file: './categoriesMetadata.json', typedRecordImportBase: '../typedRecord'}))

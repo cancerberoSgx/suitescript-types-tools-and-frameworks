@@ -2,7 +2,7 @@ import * as record from "N/record";
 import { Record } from 'N/record';
 import { StringKeyOf, ValueOfStringKey } from '../../misc/misc';
 import { asRecordOrThrow, RecordOrRefResult } from '../recordRef';
-import { CommercategoryRecord, CommercategoryRecordImpl } from './CommerceCategory';
+import { CommercategoryRecord, CommercategoryRecordImpl, CommercecategoryFields2, CommercecategoryFields2Impl } from './CommerceCategory';
 import { CommonFields } from './fieldTypes';
 
 export interface TypedRecord<Fields extends CommonFields = CommonFields, Sublists extends SublistTypes = SublistTypes> {
@@ -17,10 +17,13 @@ export interface TypedRecord<Fields extends CommonFields = CommonFields, Sublist
 }
 
 export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublists extends SublistTypes = SublistTypes> implements TypedRecord<Fields, Sublists> {
-
   nsRecord: Record
+  protected _sublists: Sublists
+  protected _fields: Fields
   constructor(nsRecordOrRefOrResult: RecordOrRefResult) {
     this.nsRecord = asRecordOrThrow(nsRecordOrRefOrResult)
+    this._fields = recordFieldConstructorImpl[this.type](this) as any
+    this._sublists = recordFieldConstructorImpl[this.type](this) as any
   }
   public get id(): string {
     return this.nsRecord.id + ''
@@ -29,10 +32,10 @@ export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublist
     return this.nsRecord.type + '' as any
   }
   public get fields(): Fields {
-    throw 'not impl'
+    return this._fields
   }
   public get sublists(): Sublists {
-    throw 'not impl'
+    return this._sublists
   }
 }
 
@@ -41,23 +44,22 @@ export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublist
 type recordTypes = {
   'commercecategory': CommercategoryRecord
 }
+type RecordType = StringKeyOf<recordTypes>
 type recordConstructors = {
   'commercecategory': (r: Record) => CommercategoryRecord
 }
 const recordConstructorsImpl: recordConstructors = {
   'commercecategory': (r: Record) => { return new CommercategoryRecordImpl(r) }
 }
-// type recordFieldTypes = {
-//   'commercecategory': CommercecategoryFields2
-// }
-// type recordFieldConstructors = {
-//   'commercecategory': (r: TypedRecord)=>CommercecategoryFields2
-// }
-type RecordType = StringKeyOf<recordTypes>
-
-// const recordFieldConstructorImpl: recordFieldConstructors= {
-//   'commercecategory': (r: TypedRecord)=>{return new CommercecategoryFields2Impl(r)}
-// }
+type recordFieldTypes = {
+  'commercecategory': CommercecategoryFields2
+}
+type recordFieldConstructors = {
+  'commercecategory': (r: TypedRecord)=>CommercecategoryFields2
+}
+const recordFieldConstructorImpl: recordFieldConstructors= {
+  'commercecategory': (r: TypedRecord)=>{return new CommercecategoryFields2Impl(r)}
+}
 // export function createRecordField<T extends RecordType>(r: TypedRecord): ValueOfStringKey<recordFieldTypes, T> {
 //   return recordFieldConstructorImpl[r.type](r)
 // }

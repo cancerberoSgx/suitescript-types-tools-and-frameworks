@@ -43,37 +43,27 @@ function generateIndex(config: { recordIds: string[], typedRecordImportBase: str
 function generateRecordConstructor(config: { recordIds: string[], typedRecordImportBase: string }) {
   return `
 import { ${config.recordIds.map(id => `${id}RecordImpl`).concat(config.recordIds.map(id => `${id}Record`)).join(', ')} } from './index';
-import { StringKeyOf, ValueOfStringKey, checkThrow } from '${config.typedRecordImportBase}../../misc/misc';
+import { StringKeyOf } from '${config.typedRecordImportBase}../../misc/misc';
 import * as record from 'N/record';
-import { RecordId } from '${config.typedRecordImportBase}../recordRef';
 
 export type recordTypes = {
   ${config.recordIds.map(id => `
 '${id}': ${id}RecordImpl
 `.trim()).join(`,\n${indent()}`)}
 }
+
 export type RecordType = StringKeyOf<recordTypes>
+
 export type recordConstructors = {
   ${config.recordIds.map(id => `
 '${id}': (r: record.Record) => ${id}Record
 `.trim()).join(`,\n${indent()}`)}
 }
-const recordConstructorsImpl: recordConstructors = {
+
+export const recordConstructorsImpl: recordConstructors = {
   ${config.recordIds.map(id => `
   '${id}': (r: record.Record) => new ${id}RecordImpl(r) 
   `.trim()).join(`,\n${indent()}`)}
-}
-export function load<T extends StringKeyOf<recordTypes>>(options: { id: RecordId, type: T }): ValueOfStringKey<recordTypes, T> | undefined {
-  const r = record.load(options)
-  return r ? recordConstructorsImpl[options.type](r) : undefined as any
-}
-export function loadOrThrow<T extends StringKeyOf<recordTypes>>(options: { id: RecordId, type: T }): ValueOfStringKey<recordTypes, T> {
-  const r = load(options)
-  return checkThrow(r, \`record \${options.id},\${options.type} not found\`)
-}
-export function create<T extends StringKeyOf<recordTypes>>(options: { type: T }): ValueOfStringKey<recordTypes, T> {
-  const r = record.create(options)
-  return recordConstructorsImpl[options.type](r) as any
 }
 `
 }

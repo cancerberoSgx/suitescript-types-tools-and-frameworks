@@ -12,6 +12,7 @@ export interface ProjectConfig {
   cleanOutput?: boolean
   generateFile(config: FileConfig): { output: string }
   generateAfter(config: ProjectConfig & { recordIds: string[] }): void
+  throwOnError?: boolean
 }
 
 export interface FileConfig {
@@ -26,15 +27,25 @@ export function generateProject(config: ProjectConfig) {
   const { inputFolder, outputFolder, typedRecordImportBase } = config;
   const recordIds: string[] = [];
   mkdir('-p', outputFolder);
-  ls('-R', inputFolder).map(f => join(resolve(inputFolder), f)).filter(f => f.endsWith('.json')).forEach(f => {
-    try {
-      const data: RecordMetadata = JSON.parse(readFileSync(f).toString());
-      const { output } = config.generateFile({ data, typedRecordImportBase });
-      writeFileSync(join(outputFolder, basename(f, '.json') + '.ts'), output);
-      recordIds.push(data.id);
-    }
-    catch (error) { // invalid json
-    }
-    config.generateAfter({ ...config, recordIds });
-  });
+  ls('-R', inputFolder).map(f => join(resolve(inputFolder), f))
+    .filter(f => f.endsWith('.json')).forEach(f => {
+      try {
+        const data: RecordMetadata = {
+          searchJoins: [], searchColumns: [], fields: [], sublists: [],
+          ...JSON.parse(readFileSync(f).toString())
+        };
+
+        const { output } = config.generateFile({ data, typedRecordImportBase });
+        const outputFile = join(outputFolder, basename(f, '.json') + '.ts')
+        writeFileSync(outputFile, output);
+        recordIds.push(data.id);
+      }
+      catch (error) { // invalid json
+        console.log('ERROR in generateFile: ' + error);
+        if(config.throwOnError){
+          throw error
+        }  
+      }
+      config.generateAfter({ ...config, recordIds });
+    });
 }

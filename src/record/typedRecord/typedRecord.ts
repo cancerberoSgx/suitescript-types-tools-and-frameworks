@@ -48,13 +48,13 @@ export class TypedRecordImpl<Fields extends CommonFields = CommonFields, Sublist
 
 
 // const c: CommercategoryRecord = null as any as CommercategoryRecord
-export type recordTypes = {
-  'commercecategory': commercecategoryRecord
-}
+// export type recordTypes = {
+//   'commercecategory': commercecategoryRecord
+// }
+// export type recordConstructors = {
+//   'commercecategory': (r: Record) => commercecategoryRecord
+// }
 export type RecordType = StringKeyOf<recordTypes>
-export type recordConstructors = {
-  'commercecategory': (r: Record) => commercecategoryRecord
-}
 // type recordFieldTypes = {
 //   'commercecategory': CommercecategoryFields2
 // }

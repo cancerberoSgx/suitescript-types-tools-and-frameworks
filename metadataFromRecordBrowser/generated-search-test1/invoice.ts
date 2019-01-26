@@ -16,6 +16,21 @@ export interface invoiceSearchFilter {
 
 
 // Search Joins
-/** Invoice (invoice) Search Joins definition type. */
+
+/** Invoice (invoice) Search Joins definitions. */
 export interface invoiceSearchJoin {
+}
+
+
+// Search Filter Types
+
+/** Invoice (invoice) Search Filter Type definitions. */
+export interface invoiceSearchFilterTypes {
+}
+
+
+// Search Column Types
+
+/** Invoice (invoice) Search Column Type definitions. */
+export interface invoiceSearchColumnTypes {
 }

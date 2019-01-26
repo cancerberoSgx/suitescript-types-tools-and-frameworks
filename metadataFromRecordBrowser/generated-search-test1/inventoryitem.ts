@@ -16,6 +16,21 @@ export interface inventoryitemSearchFilter {
 
 
 // Search Joins
-/** Inventory Part (inventoryitem) Search Joins definition type. */
+
+/** Inventory Part (inventoryitem) Search Joins definitions. */
 export interface inventoryitemSearchJoin {
+}
+
+
+// Search Filter Types
+
+/** Inventory Part (inventoryitem) Search Filter Type definitions. */
+export interface inventoryitemSearchFilterTypes {
+}
+
+
+// Search Column Types
+
+/** Inventory Part (inventoryitem) Search Column Type definitions. */
+export interface inventoryitemSearchColumnTypes {
 }

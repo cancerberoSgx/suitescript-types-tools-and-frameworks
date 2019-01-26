@@ -13,33 +13,33 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Actual Ship/Receipt Date (actualshipdate: date) */
   actualshipdate?: Date;
   /** Amount (Alt.Sales) (altsalesamount: currency) */
-  altsalesamount?: string;
+  altsalesamount?: number;
   /** Amount (Alt.Sales Net) (altsalesnetamount: currency) */
-  altsalesnetamount?: string;
+  altsalesnetamount?: number;
   /** Amount (amount: currency) */
-  amount?: string;
+  amount?: number;
   /** Amount Paid (amountpaid: currency) */
-  amountpaid?: string;
+  amountpaid?: number;
   /** Amount Remaining (amountremaining: currency) */
-  amountremaining?: string;
+  amountremaining?: number;
   /** Amount Unbilled (amountunbilled: currency) */
-  amountunbilled?: string;
+  amountunbilled?: number;
   /** Applied To Link Amount (Foreign Currency) (appliedtoforeignamount: currency) */
-  appliedtoforeignamount?: string;
+  appliedtoforeignamount?: number;
   /** Applied To Link Is FxVariance (appliedtoisfxvariance: checkbox) */
   appliedtoisfxvariance?: boolean;
   /** Applied To Link Amount (appliedtolinkamount: currency) */
-  appliedtolinkamount?: string;
+  appliedtolinkamount?: number;
   /** Applied To Link Type (appliedtolinktype: select) */
   appliedtolinktype?: string;
   /** Applied To Transaction (appliedtotransaction: select) */
   appliedtotransaction?: string;
   /** Applying Link Amount (Foreign Currency) (applyingforeignamount: currency) */
-  applyingforeignamount?: string;
+  applyingforeignamount?: number;
   /** Applying Link Is FxVariance (applyingisfxvariance: checkbox) */
   applyingisfxvariance?: boolean;
   /** Applying Link Amount (applyinglinkamount: currency) */
-  applyinglinkamount?: string;
+  applyinglinkamount?: number;
   /** Applying Link Type (applyinglinktype: select) */
   applyinglinktype?: string;
   /** Applying Transaction (applyingtransaction: select) */
@@ -61,7 +61,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Date Billed (billeddate: date) */
   billeddate?: Date;
   /** Billing Amount (billingamount: currency2) */
-  billingamount?: string;
+  billingamount?: number;
   /** Billing Schedule (billingschedule: select) */
   billingschedule?: string;
   /** Billing Transaction (billingtransaction: select) */
@@ -105,7 +105,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Date Closed (closedate: date) */
   closedate?: Date;
   /** COGS Amount (cogsamount: currency2) */
-  cogsamount?: string;
+  cogsamount?: number;
   /** Commission Effective Date (commissioneffectivedate: date) */
   commissioneffectivedate?: Date;
   /** Commit (commit: select) */
@@ -113,11 +113,11 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Confirmation Number (confirmationnumber: text) */
   confirmationnumber?: string;
   /** Contribution % (contribution: percent) */
-  contribution?: string;
+  contribution?: number;
   /** Primary Sales Rep Contribution % (contributionprimary: percent) */
-  contributionprimary?: string;
+  contributionprimary?: number;
   /** Cost Component Amount (costcomponentamount: currency) */
-  costcomponentamount?: string;
+  costcomponentamount?: number;
   /** Cost Component Category (costcomponentcategory: text) */
   costcomponentcategory?: string;
   /** Cost Component Item (costcomponentitem: text) */
@@ -127,9 +127,9 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Cost Component Standard Cost (costcomponentstandardcost: float) */
   costcomponentstandardcost?: number;
   /** Est. Extended Cost (Line) (costestimate: currency) */
-  costestimate?: string;
+  costestimate?: number;
   /** Est. Unit Cost (costestimaterate: currency) */
-  costestimaterate?: string;
+  costestimaterate?: number;
   /** Cost Estimate Type (costestimatetype: text) */
   costestimatetype?: string;
   /** Created By (createdby: select) */
@@ -137,7 +137,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Created From (createdfrom: select) */
   createdfrom?: string;
   /** Amount (Credit) (creditamount: currency) */
-  creditamount?: string;
+  creditamount?: number;
   /** CSC Match (cscmatch: text) */
   cscmatch?: string;
   /** Currency (currency: select) */
@@ -149,15 +149,15 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Customer Category (custtype: select) */
   custtype?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: string;
+  datecreated?: Date;
   /** Days Open (daysopen: integer) */
   daysopen?: number;
   /** Days Overdue (daysoverdue: integer) */
   daysoverdue?: number;
   /** Amount (Debit) (debitamount: currency) */
-  debitamount?: string;
+  debitamount?: number;
   /** Amount (Deferred) (deferredrevenue: currency) */
-  deferredrevenue?: string;
+  deferredrevenue?: number;
   /** Delay Rev. Rec. (deferrevrec: checkbox) */
   deferrevrec?: boolean;
   /** Department (department: select) */
@@ -169,7 +169,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Deposit/Refund Transaction (deposittransaction: select) */
   deposittransaction?: string;
   /** Amount Discount (discountamount: currency) */
-  discountamount?: string;
+  discountamount?: number;
   /** Transaction Units (docunit: text) */
   docunit?: string;
   /** Deferred Revenue Reclassification Account (draccount: text) */
@@ -177,7 +177,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Due Date/Receive By (duedate: date) */
   duedate?: Date;
   /** Effective Rate (effectiverate: currency2) */
-  effectiverate?: string;
+  effectiverate?: number;
   /** Email (email: email) */
   email?: string;
   /** End Date (enddate: date) */
@@ -187,13 +187,13 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Estimate/Opportunity Status (entitystatus: select) */
   entitystatus?: string;
   /** Est. Gross Profit (Line) (estgrossprofit: currency) */
-  estgrossprofit?: string;
+  estgrossprofit?: number;
   /** Est. Gross Profit Percent (Line) (estgrossprofitpct: percent) */
-  estgrossprofitpct?: string;
+  estgrossprofitpct?: number;
   /** Est. Gross Profit Percent (Transaction) (estgrossprofitpercent: percent) */
-  estgrossprofitpercent?: string;
+  estgrossprofitpercent?: number;
   /** Exchange Rate (exchangerate: currency2) */
-  exchangerate?: string;
+  exchangerate?: number;
   /** Exclude Commissions (excludecommission: checkbox) */
   excludecommission?: boolean;
   /** Exclude Item from Rate Request (excludefromraterequest: checkbox) */
@@ -213,15 +213,15 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Forecast Type (forecasttype: select) */
   forecasttype?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-  formulacurrency?: string;
+  formulacurrency?: number;
   /** Formula (Date) (formuladate: date) */
   formuladate?: Date;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-  formuladatetime?: string;
+  formuladatetime?: Date;
   /** Formula (Numeric) (formulanumeric: float) */
   formulanumeric?: number;
   /** Formula (Percent) (formulapercent: percent) */
-  formulapercent?: string;
+  formulapercent?: number;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Fulfilling/Receiving Transaction (fulfillingtransaction: select) */
@@ -229,25 +229,25 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Foreign Currency Adjustment Revenue Account (fxaccount: text) */
   fxaccount?: string;
   /** Amount (Foreign Currency) (fxamount: currency) */
-  fxamount?: string;
+  fxamount?: number;
   /** Est. Extended Cost (Line) (Foreign Currency) (fxcostestimate: currency) */
-  fxcostestimate?: string;
+  fxcostestimate?: number;
   /** Est. Unit Cost (Foreign Currency) (fxcostestimaterate: currency) */
-  fxcostestimaterate?: string;
+  fxcostestimaterate?: number;
   /** Est. Gross Profit (Line) (Foreign Currency) (fxestgrossprofit: currency) */
-  fxestgrossprofit?: string;
+  fxestgrossprofit?: number;
   /** Est. Extended Cost (Transaction) (Foreign Currency) (fxtrancostestimate: currency) */
-  fxtrancostestimate?: string;
+  fxtrancostestimate?: number;
   /** VSOE Allocation (Foreign Currency) (fxvsoeallocation: currency) */
-  fxvsoeallocation?: string;
+  fxvsoeallocation?: number;
   /** VSOE Amount (Foreign Currency) (fxvsoeamount: currency) */
-  fxvsoeamount?: string;
+  fxvsoeamount?: number;
   /** VSOE Price (Foreign Currency) (fxvsoeprice: currency2) */
-  fxvsoeprice?: string;
+  fxvsoeprice?: number;
   /** Funds Available to Process (gcoavailabeltocharge: currency) */
-  gcoavailabeltocharge?: string;
+  gcoavailabeltocharge?: number;
   /** Funds Available to Refund (gcoavailabletorefund: currency) */
-  gcoavailabletorefund?: string;
+  gcoavailabletorefund?: number;
   /** AVS Street Match (Google) (gcoavsstreetmatch: text) */
   gcoavsstreetmatch?: string;
   /** AVS Zip Match (Google) (gcoavszipmatch: text) */
@@ -257,13 +257,13 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Buyer IP Address (gcobuyerip: text) */
   gcobuyerip?: string;
   /** Pending Charges (gcochargeamount: currency) */
-  gcochargeamount?: string;
+  gcochargeamount?: number;
   /** Chargeback Amount (gcochargebackamount: currency) */
-  gcochargebackamount?: string;
+  gcochargebackamount?: number;
   /** Charge Amount Confirmed (gcoconfirmedchargedtotal: currency) */
-  gcoconfirmedchargedtotal?: string;
+  gcoconfirmedchargedtotal?: number;
   /** Confirmed Refund Amount (gcoconfirmedrefundedtotal: currency) */
-  gcoconfirmedrefundedtotal?: string;
+  gcoconfirmedrefundedtotal?: number;
   /** Credit Card (Google) (gcocreditcardnumber: text) */
   gcocreditcardnumber?: string;
   /** CSC Match (Google) (gcocscmatch: text) */
@@ -275,21 +275,21 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Google Order ID (gcoorderid: text) */
   gcoorderid?: string;
   /** Google Order Total (gcoordertotal: currency) */
-  gcoordertotal?: string;
+  gcoordertotal?: number;
   /** Google Checkout Promotion Amount (gcopromotionamount: currency) */
-  gcopromotionamount?: string;
+  gcopromotionamount?: number;
   /** Google Checkout Promotion (gcopromotionname: text) */
   gcopromotionname?: string;
   /** Pending Refund Amount (gcorefundamount: currency) */
-  gcorefundamount?: string;
+  gcorefundamount?: number;
   /** Google Shipping Total (gcoshippingtotal: currency) */
-  gcoshippingtotal?: string;
+  gcoshippingtotal?: number;
   /** Reason for Cancellation (gcostatechangeddetail: text) */
   gcostatechangeddetail?: string;
   /** Gift Certificate (giftcert: text) */
   giftcert?: string;
   /** Amount (Gross) (grossamount: currency) */
-  grossamount?: string;
+  grossamount?: number;
   /** Include in Forecast (includeinforecast: checkbox) */
   includeinforecast?: boolean;
   /** Incoterm (incoterm: select) */
@@ -341,9 +341,9 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Item Revision (itemrevision: select) */
   itemrevision?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: string;
+  lastmodifieddate?: Date;
   /** Last Viewed (lastviewed: datetime) */
-  lastviewed?: string;
+  lastviewed?: Date;
   /** Lead Source (leadsource: select) */
   leadsource?: string;
   /** Line ID (line: integer) */
@@ -375,9 +375,9 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Intercompany (multisubsidiary: checkbox) */
   multisubsidiary?: boolean;
   /** Amount (Net) (netamount: currency) */
-  netamount?: string;
+  netamount?: number;
   /** Amount (Net of Tax) (netamountnotax: currency) */
-  netamountnotax?: string;
+  netamountnotax?: number;
   /** Next Approver (nextapprover: select) */
   nextapprover?: string;
   /** Next Bill Date (nextbilldate: date) */
@@ -395,23 +395,23 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Package Count (packagecount: integer) */
   packagecount?: number;
   /** Paid Amount (paidamount: currency2) */
-  paidamount?: string;
+  paidamount?: number;
   /** Paid Transaction (paidtransaction: select) */
   paidtransaction?: string;
   /** Partner (partner: select) */
   partner?: string;
   /** Partner Contribution % (partnercontribution: percent) */
-  partnercontribution?: string;
+  partnercontribution?: number;
   /** Partner Role (partnerrole: select) */
   partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
   partnerteammember?: string;
   /** Paying Amount (payingamount: currency2) */
-  payingamount?: string;
+  payingamount?: number;
   /** Paying Transaction (payingtransaction: select) */
   payingtransaction?: string;
   /** Payment Event Date (paymenteventdate: datetime) */
-  paymenteventdate?: string;
+  paymenteventdate?: Date;
   /** Payment Event Hold Reason (paymenteventholdreason: text) */
   paymenteventholdreason?: string;
   /** Payment Event Purchase Card Used (paymenteventpurchasecardused: checkbox) */
@@ -437,7 +437,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** P/N Ref (pnrefnum: text) */
   pnrefnum?: string;
   /** PO Rate (porate: currency2) */
-  porate?: string;
+  porate?: number;
   /** Posting (posting: checkbox) */
   posting?: boolean;
   /** Period (postingperiod: select) */
@@ -447,9 +447,9 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Print (print: text) */
   print?: string;
   /** Probability (probability: percent) */
-  probability?: string;
+  probability?: number;
   /** Projected Total (projectedamount: currency) */
-  projectedamount?: string;
+  projectedamount?: number;
   /** Project task (projecttask: select) */
   projecttask?: string;
   /** Promotion (promocode: select) */
@@ -473,11 +473,11 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Quantity in Transaction Units (quantityuom: float) */
   quantityuom?: number;
   /** Item Rate (rate: currency2) */
-  rate?: string;
+  rate?: number;
   /** Realized Gain Posting Transaction (realizedgainpostingtransaction: select) */
   realizedgainpostingtransaction?: string;
   /** Amount (Recognized) (recognizedrevenue: currency) */
-  recognizedrevenue?: string;
+  recognizedrevenue?: number;
   /** Record Type (recordtype: text) */
   recordtype?: string;
   /** Rev. Commit. Status (revcommitstatus: text) */
@@ -499,7 +499,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Realized Gain Account (rgaccount: select) */
   rgaccount?: string;
   /** Realized Gain Amount (rgamount: currency) */
-  rgamount?: string;
+  rgamount?: number;
   /** Sales Effective Date (saleseffectivedate: date) */
   saleseffectivedate?: Date;
   /** Sales Order (salesorder: select) */
@@ -515,9 +515,9 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Transaction Serial/Lot Number (serialnumber: text) */
   serialnumber?: string;
   /** Transaction Serial/Lot Number Amount (serialnumbercost: currency) */
-  serialnumbercost?: string;
+  serialnumbercost?: number;
   /** Transaction Serial/Lot Number Cost Adjustment (serialnumbercostadjustment: currency) */
-  serialnumbercostadjustment?: string;
+  serialnumbercostadjustment?: number;
   /** Transaction Serial/Lot Number Quantity (serialnumberquantity: float) */
   serialnumberquantity?: number;
   /** Serial/Lot Numbers (serialnumbers: text) */
@@ -535,13 +535,13 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Ship Via (shipmethod: select) */
   shipmethod?: string;
   /** Amount (Shipping) (shippingamount: currency) */
-  shippingamount?: string;
+  shippingamount?: number;
   /** Fulfilled/Received (Line Level) (shiprecvstatusline: checkbox) */
   shiprecvstatusline?: boolean;
   /** Ship To (shipto: select) */
   shipto?: string;
   /** Amount (Signed) (signedamount: currency) */
-  signedamount?: string;
+  signedamount?: number;
   /** Source (source: select) */
   source?: string;
   /** Start Date (startdate: date) */
@@ -553,7 +553,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Subsidiary (no hierarchy) (subsidiarynohierarchy: select) */
   subsidiarynohierarchy?: string;
   /** Amount (Tax) (taxamount: currency) */
-  taxamount?: string;
+  taxamount?: number;
   /** Tax Item (taxcode: select) */
   taxcode?: string;
   /** Tax Line (taxline: checkbox) */
@@ -561,7 +561,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Tax Period (taxperiod: select) */
   taxperiod?: string;
   /** Amount (Tax Total) (taxtotal: currency) */
-  taxtotal?: string;
+  taxtotal?: number;
   /** Rev. Rec. Term in Months (terminmonths: integer) */
   terminmonths?: number;
   /** Terms (terms: select) */
@@ -579,17 +579,17 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** To Subsidiary (no hierarchy) (tosubsidiarynohierarchy: select) */
   tosubsidiarynohierarchy?: string;
   /** Amount (Transaction Total) (total: currency) */
-  total?: string;
+  total?: number;
   /** Est. Extended Cost (Transaction) (totalcostestimate: currency) */
-  totalcostestimate?: string;
+  totalcostestimate?: number;
   /** Tracking Numbers (trackingnumbers: text) */
   trackingnumbers?: string;
   /** Date (trandate: date) */
   trandate?: Date;
   /** Est. Gross Profit (Transaction) (tranestgrossprofit: currency) */
-  tranestgrossprofit?: string;
+  tranestgrossprofit?: number;
   /** Est. Gross Profit (Transaction) (Foreign Currency) (tranfxestgrossprofit: currency) */
-  tranfxestgrossprofit?: string;
+  tranfxestgrossprofit?: number;
   /** Number (tranid: text) */
   tranid?: string;
   /** Transaction Is VSOE Bundle (tranisvsoebundle: checkbox) */
@@ -619,15 +619,15 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Units (unit: text) */
   unit?: string;
   /** Unit Cost Override (unitcostoverride: currency) */
-  unitcostoverride?: string;
+  unitcostoverride?: number;
   /** Vendor Category (vendtype: select) */
   vendtype?: string;
   /** Available In Customer Center (visibletocustomer: checkbox) */
   visibletocustomer?: boolean;
   /** VSOE Allocation (vsoeallocation: currency) */
-  vsoeallocation?: string;
+  vsoeallocation?: number;
   /** VSOE Amount (vsoeamount: currency) */
-  vsoeamount?: string;
+  vsoeamount?: number;
   /** Deferral (vsoedeferral: text) */
   vsoedeferral?: string;
   /** Delivered (vsoedelivered: checkbox) */
@@ -635,7 +635,7 @@ export interface transactionSearchColumn {/** Abbrev. Type (abbrev: text) */
   /** Permit Discount (vsoepermitdiscount: text) */
   vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: currency2) */
-  vsoeprice?: string;
+  vsoeprice?: number;
   /** Web Site (website: text) */
   website?: string;
 }
@@ -651,35 +651,35 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Actual Ship/Receipt Date (actualshipdate: date) */
   actualshipdate?: Date;
   /** Amount (Alt.Sales) (altsalesamount: currency) */
-  altsalesamount?: string;
+  altsalesamount?: number;
   /** Amount (Alt.Sales Net) (altsalesnetamount: currency) */
-  altsalesnetamount?: string;
+  altsalesnetamount?: number;
   /** Amount (amount: currency) */
-  amount?: string;
+  amount?: number;
   /** Amount Paid (amountpaid: currency) */
-  amountpaid?: string;
+  amountpaid?: number;
   /** Amount Remaining (amountremaining: currency) */
-  amountremaining?: string;
+  amountremaining?: number;
   /** Amount Unbilled (amountunbilled: currency) */
-  amountunbilled?: string;
+  amountunbilled?: number;
   /** Item On Any Line (anylineitem: multiselect) */
-  anylineitem?: string;
+  anylineitem?: number;
   /** Applied To Link Amount (Foreign Currency) (appliedtoforeignamount: currency) */
-  appliedtoforeignamount?: string;
+  appliedtoforeignamount?: number;
   /** Applied To Is FxVariance (appliedtoisfxvariance: checkbox) */
   appliedtoisfxvariance?: boolean;
   /** Applied To Link Amount (appliedtolinkamount: currency) */
-  appliedtolinkamount?: string;
+  appliedtolinkamount?: number;
   /** Applied To Link Type (appliedtolinktype: select) */
   appliedtolinktype?: string;
   /** Applied To Transaction (appliedtotransaction: select) */
   appliedtotransaction?: string;
   /** Applying Link Amount (Foreign Currency) (applyingforeignamount: currency) */
-  applyingforeignamount?: string;
+  applyingforeignamount?: number;
   /** Applying Is FxVariance (applyingisfxvariance: checkbox) */
   applyingisfxvariance?: boolean;
   /** Applying Link Amount (applyinglinkamount: currency) */
-  applyinglinkamount?: string;
+  applyinglinkamount?: number;
   /** Applying Link Type (applyinglinktype: select) */
   applyinglinktype?: string;
   /** Applying Transaction (applyingtransaction: select) */
@@ -753,7 +753,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Contribution % (contribution: integer) */
   contribution?: number;
   /** Cost Component Amount (costcomponentamount: currency) */
-  costcomponentamount?: string;
+  costcomponentamount?: number;
   /** Cost Component Category (costcomponentcategory: select) */
   costcomponentcategory?: string;
   /** Cost Component Item (costcomponentitem: select) */
@@ -763,9 +763,9 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Cost Component Standard Cost (costcomponentstandardcost: float) */
   costcomponentstandardcost?: number;
   /** Est. Extended Cost (Line) (costestimate: currency) */
-  costestimate?: string;
+  costestimate?: number;
   /** Est. Unit Cost (costestimaterate: currency) */
-  costestimaterate?: string;
+  costestimaterate?: number;
   /** Cost Estimate Type (costestimatetype: select) */
   costestimatetype?: string;
   /** Created By (createdby: select) */
@@ -773,7 +773,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Created From (createdfrom: select) */
   createdfrom?: string;
   /** Amount (Credit) (creditamount: currency) */
-  creditamount?: string;
+  creditamount?: number;
   /** CSC Match (cscmatch: select) */
   cscmatch?: string;
   /** Currency (currency: select) */
@@ -787,15 +787,15 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Customer Category (custtype: select) */
   custtype?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: string;
+  datecreated?: Date;
   /** Days Open (daysopen: integer) */
   daysopen?: number;
   /** Days Overdue (daysoverdue: integer) */
   daysoverdue?: number;
   /** Amount (Debit) (debitamount: currency) */
-  debitamount?: string;
+  debitamount?: number;
   /** Amount (Deferred) (deferredrevenue: currency) */
-  deferredrevenue?: string;
+  deferredrevenue?: number;
   /** Delay Rev. Rec. (deferrevrec: checkbox) */
   deferrevrec?: boolean;
   /** Department (department: select) */
@@ -819,11 +819,11 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Estimate/Opportunity Status (entitystatus: select) */
   entitystatus?: string;
   /** Est. Gross Profit (Line) (estgrossprofit: currency) */
-  estgrossprofit?: string;
+  estgrossprofit?: number;
   /** Est. Gross Profit Percent (Line) (estgrossprofitpct: percent) */
-  estgrossprofitpct?: string;
+  estgrossprofitpct?: number;
   /** Exchange Rate (exchangerate: currency) */
-  exchangerate?: string;
+  exchangerate?: number;
   /** Exclude Commissions (excludecommission: checkbox) */
   excludecommission?: boolean;
   /** Exclude Item from Rate Request (excludefromraterequest: checkbox) */
@@ -857,25 +857,25 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Foreign Currency Adjustment Revenue Account (fxaccount: select) */
   fxaccount?: string;
   /** Amount (Foreign Currency) (fxamount: currency) */
-  fxamount?: string;
+  fxamount?: number;
   /** Est. Extended Cost (Line) (Foreign Currency) (fxcostestimate: currency) */
-  fxcostestimate?: string;
+  fxcostestimate?: number;
   /** Est. Unit Cost (Foreign Currency) (fxcostestimaterate: currency) */
-  fxcostestimaterate?: string;
+  fxcostestimaterate?: number;
   /** Est. Gross Profit (Line) (Foreign Currency) (fxestgrossprofit: currency) */
-  fxestgrossprofit?: string;
+  fxestgrossprofit?: number;
   /** Est. Extended Cost (Transaction) (Foreign Currency) (fxtrancostestimate: currency) */
-  fxtrancostestimate?: string;
+  fxtrancostestimate?: number;
   /** VSOE Allocation (Foreign Currency) (fxvsoeallocation: currency) */
-  fxvsoeallocation?: string;
+  fxvsoeallocation?: number;
   /** VSOE Amount (Foreign Currency) (fxvsoeamount: currency) */
-  fxvsoeamount?: string;
+  fxvsoeamount?: number;
   /** VSOE Price (Foreign Currency) (fxvsoeprice: currency) */
-  fxvsoeprice?: string;
+  fxvsoeprice?: number;
   /** Available to Charge (gcoavailabeltocharge: checkbox) */
   gcoavailabeltocharge?: boolean;
   /** Funds Available to Refund (gcoavailabletorefund: currency) */
-  gcoavailabletorefund?: string;
+  gcoavailabletorefund?: number;
   /** AVS Street Match (Google) (gcoavsstreetmatch: text) */
   gcoavsstreetmatch?: string;
   /** AVS Zip Match (Google) (gcoavszipmatch: text) */
@@ -885,13 +885,13 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Buyer IP Address (gcobuyerip: text) */
   gcobuyerip?: string;
   /** Requested Charge Amount (gcochargeamount: currency) */
-  gcochargeamount?: string;
+  gcochargeamount?: number;
   /** Chargeback Amount (gcochargebackamount: currency) */
-  gcochargebackamount?: string;
+  gcochargebackamount?: number;
   /** Charge Amount Confirmed (gcoconfirmedchargedtotal: currency) */
-  gcoconfirmedchargedtotal?: string;
+  gcoconfirmedchargedtotal?: number;
   /** Confirmed Refund Amount (gcoconfirmedrefundedtotal: currency) */
-  gcoconfirmedrefundedtotal?: string;
+  gcoconfirmedrefundedtotal?: number;
   /** Credit Card (Google) (gcocreditcardnumber: text) */
   gcocreditcardnumber?: string;
   /** CSC Match (Google) (gcocscmatch: text) */
@@ -903,21 +903,21 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Google Order ID (gcoorderid: text) */
   gcoorderid?: string;
   /** Google Order Total (gcoordertotal: currency) */
-  gcoordertotal?: string;
+  gcoordertotal?: number;
   /** Google Checkout Promotion Amount (gcopromotionamount: currency) */
-  gcopromotionamount?: string;
+  gcopromotionamount?: number;
   /** Google Checkout Promotion (gcopromotionname: text) */
   gcopromotionname?: string;
   /** Requested Refund Amount (gcorefundamount: currency) */
-  gcorefundamount?: string;
+  gcorefundamount?: number;
   /** Google Shipping Total (gcoshippingtotal: currency) */
-  gcoshippingtotal?: string;
+  gcoshippingtotal?: number;
   /** Reason for Cancellation (gcostatechangeddetail: text) */
   gcostatechangeddetail?: string;
   /** Gift Certificate (giftcertificate: text) */
   giftcertificate?: string;
   /** Amount (Gross) (grossamount: currency) */
-  grossamount?: string;
+  grossamount?: number;
   /** Include in Forecast (includeinforecast: checkbox) */
   includeinforecast?: boolean;
   /** Incoterm (incoterm: select) */
@@ -977,7 +977,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Item Sub of (itemsubof: select) */
   itemsubof?: string;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: string;
+  lastmodifieddate?: Date;
   /** Lead Source (leadsource: select) */
   leadsource?: string;
   /** Line (line: integer) */
@@ -1005,7 +1005,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Intercompany (multisubsidiary: checkbox) */
   multisubsidiary?: boolean;
   /** Amount (Net) (netamount: currency) */
-  netamount?: string;
+  netamount?: number;
   /** Next Approver (nextapprover: select) */
   nextapprover?: string;
   /** Next Bill Date (nextbilldate: date) */
@@ -1033,7 +1033,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Paying Transaction (payingtransaction: select) */
   payingtransaction?: string;
   /** Payment Event Date (paymenteventdate: datetime) */
-  paymenteventdate?: string;
+  paymenteventdate?: Date;
   /** Payment Event Hold Reason (paymenteventholdreason: select) */
   paymenteventholdreason?: string;
   /** Payment Event Purchase Card Used (paymenteventpurchasecardused: checkbox) */
@@ -1061,7 +1061,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Posting (posting: checkbox) */
   posting?: boolean;
   /** Period (postingperiod: period) */
-  postingperiod?: string;
+  postingperiod?: Date;
   /** Price Level (pricelevel: select) */
   pricelevel?: string;
   /** Printed Picking Ticket (printedpickingticket: checkbox) */
@@ -1069,7 +1069,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Probability (probability: integer) */
   probability?: number;
   /** Projected Total (projectedamount: currency) */
-  projectedamount?: string;
+  projectedamount?: number;
   /** Project Task (projecttask: select) */
   projecttask?: string;
   /** Promotion (promocode: select) */
@@ -1091,7 +1091,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Quantity Shipped/Received (quantityshiprecv: float) */
   quantityshiprecv?: number;
   /** Amount (Recognized) (recognizedrevenue: currency) */
-  recognizedrevenue?: string;
+  recognizedrevenue?: number;
   /** Record Type (recordtype: text) */
   recordtype?: string;
   /** Rev. Commit. Status (revcommitstatus: select) */
@@ -1129,9 +1129,9 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Transaction Serial/Lot Number (serialnumber: text) */
   serialnumber?: string;
   /** Transaction Serial/Lot Amount (serialnumbercost: currency) */
-  serialnumbercost?: string;
+  serialnumbercost?: number;
   /** Transaction Serial/Lot Cost Adjustment (serialnumbercostadjustment: currency) */
-  serialnumbercostadjustment?: string;
+  serialnumbercostadjustment?: number;
   /** Transaction Serial/Lot Number Quantity (serialnumberquantity: float) */
   serialnumberquantity?: number;
   /** Shipping Carrier (shipcarrier: select) */
@@ -1167,9 +1167,9 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Tax Line (taxline: checkbox) */
   taxline?: boolean;
   /** Tax Period (taxperiod: period) */
-  taxperiod?: string;
+  taxperiod?: Date;
   /** Rate (taxrate: currency) */
-  taxrate?: string;
+  taxrate?: number;
   /** Terms (terms: select) */
   terms?: string;
   /** Terms Of Sale (termsofsale: select) */
@@ -1183,19 +1183,19 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** To Subsidiary (tosubsidiary: select) */
   tosubsidiary?: string;
   /** Amount (Transaction Total) (totalamount: currency) */
-  totalamount?: string;
+  totalamount?: number;
   /** Tracking Number (trackingnumbers: text) */
   trackingnumbers?: string;
   /** Est. Extended Cost (Transaction) (trancostestimate: currency) */
-  trancostestimate?: string;
+  trancostestimate?: number;
   /** Date (trandate: date) */
   trandate?: Date;
   /** Est. Gross Profit (Transaction) (tranestgrossprofit: currency) */
-  tranestgrossprofit?: string;
+  tranestgrossprofit?: number;
   /** Est. Gross Profit Percent (Transaction) (tranestgrossprofitpct: percent) */
-  tranestgrossprofitpct?: string;
+  tranestgrossprofitpct?: number;
   /** Est. Gross Profit (Transaction) (Foreign Currency) (tranfxestgrossprofit: currency) */
-  tranfxestgrossprofit?: string;
+  tranfxestgrossprofit?: number;
   /** Number/ID (tranid: text) */
   tranid?: string;
   /** Transaction Is VSOE Bundle (tranisvsoebundle: checkbox) */
@@ -1223,7 +1223,7 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Units (unit: select) */
   unit?: string;
   /** Unit Cost Override (unitcostoverride: currency) */
-  unitcostoverride?: string;
+  unitcostoverride?: number;
   /** Vendor Category (vendtype: select) */
   vendtype?: string;
   /** Available In Customer Center (visibletocustomer: checkbox) */
@@ -1231,9 +1231,9 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Voided (voided: checkbox) */
   voided?: boolean;
   /** VSOE Allocation (vsoeallocation: currency) */
-  vsoeallocation?: string;
+  vsoeallocation?: number;
   /** VSOE Amount (vsoeamount: currency) */
-  vsoeamount?: string;
+  vsoeamount?: number;
   /** Deferral (vsoedeferral: select) */
   vsoedeferral?: string;
   /** Delivered (vsoedelivered: checkbox) */
@@ -1241,14 +1241,15 @@ export interface transactionSearchFilter {/** Account (account: select) */
   /** Permit Discount (vsoepermitdiscount: select) */
   vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: currency) */
-  vsoeprice?: string;
+  vsoeprice?: number;
   /** Web Site (website: select) */
   website?: string;
 }
 
 
 // Search Joins
-/** Transaction (transaction) Search Joins definition type. */
+
+/** Transaction (transaction) Search Joins definitions. */
 export interface transactionSearchJoin {/** transaction's account search filter. Account. Actual name: Account. */
   account: 'account';
   /** transaction's accountingperiod search filter. Accounting Period. Actual name: Accounting Period. */
@@ -1315,4 +1316,633 @@ export interface transactionSearchJoin {/** transaction's account search filter.
   user: 'user';
   /** transaction's vendor search filter. Vendor. Actual name: Vendor. */
   vendor: 'vendor';
+}
+
+
+// Search Filter Types
+
+/** Transaction (transaction) Search Filter Type definitions. */
+export interface transactionSearchFilterTypes {account: 'select';
+  accounttype: 'select';
+  actualshipdate: 'date';
+  altsalesamount: 'currency';
+  altsalesnetamount: 'currency';
+  amount: 'currency';
+  amountpaid: 'currency';
+  amountremaining: 'currency';
+  amountunbilled: 'currency';
+  anylineitem: 'multiselect';
+  appliedtoforeignamount: 'currency';
+  appliedtoisfxvariance: 'checkbox';
+  appliedtolinkamount: 'currency';
+  appliedtolinktype: 'select';
+  appliedtotransaction: 'select';
+  applyingforeignamount: 'currency';
+  applyingisfxvariance: 'checkbox';
+  applyinglinkamount: 'currency';
+  applyinglinktype: 'select';
+  applyingtransaction: 'select';
+  approvalstatus: 'select';
+  authcode: 'text';
+  autocalculatelag: 'checkbox';
+  avsstreetmatch: 'select';
+  avszipmatch: 'select';
+  billable: 'checkbox';
+  billcounty: 'text';
+  billeddate: 'date';
+  billingschedule: 'select';
+  billingstatus: 'checkbox';
+  billingtransaction: 'select';
+  billvariancestatus: 'select';
+  binnumber: 'text';
+  binnumberquantity: 'float';
+  bookspecifictransaction: 'checkbox';
+  buildentireassembly: 'checkbox';
+  buildvariance: 'float';
+  built: 'float';
+  canhavestackablepromotions: 'checkbox';
+  catchupperiod: 'select';
+  cccustomercode: 'text';
+  ccexpiredate: 'date';
+  ccname: 'text';
+  ccnumber: 'ccnumber';
+  chargetype: 'select';
+  class: 'select';
+  cleared: 'checkbox';
+  closed: 'checkbox';
+  closedate: 'date';
+  cogs: 'checkbox';
+  commissioneffectivedate: 'date';
+  commit: 'select';
+  confirmationnumber: 'text';
+  contribution: 'integer';
+  costcomponentamount: 'currency';
+  costcomponentcategory: 'select';
+  costcomponentitem: 'select';
+  costcomponentquantity: 'float';
+  costcomponentstandardcost: 'float';
+  costestimate: 'currency';
+  costestimaterate: 'currency';
+  costestimatetype: 'select';
+  createdby: 'select';
+  createdfrom: 'select';
+  creditamount: 'currency';
+  cscmatch: 'select';
+  currency: 'select';
+  customersubof: 'select';
+  customform: 'select';
+  customgl: 'checkbox';
+  custtype: 'select';
+  datecreated: 'datetime';
+  daysopen: 'integer';
+  daysoverdue: 'integer';
+  debitamount: 'currency';
+  deferredrevenue: 'currency';
+  deferrevrec: 'checkbox';
+  department: 'select';
+  depositdate: 'date';
+  deposittransaction: 'select';
+  draccount: 'select';
+  duedate: 'date';
+  email: 'text';
+  employee: 'select';
+  enddate: 'date';
+  entity: 'select';
+  entitystatus: 'select';
+  estgrossprofit: 'currency';
+  estgrossprofitpct: 'percent';
+  exchangerate: 'currency';
+  excludecommission: 'checkbox';
+  excludefromraterequest: 'checkbox';
+  expectedclosedate: 'date';
+  expectedreceiptdate: 'date';
+  expensedate: 'date';
+  expreports: 'select';
+  externalid: 'select';
+  externalidstring: 'text';
+  finchrg: 'checkbox';
+  firmed: 'checkbox';
+  forecasttype: 'select';
+  formuladate: 'date';
+  formulanumeric: 'float';
+  formulatext: 'text';
+  fulfillingtransaction: 'select';
+  fxaccount: 'select';
+  fxamount: 'currency';
+  fxcostestimate: 'currency';
+  fxcostestimaterate: 'currency';
+  fxestgrossprofit: 'currency';
+  fxtrancostestimate: 'currency';
+  fxvsoeallocation: 'currency';
+  fxvsoeamount: 'currency';
+  fxvsoeprice: 'currency';
+  gcoavailabeltocharge: 'checkbox';
+  gcoavailabletorefund: 'currency';
+  gcoavsstreetmatch: 'text';
+  gcoavszipmatch: 'text';
+  gcobuyeraccountage: 'integer';
+  gcobuyerip: 'text';
+  gcochargeamount: 'currency';
+  gcochargebackamount: 'currency';
+  gcoconfirmedchargedtotal: 'currency';
+  gcoconfirmedrefundedtotal: 'currency';
+  gcocreditcardnumber: 'text';
+  gcocscmatch: 'text';
+  gcofinancialstate: 'text';
+  gcofulfillmentstate: 'text';
+  gcoorderid: 'text';
+  gcoordertotal: 'currency';
+  gcopromotionamount: 'currency';
+  gcopromotionname: 'text';
+  gcorefundamount: 'currency';
+  gcoshippingtotal: 'currency';
+  gcostatechangeddetail: 'text';
+  giftcertificate: 'text';
+  grossamount: 'currency';
+  includeinforecast: 'checkbox';
+  incoterm: 'select';
+  intercostatus: 'select';
+  intercotransaction: 'select';
+  internalid: 'select';
+  internalidnumber: 'integer';
+  invsoebundle: 'checkbox';
+  isallocation: 'checkbox';
+  isbackflush: 'checkbox';
+  iscustomapproval: 'checkbox';
+  isgcochargeback: 'checkbox';
+  isgcochargeconfirmed: 'checkbox';
+  isgcopaymentguaranteed: 'checkbox';
+  isgcorefundconfirmed: 'checkbox';
+  isinsidedelivery: 'checkbox';
+  isinsidepickup: 'checkbox';
+  isintercompanyadjustment: 'checkbox';
+  ispaypalmeth: 'checkbox';
+  isreversal: 'checkbox';
+  isrevrectransaction: 'checkbox';
+  isscrap: 'checkbox';
+  isshipaddress: 'checkbox';
+  istransferpricecosting: 'checkbox';
+  isvsoealloc: 'checkbox';
+  iswip: 'checkbox';
+  item: 'select';
+  itemfulfillmentchoice: 'select';
+  itemrevision: 'select';
+  itemsubof: 'select';
+  lastmodifieddate: 'datetime';
+  leadsource: 'select';
+  line: 'integer';
+  lineuniquekey: 'integer';
+  location: 'select';
+  mainline: 'checkbox';
+  mainname: 'select';
+  matchbilltoreceipt: 'checkbox';
+  memo: 'text';
+  memomain: 'text';
+  memorized: 'checkbox';
+  merchantaccount: 'text';
+  message: 'text';
+  multisubsidiary: 'checkbox';
+  netamount: 'currency';
+  nextapprover: 'select';
+  nextbilldate: 'date';
+  nonreimbursable: 'checkbox';
+  number: 'integer';
+  opportunity: 'select';
+  otherrefnum: 'text';
+  packagecount: 'integer';
+  paidtransaction: 'select';
+  partner: 'select';
+  partnercontribution: 'integer';
+  partnerrole: 'select';
+  partnerteammember: 'select';
+  payingtransaction: 'select';
+  paymenteventdate: 'datetime';
+  paymenteventholdreason: 'select';
+  paymenteventpurchasecardused: 'checkbox';
+  paymenteventpurchasedatasent: 'checkbox';
+  paymenteventresult: 'select';
+  paymenteventtype: 'select';
+  paymenthold: 'checkbox';
+  paymentmethod: 'select';
+  paypalpending: 'checkbox';
+  paypalstatus: 'text';
+  paypaltranid: 'text';
+  pnrefnum: 'text';
+  poastext: 'text';
+  posting: 'checkbox';
+  postingperiod: 'period';
+  pricelevel: 'select';
+  printedpickingticket: 'checkbox';
+  probability: 'integer';
+  projectedamount: 'currency';
+  projecttask: 'select';
+  promocode: 'select';
+  purchaseorder: 'select';
+  quantity: 'float';
+  quantitybilled: 'float';
+  quantitycommitted: 'float';
+  quantitypacked: 'float';
+  quantitypicked: 'float';
+  quantityrevcommitted: 'float';
+  quantityshiprecv: 'float';
+  recognizedrevenue: 'currency';
+  recordtype: 'text';
+  revcommitstatus: 'select';
+  revcommittingstatus: 'checkbox';
+  revcommittingtransaction: 'select';
+  revenuestatus: 'select';
+  reversaldate: 'date';
+  reversalnumber: 'text';
+  revrecenddate: 'date';
+  revreconrevcommitment: 'checkbox';
+  revrecstartdate: 'date';
+  revrecterminmonths: 'integer';
+  saleseffectivedate: 'date';
+  salesorder: 'select';
+  salesrep: 'select';
+  salesteammember: 'select';
+  salesteamrole: 'select';
+  schedulingmethod: 'select';
+  serialnumber: 'text';
+  serialnumbercost: 'currency';
+  serialnumbercostadjustment: 'currency';
+  serialnumberquantity: 'float';
+  shipcarrier: 'select';
+  shipcomplete: 'checkbox';
+  shipcounty: 'text';
+  shipdate: 'date';
+  shipgroup: 'integer';
+  shipmethod: 'select';
+  shipping: 'checkbox';
+  shiprecvstatus: 'checkbox';
+  shiprecvstatusline: 'checkbox';
+  shipto: 'select';
+  source: 'select';
+  startdate: 'date';
+  status: 'select';
+  subsidiary: 'select';
+  taxitem: 'select';
+  taxline: 'checkbox';
+  taxperiod: 'period';
+  taxrate: 'currency';
+  terms: 'select';
+  termsofsale: 'select';
+  title: 'text';
+  tobeemailed: 'checkbox';
+  tobeprinted: 'checkbox';
+  tosubsidiary: 'select';
+  totalamount: 'currency';
+  trackingnumbers: 'text';
+  trancostestimate: 'currency';
+  trandate: 'date';
+  tranestgrossprofit: 'currency';
+  tranestgrossprofitpct: 'percent';
+  tranfxestgrossprofit: 'currency';
+  tranid: 'text';
+  tranisvsoebundle: 'checkbox';
+  transactiondiscount: 'checkbox';
+  transactionlinetype: 'select';
+  transactionnumber: 'text';
+  transferlocation: 'select';
+  transferorderquantitycommitted: 'float';
+  transferorderquantitypacked: 'float';
+  transferorderquantitypicked: 'float';
+  transferorderquantityreceived: 'float';
+  transferorderquantityshipped: 'float';
+  type: 'select';
+  unit: 'select';
+  unitcostoverride: 'currency';
+  vendtype: 'select';
+  visibletocustomer: 'checkbox';
+  voided: 'checkbox';
+  vsoeallocation: 'currency';
+  vsoeamount: 'currency';
+  vsoedeferral: 'select';
+  vsoedelivered: 'checkbox';
+  vsoepermitdiscount: 'select';
+  vsoeprice: 'currency';
+  website: 'select';
+}
+
+
+// Search Column Types
+
+/** Transaction (transaction) Search Column Type definitions. */
+export interface transactionSearchColumnTypes {abbrev: 'text';
+  account: 'select';
+  accounttype: 'text';
+  actualshipdate: 'date';
+  altsalesamount: 'currency';
+  altsalesnetamount: 'currency';
+  amount: 'currency';
+  amountpaid: 'currency';
+  amountremaining: 'currency';
+  amountunbilled: 'currency';
+  appliedtoforeignamount: 'currency';
+  appliedtoisfxvariance: 'checkbox';
+  appliedtolinkamount: 'currency';
+  appliedtolinktype: 'select';
+  appliedtotransaction: 'select';
+  applyingforeignamount: 'currency';
+  applyingisfxvariance: 'checkbox';
+  applyinglinkamount: 'currency';
+  applyinglinktype: 'select';
+  applyingtransaction: 'select';
+  approvalstatus: 'select';
+  authcode: 'text';
+  autocalculatelag: 'checkbox';
+  avsstreetmatch: 'text';
+  avszipmatch: 'text';
+  billable: 'checkbox';
+  billcountrycode: 'text';
+  billeddate: 'date';
+  billingamount: 'currency2';
+  billingschedule: 'select';
+  billingtransaction: 'select';
+  billvariancestatus: 'text';
+  binnumber: 'text';
+  binnumberquantity: 'float';
+  buildentireassembly: 'checkbox';
+  buildvariance: 'float';
+  built: 'float';
+  canhavestackablepromotions: 'checkbox';
+  catchupperiod: 'text';
+  cccustomercode: 'text';
+  ccexpdate: 'mmyydate';
+  ccholdername: 'text';
+  ccnumber: 'ccnumber';
+  ccstreet: 'text';
+  cczipcode: 'text';
+  class: 'select';
+  classnohierarchy: 'select';
+  cleared: 'checkbox';
+  closed: 'checkbox';
+  closedate: 'date';
+  cogsamount: 'currency2';
+  commissioneffectivedate: 'date';
+  commit: 'select';
+  confirmationnumber: 'text';
+  contribution: 'percent';
+  contributionprimary: 'percent';
+  costcomponentamount: 'currency';
+  costcomponentcategory: 'text';
+  costcomponentitem: 'text';
+  costcomponentquantity: 'float';
+  costcomponentstandardcost: 'float';
+  costestimate: 'currency';
+  costestimaterate: 'currency';
+  costestimatetype: 'text';
+  createdby: 'select';
+  createdfrom: 'select';
+  creditamount: 'currency';
+  cscmatch: 'text';
+  currency: 'select';
+  customform: 'select';
+  customgl: 'checkbox';
+  custtype: 'select';
+  datecreated: 'datetime';
+  daysopen: 'integer';
+  daysoverdue: 'integer';
+  debitamount: 'currency';
+  deferredrevenue: 'currency';
+  deferrevrec: 'checkbox';
+  department: 'select';
+  departmentnohierarchy: 'select';
+  depositdate: 'date';
+  deposittransaction: 'select';
+  discountamount: 'currency';
+  docunit: 'text';
+  draccount: 'text';
+  duedate: 'date';
+  effectiverate: 'currency2';
+  email: 'email';
+  enddate: 'date';
+  entity: 'select';
+  entitystatus: 'select';
+  estgrossprofit: 'currency';
+  estgrossprofitpct: 'percent';
+  estgrossprofitpercent: 'percent';
+  exchangerate: 'currency2';
+  excludecommission: 'checkbox';
+  excludefromraterequest: 'checkbox';
+  expectedclosedate: 'date';
+  expectedreceiptdate: 'date';
+  expensecategory: 'select';
+  expensedate: 'date';
+  externalid: 'select';
+  firmed: 'checkbox';
+  forecasttype: 'select';
+  formulacurrency: 'currency';
+  formuladate: 'date';
+  formuladatetime: 'datetime';
+  formulanumeric: 'float';
+  formulapercent: 'percent';
+  formulatext: 'text';
+  fulfillingtransaction: 'select';
+  fxaccount: 'text';
+  fxamount: 'currency';
+  fxcostestimate: 'currency';
+  fxcostestimaterate: 'currency';
+  fxestgrossprofit: 'currency';
+  fxtrancostestimate: 'currency';
+  fxvsoeallocation: 'currency';
+  fxvsoeamount: 'currency';
+  fxvsoeprice: 'currency2';
+  gcoavailabeltocharge: 'currency';
+  gcoavailabletorefund: 'currency';
+  gcoavsstreetmatch: 'text';
+  gcoavszipmatch: 'text';
+  gcobuyeraccountage: 'integer';
+  gcobuyerip: 'text';
+  gcochargeamount: 'currency';
+  gcochargebackamount: 'currency';
+  gcoconfirmedchargedtotal: 'currency';
+  gcoconfirmedrefundedtotal: 'currency';
+  gcocreditcardnumber: 'text';
+  gcocscmatch: 'text';
+  gcofinancialstate: 'text';
+  gcofulfillmentstate: 'text';
+  gcoorderid: 'text';
+  gcoordertotal: 'currency';
+  gcopromotionamount: 'currency';
+  gcopromotionname: 'text';
+  gcorefundamount: 'currency';
+  gcoshippingtotal: 'currency';
+  gcostatechangeddetail: 'text';
+  giftcert: 'text';
+  grossamount: 'currency';
+  includeinforecast: 'checkbox';
+  incoterm: 'select';
+  intercostatus: 'select';
+  intercotransaction: 'text';
+  internalid: 'select';
+  invsoebundle: 'checkbox';
+  isallocation: 'checkbox';
+  isbackflush: 'checkbox';
+  iscustomapproval: 'checkbox';
+  isgcochargeback: 'checkbox';
+  isgcochargeconfirmed: 'checkbox';
+  isgcopaymentguaranteed: 'checkbox';
+  isgcorefundconfirmed: 'checkbox';
+  isinsidedelivery: 'checkbox';
+  isinsidepickup: 'checkbox';
+  isintercompanyadjustment: 'checkbox';
+  isreversal: 'checkbox';
+  isrevrectransaction: 'checkbox';
+  isscrap: 'checkbox';
+  isshipaddress: 'checkbox';
+  istransferpricecosting: 'checkbox';
+  iswip: 'checkbox';
+  item: 'select';
+  itemfulfillmentchoice: 'select';
+  itemrevision: 'select';
+  lastmodifieddate: 'datetime';
+  lastviewed: 'datetime';
+  leadsource: 'select';
+  line: 'integer';
+  linesequencenumber: 'integer';
+  lineuniquekey: 'integer';
+  location: 'select';
+  locationnohierarchy: 'select';
+  mainline: 'text';
+  mainname: 'select';
+  matchbilltoreceipt: 'checkbox';
+  memo: 'text';
+  memomain: 'text';
+  memorized: 'checkbox';
+  merchantaccount: 'select';
+  message: 'text';
+  multisubsidiary: 'checkbox';
+  netamount: 'currency';
+  netamountnotax: 'currency';
+  nextapprover: 'select';
+  nextbilldate: 'date';
+  nonreimbursable: 'checkbox';
+  opportunity: 'select';
+  options: 'namevaluelist';
+  originator: 'select';
+  otherrefnum: 'text';
+  packagecount: 'integer';
+  paidamount: 'currency2';
+  paidtransaction: 'select';
+  partner: 'select';
+  partnercontribution: 'percent';
+  partnerrole: 'select';
+  partnerteammember: 'select';
+  payingamount: 'currency2';
+  payingtransaction: 'select';
+  paymenteventdate: 'datetime';
+  paymenteventholdreason: 'text';
+  paymenteventpurchasecardused: 'checkbox';
+  paymenteventpurchasedatasent: 'checkbox';
+  paymenteventresult: 'text';
+  paymenteventtype: 'text';
+  paymenthold: 'checkbox';
+  paymentmethod: 'select';
+  paypalpending: 'checkbox';
+  paypalstatus: 'text';
+  paypaltranid: 'text';
+  payrollbatch: 'text';
+  pnrefnum: 'text';
+  porate: 'currency2';
+  posting: 'checkbox';
+  postingperiod: 'select';
+  pricelevel: 'select';
+  print: 'text';
+  probability: 'percent';
+  projectedamount: 'currency';
+  projecttask: 'select';
+  promocode: 'select';
+  purchaseorder: 'select';
+  quantity: 'float';
+  quantitybilled: 'float';
+  quantitycommitted: 'float';
+  quantitypacked: 'float';
+  quantitypicked: 'float';
+  quantityrevcommitted: 'float';
+  quantityshiprecv: 'float';
+  quantityuom: 'float';
+  rate: 'currency2';
+  realizedgainpostingtransaction: 'select';
+  recognizedrevenue: 'currency';
+  recordtype: 'text';
+  revcommitstatus: 'text';
+  revcommittingtransaction: 'select';
+  revenuestatus: 'text';
+  reversaldate: 'date';
+  reversalnumber: 'text';
+  revrecenddate: 'date';
+  revreconrevcommitment: 'checkbox';
+  revrecstartdate: 'date';
+  rgaccount: 'select';
+  rgamount: 'currency';
+  saleseffectivedate: 'date';
+  salesorder: 'select';
+  salesrep: 'select';
+  salesteammember: 'select';
+  salesteamrole: 'select';
+  schedulingmethod: 'text';
+  serialnumber: 'text';
+  serialnumbercost: 'currency';
+  serialnumbercostadjustment: 'currency';
+  serialnumberquantity: 'float';
+  serialnumbers: 'text';
+  shipcarrier: 'select';
+  shipcomplete: 'checkbox';
+  shipcountrycode: 'text';
+  shipdate: 'date';
+  shipgroup: 'integer';
+  shipmethod: 'select';
+  shippingamount: 'currency';
+  shiprecvstatusline: 'checkbox';
+  shipto: 'select';
+  signedamount: 'currency';
+  source: 'select';
+  startdate: 'date';
+  statusref: 'select';
+  subsidiary: 'select';
+  subsidiarynohierarchy: 'select';
+  taxamount: 'currency';
+  taxcode: 'select';
+  taxline: 'checkbox';
+  taxperiod: 'select';
+  taxtotal: 'currency';
+  terminmonths: 'integer';
+  terms: 'select';
+  termsofsale: 'text';
+  title: 'text';
+  tobeemailed: 'checkbox';
+  tobeprinted: 'checkbox';
+  tosubsidiary: 'select';
+  tosubsidiarynohierarchy: 'select';
+  total: 'currency';
+  totalcostestimate: 'currency';
+  trackingnumbers: 'text';
+  trandate: 'date';
+  tranestgrossprofit: 'currency';
+  tranfxestgrossprofit: 'currency';
+  tranid: 'text';
+  tranisvsoebundle: 'checkbox';
+  transactiondiscount: 'checkbox';
+  transactionlinetype: 'select';
+  transactionnumber: 'text';
+  transferlocation: 'select';
+  transferorderitemline: 'text';
+  transferorderquantitycommitted: 'float';
+  transferorderquantitypacked: 'float';
+  transferorderquantitypicked: 'float';
+  transferorderquantityreceived: 'float';
+  transferorderquantityshipped: 'float';
+  type: 'select';
+  unit: 'text';
+  unitcostoverride: 'currency';
+  vendtype: 'select';
+  visibletocustomer: 'checkbox';
+  vsoeallocation: 'currency';
+  vsoeamount: 'currency';
+  vsoedeferral: 'text';
+  vsoedelivered: 'checkbox';
+  vsoepermitdiscount: 'text';
+  vsoeprice: 'currency2';
+  website: 'text';
 }

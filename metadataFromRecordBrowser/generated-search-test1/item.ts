@@ -33,11 +33,11 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Available to Partners (availabletopartners: checkbox) */
   availabletopartners?: boolean;
   /** Average Cost (averagecost: currency2) */
-  averagecost?: string;
+  averagecost?: number;
   /** Backward Consumption Days (backwardconsumptiondays: integer) */
   backwardconsumptiondays?: number;
   /** Base Price (baseprice: currency2) */
-  baseprice?: string;
+  baseprice?: number;
   /** Bill Exchange Rate Variance Account (billexchratevarianceacct: select) */
   billexchratevarianceacct?: string;
   /** Bill Price Variance Account (billpricevarianceacct: select) */
@@ -57,7 +57,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Work Order Lead Time (buildtime: float) */
   buildtime?: number;
   /** eBay Buy It Now Price (buyitnowprice: currency) */
-  buyitnowprice?: string;
+  buyitnowprice?: number;
   /** Category (category: text) */
   category?: string;
   /** Category (no hierarchy) (categorynohierarchy: text) */
@@ -85,13 +85,13 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Correlated Item Purchase Rate (correlateditempurchaserate: float) */
   correlateditempurchaserate?: number;
   /** Purchase Price (cost: currency2) */
-  cost?: string;
+  cost?: number;
   /** Cost Accounting Status (costaccountingstatus: text) */
   costaccountingstatus?: string;
   /** Cost Category (costcategory: text) */
   costcategory?: string;
   /** Item Defined Cost (costestimate: currency2) */
-  costestimate?: string;
+  costestimate?: number;
   /** Cost Estimate Type (costestimatetype: text) */
   costestimatetype?: string;
   /** Costing Method (costingmethod: select) */
@@ -99,23 +99,23 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Manufacturer Country (countryofmanufacture: text) */
   countryofmanufacture?: string;
   /** Date Created (created: datetime) */
-  created?: string;
+  created?: Date;
   /** Create Job (createjob: checkbox) */
   createjob?: boolean;
   /** Create Revenue Plans On (createrevenueplanson: select) */
   createrevenueplanson?: string;
   /** Current Standard Cost (currentstandardcost: currency2) */
-  currentstandardcost?: string;
+  currentstandardcost?: number;
   /** Current Standard Cost Effective Date (currentstdcosteffectivedate: date) */
   currentstdcosteffectivedate?: Date;
   /** Customer Return Variance Account (custreturnvarianceaccount: select) */
   custreturnvarianceaccount?: string;
   /** Date Viewed (dateviewed: datetime) */
-  dateviewed?: string;
+  dateviewed?: Date;
   /** Days Before Expiration (daysbeforeexpiration: text) */
   daysbeforeexpiration?: string;
   /** Default Return Cost (defaultreturncost: currency2) */
-  defaultreturncost?: string;
+  defaultreturncost?: number;
   /** Deferred Expense Account (deferredexpenseaccount: select) */
   deferredexpenseaccount?: string;
   /** Deferred Revenue Account (deferredrevenueaccount: select) */
@@ -123,7 +123,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Hold Revenue Recognition (deferrevrec: checkbox) */
   deferrevrec?: boolean;
   /** Expected Demand Change (demandmodifier: percent) */
-  demandmodifier?: string;
+  demandmodifier?: number;
   /** Demand Source (demandsource: text) */
   demandsource?: string;
   /** Department (department: select) */
@@ -173,15 +173,15 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Fixed Lot Size (fixedlotsize: float) */
   fixedlotsize?: number;
   /** Formula (Currency) (formulacurrency: currency) */
-  formulacurrency?: string;
+  formulacurrency?: number;
   /** Formula (Date) (formuladate: date) */
   formuladate?: Date;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-  formuladatetime?: string;
+  formuladatetime?: Date;
   /** Formula (Numeric) (formulanumeric: float) */
   formulanumeric?: number;
   /** Formula (Percent) (formulapercent: percent) */
-  formulapercent?: string;
+  formulapercent?: number;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Forward Consumption Days (forwardconsumptiondays: integer) */
@@ -191,7 +191,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Google Base Product Feed (froogleproductfeed: checkbox) */
   froogleproductfeed?: boolean;
   /** Purchase Price (Foreign Currency) (fxcost: currency2) */
-  fxcost?: string;
+  fxcost?: number;
   /** Gain/Loss Account (gainlossaccount: select) */
   gainlossaccount?: string;
   /** Generate Accruals (generateaccruals: checkbox) */
@@ -267,11 +267,11 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Last Inventory Count Date (lastinvtcountdate: date) */
   lastinvtcountdate?: Date;
   /** Last Purchase Price (lastpurchaseprice: currency) */
-  lastpurchaseprice?: string;
+  lastpurchaseprice?: number;
   /** Last Quantity Available Change (lastquantityavailablechange: datetime) */
-  lastquantityavailablechange?: string;
+  lastquantityavailablechange?: Date;
   /** Last Viewed (lastviewed: datetime) */
-  lastviewed?: string;
+  lastviewed?: Date;
   /** Lead Time (leadtime: integer) */
   leadtime?: number;
   /** Liability Account (liabilityaccount: select) */
@@ -285,17 +285,17 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Location ATP Lead Time (locationatpleadtime: float) */
   locationatpleadtime?: number;
   /** Location Average Cost (locationaveragecost: currency2) */
-  locationaveragecost?: string;
+  locationaveragecost?: number;
   /** Location Bin Available (locationbinquantityavailable: float) */
   locationbinquantityavailable?: number;
   /** Location Work Order Lead Time (locationbuildtime: float) */
   locationbuildtime?: number;
   /** Location Standard Cost (locationcost: currency) */
-  locationcost?: string;
+  locationcost?: number;
   /** Location Cost Accounting Status (locationcostaccountingstatus: text) */
   locationcostaccountingstatus?: string;
   /** Location Default Return Cost (locationdefaultreturncost: currency2) */
-  locationdefaultreturncost?: string;
+  locationdefaultreturncost?: number;
   /** Location Demand Source (locationdemandsource: text) */
   locationdemandsource?: string;
   /** Location Fixed Lot Size (locationfixedlotsize: float) */
@@ -339,7 +339,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Location Supply Type (locationsupplytype: text) */
   locationsupplytype?: string;
   /** Location Total Value (locationtotalvalue: currency2) */
-  locationtotalvalue?: string;
+  locationtotalvalue?: number;
   /** Manufacturer (manufacturer: text) */
   manufacturer?: string;
   /** Manufacturer Address (manufactureraddr1: text) */
@@ -367,7 +367,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Minimum Quantity (minimumquantity: text) */
   minimumquantity?: string;
   /** Last Modified (modified: datetime) */
-  modified?: string;
+  modified?: Date;
   /** MOSS Applies (mossapplies: checkbox) */
   mossapplies?: boolean;
   /** MPN (mpn: text) */
@@ -395,13 +395,13 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Offer Support (offersupport: checkbox) */
   offersupport?: boolean;
   /** Online Customer Price (onlinecustomerprice: currency) */
-  onlinecustomerprice?: string;
+  onlinecustomerprice?: number;
   /** Online Price (onlineprice: currency) */
-  onlineprice?: string;
+  onlineprice?: number;
   /** On Special (onspecial: checkbox) */
   onspecial?: boolean;
   /** Other Prices (otherprices: currency) */
-  otherprices?: string;
+  otherprices?: number;
   /** Vendor (othervendor: select) */
   othervendor?: string;
   /** Out Of Stock Behavior (outofstockbehavior: text) */
@@ -469,7 +469,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Reorder Point (reorderpoint: float) */
   reorderpoint?: number;
   /** eBay Reserve Price (reserveprice: currency) */
-  reserveprice?: string;
+  reserveprice?: number;
   /** Rev Rec Forecast Rule (revrecforecastrule: select) */
   revrecforecastrule?: string;
   /** Foreign Currency Adjustment Account (revreclassfxaccount: select) */
@@ -515,7 +515,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Shipping Package (shippackage: select) */
   shippackage?: string;
   /** Shipping Rate (shippingrate: currency) */
-  shippingrate?: string;
+  shippingrate?: number;
   /** Shopping.com Category (shoppingdotcomcategory: text) */
   shoppingdotcomcategory?: string;
   /** Shopping.com Product Feed (shoppingproductfeed: checkbox) */
@@ -529,7 +529,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Soft Descriptor (softdescriptor: select) */
   softdescriptor?: string;
   /** eBay Starting Price (startingprice: currency) */
-  startingprice?: string;
+  startingprice?: number;
   /** Stock Description (stockdescription: text) */
   stockdescription?: string;
   /** Stock Unit (stockunit: select) */
@@ -561,11 +561,11 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Thumbnail URL (thumbnailurl: text) */
   thumbnailurl?: string;
   /** Total Value (totalvalue: currency2) */
-  totalvalue?: string;
+  totalvalue?: number;
   /** Track Landed Cost (tracklandedcost: checkbox) */
   tracklandedcost?: boolean;
   /** Transfer Price (transferprice: currency2) */
-  transferprice?: string;
+  transferprice?: number;
   /** Type (type: select) */
   type?: string;
   /** Unbuild Variance Account (unbuildvarianceaccount: select) */
@@ -587,9 +587,9 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Vendor Code (vendorcode: text) */
   vendorcode?: string;
   /** Vendor Price (vendorcost: currency) */
-  vendorcost?: string;
+  vendorcost?: number;
   /** Vendor Price (Entered) (vendorcostentered: currency) */
-  vendorcostentered?: string;
+  vendorcostentered?: number;
   /** Vendor Name (vendorname: text) */
   vendorname?: string;
   /** Vendor Price Currency (vendorpricecurrency: text) */
@@ -605,7 +605,7 @@ export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Permit Discount (vsoepermitdiscount: select) */
   vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: currency2) */
-  vsoeprice?: string;
+  vsoeprice?: number;
   /** Allocation Type (vsoesopgroup: checkbox) */
   vsoesopgroup?: boolean;
   /** Web Site (website: select) */
@@ -655,7 +655,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Available to Partners (availabletopartners: checkbox) */
   availabletopartners?: boolean;
   /** Average Cost (averagecost: currency) */
-  averagecost?: string;
+  averagecost?: number;
   /** Backward Consumption Days (backwardconsumptiondays: integer) */
   backwardconsumptiondays?: number;
   /** Bin Number (binnumber: text) */
@@ -671,11 +671,11 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Work Order Lead Time (buildtime: float) */
   buildtime?: number;
   /** eBay Buy It Now Price (buyitnowprice: currency) */
-  buyitnowprice?: string;
+  buyitnowprice?: number;
   /** Store Display Name (caption: text) */
   caption?: string;
   /** Category (category: multiselect) */
-  category?: string;
+  category?: number;
   /** Class (class: select) */
   class?: string;
   /** Component Item (component: select) */
@@ -699,7 +699,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Correlated Item PurchaseRate (correlateditempurchaserate: float) */
   correlateditempurchaserate?: number;
   /** Purchase Price (cost: currency) */
-  cost?: string;
+  cost?: number;
   /** Cost Accounting Status (costaccountingstatus: select) */
   costaccountingstatus?: string;
   /** Cost Category (costcategory: select) */
@@ -713,25 +713,25 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Manufacturer Country (countryofmanufacture: select) */
   countryofmanufacture?: string;
   /** Date Created (created: datetime) */
-  created?: string;
+  created?: Date;
   /** Create Job (createjob: checkbox) */
   createjob?: boolean;
   /** Create Revenue Plans On (createrevenueplanson: select) */
   createrevenueplanson?: string;
   /** Current Standard Cost (currentstandardcost: currency) */
-  currentstandardcost?: string;
+  currentstandardcost?: number;
   /** Current Standard Cost Effective Date (currentstdcosteffectivedate: date) */
   currentstdcosteffectivedate?: Date;
   /** Date Viewed (dateviewed: datetime) */
-  dateviewed?: string;
+  dateviewed?: Date;
   /** Days Before Expiration (daysbeforeexpiration: float) */
   daysbeforeexpiration?: number;
   /** Default Return Cost (defaultreturncost: currency) */
-  defaultreturncost?: string;
+  defaultreturncost?: number;
   /** Hold Revenue Recognition (deferrevrec: checkbox) */
   deferrevrec?: boolean;
   /** Estimated Demand Change (demandmodifier: percent) */
-  demandmodifier?: string;
+  demandmodifier?: number;
   /** Demand Source (demandsource: select) */
   demandsource?: string;
   /** Department (department: select) */
@@ -791,7 +791,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Google Base Product Feed (froogleproductfeed: checkbox) */
   froogleproductfeed?: boolean;
   /** Purchase Price (Foreign Currency) (fxcost: currency) */
-  fxcost?: string;
+  fxcost?: number;
   /** Generate Accruals (generateaccruals: checkbox) */
   generateaccruals?: boolean;
   /** Gift Certificate Code (giftcertauthcode: text) */
@@ -859,11 +859,11 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Last Inventory Count Date (lastinvtcountdate: date) */
   lastinvtcountdate?: Date;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: string;
+  lastmodifieddate?: Date;
   /** Last Purchase Price (lastpurchaseprice: currency) */
-  lastpurchaseprice?: string;
+  lastpurchaseprice?: number;
   /** Last Quantity Available Change (lastquantityavailablechange: datetime) */
-  lastquantityavailablechange?: string;
+  lastquantityavailablechange?: Date;
   /** Lead Time (leadtime: integer) */
   leadtime?: number;
   /** eBay Duration (listingduration: select) */
@@ -875,15 +875,15 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Location ATP Lead Time (locationatpleadtime: float) */
   locationatpleadtime?: number;
   /** Location Average Cost (locationaveragecost: currency) */
-  locationaveragecost?: string;
+  locationaveragecost?: number;
   /** Location Work Order Lead Time (locationbuildtime: float) */
   locationbuildtime?: number;
   /** Location Standard Cost (locationcost: currency) */
-  locationcost?: string;
+  locationcost?: number;
   /** Location Cost Accounting Status (locationcostaccountingstatus: select) */
   locationcostaccountingstatus?: string;
   /** Location Default Return Cost (locationdefaultreturncost: currency) */
-  locationdefaultreturncost?: string;
+  locationdefaultreturncost?: number;
   /** Location Demand Source (locationdemandsource: select) */
   locationdemandsource?: string;
   /** Location Fixed Lot Size (locationfixedlotsize: float) */
@@ -925,7 +925,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Location Supply Type (locationsupplytype: select) */
   locationsupplytype?: string;
   /** Location Total Value (locationtotalvalue: currency) */
-  locationtotalvalue?: string;
+  locationtotalvalue?: number;
   /** Manufacturer (manufacturer: text) */
   manufacturer?: string;
   /** Manufacturer Address (manufactureraddr1: text) */
@@ -977,7 +977,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Offer Support (offersupport: checkbox) */
   offersupport?: boolean;
   /** Online Customer Price (onlinecustomerprice: currency) */
-  onlinecustomerprice?: string;
+  onlinecustomerprice?: number;
   /** On Special (onspecial: checkbox) */
   onspecial?: boolean;
   /** Vendor (othervendor: select) */
@@ -1001,7 +1001,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Preferred Stock Level Days (preferredstockleveldays: integer) */
   preferredstockleveldays?: number;
   /** Sales Price (price: currency) */
-  price?: string;
+  price?: number;
   /** Prices Include Tax (pricesincludetax: checkbox) */
   pricesincludetax?: boolean;
   /** Pricing Group (pricinggroup: select) */
@@ -1039,7 +1039,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Reorder Point (reorderpoint: float) */
   reorderpoint?: number;
   /** eBay Reserve Price (reserveprice: currency) */
-  reserveprice?: string;
+  reserveprice?: number;
   /** Rev Rec Forecast Rule (revrecforecastrule: select) */
   revrecforecastrule?: string;
   /** Rev. Rec. Schedule (revrecschedule: select) */
@@ -1077,7 +1077,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Shipping Package (shippackage: select) */
   shippackage?: string;
   /** Shipping Rate (shippingrate: currency) */
-  shippingrate?: string;
+  shippingrate?: number;
   /** Shopping Category (shoppingdotcomcategory: text) */
   shoppingdotcomcategory?: string;
   /** Shopping Product Feed (shoppingproductfeed: checkbox) */
@@ -1091,7 +1091,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Soft Descriptor (softdescriptor: select) */
   softdescriptor?: string;
   /** eBay Starting Price (startingprice: currency) */
-  startingprice?: string;
+  startingprice?: number;
   /** Stock Description (stockdescription: text) */
   stockdescription?: string;
   /** Stock Unit (stockunit: select) */
@@ -1115,7 +1115,7 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Thumbnail URL (thumbnailurl: text) */
   thumbnailurl?: string;
   /** Total Value (totalvalue: currency) */
-  totalvalue?: string;
+  totalvalue?: number;
   /** Track Landed Cost (tracklandedcost: checkbox) */
   tracklandedcost?: boolean;
   /** Transfer Price (transferprice: float) */
@@ -1139,9 +1139,9 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
   /** Vendor Code (vendorcode: text) */
   vendorcode?: string;
   /** Vendor Price (vendorcost: currency) */
-  vendorcost?: string;
+  vendorcost?: number;
   /** Vendor Price (Entered) (vendorcostentered: currency) */
-  vendorcostentered?: string;
+  vendorcostentered?: number;
   /** Vendor Name (vendorname: text) */
   vendorname?: string;
   /** Vendor Price Currency (vendorpricecurrency: select) */
@@ -1166,7 +1166,8 @@ export interface itemSearchFilter {/** Accounting Book Rev Rec Forecast Rule (ac
 
 
 // Search Joins
-/** Item (item) Search Joins definition type. */
+
+/** Item (item) Search Joins definitions. */
 export interface itemSearchJoin {/** item's assemblyitembillofmaterials search filter. Assembly Item Bill of Materials. Actual name: Assembly Item Bill of Materials. */
   assemblyitembillofmaterials: 'assemblyitembillofmaterials';
   /** item's binonhand search filter. Bin On Hand. Actual name: Item Bin Number. */
@@ -1195,4 +1196,592 @@ export interface itemSearchJoin {/** item's assemblyitembillofmaterials search f
   user: 'user';
   /** item's vendor search filter. Vendor. Actual name: Vendor. */
   vendor: 'vendor';
+}
+
+
+// Search Filter Types
+
+/** Item (item) Search Filter Type definitions. */
+export interface itemSearchFilterTypes {accbookrevrecforecastrule: 'select';
+  account: 'select';
+  accountingbook: 'select';
+  accountingbookamortization: 'select';
+  accountingbookcreateplanson: 'select';
+  accountingbookrevrecrule: 'select';
+  accountingbookrevrecschedule: 'select';
+  alternatedemandsourceitem: 'select';
+  atpleadtime: 'float';
+  atpmethod: 'select';
+  autoleadtime: 'checkbox';
+  autopreferredstocklevel: 'checkbox';
+  autoreorderpoint: 'checkbox';
+  availabletopartners: 'checkbox';
+  averagecost: 'currency';
+  backwardconsumptiondays: 'integer';
+  binnumber: 'text';
+  binonhandavail: 'float';
+  binonhandcount: 'float';
+  bomquantity: 'float';
+  buildentireassembly: 'checkbox';
+  buildtime: 'float';
+  buyitnowprice: 'currency';
+  caption: 'text';
+  category: 'multiselect';
+  class: 'select';
+  component: 'select';
+  componentof: 'select';
+  componentyield: 'float';
+  contingentrevenuehandling: 'checkbox';
+  copydescription: 'checkbox';
+  correlateditem: 'select';
+  correlateditemcorrelation: 'float';
+  correlateditemcount: 'integer';
+  correlateditemlift: 'float';
+  correlateditempurchaserate: 'float';
+  cost: 'currency';
+  costaccountingstatus: 'select';
+  costcategory: 'select';
+  costestimate: 'float';
+  costestimatetype: 'select';
+  costingmethod: 'select';
+  countryofmanufacture: 'select';
+  created: 'datetime';
+  createjob: 'checkbox';
+  createrevenueplanson: 'select';
+  currentstandardcost: 'currency';
+  currentstdcosteffectivedate: 'date';
+  dateviewed: 'datetime';
+  daysbeforeexpiration: 'float';
+  defaultreturncost: 'currency';
+  deferrevrec: 'checkbox';
+  demandmodifier: 'percent';
+  demandsource: 'select';
+  department: 'select';
+  directrevenueposting: 'checkbox';
+  displayinebaystore: 'checkbox';
+  displayname: 'text';
+  distributioncategory: 'select';
+  distributionnetwork: 'select';
+  dontshowprice: 'checkbox';
+  ebayitemdescription: 'clobtext';
+  ebayitemsubtitle: 'text';
+  ebayitemtitle: 'text';
+  ebayrelistingoption: 'select';
+  effectivebomcontrol: 'select';
+  effectivedate: 'date';
+  effectiverevision: 'select';
+  endauctionswhenoutofstock: 'checkbox';
+  excludefromsitemap: 'checkbox';
+  externalid: 'select';
+  externalidstring: 'text';
+  featureddescription: 'clobtext';
+  feeddescription: 'clobtext';
+  feedname: 'text';
+  fixedlotsize: 'float';
+  formuladate: 'date';
+  formulanumeric: 'float';
+  formulatext: 'text';
+  forwardconsumptiondays: 'integer';
+  fraudrisk: 'select';
+  froogleproductfeed: 'checkbox';
+  fxcost: 'currency';
+  generateaccruals: 'checkbox';
+  giftcertauthcode: 'text';
+  giftcertemail: 'text';
+  giftcertexpdate: 'date';
+  giftcertfrom: 'text';
+  giftcertmsg: 'text';
+  giftcertorigamt: 'text';
+  giftcertrecipient: 'text';
+  imageurl: 'text';
+  internalid: 'select';
+  internalidnumber: 'integer';
+  inventorylocation: 'select';
+  invtclassification: 'select';
+  invtcountinterval: 'integer';
+  isavailable: 'checkbox';
+  isdropshipitem: 'checkbox';
+  isfulfillable: 'checkbox';
+  isgcocompliant: 'checkbox';
+  isinactive: 'checkbox';
+  islotitem: 'checkbox';
+  isonline: 'checkbox';
+  ispreferredvendor: 'checkbox';
+  isserialitem: 'checkbox';
+  isspecialorderitem: 'checkbox';
+  isspecialworkorderitem: 'checkbox';
+  isstorepickupallowed: 'checkbox';
+  issueproduct: 'select';
+  istaxable: 'checkbox';
+  isvsoebundle: 'checkbox';
+  iswip: 'checkbox';
+  itemid: 'text';
+  itemurl: 'text';
+  lastinvtcountdate: 'date';
+  lastmodifieddate: 'datetime';
+  lastpurchaseprice: 'currency';
+  lastquantityavailablechange: 'datetime';
+  leadtime: 'integer';
+  listingduration: 'select';
+  location: 'select';
+  locationallowstorepickup: 'checkbox';
+  locationatpleadtime: 'float';
+  locationaveragecost: 'currency';
+  locationbuildtime: 'float';
+  locationcost: 'currency';
+  locationcostaccountingstatus: 'select';
+  locationdefaultreturncost: 'currency';
+  locationdemandsource: 'select';
+  locationfixedlotsize: 'float';
+  locationinvtclassification: 'select';
+  locationinvtcountinterval: 'integer';
+  locationlastinvtcountdate: 'date';
+  locationleadtime: 'integer';
+  locationnextinvtcountdate: 'date';
+  locationpreferredstocklevel: 'float';
+  locationqtyavailforstorepickup: 'float';
+  locationquantityavailable: 'float';
+  locationquantitybackordered: 'float';
+  locationquantitycommitted: 'float';
+  locationquantityintransit: 'float';
+  locationquantityonhand: 'float';
+  locationquantityonorder: 'float';
+  locationreorderpoint: 'float';
+  locationsafetystocklevel: 'float';
+  locationstorepickupbufferstock: 'float';
+  locationsupplylotsizingmethod: 'select';
+  locationsupplytype: 'select';
+  locationtotalvalue: 'currency';
+  manufacturer: 'text';
+  manufactureraddr1: 'text';
+  manufacturercity: 'text';
+  manufacturerstate: 'text';
+  manufacturertariff: 'text';
+  manufacturertaxid: 'text';
+  manufacturerzip: 'text';
+  matchbilltoreceipt: 'checkbox';
+  matrix: 'checkbox';
+  matrixchild: 'checkbox';
+  maximumquantity: 'integer';
+  metataghtml: 'clobtext';
+  minimumquantity: 'integer';
+  mossapplies: 'checkbox';
+  mpn: 'text';
+  multmanufactureaddr: 'checkbox';
+  nextagcategory: 'text';
+  nextagproductfeed: 'checkbox';
+  nextinvtcountdate: 'date';
+  numactivelistings: 'integer';
+  numberalloweddownloads: 'float';
+  numcurrentlylisted: 'integer';
+  obsoletedate: 'date';
+  obsoleterevision: 'select';
+  offersupport: 'checkbox';
+  onlinecustomerprice: 'currency';
+  onspecial: 'checkbox';
+  othervendor: 'select';
+  outofstockbehavior: 'select';
+  overallquantitypricingtype: 'select';
+  pagetitle: 'text';
+  parent: 'select';
+  preferencecriterion: 'text';
+  preferredbin: 'checkbox';
+  preferredlocation: 'select';
+  preferredstocklevel: 'float';
+  preferredstockleveldays: 'integer';
+  price: 'currency';
+  pricesincludetax: 'checkbox';
+  pricinggroup: 'select';
+  primarycategory: 'integer';
+  purchaseorderamount: 'float';
+  purchaseorderquantity: 'float';
+  purchaseorderquantitydiff: 'float';
+  purchaseunit: 'select';
+  quantityavailable: 'float';
+  quantitybackordered: 'float';
+  quantitycommitted: 'float';
+  quantityonhand: 'float';
+  quantityonorder: 'float';
+  quantitypricingschedule: 'select';
+  receiptamount: 'float';
+  receiptquantity: 'float';
+  receiptquantitydiff: 'float';
+  reordermultiple: 'integer';
+  reorderpoint: 'float';
+  reserveprice: 'currency';
+  revrecforecastrule: 'select';
+  revrecschedule: 'select';
+  safetystocklevel: 'float';
+  safetystockleveldays: 'integer';
+  salesdescription: 'text';
+  saleunit: 'select';
+  sameasprimarybookamortization: 'checkbox';
+  sameasprimarybookrevrec: 'checkbox';
+  schedulebcode: 'select';
+  schedulebnumber: 'text';
+  schedulebquantity: 'text';
+  searchkeywords: 'text';
+  seasonaldemand: 'checkbox';
+  sellonebay: 'checkbox';
+  serialnumber: 'text';
+  serialnumberlocation: 'select';
+  shipindividually: 'checkbox';
+  shippackage: 'select';
+  shippingrate: 'currency';
+  shoppingdotcomcategory: 'text';
+  shoppingproductfeed: 'checkbox';
+  shopzillacategoryid: 'integer';
+  shopzillaproductfeed: 'checkbox';
+  sitemappriority: 'float';
+  softdescriptor: 'select';
+  startingprice: 'currency';
+  stockdescription: 'text';
+  stockunit: 'select';
+  storedescription: 'clobtext';
+  subsidiary: 'select';
+  subtype: 'select';
+  supplylotsizingmethod: 'select';
+  supplyreplenishmentmethod: 'select';
+  supplytype: 'select';
+  taxcode: 'select';
+  taxschedule: 'select';
+  thumbnailurl: 'text';
+  totalvalue: 'currency';
+  tracklandedcost: 'checkbox';
+  transferprice: 'float';
+  type: 'select';
+  unitstype: 'select';
+  upccode: 'text';
+  urlcomponent: 'text';
+  usebins: 'checkbox';
+  usecomponentyield: 'checkbox';
+  usemarginalrates: 'checkbox';
+  vendor: 'select';
+  vendorcode: 'text';
+  vendorcost: 'currency';
+  vendorcostentered: 'currency';
+  vendorname: 'text';
+  vendorpricecurrency: 'select';
+  vsoedeferral: 'select';
+  vsoedelivered: 'checkbox';
+  vsoepermitdiscount: 'select';
+  vsoeprice: 'float';
+  vsoesopgroup: 'select';
+  website: 'select';
+  weight: 'float';
+  yahooproductfeed: 'checkbox';
+}
+
+
+// Search Column Types
+
+/** Item (item) Search Column Type definitions. */
+export interface itemSearchColumnTypes {accbookrevrecforecastrule: 'select';
+  accountingbook: 'select';
+  accountingbookamortization: 'select';
+  accountingbookcreateplanson: 'select';
+  accountingbookrevrecrule: 'select';
+  accountingbookrevrecschedule: 'select';
+  alternatedemandsourceitem: 'text';
+  assetaccount: 'select';
+  atpleadtime: 'float';
+  atpmethod: 'text';
+  autoleadtime: 'checkbox';
+  autopreferredstocklevel: 'checkbox';
+  autoreorderpoint: 'checkbox';
+  availabletopartners: 'checkbox';
+  averagecost: 'currency2';
+  backwardconsumptiondays: 'integer';
+  baseprice: 'currency2';
+  billexchratevarianceacct: 'select';
+  billpricevarianceacct: 'select';
+  billqtyvarianceacct: 'select';
+  binnumber: 'text';
+  binonhandavail: 'float';
+  binonhandcount: 'float';
+  bomquantity: 'float';
+  buildentireassembly: 'checkbox';
+  buildtime: 'float';
+  buyitnowprice: 'currency';
+  category: 'text';
+  categorynohierarchy: 'text';
+  categorypreferred: 'text';
+  class: 'select';
+  classnohierarchy: 'select';
+  componentyield: 'float';
+  contingentrevenuehandling: 'checkbox';
+  copydescription: 'checkbox';
+  correlateditem: 'select';
+  correlateditemcorrelation: 'float';
+  correlateditemcount: 'integer';
+  correlateditemlift: 'float';
+  correlateditempurchaserate: 'float';
+  cost: 'currency2';
+  costaccountingstatus: 'text';
+  costcategory: 'text';
+  costestimate: 'currency2';
+  costestimatetype: 'text';
+  costingmethod: 'select';
+  countryofmanufacture: 'text';
+  created: 'datetime';
+  createjob: 'checkbox';
+  createrevenueplanson: 'select';
+  currentstandardcost: 'currency2';
+  currentstdcosteffectivedate: 'date';
+  custreturnvarianceaccount: 'select';
+  dateviewed: 'datetime';
+  daysbeforeexpiration: 'text';
+  defaultreturncost: 'currency2';
+  deferredexpenseaccount: 'select';
+  deferredrevenueaccount: 'select';
+  deferrevrec: 'checkbox';
+  demandmodifier: 'percent';
+  demandsource: 'text';
+  department: 'select';
+  departmentnohierarchy: 'select';
+  directrevenueposting: 'checkbox';
+  displayinebaystore: 'checkbox';
+  displayname: 'text';
+  distributioncategory: 'text';
+  distributionnetwork: 'text';
+  dontshowprice: 'checkbox';
+  ebayitemdescription: 'clobtext';
+  ebayitemsubtitle: 'text';
+  ebayitemtitle: 'text';
+  ebayrelistingoption: 'text';
+  effectivebomcontrol: 'text';
+  effectivedate: 'date';
+  effectiverevision: 'select';
+  endauctionswhenoutofstock: 'checkbox';
+  excludefromsitemap: 'checkbox';
+  expenseaccount: 'select';
+  externalid: 'select';
+  featureddescription: 'clobtext';
+  feeddescription: 'text';
+  feedname: 'text';
+  fixedlotsize: 'float';
+  formulacurrency: 'currency';
+  formuladate: 'date';
+  formuladatetime: 'datetime';
+  formulanumeric: 'float';
+  formulapercent: 'percent';
+  formulatext: 'text';
+  forwardconsumptiondays: 'integer';
+  fraudrisk: 'select';
+  froogleproductfeed: 'checkbox';
+  fxcost: 'currency2';
+  gainlossaccount: 'select';
+  generateaccruals: 'checkbox';
+  giftcertauthcode: 'text';
+  giftcertemail: 'text';
+  giftcertexpirationdate: 'text';
+  giftcertfrom: 'text';
+  giftcertmessage: 'text';
+  giftcertoriginalamount: 'text';
+  giftcertrecipient: 'text';
+  hits: 'integer';
+  imageurl: 'text';
+  incomeaccount: 'select';
+  intercodefrevaccount: 'select';
+  intercoexpenseaccount: 'select';
+  intercoincomeaccount: 'select';
+  internalid: 'select';
+  inventorylocation: 'select';
+  invtclassification: 'text';
+  invtcountinterval: 'integer';
+  isavailable: 'checkbox';
+  isdropshipitem: 'checkbox';
+  isfulfillable: 'checkbox';
+  isgcocompliant: 'checkbox';
+  isinactive: 'checkbox';
+  islotitem: 'checkbox';
+  isonline: 'checkbox';
+  isserialitem: 'checkbox';
+  isspecialorderitem: 'checkbox';
+  isspecialworkorderitem: 'checkbox';
+  isstorepickupallowed: 'checkbox';
+  issueproduct: 'select';
+  istaxable: 'checkbox';
+  isvsoebundle: 'checkbox';
+  iswip: 'checkbox';
+  itemid: 'text';
+  itemurl: 'text';
+  lastinvtcountdate: 'date';
+  lastpurchaseprice: 'currency';
+  lastquantityavailablechange: 'datetime';
+  lastviewed: 'datetime';
+  leadtime: 'integer';
+  liabilityaccount: 'select';
+  listingduration: 'text';
+  location: 'select';
+  locationallowstorepickup: 'checkbox';
+  locationatpleadtime: 'float';
+  locationaveragecost: 'currency2';
+  locationbinquantityavailable: 'float';
+  locationbuildtime: 'float';
+  locationcost: 'currency';
+  locationcostaccountingstatus: 'text';
+  locationdefaultreturncost: 'currency2';
+  locationdemandsource: 'text';
+  locationfixedlotsize: 'float';
+  locationinvtclassification: 'text';
+  locationinvtcountinterval: 'integer';
+  locationlastinvtcountdate: 'date';
+  locationleadtime: 'integer';
+  locationnextinvtcountdate: 'date';
+  locationnohierarchy: 'select';
+  locationpreferredstocklevel: 'float';
+  locationqtyavailforstorepickup: 'float';
+  locationquantityavailable: 'float';
+  locationquantitybackordered: 'float';
+  locationquantitycommitted: 'float';
+  locationquantityintransit: 'float';
+  locationquantityonhand: 'float';
+  locationquantityonorder: 'float';
+  locationreorderpoint: 'float';
+  locationsafetystocklevel: 'float';
+  locationstorepickupbufferstock: 'float';
+  locationsupplylotsizingmethod: 'text';
+  locationsupplytype: 'text';
+  locationtotalvalue: 'currency2';
+  manufacturer: 'text';
+  manufactureraddr1: 'text';
+  manufacturercity: 'text';
+  manufacturerstate: 'text';
+  manufacturertariff: 'text';
+  manufacturertaxid: 'text';
+  manufacturerzip: 'text';
+  matchbilltoreceipt: 'checkbox';
+  maximumquantity: 'text';
+  memberitem: 'select';
+  memberquantity: 'float';
+  metataghtml: 'clobtext';
+  minimumquantity: 'text';
+  modified: 'datetime';
+  mossapplies: 'checkbox';
+  mpn: 'text';
+  multmanufactureaddr: 'checkbox';
+  nextagcategory: 'text';
+  nextagproductfeed: 'checkbox';
+  nextinvtcountdate: 'date';
+  nopricemessage: 'text';
+  numactivelistings: 'integer';
+  numberalloweddownloads: 'text';
+  numcurrentlylisted: 'integer';
+  obsoletedate: 'date';
+  obsoleterevision: 'select';
+  offersupport: 'checkbox';
+  onlinecustomerprice: 'currency';
+  onlineprice: 'currency';
+  onspecial: 'checkbox';
+  otherprices: 'currency';
+  othervendor: 'select';
+  outofstockbehavior: 'text';
+  outofstockmessage: 'text';
+  overallquantitypricingtype: 'select';
+  pagetitle: 'textarea';
+  parent: 'select';
+  preferencecriterion: 'text';
+  preferredbin: 'checkbox';
+  preferredlocation: 'select';
+  preferredstocklevel: 'float';
+  preferredstockleveldays: 'integer';
+  pricesincludetax: 'checkbox';
+  pricinggroup: 'select';
+  primarycategory: 'text';
+  prodpricevarianceacct: 'select';
+  prodqtyvarianceacct: 'select';
+  purchasedescription: 'text';
+  purchaseorderamount: 'float';
+  purchaseorderquantity: 'float';
+  purchaseorderquantitydiff: 'float';
+  purchasepricevarianceacct: 'select';
+  purchaseunit: 'select';
+  quantityavailable: 'float';
+  quantitybackordered: 'float';
+  quantitycommitted: 'float';
+  quantityonhand: 'float';
+  quantityonorder: 'float';
+  quantitypricingschedule: 'select';
+  receiptamount: 'float';
+  receiptquantity: 'float';
+  receiptquantitydiff: 'float';
+  reordermultiple: 'integer';
+  reorderpoint: 'float';
+  reserveprice: 'currency';
+  revrecforecastrule: 'select';
+  revreclassfxaccount: 'select';
+  revrecschedule: 'select';
+  roundupascomponent: 'checkbox';
+  safetystocklevel: 'float';
+  safetystockleveldays: 'integer';
+  salesdescription: 'text';
+  salestaxcode: 'select';
+  saleunit: 'select';
+  sameasprimarybookamortization: 'checkbox';
+  sameasprimarybookrevrec: 'checkbox';
+  schedulebcode: 'text';
+  schedulebnumber: 'text';
+  schedulebquantity: 'text';
+  scrapacct: 'select';
+  searchkeywords: 'text';
+  seasonaldemand: 'checkbox';
+  sellonebay: 'checkbox';
+  serialnumber: 'text';
+  serialnumberlocation: 'text';
+  shipindividually: 'checkbox';
+  shippackage: 'select';
+  shippingrate: 'currency';
+  shoppingdotcomcategory: 'text';
+  shoppingproductfeed: 'checkbox';
+  shopzillacategoryid: 'integer';
+  shopzillaproductfeed: 'checkbox';
+  sitemappriority: 'float';
+  softdescriptor: 'select';
+  startingprice: 'currency';
+  stockdescription: 'text';
+  stockunit: 'select';
+  storedescription: 'text';
+  storedetaileddescription: 'clobtext';
+  storedisplayimage: 'select';
+  storedisplayname: 'text';
+  storedisplaythumbnail: 'select';
+  subsidiary: 'select';
+  subsidiarynohierarchy: 'select';
+  subtype: 'text';
+  supplylotsizingmethod: 'text';
+  supplyreplenishmentmethod: 'text';
+  supplytype: 'text';
+  taxschedule: 'select';
+  thumbnailurl: 'text';
+  totalvalue: 'currency2';
+  tracklandedcost: 'checkbox';
+  transferprice: 'currency2';
+  type: 'select';
+  unbuildvarianceaccount: 'select';
+  unitstype: 'select';
+  upccode: 'text';
+  urlcomponent: 'text';
+  usebins: 'checkbox';
+  usecomponentyield: 'checkbox';
+  usemarginalrates: 'checkbox';
+  vendor: 'select';
+  vendorcode: 'text';
+  vendorcost: 'currency';
+  vendorcostentered: 'currency';
+  vendorname: 'text';
+  vendorpricecurrency: 'text';
+  vendorschedule: 'select';
+  vendreturnvarianceaccount: 'select';
+  vsoedeferral: 'select';
+  vsoedelivered: 'checkbox';
+  vsoepermitdiscount: 'select';
+  vsoeprice: 'currency2';
+  vsoesopgroup: 'checkbox';
+  website: 'select';
+  weight: 'float';
+  weightunit: 'select';
+  wipacct: 'select';
+  wipvarianceacct: 'select';
+  yahooproductfeed: 'checkbox';
 }

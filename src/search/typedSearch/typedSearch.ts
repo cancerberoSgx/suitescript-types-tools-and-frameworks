@@ -1,126 +1,92 @@
 import { StringKeyOf, EmptyObject, ValueOfStringKey } from '../../misc/misc';
 import { SearchRecordType } from './searchTypes';
 import * as nsSearch from 'N/search'
-import { itemSearchJoin, itemSearchColumn, itemSearchFilter } from './generated/item';
+import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames, TypedSearchColumnTypes, TypedSearchFilterTypes, SearchTypesOperatorsSupport } from './typedSearchMocks';
 
-interface itemSearchFilterTypes{
-  account: 'select'
-  }
-interface itemSearchColumnTypes{
-location: 'checkbox'
-}
-interface SearchTypesOperatorsSupport {
-  // [k:string]:string
-  checkbox: 'anyof'|'boo'|'asd'
-  select: 'foo'|'bar'
-}
 
-// interface TypedSearchColumn
-interface TypedSearchFilterTypes<>{
-item: itemSearchFilterTypes
-}
-
-interface TypedSearchColumnNames{
-item: Required< itemSearchColumn>
-}
-interface TypedSearchColumnTypes{
-item: itemSearchColumnTypes
-}
-
-interface TypedSearchFilterNames{
-  item: Required< itemSearchFilter>
-  }
-interface TypedSearchJoinTypes{
-  item: itemSearchJoin, // ETC
-}
-
-interface TypedSearchJoinTypes{
-  item: itemSearchJoin, // ETC
-}
+// Helper types. Extract columns, filters, joins names and types and operator support types from generated types
 
 type JoinName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<ValueOfStringKey<TypedSearchJoinTypes, RecordType>>
 
 type ColumnValue<RecordType extends SearchRecordType = SearchRecordType> = ValueOfStringKey<TypedSearchColumnNames, RecordType>
 type FilterValue<RecordType extends SearchRecordType = SearchRecordType> = ValueOfStringKey<TypedSearchFilterNames, RecordType>
-let columnValue: ColumnValue<'item'>
+// let columnValue: ColumnValue<'item'>
 
 type ColumnName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<ColumnValue<RecordType>>
 type FilterName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<FilterValue<RecordType>>
-let columnName: ColumnName<'item'> // this is all column names of 'item'
+// let columnName: ColumnName<'item'> // this is all column names of 'item'
 
-// type ColumnType<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = ValueOfStringKey<itemSearchColumnTypes, Column>
-// let ct: ColumnType<'item', 'location'> // this is 'checkbox'
+type ColumnType<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = ValueOfStringKey<ValueOfStringKey<TypedSearchColumnTypes, RecordType>, Column> & string
 
-type ColumnType<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = ValueOfStringKey<ValueOfStringKey<TypedSearchColumnTypes, RecordType>, Column>&string
+type FilterType<RecordType extends SearchRecordType, Filter extends FilterName<RecordType>> = ValueOfStringKey<ValueOfStringKey<TypedSearchFilterTypes, RecordType>, Filter> & string
 
-type FilterType<RecordType extends SearchRecordType, Filter extends FilterName<RecordType>> = ValueOfStringKey<ValueOfStringKey<TypedSearchFilterTypes, RecordType>, Filter>&string
+// let ct: FilterType<'item', 'location'> // this is 'checkbox'
 
-let ct: FilterType<'item', 'location'> // this is 'checkbox'
-
-type ColumnSupportedOperators<RecordType extends SearchRecordType, Column extends ColumnName<RecordType> = ColumnName<RecordType>, ColumnT extends ColumnType<RecordType, Column> = ColumnType<RecordType, Column>> = ValueOfStringKey<SearchTypesOperatorsSupport, ColumnT>
+// type ColumnSupportedOperators<RecordType extends SearchRecordType, Column extends ColumnName<RecordType> = ColumnName<RecordType>, ColumnT extends ColumnType<RecordType, Column> = ColumnType<RecordType, Column>> = ValueOfStringKey<SearchTypesOperatorsSupport, ColumnT>
 
 type FilterSupportedOperators<RecordType extends SearchRecordType, Filter extends FilterName<RecordType> = FilterName<RecordType>, FilterT extends FilterType<RecordType, Filter> = FilterType<RecordType, Filter>> = ValueOfStringKey<SearchTypesOperatorsSupport, FilterT>
-let  cSupport : ColumnSupportedOperators<'item', 'location'> = null as any as ColumnSupportedOperators<'item', 'location'>
+// let cSupport: ColumnSupportedOperators<'item', 'location'> = null as any as ColumnSupportedOperators<'item', 'location'>
 
 
 
 
 /** Encapsulates a single search column in a search.Search. Use the methods and properties available to the Column object to get or set Column properties. */
 interface TypedColumn<
-RecordType extends SearchRecordType, 
-Join extends JoinName<RecordType> = JoinName<RecordType>,
-Column extends ColumnName<RecordType> = ColumnName<RecordType>> extends nsSearch.Column {
+  RecordType extends SearchRecordType,
+  Join extends JoinName<RecordType> = JoinName<RecordType>,
+  Column extends ColumnName<RecordType> = ColumnName<RecordType>> extends nsSearch.Column {
 
   /** Join ID for a search column as a string. */
   join?: Join
-
-   /** Name of a search column as a string. */
+  /** Name of a search column as a string. */
   name: Column
-
- 
 }
-
-// let c: TypedColumn<'item'> = null as any
-// c.join = 'effectiverevision'
 
 
 /** Encapsulates a single search column in a search.Search. Use the methods and properties available to the Column object to get or set Column properties. */
 interface TypedFilter<
-RecordType extends SearchRecordType, 
-
-Join extends StringKeyOf< (ValueOfStringKey<TypedSearchJoinTypes, RecordType>)> = StringKeyOf< (ValueOfStringKey<TypedSearchJoinTypes, RecordType>)>,
-
-Filter extends StringKeyOf< (ValueOfStringKey<TypedSearchFilterTypes, RecordType>)> = StringKeyOf< (ValueOfStringKey<TypedSearchFilterTypes, RecordType>)>,
-
-// Operator extends any = any
-> {
+  RecordType extends SearchRecordType,
+  Join extends JoinName<RecordType> = JoinName<RecordType>,
+  Filter extends FilterName<RecordType> = FilterName<RecordType>
+  > {
 
   /** Join ID for a search column as a string. */
   join: Join
-
-   /** Name of a search column as a string. */
+  /** Name of a search column as a string. */
   name: Filter
-      /** Operator used for the search filter. See search.Operator. */
-
+  /** Operator used for the search filter. See search.Operator. */
   operator: FilterSupportedOperators<RecordType, Filter>
-      /** Summary type for the search filter. Use this property to get or set the value of the summary type. See search.Summary. */
-      summary: nsSearch.Summary;
-      /** Formula used by the search filter. Use this property to get or set the formula used by the search filter. */
-      formula: string;
+  /** Summary type for the search filter. Use this property to get or set the value of the summary type. See search.Summary. */
+  summary: nsSearch.Summary;
+  /** Formula used by the search filter. Use this property to get or set the formula used by the search filter. */
+  formula: string;
 }
- interface SearchCreateOptions<RecordType extends SearchRecordType> {
+
+
+
+export function search<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>): Search<RecordType> {
+  return nsSearch.create(options as any) as any
+  // throw 1
+  // const r = record.create(options)
+  // return recordConstructorsImpl[options.type](r) as any
+}
+
+// the rest I had to copy&past from ss2-typings and add generics:
+
+
+interface SearchCreateOptions<RecordType extends SearchRecordType> {
   type: RecordType
-  filters?: TypedFilter<RecordType>[] 
+  filters?: TypedFilter<RecordType>[]
   columns?: TypedColumn<RecordType>[]
   title?: string;
   id?: string;
   isPublic?: boolean;
 }
 
-export interface Search<RecordType extends SearchRecordType>  {
+export interface Search<RecordType extends SearchRecordType> {
   searchType: RecordType
   searchId: number;
-  filters: TypedFilter<RecordType>[] 
+  filters: TypedFilter<RecordType>[]
   filterExpression: any[];
   columns: TypedColumn<RecordType>[]
   title: string;
@@ -130,9 +96,10 @@ export interface Search<RecordType extends SearchRecordType>  {
   run(): ResultSet<RecordType>;
   runPaged: SearchRunPagedFunction
 }
+
 export interface Result<RecordType extends SearchRecordType> {
   getValue(column: TypedColumn<RecordType> | ColumnName<RecordType>): boolean | string | string[]; // TODO: typed return value
-  getText(options: TypedColumn<RecordType> |  ColumnName<RecordType>): string;
+  getText(options: TypedColumn<RecordType> | ColumnName<RecordType>): string;
   recordType: RecordType | string;
   id: string;
   columns: TypedColumn<RecordType>[];
@@ -159,22 +126,6 @@ export interface ResultSet<RecordType extends SearchRecordType> {
   columns: TypedColumn<RecordType>[];
 }
 
-
-
-export function search<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>): Search<RecordType> {
-  throw 1
-  // const r = record.create(options)
-  // return recordConstructorsImpl[options.type](r) as any
-}
-
-const s = search({type: 'item'})
-const r = s.run().each(f=>{
-  f.getValue('location')
-  return false
-})
-r.
-
-
 interface SearchResultSetEachFunction<RecordType> {
   promise(callback: (result: Result<RecordType>, index: number) => boolean): Promise<boolean>;
   (callback: (result: Result<RecordType>, index: number) => boolean): void;
@@ -190,16 +141,10 @@ interface RunPagedOptions {
   pageSize?: number;
 }
 
-
-
 interface SearchRunPagedFunction {
   promise(options?: RunPagedOptions): Promise<nsSearch.PagedData>;
   (options?: RunPagedOptions): nsSearch.PagedData;
 }
-
-
-
-
 
 
 
@@ -290,7 +235,7 @@ interface SearchRunPagedFunction {
 // }
 
 // interface SearchFilterTypeOperators {
-  
+
 // }
 // interface FilterTypes{
 

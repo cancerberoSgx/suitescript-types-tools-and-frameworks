@@ -31,7 +31,7 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Always Available Offline (availableoffline: checkbox) */
   availableoffline?: boolean;
   /** Balance (balance: currency) */
-  balance?: string;
+  balance?: number;
   /** Billing Country Code (billcountrycode: text) */
   billcountrycode?: string;
   /** Billing Zip (billzipcode: text) */
@@ -63,21 +63,21 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Company Name (companyname: text) */
   companyname?: string;
   /** Consolidated Balance (consolbalance: currency) */
-  consolbalance?: string;
+  consolbalance?: number;
   /** Consolidated Days Overdue (consoldaysoverdue: integer) */
   consoldaysoverdue?: number;
   /** Consolidated Deposit Balance (consoldepositbalance: currency) */
-  consoldepositbalance?: string;
+  consoldepositbalance?: number;
   /** Consolidated Overdue Balance (consoloverduebalance: currency) */
-  consoloverduebalance?: string;
+  consoloverduebalance?: number;
   /** Consolidated Unbilled Orders (consolunbilledorders: currency) */
-  consolunbilledorders?: string;
+  consolunbilledorders?: number;
   /** Primary Contact (contact: select) */
   contact?: string;
   /** Contribution % (contribution: percent) */
-  contribution?: string;
+  contribution?: number;
   /** Primary Sales Rep Contribution % (contributionprimary: percent) */
-  contributionprimary?: string;
+  contributionprimary?: number;
   /** Conversion Date (conversiondate: date) */
   conversiondate?: Date;
   /** Country (country: select) */
@@ -89,19 +89,19 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Override Credit Hold Off (creditholdoverride: checkbox) */
   creditholdoverride?: boolean;
   /** Credit Limit (creditlimit: currency) */
-  creditlimit?: string;
+  creditlimit?: number;
   /** Currency (currency: select) */
   currency?: string;
   /** Date Closed (dateclosed: datetime) */
-  dateclosed?: string;
+  dateclosed?: Date;
   /** Date Created (datecreated: datetime) */
-  datecreated?: string;
+  datecreated?: Date;
   /** Days Overdue (daysoverdue: integer) */
   daysoverdue?: number;
   /** Default Order Priority (defaultorderpriority: text) */
   defaultorderpriority?: string;
   /** Deposit Balance (depositbalance: currency) */
-  depositbalance?: string;
+  depositbalance?: number;
   /** Deferred Revenue Reclassification Account (draccount: text) */
   draccount?: string;
   /** Email (email: email) */
@@ -119,7 +119,7 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Status (entitystatus: select) */
   entitystatus?: string;
   /** Estimated Budget (estimatedbudget: currency) */
-  estimatedbudget?: string;
+  estimatedbudget?: number;
   /** Explicit Conversion (explicitconversion: checkbox) */
   explicitconversion?: boolean;
   /** External ID (externalid: select) */
@@ -135,27 +135,27 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Date of First Sale (firstsaledate: date) */
   firstsaledate?: Date;
   /** Formula (Currency) (formulacurrency: currency) */
-  formulacurrency?: string;
+  formulacurrency?: number;
   /** Formula (Date) (formuladate: date) */
   formuladate?: Date;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-  formuladatetime?: string;
+  formuladatetime?: Date;
   /** Formula (Numeric) (formulanumeric: float) */
   formulanumeric?: number;
   /** Formula (Percent) (formulapercent: percent) */
-  formulapercent?: string;
+  formulapercent?: number;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Foreign Currency Adjustment Revenue Account (fxaccount: text) */
   fxaccount?: string;
   /** Balance (Foreign Currency) (fxbalance: currency) */
-  fxbalance?: string;
+  fxbalance?: number;
   /** Consolidated Balance (Foreign Currency) (fxconsolbalance: currency) */
-  fxconsolbalance?: string;
+  fxconsolbalance?: number;
   /** Consolidated Unbilled Orders (Foreign Currency) (fxconsolunbilledorders: currency) */
-  fxconsolunbilledorders?: string;
+  fxconsolunbilledorders?: number;
   /** Unbilled Orders (Foreign Currency) (fxunbilledorders: currency) */
-  fxunbilledorders?: string;
+  fxunbilledorders?: number;
   /** Login Access (giveaccess: checkbox) */
   giveaccess?: boolean;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
@@ -185,7 +185,7 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Item Pricing Level (itempricinglevel: text) */
   itempricinglevel?: string;
   /** Item Pricing Unit Price (itempricingunitprice: currency) */
-  itempricingunitprice?: string;
+  itempricingunitprice?: number;
   /** Job Actual End (jobenddate: date) */
   jobenddate?: Date;
   /** Job Projected End (jobprojectedend: date) */
@@ -197,7 +197,7 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: string;
+  lastmodifieddate?: Date;
   /** Last Name (lastname: text) */
   lastname?: string;
   /** Date of Last Order (lastorderdate: date) */
@@ -205,9 +205,9 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Date of Last Sale (lastsaledate: date) */
   lastsaledate?: Date;
   /** Last Viewed (lastviewed: datetime) */
-  lastviewed?: string;
+  lastviewed?: Date;
   /** Lead Date (leaddate: datetime) */
-  leaddate?: string;
+  leaddate?: Date;
   /** Lead Source (leadsource: select) */
   leadsource?: string;
   /** Level (level: select) */
@@ -229,13 +229,13 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Online Form History - Form Name (onlineformname: text) */
   onlineformname?: string;
   /** Overdue Balance (overduebalance: currency) */
-  overduebalance?: string;
+  overduebalance?: number;
   /** Top Level Parent (parent: select) */
   parent?: string;
   /** Partner (partner: select) */
   partner?: string;
   /** Partner Contribution % (partnercontribution: percent) */
-  partnercontribution?: string;
+  partnercontribution?: number;
   /** Partner Role (partnerrole: text) */
   partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
@@ -259,7 +259,7 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Print Transactions (printtransactions: checkbox) */
   printtransactions?: boolean;
   /** Prospect Date (prospectdate: datetime) */
-  prospectdate?: string;
+  prospectdate?: Date;
   /** Default Receivables Account (receivablesaccount: text) */
   receivablesaccount?: string;
   /** Reminder Days (reminderdays: integer) */
@@ -301,7 +301,7 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Subscription (subscription: select) */
   subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-  subscriptiondate?: string;
+  subscriptiondate?: Date;
   /** Subscription Status (subscriptionstatus: checkbox) */
   subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -321,7 +321,7 @@ export interface customerSearchColumn {/** Account (accountnumber: text) */
   /** Type (type: select) */
   type?: string;
   /** Unbilled Orders (unbilledorders: currency) */
-  unbilledorders?: string;
+  unbilledorders?: number;
   /** Web Address (url: text) */
   url?: string;
   /** Tax Number (vatregnumber: text) */
@@ -353,9 +353,9 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Always Available Offline (availableoffline: checkbox) */
   availableoffline?: boolean;
   /** Balance (balance: currency) */
-  balance?: string;
+  balance?: number;
   /** Total Amount Purchased (boughtamount: currency) */
-  boughtamount?: string;
+  boughtamount?: number;
   /** Purchase Dates (boughtdate: date) */
   boughtdate?: Date;
   /** Buying Reason (buyingreason: select) */
@@ -379,21 +379,21 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** City (city: text) */
   city?: string;
   /** Class (classbought: multiselect) */
-  classbought?: string;
+  classbought?: number;
   /** Comments (comments: textarea) */
   comments?: string;
   /** Company Name (companyname: text) */
   companyname?: string;
   /** Consolidated Balance (consolbalance: currency) */
-  consolbalance?: string;
+  consolbalance?: number;
   /** Consolidated Days Overdue (consoldaysoverdue: integer) */
   consoldaysoverdue?: number;
   /** Consolidated Deposit Balance (consoldepositbalance: currency) */
-  consoldepositbalance?: string;
+  consoldepositbalance?: number;
   /** Consolidated Overdue Balance (consoloverduebalance: currency) */
-  consoloverduebalance?: string;
+  consoloverduebalance?: number;
   /** Consolidated Unbilled Orders (consolunbilledorders: currency) */
-  consolunbilledorders?: string;
+  consolunbilledorders?: number;
   /** Contact (contact: text) */
   contact?: string;
   /** Contribution % (contribution: integer) */
@@ -409,7 +409,7 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Override Credit Hold Off (creditholdoverride: checkbox) */
   creditholdoverride?: boolean;
   /** Credit Limit (creditlimit: currency) */
-  creditlimit?: string;
+  creditlimit?: number;
   /** Currency (currency: select) */
   currency?: string;
   /** Parent Stage (custstage: select) */
@@ -417,17 +417,17 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Parent Status (custstatus: select) */
   custstatus?: string;
   /** Date Closed (dateclosed: datetime) */
-  dateclosed?: string;
+  dateclosed?: Date;
   /** Date Created (datecreated: datetime) */
-  datecreated?: string;
+  datecreated?: Date;
   /** Days Overdue (daysoverdue: integer) */
   daysoverdue?: number;
   /** Default Order Priority (defaultorderpriority: text) */
   defaultorderpriority?: string;
   /** Deposit Balance (depositbalance: currency) */
-  depositbalance?: string;
+  depositbalance?: number;
   /** Department (deptbought: multiselect) */
-  deptbought?: string;
+  deptbought?: number;
   /** Deferred Revenue Reclassification Account (draccount: select) */
   draccount?: string;
   /** Email (email: text) */
@@ -443,7 +443,7 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Status (entitystatus: select) */
   entitystatus?: string;
   /** Estimated Budget (estimatedbudget: currency) */
-  estimatedbudget?: string;
+  estimatedbudget?: number;
   /** Explicit Conversion (explicitconversion: checkbox) */
   explicitconversion?: boolean;
   /** External ID (externalid: select) */
@@ -469,19 +469,19 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Foreign Currency Adjustment Revenue Account (fxaccount: select) */
   fxaccount?: string;
   /** Balance (Foreign Currency) (fxbalance: currency) */
-  fxbalance?: string;
+  fxbalance?: number;
   /** Consolidated Balance (Foreign Currency) (fxconsolbalance: currency) */
-  fxconsolbalance?: string;
+  fxconsolbalance?: number;
   /** Consolidated Unbilled Orders (Foreign Currency) (fxconsolunbilledorders: currency) */
-  fxconsolunbilledorders?: string;
+  fxconsolunbilledorders?: number;
   /** Unbilled Orders (Foreign Currency) (fxunbilledorders: currency) */
-  fxunbilledorders?: string;
+  fxunbilledorders?: number;
   /** Login Access (giveaccess: checkbox) */
   giveaccess?: boolean;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
   globalsubscriptionstatus?: string;
   /** Group (group: multiselect) */
-  group?: string;
+  group?: number;
   /** Group Pricing Level (grouppricinglevel: select) */
   grouppricinglevel?: string;
   /** Duplicate (hasduplicates: checkbox) */
@@ -511,19 +511,19 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Item Pricing Level (itempricinglevel: select) */
   itempricinglevel?: string;
   /** Item Pricing Unit Price (itempricingunitprice: currency) */
-  itempricingunitprice?: string;
+  itempricingunitprice?: number;
   /** Items Purchased (itemsbought: multiselect) */
-  itemsbought?: string;
+  itemsbought?: number;
   /** Items Ordered (itemsordered: multiselect) */
-  itemsordered?: string;
+  itemsordered?: number;
   /** Actual End Date (jobenddate: date) */
   jobenddate?: Date;
   /** Estimated Cost (jobestcost: currency) */
-  jobestcost?: string;
+  jobestcost?: number;
   /** Projected End Date (jobestenddate: date) */
   jobestenddate?: Date;
   /** Estimated Revenue (jobestrevenue: currency) */
-  jobestrevenue?: string;
+  jobestrevenue?: number;
   /** Percent Complete (jobpctcomplete: integer) */
   jobpctcomplete?: number;
   /** Start Date (jobstartdate: date) */
@@ -535,7 +535,7 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: string;
+  lastmodifieddate?: Date;
   /** Last Name (lastname: text) */
   lastname?: string;
   /** Date of Last Order (lastorderdate: date) */
@@ -543,13 +543,13 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Date of Last Sale (lastsaledate: date) */
   lastsaledate?: Date;
   /** Lead Date (leaddate: datetime) */
-  leaddate?: string;
+  leaddate?: Date;
   /** Lead Source (leadsource: select) */
   leadsource?: string;
   /** Level (level: select) */
   level?: string;
   /** Location (locationbought: multiselect) */
-  locationbought?: string;
+  locationbought?: number;
   /** Override Credit Hold On (manualcredithold: checkbox) */
   manualcredithold?: boolean;
   /** Credit Card Processor (merchantaccount: select) */
@@ -567,19 +567,19 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Online Form History - Form Name (onlineformname: select) */
   onlineformname?: string;
   /** Total Amount Ordered (orderedamount: currency) */
-  orderedamount?: string;
+  orderedamount?: number;
   /** Order Dates (ordereddate: date) */
   ordereddate?: Date;
   /** Other Relationships (otherrelationships: multiselect) */
-  otherrelationships?: string;
+  otherrelationships?: number;
   /** Overdue Balance (overduebalance: currency) */
-  overduebalance?: string;
+  overduebalance?: number;
   /** Sub of (parent: select) */
   parent?: string;
   /** Items or Sub-Items Purchased (parentitemsbought: multiselect) */
-  parentitemsbought?: string;
+  parentitemsbought?: number;
   /** Items or Sub-Items Ordered (parentitemsordered: multiselect) */
-  parentitemsordered?: string;
+  parentitemsordered?: number;
   /** Partner (partner: select) */
   partner?: string;
   /** Partner Contribution % (partnercontribution: integer) */
@@ -605,7 +605,7 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Print Transactions (printtransactions: checkbox) */
   printtransactions?: boolean;
   /** Prospect Date (prospectdate: datetime) */
-  prospectdate?: string;
+  prospectdate?: Date;
   /** PST Exempt (pstexempt: checkbox) */
   pstexempt?: boolean;
   /** Default Receivables Account (receivablesaccount: select) */
@@ -643,7 +643,7 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** State/Province (state: select) */
   state?: string;
   /** Subsidiaries Bought (subsidbought: multiselect) */
-  subsidbought?: string;
+  subsidbought?: number;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
   /** Taxable (taxable: checkbox) */
@@ -657,7 +657,7 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
   /** Entity Type (type: select) */
   type?: string;
   /** Unbilled Orders (unbilledorders: currency) */
-  unbilledorders?: string;
+  unbilledorders?: number;
   /** Web Address (url: url) */
   url?: string;
   /** Tax Number (vatregnumber: text) */
@@ -670,7 +670,8 @@ export interface customerSearchFilter {/** Account (accountnumber: text) */
 
 
 // Search Joins
-/** Customer (customer) Search Joins definition type. */
+
+/** Customer (customer) Search Joins definitions. */
 export interface customerSearchJoin {/** customer's billingschedule search filter. Billing Schedule. Actual name: Billing Schedule. */
   billingschedule: 'billingschedule';
   /** customer's campaignresponse search filter. Campaign Response. Actual name: Campaign. */
@@ -709,4 +710,344 @@ export interface customerSearchJoin {/** customer's billingschedule search filte
   toplevelparent: 'toplevelparent';
   /** customer's websitecategory search filter. Web Site Category. Actual name: Presentation Category. */
   websitecategory: 'websitecategory';
+}
+
+
+// Search Filter Types
+
+/** Customer (customer) Search Filter Type definitions. */
+export interface customerSearchFilterTypes {accountnumber: 'text';
+  address: 'textarea';
+  addressee: 'text';
+  addresslabel: 'text';
+  addressphone: 'phone';
+  assignedsite: 'select';
+  attention: 'text';
+  availableoffline: 'checkbox';
+  balance: 'currency';
+  boughtamount: 'currency';
+  boughtdate: 'date';
+  buyingreason: 'select';
+  buyingtimeframe: 'select';
+  category: 'select';
+  cccustomercode: 'text';
+  ccdefault: 'checkbox';
+  ccexpdate: 'date';
+  ccholdername: 'text';
+  ccnumber: 'ccnumber';
+  cctype: 'select';
+  city: 'text';
+  classbought: 'multiselect';
+  comments: 'textarea';
+  companyname: 'text';
+  consolbalance: 'currency';
+  consoldaysoverdue: 'integer';
+  consoldepositbalance: 'currency';
+  consoloverduebalance: 'currency';
+  consolunbilledorders: 'currency';
+  contact: 'text';
+  contribution: 'integer';
+  conversiondate: 'date';
+  country: 'select';
+  county: 'text';
+  credithold: 'select';
+  creditholdoverride: 'checkbox';
+  creditlimit: 'currency';
+  currency: 'select';
+  custstage: 'select';
+  custstatus: 'select';
+  dateclosed: 'datetime';
+  datecreated: 'datetime';
+  daysoverdue: 'integer';
+  defaultorderpriority: 'text';
+  depositbalance: 'currency';
+  deptbought: 'multiselect';
+  draccount: 'select';
+  email: 'text';
+  emailpreference: 'select';
+  emailtransactions: 'checkbox';
+  enddate: 'date';
+  entityid: 'text';
+  entitystatus: 'select';
+  estimatedbudget: 'currency';
+  explicitconversion: 'checkbox';
+  externalid: 'select';
+  externalidstring: 'text';
+  fax: 'phone';
+  faxtransactions: 'checkbox';
+  firstname: 'text';
+  firstorderdate: 'date';
+  firstsaledate: 'date';
+  formuladate: 'date';
+  formulanumeric: 'float';
+  formulatext: 'text';
+  fxaccount: 'select';
+  fxbalance: 'currency';
+  fxconsolbalance: 'currency';
+  fxconsolunbilledorders: 'currency';
+  fxunbilledorders: 'currency';
+  giveaccess: 'checkbox';
+  globalsubscriptionstatus: 'select';
+  group: 'multiselect';
+  grouppricinglevel: 'select';
+  hasduplicates: 'checkbox';
+  image: 'image';
+  internalid: 'select';
+  internalidnumber: 'integer';
+  isbudgetapproved: 'checkbox';
+  isdefaultbilling: 'checkbox';
+  isdefaultshipping: 'checkbox';
+  isinactive: 'checkbox';
+  isjob: 'checkbox';
+  isperson: 'checkbox';
+  isreportedlead: 'checkbox';
+  isshipaddress: 'checkbox';
+  itempricinglevel: 'select';
+  itempricingunitprice: 'currency';
+  itemsbought: 'multiselect';
+  itemsordered: 'multiselect';
+  jobenddate: 'date';
+  jobestcost: 'currency';
+  jobestenddate: 'date';
+  jobestrevenue: 'currency';
+  jobpctcomplete: 'integer';
+  jobstartdate: 'date';
+  jobstatus: 'select';
+  jobtype: 'select';
+  language: 'select';
+  lastmodifieddate: 'datetime';
+  lastname: 'text';
+  lastorderdate: 'date';
+  lastsaledate: 'date';
+  leaddate: 'datetime';
+  leadsource: 'select';
+  level: 'select';
+  locationbought: 'multiselect';
+  manualcredithold: 'checkbox';
+  merchantaccount: 'select';
+  middlename: 'text';
+  monthlyclosing: 'select';
+  oncredithold: 'checkbox';
+  onlineformdate: 'date';
+  onlineformleadsource: 'select';
+  onlineformname: 'select';
+  orderedamount: 'currency';
+  ordereddate: 'date';
+  otherrelationships: 'multiselect';
+  overduebalance: 'currency';
+  parent: 'select';
+  parentitemsbought: 'multiselect';
+  parentitemsordered: 'multiselect';
+  partner: 'select';
+  partnercontribution: 'integer';
+  partnerrole: 'select';
+  partnerteammember: 'select';
+  pec: 'text';
+  permission: 'select';
+  phone: 'phone';
+  phoneticname: 'text';
+  pricelevel: 'select';
+  pricinggroup: 'select';
+  pricingitem: 'select';
+  printtransactions: 'checkbox';
+  prospectdate: 'datetime';
+  pstexempt: 'checkbox';
+  receivablesaccount: 'select';
+  reminderdate: 'date';
+  representingsubsidiary: 'select';
+  resalenumber: 'text';
+  role: 'select';
+  salesreadiness: 'select';
+  salesrep: 'select';
+  salesteammember: 'select';
+  salesteamrole: 'select';
+  salutation: 'text';
+  shipcomplete: 'checkbox';
+  shippingcarrier: 'select';
+  shippingitem: 'select';
+  sourcesite: 'select';
+  stage: 'select';
+  startdate: 'date';
+  state: 'select';
+  subsidbought: 'multiselect';
+  subsidiary: 'select';
+  taxable: 'checkbox';
+  terms: 'select';
+  territory: 'select';
+  title: 'text';
+  type: 'select';
+  unbilledorders: 'currency';
+  url: 'url';
+  vatregnumber: 'text';
+  weblead: 'checkbox';
+  zipcode: 'text';
+}
+
+
+// Search Column Types
+
+/** Customer (customer) Search Column Type definitions. */
+export interface customerSearchColumnTypes {accountnumber: 'text';
+  address: 'text';
+  addressee: 'text';
+  addressinternalid: 'text';
+  addresslabel: 'text';
+  addressphone: 'text';
+  altcontact: 'text';
+  altemail: 'email';
+  altname: 'text';
+  altphone: 'phone';
+  assignedsite: 'select';
+  attention: 'text';
+  availableoffline: 'checkbox';
+  balance: 'currency';
+  billcountrycode: 'text';
+  billzipcode: 'text';
+  buyingreason: 'text';
+  buyingtimeframe: 'text';
+  category: 'select';
+  cccustomercode: 'text';
+  ccdefault: 'checkbox';
+  ccexpdate: 'mmyydate';
+  ccholdername: 'text';
+  ccinternalid: 'text';
+  ccnumber: 'ccnumber';
+  cctype: 'select';
+  city: 'text';
+  comments: 'text';
+  companyname: 'text';
+  consolbalance: 'currency';
+  consoldaysoverdue: 'integer';
+  consoldepositbalance: 'currency';
+  consoloverduebalance: 'currency';
+  consolunbilledorders: 'currency';
+  contact: 'select';
+  contribution: 'percent';
+  contributionprimary: 'percent';
+  conversiondate: 'date';
+  country: 'select';
+  countrycode: 'text';
+  credithold: 'select';
+  creditholdoverride: 'checkbox';
+  creditlimit: 'currency';
+  currency: 'select';
+  dateclosed: 'datetime';
+  datecreated: 'datetime';
+  daysoverdue: 'integer';
+  defaultorderpriority: 'text';
+  depositbalance: 'currency';
+  draccount: 'text';
+  email: 'email';
+  emailpreference: 'select';
+  emailtransactions: 'checkbox';
+  enddate: 'date';
+  entityid: 'text';
+  entitynumber: 'integer';
+  entitystatus: 'select';
+  estimatedbudget: 'currency';
+  explicitconversion: 'checkbox';
+  externalid: 'select';
+  fax: 'text';
+  faxtransactions: 'checkbox';
+  firstname: 'text';
+  firstorderdate: 'date';
+  firstsaledate: 'date';
+  formulacurrency: 'currency';
+  formuladate: 'date';
+  formuladatetime: 'datetime';
+  formulanumeric: 'float';
+  formulapercent: 'percent';
+  formulatext: 'text';
+  fxaccount: 'text';
+  fxbalance: 'currency';
+  fxconsolbalance: 'currency';
+  fxconsolunbilledorders: 'currency';
+  fxunbilledorders: 'currency';
+  giveaccess: 'checkbox';
+  globalsubscriptionstatus: 'select';
+  grouppricinglevel: 'text';
+  hasduplicates: 'checkbox';
+  homephone: 'phone';
+  image: 'select';
+  internalid: 'select';
+  isbudgetapproved: 'checkbox';
+  isdefaultbilling: 'checkbox';
+  isdefaultshipping: 'checkbox';
+  isinactive: 'checkbox';
+  isperson: 'checkbox';
+  isshipaddress: 'checkbox';
+  itempricinglevel: 'text';
+  itempricingunitprice: 'currency';
+  jobenddate: 'date';
+  jobprojectedend: 'date';
+  jobstartdate: 'date';
+  jobtype: 'select';
+  language: 'select';
+  lastmodifieddate: 'datetime';
+  lastname: 'text';
+  lastorderdate: 'date';
+  lastsaledate: 'date';
+  lastviewed: 'datetime';
+  leaddate: 'datetime';
+  leadsource: 'select';
+  level: 'select';
+  manualcredithold: 'checkbox';
+  middlename: 'text';
+  mobilephone: 'phone';
+  monthlyclosing: 'select';
+  oncredithold: 'checkbox';
+  onlineformdate: 'text';
+  onlineformleadsource: 'text';
+  onlineformname: 'text';
+  overduebalance: 'currency';
+  parent: 'select';
+  partner: 'select';
+  partnercontribution: 'percent';
+  partnerrole: 'text';
+  partnerteammember: 'select';
+  pec: 'text';
+  permission: 'select';
+  phone: 'phone';
+  phoneticname: 'text';
+  prefccprocessor: 'select';
+  pricelevel: 'select';
+  pricinggroup: 'text';
+  pricingitem: 'text';
+  printtransactions: 'checkbox';
+  prospectdate: 'datetime';
+  receivablesaccount: 'text';
+  reminderdays: 'integer';
+  representingsubsidiary: 'select';
+  resalenumber: 'text';
+  role: 'text';
+  salesreadiness: 'text';
+  salesrep: 'select';
+  salesteammember: 'select';
+  salesteamrole: 'select';
+  salutation: 'text';
+  shipcomplete: 'checkbox';
+  shipcountrycode: 'text';
+  shippingcarrier: 'select';
+  shippingitem: 'select';
+  sourcesite: 'select';
+  stage: 'select';
+  startdate: 'date';
+  state: 'select';
+  statedisplayname: 'select';
+  subscription: 'select';
+  subscriptiondate: 'datetime';
+  subscriptionstatus: 'checkbox';
+  subsidiary: 'select';
+  subsidiarynohierarchy: 'select';
+  taxable: 'checkbox';
+  taxitem: 'select';
+  terms: 'select';
+  territory: 'select';
+  title: 'text';
+  type: 'select';
+  unbilledorders: 'currency';
+  url: 'text';
+  vatregnumber: 'text';
+  weblead: 'checkbox';
+  zipcode: 'text';
 }

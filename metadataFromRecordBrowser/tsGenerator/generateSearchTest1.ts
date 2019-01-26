@@ -1,5 +1,6 @@
 import { generateProject } from './generateProject';
 import { generateFile } from './search/generateFile';
+import { generateAfter } from './search/generateProject';
 
 // generateSearchColumn({
 
@@ -10,7 +11,7 @@ generateProject({
   outputFolder: './generated-search-test1', 
   typedRecordImportBase: '../', 
   cleanOutput: true,
-  generateAfter: ()=>{}, 
+  generateAfter,
   generateFile, 
   throwOnError: true
 })

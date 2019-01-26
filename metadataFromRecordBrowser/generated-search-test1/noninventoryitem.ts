@@ -16,6 +16,21 @@ export interface noninventoryitemSearchFilter {
 
 
 // Search Joins
-/** Non-Inventory Part (noninventoryitem) Search Joins definition type. */
+
+/** Non-Inventory Part (noninventoryitem) Search Joins definitions. */
 export interface noninventoryitemSearchJoin {
+}
+
+
+// Search Filter Types
+
+/** Non-Inventory Part (noninventoryitem) Search Filter Type definitions. */
+export interface noninventoryitemSearchFilterTypes {
+}
+
+
+// Search Column Types
+
+/** Non-Inventory Part (noninventoryitem) Search Column Type definitions. */
+export interface noninventoryitemSearchColumnTypes {
 }

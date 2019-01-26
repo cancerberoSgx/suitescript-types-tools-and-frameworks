@@ -16,6 +16,21 @@ export interface cmscontentSearchFilter {
 
 
 // Search Joins
-/** CMS Content (cmscontent) Search Joins definition type. */
+
+/** CMS Content (cmscontent) Search Joins definitions. */
 export interface cmscontentSearchJoin {
+}
+
+
+// Search Filter Types
+
+/** CMS Content (cmscontent) Search Filter Type definitions. */
+export interface cmscontentSearchFilterTypes {
+}
+
+
+// Search Column Types
+
+/** CMS Content (cmscontent) Search Column Type definitions. */
+export interface cmscontentSearchColumnTypes {
 }

@@ -3,21 +3,14 @@
 //  * get createDate will return a string not a date ... we could solve this returning a type nsDate = 'string' and then providing a utility to convert to Date 
 
 import { writeFileSync } from 'fs';
-import { RecordMetadata } from '../metadataTypes';
 import { generateRecord } from './generateRecord';
 import { join } from 'path';
 import { indent } from '../util';
 import { ProjectConfig, FileConfig } from '../generateProject';
 
-
 export function generateAfter(config: ProjectConfig&{recordIds: string[]}){
   const { inputFolder, outputFolder, typedRecordImportBase, recordIds } = config
   writeFileSync(join(outputFolder, 'recordConstructor.ts'), generateRecordConstructor({ recordIds, typedRecordImportBase }))
-  writeFileSync(join(outputFolder, 'index.ts'), generateIndex({ recordIds, typedRecordImportBase }))
-}
-
-function generateIndex(config: { recordIds: string[], typedRecordImportBase: string }) {
-  return `${config.recordIds.map(id=>`export * from './${id}';`).join(`\n`)}`
 }
 
 function generateRecordConstructor(config: { recordIds: string[], typedRecordImportBase: string }) {

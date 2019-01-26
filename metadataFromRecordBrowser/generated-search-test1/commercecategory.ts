@@ -182,6 +182,103 @@ export interface commercecategorySearchFilter {/** Add to Head (addtohead: text)
 
 
 // Search Joins
-/** Commerce Category (commercecategory) Search Joins definition type. */
+
+/** Commerce Category (commercecategory) Search Joins definitions. */
 export interface commercecategorySearchJoin {
+}
+
+
+// Search Filter Types
+
+/** Commerce Category (commercecategory) Search Filter Type definitions. */
+export interface commercecategorySearchFilterTypes {addtohead: 'text';
+  catalog: 'select';
+  created: 'date';
+  description: 'textarea';
+  displayinsite: 'checkbox';
+  externalid: 'select';
+  externalidstring: 'text';
+  fullurl: 'text';
+  idpath: 'text';
+  internalid: 'select';
+  internalidnumber: 'integer';
+  isinactive: 'checkbox';
+  isprimaryurl: 'checkbox';
+  item: 'select';
+  itemcategory: 'select';
+  itemdescription: 'textarea';
+  lastmodified: 'date';
+  lastmodifiedby: 'select';
+  metadescription: 'text';
+  metakeywords: 'text';
+  name: 'text';
+  nestlevel: 'integer';
+  pageheading: 'text';
+  pagetitle: 'text';
+  primarycategory: 'checkbox';
+  primaryparent: 'select';
+  sequencenumber: 'integer';
+  site: 'select';
+  sitemappriority: 'float';
+  subcatdisplayinsiteoverride: 'checkbox';
+  subcatid: 'select';
+  subcatparent: 'select';
+  urlfragment: 'text';
+  version: 'integer';
+}
+
+
+// Search Column Types
+
+/** Commerce Category (commercecategory) Search Column Type definitions. */
+export interface commercecategorySearchColumnTypes {addtohead: 'text';
+  catalog: 'select';
+  created: 'date';
+  description: 'textarea';
+  displayinsite: 'checkbox';
+  externalid: 'select';
+  fullurl: 'text';
+  idpath: 'text';
+  internalid: 'select';
+  isinactive: 'checkbox';
+  isprimaryurl: 'checkbox';
+  itemdescription: 'textarea';
+  itemid: 'integer';
+  itemsequencenumber: 'integer';
+  lastmodified: 'date';
+  lastmodifiedby: 'select';
+  metadescription: 'text';
+  metakeywords: 'text';
+  name: 'text';
+  nestlevel: 'integer';
+  pagebanner: 'image';
+  pagebannerurl: 'text';
+  pageheading: 'text';
+  pagetitle: 'text';
+  primarycategory: 'checkbox';
+  primaryparent: 'select';
+  sequencenumber: 'integer';
+  sitemappriority: 'float';
+  subcataddtoheadoverride: 'text';
+  subcatdescoverride: 'text';
+  subcatdisplayinsiteoverride: 'checkbox';
+  subcatid: 'integer';
+  subcatmetadescoverride: 'text';
+  subcatmetakeywordsoverride: 'text';
+  subcatnameoverride: 'text';
+  subcatpagebanneroverride: 'select';
+  subcatpagebannerurloverride: 'text';
+  subcatpageheadingoverride: 'text';
+  subcatpagetitleoverride: 'text';
+  subcatparent: 'integer';
+  subcatsequencenumber: 'integer';
+  subcatthumbnailoverride: 'select';
+  subcatthumbnailurloverride: 'text';
+  subcaturlfragmentoverride: 'text';
+  thumbnail: 'image';
+  thumbnailurl: 'text';
+  urlcommcat: 'integer';
+  urlcommcatassoc: 'integer';
+  urlfragment: 'text';
+  version: 'integer';
 }

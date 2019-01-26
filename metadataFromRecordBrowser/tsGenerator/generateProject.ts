@@ -29,23 +29,39 @@ export function generateProject(config: ProjectConfig) {
   mkdir('-p', outputFolder);
   ls('-R', inputFolder).map(f => join(resolve(inputFolder), f))
     .filter(f => f.endsWith('.json')).forEach(f => {
-      try {
-        const data: RecordMetadata = {
-          searchJoins: [], searchColumns: [], fields: [], sublists: [],
-          ...JSON.parse(readFileSync(f).toString())
-        };
+      const data: RecordMetadata = readMetadata(f, config)
+      recordIdFilePaths[data.id] = f
+      const { output } = config.generateFile({ data, typedRecordImportBase });
+      const outputFile = join(outputFolder, basename(f, '.json') + '.ts')
+      writeFileSync(outputFile, output);
+      recordIds.push(data.id);
 
-        const { output } = config.generateFile({ data, typedRecordImportBase });
-        const outputFile = join(outputFolder, basename(f, '.json') + '.ts')
-        writeFileSync(outputFile, output);
-        recordIds.push(data.id);
-      }
-      catch (error) { // invalid json
-        console.log('ERROR in generateFile: ' + error);
-        if(config.throwOnError){
-          throw error
-        }  
-      }
       config.generateAfter({ ...config, recordIds });
     });
+
+  writeFileSync(join(outputFolder, 'index.ts'), generateIndex({ recordIds, typedRecordImportBase }))
+}
+
+const recordIdFilePaths : {[s:string]:string}= {}
+export function getMetadataFilePathForRecord(id:string){
+  return recordIdFilePaths[id]
+}
+function generateIndex(config: { recordIds: string[], typedRecordImportBase: string }) {
+  return `${config.recordIds.map(id => `export * from './${id}';`).join(`\n`)}`
+}
+
+export function readMetadata(f: string, config?: ProjectConfig): RecordMetadata {
+  const empty: RecordMetadata = { id: 'empty', label: 'empty', supportCustomFields: false, searchFilters: [], searchJoins: [], searchColumns: [], fields: [], sublists: [], }
+  try {
+    return {
+      ...empty,
+      ...JSON.parse(readFileSync(f).toString())
+    }
+  } catch (error) { // invalid json
+    console.log('ERROR in generateFile: ' + error);
+    if (config && config.throwOnError) {
+      throw error
+    }
+  }
+  return empty
 }

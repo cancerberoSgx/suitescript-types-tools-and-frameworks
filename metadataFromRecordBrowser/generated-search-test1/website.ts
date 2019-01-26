@@ -16,6 +16,21 @@ export interface websiteSearchFilter {
 
 
 // Search Joins
-/** Website (website) Search Joins definition type. */
+
+/** Website (website) Search Joins definitions. */
 export interface websiteSearchJoin {
+}
+
+
+// Search Filter Types
+
+/** Website (website) Search Filter Type definitions. */
+export interface websiteSearchFilterTypes {
+}
+
+
+// Search Column Types
+
+/** Website (website) Search Column Type definitions. */
+export interface websiteSearchColumnTypes {
 }

@@ -19,6 +19,8 @@ import { writeRecordJsonInResponse } from './introspection/dumpRecordToJsonRespo
 import { recordToJsonTest1 } from './experiments/recordToJson1';
 import { recordFieldsTypesTest1 } from './experiments/recordFieldsTypesTest1';
 import { typedRecordTest } from './record/typedRecord/typedRecordTest';
+import { query1Test } from './experiments/query1';
+import { typedSearchTest } from './search/typedSearch/typedSearchTest';
 // import { getObjectValueTypes } from './misc';
 // import * as nsError from 'N/error';
 
@@ -26,7 +28,9 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
     setDefaultLogger(new ResponseLogger(context.response))
 
-    typedRecordTest()
+    typedSearchTest()
+    // query1Test()
+    // typedRecordTest()
 
     
     // const newCategory = copyCategory({

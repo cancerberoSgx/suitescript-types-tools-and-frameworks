@@ -1,4 +1,4 @@
-import { Type } from './getType';
+import { Type } from "./sharedTypes";
 
 export interface RecordMetadata {
   id: string;

@@ -7,5 +7,13 @@ define(["require", "exports", "./typedSearch"], function (require, exports, type
             f.getValue('location');
             return false;
         });
+        //   const s2 = search({ type: 'commercecategory' });
+        //   const i = s2.run().each(f => {
+        //     console.log(`created: ${toString(f.getValue('in'))}`);
+        //     f.getValue('location');
+        //     return false;
+        //   });
+        // }
     }
+    exports.typedSearchTest = typedSearchTest;
 });

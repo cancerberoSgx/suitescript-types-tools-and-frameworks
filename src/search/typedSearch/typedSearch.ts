@@ -1,7 +1,8 @@
 import { StringKeyOf, EmptyObject, ValueOfStringKey } from '../../misc/misc';
-import { SearchRecordType } from './searchTypes';
+import { SearchRecordType } from "../../sharedTypes";
 import * as nsSearch from 'N/search'
-import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames, TypedSearchColumnTypes, TypedSearchFilterTypes, SearchTypesOperatorsSupport } from './typedSearchMocks';
+import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames , TypedSearchColumnTypes, TypedSearchFilterTypes, SearchTypesOperatorsSupport} from './generated';
+// import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames, TypedSearchColumnTypes, TypedSearchFilterTypes, SearchTypesOperatorsSupport } from './typedSearchMocks';
 
 
 // Helper types. Extract columns, filters, joins names and types and operator support types from generated types

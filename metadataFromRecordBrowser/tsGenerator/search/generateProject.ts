@@ -1,6 +1,7 @@
 import { FileConfig, ProjectConfig, readMetadata, getMetadataFilePathForRecord } from '../generateProject';
 import { indent } from '../util';
-import { getType, fieldTypeOperatorMetadata } from '../getType';
+import { getType } from '../getType';
+import { fieldTypeOperatorMetadata } from "../sharedTypes";
 import { writeFileSync } from 'fs';
 import { join } from 'path';
 
@@ -25,7 +26,6 @@ export function generateAfter(config: ProjectConfig & { recordIds: string[] }) {
 
 
 function generateSearchTypesOperatorsSupport(config: ProjectConfig & { recordIds: string[] }) {
-  // const { inputFolder, outputFolder, typedRecordImportBase, recordIds } = config
   const output = `
 /** Field Search Operator Support type definitions,. */
 export interface SearchTypesOperatorsSupport {${fieldTypeOperatorMetadata.map(id => {
@@ -81,7 +81,8 @@ function generateTypedSearchColumnNames(config: ProjectConfig & { recordIds: str
   const output = `
 import { ${config.recordIds.map(id => `${id}SearchColumn `).join(', ')} } from './index';
 /** Record Type - Field Search Column names definitions. */
-export interface TypedSearchColumnNames {${config.recordIds.map(id => {
+export interface TypedSearchColumnNames {
+${config.recordIds.map(id => {
     return `
 ${indent()}${id}: Required<${id}SearchColumn>;
 `.trim()
@@ -95,7 +96,8 @@ function generateTypedSearchFilterNames(config: ProjectConfig & { recordIds: str
   const output = `
 import { ${config.recordIds.map(id => `${id}SearchFilter`).join(', ')} } from './index';
 /** Record Type - Field Search Filter names definitions. */
-export interface TypedSearchFilterNames {${config.recordIds.map(id => `
+export interface TypedSearchFilterNames {
+${config.recordIds.map(id => `
 ${indent()}${id}: Required<${id}SearchFilter>;
 `.trim()
   ).join(`\n${indent()}`)}

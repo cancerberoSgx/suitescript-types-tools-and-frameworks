@@ -1,0 +1,35 @@
+{
+    "name": "metadataFromRecordBrowser",
+    "version": "1.0.0",
+    "description": "tools that extract metadata from record browser and generates .ts types used in src/*/typed/",
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
+    "typings": "dist/src/index.d.ts",
+    "scripts": {
+        "build": "npx tsc",
+        "build-watch": "npx tsc -w",
+        "clean": "rm -rf dist"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/cancerberoSgx/suitecommerce-types.git"
+    },
+    "keywords": [
+        "TypeScript",
+        "NetSuite",
+        "devtools",
+        "record browser",
+        "schema browser",
+        "metadata"
+    ],
+    "author": "Sebastian Gurin",
+    "license": "MIT",
+    "homepage": "https://github.com/cancerberoSgx/suitecommerce-types",
+    "dependencies": {
+    },
+    "devDependencies": {
+        "@types/node": "^10",
+        "ts-node": "^7.0.1",
+        "typescript": "^3.2.2"
+    }
+}

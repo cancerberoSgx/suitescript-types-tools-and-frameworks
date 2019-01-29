@@ -36,5 +36,8 @@
         "shelljs": "^0.7.8",
         "ts-node": "^7.0.1",
         "typescript": "^2.6.2"
+    },
+    "dependencies": {
+        "http-server": "^0.11.1"
     }
 }

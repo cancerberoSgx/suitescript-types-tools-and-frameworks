@@ -128,5 +128,5 @@ function getTransformTypes() {
     }))
 }
 
-copy(JSON.stringify(getRecord(), null, 2))
+// copy(JSON.stringify(getRecord(), null, 2))
 

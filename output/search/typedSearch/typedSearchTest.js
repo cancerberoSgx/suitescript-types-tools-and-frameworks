@@ -7,16 +7,16 @@ define(["require", "exports", "./typedSearch", "N/search"], function (require, e
             f.getValue('location');
             return false;
         });
-        //   nsSearch.createFilter
         var s2 = typedSearch_1.search({
             type: 'commercecategory',
             columns: [{
                     name: 'primaryparent',
                     sort: nsSearch.Sort.ASC
-                }]
+                },]
         });
         var i = s2.run().each(function (f) {
             console.log("primaryparent: " + f.getValue('primaryparent'));
+            console.log("primaryparent: " + f.getValue('displayinsite')); // gives type error- wrong column
             return true;
         });
     }

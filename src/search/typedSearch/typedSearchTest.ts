@@ -8,16 +8,16 @@ export function typedSearchTest() {
     return false;
   });
 
-  //   nsSearch.createFilter
   const s2 = search({
     type: 'commercecategory',
     columns: [{
       name: 'primaryparent',
       sort: nsSearch.Sort.ASC
-    }]
+    }, ]
   });
   const i = s2.run().each(f => {
     console.log(`primaryparent: ${f.getValue('primaryparent')}`);
+    console.log(`primaryparent: ${f.getValue('displayinsite')}`); // gives type error- wrong column
     return true;
   });
 }

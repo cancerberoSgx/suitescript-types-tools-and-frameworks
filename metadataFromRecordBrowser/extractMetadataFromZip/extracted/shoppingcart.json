@@ -1,0 +1,172 @@
+{
+  "label": "Shopping Cart",
+  "id": "shoppingcart",
+  "supportCustomFields": true,
+  "searchOnly": true,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "cartid",
+      "type": "select",
+      "label": "Cart ID"
+    },
+    {
+      "id": "cartidnumber",
+      "type": "integer",
+      "label": "Cart ID (Number)"
+    },
+    {
+      "id": "customerid",
+      "type": "select",
+      "label": "Customer ID"
+    },
+    {
+      "id": "customeridnumber",
+      "type": "integer",
+      "label": "Customer ID (Number)"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "datemodified",
+      "type": "datetime",
+      "label": "Date Last Item Added"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "itemid",
+      "type": "select",
+      "label": "Item ID"
+    },
+    {
+      "id": "itemidnumber",
+      "type": "integer",
+      "label": "Item ID (Number)"
+    },
+    {
+      "id": "itemprice",
+      "type": "currency",
+      "label": "Item Price"
+    },
+    {
+      "id": "subtotal",
+      "type": "currency",
+      "label": "SubTotal"
+    },
+    {
+      "id": "website",
+      "type": "select",
+      "label": "Website"
+    },
+    {
+      "id": "websiteid",
+      "type": "select",
+      "label": "Website ID"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "cartid",
+      "type": "integer",
+      "label": "Cart ID"
+    },
+    {
+      "id": "customerid",
+      "type": "integer",
+      "label": "Customer ID"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "datemodified",
+      "type": "datetime",
+      "label": "Date Last Item Added"
+    },
+    {
+      "id": "daysold",
+      "type": "integer",
+      "label": "Days old"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Items in Cart"
+    },
+    {
+      "id": "itemid",
+      "type": "select",
+      "label": "Item ID"
+    },
+    {
+      "id": "itemprice",
+      "type": "currency",
+      "label": "Item Price"
+    },
+    {
+      "id": "itemqty",
+      "type": "integer",
+      "label": "Item Quantity"
+    },
+    {
+      "id": "subtotal",
+      "type": "currency",
+      "label": "Sub-Total Amount"
+    },
+    {
+      "id": "website",
+      "type": "select",
+      "label": "Website"
+    },
+    {
+      "id": "websiteid",
+      "type": "integer",
+      "label": "Website ID"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "item",
+      "description": "Item",
+      "actualName": "Item"
+    },
+    {
+      "id": "shopper",
+      "description": "Shopper",
+      "actualName": "Customer"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

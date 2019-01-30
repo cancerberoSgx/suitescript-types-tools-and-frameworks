@@ -1,0 +1,114 @@
+{
+  "label": "Campaign Response",
+  "id": "campaignresponse",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "campaignevent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Event",
+      "required": false,
+      "help": "This is the name of the campaign event."
+    },
+    {
+      "id": "campaignresponsedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": "This is the date the campaign was sent."
+    },
+    {
+      "id": "channel",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Channel",
+      "required": false,
+      "help": "This is the campaign channel used by this campaign event."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Recipient",
+      "required": true,
+      "help": "This is the name of the campaign's recipient."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Campaign",
+      "required": false,
+      "help": "This is the name of the campaign."
+    },
+    {
+      "id": "note",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Note",
+      "required": false,
+      "help": "Enter a note about this campaign response."
+    },
+    {
+      "id": "response",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "New Response Detail",
+      "required": false,
+      "help": "Select the recipient's response to this campaign.\n\nPrevious responses are tracked in the list below."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "responses",
+      "label": "Response History",
+      "fields": [
+        {
+          "id": "author",
+          "type": "text",
+          "label": "Author",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "note",
+          "type": "text",
+          "label": "Notes",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "response",
+          "type": "text",
+          "label": "Response Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "responsedate",
+          "type": "datetime",
+          "label": "Date/Time",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

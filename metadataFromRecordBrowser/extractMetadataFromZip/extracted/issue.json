@@ -1,0 +1,1039 @@
+{
+  "label": "Issue",
+  "id": "issue",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "assigned",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Assigned To",
+      "required": false,
+      "help": "Select the employee you want to assign this issue to.\n\nYou assign an issue to the person who needs to take the next step in resolving the issue.\n\nThe employees you see in this list vary according to your role permissions."
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "buildbroken",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Broken In Build",
+      "required": false,
+      "help": "Select the build for the version where this issue occurred."
+    },
+    {
+      "id": "buildfixed",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Fixed In Build",
+      "required": false,
+      "help": "Select the build for the version where this issue was fixed."
+    },
+    {
+      "id": "buildtarget",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Target Build",
+      "required": false,
+      "help": "Select the build for the version in which this issue is scheduled to be fixed."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Created",
+      "required": false,
+      "help": "This field displays the date when this issue was originally created."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "datereleased",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Date Released",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "emailassignee",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Email Assignee",
+      "required": false,
+      "help": "Check this box to email the person this issue is assigned to.\n\nYou may want to email the assignee any time an important comment is added or whenever a change is made to the issue record."
+    },
+    {
+      "id": "emailcells",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Email Functional Teams",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "emailemployees",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Copy Employees",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalabstract",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "External Abstract",
+      "required": false,
+      "help": "Enter an abstract for this issue that customers should see when they log in to the NetSuite Support Center."
+    },
+    {
+      "id": "externaldetails",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "External Details",
+      "required": false,
+      "help": "Enter a summary of the details for this issue that customers should see when they log in to the NetSuite Support Center."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isreviewed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Reviewed",
+      "required": false,
+      "help": "Check this box if the work done to resolve this issue has been reviewed."
+    },
+    {
+      "id": "isshowstopper",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Showstopper",
+      "required": false,
+      "help": "This field displays whether or not this issue is a showstopper.\n\nShowstopper issues must be fixed before the next version can be released."
+    },
+    {
+      "id": "issueabstract",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Abstract",
+      "required": true,
+      "help": "Enter a short summary of the issue.\n\nThis abstract is only available to internal users and is only seen by customers if you do not enter an external abstract on the External subtab."
+    },
+    {
+      "id": "issuenumber",
+      "type": "identifieranycase",
+      "nlapiSubmitField": false,
+      "label": "Issue Number",
+      "required": true,
+      "help": "Enter a number for this issue.\n\nIf you use Auto-Generated Numbering, this number is automatically generated to avoid duplicate numbers and ensure consecutive numbering."
+    },
+    {
+      "id": "issuestatus",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Issue Status",
+      "required": true,
+      "help": "Select the current status for this issue.\n\nThe issue status usually needs to be updated every time the bug is updated or assigned to a new person."
+    },
+    {
+      "id": "issuetags",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tags",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "issuetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Issue Type",
+      "required": true,
+      "help": "Select what type of issue this is.\n\nAdministrators can define issue types at <_TABNAME=ADMI_ISSUETYPE_> > <_TASKCATEGORY=ADMI_ISSUETYPE_> > Issue Types."
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": "If this issue is associated with an item, select the item."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Modification Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "module",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Module",
+      "required": false,
+      "help": "Select the module of the product selected that is affected by this issue."
+    },
+    {
+      "id": "newdetails",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "New Details",
+      "required": false,
+      "help": "Enter any new information or communication about this issue."
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Priority",
+      "required": true,
+      "help": "Select a priority level to denote when this issue needs to be resolved.\n\nA priority of 1 should receive attention first, and a priority of 9 does not need immediate attention."
+    },
+    {
+      "id": "product",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Product",
+      "required": true,
+      "help": "Select the product affected by this issue.\n\nAdministrators can create product records with modules at <_TABNAME=ADMI_ISSUEPRODUCT_> > <_TASKCATEGORY=ADMI_ISSUEPRODUCT_> > Products > New.\n\nProducts are tracked separately from item records. You can associate multiple items with a product on product records."
+    },
+    {
+      "id": "productteam",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Product Team",
+      "required": false,
+      "help": "Select the product team that is responsible for this issue.\n\nWhen this issue is first entered, it is emailed to members of this product team."
+    },
+    {
+      "id": "reportedby",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reported By",
+      "required": false,
+      "help": "This field displays the name of the person who created this issue record.\n\nFor users working in the UI, this field is always read-only.\n\nIn SuiteScript and web services, you can set a value for this field when creating a new record. However, when interacting with an existing record, the field is read-only."
+    },
+    {
+      "id": "reproduce",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reproduced",
+      "required": false,
+      "help": "Select where this issue can be reproduced:\n\n    * In test environment &#x96; this issue can be experienced in internal test accounts.\n    * In user's environment ONLY &#x96; this issue can not be experienced in internal test accounts.\n    * Not reproduced &#x96; this issue has not been reproduced."
+    },
+    {
+      "id": "reviewer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reviewer",
+      "required": false,
+      "help": "Select the person's name who reviewed the work done to resolve this issue."
+    },
+    {
+      "id": "severity",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Severity",
+      "required": true,
+      "help": "Select the severity of this issue from the list defined by your administrator.\n\nFor information on how to set up severity criteria, see the help topic Issue Severities."
+    },
+    {
+      "id": "source",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": "Select where information about this issue originated."
+    },
+    {
+      "id": "versionbroken",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Broken In Version",
+      "required": false,
+      "help": "Select the product version where this issue occurred.\n\nVersions are created and maintained from product records."
+    },
+    {
+      "id": "versionfixed",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Fixed In Version",
+      "required": false,
+      "help": "Select the version of the release when the issue should be resolved."
+    },
+    {
+      "id": "versiontarget",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Target Version",
+      "required": false,
+      "help": "Select the product version in which this issue is scheduled to be fixed.\n\nVersions are created and maintained from product records."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "brokeninversion",
+      "label": "Broken In",
+      "fields": [
+        {
+          "id": "build",
+          "type": "select",
+          "label": "Build",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "primary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "version",
+          "type": "select",
+          "label": "Version",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "fixedinversion",
+      "label": "Fixed In",
+      "fields": [
+        {
+          "id": "build",
+          "type": "select",
+          "label": "Build",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "primary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "version",
+          "type": "select",
+          "label": "Version",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "relatedissues",
+      "label": "Issues",
+      "fields": [
+        {
+          "id": "issueabstract",
+          "type": "url",
+          "label": "Abstract",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issueassignee",
+          "type": "text",
+          "label": "Assigned To",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issuenumber",
+          "type": "select",
+          "label": "Issue No.",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "issuestatus",
+          "type": "text",
+          "label": "Status",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "relationship",
+          "type": "select",
+          "label": "Relationship",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "relationshipcomment",
+          "type": "textarea",
+          "label": "Comment",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "targetversion",
+      "label": "Target",
+      "fields": [
+        {
+          "id": "build",
+          "type": "select",
+          "label": "Build",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "primary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "version",
+          "type": "select",
+          "label": "Version",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "ageinmonths",
+      "type": "integer",
+      "label": "Age in Months"
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "buildbroken",
+      "type": "select",
+      "label": "Broken In Build"
+    },
+    {
+      "id": "buildbrokenname",
+      "type": "text",
+      "label": "Broken In Build (Name)"
+    },
+    {
+      "id": "buildfixed",
+      "type": "select",
+      "label": "Fixed In Build"
+    },
+    {
+      "id": "buildfixedname",
+      "type": "text",
+      "label": "Fixed In Build (Name)"
+    },
+    {
+      "id": "buildtarget",
+      "type": "select",
+      "label": "Target Build"
+    },
+    {
+      "id": "buildtargetname",
+      "type": "text",
+      "label": "Target Build (Name)"
+    },
+    {
+      "id": "casecount",
+      "type": "integer",
+      "label": "Case Count"
+    },
+    {
+      "id": "casenumber",
+      "type": "text",
+      "label": "Case Number"
+    },
+    {
+      "id": "closeddate",
+      "type": "datetime",
+      "label": "Date Closed"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "datereleased",
+      "type": "date",
+      "label": "Date Released"
+    },
+    {
+      "id": "details",
+      "type": "text",
+      "label": "Details"
+    },
+    {
+      "id": "duplicateof",
+      "type": "select",
+      "label": "Duplicate Of"
+    },
+    {
+      "id": "efix",
+      "type": "checkbox",
+      "label": "E-Fix"
+    },
+    {
+      "id": "employeeorteam",
+      "type": "select",
+      "label": "Employee/Team"
+    },
+    {
+      "id": "eventstatus",
+      "type": "select",
+      "label": "Base Status"
+    },
+    {
+      "id": "externalabstract",
+      "type": "text",
+      "label": "External Abstract"
+    },
+    {
+      "id": "externaldetails",
+      "type": "text",
+      "label": "External Details"
+    },
+    {
+      "id": "externalfixedin",
+      "type": "select",
+      "label": "Fixed In Version (External)"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "externalstatus",
+      "type": "select",
+      "label": "External Status"
+    },
+    {
+      "id": "fixed",
+      "type": "datetime",
+      "label": "Date Fixed"
+    },
+    {
+      "id": "fixedby",
+      "type": "select",
+      "label": "Fixed By"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isowner",
+      "type": "checkbox",
+      "label": "I Own This Issue"
+    },
+    {
+      "id": "isreviewed",
+      "type": "checkbox",
+      "label": "Reviewed"
+    },
+    {
+      "id": "isshowstopper",
+      "type": "checkbox",
+      "label": "Showstopper"
+    },
+    {
+      "id": "issueabstract",
+      "type": "text",
+      "label": "Abstract"
+    },
+    {
+      "id": "issuenumber",
+      "type": "text",
+      "label": "Number/ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Date Last Modified"
+    },
+    {
+      "id": "module",
+      "type": "select",
+      "label": "Module"
+    },
+    {
+      "id": "number",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "originalfixedin",
+      "type": "text",
+      "label": "Last Version Fixed (pre-11)"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "product",
+      "type": "select",
+      "label": "Product"
+    },
+    {
+      "id": "productteam",
+      "type": "select",
+      "label": "Product Team"
+    },
+    {
+      "id": "reportedby",
+      "type": "select",
+      "label": "Reported By"
+    },
+    {
+      "id": "reproduce",
+      "type": "select",
+      "label": "Reproduced"
+    },
+    {
+      "id": "resolved",
+      "type": "datetime",
+      "label": "Date Resolved"
+    },
+    {
+      "id": "resolvedby",
+      "type": "select",
+      "label": "Resolved By"
+    },
+    {
+      "id": "reviewer",
+      "type": "select",
+      "label": "Reviewer"
+    },
+    {
+      "id": "severity",
+      "type": "select",
+      "label": "Severity"
+    },
+    {
+      "id": "source",
+      "type": "select",
+      "label": "Source"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "tags",
+      "type": "multiselect",
+      "label": "Tags"
+    },
+    {
+      "id": "tracking",
+      "type": "checkbox",
+      "label": "Tracking"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "usertype",
+      "type": "select",
+      "label": "User Type"
+    },
+    {
+      "id": "versionbroken",
+      "type": "select",
+      "label": "Broken In Version"
+    },
+    {
+      "id": "versionfixed",
+      "type": "select",
+      "label": "Fixed In Version"
+    },
+    {
+      "id": "versiontarget",
+      "type": "select",
+      "label": "Target Version"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "ageinmonths",
+      "type": "integer",
+      "label": "Age in Months"
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "buildbroken",
+      "type": "select",
+      "label": "Broken In Build"
+    },
+    {
+      "id": "buildfixed",
+      "type": "select",
+      "label": "Fixed In Build"
+    },
+    {
+      "id": "buildtarget",
+      "type": "select",
+      "label": "Target Build"
+    },
+    {
+      "id": "casecount",
+      "type": "integer",
+      "label": "Case Count"
+    },
+    {
+      "id": "casenumber",
+      "type": "text",
+      "label": "Case Number"
+    },
+    {
+      "id": "closeddate",
+      "type": "datetime",
+      "label": "Date Closed"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "datereleased",
+      "type": "date",
+      "label": "Date Released"
+    },
+    {
+      "id": "duplicateof",
+      "type": "select",
+      "label": "Duplicate Of"
+    },
+    {
+      "id": "employeeorteam",
+      "type": "select",
+      "label": "Employee/Team"
+    },
+    {
+      "id": "eventstatus",
+      "type": "select",
+      "label": "Base Status"
+    },
+    {
+      "id": "externalabstract",
+      "type": "text",
+      "label": "External Abstract"
+    },
+    {
+      "id": "externaldetails",
+      "type": "text",
+      "label": "External Details"
+    },
+    {
+      "id": "externalfixedin",
+      "type": "text",
+      "label": "Fixed In Version (External)"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalstatus",
+      "type": "select",
+      "label": "External Status"
+    },
+    {
+      "id": "fixed",
+      "type": "datetime",
+      "label": "Date Fixed"
+    },
+    {
+      "id": "fixedby",
+      "type": "select",
+      "label": "Fixed By"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isowner",
+      "type": "checkbox",
+      "label": "I Own This Issue"
+    },
+    {
+      "id": "isreviewed",
+      "type": "checkbox",
+      "label": "Reviewed"
+    },
+    {
+      "id": "isshowstopper",
+      "type": "select",
+      "label": "Showstopper"
+    },
+    {
+      "id": "issueabstract",
+      "type": "text",
+      "label": "Abstract"
+    },
+    {
+      "id": "issuestatus",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "module",
+      "type": "text",
+      "label": "Module"
+    },
+    {
+      "id": "number",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "originalfixedin",
+      "type": "text",
+      "label": "Last Version Fixed (pre-11)"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "product",
+      "type": "select",
+      "label": "Product"
+    },
+    {
+      "id": "productteam",
+      "type": "select",
+      "label": "Product Team"
+    },
+    {
+      "id": "reportedby",
+      "type": "select",
+      "label": "Reported By"
+    },
+    {
+      "id": "reproduce",
+      "type": "select",
+      "label": "Reproduced"
+    },
+    {
+      "id": "resolved",
+      "type": "datetime",
+      "label": "Date Resolved"
+    },
+    {
+      "id": "resolvedby",
+      "type": "select",
+      "label": "Resolved By"
+    },
+    {
+      "id": "reviewer",
+      "type": "select",
+      "label": "Reviewed By"
+    },
+    {
+      "id": "severity",
+      "type": "select",
+      "label": "Severity"
+    },
+    {
+      "id": "source",
+      "type": "select",
+      "label": "Source"
+    },
+    {
+      "id": "tags",
+      "type": "multiselect",
+      "label": "Tags"
+    },
+    {
+      "id": "type",
+      "type": "text",
+      "label": "Type"
+    },
+    {
+      "id": "usertype",
+      "type": "select",
+      "label": "User Type"
+    },
+    {
+      "id": "versionbroken",
+      "type": "select",
+      "label": "Broken In Version"
+    },
+    {
+      "id": "versionfixed",
+      "type": "select",
+      "label": "Fixed In Version"
+    },
+    {
+      "id": "versiontarget",
+      "type": "select",
+      "label": "Target Version"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "case",
+      "label": "Cases"
+    },
+    {
+      "name": "communication",
+      "label": "Communication"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "detail",
+      "label": "Details"
+    },
+    {
+      "name": "external",
+      "label": "External"
+    },
+    {
+      "name": "file",
+      "label": "Files"
+    },
+    {
+      "name": "version",
+      "label": "Versions"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,72 @@
+{
+  "label": "Deleted Record",
+  "id": "deletedrecord",
+  "supportCustomFields": true,
+  "searchOnly": true,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "context",
+      "type": "select",
+      "label": "Context"
+    },
+    {
+      "id": "deletedby",
+      "type": "select",
+      "label": "Deleted by"
+    },
+    {
+      "id": "deleteddate",
+      "type": "datetime",
+      "label": "Date Deleted"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "recordtype",
+      "type": "select",
+      "label": "Record Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "context",
+      "type": "text",
+      "label": "Context"
+    },
+    {
+      "id": "deletedby",
+      "type": "select",
+      "label": "Deleted By"
+    },
+    {
+      "id": "deleteddate",
+      "type": "datetime",
+      "label": "Date Deleted"
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "label": "External Id"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

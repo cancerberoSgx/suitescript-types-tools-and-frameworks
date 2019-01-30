@@ -1,0 +1,1862 @@
+{
+  "label": "Originating Lead",
+  "id": "originatinglead",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "phone",
+      "label": "Address Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "label": "Balance"
+    },
+    {
+      "id": "billaddress",
+      "type": "textarea",
+      "label": "Billing Address"
+    },
+    {
+      "id": "billingratecard",
+      "type": "select",
+      "label": "Billing Rate Card"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "billingtransactionform",
+      "type": "select",
+      "label": "Billing Transaction Form"
+    },
+    {
+      "id": "billingtransactiontype",
+      "type": "select",
+      "label": "Billing Transaction Type"
+    },
+    {
+      "id": "boughtamount",
+      "type": "currency",
+      "label": "Total Amount Purchased"
+    },
+    {
+      "id": "boughtdate",
+      "type": "date",
+      "label": "Purchase Dates"
+    },
+    {
+      "id": "bounced",
+      "type": "checkbox",
+      "label": "Hard Bounced"
+    },
+    {
+      "id": "buyingreason",
+      "type": "select",
+      "label": "Buying Reason"
+    },
+    {
+      "id": "buyingtimeframe",
+      "type": "select",
+      "label": "Buying Time Frame"
+    },
+    {
+      "id": "campaignevent",
+      "type": "select",
+      "label": "Campaign Event"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "cccustomercode",
+      "type": "text",
+      "label": "CC Customer Code"
+    },
+    {
+      "id": "ccdefault",
+      "type": "checkbox",
+      "label": "Default Credit Card"
+    },
+    {
+      "id": "ccexpdate",
+      "type": "date",
+      "label": "CC Expire Date"
+    },
+    {
+      "id": "ccholdername",
+      "type": "text",
+      "label": "Credit Cardholder Name"
+    },
+    {
+      "id": "ccnumber",
+      "type": "checkbox",
+      "label": "Credit Card Number"
+    },
+    {
+      "id": "ccstate",
+      "type": "select",
+      "label": "Credit Card State"
+    },
+    {
+      "id": "ccstatefrom",
+      "type": "date",
+      "label": "Credit Card State From"
+    },
+    {
+      "id": "cctype",
+      "type": "select",
+      "label": "Credit Card Type"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "label": "Comments"
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "label": "Company Name"
+    },
+    {
+      "id": "consolbalance",
+      "type": "currency",
+      "label": "Consolidated Balance"
+    },
+    {
+      "id": "consoldaysoverdue",
+      "type": "integer",
+      "label": "Consolidated Days Overdue"
+    },
+    {
+      "id": "consoldepositbalance",
+      "type": "currency",
+      "label": "Consolidated Deposit Balance"
+    },
+    {
+      "id": "consoloverduebalance",
+      "type": "currency",
+      "label": "Consolidated Overdue Balance"
+    },
+    {
+      "id": "consolunbilledorders",
+      "type": "currency",
+      "label": "Consolidated Unbilled Orders"
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "label": "Contact"
+    },
+    {
+      "id": "contribution",
+      "type": "integer",
+      "label": "Contribution %"
+    },
+    {
+      "id": "conversiondate",
+      "type": "date",
+      "label": "Conversion Date"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "credithold",
+      "type": "select",
+      "label": "Credit Hold"
+    },
+    {
+      "id": "creditholdoverride",
+      "type": "checkbox",
+      "label": "Override Credit Hold Off"
+    },
+    {
+      "id": "creditlimit",
+      "type": "currency",
+      "label": "Credit Limit"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Primary Currency"
+    },
+    {
+      "id": "custstage",
+      "type": "select",
+      "label": "Parent Stage"
+    },
+    {
+      "id": "custstatus",
+      "type": "select",
+      "label": "Parent Status"
+    },
+    {
+      "id": "dateclosed",
+      "type": "datetime",
+      "label": "Date Closed"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "daysoverdue",
+      "type": "integer",
+      "label": "Days Overdue"
+    },
+    {
+      "id": "defaultorderpriority",
+      "type": "float",
+      "label": "Default Order Priority"
+    },
+    {
+      "id": "depositbalance",
+      "type": "currency",
+      "label": "Deposit Balance"
+    },
+    {
+      "id": "draccount",
+      "type": "select",
+      "label": "Deferred Revenue Reclassification Account"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "emailpreference",
+      "type": "select",
+      "label": "Email Preference"
+    },
+    {
+      "id": "emailtransactions",
+      "type": "checkbox",
+      "label": "Email Transactions"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name/ID"
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "estimatedbudget",
+      "type": "currency",
+      "label": "Estimated Budget"
+    },
+    {
+      "id": "explicitconversion",
+      "type": "checkbox",
+      "label": "Explicit Conversion"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "faxtransactions",
+      "type": "checkbox",
+      "label": "Fax Transactions"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "firstorderdate",
+      "type": "date",
+      "label": "Date of First Order"
+    },
+    {
+      "id": "firstsaledate",
+      "type": "date",
+      "label": "Date of First Sale"
+    },
+    {
+      "id": "fxaccount",
+      "type": "select",
+      "label": "Foreign Currency Adjustment Revenue Account"
+    },
+    {
+      "id": "fxbalance",
+      "type": "currency",
+      "label": "Balance (Foreign Currency)"
+    },
+    {
+      "id": "fxconsolbalance",
+      "type": "currency",
+      "label": "Consolidated Balance (Foreign Currency)"
+    },
+    {
+      "id": "fxconsolunbilledorders",
+      "type": "currency",
+      "label": "Consolidated Unbilled Orders (Foreign Currency)"
+    },
+    {
+      "id": "fxunbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders (Foreign Currency)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "group",
+      "type": "multiselect",
+      "label": "Group"
+    },
+    {
+      "id": "grouppricinglevel",
+      "type": "select",
+      "label": "Group Pricing Level"
+    },
+    {
+      "id": "hasduplicates",
+      "type": "checkbox",
+      "label": "Duplicate"
+    },
+    {
+      "id": "image",
+      "type": "image",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isbudgetapproved",
+      "type": "checkbox",
+      "label": "Budget Approved"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isitemcorrelated",
+      "type": "checkbox",
+      "label": "Is Upsell Item Correlated"
+    },
+    {
+      "id": "isjob",
+      "type": "checkbox",
+      "label": "Is Job"
+    },
+    {
+      "id": "isperson",
+      "type": "checkbox",
+      "label": "Is Individual"
+    },
+    {
+      "id": "isreportedlead",
+      "type": "checkbox",
+      "label": "Included in Lead Reports"
+    },
+    {
+      "id": "isshipaddress",
+      "type": "checkbox",
+      "label": "Residential Address"
+    },
+    {
+      "id": "itemcorrelation",
+      "type": "percent",
+      "label": "Upsell Item Correlation"
+    },
+    {
+      "id": "itempricinglevel",
+      "type": "select",
+      "label": "Item Pricing Level"
+    },
+    {
+      "id": "itempricingunitprice",
+      "type": "currency",
+      "label": "Item Pricing Unit Price"
+    },
+    {
+      "id": "itemsbought",
+      "type": "multiselect",
+      "label": "Items Purchased"
+    },
+    {
+      "id": "itemsordered",
+      "type": "multiselect",
+      "label": "Items Ordered"
+    },
+    {
+      "id": "jobenddate",
+      "type": "date",
+      "label": "Actual End Date"
+    },
+    {
+      "id": "jobestcost",
+      "type": "currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "id": "jobestenddate",
+      "type": "date",
+      "label": "Projected End Date"
+    },
+    {
+      "id": "jobestrevenue",
+      "type": "currency",
+      "label": "Estimated Revenue"
+    },
+    {
+      "id": "jobpctcomplete",
+      "type": "integer",
+      "label": "Percent Complete"
+    },
+    {
+      "id": "jobstartdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "jobstatus",
+      "type": "select",
+      "label": "Job Status"
+    },
+    {
+      "id": "jobtype",
+      "type": "select",
+      "label": "Job Type"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "lastorderdate",
+      "type": "date",
+      "label": "Date of Last Order"
+    },
+    {
+      "id": "lastsaledate",
+      "type": "date",
+      "label": "Date of Last Sale"
+    },
+    {
+      "id": "leaddate",
+      "type": "datetime",
+      "label": "Lead Date"
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "label": "Lead Source"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "manualcredithold",
+      "type": "checkbox",
+      "label": "Override Credit Hold On"
+    },
+    {
+      "id": "merchantaccount",
+      "type": "select",
+      "label": "Credit Card Processor"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "monthlyclosing",
+      "type": "select",
+      "label": "Monthly Closing Date"
+    },
+    {
+      "id": "negativenumberformat",
+      "type": "select",
+      "label": "Negative Number Format"
+    },
+    {
+      "id": "numberformat",
+      "type": "select",
+      "label": "Number Format"
+    },
+    {
+      "id": "oncredithold",
+      "type": "checkbox",
+      "label": "On Credit Hold"
+    },
+    {
+      "id": "onlineformcampaignevent",
+      "type": "select",
+      "label": "Online Form History - Campaign Event"
+    },
+    {
+      "id": "onlineformdate",
+      "type": "date",
+      "label": "Online Form History - Form Date"
+    },
+    {
+      "id": "onlineformleadsource",
+      "type": "select",
+      "label": "Online Form History - Lead Source"
+    },
+    {
+      "id": "onlineformname",
+      "type": "select",
+      "label": "Online Form History - Form Name"
+    },
+    {
+      "id": "orderedamount",
+      "type": "currency",
+      "label": "Total Amount Ordered"
+    },
+    {
+      "id": "ordereddate",
+      "type": "date",
+      "label": "Order Dates"
+    },
+    {
+      "id": "otherrelationships",
+      "type": "multiselect",
+      "label": "Other Relationships"
+    },
+    {
+      "id": "overduebalance",
+      "type": "currency",
+      "label": "Overdue Balance"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Sub of"
+    },
+    {
+      "id": "parentitemsbought",
+      "type": "multiselect",
+      "label": "Items or Sub-Items Purchased"
+    },
+    {
+      "id": "parentitemsordered",
+      "type": "multiselect",
+      "label": "Items or Sub-Items Ordered"
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "label": "Partner"
+    },
+    {
+      "id": "partnercontribution",
+      "type": "integer",
+      "label": "Partner Contribution %"
+    },
+    {
+      "id": "partnerrole",
+      "type": "select",
+      "label": "Partner Role"
+    },
+    {
+      "id": "partnerteammember",
+      "type": "select",
+      "label": "Partner Team Member"
+    },
+    {
+      "id": "pec",
+      "type": "text",
+      "label": "PEC"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "pricelevel",
+      "type": "select",
+      "label": "Price Level"
+    },
+    {
+      "id": "pricinggroup",
+      "type": "select",
+      "label": "Pricing Group"
+    },
+    {
+      "id": "pricingitem",
+      "type": "select",
+      "label": "Pricing Item"
+    },
+    {
+      "id": "printtransactions",
+      "type": "checkbox",
+      "label": "Print Transactions"
+    },
+    {
+      "id": "prospectdate",
+      "type": "datetime",
+      "label": "Prospect Date"
+    },
+    {
+      "id": "pstexempt",
+      "type": "checkbox",
+      "label": "PST Exempt"
+    },
+    {
+      "id": "receivablesaccount",
+      "type": "select",
+      "label": "Default Receivables Account"
+    },
+    {
+      "id": "reminderdate",
+      "type": "date",
+      "label": "Renewal Reminder Date"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "resalenumber",
+      "type": "text",
+      "label": "Resale Number"
+    },
+    {
+      "id": "role",
+      "type": "select",
+      "label": "Role"
+    },
+    {
+      "id": "salesreadiness",
+      "type": "select",
+      "label": "Sales Readiness"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "salesteammember",
+      "type": "select",
+      "label": "Sales Team Member"
+    },
+    {
+      "id": "salesteamrole",
+      "type": "select",
+      "label": "Sales Team Role"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "shipaddress",
+      "type": "textarea",
+      "label": "Shipping Address"
+    },
+    {
+      "id": "shipcomplete",
+      "type": "checkbox",
+      "label": "Ship Complete"
+    },
+    {
+      "id": "shippingcarrier",
+      "type": "select",
+      "label": "Shipping Carrier"
+    },
+    {
+      "id": "shippingitem",
+      "type": "select",
+      "label": "Shipping Item"
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "label": "Stage"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province (Deprecated)"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "date",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "taxable",
+      "type": "checkbox",
+      "label": "Taxable"
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "label": "Terms"
+    },
+    {
+      "id": "territory",
+      "type": "select",
+      "label": "Territory"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Primary Type (Deprecated)"
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Web Address"
+    },
+    {
+      "id": "vatregnumber",
+      "type": "text",
+      "label": "Tax Number"
+    },
+    {
+      "id": "weblead",
+      "type": "checkbox",
+      "label": "Web Lead"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "address1",
+      "type": "text",
+      "label": "Address 1"
+    },
+    {
+      "id": "address2",
+      "type": "text",
+      "label": "Address 2"
+    },
+    {
+      "id": "address3",
+      "type": "text",
+      "label": "Address 3"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addressinternalid",
+      "type": "integer",
+      "label": "Address Internal ID"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "altcontact",
+      "type": "text",
+      "label": "Alt. Contact"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "label": "Alt. Email"
+    },
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "label": "Office Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "label": "Balance"
+    },
+    {
+      "id": "billaddress",
+      "type": "text",
+      "label": "Billing Address"
+    },
+    {
+      "id": "billaddress1",
+      "type": "text",
+      "label": "Billing Address 1"
+    },
+    {
+      "id": "billaddress2",
+      "type": "text",
+      "label": "Billing Address 2"
+    },
+    {
+      "id": "billaddress3",
+      "type": "text",
+      "label": "Billing Address 3"
+    },
+    {
+      "id": "billaddressee",
+      "type": "text",
+      "label": "Billing Addressee"
+    },
+    {
+      "id": "billattention",
+      "type": "text",
+      "label": "Billing Attention"
+    },
+    {
+      "id": "billcity",
+      "type": "text",
+      "label": "Billing City"
+    },
+    {
+      "id": "billcountry",
+      "type": "select",
+      "label": "Billing Country"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billingratecard",
+      "type": "text",
+      "label": "Billing Rate Card"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "billingtransactionform",
+      "type": "select",
+      "label": "Billing Transaction Form"
+    },
+    {
+      "id": "billingtransactiontype",
+      "type": "select",
+      "label": "Billing Transaction Type"
+    },
+    {
+      "id": "billphone",
+      "type": "text",
+      "label": "Billing Phone"
+    },
+    {
+      "id": "billstate",
+      "type": "select",
+      "label": "Billing State/Province"
+    },
+    {
+      "id": "billzipcode",
+      "type": "text",
+      "label": "Billing Zip"
+    },
+    {
+      "id": "bounced",
+      "type": "checkbox",
+      "label": "Hard Bounced"
+    },
+    {
+      "id": "buyingreason",
+      "type": "text",
+      "label": "Buying Reason"
+    },
+    {
+      "id": "buyingtimeframe",
+      "type": "text",
+      "label": "Buying Time Frame"
+    },
+    {
+      "id": "campaignevent",
+      "type": "select",
+      "label": "Campaign Event"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "cccustomercode",
+      "type": "text",
+      "label": "CC Customer Code"
+    },
+    {
+      "id": "ccdefault",
+      "type": "checkbox",
+      "label": "Default Credit Card"
+    },
+    {
+      "id": "ccexpdate",
+      "type": "mmyydate",
+      "label": "CC Expire Date"
+    },
+    {
+      "id": "ccholdername",
+      "type": "text",
+      "label": "Credit Cardholder Name"
+    },
+    {
+      "id": "ccinternalid",
+      "type": "text",
+      "label": "Credit Card Internal ID"
+    },
+    {
+      "id": "ccnumber",
+      "type": "ccnumber",
+      "label": "Credit Card Number"
+    },
+    {
+      "id": "ccstate",
+      "type": "select",
+      "label": "Credit Card State"
+    },
+    {
+      "id": "ccstatefrom",
+      "type": "date",
+      "label": "Credit Card State From"
+    },
+    {
+      "id": "cctype",
+      "type": "select",
+      "label": "Credit Card Type"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "label": "Comments"
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "label": "Company Name"
+    },
+    {
+      "id": "consolbalance",
+      "type": "currency",
+      "label": "Consolidated Balance"
+    },
+    {
+      "id": "consoldaysoverdue",
+      "type": "integer",
+      "label": "Consolidated Days Overdue"
+    },
+    {
+      "id": "consoldepositbalance",
+      "type": "currency",
+      "label": "Consolidated Deposit Balance"
+    },
+    {
+      "id": "consoloverduebalance",
+      "type": "currency",
+      "label": "Consolidated Overdue Balance"
+    },
+    {
+      "id": "consolunbilledorders",
+      "type": "currency",
+      "label": "Consolidated Unbilled Orders"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Primary Contact"
+    },
+    {
+      "id": "contribution",
+      "type": "percent",
+      "label": "Contribution %"
+    },
+    {
+      "id": "contributionprimary",
+      "type": "percent",
+      "label": "Primary Sales Rep Contribution %"
+    },
+    {
+      "id": "conversiondate",
+      "type": "date",
+      "label": "Conversion Date"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "credithold",
+      "type": "select",
+      "label": "Credit Hold"
+    },
+    {
+      "id": "creditholdoverride",
+      "type": "checkbox",
+      "label": "Override Credit Hold Off"
+    },
+    {
+      "id": "creditlimit",
+      "type": "currency",
+      "label": "Credit Limit"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Primary Currency"
+    },
+    {
+      "id": "dateclosed",
+      "type": "datetime",
+      "label": "Date Closed"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "daysoverdue",
+      "type": "integer",
+      "label": "Days Overdue"
+    },
+    {
+      "id": "defaultorderpriority",
+      "type": "float",
+      "label": "Default Order Priority"
+    },
+    {
+      "id": "depositbalance",
+      "type": "currency",
+      "label": "Deposit Balance"
+    },
+    {
+      "id": "draccount",
+      "type": "text",
+      "label": "Deferred Revenue Reclassification Account"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "emailpreference",
+      "type": "select",
+      "label": "Email Preference"
+    },
+    {
+      "id": "emailtransactions",
+      "type": "checkbox",
+      "label": "Email Transactions"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "entitynumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "estimatedbudget",
+      "type": "currency",
+      "label": "Estimated Budget"
+    },
+    {
+      "id": "explicitconversion",
+      "type": "checkbox",
+      "label": "Explicit Conversion"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "label": "Fax"
+    },
+    {
+      "id": "faxtransactions",
+      "type": "checkbox",
+      "label": "Fax Transactions"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "firstorderdate",
+      "type": "date",
+      "label": "Date of First Order"
+    },
+    {
+      "id": "firstsaledate",
+      "type": "date",
+      "label": "Date of First Sale"
+    },
+    {
+      "id": "fxaccount",
+      "type": "text",
+      "label": "Foreign Currency Adjustment Revenue Account"
+    },
+    {
+      "id": "fxbalance",
+      "type": "currency",
+      "label": "Balance (Foreign Currency)"
+    },
+    {
+      "id": "fxconsolbalance",
+      "type": "currency",
+      "label": "Consolidated Balance (Foreign Currency)"
+    },
+    {
+      "id": "fxconsolunbilledorders",
+      "type": "currency",
+      "label": "Consolidated Unbilled Orders (Foreign Currency)"
+    },
+    {
+      "id": "fxunbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders (Foreign Currency)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "grouppricinglevel",
+      "type": "text",
+      "label": "Group Pricing Level"
+    },
+    {
+      "id": "hasduplicates",
+      "type": "checkbox",
+      "label": "Duplicate"
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "label": "Home Phone"
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isbudgetapproved",
+      "type": "checkbox",
+      "label": "Budget Approved"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isitemcorrelated",
+      "type": "checkbox",
+      "label": "Is Upsell Item Correlated"
+    },
+    {
+      "id": "isperson",
+      "type": "checkbox",
+      "label": "Is Individual"
+    },
+    {
+      "id": "isshipaddress",
+      "type": "checkbox",
+      "label": "Residential Address"
+    },
+    {
+      "id": "itemcorrelation",
+      "type": "percent",
+      "label": "Upsell Item Correlation"
+    },
+    {
+      "id": "itempricinglevel",
+      "type": "text",
+      "label": "Item Pricing Level"
+    },
+    {
+      "id": "itempricingunitprice",
+      "type": "currency",
+      "label": "Item Pricing Unit Price"
+    },
+    {
+      "id": "jobenddate",
+      "type": "date",
+      "label": "Job Actual End"
+    },
+    {
+      "id": "jobprojectedend",
+      "type": "date",
+      "label": "Job Projected End"
+    },
+    {
+      "id": "jobstartdate",
+      "type": "date",
+      "label": "Job Start"
+    },
+    {
+      "id": "jobtype",
+      "type": "select",
+      "label": "Job Type"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "lastorderdate",
+      "type": "date",
+      "label": "Date of Last Order"
+    },
+    {
+      "id": "lastsaledate",
+      "type": "date",
+      "label": "Date of Last Sale"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "leaddate",
+      "type": "datetime",
+      "label": "Lead Date"
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "label": "Lead Source"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "manualcredithold",
+      "type": "checkbox",
+      "label": "Override Credit Hold On"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "label": "Mobile Phone"
+    },
+    {
+      "id": "monthlyclosing",
+      "type": "select",
+      "label": "Monthly Closing Date"
+    },
+    {
+      "id": "negativenumberformat",
+      "type": "select",
+      "label": "Negative Number Format"
+    },
+    {
+      "id": "numberformat",
+      "type": "select",
+      "label": "Number Format"
+    },
+    {
+      "id": "oncredithold",
+      "type": "checkbox",
+      "label": "On Credit Hold"
+    },
+    {
+      "id": "onlineformcampaignevent",
+      "type": "text",
+      "label": "Online Form History - Campaign Event"
+    },
+    {
+      "id": "onlineformdate",
+      "type": "date",
+      "label": "Online Form History - Date"
+    },
+    {
+      "id": "onlineformleadsource",
+      "type": "text",
+      "label": "Online Form History - Lead Source"
+    },
+    {
+      "id": "onlineformname",
+      "type": "text",
+      "label": "Online Form History - Form Name"
+    },
+    {
+      "id": "overduebalance",
+      "type": "currency",
+      "label": "Overdue Balance"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Top Level Parent"
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "label": "Partner"
+    },
+    {
+      "id": "partnercontribution",
+      "type": "percent",
+      "label": "Partner Contribution %"
+    },
+    {
+      "id": "partnerrole",
+      "type": "text",
+      "label": "Partner Role"
+    },
+    {
+      "id": "partnerteammember",
+      "type": "select",
+      "label": "Partner Team Member"
+    },
+    {
+      "id": "pec",
+      "type": "text",
+      "label": "PEC"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "prefccprocessor",
+      "type": "select",
+      "label": "Credit Card Processor"
+    },
+    {
+      "id": "pricelevel",
+      "type": "select",
+      "label": "Price Level"
+    },
+    {
+      "id": "pricinggroup",
+      "type": "text",
+      "label": "Pricing Group"
+    },
+    {
+      "id": "pricingitem",
+      "type": "text",
+      "label": "Pricing Item"
+    },
+    {
+      "id": "printtransactions",
+      "type": "checkbox",
+      "label": "Print Transactions"
+    },
+    {
+      "id": "prospectdate",
+      "type": "datetime",
+      "label": "Prospect Date"
+    },
+    {
+      "id": "receivablesaccount",
+      "type": "text",
+      "label": "Default Receivables Account"
+    },
+    {
+      "id": "reminderdays",
+      "type": "integer",
+      "label": "Reminder Days"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "resalenumber",
+      "type": "text",
+      "label": "Resale Number"
+    },
+    {
+      "id": "role",
+      "type": "text",
+      "label": "Role"
+    },
+    {
+      "id": "salesreadiness",
+      "type": "text",
+      "label": "Sales Readiness"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "salesteammember",
+      "type": "select",
+      "label": "Sales Team Member"
+    },
+    {
+      "id": "salesteamrole",
+      "type": "select",
+      "label": "Sales Team Role"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "shipaddress",
+      "type": "text",
+      "label": "Shipping Address"
+    },
+    {
+      "id": "shipaddress1",
+      "type": "text",
+      "label": "Shipping Address 1"
+    },
+    {
+      "id": "shipaddress2",
+      "type": "text",
+      "label": "Shipping Address 2"
+    },
+    {
+      "id": "shipaddress3",
+      "type": "text",
+      "label": "Shipping Address 3"
+    },
+    {
+      "id": "shipaddressee",
+      "type": "text",
+      "label": "Shipping Addressee"
+    },
+    {
+      "id": "shipattention",
+      "type": "text",
+      "label": "Shipping Attention"
+    },
+    {
+      "id": "shipcity",
+      "type": "text",
+      "label": "Shipping City"
+    },
+    {
+      "id": "shipcomplete",
+      "type": "checkbox",
+      "label": "Ship Complete"
+    },
+    {
+      "id": "shipcountry",
+      "type": "select",
+      "label": "Shipping Country"
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "shipphone",
+      "type": "text",
+      "label": "Shipping Phone"
+    },
+    {
+      "id": "shippingcarrier",
+      "type": "select",
+      "label": "Shipping Carrier"
+    },
+    {
+      "id": "shippingitem",
+      "type": "select",
+      "label": "Shipping Item"
+    },
+    {
+      "id": "shipstate",
+      "type": "text",
+      "label": "Shipping State/Province"
+    },
+    {
+      "id": "shipzip",
+      "type": "text",
+      "label": "Shipping Zip"
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "label": "Stage"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State/Province Display Name"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "datetime",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "taxable",
+      "type": "checkbox",
+      "label": "Taxable"
+    },
+    {
+      "id": "taxitem",
+      "type": "select",
+      "label": "Tax Item"
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "label": "Terms"
+    },
+    {
+      "id": "territory",
+      "type": "select",
+      "label": "Territory"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Primary Type (Deprecated)"
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders"
+    },
+    {
+      "id": "url",
+      "type": "text",
+      "label": "Web Address"
+    },
+    {
+      "id": "vatregnumber",
+      "type": "text",
+      "label": "Tax Number"
+    },
+    {
+      "id": "weblead",
+      "type": "checkbox",
+      "label": "Web Lead"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip Code"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "msesubsidiary",
+      "description": "Subsidiary",
+      "actualName": "Subsidiary"
+    },
+    {
+      "id": "originatinglead",
+      "description": "Originating Lead",
+      "actualName": "Lead"
+    },
+    {
+      "id": "pricing",
+      "description": "Pricing",
+      "actualName": "Pricing"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

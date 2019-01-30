@@ -1,0 +1,56 @@
+{
+  "label": "Item Bin Number",
+  "id": "itembinnumber",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "binnumber",
+      "type": "select",
+      "label": "Bin Number"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "quantityavailable",
+      "type": "float",
+      "label": "Availabile"
+    },
+    {
+      "id": "quantityonhand",
+      "type": "float",
+      "label": "On Hand"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "binnumber",
+      "type": "select",
+      "label": "Bin Number"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "quantityavailable",
+      "type": "float",
+      "label": "Available"
+    },
+    {
+      "id": "quantityonhand",
+      "type": "float",
+      "label": "On Hand"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

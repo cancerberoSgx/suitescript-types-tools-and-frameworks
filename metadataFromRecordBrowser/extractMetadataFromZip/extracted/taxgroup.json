@@ -1,0 +1,482 @@
+{
+  "label": "Tax Group",
+  "id": "taxgroup",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "city",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "City",
+      "required": false,
+      "help": "Enter the city where this tax should be applied.\n\nThis value is used by NetSuite to automatically determine the correct tax when an order is entered or a customer places an order on your website.\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "County",
+      "required": false,
+      "help": "Enter the county where this tax should be applied.\n \nThis value is used by NetSuite to automatically determine the correct tax when an order is entered or a customer places an order on your website.\n \nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description for this record."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Children",
+      "required": false,
+      "help": "Check this box to apply the tax code to the children of the subsidiary that you selected in the Subsidiaries field. In the Subsidiaries field, colons separate parent subsidiaries (on the left) from their children (on the right).\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "isdefault",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Default Code",
+      "required": false,
+      "help": "Check this box if this code is the default tax group selected on transactions.\n \nThis tax code is selected if the customer's shipping address does not match another tax group.\n \nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "This field is false by default. Check this box to inactivate this record. Inactive records do not show on transactions and records for selection in lists.\n\nOn nexus and tax type records, this field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax Name",
+      "required": true,
+      "help": "Enter a name for this record.\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "itemtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nexuscountry",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "piggyback",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Piggy Back",
+      "required": false,
+      "help": "Check this box if you want this tax code to include GST in addition to the line item amount when calculating PST.\n\nIf you do not check this box, PST is calculated for the line item amount only."
+    },
+    {
+      "id": "rate",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": "Enter the appropriate tax rate as a percentage.\n\nExample: 8%\n\nThis percentage will be calculated when you select this tax item on transactions.\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "State",
+      "required": false,
+      "help": "Select the state, province, or county that you are making this record for. You can create a new state, province, or county at Setup > Company > Setup Tasks > States/Provinces/Counties.\n\nOn tax code records, this field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxitem1",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "GST/HST",
+      "required": true,
+      "help": "Select the GST item you want to include in this tax code."
+    },
+    {
+      "id": "taxitem2",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "PST",
+      "required": true,
+      "help": "Select the PST item you want to include in this tax code."
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Type",
+      "required": true,
+      "help": "Select the tax type for this tax code. You can create a new tax type at Setup > Accounting > Taxes > Tax Types > New.\n\nIf the SuiteTax feature is enabled in your account, you cannot change the value in the Tax Type field after the tax code record has been saved."
+    },
+    {
+      "id": "unitprice1",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": "The tax rate for the GST item is shown here."
+    },
+    {
+      "id": "unitprice2",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": "The rate for the PST item is shown here."
+    },
+    {
+      "id": "zip",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Zip Codes",
+      "required": false,
+      "help": "Enter the zip codes where this tax should be applied. Separate each zip code with a comma.\n \nThis value is used by NetSuite to automatically determine the correct tax when an order is entered or a customer places an order on your website.\n \nThis field is available only if the SuiteTax feature is disabled in your account."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "taxitem",
+      "label": "Tax Codes",
+      "fields": [
+        {
+          "id": "basis",
+          "type": "posfloat",
+          "label": "Basis",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "city",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "county",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "percent",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "state",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxitemnkey",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxname",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxname2",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxtype",
+          "type": "text",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "piggyback",
+      "type": "checkbox",
+      "label": "Piggy Back"
+    },
+    {
+      "id": "rate",
+      "type": "percent",
+      "label": "Rate"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "taxitem1",
+      "type": "select",
+      "label": "GST/HST"
+    },
+    {
+      "id": "taxitem2",
+      "type": "select",
+      "label": "PST"
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "label": "Tax Type"
+    },
+    {
+      "id": "unitprice1",
+      "type": "percent",
+      "label": "GST/HST Rate"
+    },
+    {
+      "id": "unitprice2",
+      "type": "percent",
+      "label": "PST Rate"
+    },
+    {
+      "id": "zip",
+      "type": "textarea",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "piggyback",
+      "type": "checkbox",
+      "label": "Piggy Back"
+    },
+    {
+      "id": "rate",
+      "type": "currency",
+      "label": "Rate"
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "label": "State"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State Display Name"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "taxitem1",
+      "type": "select",
+      "label": "GST/HST"
+    },
+    {
+      "id": "taxitem2",
+      "type": "select",
+      "label": "PST"
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "label": "Tax Type"
+    },
+    {
+      "id": "unitprice1",
+      "type": "percent",
+      "label": "GST/HST Rate"
+    },
+    {
+      "id": "unitprice2",
+      "type": "percent",
+      "label": "PST Rate"
+    },
+    {
+      "id": "zip",
+      "type": "textarea",
+      "label": "Zip"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

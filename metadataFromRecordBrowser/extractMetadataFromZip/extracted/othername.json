@@ -1,0 +1,1100 @@
+{
+  "label": "Other Name",
+  "id": "othername",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Account ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "nlapiSubmitField": true,
+      "label": "Alt. Email",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bcn",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Business Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Comments",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Company Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Primary Contact",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditlimit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Credit Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Currency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "Other Name Email",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "emailpreference",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Email Preference",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Other Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "entitystatus",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Fax",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "First Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Global Subscription Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Home Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Image",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Other Name Is Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isperson",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Company",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Mobile Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "openingbalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Opening Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "openingbalanceaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Opening Balance Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "openingbalancedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Opening Balance Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "otherrelationships",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Other Relationships",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parent",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Parent",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Furigana",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "printoncheckas",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Print on Check As",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesrep",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Sales Rep",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Mr./Ms...",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "taxfractionunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Consumption Tax Fraction Unit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxrounding",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Rounding",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Terms",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Job Title",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unsubscribe",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Unsubscribe from Campaigns",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "nlapiSubmitField": false,
+      "label": "URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vatregnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "VAT Registration No.",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "addressbook",
+      "label": "Address",
+      "fields": [
+        {
+          "id": "addressbookaddress",
+          "type": "summary",
+          "label": "Edit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addressid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addrtext",
+          "type": "address",
+          "label": "Address",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "attention",
+          "type": "text",
+          "label": "Attention",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "city",
+          "type": "text",
+          "label": "City",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "country",
+          "type": "select",
+          "label": "Country",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultbilling",
+          "type": "checkbox",
+          "label": "Default Billing",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultshipping",
+          "type": "checkbox",
+          "label": "Default Shipping",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "displaystate",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Label",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "override",
+          "type": "checkbox",
+          "label": "Override",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "phone",
+          "type": "phone",
+          "label": "Phone",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "state",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "zip",
+          "type": "text",
+          "label": "Zip",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "phone",
+      "label": "Address Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "label": "Comments"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name/ID"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "image",
+      "type": "image",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Web Address"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addressinternalid",
+      "type": "text",
+      "label": "Address Internal ID"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "label": "Alt. Email"
+    },
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "label": "Office Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billzipcode",
+      "type": "text",
+      "label": "Billing Zip"
+    },
+    {
+      "id": "category",
+      "type": "text",
+      "label": "Category"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "label": "Comments"
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "label": "Company Name"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "currency",
+      "type": "text",
+      "label": "Currency"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "entitynumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "entitystatus",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "label": "Fax"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "notsfastatus",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State/Province Display Name"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "datetime",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "type",
+      "type": "text",
+      "label": "Type"
+    },
+    {
+      "id": "url",
+      "type": "text",
+      "label": "Web Address"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip Code"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "campaignresponse",
+      "description": "Campaign Response",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesfrom",
+      "description": "Messages From",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesto",
+      "description": "Messages To",
+      "actualName": "Message"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "access",
+      "label": "System Access"
+    },
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "financial",
+      "label": "Financial"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },
+    {
+      "name": "info",
+      "label": "Info"
+    },
+    {
+      "name": "marketing",
+      "label": "Marketing"
+    },
+    {
+      "name": "s_comm",
+      "label": "Communications"
+    },
+    {
+      "name": "s_relation",
+      "label": "Relationships"
+    },
+    {
+      "name": "s_sysinfo",
+      "label": "System Information"
+    },
+    {
+      "name": "sales",
+      "label": "Sales"
+    },
+    {
+      "name": "support",
+      "label": "Support"
+    }
+  ],
+  "transformTypes": []
+}

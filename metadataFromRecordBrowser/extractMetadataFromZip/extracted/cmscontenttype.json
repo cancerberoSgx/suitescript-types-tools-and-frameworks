@@ -1,0 +1,189 @@
+{
+  "label": "CMS Content Type",
+  "id": "cmscontenttype",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "customrecordid",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Custom Record",
+      "required": true,
+      "help": "Specify the custom record to which this content type is associated."
+    },
+    {
+      "id": "customrecordscriptid",
+      "type": "richtext",
+      "nlapiSubmitField": true,
+      "label": "Custom Record Script Id",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Description",
+      "required": false,
+      "help": "Enter the description for this record."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "iconimagepath",
+      "type": "richtext",
+      "nlapiSubmitField": true,
+      "label": "Icon Image Path",
+      "required": false,
+      "help": "Specify the icon to use for this content type in the Site Management"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": "This is the system-assigned internal identifier for the record."
+    },
+    {
+      "id": "label",
+      "type": "richtext",
+      "nlapiSubmitField": true,
+      "label": "Label",
+      "required": true,
+      "help": "Specify the label to use for this content type in the Site Management Tools user interface."
+    },
+    {
+      "id": "name",
+      "type": "richtext",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": true,
+      "help": "Enter the name for this record."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "customrecordid",
+      "type": "integer",
+      "label": "Custom Record Id"
+    },
+    {
+      "id": "customrecordscriptid",
+      "type": "richtext",
+      "label": "Custom Record Script Id"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "iconimagepath",
+      "type": "richtext",
+      "label": "Icon Image Path"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "label",
+      "type": "richtext",
+      "label": "Label"
+    },
+    {
+      "id": "name",
+      "type": "richtext",
+      "label": "Name"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "customrecordid",
+      "type": "integer",
+      "label": "Custom Record Id"
+    },
+    {
+      "id": "customrecordscriptid",
+      "type": "richtext",
+      "label": "Custom Record Script Id"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "iconimagepath",
+      "type": "richtext",
+      "label": "Icon Image Path"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "label": "Internal ID"
+    },
+    {
+      "id": "label",
+      "type": "richtext",
+      "label": "Label"
+    },
+    {
+      "id": "name",
+      "type": "richtext",
+      "label": "Name"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

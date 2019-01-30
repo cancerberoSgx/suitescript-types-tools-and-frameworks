@@ -1,0 +1,369 @@
+{
+  "label": "Sales Tax Item",
+  "id": "salestaxitem",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "city",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "City",
+      "required": false,
+      "help": "Enter the city where this tax should be applied.\n\nThis value is used by NetSuite to automatically determine the correct tax when an order is entered or a customer places an order on your website.\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "County",
+      "required": false,
+      "help": "Enter the county where this tax should be applied.\n \nThis value is used by NetSuite to automatically determine the correct tax when an order is entered or a customer places an order on your website.\n \nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description for this record."
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Display Name/Code",
+      "required": false,
+      "help": "You can enter a unique name or number for a tax code in addition to the Tax Name.\n \nIf you are integrating with a Yahoo store, this field is imported from Yahoo.\n \nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Children",
+      "required": false,
+      "help": "Check this box to apply the tax code to the children of the subsidiary that you selected in the Subsidiaries field. In the Subsidiaries field, colons separate parent subsidiaries (on the left) from their children (on the right).\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "This field is false by default. Check this box to inactivate this record. Inactive records do not show on transactions and records for selection in lists.\n\nOn nexus and tax type records, this field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax Name",
+      "required": true,
+      "help": "Enter a name for this record.\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "itemtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "rate",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": true,
+      "help": "Enter the appropriate tax rate as a percentage.\n\nExample: 8%\n\nThis percentage will be calculated when you select this tax item on transactions.\n\nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "State",
+      "required": false,
+      "help": "Select the state, province, or county that you are making this record for. You can create a new state, province, or county at Setup > Company > Setup Tasks > States/Provinces/Counties.\n\nOn tax code records, this field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Account",
+      "required": true,
+      "help": "If the tax control account for this tax code differs from other tax codes of this type, select the tax control account you want to use. You can create tax control accounts at Setup > Accounting > Taxes > Tax Control Accounts > New.\n \nThis field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "taxagency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Agency",
+      "required": true,
+      "help": "Select the name of the tax vendor to whom you submit tax reports and remit payments. \n\nYou can set up a vendor as a tax agency in two ways:\n- By selecting Tax Agency in the Category field on the vendor record.\n- By clicking the plus icon (New) next to the Tax Agency field on the nexus record.\n\nOn tax code records, this field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Type",
+      "required": false,
+      "help": "Select the tax type for this tax code. You can create a new tax type at Setup > Accounting > Taxes > Tax Types > New.\n\nIf the SuiteTax feature is enabled in your account, you cannot change the value in the Tax Type field after the tax code record has been saved."
+    },
+    {
+      "id": "zip",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Zip Codes",
+      "required": false,
+      "help": "Enter the zip codes where this tax should be applied. Separate each zip code with a comma.\n \nThis value is used by NetSuite to automatically determine the correct tax when an order is entered or a customer places an order on your website.\n \nThis field is available only if the SuiteTax feature is disabled in your account."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "appliestoservice",
+      "type": "checkbox",
+      "label": "Applies To Service"
+    },
+    {
+      "id": "availableon",
+      "type": "select",
+      "label": "Available On"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "iseccode",
+      "type": "checkbox",
+      "label": "EC Code"
+    },
+    {
+      "id": "isexcludetaxreports",
+      "type": "checkbox",
+      "label": "Excluded From Tax Reports"
+    },
+    {
+      "id": "isexport",
+      "type": "checkbox",
+      "label": "Export"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isreversecharge",
+      "type": "checkbox",
+      "label": "Reverse Charge"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "label": "Tax Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "appliestoservice",
+      "type": "checkbox",
+      "label": "Applies To Service"
+    },
+    {
+      "id": "availableon",
+      "type": "select",
+      "label": "Available On"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "iseccode",
+      "type": "checkbox",
+      "label": "EC Code"
+    },
+    {
+      "id": "isexcludetaxreports",
+      "type": "checkbox",
+      "label": "Is Excluded From Tax Reports"
+    },
+    {
+      "id": "isexport",
+      "type": "checkbox",
+      "label": "Export"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isreversecharge",
+      "type": "checkbox",
+      "label": "Reverse Charge"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    },
+    {
+      "id": "rate",
+      "type": "currency",
+      "label": "Rate"
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "label": "Tax Type"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "taxtype",
+      "description": "Tax Type",
+      "actualName": "Tax Type"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,302 @@
+{
+  "label": "Intercompany Allocation Schedule",
+  "id": "intercompallocationschedule",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Accounting Book",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "accountsfromsource",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use source/credit account(s)",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allocationmode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Allocation Mode",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditclass",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditdepartment",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditentity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditlocation",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "datebasis",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Date Basis",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "frequency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Frequency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "nextdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Next Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "remindforever",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Remind Forever",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sourceintercompanyaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Intercompany Account",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subsequentdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Subsequent Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "unitlabel",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Unit of Measure",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unitstype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Unit Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "weightsinpercentage",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Values are percentages",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "weightsource",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Weight Source",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "allocationdestination",
+      "label": "allocationweights",
+      "fields": [
+        {
+          "id": "account",
+          "type": "select",
+          "label": "Account",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "balance",
+          "type": "rtext",
+          "label": "Balance",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "entity",
+          "type": "select",
+          "label": "Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "intercompanyaccount",
+          "type": "select",
+          "label": "Intercompany Account",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiary",
+          "type": "select",
+          "label": "Subsidiary",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "weight",
+          "type": "currency",
+          "label": "Weight",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "allocationsource",
+      "label": "Source of the allocation amounts",
+      "fields": [
+        {
+          "id": "account",
+          "type": "select",
+          "label": "Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "entity",
+          "type": "select",
+          "label": "Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

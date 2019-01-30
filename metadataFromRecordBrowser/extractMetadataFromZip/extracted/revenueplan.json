@@ -1,0 +1,315 @@
+{
+  "label": "Revenue Recognition Plan",
+  "id": "revenueplan",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "amountsource",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Amount Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "catchupperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Catch Up Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Comments",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddatechangeimpact",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "End Date Change Impact",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "holdrevenuerecognition",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Hold Revenue Recognition",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialamount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Initial Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parentlinecurrency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Parent Line Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "periodoffset",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Period Offset",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recognitionmethod",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Recognition Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recognitionperiod",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Recognition Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recordnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "remainingdeferredbalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Remaining Deferred Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revenueplancurrency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Revenue Recognition Plan Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revenueplantype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Revenue Plan Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revenuerecognitionrule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Revenue Recognition Rule",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revrecenddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Rev Rec End Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "revrecenddatesource",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Revenue Recognition End Date Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revrecstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Rev Rec Start Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "revrecstartdatesource",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Revenue Recognition Start Date Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startoffset",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Start Offset",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "terminmonths",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Revenue Term In Months",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "totalrecognized",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total Recognized",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "plannedrevenue",
+      "label": "Planned Revenue",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "dateexecuted",
+          "type": "date",
+          "label": "Date Executed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferredrevenueaccount",
+          "type": "select",
+          "label": "Deferral Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isrecognized",
+          "type": "checkbox",
+          "label": "Is Recognized",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "journal",
+          "type": "text",
+          "label": "Journal",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "percentrecognizedinperiod",
+          "type": "percent",
+          "label": "% Recognized in Period",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "percenttotalrecognized",
+          "type": "percent",
+          "label": "% Total Recognized",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "plannedperiod",
+          "type": "select",
+          "label": "Planned Period",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "plannedrevenue",
+          "type": "text",
+          "label": "Planned Revenue",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "postingperiod",
+          "type": "text",
+          "label": "Posting Period",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "recognitionaccount",
+          "type": "select",
+          "label": "Recognition Account",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

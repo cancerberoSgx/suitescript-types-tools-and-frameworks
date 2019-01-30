@@ -1,0 +1,365 @@
+{
+  "label": "Custom Record",
+  "id": "customrecord",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "altname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "created",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the entry form to use for creating this record."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodified",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifiedby",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "By",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "linenumber",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter a name for this record."
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Owner",
+      "required": true,
+      "help": "The owner is the user who created this record.\n\nBy default, the owner is set to the current user.\n\nIf this field appears as a dropdown or popup field, you can change the owner to another user."
+    },
+    {
+      "id": "recordid",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "rectype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "translations",
+      "label": "Translation",
+      "fields": [
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "language",
+          "type": "text",
+          "label": "Language",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "locale",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "created",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "lastmodified",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastmodifiedby",
+      "type": "select",
+      "label": "Last Modified By"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "created",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "lastmodified",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastmodifiedby",
+      "type": "select",
+      "label": "Last Modified By"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "owner",
+      "description": "Owner",
+      "actualName": "Employee"
+    },
+    {
+      "id": "parent",
+      "description": "Parent",
+      "actualName": "Custom"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "media",
+      "label": "File Cabinet"
+    },
+    {
+      "name": "merge",
+      "label": "Mail Merge"
+    },
+    {
+      "name": "notes",
+      "label": "Notes"
+    },
+    {
+      "name": "translation",
+      "label": "Translation"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

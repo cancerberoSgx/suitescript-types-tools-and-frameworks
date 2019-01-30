@@ -1,0 +1,488 @@
+{
+  "label": "Subscription Line",
+  "id": "subscriptionline",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "advancerenewalperiodnumber",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "advancerenewalperiodunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingaccountstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingmode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Mode",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includeinrenewal",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include In Renewal Subscription",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "linenumber",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Line Number",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "ponumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "PO #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "prorateenddate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Prorate End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "proratestartdate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Prorate Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurrencestartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Recurrence Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sales Order",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesorderlinenumber",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Sales Order Line Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subscription",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscriptionlinestatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscriptionlinetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subscription Plan",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscriptionplanline",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subscription Plan Line",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "terminationdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Termination Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "billingmode",
+      "type": "select",
+      "label": "Billing Mode"
+    },
+    {
+      "id": "discount",
+      "type": "percent",
+      "label": "Discount"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "estimatedrevrecenddate",
+      "type": "date",
+      "label": "Estimated Revenue Recognition End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "includeinrenewal",
+      "type": "checkbox",
+      "label": "Include In Renewal Subscription"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "linenumber",
+      "type": "integer",
+      "label": "Line Number"
+    },
+    {
+      "id": "prorateenddate",
+      "type": "checkbox",
+      "label": "Prorate End Date"
+    },
+    {
+      "id": "proratestartdate",
+      "type": "checkbox",
+      "label": "Prorate Start Date"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "recurrencestartdate",
+      "type": "date",
+      "label": "Recurrence Start Date"
+    },
+    {
+      "id": "revrecoption",
+      "type": "select",
+      "label": "Revenue Recognition Option"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptionlinetype",
+      "type": "select",
+      "label": "Subscription Line Type"
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "label": "Subscription Plan"
+    },
+    {
+      "id": "subscriptionplanline",
+      "type": "select",
+      "label": "Subscription Plan Line"
+    },
+    {
+      "id": "terminationdate",
+      "type": "date",
+      "label": "Termination Date"
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "label": "Total"
+    },
+    {
+      "id": "usagemultiplierline",
+      "type": "select",
+      "label": "Included Quantity Multiplier Line"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "billingmode",
+      "type": "select",
+      "label": "Billing Mode"
+    },
+    {
+      "id": "discount",
+      "type": "percent",
+      "label": "Discount"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "estimatedrevrecenddate",
+      "type": "date",
+      "label": "Estimated Revenue Recognition End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "includeinrenewal",
+      "type": "checkbox",
+      "label": "Include In Renewal Subscription"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "linenumber",
+      "type": "integer",
+      "label": "Line Number"
+    },
+    {
+      "id": "prorateenddate",
+      "type": "checkbox",
+      "label": "Prorate End Date"
+    },
+    {
+      "id": "proratestartdate",
+      "type": "checkbox",
+      "label": "Prorate Start Date"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "recurrencestartdate",
+      "type": "date",
+      "label": "Recurrence Start Date"
+    },
+    {
+      "id": "revrecoption",
+      "type": "select",
+      "label": "Revenue Recognition Option"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptionlinetype",
+      "type": "select",
+      "label": "Subscription Line Type"
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "label": "Subscription Plan"
+    },
+    {
+      "id": "subscriptionplanline",
+      "type": "select",
+      "label": "Subscription Plan Line"
+    },
+    {
+      "id": "subscriptionplanlineid",
+      "type": "integer",
+      "label": "Subscription Plan Line Id"
+    },
+    {
+      "id": "terminationdate",
+      "type": "date",
+      "label": "Termination Date"
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "label": "Total"
+    },
+    {
+      "id": "usagemultiplierline",
+      "type": "select",
+      "label": "Included Quantity Multiplier Line"
+    },
+    {
+      "id": "view",
+      "type": "text",
+      "label": "View"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "includedusagemultiplierline",
+      "description": "Included Quantity Multiplier Line",
+      "actualName": "Subscription Line"
+    },
+    {
+      "id": "item",
+      "description": "Item",
+      "actualName": "Item"
+    },
+    {
+      "id": "subscription",
+      "description": "Subscription",
+      "actualName": "Subscription"
+    },
+    {
+      "id": "transaction",
+      "description": "Transaction",
+      "actualName": "Transaction"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

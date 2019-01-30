@@ -1,0 +1,317 @@
+{
+  "label": "Tax Period",
+  "id": "taxperiod",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "allclosed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Closed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isadjust",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Period is Adjustment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isquarter",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isyear",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "periodname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Period Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "fiscalcalendars",
+      "label": "Parent Periods",
+      "fields": [
+        {
+          "id": "fiscalcalendar",
+          "type": "select",
+          "label": "Fiscal Calendar",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "parent",
+          "type": "select",
+          "label": "Sub-period of",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "allclosed",
+      "type": "checkbox",
+      "label": "All Closed"
+    },
+    {
+      "id": "alllocked",
+      "type": "checkbox",
+      "label": "All Locked"
+    },
+    {
+      "id": "aplocked",
+      "type": "checkbox",
+      "label": "AP Locked"
+    },
+    {
+      "id": "arlocked",
+      "type": "checkbox",
+      "label": "AR Locked"
+    },
+    {
+      "id": "closed",
+      "type": "checkbox",
+      "label": "Closed"
+    },
+    {
+      "id": "closedondate",
+      "type": "date",
+      "label": "Date Closed On"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isadjust",
+      "type": "checkbox",
+      "label": "Adjust"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isquarter",
+      "type": "checkbox",
+      "label": "Quarter"
+    },
+    {
+      "id": "isyear",
+      "type": "checkbox",
+      "label": "Year"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Sub-Period Of"
+    },
+    {
+      "id": "payrolllocked",
+      "type": "checkbox",
+      "label": "Payroll Locked"
+    },
+    {
+      "id": "periodname",
+      "type": "text",
+      "label": "Period Name"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "allclosed",
+      "type": "checkbox",
+      "label": "All Closed"
+    },
+    {
+      "id": "alllocked",
+      "type": "checkbox",
+      "label": "All Locked"
+    },
+    {
+      "id": "aplocked",
+      "type": "checkbox",
+      "label": "AP Locked"
+    },
+    {
+      "id": "arlocked",
+      "type": "checkbox",
+      "label": "AR Locked"
+    },
+    {
+      "id": "closed",
+      "type": "checkbox",
+      "label": "Closed"
+    },
+    {
+      "id": "closedondate",
+      "type": "date",
+      "label": "Date Closed On"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isadjust",
+      "type": "checkbox",
+      "label": "Adjust"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isquarter",
+      "type": "checkbox",
+      "label": "Quarter"
+    },
+    {
+      "id": "isyear",
+      "type": "checkbox",
+      "label": "Year"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    },
+    {
+      "id": "payrolllocked",
+      "type": "checkbox",
+      "label": "Payroll Locked"
+    },
+    {
+      "id": "periodname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "parents",
+      "label": "Fiscal Calendars"
+    }
+  ],
+  "transformTypes": []
+}

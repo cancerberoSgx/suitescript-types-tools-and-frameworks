@@ -1,0 +1,175 @@
+{
+  "label": "Take Ownership",
+  "id": "bulkownershiptransfer",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "inboundshipmentnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Inbound Shipment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Incoterm",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Posting Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "receivinglocation",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Receiving Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vendor",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Vendor",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "items",
+      "label": "Ownership Transfer Item",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "incoterm",
+          "type": "select",
+          "label": "Incoterm",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "ownershiptransfer",
+          "type": "select",
+          "label": "Receive Inbound Shipment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "porate",
+          "type": "currency2",
+          "label": "PO Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "process",
+          "type": "checkbox",
+          "label": "Process",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "purchaseorder",
+          "type": "select",
+          "label": "PO",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency2",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "receivinglocation",
+          "type": "select",
+          "label": "Receiving Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "unit",
+          "type": "text",
+          "label": "Unit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vendor",
+          "type": "text",
+          "label": "Vendor",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

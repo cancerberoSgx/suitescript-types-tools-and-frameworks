@@ -1,0 +1,315 @@
+{
+  "label": "Gift Certificate",
+  "id": "giftcertificate",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "amountremaining",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount Remaining",
+      "required": false,
+      "help": "This field displays the amount remaining on the gift certificate that can be applied to purchases.\n\nWhen a gift certificate is applied to a purchase, the amount of the purchase is deducted from the Original Amount. After application, any credit balance remaining that can be applied to additional purchases shows in the Amount Remaining field."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "Recipient Email",
+      "required": false,
+      "help": "Enter your employee's e-mail address. If you allow your employees to track time or enter expense reports online, this will become part of their access codes."
+    },
+    {
+      "id": "expirationdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Expiration Date",
+      "required": false,
+      "help": "The expiration date is based on the Days Before Expiration field on the gift certificate&#x2019;s item record. If necessary, enter the date the gift certificate expires.\n\nAny balance remaining on the gift certificate after the expiration date cannot be applied against purchases."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "giftcertcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Gift Message",
+      "required": false,
+      "help": "This field displays the message that is delivered to the recipient."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Recipient Name",
+      "required": false,
+      "help": "Specify the name. The name identifies the record in NetSuite and is not displayed on the website."
+    },
+    {
+      "id": "originalamount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Original Amount",
+      "required": false,
+      "help": "This field displays the total amount originally issued on the gift certificate.\n\nWhen the gift certificate is applied to a purchase, the amount of the purchase is deducted from this amount. After application, any credit balance remaining that can be applied to additional purchases shows in the Amount Remaining field."
+    },
+    {
+      "id": "sender",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "From",
+      "required": false,
+      "help": "This field shows the name of the person that sent the certificate."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "amountavailablebilled",
+      "type": "currency",
+      "label": "Amount Remaining (Billed)"
+    },
+    {
+      "id": "amountremaining",
+      "type": "currency",
+      "label": "Amount Remaining"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "To (Email)"
+    },
+    {
+      "id": "expirationdate",
+      "type": "date",
+      "label": "Expiration Date"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "giftcertcode",
+      "type": "text",
+      "label": "Gift Certificate Code"
+    },
+    {
+      "id": "incomeaccount",
+      "type": "select",
+      "label": "Income Account"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isactive",
+      "type": "checkbox",
+      "label": "Active"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "liabilityaccount",
+      "type": "select",
+      "label": "Liability Account"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Gift Message"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "To (Name)"
+    },
+    {
+      "id": "originalamount",
+      "type": "currency",
+      "label": "Gift Certificate Amount"
+    },
+    {
+      "id": "purchasedate",
+      "type": "date",
+      "label": "Purchase Date"
+    },
+    {
+      "id": "sender",
+      "type": "text",
+      "label": "From (Name)"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "amountremaining",
+      "type": "currency",
+      "label": "Amount Available"
+    },
+    {
+      "id": "amtavailbilled",
+      "type": "currency",
+      "label": "Amount Available (Billed)"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "To (Email)"
+    },
+    {
+      "id": "expirationdate",
+      "type": "date",
+      "label": "Expiration Date"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "gcactive",
+      "type": "checkbox",
+      "label": "Active"
+    },
+    {
+      "id": "giftcertcode",
+      "type": "text",
+      "label": "Gift Certificate Code"
+    },
+    {
+      "id": "incomeacct",
+      "type": "text",
+      "label": "Income Account"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "liabilityacct",
+      "type": "text",
+      "label": "Liability Account"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Gift Message"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "To (Name)"
+    },
+    {
+      "id": "originalamount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "purchasedate",
+      "type": "date",
+      "label": "Purchase Date"
+    },
+    {
+      "id": "sender",
+      "type": "text",
+      "label": "From (Name)"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

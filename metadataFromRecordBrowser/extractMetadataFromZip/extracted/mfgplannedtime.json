@@ -1,0 +1,87 @@
+{
+  "label": "Manufacturing Planned Time",
+  "id": "mfgplannedtime",
+  "supportCustomFields": true,
+  "searchOnly": true,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "date",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "duration",
+      "type": "float",
+      "label": "Duration"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "manufacturingworkcenter",
+      "type": "select",
+      "label": "Manufacturing Work Center"
+    },
+    {
+      "id": "workorder",
+      "type": "select",
+      "label": "Work Order"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "date",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "duration",
+      "type": "text",
+      "label": "Duration"
+    },
+    {
+      "id": "durationdecimal",
+      "type": "float",
+      "label": "Duration (Decimal)"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "manufacturingworkcenter",
+      "type": "text",
+      "label": "Manufacturing Work Center"
+    },
+    {
+      "id": "operation",
+      "type": "text",
+      "label": "Operation"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "manufacturingworkcenter",
+      "description": "Manufacturing Work Center",
+      "actualName": "Group"
+    },
+    {
+      "id": "operationtask",
+      "description": "Operation Task",
+      "actualName": "Manufacturing Operation Task"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

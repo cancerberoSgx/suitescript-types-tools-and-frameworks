@@ -1,0 +1,384 @@
+{
+  "label": "Paycheck Journal",
+  "id": "paycheckjournal",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Employee",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "companycontribution",
+      "label": "Company Contributions",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency2",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Line Id",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "companytax",
+      "label": "Company Taxes",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency2",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Line Id",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "deduction",
+      "label": "Deductions",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency2",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Line Id",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "earning",
+      "label": "Earnings",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency2",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "hours",
+          "type": "float",
+          "label": "Hours",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Line Id",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "employeetax",
+      "label": "Employee Taxes",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency2",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Line Id",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "paychecklines",
+      "label": "Paycheck Lines"
+    }
+  ],
+  "transformTypes": []
+}

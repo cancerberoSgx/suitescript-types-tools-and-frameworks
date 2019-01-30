@@ -1,0 +1,596 @@
+{
+  "label": "Inbound Shipment",
+  "id": "inboundshipment",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "actualdeliverydate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Actual Delivery Date",
+      "required": false,
+      "help": "Use the picker to input the actual date the shipment arrived at the receiving location.\n\nThe expected and actual dates can be used for the reporting of variances and setting performance metrics."
+    },
+    {
+      "id": "actualshippingdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Actual Shipping Date",
+      "required": false,
+      "help": "Input a date when the consignment was actually shipped.\n\nThe expected and actual dates can be used for the reporting of variances and setting performance metrics."
+    },
+    {
+      "id": "billoflading",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Bill Of Lading",
+      "required": false,
+      "help": "Enter the number from your bill of lading documentation in this field."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "expecteddeliverydate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Expected Delivery Date",
+      "required": false,
+      "help": "Use the picker to add the date when the shipment is expected to be delivered to the receiving location."
+    },
+    {
+      "id": "expectedshippingdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Expected Shipping Date",
+      "required": false,
+      "help": "Use the date picker to insert the date for when the shipment is expected to leave. The field can be edited to reflect changing circumstances."
+    },
+    {
+      "id": "externaldocumentnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "External Document Number",
+      "required": false,
+      "help": "Add the identifying number for the shipment as supplied by your shipping company here.\n\nYou can customize the Inbound Shipments list page to include this field for easy identification of the shipment."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmentbillingstatus",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Billing Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmentcreateddate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmentmemo",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Use this field to highlight key, or frequently used information.\n\nIt is best practice to add a User Note in the Communications subtab to log call other types of communication relating to the shipment."
+    },
+    {
+      "id": "shipmentnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Shipment Number",
+      "required": false,
+      "help": "This is a system generated number. The format can be customized by updating the Inbound Shipment field at: \n\nSetup > Company > Auto-Generated Numbers > Transaction Numbers."
+    },
+    {
+      "id": "shipmentstatus",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": false,
+      "help": "This is a read only field and updates to reflect the progress of the shipment. The five statuses are:\n    * To be Shipped\n    * In Transit\n    * Partially Received\n    * Received\n    * Closed"
+    },
+    {
+      "id": "vesselnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Vessel Number",
+      "required": false,
+      "help": "Input the vessel's IMO number, or other identifying reference in this field."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "items",
+      "label": "Inbound Shipment Item",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expectedrate",
+          "type": "currency",
+          "label": "Expected Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inboundshipment",
+          "type": "select",
+          "label": "Inbound Shipment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "incoterm",
+          "type": "select",
+          "label": "Incoterm",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pocurrency",
+          "type": "select",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "porate",
+          "type": "currency",
+          "label": "PO Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "povendor",
+          "type": "text",
+          "label": "Vendor",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "purchaseorder",
+          "type": "select",
+          "label": "PO",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "quantitybilled",
+          "type": "currency",
+          "label": "Quantity Billed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityexpected",
+          "type": "currency",
+          "label": "Quantity Expected",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityreceived",
+          "type": "currency",
+          "label": "Quantity Received",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityremaining",
+          "type": "currency",
+          "label": "Quantity Remaining",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "receivinglocation",
+          "type": "select",
+          "label": "Receiving Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shipmentitem",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "shipmentitemamount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shipmentitemdescription",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "unit",
+          "type": "select",
+          "label": "Unit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vendor",
+          "type": "text",
+          "label": "Vendor",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "actualdeliverydate",
+      "type": "date",
+      "label": "Actual Delivery Date"
+    },
+    {
+      "id": "actualshippingdate",
+      "type": "date",
+      "label": "Actual Shipping Date"
+    },
+    {
+      "id": "billoflading",
+      "type": "text",
+      "label": "Bill Of Lading"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "expecteddeliverydate",
+      "type": "date",
+      "label": "Expected Delivery Date"
+    },
+    {
+      "id": "expectedrate",
+      "type": "currency",
+      "label": "Expected Rate"
+    },
+    {
+      "id": "expectedshippingdate",
+      "type": "date",
+      "label": "Expected Shipping Date"
+    },
+    {
+      "id": "externaldocumentnumber",
+      "type": "select",
+      "label": "External Document Number"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "label": "Incoterm"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal Id"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal Id Number"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "poamount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "porate",
+      "type": "currency",
+      "label": "PO Rate"
+    },
+    {
+      "id": "purchaseorder",
+      "type": "select",
+      "label": "PO"
+    },
+    {
+      "id": "quantityexpected",
+      "type": "float",
+      "label": "Quantity Expected"
+    },
+    {
+      "id": "quantityreceived",
+      "type": "float",
+      "label": "Quantity Received"
+    },
+    {
+      "id": "quantityremaining",
+      "type": "float",
+      "label": "Quantity Remaining"
+    },
+    {
+      "id": "receivinglocation",
+      "type": "select",
+      "label": "Receiving Location"
+    },
+    {
+      "id": "shipmentnumber",
+      "type": "select",
+      "label": "Shipment Number"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "unit",
+      "type": "select",
+      "label": "Unit"
+    },
+    {
+      "id": "vendor",
+      "type": "select",
+      "label": "Vendor"
+    },
+    {
+      "id": "vesselnumber",
+      "type": "text",
+      "label": "Vessel Number"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "actualdeliverydate",
+      "type": "date",
+      "label": "Actual Delivery Date"
+    },
+    {
+      "id": "actualshippingdate",
+      "type": "date",
+      "label": "Actual Shipping Date"
+    },
+    {
+      "id": "billoflading",
+      "type": "text",
+      "label": "Bill Of Lading"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "currency",
+      "type": "text",
+      "label": "Currency"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "expecteddeliverydate",
+      "type": "date",
+      "label": "Expected Delivery Date"
+    },
+    {
+      "id": "expectedrate",
+      "type": "currency",
+      "label": "Expected Rate"
+    },
+    {
+      "id": "expectedshippingdate",
+      "type": "date",
+      "label": "Expected Shipping Date"
+    },
+    {
+      "id": "externaldocumentnumber",
+      "type": "text",
+      "label": "External Document Number"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "incoterm",
+      "type": "text",
+      "label": "Incoterm"
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "label": "Internal Id"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal Id Number"
+    },
+    {
+      "id": "item",
+      "type": "text",
+      "label": "Item"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "poamount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "porate",
+      "type": "currency",
+      "label": "PO Rate"
+    },
+    {
+      "id": "purchaseorder",
+      "type": "text",
+      "label": "PO"
+    },
+    {
+      "id": "quantitybilled",
+      "type": "float",
+      "label": "Quantity Billed"
+    },
+    {
+      "id": "quantityexpected",
+      "type": "float",
+      "label": "Quantity Expected"
+    },
+    {
+      "id": "quantityreceived",
+      "type": "float",
+      "label": "Quantity Received"
+    },
+    {
+      "id": "quantityremaining",
+      "type": "float",
+      "label": "Quantity Remaining"
+    },
+    {
+      "id": "receivinglocation",
+      "type": "text",
+      "label": "Receiving Location"
+    },
+    {
+      "id": "shipmentnumber",
+      "type": "text",
+      "label": "Shipment Number"
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "unit",
+      "type": "text",
+      "label": "Unit"
+    },
+    {
+      "id": "vendor",
+      "type": "text",
+      "label": "Vendor"
+    },
+    {
+      "id": "vesselnumber",
+      "type": "text",
+      "label": "Vessel Number"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "item",
+      "description": "Item",
+      "actualName": "Item"
+    },
+    {
+      "id": "itemreceipt",
+      "description": "Item Receipt",
+      "actualName": "Transaction"
+    },
+    {
+      "id": "purchaseorder",
+      "description": "Purchase Order",
+      "actualName": "Transaction"
+    },
+    {
+      "id": "vendor",
+      "description": "Vendor",
+      "actualName": "Vendor"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

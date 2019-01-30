@@ -1,0 +1,419 @@
+{
+  "label": "Solution",
+  "id": "solution",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "assigned",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Assigned To",
+      "required": false,
+      "help": "If you want to assign this solution to someone, select that person in this field."
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Creation Date/Time",
+      "required": false,
+      "help": "The date this solution was created is shown here."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": "This field shows your default solution form.\n\nIf you select another form, this page will change to that form.\n\nTo create a custom solution form, select New."
+    },
+    {
+      "id": "displayonline",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Display Online",
+      "required": false,
+      "help": "Check this box if you want this solution available for published knowledge bases.\n\nIf you do not check this box, this solution will not display if you publish its topic in a knowledge base."
+    },
+    {
+      "id": "eventnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box if you no longer want to use this record.\n\nInactivating records removes them from lists and references everywhere in your account, but they are still available by clicking the Show Inactives box on lists."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date/Time",
+      "required": false,
+      "help": "The date and time this solution was last modified is shown here."
+    },
+    {
+      "id": "longdescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": true,
+      "help": "Enter the text of this solution or topic here.\n\nYou can use Javascript, HTML and CRMDSK tags in this description.\n\nClick Preview to see how this solution will appear when published."
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Abstract",
+      "required": true,
+      "help": "Write an abstract or brief description about what this solution resolves. Enter text only, not HTML or other code.\n\nThis abstract shows on the Solutions list and on the Solutions subtab of case and topic records.\n\nThe abstract also shows with solution titles in published knowledge bases."
+    },
+    {
+      "id": "solutioncode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Code",
+      "required": false,
+      "help": "To avoid duplicate solution codes, NetSuite enters the next available solution code here.\n\nYou can accept this code or enter a new code for this solution. Codes can include letters and numbers."
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": true,
+      "help": "Select the status of this solution.\n\nUnapproved solutions cannot be published."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Title",
+      "required": true,
+      "help": "Enter a title for this solution.\n\nBecause solution titles can be searched, this title should be relative to the solution subject.\n\nThis title shows on the Solutions subtab of the case and topic records that this solution is applied to and in published knowledge bases."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "solutions",
+      "label": "Solutions",
+      "fields": [
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "message",
+          "type": "textarea",
+          "label": "Abstract",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "solution",
+          "type": "select",
+          "label": "Code/Title",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "topics",
+      "label": "Topics",
+      "fields": [
+        {
+          "id": "topic",
+          "type": "select",
+          "label": "Topic",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "abstract",
+      "type": "textarea",
+      "label": "Abstract"
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "casecount",
+      "type": "integer",
+      "label": "Case Count"
+    },
+    {
+      "id": "code",
+      "type": "text",
+      "label": "Code"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Detail"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "find",
+      "type": "text",
+      "label": "Keyword"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "label": "Display Online"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Date Last Modified"
+    },
+    {
+      "id": "number",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "topic",
+      "type": "select",
+      "label": "Topic"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "casecount",
+      "type": "integer",
+      "label": "Case Count"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Detailed Description"
+    },
+    {
+      "id": "displayonline",
+      "type": "checkbox",
+      "label": "Display Online"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "label": "Abstract"
+    },
+    {
+      "id": "previewref",
+      "type": "text",
+      "label": "Preview"
+    },
+    {
+      "id": "solutioncode",
+      "type": "text",
+      "label": "Code"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "relatedsolution",
+      "description": "Related Solution",
+      "actualName": "Solution"
+    },
+    {
+      "id": "topic",
+      "description": "Topic",
+      "actualName": "Topic"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "communication",
+      "label": "Communication"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "detail",
+      "label": "Details"
+    },
+    {
+      "name": "notes",
+      "label": "Notes"
+    },
+    {
+      "name": "solution",
+      "label": "Solutions"
+    },
+    {
+      "name": "support",
+      "label": "Cases"
+    },
+    {
+      "name": "topic",
+      "label": "Topics"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

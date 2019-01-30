@@ -1,0 +1,342 @@
+{
+  "label": "Item Account Mapping",
+  "id": "itemaccountmapping",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Accounting Book",
+      "required": true,
+      "help": "You must select an accounting book before you select the subsidiary. Only active accounting books appear on the list."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select the class that the transaction must be associated with in order to meet the mapping rule."
+    },
+    {
+      "id": "customdimension",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Dimension",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select the department that the transaction must include in order to meet the mapping rule."
+    },
+    {
+      "id": "destinationaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Destination Account",
+      "required": true,
+      "help": "Select the account that you want transactions post to in the secondary book that you selected from the Accounting Book list.\n\n\nSelect -Same- if you want skip mapping for the set of dimensions you have selected. This enables you to apply the mapping rules to all dimensions except a specific set."
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Effective Date",
+      "required": true,
+      "help": "Enter or select the date that the account mapping begins."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": "Enter or select the date that the account mapping ends. This field can be left blank until a new account mapping is needed.\n\nWhen blank, the mapping continues indefinitely."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Account",
+      "required": true,
+      "help": "Select the general ledger account type or other account specified on the Item record in Accounts section of the Accounting subtab.\n\nThe item account type you select determines which accounts are available in the Source Account list."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select the location that the transaction must be associated with in order to meet the mapping rule."
+    },
+    {
+      "id": "sourceaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Source Account",
+      "required": false,
+      "help": "Select an account that is used for the primary book. This is the account that is mapped from.\n\nThe list includes both primary book accounts and secondary book accounts."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "Select the subsidiary that must be associated with the transaction in order to meeting the mapping rule. You must select an accounting book to select a subsidiary."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "customdimension",
+      "type": "select",
+      "label": "Custom Dimension"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "destinationaccount",
+      "type": "select",
+      "label": "Destination Account"
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "label": "Effective Date"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "itemaccount",
+      "type": "select",
+      "label": "Item Account"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "sourceaccount",
+      "type": "select",
+      "label": "Source Account"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "customdimension",
+      "type": "select",
+      "label": "Custom Dimension"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "destinationaccount",
+      "type": "select",
+      "label": "Destination Account"
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "label": "Effective Date"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "itemaccount",
+      "type": "select",
+      "label": "Item Account"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "sourceaccount",
+      "type": "select",
+      "label": "Source Account"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "accountingbook",
+      "description": "Accounting Book",
+      "actualName": "Accounting Book"
+    },
+    {
+      "id": "department",
+      "description": "Department",
+      "actualName": "Department"
+    },
+    {
+      "id": "destinationaccount",
+      "description": "Destination Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "location",
+      "description": "Location",
+      "actualName": "Location"
+    },
+    {
+      "id": "sourceaccount",
+      "description": "Source Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "subsidiary",
+      "description": "Subsidiary",
+      "actualName": "Subsidiary"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,352 @@
+{
+  "label": "Note",
+  "id": "note",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Accounting Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "author",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Author",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "direction",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Direction",
+      "required": false,
+      "help": "Select the source of this note.\n\nIf you are logging a note from outside your company, select Incoming.\n\nIf you are logging a note sent to someone outside of your company, select Outgoing."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Entity",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "folder",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Folder",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Modification Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "media",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Media",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "note",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": true,
+      "help": "Enter the comment or note you want to record.\n\nThis note could be information about or communications with this company or person."
+    },
+    {
+      "id": "notedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": false,
+      "help": "Accept or enter a date for this note."
+    },
+    {
+      "id": "notetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": "Select the type of note you are creating.\n\nYou can create note types at <_TABNAME=EDIT_CRMOTHERLIST_> > <_TASKCATEGORY=EDIT_CRMOTHERLIST_> > CRM Lists > New > Note Type."
+    },
+    {
+      "id": "record",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Record Key",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recordtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Record Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "time",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Title",
+      "required": false,
+      "help": "Enter a title for this note."
+    },
+    {
+      "id": "topic",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Topic",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Transaction",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "author",
+      "type": "select",
+      "label": "Author"
+    },
+    {
+      "id": "direction",
+      "type": "checkbox",
+      "label": "Direction"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "note",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "notedate",
+      "type": "datetime",
+      "label": "Date"
+    },
+    {
+      "id": "notetype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "author",
+      "type": "select",
+      "label": "Author"
+    },
+    {
+      "id": "direction",
+      "type": "text",
+      "label": "Direction"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "note",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "notedate",
+      "type": "datetime",
+      "label": "Date"
+    },
+    {
+      "id": "notetype",
+      "type": "text",
+      "label": "Type"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "author",
+      "description": "Author",
+      "actualName": "Employee"
+    },
+    {
+      "id": "campaign",
+      "description": "Campaign",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "issue",
+      "description": "Issue",
+      "actualName": "Issue"
+    },
+    {
+      "id": "originatinglead",
+      "description": "Originating Lead",
+      "actualName": "Lead"
+    },
+    {
+      "id": "partner",
+      "description": "Partner",
+      "actualName": "Partner"
+    },
+    {
+      "id": "solution",
+      "description": "Solution",
+      "actualName": "Solution"
+    },
+    {
+      "id": "task",
+      "description": "Task",
+      "actualName": "Task"
+    },
+    {
+      "id": "vendor",
+      "description": "Vendor",
+      "actualName": "Vendor"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

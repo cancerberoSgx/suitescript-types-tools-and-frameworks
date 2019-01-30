@@ -1,0 +1,298 @@
+{
+  "label": "Term",
+  "id": "term",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "datedriven",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "STANDARD",
+      "required": false,
+      "help": "Enable the Standard option if this payment term is based on the number of days since the invoice was issued, for example, for customer payments that are due within 30 days of the date the bill is created.\n\nEnable the Date Driven option if the payment term is based on a particular calendar date, for example, for customer payments that are due on or before the 20th of any given month."
+    },
+    {
+      "id": "daydiscountexpires",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Day Discount Expires",
+      "required": false,
+      "help": "If you offer a discount for early payment under date driven terms, enter the last day of the month the early payment discount is available.\n\nFor example, if the early payment discount is available through the 20th of each month, enter 20 in this field."
+    },
+    {
+      "id": "dayofmonthnetdue",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Day Of Month Net Due",
+      "required": false,
+      "help": "For date driven terms, enter the day of the month when the net amount of the invoice is due.\n\nIf you enter a date that does not exist in the month the transaction is due, the last day of the month becomes the due date."
+    },
+    {
+      "id": "daysuntilexpiry",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Days Till Discount Expires",
+      "required": false,
+      "help": "For standard terms, enter the number of days the early payment discount is available.\n\nFor example, if the early payment discount is available for 15 days after the bill is issued, enter 15 in this field."
+    },
+    {
+      "id": "daysuntilnetdue",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Days Till Net Due",
+      "required": false,
+      "help": "Enter the number of days until the net amount of the bill becomes due.\n\nFor example, if you are creating a term of Net 30, enter 30 in this field."
+    },
+    {
+      "id": "discountpercent",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "% Discount",
+      "required": false,
+      "help": "For standard terms, enter the percentage discount if the invoice is paid early."
+    },
+    {
+      "id": "discountpercentdatedriven",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "% Discount",
+      "required": false,
+      "help": "For date driven terms, enter the percentage discount if the invoice is paid early."
+    },
+    {
+      "id": "duenextmonthifwithindays",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Due Next Month If Within Days",
+      "required": false,
+      "help": "For date driven terms, enter the number of days before the due date that the invoice can be postponed until the next month's due date.\n\nFor example, if invoices are due on the 30th of each month and you enter 5 in this field, then invoices issued between the 25th and 30th are due for payment by the 30th of the following month.\n\nFor another example, Day of Month Net Due = 15 and Due Next Month if Within Days = 30\n\nDate range within 30 days:\n\n5/16-6/14 move to 7/15\n\n6/15-7/15 move to 8/15\n\n8/16-9/14 move to 10/15\n\n9/15-10/15 move to 11/15\n\n10/16-11/14 move to 12/15\n\n11/15-12/15 move to 1/5"
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to remove all references to this record from your account.\n\nYou can reactivate the record at any time."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Terms",
+      "required": true,
+      "help": "Enter the name for this record. This name appears in lists that include this record."
+    },
+    {
+      "id": "preferred",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Preferred",
+      "required": false,
+      "help": "Check this box to make this term or message show by default on sales transactions you create.\n\nNote: Terms set on customer records override terms marked as preferred."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "datedriven",
+      "type": "checkbox",
+      "label": "Date Driven"
+    },
+    {
+      "id": "daydiscountexpires",
+      "type": "integer",
+      "label": "Day Discount Expires"
+    },
+    {
+      "id": "dayofmonthnetdue",
+      "type": "integer",
+      "label": "Day of Month Net Due"
+    },
+    {
+      "id": "daysuntilexpiry",
+      "type": "integer",
+      "label": "Days Till Discount Expires"
+    },
+    {
+      "id": "daysuntilnetdue",
+      "type": "integer",
+      "label": "Days Till Net Due"
+    },
+    {
+      "id": "discountpercent",
+      "type": "float",
+      "label": "% Discount"
+    },
+    {
+      "id": "discountpercentdatedriven",
+      "type": "float",
+      "label": "Date Driven % Discount"
+    },
+    {
+      "id": "duenextmonthifwithindays",
+      "type": "integer",
+      "label": "Due Next Month if Within Days"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "preferred",
+      "type": "checkbox",
+      "label": "Preferred"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "datedriven",
+      "type": "checkbox",
+      "label": "Date Driven"
+    },
+    {
+      "id": "daydiscountexpires",
+      "type": "integer",
+      "label": "Day Discount Expires"
+    },
+    {
+      "id": "dayofmonthnetdue",
+      "type": "integer",
+      "label": "Day of Month Net Due"
+    },
+    {
+      "id": "daysuntilexpiry",
+      "type": "integer",
+      "label": "Days Till Discount Expires"
+    },
+    {
+      "id": "daysuntilnetdue",
+      "type": "integer",
+      "label": "Days Till Net Due"
+    },
+    {
+      "id": "discountpercent",
+      "type": "float",
+      "label": "% Discount"
+    },
+    {
+      "id": "discountpercentdatedriven",
+      "type": "float",
+      "label": "Date Driven % Discount"
+    },
+    {
+      "id": "duenextmonthifwithindays",
+      "type": "integer",
+      "label": "Due Next Month if Within Days"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "preferred",
+      "type": "checkbox",
+      "label": "Preferred"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

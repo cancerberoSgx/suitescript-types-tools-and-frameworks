@@ -1,0 +1,1038 @@
+{
+  "label": "Project Task",
+  "id": "projecttask",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "actualwork",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Actual Work",
+      "required": false,
+      "help": "Indicates the actual time entered against the task."
+    },
+    {
+      "id": "bbudgetshowcalculatedlines",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Calculated Lines",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Calculated Values for all Labor Billing Budgets",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cbudgetshowcalculatedlines",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Calculated Lines",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Calculated Values for all Labor Cost Budgets",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project Name",
+      "required": true,
+      "help": "Indicates the customer and project that this task belongs to.\n\nAll project tasks must be created in the context of a project and cannot be moved from one project to another."
+    },
+    {
+      "id": "constrainttype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Constraint Type",
+      "required": false,
+      "help": "Specifies how to determine the start and end dates for a task.\n\nAs Soon As Possible: NetSuite calculates the earliest possible start date for a task based on existing predecessors and sets the end date based on the available work time in the assigned resource's work calendar.\n\nFixed Date: The task starts on the date you specify. Predecessor relationships are ignored. The task end date is based on the estimated work for the task and the assigned resource's available work time."
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Contact",
+      "required": false,
+      "help": "Select a contact for this task."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the form you want to use to enter this record.\n\nSelect Standard Project Task Form to continue using this form, select a custom project task form you have already created, or select New to create a custom project task form."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": "Indicates the estimated date when work for this task will be completed.\n\nNetSuite derives this date from the estimated work and other task dependencies. This date can change over the life of the project if the amount of work, resources assigned, or task dependencies change.\n\nWhen the task status is Completed, the end date is the date of the last time entry entered against the task."
+    },
+    {
+      "id": "enddatebaseline",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "End Date Baseline",
+      "required": false,
+      "help": "The date in the End Date field when the baseline was set."
+    },
+    {
+      "id": "estimatedwork",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Estimated Work",
+      "required": false,
+      "help": "Estimated Work for a project task is the total of all completed and planned work for this task.\n\nNetSuite calculates this field by summing the estimated work entered for the resources. If you enter a value in this field, then NetSuite distributes the amount equally to all resources assigned to this task.\n\nIf you also use Resource Allocations and the Allow Allocated Resources to Enter Time to All Tasks preference is enabled for this project, the estimated work field is updated to add any time tracked against tasks by allocated resources.\n\nWhen task status is marked Completed, this number is set to equal Actual Work."
+    },
+    {
+      "id": "estimatedworkbaseline",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Estimated Work Baseline",
+      "required": false,
+      "help": "The value in the Estimated Work field when the baseline was set."
+    },
+    {
+      "id": "eventid",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Project Task ID",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "finishbydate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Finish No Later Than",
+      "required": false,
+      "help": "Select the date this task must be finished by.\n\nThis constraint takes precedence over task relationships and start dates are adjusted according to the fixed end date of a task with a Finish No Later Than constraint."
+    },
+    {
+      "id": "fxrate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ismilestone",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isoncriticalpath",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lateend",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "latestart",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Enter any comments for the task."
+    },
+    {
+      "id": "nonbillabletask",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Non-billable",
+      "required": false,
+      "help": "Check this box to designate this task as non-billable.\n\nWhen time is entered against this task, it is automatically marked as non-billable and cannot be changed to billable."
+    },
+    {
+      "id": "order",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Insert Before",
+      "required": false,
+      "help": "To place the new task in the proper order in the schedule, select the task that follows it."
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created By",
+      "required": false,
+      "help": "The name of the employee who created this task."
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Parent Task",
+      "required": false,
+      "help": "Select a parent task if the task you are creating is part of a group of tasks.\n \nThe parent task summarizes data for all of its subordinate tasks.\n \nYou cannot assign resources to a parent task."
+    },
+    {
+      "id": "percenttimecomplete",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Percent Complete",
+      "required": false,
+      "help": "Shows the percent of planned project task time that has been completed.\n\nPercent Complete is calculated as follows:\n[Actual Work / Estimated Work]\n\nPercent Complete is 100% when the task status is Completed and Estimated Work is set to Actual Work."
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Priority",
+      "required": true,
+      "help": "Indicate how important the task is.\n \nTasks with higher priorities should be worked on before tasks with lower priorities. \n \nTask priority does not affect the project schedule."
+    },
+    {
+      "id": "remainingwork",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Remaining Work",
+      "required": false,
+      "help": "Remaining Work is calculated as:\n[Estimated Work - Actual Work]\n\nBefore work starts on a task, Remainng Work is the same as Estimated Work.\n\nWhen a task is marked Completed, Estimated Work is set to equal Actual Work and Remaining Work is 0."
+    },
+    {
+      "id": "slackminutes",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": "Indicates the estimated date to begin work on the task.\n\nIf the task constraint is Fixed Date, enter the date to begin work on the task.\n\nIf the constraint is As Soon As Possible, NetSuite determines the Start Date based on the schedule."
+    },
+    {
+      "id": "startdatebaseline",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Start Date Baseline",
+      "required": false,
+      "help": "The date in the State Date field when the baseline was set."
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "Start Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": true,
+      "help": "The status for a task can be:\n\nCompleted - task has been finished\nIn Progress - task is being worked on\nNot Started - task has not been started\n\nYou must have permission to edit a task record to change the status."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Project Task Name",
+      "required": true,
+      "help": "Enter a name for the project task."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "assignee",
+      "label": "Assignees",
+      "fields": [
+        {
+          "id": "billingclass",
+          "type": "select",
+          "label": "Billing Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "cost",
+          "type": "currency",
+          "label": "Cost",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "estimatedwork",
+          "type": "float",
+          "label": "Estimated Work",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "currency",
+          "label": "Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "resource",
+          "type": "select",
+          "label": "Resource",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "serviceitem",
+          "type": "select",
+          "label": "Service Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "unitcost",
+          "type": "currency",
+          "label": "Unit Cost",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "unitprice",
+          "type": "currency",
+          "label": "Unit Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "percent",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "bbudget",
+      "label": "Billing Budget",
+      "fields": [
+        {
+          "id": "costcategoryref",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorysubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorytype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "selectline",
+          "type": "checkbox",
+          "label": "Select",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "totalamount",
+          "type": "currency",
+          "label": "Task Total",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "cbudget",
+      "label": "Cost Budget",
+      "fields": [
+        {
+          "id": "costcategoryref",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorysubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorytype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "selectline",
+          "type": "checkbox",
+          "label": "Select",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "totalamount",
+          "type": "currency",
+          "label": "Task Total",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "predecessor",
+      "label": "Predecessors",
+      "fields": [
+        {
+          "id": "enddate",
+          "type": "datetime",
+          "label": "End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "startdate",
+          "type": "datetime",
+          "label": "Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "task",
+          "type": "select",
+          "label": "Task",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "type",
+          "type": "select",
+          "label": "Type",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "actualwork",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "assignee",
+      "type": "select",
+      "label": "Assignee"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Project/Project Template"
+    },
+    {
+      "id": "constrainttype",
+      "type": "select",
+      "label": "Constraint Type"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "cost",
+      "type": "currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "id": "costbase",
+      "type": "currency",
+      "label": "Estimated Cost (Base Currency)"
+    },
+    {
+      "id": "costbasebaseline",
+      "type": "currency",
+      "label": "Estimated Cost Baseline (Base Currency)"
+    },
+    {
+      "id": "costbaseline",
+      "type": "currency",
+      "label": "Estimated Cost Baseline"
+    },
+    {
+      "id": "costbasevariance",
+      "type": "currency",
+      "label": "Estimated Cost Variance (Base Currency)"
+    },
+    {
+      "id": "costvariance",
+      "type": "currency",
+      "label": "Estimated Cost Variance"
+    },
+    {
+      "id": "costvariancepercent",
+      "type": "float",
+      "label": "Estimated Cost Variance Percent"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "enddatebaseline",
+      "type": "date",
+      "label": "End Date Baseline"
+    },
+    {
+      "id": "enddatevariance",
+      "type": "float",
+      "label": "End Date Variance"
+    },
+    {
+      "id": "estimatedwork",
+      "type": "float",
+      "label": "Estimated Work"
+    },
+    {
+      "id": "estimatedworkbaseline",
+      "type": "float",
+      "label": "Estimated Work Baseline"
+    },
+    {
+      "id": "estimatedworkvariance",
+      "type": "float",
+      "label": "Estimated Work Variance"
+    },
+    {
+      "id": "estimatedworkvariancepercent",
+      "type": "float",
+      "label": "Estimated Work Variance Percent"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "finishbydate",
+      "type": "date",
+      "label": "Finish No Later Than Date"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "ismilestone",
+      "type": "checkbox",
+      "label": "Milestone"
+    },
+    {
+      "id": "issummarytask",
+      "type": "checkbox",
+      "label": "Is Job Summary Task"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Date Last Modified"
+    },
+    {
+      "id": "nonbillabletask",
+      "type": "checkbox",
+      "label": "Non-billable"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent Task"
+    },
+    {
+      "id": "percentworkcomplete",
+      "type": "percent",
+      "label": "Percent Work Complete"
+    },
+    {
+      "id": "predecessor",
+      "type": "select",
+      "label": "Predecessor"
+    },
+    {
+      "id": "predecessors",
+      "type": "text",
+      "label": "Predecessors"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "remainingwork",
+      "type": "float",
+      "label": "Remaining Work"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "startdatebaseline",
+      "type": "date",
+      "label": "Start Date Baseline"
+    },
+    {
+      "id": "startdatevariance",
+      "type": "float",
+      "label": "Start Date Variance"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "successor",
+      "type": "select",
+      "label": "Successor"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Task Name"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "actualwork",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "bbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Labor Billing Budgets"
+    },
+    {
+      "id": "cbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Labor Cost Budgets"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Project"
+    },
+    {
+      "id": "constrainttype",
+      "type": "select",
+      "label": "Constraint Type"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "cost",
+      "type": "currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "id": "costbase",
+      "type": "currency",
+      "label": "Estimated Cost (Base Currency)"
+    },
+    {
+      "id": "costbasebaseline",
+      "type": "currency",
+      "label": "Estimated Cost Baseline (Base Currency)"
+    },
+    {
+      "id": "costbaseline",
+      "type": "currency",
+      "label": "Estimated Cost Baseline"
+    },
+    {
+      "id": "costbasevariance",
+      "type": "currency",
+      "label": "Estimated Cost Variance (Base Currency)"
+    },
+    {
+      "id": "costvariance",
+      "type": "currency",
+      "label": "Estimated Cost Variance"
+    },
+    {
+      "id": "costvariancepercent",
+      "type": "float",
+      "label": "Estimated Cost Variance Percent"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "enddatebaseline",
+      "type": "date",
+      "label": "End Date Baseline"
+    },
+    {
+      "id": "enddatevariance",
+      "type": "float",
+      "label": "End Date Variance"
+    },
+    {
+      "id": "estimatedwork",
+      "type": "float",
+      "label": "Estimated Work"
+    },
+    {
+      "id": "estimatedworkbaseline",
+      "type": "float",
+      "label": "Estimated Work Baseline"
+    },
+    {
+      "id": "estimatedworkvariance",
+      "type": "float",
+      "label": "Estimated Work Variance"
+    },
+    {
+      "id": "estimatedworkvariancepercent",
+      "type": "float",
+      "label": "Estimated Work Variance Percent"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "finishbydate",
+      "type": "date",
+      "label": "Finish No Later Than Date"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "ismilestone",
+      "type": "checkbox",
+      "label": "Milestone"
+    },
+    {
+      "id": "issummarytask",
+      "type": "checkbox",
+      "label": "Is Summary Task"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Notes"
+    },
+    {
+      "id": "nonbillabletask",
+      "type": "checkbox",
+      "label": "Non-billable"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent Task"
+    },
+    {
+      "id": "percentworkcomplete",
+      "type": "percent",
+      "label": "Percent Work Complete"
+    },
+    {
+      "id": "predecessor",
+      "type": "select",
+      "label": "Predecessor"
+    },
+    {
+      "id": "predecessors",
+      "type": "text",
+      "label": "Predecessors"
+    },
+    {
+      "id": "predecessortype",
+      "type": "text",
+      "label": "Predecessor Type"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "remainingwork",
+      "type": "float",
+      "label": "Remaining Work"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "startdatebaseline",
+      "type": "date",
+      "label": "Start Date Baseline"
+    },
+    {
+      "id": "startdatevariance",
+      "type": "float",
+      "label": "Start Date Variance"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "successor",
+      "type": "select",
+      "label": "Successor"
+    },
+    {
+      "id": "successortype",
+      "type": "text",
+      "label": "Successor Type"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Task Name"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "job",
+      "description": "Job",
+      "actualName": "Job"
+    },
+    {
+      "id": "predecessor",
+      "description": "Predecessor",
+      "actualName": "ProjectTask"
+    },
+    {
+      "id": "projecttaskassignment",
+      "description": "Project Task Assignment",
+      "actualName": "Project Task Assignment"
+    },
+    {
+      "id": "successor",
+      "description": "Successor",
+      "actualName": "ProjectTask"
+    },
+    {
+      "id": "transaction",
+      "description": "Transaction",
+      "actualName": "Transaction"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "assignees",
+      "label": "Assignees"
+    },
+    {
+      "name": "budget",
+      "label": "Budget"
+    },
+    {
+      "name": "communication",
+      "label": "Communication"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "media",
+      "label": "File Cabinet"
+    },
+    {
+      "name": "predecessors",
+      "label": "Predecessors"
+    },
+    {
+      "name": "time",
+      "label": "Time"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

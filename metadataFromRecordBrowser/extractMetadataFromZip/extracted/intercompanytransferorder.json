@@ -1,0 +1,679 @@
+{
+  "label": "Intercompany Transfer Order",
+  "id": "intercompanytransferorder",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "altshippingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost",
+      "required": false,
+      "help": "This field displays shipping costs associated with this transfer order."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a class to associate with this transaction.\n\nTo create a new class, select New.\n\nFor details on existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a department to associate with this transaction.\n\nTo create a new department, select New.\n\nFor details on existing departments, go to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments."
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Employee",
+      "required": false,
+      "help": "Select an employee to associate with this transfer order.\n\nSelect New to add a new employee.\n\nGo to <_TABNAME=LIST_EMPLOYEE_> > <_TASKCATEGORY=LIST_EMPLOYEE_> > Employees for details about existing employees."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "firmed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Firmed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fob",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FOB",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Incoterm",
+      "required": true,
+      "help": "For transfer orders and intercompany transfer orders, use the following default international commercial terms (incoterms) to define when the transfer of ownership occurs for items being transferred between locations:\n    * Ex Work (EXW) &#x2013; inventory ownership is transferred at the shipping point\n    * Delivered at Place (DAP) &#x2013; inventory ownership is transferred at the destination point\n\nBe aware that the incoterm you select impacts accounting and inventory information.\n\nWhen creating a transfer order, you can only select EXW or DAP. After the order status is pending approval or pending fulfillment, you can choose another incoterm."
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "linkedtrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "From Location",
+      "required": false,
+      "help": "In the From Location field, select the originating location for the transfer. Items are taken out of this location and the inventory count for the item is decreased at the location when the order is fulfilled.\n\nYou are not required to enter a source location to enter a transfer order, but you must choose a source location to approve and fulfill the transfer order.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter a memo to identify this transfer order.\n\nWhen you use the Search Transactions feature, you can search for specific words and phrases in the Memo field."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "oldrevenuecommitment",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "orderstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": true,
+      "help": "Select Pending Approval to route this order through the approval process before it is fulfilled.\n\nSelect Pending Fulfillment to skip the approval process."
+    },
+    {
+      "id": "otherrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returntrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Return Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Ship To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship To Select",
+      "required": false,
+      "help": "Select the appropriate shipping address for this transaction. Select New to enter a new shipping address."
+    },
+    {
+      "id": "shipcomplete",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Ship Complete",
+      "required": false,
+      "help": "Check this box if you want to ship this order when there are enough items available to fully fulfill the orders.\n\nWhen fulfilling orders in bulk, you can filter the list to include those orders marked Ship Complete that can be completely fulfilled by selecting Respect Ship Complete in the Filter By field."
+    },
+    {
+      "id": "shipdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Ship Date",
+      "required": false,
+      "help": "The date defaults to show the current date. You can type or pick another shipping date for this order."
+    },
+    {
+      "id": "shipisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Method",
+      "required": false,
+      "help": "Select a shipping method for this order.\n\nIf you automatically charge for shipping, the shipping amount is entered in the shipping costs field. To automatically charge for shipping, go to <_TABNAME=ADMI_SHIPPING_> > <_TASKCATEGORY=ADMI_SHIPPING_> > Shipping and check the Charge for Shipping box. Click Submit. You must also set up the charge details of your shipping items.\n\nTo add or edit shipping items, go to Lists > Accounting > Shipping Items."
+    },
+    {
+      "id": "shipoverride",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost",
+      "required": false,
+      "help": "The shipping cost automatically calculates depending on the shipping method you select in the Ship Via field above.\n\nTo change the cost of a shipping method, go to <_TABNAME=LIST_SHIPITEM_> > <_TASKCATEGORY=LIST_SHIPITEM_> > Shipping Items and select the shipping method you want to change.\n\nIf you use UPS Real-Time rates and a package is over 150lbs, the package is charged as multiple packages equal to or less than 150lbs."
+    },
+    {
+      "id": "shippingcostoverridden",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost Overridden",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "source",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "Select the subsidiary where the items will be taken from. The selection you make in this field determines which locations are available to be selected in the From Location field.\n\nFor example, if you select Subsidiary B here, you can choose a source location from a list of locations limited to only those associated with Subsidiary B."
+    },
+    {
+      "id": "subtotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Subtotal",
+      "required": false,
+      "help": "As you add items, the total shows in this field."
+    },
+    {
+      "id": "tosubsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "To Subsidiary",
+      "required": false,
+      "help": "Select the subsidiary where the items are to be received. The selection you make in this field determines which locations are available to be selected in the To Location field.\n\nFor example, if you select Subsidiary B here, you can choose a destination location from a list of locations limited to only those associated with Subsidiary B."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total",
+      "required": false,
+      "help": "This field shows the total amount associated with this order, including shipping and handling costs."
+    },
+    {
+      "id": "trackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Additional Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "The current date autofills for this transfer order.\n\nYou can select or enter a different date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Order #",
+      "required": false,
+      "help": "Enter the number of this transfer order.\n\nIf you use autogenerated numbering, the next order number in the sequence shows here. You can enter another number if you choose."
+    },
+    {
+      "id": "transactionnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Transaction Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "transferlocation",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "To Location",
+      "required": true,
+      "help": "In the Destination Location field, select the receiving location for the transfer. The inventory count and asset value for the item is increased at this location when the items are received.\n\nYou are required to enter a destination location to enter or approve a transfer order.\n\nThe Ship To Address of the transfer order defaults to the address of the destination location.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "updatecurrency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Update Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "useitemcostastransfercost",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Item Cost As Transfer Cost",
+      "required": false,
+      "help": "Check this box to use the transfer price as a declared shipping value for reference only. For example, for insurance or international shipping.\n\n    * The transfer price is not a charge for the destination location.\n    * The transfer price does not affect inventory costing on transactions.\n    * The transfer price defaults to show the value in the Transfer Price field of item records.\n    * Partial fulfillment and receipt of transfer orders is allowed, but you cannot receive more than you have fulfilled on any date. For example, if you have fulfilled 10 widgets out of 20 on a transfer order, you cannot receive 12 widgets on that order.\n\nClear this box to use the transfer price shown on the transfer order as the item cost on the item receipt.\nImportant: If no transfer price is entered on the transfer order, no cost is recorded on the item receipt.\n\n    * Any difference between the actual cost and the transfer price posts to a Gain/Loss account when the item is shipped.\n    * The transfer price and the Gain/Loss account are defined on each item record.\n    * The transfer price defaults to show the value in the Transfer Price field of item records.\n\nIf you use approval routing, this setting can be changed on a transfer order as long as the transfer order is not yet approved. Once the transfer order is approved, this setting cannot be changed."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "commitinventory",
+          "type": "select",
+          "label": "Commit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "daysbeforeexpiration",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expectedreceiptdate",
+          "type": "date",
+          "label": "Expected Receipt Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expectedshipdate",
+          "type": "date",
+          "label": "Expected Ship Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isclosed",
+          "type": "checkbox",
+          "label": "Closed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "printitems",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityavailable",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitybackordered",
+          "type": "float",
+          "label": "Back Ordered",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitycommitted",
+          "type": "float",
+          "label": "Committed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityfulfilled",
+          "type": "float",
+          "label": "Fulfilled",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityreceived",
+          "type": "float",
+          "label": "Received",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency2",
+          "label": "Transfer Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "shipping",
+      "label": "Shipping"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "itemfulfillment",
+      "fieldDefaults": "customform,nsi,shipgroup"
+    },
+    {
+      "targetRecordType": "itemreceipt",
+      "fieldDefaults": "customform"
+    }
+  ]
+}

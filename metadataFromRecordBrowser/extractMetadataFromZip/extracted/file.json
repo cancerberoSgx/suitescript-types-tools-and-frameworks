@@ -1,0 +1,202 @@
+{
+  "label": "File",
+  "id": "file",
+  "supportCustomFields": true,
+  "searchOnly": true,
+  "supportDeletedRecordSearch": true,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "addtimestamptourl",
+      "type": "checkbox",
+      "label": "Generate URL Timestamp"
+    },
+    {
+      "id": "availablewithoutlogin",
+      "type": "checkbox",
+      "label": "Available Without Login"
+    },
+    {
+      "id": "created",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "dateviewed",
+      "type": "datetime",
+      "label": "Date Viewed"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "documentsize",
+      "type": "integer",
+      "label": "Size (KB)"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "filetype",
+      "type": "select",
+      "label": "File Type"
+    },
+    {
+      "id": "folder",
+      "type": "select",
+      "label": "Folder"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isavailable",
+      "type": "checkbox",
+      "label": "Available"
+    },
+    {
+      "id": "islink",
+      "type": "checkbox",
+      "label": "External URL"
+    },
+    {
+      "id": "modified",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "url",
+      "type": "text",
+      "label": "URL"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "availablewithoutlogin",
+      "type": "checkbox",
+      "label": "Available Without Login"
+    },
+    {
+      "id": "created",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "dateviewed",
+      "type": "datetime",
+      "label": "Date Viewed"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "documentsize",
+      "type": "integer",
+      "label": "Size (KB)"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "filetype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "folder",
+      "type": "select",
+      "label": "Folder"
+    },
+    {
+      "id": "hits",
+      "type": "integer",
+      "label": "# Times Viewed"
+    },
+    {
+      "id": "hostedpath",
+      "type": "text",
+      "label": "Hosted Path"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isavailable",
+      "type": "checkbox",
+      "label": "Available"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "modified",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "url",
+      "type": "text",
+      "label": "URL"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "shopper",
+      "description": "Shopper",
+      "actualName": "Customer"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

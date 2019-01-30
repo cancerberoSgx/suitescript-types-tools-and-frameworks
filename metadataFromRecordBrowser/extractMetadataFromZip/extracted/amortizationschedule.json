@@ -1,0 +1,583 @@
+{
+  "label": "Amortization Schedule",
+  "id": "amortizationschedule",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Accounting Book",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "amortizationtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialamount",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Initial Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "parentSched",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Period Offset",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "recogintervalsrc",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Term Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurrencetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "remainingdeferredbalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Remaining Deferred Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "residual",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Residual",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revrecoffset",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Start Offset",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "schedulenumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sourcetran",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "totalamortized",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total Amortized",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "totalamount",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "recurrence",
+      "label": "Custom Recurrence Pattern",
+      "fields": [
+        {
+          "id": "defrevaccount",
+          "type": "select",
+          "label": "Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "incomeaccount",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isrecognized",
+          "type": "checkbox",
+          "label": "Is Recognized",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "jdate",
+          "type": "date",
+          "label": "Date Executed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "journal",
+          "type": "text",
+          "label": "Journal",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "periodoffset",
+          "type": "integer",
+          "label": "Period Offset",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "postingperiod",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "recamount",
+          "type": "rate",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "recurdate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "amorstatus",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "amortizedamount",
+      "type": "currency",
+      "label": "Total Amortized"
+    },
+    {
+      "id": "amortype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "currencyname",
+      "type": "select",
+      "label": "Schedule Currency"
+    },
+    {
+      "id": "deferredamount",
+      "type": "currency",
+      "label": "Remaining Deferred Balance"
+    },
+    {
+      "id": "destacct",
+      "type": "select",
+      "label": "Destination Account"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "initialamt",
+      "type": "currency",
+      "label": "Initial Amount"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isrecognized",
+      "type": "checkbox",
+      "label": "Is Recognized?"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Schedule Name"
+    },
+    {
+      "id": "pctcomplete",
+      "type": "float",
+      "label": "% Complete"
+    },
+    {
+      "id": "pctrecognition",
+      "type": "float",
+      "label": "% Recog."
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "label": "Period Offset"
+    },
+    {
+      "id": "postperiod",
+      "type": "select",
+      "label": "Posting Period"
+    },
+    {
+      "id": "residual",
+      "type": "currency",
+      "label": "Residual"
+    },
+    {
+      "id": "scheddate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "schedulenumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "schedulenumbertext",
+      "type": "text",
+      "label": "Number/ID"
+    },
+    {
+      "id": "sourceacct",
+      "type": "select",
+      "label": "Source Account"
+    },
+    {
+      "id": "srctranpostperiod",
+      "type": "select",
+      "label": "Source Transaction Posting Period"
+    },
+    {
+      "id": "srctrantype",
+      "type": "select",
+      "label": "Transaction Type"
+    },
+    {
+      "id": "startoffset",
+      "type": "integer",
+      "label": "Start Offset"
+    },
+    {
+      "id": "templatename",
+      "type": "text",
+      "label": "Template Name"
+    },
+    {
+      "id": "useforeignamounts",
+      "type": "checkbox",
+      "label": "Use Transaction Currency"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "amorstatus",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "amortemplate",
+      "type": "select",
+      "label": "Template Name"
+    },
+    {
+      "id": "amortizedamount",
+      "type": "currency",
+      "label": "Total Amortized"
+    },
+    {
+      "id": "amortype",
+      "type": "text",
+      "label": "Type"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount (Schedule Total)"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Schedule Currency"
+    },
+    {
+      "id": "deferredamount",
+      "type": "currency",
+      "label": "Remaining Deferred Balance"
+    },
+    {
+      "id": "destacct",
+      "type": "select",
+      "label": "Destination Account"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "initialamt",
+      "type": "currency",
+      "label": "Initial Amount"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isrecognized",
+      "type": "checkbox",
+      "label": "Is Recognized?"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Schedule Name"
+    },
+    {
+      "id": "pctcomplete",
+      "type": "percent",
+      "label": "% Complete"
+    },
+    {
+      "id": "pctrecognition",
+      "type": "percent",
+      "label": "% Recog."
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "label": "Period Offset"
+    },
+    {
+      "id": "recuramount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "recurfxamount",
+      "type": "currency",
+      "label": "Amount (Foreign Currency)"
+    },
+    {
+      "id": "residual",
+      "type": "currency",
+      "label": "Residual"
+    },
+    {
+      "id": "scheddate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "schedulenumber",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "sourceacct",
+      "type": "select",
+      "label": "Source Account"
+    },
+    {
+      "id": "srctran",
+      "type": "select",
+      "label": "Source Transaction"
+    },
+    {
+      "id": "srctranpostperiod",
+      "type": "select",
+      "label": "Posting Period"
+    },
+    {
+      "id": "startoffset",
+      "type": "integer",
+      "label": "Start Offset"
+    },
+    {
+      "id": "useforeignamounts",
+      "type": "checkbox",
+      "label": "Use Transaction Currency"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    },
+    {
+      "id": "vendor",
+      "description": "Vendor",
+      "actualName": "Vendor"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

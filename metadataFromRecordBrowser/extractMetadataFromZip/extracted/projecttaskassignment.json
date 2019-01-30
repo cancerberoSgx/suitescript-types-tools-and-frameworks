@@ -1,0 +1,246 @@
+{
+  "label": "Project Task Assignment",
+  "id": "projecttaskassignment",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "actualwork",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "billingclass",
+      "type": "select",
+      "label": "Billing Class"
+    },
+    {
+      "id": "cost",
+      "type": "currency",
+      "label": "Cost"
+    },
+    {
+      "id": "costbase",
+      "type": "currency",
+      "label": "Cost (Base Currency)"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "estimatedwork",
+      "type": "float",
+      "label": "Estimated Work"
+    },
+    {
+      "id": "estimatedworkbaseline",
+      "type": "float",
+      "label": "Estimated Work Baseline"
+    },
+    {
+      "id": "grossprofit",
+      "type": "currency",
+      "label": "Estimated Gross Profit"
+    },
+    {
+      "id": "grossprofitbase",
+      "type": "currency",
+      "label": "Estimated Gross Profit (Base Currency)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "price",
+      "type": "currency",
+      "label": "Estimated Revenue"
+    },
+    {
+      "id": "pricebase",
+      "type": "currency",
+      "label": "Estimated Revenue (Base Currency)"
+    },
+    {
+      "id": "resource",
+      "type": "select",
+      "label": "Resource"
+    },
+    {
+      "id": "resourcename",
+      "type": "text",
+      "label": "Resource Name"
+    },
+    {
+      "id": "serviceitem",
+      "type": "text",
+      "label": "Service Item"
+    },
+    {
+      "id": "serviceitemdesc",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "unitcost",
+      "type": "currency",
+      "label": "Unit Cost"
+    },
+    {
+      "id": "unitcostbase",
+      "type": "currency",
+      "label": "Unit Cost (Base Currency)"
+    },
+    {
+      "id": "unitprice",
+      "type": "currency",
+      "label": "Unit Price"
+    },
+    {
+      "id": "unitpricebase",
+      "type": "currency",
+      "label": "Unit Price (Base Currency)"
+    },
+    {
+      "id": "units",
+      "type": "percent",
+      "label": "Units (%)"
+    },
+    {
+      "id": "workcalendar",
+      "type": "select",
+      "label": "Work Calendar"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "actualwork",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "billingclass",
+      "type": "select",
+      "label": "Billing Class"
+    },
+    {
+      "id": "cost",
+      "type": "currency",
+      "label": "Cost"
+    },
+    {
+      "id": "costbase",
+      "type": "currency",
+      "label": "Cost (Base Currency)"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "estimatedwork",
+      "type": "float",
+      "label": "Estimated Work"
+    },
+    {
+      "id": "estimatedworkbaseline",
+      "type": "float",
+      "label": "Estimated Work Baseline"
+    },
+    {
+      "id": "grossprofit",
+      "type": "currency",
+      "label": "Estimated Gross Profit"
+    },
+    {
+      "id": "grossprofitbase",
+      "type": "currency",
+      "label": "Estimated Gross Profit (Base Currency)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "price",
+      "type": "currency",
+      "label": "Estimated Revenue"
+    },
+    {
+      "id": "pricebase",
+      "type": "currency",
+      "label": "Estimated Revenue (Base Currency)"
+    },
+    {
+      "id": "resource",
+      "type": "select",
+      "label": "Resource"
+    },
+    {
+      "id": "resourcename",
+      "type": "select",
+      "label": "Resource Name"
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "label": "Service Item"
+    },
+    {
+      "id": "serviceitemdesc",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "unitcost",
+      "type": "currency",
+      "label": "Unit Cost"
+    },
+    {
+      "id": "unitcostbase",
+      "type": "currency",
+      "label": "Unit Cost (Base Currency)"
+    },
+    {
+      "id": "unitprice",
+      "type": "currency",
+      "label": "Unit Price"
+    },
+    {
+      "id": "unitpricebase",
+      "type": "currency",
+      "label": "Unit Price (Base Currency)"
+    },
+    {
+      "id": "units",
+      "type": "percent",
+      "label": "Units (%)"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

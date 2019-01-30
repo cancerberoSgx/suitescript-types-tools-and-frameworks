@@ -1,0 +1,694 @@
+{
+  "label": "Phone Call",
+  "id": "phonecall",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accesslevel",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Private Phone Call",
+      "required": false,
+      "help": "Check this box to have this call show only in your Phone Calls list.\n\nCalls that are not private can be seen by others with access to your account."
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Organizer",
+      "required": true,
+      "help": "Select the employee responsible for setting up or making this phone call."
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Company",
+      "required": false,
+      "help": "Select the customer, vendor or partner this call pertains to.\n\nSelecting a company adds this call to the associated record.\n\nYou can also select this company on the Participants subtab."
+    },
+    {
+      "id": "completeddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date Completed",
+      "required": false,
+      "help": "Enter the date the subject for this call was concluded.\n\nThis field can be useful if the call required a follow-up or call back or was not completed on the call date for another reason."
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Contact",
+      "required": false,
+      "help": "Select the contact for this company in relation to this cal.\n\nThe contacts in this field are the contacts attached to the company selected above. Click Open next to the Company field to add contacts to a company's record."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "If you have created a custom entry form for phone call records, you can select that form here. Selecting the form changes the page to your custom record.\n\nAn administrator can create custom records at <_TABNAME=LIST_CUSTENTRYFORM_> > <_TASKCATEGORY=LIST_CUSTENTRYFORM_> > Custom Entry Forms."
+    },
+    {
+      "id": "enddate",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": "Enter the date this call must be made by, or the deadline."
+    },
+    {
+      "id": "endtime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "End Time",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "endtimepicker",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "group",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Enter notes on the context and decisions made in this phone call.\n\nYou can enter up to 999 characters."
+    },
+    {
+      "id": "owner",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Created By",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Phone Number",
+      "required": false,
+      "help": "Enter the phone number used for this call.\n\nPhone numbers can be entered in the following formats: 999-999-9999, 1-999-999-9999, (999) 999-9999, 1(999) 999-9999 or 999-999-9999 ext 9999."
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Priority",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "reminderminutes",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reminder",
+      "required": false,
+      "help": "Select the amount of time before the start time for this call when you would like to set a reminder for the organizer.\n\nYou must check the Block Out Time box to set a reminder.\n\nYou must also select a reminder type to set the reminder."
+    },
+    {
+      "id": "remindertype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reminder Type",
+      "required": false,
+      "help": "Select the type of reminder the call organizer should receive before the start time of this task.\n\nYou must check the Block Out Time box to set a reminder.\n\nEmail reminders are sent to the email address on the employee record of the organizer.\n\nPopup reminders appear only if the organizer is logged in to his or her NetSuite account.\n\nYou must also set a time in the Reminder field to set a reminder."
+    },
+    {
+      "id": "sendemail",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Send Email",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Date",
+      "required": true,
+      "help": "Enter the date of this call.\n\nClick the calendar icon to choose the date from the calendar."
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "Start Time",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "starttimepicker",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": true,
+      "help": "Select either Scheduled or Completed as the status of this call.\n\nCompleted calls no longer show on your Phone Calls list by default."
+    },
+    {
+      "id": "supportcase",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Support Case",
+      "required": false,
+      "help": "If this call is related to a support case, select the case number here.\n\nSelecting a case attaches this phone call record to the case record."
+    },
+    {
+      "id": "timedevent",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Reserve Time",
+      "required": false,
+      "help": "Check this box to schedule this call on the calendar of the person organizing the call.\n\nEnter the start and end times in the From and To fields.\n\nThis time is scheduled on the calendar for the phone call date."
+    },
+    {
+      "id": "timezone",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Subject",
+      "required": true,
+      "help": "Enter the subject of this phone call.\n\nYou can enter up to 100 characters."
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Transaction",
+      "required": false,
+      "help": "If this call is associated with a transaction, select that transaction here.\n\nIf you select a transaction, this phone call is listed on the History subtab of the transaction."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "timeitem",
+      "label": "Time Tracking",
+      "fields": [
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer:Project",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "hours",
+          "type": "timetrack",
+          "label": "Duration",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isexempt",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isproductive",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isutilized",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Service Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "jobbillingtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "textarea",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "overriderate",
+          "type": "checkbox",
+          "label": "Lock this Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "select",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency2",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "timetype",
+          "type": "select",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "trandate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Organizer"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "completeddate",
+      "type": "date",
+      "label": "Date Completed"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "createdby",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isprivate",
+      "type": "checkbox",
+      "label": "Is Private"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified Date"
+    },
+    {
+      "id": "owner",
+      "type": "checkbox",
+      "label": "Owner"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone Number"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Phone Call Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Subject"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accesslevel",
+      "type": "text",
+      "label": "Private"
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Organizer"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "completeddate",
+      "type": "date",
+      "label": "Date Completed"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "markdone",
+      "type": "text",
+      "label": "Mark"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Comment"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone Number"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Phone Call Date"
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "label": "Start Time"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Subject"
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "label": "Transaction"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "companycustomer",
+      "description": "Company (Customer)",
+      "actualName": "Customer"
+    },
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "originatinglead",
+      "description": "Originating Lead",
+      "actualName": "Lead"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "communication",
+      "label": "Communication"
+    },
+    {
+      "name": "contacts",
+      "label": "Contacts"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "icalendar",
+      "label": "Availability"
+    },
+    {
+      "name": "media",
+      "label": "File Cabinet"
+    },
+    {
+      "name": "relatedinfo",
+      "label": "Related Info"
+    },
+    {
+      "name": "time",
+      "label": "Time"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

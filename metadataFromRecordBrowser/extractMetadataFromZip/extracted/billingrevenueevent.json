@@ -1,0 +1,246 @@
+{
+  "label": "Revenue Recognition Event",
+  "id": "billingrevenueevent",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount (Foreign Currency)",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cumulativepercentcomplete",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Cumulative Percent Complete",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "eventdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Event Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "eventpurpose",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Event Purpose",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "eventtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Event Type",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Quantity",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "record",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Record",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recordtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Record Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "transactionline",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Transaction Line",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount (Foreign Currency)"
+    },
+    {
+      "id": "cumulativepercentcomplete",
+      "type": "percent",
+      "label": "Cumulative Percent Complete"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "eventdate",
+      "type": "date",
+      "label": "Event Date"
+    },
+    {
+      "id": "eventpurpose",
+      "type": "select",
+      "label": "Event Purpose"
+    },
+    {
+      "id": "eventtype",
+      "type": "select",
+      "label": "Event Type"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "record",
+      "type": "select",
+      "label": "Custom Record"
+    },
+    {
+      "id": "recordtype",
+      "type": "select",
+      "label": "Custom Record Type"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount (Foreign Currency)"
+    },
+    {
+      "id": "cumulativepercentcomplete",
+      "type": "percent",
+      "label": "Cumulative Percent Complete"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "eventdate",
+      "type": "date",
+      "label": "Event Date"
+    },
+    {
+      "id": "eventpurpose",
+      "type": "select",
+      "label": "Event Purpose"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "record",
+      "type": "select",
+      "label": "Custom Record"
+    },
+    {
+      "id": "recordtype",
+      "type": "select",
+      "label": "Custom Record Type"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "billingrevenueeventtype",
+      "description": "Revenue Recognition Event Type",
+      "actualName": "Revenue Recognition Event Type"
+    },
+    {
+      "id": "subscriptionline",
+      "description": "Subscription Line",
+      "actualName": "{Subscription} Line"
+    },
+    {
+      "id": "transaction",
+      "description": "Transaction",
+      "actualName": "Transaction"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

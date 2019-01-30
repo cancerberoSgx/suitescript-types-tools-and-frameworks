@@ -1,0 +1,233 @@
+{
+  "label": "Consolidated Exchange Rate",
+  "id": "consolidatedexchangerate",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountingbook",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Accounting Book",
+      "required": false,
+      "help": "If the Multi-Book Accounting feature is provisioned in your account, this is the accounting book associated with this consolidated exchange rate."
+    },
+    {
+      "id": "averagerate",
+      "type": "currency2",
+      "nlapiSubmitField": true,
+      "label": "Average Exchange Rate",
+      "required": true,
+      "help": "This is the average exchange rate. This rate is calculated from a weighted average of the exchange rates for transactions applied during the period to accounts with a general rate type of Average. This rate is used to translate accounts in the income statement and to build retained earnings."
+    },
+    {
+      "id": "currentrate",
+      "type": "currency2",
+      "nlapiSubmitField": true,
+      "label": "Current Exchange Rate",
+      "required": true,
+      "help": "This is the current exchange rate. Also referred to as ending rate. This rate is based on the currency exchange rate that is effective at the end of the reported upon period. This rate is used for most asset and liability accounts in the balance sheet."
+    },
+    {
+      "id": "fromcurrency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "From Currency",
+      "required": false,
+      "help": "This is the currency from which the exchange rate is calculated."
+    },
+    {
+      "id": "fromsubsidiary",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "From Subsidiary",
+      "required": false,
+      "help": "This is the subsidiary from which the exchange rate is calculated."
+    },
+    {
+      "id": "historicalrate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Historical Exchange Rate",
+      "required": true,
+      "help": "This is the historical exchange rate. This rate is calculated from a weighted average of the exchange rates for transactions applied during the period to accounts with a general rate type of Historical. This rate is used for equity accounts, or owner's investments, in the balance sheet."
+    },
+    {
+      "id": "isderived",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate Derived",
+      "required": false,
+      "help": "If this box is checked, the exchange rate is indirect. Indirect rates are rates set between subsidiaries more than one hierarchical level removed from each other, such as a child and grandchild. Indirect rates are always set by the system and cannot be edited or auto calculated by users."
+    },
+    {
+      "id": "iseliminationsubsidiary",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Is Elimination Subsidiary",
+      "required": false,
+      "help": "If this box is checked, the subsidiary associated with this consolidated exchange rate is an elimination subsidiary. You cannot edit the rates for an elimination subsidiary."
+    },
+    {
+      "id": "isperiodclosed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Period Closed",
+      "required": false,
+      "help": "If this box is checked, the accounting period is closed."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "This is the posting period for this exchange rate."
+    },
+    {
+      "id": "tocurrency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "To Currency",
+      "required": false,
+      "help": "This is the currency into which the exchange rate is calculated."
+    },
+    {
+      "id": "tosubsidiary",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "To Subsidiary",
+      "required": false,
+      "help": "This is the subsidiary to which the exchange rate is calculated."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fromsubsidiary",
+      "type": "select",
+      "label": "From Subsidiary"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isderivedrate",
+      "type": "checkbox",
+      "label": "Is Derived Rate"
+    },
+    {
+      "id": "period",
+      "type": "select",
+      "label": "Period"
+    },
+    {
+      "id": "periodstartdate",
+      "type": "date",
+      "label": "Period Start Date"
+    },
+    {
+      "id": "tosubsidiary",
+      "type": "select",
+      "label": "To Subsidiary"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountingbook",
+      "type": "text",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "averagerate",
+      "type": "rate",
+      "label": "Average"
+    },
+    {
+      "id": "closed",
+      "type": "checkbox",
+      "label": "Closed"
+    },
+    {
+      "id": "currentrate",
+      "type": "rate",
+      "label": "Current"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fromcurrency",
+      "type": "text",
+      "label": "From Currency"
+    },
+    {
+      "id": "fromsubsidiary",
+      "type": "text",
+      "label": "From Subsidiary"
+    },
+    {
+      "id": "historicalrate",
+      "type": "rate",
+      "label": "Historical"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "periodenddate",
+      "type": "date",
+      "label": "Period End Date"
+    },
+    {
+      "id": "periodname",
+      "type": "text",
+      "label": "Period"
+    },
+    {
+      "id": "periodstartdate",
+      "type": "date",
+      "label": "Period Start Date"
+    },
+    {
+      "id": "tocurrency",
+      "type": "text",
+      "label": "To Currency"
+    },
+    {
+      "id": "tosubsidiary",
+      "type": "text",
+      "label": "To Subsidiary"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,115 @@
+{
+  "label": "Partner Category",
+  "id": "partnercategory",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to inactivate this contact category."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Partner Category/Role",
+      "required": true,
+      "help": "Enter the name for this contact category."
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subtype of",
+      "required": false,
+      "help": "If this is a subcategory of another category, select the parent category."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Parent"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

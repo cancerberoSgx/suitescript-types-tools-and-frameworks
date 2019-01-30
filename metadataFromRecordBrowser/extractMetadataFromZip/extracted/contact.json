@@ -1,0 +1,1189 @@
+{
+  "label": "Contact",
+  "id": "contact",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "altemail",
+      "type": "email",
+      "nlapiSubmitField": true,
+      "label": "Alt. Email",
+      "required": false,
+      "help": "<p>Enter an alternate email address for this contact. If you use the Capture Email Replies, email sent with the alternate email address are automatically attached to the contact record."
+    },
+    {
+      "id": "assistant",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Assistant",
+      "required": false,
+      "help": "Select this contact's assistant.\n\nYou can select only from existing contacts. To add to this list, create another contact record."
+    },
+    {
+      "id": "assistantphone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Assist. Phone",
+      "required": false,
+      "help": "Enter the phone number for this contact's assistant.\n\nThis number appears only on this record."
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Approach",
+      "required": false,
+      "help": "Enter any other information you want to note about this contact.\n\nThese notes appears only on this record.\n\nYou can enter up to 999 characters of text."
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Organization",
+      "required": false,
+      "help": "Select the company this contact works for.\n \nThis contact appears in contact lists for this company."
+    },
+    {
+      "id": "contactrole",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "contactsource",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Lead Source",
+      "required": false,
+      "help": "Select how this contact came to do business with your company.\n\nIf you do not use the Marketing Automation feature, you can create new leads sources at  <_TABNAME=EDIT_CRMOTHERLIST_> > <_TASKCATEGORY=EDIT_CRMOTHERLIST_> > CRM Lists > New > Lead Source.\n\nIf you have enabled the Marketing Automation feature, this field fills with the names of your campaigns, and you cannot create new lead sources at <_TABNAME=EDIT_CRMOTHERLIST_> > <_TASKCATEGORY=EDIT_CRMOTHERLIST_> > CRM Lists. Instead, create new campaigns at <_TABNAME=EDIT_CAMPAIGN_> > Campaigns > New."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the custom form you want to use to enter this record.\n\nTo continue using this form, select Standard Contact Form. To create a custom contact form, select New or click Customize Form."
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": "In this field, NetSuite automatically records the date you created this record."
+    },
+    {
+      "id": "defaultaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address (Display Type DISABLED)",
+      "required": false,
+      "help": "The default billing address automatically shows here when you enter and add it using the Address subtab."
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "Email",
+      "required": false,
+      "help": "Enter the contact's e-mail address.\n\nIf you enter an e-mail address, you can e-mail this contact directly from the Contacts list.\n\nAlso, If you invite this contact to an event, the contact receives e-mail with the event details."
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Contact Name",
+      "required": true,
+      "help": "NetSuite automatically completes this field as you enter first, middle and last names below.\n\nThis is how the contact's name appears in all lists."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Fax",
+      "required": false,
+      "help": "Enter a fax number for this record. You should enter the fax number exactly as it must be dialed. If a '1' is required to fax to this number, be sure to include it at the beginning of the number.\n\nThe number you enter here automatically appears in the To Be Faxed field of transactions when you select this customer.\n\nTo fax NetSuite forms, an administrator must first set up fax service at Setup > Set Up Printing, Fax and E-mail > Fax."
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Full Name",
+      "required": false,
+      "help": "Enter the contact's  name.\n\nWhat you enter here automatically appears first in the Contact field.\n\nThis field is required for the Online Bill Pay feature."
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Global Subscription Status",
+      "required": false,
+      "help": "Email recipients can have one of four subscription statuses:\n\n    * Confirmed Opt-In - When an email recipient has indicated that they want to receive your campaign messages, they are assigned this subscription status. Only a recipient can set his or her subscription status to Confirmed Opt-In.\n    * Soft Opt-In - Recipients with this status can receive opt-in messages that enable them to confirm whether or not they want to receive your email campaigns as well as email marketing campaigns.\n      You can set a recipient&#x2019;s status to Soft Opt-In manually or through a mass update.\n    * Soft Opt-Out - Recipients with this status cannot receive campaign email messages but can receive opt-in messages.\n      You can change this subscription status to Soft Opt-In manually or through a mass update.\n    * Confirmed Opt-Out - Only the recipient can set their subscription status to Confirmed Opt-Out.\n      Recipients with this status cannot receive email campaigns or opt-in messages. Recipients with this status can only opt in again through the Customer Center or by clicking the link in a campaign message they have received prior to opting out."
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Home Phone",
+      "required": false,
+      "help": "Enter the contact's home phone number. This number appears only on this record."
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Image",
+      "required": false,
+      "help": "Select an image from your file cabinet to attach to this record.\n\nSelect -New- to upload a new image from your hard drive to your file cabinet in a new window."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": "When you check this box, this contact no longer appears on the Contacts list unless you check the Show Inactives box at the bottom of the page.\n\nAlso, you can no longer select this contact from lists on transactions, company records, task records or events records."
+    },
+    {
+      "id": "isprivate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Private",
+      "required": false,
+      "help": "Check this box if this is a private contact.\n\nPrivate contacts can only be viewed by the person that entered the contact record."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": "Enter the contact's last name.\n\nWhat you enter here automatically appears last in the Contact field.\n\nThis field is required for the Online Bill Pay feature."
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": "Enter the contact's middle name or initial. This field is optional.\n\nWhat you enter here automatically appears second in the Contact field."
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Mobile Phone",
+      "required": false,
+      "help": "Enter the contact's mobile or cell phone number. This number appears only on this record."
+    },
+    {
+      "id": "officephone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Office Phone",
+      "required": false,
+      "help": "Enter the contact's work phone number. This number appears only on this record."
+    },
+    {
+      "id": "otherrelationships",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Other Relationships",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "owner",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Cell Phone",
+      "required": false,
+      "help": "Enter the phone number you primarily use to reach this contact. This number appears in the Contacts list and in the Contact section of company records. This field is required for the Online Bill Pay feature."
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "blank",
+      "required": false,
+      "help": "Enter the furigana character you want to use to sort this record."
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Mr/Mrs/Ms",
+      "required": false,
+      "help": "Enter the contact's salutation.\n\nExamples are Mr., Mrs., Ms. and Miss."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "Select the subsidiary to associate with this contact. You cannot enter transactions for this contact unless a subsidiary is assigned.\n \nIf you select this contact on a transaction, the transaction is associated with this subsidiary. The contact is able to access only information associated with this subsidiary.\n \nNote: Once a transaction has posted for the contact, you are not able to change the subsidiary selected on the contact record."
+    },
+    {
+      "id": "supervisor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Supervisor",
+      "required": false,
+      "help": "Select this contact's supervisor.\n\nYou can select only from existing contacts. To add to this list, create another contact record."
+    },
+    {
+      "id": "supervisorphone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Sup. Phone",
+      "required": false,
+      "help": "Enter the phone number for this contact's supervisor."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Job Title",
+      "required": false,
+      "help": "Enter this contact's title at his or her company.\n\nOn the record for this contact's company, in the Contacts section, this title appears next to the contacts name."
+    },
+    {
+      "id": "unsubscribe",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Unsubscribe from Campaigns",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "addressbook",
+      "label": "Address Book",
+      "fields": [
+        {
+          "id": "addressbookaddress",
+          "type": "summary",
+          "label": "Edit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addressid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addrtext",
+          "type": "address",
+          "label": "Address",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "attention",
+          "type": "text",
+          "label": "Attention",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "city",
+          "type": "text",
+          "label": "City",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "country",
+          "type": "select",
+          "label": "Country",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultbilling",
+          "type": "checkbox",
+          "label": "Default Billing",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultshipping",
+          "type": "checkbox",
+          "label": "Default Shipping",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "displaystate",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Label",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "override",
+          "type": "checkbox",
+          "label": "Override",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "phone",
+          "type": "phone",
+          "label": "Phone",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "state",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "zip",
+          "type": "text",
+          "label": "Zip",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "phone",
+      "label": "Address Phone"
+    },
+    {
+      "id": "assistant",
+      "type": "select",
+      "label": "Assistant"
+    },
+    {
+      "id": "assistantphone",
+      "type": "phone",
+      "label": "Assist. Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "label": "Comments"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "contactrole",
+      "type": "select",
+      "label": "Role"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "employer",
+      "type": "text",
+      "label": "Employer"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name/ID"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "group",
+      "type": "multiselect",
+      "label": "Group"
+    },
+    {
+      "id": "hasduplicates",
+      "type": "checkbox",
+      "label": "Duplicate"
+    },
+    {
+      "id": "image",
+      "type": "image",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isprivate",
+      "type": "checkbox",
+      "label": "Is Private"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "onlineformdate",
+      "type": "date",
+      "label": "Online Form History - Form Date"
+    },
+    {
+      "id": "onlineformleadsource",
+      "type": "select",
+      "label": "Online Form History - Lead Source"
+    },
+    {
+      "id": "onlineformname",
+      "type": "select",
+      "label": "Online Form History - Form Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "supervisor",
+      "type": "select",
+      "label": "Supervisor"
+    },
+    {
+      "id": "supervisorphone",
+      "type": "phone",
+      "label": "Sup. Phone"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Entity Type"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addressinternalid",
+      "type": "text",
+      "label": "Address Internal ID"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "label": "Alt. Email"
+    },
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "label": "Office Phone"
+    },
+    {
+      "id": "assistant",
+      "type": "select",
+      "label": "Assistant"
+    },
+    {
+      "id": "assistantphone",
+      "type": "phone",
+      "label": "Assist. Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billzipcode",
+      "type": "text",
+      "label": "Billing Zip"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "label": "Comments"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "contactrole",
+      "type": "select",
+      "label": "Role"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "entitynumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "label": "Fax"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "hasduplicates",
+      "type": "checkbox",
+      "label": "Duplicate"
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "label": "Home Phone"
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "label": "Mobile Phone"
+    },
+    {
+      "id": "onlineformdate",
+      "type": "text",
+      "label": "Online Form History - Date"
+    },
+    {
+      "id": "onlineformleadsource",
+      "type": "text",
+      "label": "Online Form History - Lead Source"
+    },
+    {
+      "id": "onlineformname",
+      "type": "text",
+      "label": "Online Form History - Form Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State/Province Display Name"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "datetime",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "supervisor",
+      "type": "select",
+      "label": "Supervisor"
+    },
+    {
+      "id": "supervisorphone",
+      "type": "phone",
+      "label": "Sup. Phone"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip Code"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "campaignresponse",
+      "description": "Campaign Response",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "customerprimary",
+      "description": "Customer (Primary)",
+      "actualName": "Customer"
+    },
+    {
+      "id": "job",
+      "description": "Job",
+      "actualName": "Job"
+    },
+    {
+      "id": "jobprimary",
+      "description": "Job (Primary)",
+      "actualName": "Job"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesfrom",
+      "description": "Messages From",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesto",
+      "description": "Messages To",
+      "actualName": "Message"
+    },
+    {
+      "id": "parentcustomer",
+      "description": "Parent Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "parentjob",
+      "description": "Parent Job",
+      "actualName": "Job"
+    },
+    {
+      "id": "parentpartner",
+      "description": "Parent Partner",
+      "actualName": "Partner"
+    },
+    {
+      "id": "parentvendor",
+      "description": "Parent Vendor",
+      "actualName": "Vendor"
+    },
+    {
+      "id": "partner",
+      "description": "Partner",
+      "actualName": "Partner"
+    },
+    {
+      "id": "partnerprimary",
+      "description": "Partner (Primary)",
+      "actualName": "Partner"
+    },
+    {
+      "id": "task",
+      "description": "Task",
+      "actualName": "Task"
+    },
+    {
+      "id": "vendor",
+      "description": "Vendor",
+      "actualName": "Vendor"
+    },
+    {
+      "id": "vendorprimary",
+      "description": "Vendor (Primary)",
+      "actualName": "Vendor"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },
+    {
+      "name": "info",
+      "label": "Info"
+    },
+    {
+      "name": "marketing",
+      "label": "Marketing"
+    },
+    {
+      "name": "support",
+      "label": "Support"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

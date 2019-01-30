@@ -1,0 +1,191 @@
+{
+  "label": "Inventory Cost Revaluation",
+  "id": "inventorycostrevaluation",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Adjustment Account",
+      "required": true,
+      "help": "Select an Adjustment Account. The inventory value variance amounts post to this account."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "If you use Classes, select one to identify with this revaluation."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "If you use Departments, select one to identify with this revaluation."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inventoryvalue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "New Inventory Value",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "If you have a NetSuite OneWorld account, select a subsidiary from the dropdown list in the Subsidiary field."
+    },
+    {
+      "id": "taxperiod",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Adjustment Amount",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Ref. No.",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unitcost",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "New Unit Cost",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [
+    {
+      "id": "billingaddress",
+      "description": "Billing Address",
+      "actualName": "Address"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "costcomponents",
+      "label": "Cost Components"
+    }
+  ],
+  "transformTypes": []
+}

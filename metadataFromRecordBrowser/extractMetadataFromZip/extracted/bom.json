@@ -1,0 +1,341 @@
+{
+  "label": "Bill of Materials",
+  "id": "bom",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "availableforallassemblies",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Available For All Assemblies",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "availableforalllocations",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Available For All Locations",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Children",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "restricttoassemblies",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Assembly",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "restricttolocations",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Locations",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "usecomponentyield",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Component Yield",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "usedonassembly",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Used On Assembly",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "availableforallassemblies",
+      "type": "checkbox",
+      "label": "Available For All Assemblies"
+    },
+    {
+      "id": "availableforalllocations",
+      "type": "checkbox",
+      "label": "Available For All Locations"
+    },
+    {
+      "id": "createddate",
+      "type": "date",
+      "label": "Created Date"
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "label": "ExternalId"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "label": "Include Children"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "restricttoassemblies",
+      "type": "multiselect",
+      "label": "Restrict To Assemblies"
+    },
+    {
+      "id": "restricttolocations",
+      "type": "multiselect",
+      "label": "Restrict To Locations"
+    },
+    {
+      "id": "subsidiary",
+      "type": "multiselect",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "usecomponentyield",
+      "type": "checkbox",
+      "label": "Use Component Yield"
+    },
+    {
+      "id": "usedonassembly",
+      "type": "checkbox",
+      "label": "Used on Assembly"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "availableforallassemblies",
+      "type": "checkbox",
+      "label": "Available For All Assemblies"
+    },
+    {
+      "id": "availableforalllocations",
+      "type": "checkbox",
+      "label": "Available For All Locations"
+    },
+    {
+      "id": "createddate",
+      "type": "date",
+      "label": "Created Date"
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "label": "ExternalId"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "label": "Include Children"
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "restricttoassemblies",
+      "type": "multiselect",
+      "label": "Restrict To Assemblies"
+    },
+    {
+      "id": "restricttolocations",
+      "type": "multiselect",
+      "label": "Restrict To Locations"
+    },
+    {
+      "id": "revisionname",
+      "type": "text",
+      "label": "Revision : Name"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "usecomponentyield",
+      "type": "checkbox",
+      "label": "Use Component Yield"
+    },
+    {
+      "id": "usedonassembly",
+      "type": "checkbox",
+      "label": "Used on Assembly"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "assemblyitem",
+      "description": "Assembly Item",
+      "actualName": "Assembly Item Bill of Materials"
+    },
+    {
+      "id": "revision",
+      "description": "Revision",
+      "actualName": "Bill of Materials Revision"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "bomrevisions",
+      "label": "Revisions"
+    },
+    {
+      "name": "history",
+      "label": "System Notes"
+    }
+  ],
+  "transformTypes": []
+}

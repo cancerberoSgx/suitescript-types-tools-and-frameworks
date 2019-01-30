@@ -1,0 +1,333 @@
+{
+  "label": "Accounting Book",
+  "id": "accountingbook",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "effectiveperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Effective Period",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Children",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isconsolidated",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Enable Consolidation",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isprimary",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Is Primary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookcurrencies",
+      "label": "Currencies",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Base Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "effectivedate",
+          "type": "date",
+          "label": "Effective Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "float",
+          "label": "Translation exchange rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "primarybookcurrency",
+          "type": "select",
+          "label": "Primary Book Base Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiary",
+          "type": "text",
+          "label": "Subsidiary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiarykey",
+          "type": "text",
+          "label": "key",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiarystatus",
+          "type": "text",
+          "label": "Status",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "accountingbooksubsidiaries",
+      "label": "Subsidiaries",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Base Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "effectivedate",
+          "type": "date",
+          "label": "Effective Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "float",
+          "label": "Translation exchange rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "primarybookcurrency",
+          "type": "select",
+          "label": "Primary Book Base Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "status",
+          "type": "select",
+          "label": "Status",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiary",
+          "type": "select",
+          "label": "Subsidiary",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "label": "Include Children"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isprimary",
+      "type": "checkbox",
+      "label": "Primary"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "label": "Include Children"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isprimary",
+      "type": "checkbox",
+      "label": "Primary"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

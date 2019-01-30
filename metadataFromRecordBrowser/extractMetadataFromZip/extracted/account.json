@@ -1,0 +1,541 @@
+{
+  "label": "Account",
+  "id": "account",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "acctname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter up to 31 characters for an account name that will appear on all reports.\n\nIf you want to use GL account numbers and do not see a Number field above the Name field, go to Setup > Accounting > Preferences > Accounting Preferences, and check the Use Account Numbers box. Save the preference, and return to this page."
+    },
+    {
+      "id": "acctnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Number",
+      "required": true,
+      "help": "Enter the number to identify this account.\n\nThe number can be alphanumeric. The maximum number of characters is 60."
+    },
+    {
+      "id": "accttype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": true,
+      "help": "Select a GAAP category for the type of account you are creating.\n\nThe account type you select here determines the default section for this account on your financial statement."
+    },
+    {
+      "id": "accttype2",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billableexpensesacct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Track Billable Expenses in",
+      "required": false,
+      "help": "You can select a revenue or income account to track expenses and costs that are billable to customers. This field only appears for Account Types such as COGS and Expense."
+    },
+    {
+      "id": "cashflowrate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Cash Flow Rate Type",
+      "required": false,
+      "help": "Select the type of exchange rate that is used to translate foreign currency amounts for this account in the cash flow statement.\n\nThe Current rate type is based on the currency exchange rate that is effective at the end of the reported upon period.\n\nThe Average rate type is calculated from a weighted average of the exchange rates for transactions applied during the period to accounts with a general rate type of Average. This rate is the default.\n\nThe Historical rate type is calculated from a weighted average of the exchange rates for transactions applied during the period to accounts with a general rate type of Historical."
+    },
+    {
+      "id": "category1099misc",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "1099-MISC Category",
+      "required": false,
+      "help": "Select a 1099-MISC Category to have all cash-basis transactions for a vendor reported on the corresponding box of the 1099 form.\n\nAmounts are not reported until they exceed the threshold for the category.\n\nTo view 1099-MISC categories and edit thresholds, go to Setup > Accounting > Accounting Lists, and select 1099-MISC Category in the Type field."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict To Class",
+      "required": false,
+      "help": "Select a class to restrict use of this account to roles with permission to access it. If you select a class in this field, this account can be selected only by employees whose role permits access.\n\nFor example, if you select Class 1 in this field, use of this account is restricted to employees that have permission to access Class 1. This account does not appear in account dropdown lists on transactions for employees with a role that restricts access to Class 1."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "Select a currency for the funds in this account."
+    },
+    {
+      "id": "deferralacct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Deferral Account",
+      "required": false,
+      "help": "Select a deferred expense account to record deferred transactions for amortization and depreciation.\nA deferral account is available only for account types that allow deferred transactions."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict To Department",
+      "required": false,
+      "help": "Select a department to restrict use of this account to roles with permission to access it. If you select a department in this field, this account can be selected only by employees whose role permits access.\n\nFor example, if you select Department 1 in this field, use of this account is restricted to employees that have permission to access Department 1. This account does not appear in account dropdown lists on transactions for employees with a role that restricts access to Department 1."
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description for this account."
+    },
+    {
+      "id": "eliminate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Eliminate Intercompany Transactions",
+      "required": false,
+      "help": "Check this box to make this account an intercompany account. Intercompany accounts are used to record transactions between subsidiaries.\n\nYou can post both intercompany transactions and non-intercompany transactions to most intercompany accounts. Intercompany Accounts Receivable and Intercompany Accounts Payable, however, can be used only for recording amounts that are candidates for eliminations.\n\nFor details, see the help topic Intercompany Accounts."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "generalrate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "General Rate Type",
+      "required": false,
+      "help": "Select the type of exchange rate that is used to translate foreign currency amounts for this account in the income statement, balance sheet, and other general purposes.\n\nThe Current rate type is based on the currency exchange rate that is effective at the end of the reported upon period. This rate is the default for most balance sheet accounts.\n\nThe Average rate type is calculated from a weighted average of the exchange rates for transactions applied during the period to accounts with a general rate type of Average. This rate is the default for income statement accounts and is used build retained earnings.\n\nThe Historical rate type is calculated from a weighted average of the exchange rates for transactions applied during the period to accounts with a general rate type of Historical. This rate is used for equity accounts, or owner&#x2019;s investments, in the balance sheet."
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Children",
+      "required": false,
+      "help": "Check the Include Children box to share the account with all the sub-subsidiaries associated with each subsidiary selected in the Subsidiary field."
+    },
+    {
+      "id": "inventory",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inventory",
+      "required": false,
+      "help": "If this will be an Other Current Asset account and you want the balance of this account included in the total balance of the Inventory KPI, select the Inventory box."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to inactivate this account. Inactive accounts do not show in lists on transactions and records."
+    },
+    {
+      "id": "legalname",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Legal Name",
+      "required": false,
+      "help": "If the Use Legal Name in Account accounting preference is enabled at Setup > Accounting > Preferences > Accounting Preferences, the Legal Name field appears. You can enter up to 400 characters in this field including special characters such as colon and semi colon. You can also enter characters such as &#xc9;&#xe9;,&#xc7;&#xe7;, and 2 byte characters such as &#x4f1a;&#x8a08;&#x3001;&#x79d1;&#x76ee;.\n\nThis field is useful in countries where the legal name of an entity is required by law.\n\nThe Legal Name field can be added to financial reports where account is an available component. It is also available in advanced searches, SuiteScript, and ODBC. \n\nSystem notes maintains an audit trail specific to the activity on the Legal Name field."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict To Location",
+      "required": false,
+      "help": "Select a location to restrict use of this account to roles with permission to access it. If you select a location in this field, this account can be selected only by employees whose role permits access.\n\nFor example, if you select Location 1 in this field, use of this account is restricted to employees that have permission to access Location 1. This account does not appear in account dropdown lists on transactions for employees with a role that restricts access to Location 1."
+    },
+    {
+      "id": "openingbalance",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Enter an opening balance for this account."
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subaccount of",
+      "required": false,
+      "help": "Select the parent account if this account is a subaccount of another."
+    },
+    {
+      "id": "restricttoaccountingbook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict to Accounting Book",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revalue",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Revalue Open Balance for Foreign Currency Transactions",
+      "required": false,
+      "help": "Check this box to select this account for open balance currency revaluation."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": false,
+      "help": "Enter the date of the opening balance of this account."
+    },
+    {
+      "id": "unit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Unit",
+      "required": true,
+      "help": "This field displays the base unit assigned to the Unit Type. The default unit cannot be changed."
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Unit Type",
+      "required": false,
+      "help": "This field displays the type of unit associated with this statistical account."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "localizations",
+      "label": "Localization",
+      "fields": [
+        {
+          "id": "accountingcontext",
+          "type": "select",
+          "label": "Accounting Context",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "acctname",
+          "type": "text",
+          "label": "Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "acctnumber",
+          "type": "text",
+          "label": "Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "legalname",
+          "type": "text",
+          "label": "Legal Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "locale",
+          "type": "select",
+          "label": "Language",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accountingcontext",
+      "type": "select",
+      "label": "Accounting Context"
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "label": "Balance"
+    },
+    {
+      "id": "cashflowratetype",
+      "type": "select",
+      "label": "Cash Flow Rate Type"
+    },
+    {
+      "id": "category1099misc",
+      "type": "select",
+      "label": "1099-MISC Category"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "generalratetype",
+      "type": "select",
+      "label": "General Rate Type"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "label": "Legal Name"
+    },
+    {
+      "id": "locale",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "localizedlegalname",
+      "type": "text",
+      "label": "Localized Legal Name"
+    },
+    {
+      "id": "localizedname",
+      "type": "text",
+      "label": "Localized Name"
+    },
+    {
+      "id": "localizednumber",
+      "type": "text",
+      "label": "Localized Number"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "number",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Sub-Account Of"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountingcontext",
+      "type": "text",
+      "label": "Accounting Context"
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "label": "Balance"
+    },
+    {
+      "id": "cashflowratetype",
+      "type": "select",
+      "label": "Cash Flow Rate Type"
+    },
+    {
+      "id": "category1099misc",
+      "type": "select",
+      "label": "1099-MISC Category"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "generalratetype",
+      "type": "select",
+      "label": "General Rate Type"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "label": "Legal Name"
+    },
+    {
+      "id": "locale",
+      "type": "text",
+      "label": "Language"
+    },
+    {
+      "id": "localizedlegalname",
+      "type": "text",
+      "label": "Localized Legal Name"
+    },
+    {
+      "id": "localizedname",
+      "type": "text",
+      "label": "Localized Name"
+    },
+    {
+      "id": "localizednumber",
+      "type": "text",
+      "label": "Localized Number"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "number",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Account Type"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "history",
+      "label": "System Notes"
+    },
+    {
+      "name": "localization",
+      "label": "Localization"
+    },
+    {
+      "name": "translation",
+      "label": "Translation"
+    }
+  ],
+  "transformTypes": []
+}

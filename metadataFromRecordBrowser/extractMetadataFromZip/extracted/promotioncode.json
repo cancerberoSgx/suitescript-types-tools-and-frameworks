@@ -1,0 +1,405 @@
+{
+  "label": "Promotion",
+  "id": "promotioncode",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "applydiscountto",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Apply Discount To",
+      "required": false,
+      "help": "Choose how many times this promotion can be used by the same customer.\n\nSelect One time only to limit this promotion to one use per customer, or select Unlimited amount of times to allow a customer to use the promotion as many times as they want without limit."
+    },
+    {
+      "id": "code",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Coupon Code",
+      "required": true,
+      "help": "The coupon code that is entered on a sales transaction to apply the promotion. Coupon codes can be multiple-use or single-use. Multiple-use codes can be used any number of times by any number of customers. Each single-use code can only be used one time by a single customer."
+    },
+    {
+      "id": "codepattern",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Code Pattern",
+      "required": false,
+      "help": "You enter code patterns using the following components in any order you choose:\n\n    * [A.#] &#x2013; This adds a number of random letters in the code.\n    * [N.#] &#x2013; This adds a number of random numbers in the code.\n    * [AN.#] &#x2013; This adds a number of random alphanumeric characters to the code.\n    * Hard-coded alphanumeric characters. Do not enclose these in square brackets.\n    * Dashes (-)\n\nNote: The following letters and numbers cannot be used in coupon codes: 1, 0, I, L, O.\n\nFor example, the code ABC-[AN.3]-[A.3]-[N.3] would generate codes like:\n\n    * ABC-J3N-FLN-647\n    * ABC-45F-KPM-958\n    * ABC-5MP-PQA-874\n\nWhen creating your code pattern, make sure that the pattern you give has enough variables to provide the number of unique codes you need for your promotion."
+    },
+    {
+      "id": "couponcodefile",
+      "type": "file",
+      "nlapiSubmitField": false,
+      "label": "Import File",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description of this promotion."
+    },
+    {
+      "id": "discount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Discount",
+      "required": false,
+      "help": "Select the discount item you want to assign to this promotion. Any account associated with this discount item is impacted by this promotion's discount. Using discount items enables you to track discount amounts without affecting inventory valuation.\n\nTo create new discount item, go to Lists > Accounting > Items > New, and click Discount."
+    },
+    {
+      "id": "discounttype",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "%",
+      "required": false,
+      "help": "Select the % option if the discount rate for this promotion is a percentage.\n\nSelect the Flat option if the discount rate for this promotion is a flat rate."
+    },
+    {
+      "id": "displaylinediscounts",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display line discounts",
+      "required": false,
+      "help": "Check this box if you want to show the promotion discount as line items in transactions. The discount will appear as a line beneath qualifying items on the transaction.\n\nYou must check this box and select a percentage discount in order to show strikeout pricing on Web store orders. A flat rate promotion applies to the total order.\n\nIf you clear this box, the promotion discount will be shown in the transaction total.\n\nNote: If you use line discount promotions, when you apply the promotion to a transaction, you must click Calculate to create the discount line before saving the transaction."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": "Enter the date this promotion can no longer be applied to transactions."
+    },
+    {
+      "id": "excludeitems",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Exclude Items",
+      "required": false,
+      "help": "Check this box to have this promotion code apply to all items except those you add below.\n\nIf you do not check this box, the code can only be used for the items you add below."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "freeshipmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Free Shipping Method",
+      "required": false,
+      "help": "Select a shipping method from the list that will be offered for free on eligible transactions."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to deactivate this promotion. Inactive promotions cannot be applied to customers or transactions."
+    },
+    {
+      "id": "ispublic",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Available to all Customers",
+      "required": false,
+      "help": "Check this box to be able to select this promotion on transactions for any customer.\n\nIf you do not check this box, only customers associated with the partners you select below are able to use this promotion."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": false,
+      "help": "Enter the name for this promotion.\n\nNote: This is the name used for internal and reporting use only. The coupon code you want customers to use on sales transactions is entered in the Coupon Code field on the Codes subtab."
+    },
+    {
+      "id": "numbertogenerate",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Codes to Generate",
+      "required": false,
+      "help": "Enter the number of coupon codes you want to generate with your code pattern."
+    },
+    {
+      "id": "rate",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": "Enter the discount rate for this promotion. Select % if this rate is a percentage. Select flat if this rate is a flat discount."
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": "Enter the first date this promotion can be applied to a transaction."
+    },
+    {
+      "id": "usetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Number of Uses",
+      "required": false,
+      "help": "Choose whether you are entering a multiple-use coupon code that can be used any number of times by any number of customers, or single-use coupon codes that can only be used one time by a single customer."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "applydiscountto",
+      "type": "select",
+      "label": "Apply Discount To"
+    },
+    {
+      "id": "code",
+      "type": "text",
+      "label": "Code"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "discount",
+      "type": "select",
+      "label": "Discount"
+    },
+    {
+      "id": "discountamount",
+      "type": "currency",
+      "label": "Discount Amount"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "freeshipitem",
+      "type": "select",
+      "label": "Free Shipping Method"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "ispublic",
+      "type": "checkbox",
+      "label": "Public"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Promotion Name"
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "label": "Partner"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "code",
+      "type": "text",
+      "label": "Code"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "discount",
+      "type": "text",
+      "label": "Discount"
+    },
+    {
+      "id": "discountamount",
+      "type": "currency",
+      "label": "Discount Amount"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "ispublic",
+      "type": "checkbox",
+      "label": "Available to all Customers"
+    },
+    {
+      "id": "location",
+      "type": "multiselect",
+      "label": "Locations"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "campaign",
+      "label": "Campaigns"
+    },
+    {
+      "name": "code",
+      "label": "Codes"
+    },
+    {
+      "name": "item",
+      "label": "Items"
+    },
+    {
+      "name": "minimumorderamount",
+      "label": "Minimum Order Amount"
+    },
+    {
+      "name": "partner",
+      "label": "Partners"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,351 @@
+{
+  "label": "Script Deployment",
+  "id": "scriptdeployment",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "allemployees",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Select All",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allpartners",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Select All",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allroles",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Select All",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "auddepartment",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Departments",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "audemployee",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Employees",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "audgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Groups",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "audpartner",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Partners",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "audslctrole",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Roles",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "audsubsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalurl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "External URL",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isdeployed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Deployed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Available Without Login",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "loglevel",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Log Level",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurrenceminutes",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Repeat",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "script",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Script",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "scriptid",
+      "type": "identifier",
+      "nlapiSubmitField": false,
+      "label": "ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "starttime",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Start Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Title",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "url",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "URL",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "eventtype",
+      "type": "select",
+      "label": "Event Type"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isdeployed",
+      "type": "checkbox",
+      "label": "Is Deployed"
+    },
+    {
+      "id": "loglevel",
+      "type": "select",
+      "label": "Log Level"
+    },
+    {
+      "id": "queueid",
+      "type": "integer",
+      "label": "Queue"
+    },
+    {
+      "id": "recordtype",
+      "type": "select",
+      "label": "Record Type"
+    },
+    {
+      "id": "script",
+      "type": "select",
+      "label": "Script ID"
+    },
+    {
+      "id": "scriptid",
+      "type": "text",
+      "label": "Custom ID"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Name"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "eventtype",
+      "type": "select",
+      "label": "Event Type"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isdeployed",
+      "type": "checkbox",
+      "label": "Is Deployed"
+    },
+    {
+      "id": "loglevel",
+      "type": "select",
+      "label": "Log Level"
+    },
+    {
+      "id": "queueid",
+      "type": "text",
+      "label": "Queue"
+    },
+    {
+      "id": "recordtype",
+      "type": "select",
+      "label": "Record Type"
+    },
+    {
+      "id": "script",
+      "type": "select",
+      "label": "Script ID"
+    },
+    {
+      "id": "scriptid",
+      "type": "text",
+      "label": "Custom ID"
+    },
+    {
+      "id": "scripttype",
+      "type": "select",
+      "label": "Script Type"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "script",
+      "description": "Script",
+      "actualName": "Script"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

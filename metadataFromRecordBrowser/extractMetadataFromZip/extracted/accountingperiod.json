@@ -1,0 +1,172 @@
+{
+  "label": "Accounting Period",
+  "id": "accountingperiod",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "alllocked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "All Closed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allownonglchanges",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow Non-G/L Changes",
+      "required": false,
+      "help": "Check this box to allow users with the Allow Non-G/L Changes permission to enter non-posting transactions to this period after it has been closed.\n\nUsers who do not have the Allow Non-G/L Changes permission cannot enter non-posting transactions to a period even if the Allow Non-G/L Changes option for a period is checked."
+    },
+    {
+      "id": "aplocked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "A/P Closed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "arlocked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "A/R Closed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "closed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "All Closed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "closedondate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date Closed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": true,
+      "help": "Enter or pick this period's end date here.\n\nThis is a required field."
+    },
+    {
+      "id": "fiscalcalendar",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Fiscal Calendar",
+      "required": true,
+      "help": "Select the fiscal calendar for the accounting year."
+    },
+    {
+      "id": "isadjust",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Period is Adjustment",
+      "required": false,
+      "help": "Check this box if this period is an adjustment period to adjust the difference between 365 days in a calendar year and 364 days in a fiscal year that consists of 52 weeks x 7 days per week."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isposting",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Is Posting",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isquarter",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Check this box if this period is a quarter."
+    },
+    {
+      "id": "isyear",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Check this box if this period is a year."
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sub-period of",
+      "required": true,
+      "help": "Select the appropriate parent period if one exists.\n\nFor example, you are setting up your periods for 2002 and you've created a period called Year 2002. When you create your first quarter, you would select Year 2002 in the Sub-period of field as the parent period of this quarter."
+    },
+    {
+      "id": "payrolllocked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Payroll Closed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "periodname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Period Name",
+      "required": true,
+      "help": "The name of the selected period. You can enter this name when you first set up the period.\n\nIf you accessed the page from Transactions > Management > GL Audit Numbering > Setup, you can select the open period.\n\nThis is a required field."
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": true,
+      "help": "Enter or pick the date this period starts here.\n\nThis is a required field."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "fiscalcalendars",
+      "label": "Parent Periods",
+      "fields": [
+        {
+          "id": "fiscalcalendar",
+          "type": "select",
+          "label": "Fiscal Calendar",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "parent",
+          "type": "select",
+          "label": "Sub-period of",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

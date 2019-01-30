@@ -1,0 +1,207 @@
+{
+  "label": "CMS Content",
+  "id": "cmscontent",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "areaname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Area Name",
+      "required": true,
+      "help": "Specifies the name of the area on the page where this content is placed. This name is the value of the data-cms-area attribute from the page template file."
+    },
+    {
+      "id": "changeurl",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Change URL",
+      "required": false,
+      "help": "Specifies the URL used when the content was created or changed. This URL does not necessarily reflect the only URL where the content is displayed. For example, content with page type and global context, can display on many pages. The URL in this field reflects only the URL of the page where the content was added or last edited."
+    },
+    {
+      "id": "cmscontenttype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Content Type",
+      "required": true,
+      "help": "Specifies the type of the content. Core content types include:CMS_IMAGE,CMS_HTML,CMS_MERCHZONE,CMS_TEXT. Additional content types may also be available if you have created custom content types."
+    },
+    {
+      "id": "createdby",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Created By",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Description",
+      "required": false,
+      "help": "The description for the record."
+    },
+    {
+      "id": "enddate",
+      "type": "datetime",
+      "nlapiSubmitField": true,
+      "label": "End Date",
+      "required": false,
+      "help": "This identifies the end date and time for the record. When this date is passed, the content is no longer be visible the site. If there is no end date, the content does not expire. This relates to Content Visibility topic in the Help. Enter the date and time in the same format as specified in your preferences."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "global",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Global Context",
+      "required": false,
+      "help": "This corresponds with the SMT All Pages area type. When content is configured to display in all pages, this field contains the *."
+    },
+    {
+      "id": "hidden",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Hidden",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": "This is the system-assigned internal identifier for the record."
+    },
+    {
+      "id": "lastmodifiedby",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Modified By",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Last Modified",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "matchcount",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Match Count",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "matchtype",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Match Type",
+      "required": true,
+      "help": "Determines when content is rendered. Values include the following:Exact — Renders the content when all parameters exactly match. For example an exact match for /brandname renders only for a given parameter of /brandname. Broad – Renders the content when the given parameters contains the parameter for the placement. For example, a broad match for /brandname also renders on /brandname/shoes."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": false,
+      "help": "Enter the name for this record."
+    },
+    {
+      "id": "pagetype",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Page Type Context",
+      "required": false,
+      "help": "This corresponds with the SMT This Page area scope and is used for content that you want to place on a specific type of page such as a product detail page or a facet browse page. Available options are: Product Details — denotes a product detail page. facet-browse — denotes a facet browse page or a category page.cms-landing-page — denotes a landing page."
+    },
+    {
+      "id": "path",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Path Context",
+      "required": false,
+      "help": "The corresponds with the This Page area type and denotes the URL to the page."
+    },
+    {
+      "id": "sequencenumber",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Sequence Number",
+      "required": false,
+      "help": "Enter a sequence number for ordering root level categories."
+    },
+    {
+      "id": "settings",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Settings",
+      "required": false,
+      "help": "Identifies the ID for the custom record that stores the content. The ID links the custom record for the content instance to the corresponding CMS Content record."
+    },
+    {
+      "id": "site",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Site",
+      "required": true,
+      "help": "Specify the site for the content type."
+    },
+    {
+      "id": "startdate",
+      "type": "datetime",
+      "nlapiSubmitField": true,
+      "label": "Start Date",
+      "required": false,
+      "help": "This identifies the start date and time for the record you are viewing. If this is a future date, the content does not display until that date. This related to the Content Visibility topic in the help. Enter the date and time in the same format as specified in your preferences."
+    },
+    {
+      "id": "template",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Template",
+      "required": true,
+      "help": "Identifies the template used when rendering content. This should be set to default."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,96 @@
+{
+  "label": "Tax Detail",
+  "id": "taxdetail",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "linenumber",
+      "type": "integer",
+      "label": "Line Number"
+    },
+    {
+      "id": "taxamount",
+      "type": "currency",
+      "label": "Tax Amount"
+    },
+    {
+      "id": "taxbasis",
+      "type": "currency",
+      "label": "Tax Basis (Foreign Currency)"
+    },
+    {
+      "id": "taxcode",
+      "type": "select",
+      "label": "Tax Code"
+    },
+    {
+      "id": "taxrate",
+      "type": "percent",
+      "label": "Tax Rate"
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "label": "Tax Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "account",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "details",
+      "type": "textarea",
+      "label": "Details"
+    },
+    {
+      "id": "linenumber",
+      "type": "integer",
+      "label": "Line Number"
+    },
+    {
+      "id": "taxamount",
+      "type": "currency",
+      "label": "Tax Amount"
+    },
+    {
+      "id": "taxbasis",
+      "type": "currency",
+      "label": "Tax Basis (Foreign Currency)"
+    },
+    {
+      "id": "taxcode",
+      "type": "select",
+      "label": "Tax Code"
+    },
+    {
+      "id": "taxfxamount",
+      "type": "currency",
+      "label": "Tax Amount (Foreign Currency)"
+    },
+    {
+      "id": "taxrate",
+      "type": "percent",
+      "label": "Tax Rate"
+    },
+    {
+      "id": "taxtype",
+      "type": "select",
+      "label": "Tax Type"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

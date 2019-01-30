@@ -1,0 +1,1931 @@
+{
+  "label": "Opportunity",
+  "id": "opportunity",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "actionitem",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Action Item",
+      "required": false,
+      "help": "Record the next step in the negotiation process."
+    },
+    {
+      "id": "altsalesrangehigh",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "To",
+      "required": false,
+      "help": "Enter the range of alternate sales amounts this deal might be worth.\n\nThe low amount entered must be lower than or equal to the projected amount in the Alt. Sales Total field. This amount is the Worst Case projected total.\n\nThe high amount must be greater than or equal to the Alt. Sales Total amount. This amount is the Upside projected total."
+    },
+    {
+      "id": "altsalesrangelow",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Range",
+      "required": false,
+      "help": "Enter the range of alternate sales amounts this deal might be worth.\n\nThe low amount entered must be lower than or equal to the projected amount in the Alt. Sales Total field. This amount is the Worst Case projected total.\n\nThe high amount must be greater than or equal to the Alt. Sales Total amount. This amount is the Upside projected total."
+    },
+    {
+      "id": "altsalestotal",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Total (Alt. Sales Amount)",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Bill To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill To Select",
+      "required": false,
+      "help": "Select the appropriate billing address for this transaction. Select New to enter a new billing address."
+    },
+    {
+      "id": "billingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "buyingreason",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Buying Reason",
+      "required": false,
+      "help": "Choose the prospect or customer's reason for buying from your company. You can create additional options for this field at <_TABNAME=LIST_CRMOTHERLIST_> > <_TASKCATEGORY=LIST_CRMOTHERLIST_> > CRM Lists."
+    },
+    {
+      "id": "buyingtimeframe",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Buying Time Frame",
+      "required": false,
+      "help": "Select the time frame for the prospect or customer to purchase. You can create additional options for this field at <_TABNAME=LIST_CRMOTHERLIST_> > <_TASKCATEGORY=LIST_CRMOTHERLIST_> > CRM Lists."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "If this opportunity is associated with a class, select that class.\n\nSelect New to create a new class."
+    },
+    {
+      "id": "consolidatebalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Consolidated Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "If you do not use the Multi-Currency Customers feature, the currency of the customer you are creating this transaction for is shown here.\n\nIf you use the Multi-Currency Customers feature, select the transaction currency you want to create this transaction in. This customer's primary currency is selected by default.\n\nIf you have already selected items on this transaction, selecting a new currency refreshes them to show the price in the new currency (except for items you entered custom prices for) and recalculates tax and gross profit."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This company's currency shows in this field."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "If you use a custom transaction form for opportunities, select the form.\n\nTo create a new custom form, select New."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "If this opportunity is associated with a department, select that department.\n\nSelect New to create a new department.\n\nGo to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments for information on existing departments."
+    },
+    {
+      "id": "documentstatus",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Company",
+      "required": true,
+      "help": "Select the company you are creating the opportunity for.\n\nSelect New to create a new company record."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": true,
+      "help": "Select the status of this opportunity.\n\nOnce this opportunity has a transaction other than a sales order or estimate associated with it, the status becomes Closed Won.\n\nIf there are estimates or sales orders associated with the opportunity, the status of the opportunity is updated to match the transaction's status."
+    },
+    {
+      "id": "entitytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estgrossprofit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Est. Gross Profit",
+      "required": false,
+      "help": "Estimated Gross Profit: Read-only field that equals the revenue amount minus the Est. Cost. At the transaction level, it equals the gross profit of all lines, factoring transaction-level discounts and markups."
+    },
+    {
+      "id": "estgrossprofitpercent",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Est. Gross Profit Percent",
+      "required": false,
+      "help": "Estimated Gross Profit Margin, as a percentage: Read-only field that equals the Est. Gross Profit divided by revenue, expressed as a percentage. At the transaction level, it equals the gross profit percent of all lines, factoring transaction-level discounts and markups."
+    },
+    {
+      "id": "estimatedbudget",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Estimated Budget",
+      "required": false,
+      "help": "Enter the estimated budget the prospect or customer has for this opportunity."
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The current exchange rate for this currency shows in this field.\n\nYou can change this exchange rate for this transaction"
+    },
+    {
+      "id": "expectedclosedate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Expected Close",
+      "required": true,
+      "help": "Enter the date you think this opportunity will close."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "forecasttype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Forecast Type",
+      "required": false,
+      "help": "Select the forecast category you want this opportunity to appear in.\n\nIf you do not want this opportunity to appear in the forecast, select Omitted."
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbudgetapproved",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Budget Approved",
+      "required": false,
+      "help": "Check this box if the budget for this opportunity has been approved by the prospect or customer."
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project",
+      "required": false,
+      "help": "Select the project associated with this opportunity."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Lead Source",
+      "required": false,
+      "help": "Select a lead source for this company.\n\nIf you use marketing automation, you can choose from a list of marketing campaigns.\n\nIf you do not use marketing automation, you can create lead sources at <_TABNAME=LIST_CRMOTHERLIST_> > <_TASKCATEGORY=LIST_CRMOTHERLIST_> > CRM Lists > New."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select the location associated with this opportunity.\n\nSelect New to create a new location record."
+    },
+    {
+      "id": "memo",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Details",
+      "required": false,
+      "help": "Enter additional information about the opportunity."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": "This field shows the nexus of the transaction. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different nexus in the dropdown list, the corresponding tax registration number is automatically selected in the Subsidiary Tax Reg. Number field."
+    },
+    {
+      "id": "onetime",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "One Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Partner",
+      "required": false,
+      "help": "Select the partner that is associated with this opportunity.\n\nSelect New to create a new partner record."
+    },
+    {
+      "id": "probability",
+      "type": "percent",
+      "nlapiSubmitField": true,
+      "label": "Probability",
+      "required": true,
+      "help": "Enter the probability that this opportunity will be won.\n\nIf there is an estimate associated with this opportunity, the probability from the estimate is applied to the opportunity."
+    },
+    {
+      "id": "projaltsalesamt",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Alt. Sales Total",
+      "required": false,
+      "help": "This field shows the projected alternate sales amount of the opportunity based on the items selected on the opportunity and the estimates associated with the opportunity."
+    },
+    {
+      "id": "projectedtotal",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Projected Total",
+      "required": true,
+      "help": "This field shows the projected value of the opportunity based on the items selected on the opportunity and the estimates associated with the opportunity."
+    },
+    {
+      "id": "rangehigh",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "To",
+      "required": false,
+      "help": "Enter the range of amounts this deal might be worth.\n\nThe low amount entered must be lower than or equal to the projected amount in the Projected Total field. This amount is the Worst Case projected total.\n\nThe high amount must be greater than or equal to the Projected Total amount. This amount is the Upside projected total."
+    },
+    {
+      "id": "rangelow",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Range",
+      "required": false,
+      "help": "Enter the range of amounts this deal might be worth.\n\nThe low amount entered must be lower than or equal to the projected amount in the Projected Total field. This amount is the Worst Case projected total.\n\nThe high amount must be greater than or equal to the Projected Total amount. This amount is the Upside projected total."
+    },
+    {
+      "id": "recurannually",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Annually",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurmonthly",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Monthly",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurquarterly",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Quarterly",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurweekly",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Weekly",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Choose Team",
+      "required": false,
+      "help": "Select a sales team to associate with this transaction.\n\nTo create a sales team, go to Setup > Sales Teams > New."
+    },
+    {
+      "id": "salesreadiness",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Sales Readiness",
+      "required": false,
+      "help": "Choose how close the prospect or customer is to purchasing. You can create additional options for this field at <_TABNAME=LIST_CRMOTHERLIST_> > <_TASKCATEGORY=LIST_CRMOTHERLIST_> > CRM Lists."
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Sales Rep",
+      "required": false,
+      "help": "NetSuite inserts the sales representative associated with this company on the customer record at Lists > Customers.\n\nIf a different sales rep is assigned to this transaction, select that sales rep here.\n\nTo add additional sales reps to this list, go to Lists > New Employee."
+    },
+    {
+      "id": "shipaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Ship To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship To Select",
+      "required": false,
+      "help": "Select the appropriate shipping address for this transaction. Select New to enter a new shipping address."
+    },
+    {
+      "id": "shipisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipoverride",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "source",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "This field displays the subsidiary associated with this transaction."
+    },
+    {
+      "id": "subsidiarytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": "This field shows the tax registration number of the transaction nexus. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different tax registration number in the dropdown list, the corresponding nexus is automatically selected in the Nexus field."
+    },
+    {
+      "id": "syncpartnerteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": "Check this box if you want to update the partner team on the customer record with the changes you make here."
+    },
+    {
+      "id": "syncsalesteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": "Check this box if you want to update the sales team on the customer record with the changes you make here."
+    },
+    {
+      "id": "taxdetailsoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Details Override",
+      "required": false,
+      "help": "Check this box to override the tax information on the Tax Details subtab of the transaction. Only roles with at least the Edit level of the Tax Details Tab permission can override the tax details."
+    },
+    {
+      "id": "taxregoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Registration Override",
+      "required": false,
+      "help": "Check this box to override the values in the Nexus and Subsidiary Tax Reg. Number fields. Only roles with at least the Edit level of the Tax Details Tab permission can override the values that NetSuite automatically selects in these fields."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Title",
+      "required": false,
+      "help": "Enter a title for this opportunity.\n\nThis title appears on lists, reports and on the Opportunities subtab of the record it is associated with."
+    },
+    {
+      "id": "total",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "totalcostestimate",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Est. Extended Cost",
+      "required": false,
+      "help": "Estimated Cost: Estimated cost of the specific number of items; estimated rate x quantity = estimated cost."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": true,
+      "help": "NetSuite enters the date the opportunity record is created.\n\nYou can change this date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Opportunity #",
+      "required": false,
+      "help": "NetSuite assigns a number to identify this transaction.\n\nYou can change this number."
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Unbilled Orders",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "weightedtotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Weighted Total",
+      "required": false,
+      "help": "If there are no transactions included in this opportunity or if there is a single transaction, the weighted total for this transaction is the projected total multiplied by the probability of close.\n\nIf there are multiple transactions associated with this opportunity, the weighted total of the opportunity is the sum of the weighted totals for each transaction. Only estimates marked Include in forecast are included in the weighted total."
+    },
+    {
+      "id": "winlossreason",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Win/Loss Reason",
+      "required": false,
+      "help": "Select the reason you won or lost the deal.\n\nYou can create new win/loss reasons at <_TABNAME=LIST_CRMOTHERLIST_> > <_TASKCATEGORY=LIST_CRMOTHERLIST_> > CRM Lists > New."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "competitors",
+      "label": "Competitors",
+      "fields": [
+        {
+          "id": "competitor",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "notes",
+          "type": "textarea",
+          "label": "Notes",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "url",
+          "label": "URL",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "winner",
+          "type": "checkbox",
+          "label": "Winner",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "altsalesamt",
+          "type": "currency",
+          "label": "Alt. Sales Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billingschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimate",
+          "type": "currency",
+          "label": "Est. Extended Cost",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimaterate",
+          "type": "rate",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimatetype",
+          "type": "select",
+          "label": "Cost Estimate Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "daysbeforeexpiration",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expectedshipdate",
+          "type": "date",
+          "label": "Expected Ship Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "fromjob",
+          "type": "checkbox",
+          "label": "Project Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "grossamt",
+          "type": "currency",
+          "label": "Gross Amt",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isestimate",
+          "type": "checkbox",
+          "label": "Billable Estimate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "istaxable",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "job",
+          "type": "select",
+          "label": "Job",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "select",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "printitems",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rateschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subscription",
+          "type": "select",
+          "label": "Subscription",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "tax1amt",
+          "type": "currency",
+          "label": "Tax Amt",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxrate1",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "label": "Partners",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "partner",
+          "type": "select",
+          "label": "Partner",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "partnerrole",
+          "type": "select",
+          "label": "Partner Role",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "salesteam",
+      "label": "Sales Team",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issalesrep",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "salesrole",
+          "type": "select",
+          "label": "Sales Role",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "taxdetails",
+      "label": "Tax Detail",
+      "fields": [
+        {
+          "id": "calcdetail",
+          "type": "textarea",
+          "label": "Details",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "grossamount",
+          "type": "currency",
+          "label": "Gross Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "netamount",
+          "type": "currency",
+          "label": "Net Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxamount",
+          "type": "currency",
+          "label": "Tax Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxbasis",
+          "type": "currency",
+          "label": "Tax Basis",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxdetailsreference",
+          "type": "text",
+          "label": "Tax Details Reference",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxrate",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "select",
+          "label": "Transaction",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Item Amount"
+    },
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "buyingreason",
+      "type": "select",
+      "label": "Buying Reason"
+    },
+    {
+      "id": "buyingtimeframe",
+      "type": "select",
+      "label": "Buying Time Frame"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "closedate",
+      "type": "date",
+      "label": "Actual Close"
+    },
+    {
+      "id": "competitor",
+      "type": "select",
+      "label": "Competitor"
+    },
+    {
+      "id": "contribution",
+      "type": "integer",
+      "label": "Contribution %"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "custtype",
+      "type": "select",
+      "label": "Customer Category"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "daysopen",
+      "type": "integer",
+      "label": "Days Open"
+    },
+    {
+      "id": "daystoclose",
+      "type": "integer",
+      "label": "Days To Close"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "label": "Prospect/Customer"
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "label": "Opportunity Status"
+    },
+    {
+      "id": "estimatedbudget",
+      "type": "currency",
+      "label": "Estimated Budget"
+    },
+    {
+      "id": "expectedclosedate",
+      "type": "date",
+      "label": "Expected Close Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "forecasttype",
+      "type": "select",
+      "label": "Forecast Type"
+    },
+    {
+      "id": "foreignprojectedamount",
+      "type": "currency",
+      "label": "Projected Total (Foreign Currency)"
+    },
+    {
+      "id": "foreignrangehigh",
+      "type": "currency",
+      "label": "Range - High (Foreign Currency)"
+    },
+    {
+      "id": "foreignrangelow",
+      "type": "currency",
+      "label": "Range - Low (Foreign Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "fxtrancostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isbudgetapproved",
+      "type": "checkbox",
+      "label": "Budget Approved"
+    },
+    {
+      "id": "item",
+      "type": "multiselect",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Date Last Modified"
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "label": "Lead Source"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "number",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "label": "Partner"
+    },
+    {
+      "id": "partnercontribution",
+      "type": "integer",
+      "label": "Partner Contribution %"
+    },
+    {
+      "id": "partnerrole",
+      "type": "select",
+      "label": "Partner Role"
+    },
+    {
+      "id": "partnerteammember",
+      "type": "select",
+      "label": "Partner Team Member"
+    },
+    {
+      "id": "postingperiod",
+      "type": "period",
+      "label": "Period"
+    },
+    {
+      "id": "probability",
+      "type": "integer",
+      "label": "Probability"
+    },
+    {
+      "id": "projaltsalesamt",
+      "type": "currency",
+      "label": "Projected Alt.Sales Amount"
+    },
+    {
+      "id": "projectedtotal",
+      "type": "currency",
+      "label": "Projected Amount"
+    },
+    {
+      "id": "rangehigh",
+      "type": "currency",
+      "label": "Range - High"
+    },
+    {
+      "id": "rangehighalt",
+      "type": "currency",
+      "label": "Alt.Sales Range - High"
+    },
+    {
+      "id": "rangelow",
+      "type": "currency",
+      "label": "Range - Low"
+    },
+    {
+      "id": "rangelowalt",
+      "type": "currency",
+      "label": "Alt.Sales Range - Low"
+    },
+    {
+      "id": "salesreadiness",
+      "type": "select",
+      "label": "Sales Readiness"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "salesteammember",
+      "type": "select",
+      "label": "Sales Team Member"
+    },
+    {
+      "id": "salesteamrole",
+      "type": "select",
+      "label": "Sales Team Role"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Document Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "taxperiod",
+      "type": "period",
+      "label": "Tax Period"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "trancostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction)"
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "tranestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction)"
+    },
+    {
+      "id": "tranestgrossprofitpct",
+      "type": "percent",
+      "label": "Est. Gross Profit Percent (Transaction)"
+    },
+    {
+      "id": "tranfxestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "label": "Number/ID"
+    },
+    {
+      "id": "winlossreason",
+      "type": "select",
+      "label": "Win/Loss Reason"
+    },
+    {
+      "id": "wonby",
+      "type": "select",
+      "label": "Won By"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "actionitem",
+      "type": "text",
+      "label": "Action Item"
+    },
+    {
+      "id": "availableoffline",
+      "type": "checkbox",
+      "label": "Always Available Offline"
+    },
+    {
+      "id": "buyingreason",
+      "type": "text",
+      "label": "Buying Reason"
+    },
+    {
+      "id": "buyingtimeframe",
+      "type": "text",
+      "label": "Buying Time Frame"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "classnohierarchy",
+      "type": "select",
+      "label": "Class (no hierarchy)"
+    },
+    {
+      "id": "closedate",
+      "type": "date",
+      "label": "Actual Close"
+    },
+    {
+      "id": "competitor",
+      "type": "select",
+      "label": "Competitor"
+    },
+    {
+      "id": "contribution",
+      "type": "percent",
+      "label": "Contribution %"
+    },
+    {
+      "id": "contributionprimary",
+      "type": "percent",
+      "label": "Primary Sales Rep Contribution %"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "custtype",
+      "type": "text",
+      "label": "Customer Category"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "daysopen",
+      "type": "integer",
+      "label": "Days Open"
+    },
+    {
+      "id": "daystoclose",
+      "type": "integer",
+      "label": "Days To Close"
+    },
+    {
+      "id": "decisionmaker",
+      "type": "select",
+      "label": "Decision Maker"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "departmentnohierarchy",
+      "type": "select",
+      "label": "Department (no hierarchy)"
+    },
+    {
+      "id": "documentstatus",
+      "type": "select",
+      "label": "Document Status"
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "label": "Opportunity Status"
+    },
+    {
+      "id": "estimatedbudget",
+      "type": "currency",
+      "label": "Estimated Budget"
+    },
+    {
+      "id": "expectedclosedate",
+      "type": "date",
+      "label": "Expected Close"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "forecasttype",
+      "type": "select",
+      "label": "Forecast Type"
+    },
+    {
+      "id": "foreignprojectedamount",
+      "type": "currency",
+      "label": "Projected Total (Foreign Currency)"
+    },
+    {
+      "id": "foreignrangehigh",
+      "type": "currency",
+      "label": "Range - High (Foreign Currency)"
+    },
+    {
+      "id": "foreignrangelow",
+      "type": "currency",
+      "label": "Range - Low (Foreign Currency)"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "fxtrancostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isbudgetapproved",
+      "type": "checkbox",
+      "label": "Budget Approved"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "label": "Lead Source"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationnohierarchy",
+      "type": "select",
+      "label": "Location (no hierarchy)"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "label": "Partner"
+    },
+    {
+      "id": "partnercontribution",
+      "type": "percent",
+      "label": "Partner Contribution %"
+    },
+    {
+      "id": "partnerrole",
+      "type": "select",
+      "label": "Partner Role"
+    },
+    {
+      "id": "partnerteammember",
+      "type": "select",
+      "label": "Partner Team Member"
+    },
+    {
+      "id": "period",
+      "type": "text",
+      "label": "Period"
+    },
+    {
+      "id": "probability",
+      "type": "percent",
+      "label": "Probability"
+    },
+    {
+      "id": "projaltsalesamt",
+      "type": "currency",
+      "label": "Projected Alt.Sales Total"
+    },
+    {
+      "id": "projectedtotal",
+      "type": "currency",
+      "label": "Projected Total"
+    },
+    {
+      "id": "rangehigh",
+      "type": "currency",
+      "label": "Range - High"
+    },
+    {
+      "id": "rangehighalt",
+      "type": "currency",
+      "label": "Alt.Sales Range - High"
+    },
+    {
+      "id": "rangelow",
+      "type": "currency",
+      "label": "Range - Low"
+    },
+    {
+      "id": "rangelowalt",
+      "type": "currency",
+      "label": "Alt.Sales Range - Low"
+    },
+    {
+      "id": "salesreadiness",
+      "type": "text",
+      "label": "Sales Readiness"
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "salesteammember",
+      "type": "select",
+      "label": "Sales Team Member"
+    },
+    {
+      "id": "salesteamrole",
+      "type": "select",
+      "label": "Sales Team Role"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "taxperiod",
+      "type": "select",
+      "label": "Tax Period"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "label": "Item Amount"
+    },
+    {
+      "id": "trancostestimate",
+      "type": "currency",
+      "label": "Est. Extended Cost (Transaction)"
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "tranestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction)"
+    },
+    {
+      "id": "tranestgrossprofitpct",
+      "type": "percent",
+      "label": "Est. Gross Profit Percent (Transaction)"
+    },
+    {
+      "id": "tranfxestgrossprofit",
+      "type": "currency",
+      "label": "Est. Gross Profit (Transaction) (Foreign Currency)"
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "weightedtotal",
+      "type": "currency",
+      "label": "Weighted Total"
+    },
+    {
+      "id": "winlossreason",
+      "type": "select",
+      "label": "Win/Loss Reason"
+    },
+    {
+      "id": "wonby",
+      "type": "select",
+      "label": "Won By"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "competitor",
+      "description": "Competitor",
+      "actualName": "Competitor"
+    },
+    {
+      "id": "competitorwinner",
+      "description": "Competitor (Winner)",
+      "actualName": "Competitor"
+    },
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "contactprimary",
+      "description": "Contact (Primary)",
+      "actualName": "Contact"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "decisionmaker",
+      "description": "Decision Maker",
+      "actualName": "Contact"
+    },
+    {
+      "id": "leadsource",
+      "description": "Lead Source",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "originatinglead",
+      "description": "Originating Lead",
+      "actualName": "Lead"
+    },
+    {
+      "id": "partner",
+      "description": "Partner",
+      "actualName": "Partner"
+    },
+    {
+      "id": "salesrep",
+      "description": "Sales Rep",
+      "actualName": "Employee"
+    },
+    {
+      "id": "task",
+      "description": "Task",
+      "actualName": "Task"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "multipartner",
+      "label": "Partners"
+    },
+    {
+      "name": "qualification",
+      "label": "Qualification"
+    },
+    {
+      "name": "teamselling",
+      "label": "Sales Team"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "cashsale",
+      "fieldDefaults": "customform,billdate"
+    },
+    {
+      "targetRecordType": "estimate",
+      "fieldDefaults": "customform"
+    },
+    {
+      "targetRecordType": "invoice",
+      "fieldDefaults": "customform,billdate"
+    },
+    {
+      "targetRecordType": "salesorder",
+      "fieldDefaults": "customform"
+    }
+  ]
+}

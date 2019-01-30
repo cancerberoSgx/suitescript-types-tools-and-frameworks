@@ -1,0 +1,150 @@
+{
+  "label": "Order Schedule",
+  "id": "orderschedule",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "createpurchaseorder",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Create Purchase Orders",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "createschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Create Schedule",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "currencyprecision",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "releasefrequency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Release Frequency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Total Quantity",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "schedule",
+      "label": "Schedule",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "poscurrency",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "orderschedule",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "purchaseorder",
+          "type": "select",
+          "label": "Order",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "release",
+          "type": "checkbox",
+          "label": "Release",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "trandate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,121 @@
+{
+  "label": "Reallocate Items",
+  "id": "reallocateitem",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "quantitycommitted",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Quantity Committed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "quantityonhand",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Quantity On Hand",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "quantitypicked",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Quantity Picked",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "quantityrequired",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Quantity Required",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "units",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Units",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "order",
+      "label": "Orders",
+      "fields": [
+        {
+          "id": "commit",
+          "type": "checkbox",
+          "label": "Commit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "numberedquantityremaining",
+          "type": "float",
+          "label": "Numbered Quantity Remaining",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitycommitted",
+          "type": "posfloat",
+          "label": "Quantity Committed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitypicked",
+          "type": "float",
+          "label": "Quantity Picked",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityremaining",
+          "type": "float",
+          "label": "Quantity Remaining",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

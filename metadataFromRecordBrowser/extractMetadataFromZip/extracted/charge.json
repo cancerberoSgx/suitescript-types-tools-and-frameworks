@@ -1,0 +1,543 @@
+{
+  "label": "Charge",
+  "id": "charge",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "amount",
+      "type": "poscurrency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": true,
+      "help": "The charge amount is shown here.\n\nThe charge amount is calculated as charge rate multiplied by charge quantity. You can manually override the charge amount."
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": "The service item associated with this charge is shown here.\n\nFor project charges, the service item is used to group charges on invoices.\n\nThe service item's price is only used to determine the rate if the charge rule used to generate the charge explicitly bases the charge rate on the service item."
+    },
+    {
+      "id": "billto",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer:Project",
+      "required": true,
+      "help": "Choose the project or customer you are billing this charge to."
+    },
+    {
+      "id": "chargedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "This is the date this charge was generated or created."
+    },
+    {
+      "id": "chargetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Charge Type",
+      "required": true,
+      "help": "This field shows the type of rule or process used to generate this charge."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "The class associated with this charge is shown here."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": "This is the date this charge was created either manually or by a charge run."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "The currency of this charge is shown here."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "The department associated with this charge is shown here."
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description of this charge."
+    },
+    {
+      "id": "invoice",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Invoice",
+      "required": false,
+      "help": "If the sales order has been billed, the invoice is shown here.\n\nCharges that have been billed cannot be edited."
+    },
+    {
+      "id": "invoiceline",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Invoice Line",
+      "required": false,
+      "help": "If this charge has been billed, the invoice line containing this charge is shown here."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "The location associated with this charge is shown here."
+    },
+    {
+      "id": "projecttask",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project Task",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Quantity",
+      "required": true,
+      "help": "The quantity for this charge is shown here.\n\nThe quantity for a project charge is set to 1."
+    },
+    {
+      "id": "rate",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": true,
+      "help": "The rate for this charge is shown here.\n\nThe charge rates for project charges are determined by charge rules."
+    },
+    {
+      "id": "rule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Charge Rule",
+      "required": false,
+      "help": "If this is a project charge, the charge rule used to generate this charge is shown here."
+    },
+    {
+      "id": "runid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Charge Run ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sales Order",
+      "required": false,
+      "help": "If this charge has been included on a sales order, the sales order is shown here."
+    },
+    {
+      "id": "salesorderline",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sales Order Line",
+      "required": false,
+      "help": "If this charge has been included on a sales order, the sales order line is shown here."
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Charge Stage",
+      "required": true,
+      "help": "Choose the status of this charge:\n\n    * Ready - a charge must have this status in order to be billed.\n    * Hold - a charge is given this status if it needs to be approved before it is billed or otherwise processed.\n    * Processed - a charge with this status has been billed."
+    },
+    {
+      "id": "subscriptionline",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subscription Line",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "timerecord",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Time Entry",
+      "required": false,
+      "help": "The project time record that is being charged by this transaction is shown here."
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Expense Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "transactionline",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Expense Line",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "use",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Charge Use",
+      "required": false,
+      "help": "This field shows the kind of charge this record represents.\n\nProject charges uses include:\n\n    * Actual - These are charges that can be billed when in the Ready stage.\n    * Forecast - These charges represent predicted charge amounts over the entire project's life."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "label": "Billing Account"
+    },
+    {
+      "id": "billingitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "billto",
+      "type": "select",
+      "label": "Customer:Project"
+    },
+    {
+      "id": "chargedate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "chargetype",
+      "type": "select",
+      "label": "Charge Type"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "createddate",
+      "type": "date",
+      "label": "Date Created"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "Charge ID"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "modifieddate",
+      "type": "date",
+      "label": "Date Modified"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "rate",
+      "type": "currency",
+      "label": "Rate"
+    },
+    {
+      "id": "rule",
+      "type": "select",
+      "label": "Charge Rule"
+    },
+    {
+      "id": "runid",
+      "type": "text",
+      "label": "Charge Run ID"
+    },
+    {
+      "id": "salesorder",
+      "type": "integer",
+      "label": "Sales Order"
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "label": "Stage"
+    },
+    {
+      "id": "subscriptionline",
+      "type": "select",
+      "label": "Subscription Line"
+    },
+    {
+      "id": "use",
+      "type": "select",
+      "label": "Charge Use"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "label": "Billing Account"
+    },
+    {
+      "id": "billingitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "billto",
+      "type": "select",
+      "label": "Customer:Project"
+    },
+    {
+      "id": "chargedate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "chargetype",
+      "type": "text",
+      "label": "Charge Type"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "createddate",
+      "type": "date",
+      "label": "Date Created"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "Charge ID"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "modifieddate",
+      "type": "date",
+      "label": "Date Modified"
+    },
+    {
+      "id": "quantity",
+      "type": "text",
+      "label": "Quantity"
+    },
+    {
+      "id": "rate",
+      "type": "text",
+      "label": "Rate"
+    },
+    {
+      "id": "rule",
+      "type": "select",
+      "label": "Charge Rule"
+    },
+    {
+      "id": "runid",
+      "type": "text",
+      "label": "Charge Run ID"
+    },
+    {
+      "id": "salesorder",
+      "type": "text",
+      "label": "Sales Order Id"
+    },
+    {
+      "id": "stage",
+      "type": "text",
+      "label": "Charge Stage"
+    },
+    {
+      "id": "subscriptionline",
+      "type": "select",
+      "label": "Subscription Line"
+    },
+    {
+      "id": "use",
+      "type": "text",
+      "label": "Charge Use"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "invoice",
+      "description": "Invoice",
+      "actualName": "Transaction"
+    },
+    {
+      "id": "job",
+      "description": "Job",
+      "actualName": "Job"
+    },
+    {
+      "id": "salesorder",
+      "description": "Sales Order",
+      "actualName": "Transaction"
+    },
+    {
+      "id": "transaction",
+      "description": "Transaction",
+      "actualName": "Transaction"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "historytab",
+      "label": "System Notes"
+    },
+    {
+      "name": "source",
+      "label": "Source"
+    }
+  ],
+  "transformTypes": []
+}

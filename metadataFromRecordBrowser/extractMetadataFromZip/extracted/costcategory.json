@@ -1,0 +1,138 @@
+{
+  "label": "Cost Category",
+  "id": "costcategory",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Expense Account",
+      "required": true,
+      "help": "Select the appropriate default account to assign.\n\nIf you are entering a payment method, select the default bank account for this payment method. Then, the account autofills the Deposit To field on transactions when this payment method is selected.\n\nIf you are creating a landed cost category, select the expense account to be used as a clearing account for the landeded cost of items. Then, when the item is sold, the cost of goods sold is accurately reflected. This field shows only for landed cost category records, not for service or material types.\n\nIf you are creating a project expense type select which account you want debited when posting project time transactions. \n\nNote: If you enable the Expand Accounts preference, you can choose any account, not just bank accounts or expense accounts, when you are creating a landed cost category or a project expense type. \n\nEnabling the Expand Accounts preference has no effect when you are entering a payment method."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to remove all references to this record from your account.\n\nYou can reactivate the record at any time."
+    },
+    {
+      "id": "itemcosttype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Cost Type",
+      "required": true,
+      "help": "In the Cost Type field, select one of the following:\n    * Landed\n    * Material\n    * Service\nNote: The option for Landed shows only if you have enabled the Landed Cost feature."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter the name for this record. This name appears in lists that include this record."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "itemcosttype",
+      "type": "select",
+      "label": "Cost Type"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "itemcosttype",
+      "type": "select",
+      "label": "Cost Type"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "account",
+      "description": "Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "transaction",
+      "description": "Transaction",
+      "actualName": "Transaction"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

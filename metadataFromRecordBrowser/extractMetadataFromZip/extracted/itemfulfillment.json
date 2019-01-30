@@ -1,0 +1,803 @@
+{
+  "label": "Item Fulfillment",
+  "id": "itemfulfillment",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accessibilitytypefedex",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Accessibility",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ancillaryendorsementfedex",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ancillary Endorsement",
+      "required": false,
+      "help": "For SmartPost Returns, select Address Correction or Return Service for Presorted Standard SmartPost shipments."
+    },
+    {
+      "id": "b13afilingoptionfedex",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "B13A Filing Option",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "b13astatementdatafedex",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "B13A Statement Data",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "backupemailaddressups",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bookingconfirmationnumfedex",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Booking Confirmation Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "certifiedmailusps",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Certified Mail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "consolidatebalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Consolidated Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": "This field shows the sales order this fulfillment is created from.\n\nClick the link to open the sales order."
+    },
+    {
+      "id": "createdfromshipgroup",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": false,
+      "help": "The customer or job associated with this transaction appears here.\n\nFor details on existing customers and projects, go to <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers."
+    },
+    {
+      "id": "exchangerate",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "haladdressfedex",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "HAL FedEx Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "halphonefedex",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Contact Phone Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Handling Cost",
+      "required": false,
+      "help": "The handling cost automatically calculates depending on the shipping method you select in the Ship Via field.\n\nTo change the cost of handling, go to <_TABNAME=LIST_SHIPITEM_> > <_TASKCATEGORY=LIST_SHIPITEM_> > Shipping Items and select the shipping method with the handling cost you want to change."
+    },
+    {
+      "id": "hazmattypefedex",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "holdatlocationfedex",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Hold At Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "insidedeliveryfedex",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inside Delivery",
+      "required": false,
+      "help": "Check this box to deliver to a location other than the loading area."
+    },
+    {
+      "id": "insidepickupfedex",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inside Pickup",
+      "required": false,
+      "help": "Check this box to pick up the order from a location other than the loading area."
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "iscargoaircraftonlyfedex",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Cargo Aircraft Only",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter an optional memo with additional information about this fulfillment.\n \nWhat you enter here can be used in searches and shows on reports."
+    },
+    {
+      "id": "packeddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Packed Date",
+      "required": false,
+      "help": "Picked\n\n        * If the Pick Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n\nPacked\n\n        * If the Pick Date field is empty, it populates with the current date.\n        * If the Pack Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n\nShipped\n\n        * If the Pick Date field is empty, it populates with the current date.\n        * If the Pack Date field is empty, it populates with the current date.\n        * If the Ship Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n        * The Accounting Period field is required and it is populated based on the Ship Date."
+    },
+    {
+      "id": "pickeddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Picked Date",
+      "required": false,
+      "help": "Picked\n\n        * If the Pick Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n\nPacked\n\n        * If the Pick Date field is empty, it populates with the current date.\n        * If the Pack Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n\nShipped\n\n        * If the Pick Date field is empty, it populates with the current date.\n        * If the Pack Date field is empty, it populates with the current date.\n        * If the Ship Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n        * The Accounting Period field is required and it is populated based on the Ship Date."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this transaction to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "requestedby",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Requested By",
+      "required": false,
+      "help": "Shows the fulfillment request that the item fulfillment originated from.\n\nClick the fulfillment number to open the fulfillment request."
+    },
+    {
+      "id": "shipaddress",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Address Select",
+      "required": false,
+      "help": "Select the address to ship the order to. The full address displays in the Address field.\n \n    * Select New to enter a new shipping address to be used for this transaction and saved with the associated entity record.\n    * Select Custom to enter a new shipping address to be used for this transaction only (and not saved with the associated entity record).\n    * Click the Edit icon to edit an existing shipping address."
+    },
+    {
+      "id": "shipcompany",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Addressee",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipcountry",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipisresidential",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Residential Address",
+      "required": false,
+      "help": "Check this box if this address is not a business.\n\nThis helps return accurate rates from UPS and FedEx."
+    },
+    {
+      "id": "shipmentprocessed",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Shipment Request Sent",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmentweightfedex",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Total Package Weight",
+      "required": false,
+      "help": "This field totals the weight for all packages on this order in pounds."
+    },
+    {
+      "id": "shipmentweightups",
+      "type": "posfloat",
+      "nlapiSubmitField": true,
+      "label": "Total Package Weight",
+      "required": false,
+      "help": "This field displays the total weight of all individual packages for this order."
+    },
+    {
+      "id": "shipmentweightusps",
+      "type": "posfloat",
+      "nlapiSubmitField": true,
+      "label": "Total Package Weight",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Method",
+      "required": false,
+      "help": "Select a shipping method for this order.\n\nIf you automatically charge for shipping, the shipping amount is entered in the shipping costs field. To automatically charge for shipping, go to <_TABNAME=ADMI_SHIPPING_> > <_TASKCATEGORY=ADMI_SHIPPING_> > Shipping. Check the Charge for Shipping box and click Save. You must also set up the charge details of your shipping items.\n\nTo add or edit shipping items, go to <_TABNAME=LIST_SHIPITEM_> > <_TASKCATEGORY=LIST_SHIPITEM_> > Shipping Items."
+    },
+    {
+      "id": "shipoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippeddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Shipped Date",
+      "required": false,
+      "help": "Picked\n\n        * If the Pick Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n\nPacked\n\n        * If the Pick Date field is empty, it populates with the current date.\n        * If the Pack Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n\nShipped\n\n        * If the Pick Date field is empty, it populates with the current date.\n        * If the Pack Date field is empty, it populates with the current date.\n        * If the Ship Date field is empty, it populates with the current date and the Transaction Date field is populated with the current date.\n        * The Accounting Period field is required and it is populated based on the Ship Date."
+    },
+    {
+      "id": "shipphone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost",
+      "required": false,
+      "help": "If you charge for shipping, enter the amount of shipping costs for this order here."
+    },
+    {
+      "id": "shipstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": "Select Picked if you want to pick, pack and ship your orders as separate transactions.\n\nSelect Packed if you want to combine the steps to pick and pack orders. Orders will then need to be marked shipped.\n\nSelect Shipped if you want to combine the steps to pick, pack and ship orders. Orders will then need to be billed."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "termsofsalefedex",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Terms of Sale",
+      "required": false,
+      "help": "This field is required for dutiable International Express shipments.\n\nNote: This field is not applicable to International document Express shipments."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "This is the date you are fulfilling this order. By fulfilling this order, you may be shipping items or completing services.\n\nIf you want to change the date, enter or click Pick to select a different date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Ref. No.",
+      "required": false,
+      "help": "NetSuite increases the largest fulfillment number by one.\n\nIf you wish, you can type another number. The next fulfillment number will revert to the standard pattern."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "class",
+          "type": "text",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "countryofmanufacture",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdpo",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "text",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "excludefromraterequest",
+          "type": "checkbox",
+          "label": "Exclude Item from Rate Request",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemdescription",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemkey",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemname",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemreceive",
+          "type": "checkbox",
+          "label": "Fulfill",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "manufactureraddr1",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturercity",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturerstate",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturertariff",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturertaxid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturerzip",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "multmanufactureaddr",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "onhand",
+          "type": "float",
+          "label": "On Hand",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "preferencecriterion",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "producer",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityremaining",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedulebcode",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedulebnumber",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedulebquantity",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sitemname",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "packageFedex",
+      "label": "Packages",
+      "fields": [
+        {
+          "id": "admpackagetypefedex",
+          "type": "select",
+          "label": "Admissibility Package Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "alcoholrecipienttypefedex",
+          "type": "select",
+          "label": "Alcohol Recipient Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "authorizationnumberfedex",
+          "type": "text",
+          "label": "Authorization Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "codfreighttypefedex",
+          "type": "select",
+          "label": "Freight Charge Added to COD Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "codmethodfedex",
+          "type": "select",
+          "label": "C.O.D. Method",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "codotherchargefedex",
+          "type": "currency",
+          "label": "C.O.D. Other Charge",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "custompackagefedex",
+          "type": "select",
+          "label": "Your Packaging",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "dryiceweightfedex",
+          "type": "posfloat",
+          "label": "Dry Ice Weight",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isalcoholfedex",
+          "type": "checkbox",
+          "label": "Alcohol",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isnonhazlithiumfedex",
+          "type": "checkbox",
+          "label": "Non-Hazardous Lithium Batteries",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "internationalfedex",
+      "label": "International"
+    },
+    {
+      "name": "internationalups",
+      "label": "International"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "packages",
+      "label": "Packages"
+    },
+    {
+      "name": "shipping",
+      "label": "Shipping"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

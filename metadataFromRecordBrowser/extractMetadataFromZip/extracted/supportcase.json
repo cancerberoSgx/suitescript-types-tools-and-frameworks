@@ -1,0 +1,1015 @@
+{
+  "label": "Case",
+  "id": "supportcase",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "assigned",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Assigned To",
+      "required": false,
+      "help": "Select an employee to assign this case to.\n\nTo add an employee to this list, go to <_TABNAME=EDIT_EMPLOYEE_> > <_TASKCATEGORY=EDIT_EMPLOYEE_> > Employees, and click Edit next to the employee's record. Click the Human Resources subtab, check the Support Rep box, and click Submit."
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "casenumber",
+      "type": "identifieranycase",
+      "nlapiSubmitField": false,
+      "label": "Number",
+      "required": false,
+      "help": "If you use auto-generated numbering, this number is automatically assigned to give the case a unique identifier.\n\nYou can use this case number to quickly access this case using the case search or the Global Search field."
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Type",
+      "required": false,
+      "help": "Select the kind of issue the individual or company is reporting. By default, you can choose from problem, question or concern.\n\nSomeone with permission can add to this list by going to <_TABNAME=EDIT_CASETYPE_> > <_TASKCATEGORY=EDIT_CASETYPE_> > Case Types > New."
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Company",
+      "required": true,
+      "help": "Select the company or individual this case pertains to.\n\nAll companies or individuals that you have customer, lead, prospect, employee or partner records for will appear here."
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Contact",
+      "required": false,
+      "help": "Select the contact who is reporting this issue.\n\nThis list shows contacts associated with the company selected above.\n\nTo add to this list, go to the customer or company record you need to add to, and click the Contact subtab."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Created Date",
+      "required": false,
+      "help": "The date and time that this case record was first created shows in this field."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "This field will show your default case form.\n\nIf you select another form, this page will change to that form.\n\nIf you select New, you will go to the Custom Entry Forms page to customize or edit current forms. If you customize a current form, it will save as a separate custom form, and that form will be added to this list on new case records."
+    },
+    {
+      "id": "email",
+      "type": "emails",
+      "nlapiSubmitField": true,
+      "label": "Email(s)",
+      "required": false,
+      "help": "Enter the individual or company contact's email address. You can enter multiple email addresses separated by commas or semicolons.\n\nIf you check the Email reply box, your response is emailed to these addresses."
+    },
+    {
+      "id": "emailemployees",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Copy Employees",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "emailform",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Send to Customer",
+      "required": false,
+      "help": "Check this box to email your reply to the customer's email as entered in the Email field above.\n\nWhen editing a case, you can also send email to customers or employees using the Email button on the Messages subtab."
+    },
+    {
+      "id": "enddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Closed",
+      "required": false,
+      "help": "The date and time when the case was closed."
+    },
+    {
+      "id": "escalationmessage",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Escalation Message",
+      "required": false,
+      "help": "Enter a message that will be e-mailed to the person you are escalating this case to.\n\nThe customer does not receive a copy of this e-mail message. The message is not stored in the case record."
+    },
+    {
+      "id": "eventnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "helpdesk",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Help Desk",
+      "required": false,
+      "help": "Check this box if this case is internal and is being submitted by or for an employee.\n\nHelp desk cases are not included in Customer Service reports."
+    },
+    {
+      "id": "inboundemail",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "Inbound Email Address",
+      "required": false,
+      "help": "If this case was submitted by email, this field displays the email address to which the case was sent to submit the case.\n\nFor example, if you use two support email addresses, support@yourcompany.com and help@yourcompany.com, this field shows which address was used.\n\nThe email address the customer sent the message from displays in the Email field."
+    },
+    {
+      "id": "incomingmessage",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Message",
+      "required": false,
+      "help": "If this case was submitted by a customer, the customer's most recent message appears here.\n\nIf you are creating this case, enter the problem or question here.\n\nIf you change the customer or company who submitted this case, the last message remains, even if it is from the previous company.\n\nTo view all past messages, click View History on the Messages subtab."
+    },
+    {
+      "id": "insertsolution",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Insert Solution",
+      "required": false,
+      "help": "Add a solution to this case in one of the following ways:\n\n    * Enter the first few letters of the solution title, and press Tab.\n    * Click List to select the solution from a list.\n    * Click Search to search for a solution.\n    * Click New to create a new solution."
+    },
+    {
+      "id": "internalonly",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Internal Only",
+      "required": false,
+      "help": "Check this box if you do not want your reply to be seen by customers.\n\nOnly people in your company who view this case record can see your internal message.\n\nWhen editing a case, you can also send email to customers or employees using the Email button on the Messages subtab."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box if you want to remove this case from the cases list.\n\nTo view inactive cases, you can check the Show Inactives box at the bottom of the list."
+    },
+    {
+      "id": "issue",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Case Issue",
+      "required": false,
+      "help": "Select the kind of issue this case pertains to.\n\nTo create new support issues, go to <_TABNAME=EDIT_CASEISSUE_> > <_TASKCATEGORY=EDIT_CASEISSUE_> > Case Issues. Click New, and enter the name and description."
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": "Select the product or service this case pertains to.\n\nTo offer support for an item, go to <_TABNAME=EDIT_ITEM_> > <_TASKCATEGORY=EDIT_ITEM_> > Items, click the name of the item you want, click Edit and check the Offer Support box."
+    },
+    {
+      "id": "lastmessagedate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Message Date",
+      "required": false,
+      "help": "The date and time of the last message received or sent relating to the case."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date",
+      "required": false,
+      "help": "The date and time when the case was last worked on.\n\nThis field updates automatically when a message is received from a contact and when a message is submitted to a contact."
+    },
+    {
+      "id": "lastreopeneddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Last Reopened",
+      "required": false,
+      "help": "The date and time when the case was last changed from Closed to Re-opened."
+    },
+    {
+      "id": "messagenew",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "New Message",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "module",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Module",
+      "required": false,
+      "help": "Select the product module this case is related to.\n\nYou can create and edit modules on product records at <_TABNAME=ADMI_ISSUEPRODUCT_> > <_TASKCATEGORY=ADMI_ISSUEPRODUCT_> > Products."
+    },
+    {
+      "id": "newsolutionfrommsg",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "origin",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Origin",
+      "required": false,
+      "help": "Select how this case is being reported.\n\nSomeone with permission can add to this list by going to <_TABNAME=EDIT_CASEORIGIN_> > <_TASKCATEGORY=EDIT_CASEORIGIN_> > Case Origin Types > New."
+    },
+    {
+      "id": "outgoingmessage",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Reply",
+      "required": false,
+      "help": "Use this field to enter a reply to the message. This can be an answer, solution or request for more information based on the information in the Message field.\n\nCheck the Send Email box to email this reply to the email address saved on this case record.\n\nCheck the Internal Only box to email this reply only to those selected in the Email Employees field."
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Phone",
+      "required": false,
+      "help": "Enter the contact's phone number for this case.\n\nThis phone number can be used by support or IT to follow up on a case."
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Priority",
+      "required": false,
+      "help": "Select the priority of this case.\n\nCases marked high priority should be resolved first. Cases marked low priority should be resolved last."
+    },
+    {
+      "id": "product",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Product",
+      "required": false,
+      "help": "Select the product this case is related to.\n\nYou can create and edit product records at <_TABNAME=ADMI_ISSUEPRODUCT_> > <_TASKCATEGORY=ADMI_ISSUEPRODUCT_> > Products."
+    },
+    {
+      "id": "profile",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Profile",
+      "required": true,
+      "help": "Select the profile you want to assign to this case. This profile determines the following:\n\n    * the from name and from email address shown on notification sent for this case\n    * the notification templates used\n\nYou can create new case profiles at <_TABNAME=EDIT_CASEPROFILE_> > <_TASKCATEGORY=EDIT_CASEPROFILE_> > Case Profiles > New."
+    },
+    {
+      "id": "searchsolution",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "serialnumber",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Serial/Lot Number",
+      "required": false,
+      "help": "Select the serial number of the item this case is about."
+    },
+    {
+      "id": "stage",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Incident Date",
+      "required": true,
+      "help": "Enter, accept or click the calendar to pick the date this case is being reported.\n\nThis date shows on the Cases list, and the list can be filtered by date.\n\nThe date also shows on the Case subtab of completed company, customer and solution records."
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "Incident Time",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": true,
+      "help": "Select the appropriate status for this case. You can create new case statuses at <_TABNAME=EDIT_CASESTATUS_> > <_TASKCATEGORY=EDIT_CASESTATUS_> > Case Statuses > New.\n\nIf the case status is In Progress, the person working on it should be selected in the Assigned To field.\n\nIf the case status is Escalated, the person whom this case is going to should be selected in the Escalate To field."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "The subsidiary for the customer associated with this case is displayed here."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Subject",
+      "required": true,
+      "help": "Enter the subject of this case. You can enter up to 256 characters in this field.\n\nThe subject shows in the second column of the Cases list, and it is a useful way to determine what the case is about.\n\nOn saved records for individuals or companies who submit cases, the subject appears in the Title column of the Cases subtab.\n\nIf you use the Knowledge Base feature, the subject also appears on the Cases subtab of completed solution records."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "escalateto",
+      "label": "Escalate To",
+      "fields": [
+        {
+          "id": "email",
+          "type": "email",
+          "label": "Email",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "escalatee",
+          "type": "select",
+          "label": "Escalatee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "phone",
+          "type": "phone",
+          "label": "Phone",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "timeitem",
+      "label": "Time Tracking",
+      "fields": [
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "hours",
+          "type": "timetrack",
+          "label": "Duration",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isexempt",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isproductive",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isutilized",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Service Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "jobbillingtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "textarea",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "timetype",
+          "type": "select",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "trandate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "awaitingreply",
+      "type": "checkbox",
+      "label": "Awaiting Support Reply"
+    },
+    {
+      "id": "casenumber",
+      "type": "text",
+      "label": "Number/ID"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "closeddate",
+      "type": "date",
+      "label": "Date Closed"
+    },
+    {
+      "id": "company",
+      "type": "text",
+      "label": "Company"
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "label": "Contact"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "escalateto",
+      "type": "select",
+      "label": "Escalated To"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "helpdesk",
+      "type": "checkbox",
+      "label": "Help Desk"
+    },
+    {
+      "id": "inboundemail",
+      "type": "text",
+      "label": "Inbound Email"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "issue",
+      "type": "select",
+      "label": "Issue"
+    },
+    {
+      "id": "issuefixedin",
+      "type": "select",
+      "label": "Issue Fixed In"
+    },
+    {
+      "id": "issuenumber",
+      "type": "text",
+      "label": "Issue Number"
+    },
+    {
+      "id": "issuestatus",
+      "type": "select",
+      "label": "Issue Status"
+    },
+    {
+      "id": "issuetype",
+      "type": "select",
+      "label": "Issue Type"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmessage",
+      "type": "checkbox",
+      "label": "Most Recent Message"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Date Last Modified"
+    },
+    {
+      "id": "lastreopeneddate",
+      "type": "datetime",
+      "label": "Date Last Reopened"
+    },
+    {
+      "id": "locked",
+      "type": "checkbox",
+      "label": "Locked"
+    },
+    {
+      "id": "message",
+      "type": "clobtext",
+      "label": "Message Text"
+    },
+    {
+      "id": "messageauthor",
+      "type": "select",
+      "label": "Message Author"
+    },
+    {
+      "id": "messagedate",
+      "type": "date",
+      "label": "Message Date"
+    },
+    {
+      "id": "messagetype",
+      "type": "checkbox",
+      "label": "Message Type"
+    },
+    {
+      "id": "module",
+      "type": "select",
+      "label": "Module"
+    },
+    {
+      "id": "number",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "origin",
+      "type": "select",
+      "label": "Origin"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "product",
+      "type": "select",
+      "label": "Product"
+    },
+    {
+      "id": "profile",
+      "type": "select",
+      "label": "Profile"
+    },
+    {
+      "id": "serialnumber",
+      "type": "text",
+      "label": "Serial/Lot #"
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "label": "Stage"
+    },
+    {
+      "id": "startdate",
+      "type": "datetime",
+      "label": "Incident Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Subject"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "awaitingreply",
+      "type": "checkbox",
+      "label": "Awaiting Support Reply"
+    },
+    {
+      "id": "casenumber",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "customerstage",
+      "type": "select",
+      "label": "Customer Stage"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "enddate",
+      "type": "datetime",
+      "label": "Date Closed"
+    },
+    {
+      "id": "escalatee",
+      "type": "select",
+      "label": "Escalated To"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "grabref",
+      "type": "text",
+      "label": "Grab"
+    },
+    {
+      "id": "helpdesk",
+      "type": "checkbox",
+      "label": "Help Desk"
+    },
+    {
+      "id": "inboundemail",
+      "type": "text",
+      "label": "Inbound Email"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "issue",
+      "type": "select",
+      "label": "Issue"
+    },
+    {
+      "id": "issuenumber",
+      "type": "text",
+      "label": "Issue Number"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmessagedate",
+      "type": "datetime",
+      "label": "Last Msg. Date"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastreopeneddate",
+      "type": "datetime",
+      "label": "Last Reopened"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "locked",
+      "type": "checkbox",
+      "label": "Locked"
+    },
+    {
+      "id": "module",
+      "type": "select",
+      "label": "Module"
+    },
+    {
+      "id": "origin",
+      "type": "select",
+      "label": "Origin"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "product",
+      "type": "select",
+      "label": "Product"
+    },
+    {
+      "id": "profile",
+      "type": "select",
+      "label": "Profile"
+    },
+    {
+      "id": "serialnumber",
+      "type": "text",
+      "label": "Serial/Lot #"
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "label": "Stage"
+    },
+    {
+      "id": "startdate",
+      "type": "datetime",
+      "label": "Incident Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Subject"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "issue",
+      "description": "Issue",
+      "actualName": "Issue"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "transaction",
+      "description": "Transaction",
+      "actualName": "Transaction"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "communication",
+      "label": "Communication"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "escalation",
+      "label": "Escalations"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },
+    {
+      "name": "interactions",
+      "label": "Interactions"
+    },
+    {
+      "name": "time",
+      "label": "Time"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

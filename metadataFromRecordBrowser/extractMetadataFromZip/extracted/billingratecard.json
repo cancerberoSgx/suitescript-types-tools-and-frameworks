@@ -1,0 +1,244 @@
+{
+  "label": "Billing Rate Card",
+  "id": "billingratecard",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "ratecardpricing",
+      "label": "Pricing",
+      "fields": [
+        {
+          "id": "billingclassid",
+          "type": "integer",
+          "label": "Billing Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "poscurrency",
+          "label": "Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "saleunit",
+          "type": "select",
+          "label": "Sale Unit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "unitstype",
+          "type": "select",
+          "label": "Units Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "ratecardpricingmulti",
+      "label": "Pricing",
+      "fields": [
+        {
+          "id": "billingclassid",
+          "type": "integer",
+          "label": "Billing Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "saleunit",
+          "type": "select",
+          "label": "Sale Unit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "unitstype",
+          "type": "select",
+          "label": "Units Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "billingclass",
+      "type": "select",
+      "label": "Billing Class"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "id",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "laborbasedprojectrevenuerule",
+      "type": "select",
+      "label": "Labor Based Project Revenue Rule"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "price",
+      "type": "currency",
+      "label": "Price"
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "label": "Sale Unit"
+    },
+    {
+      "id": "timebasedchargerule",
+      "type": "select",
+      "label": "Time-Based Charge Rule"
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "label": "Units Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "billingclass",
+      "type": "text",
+      "label": "Billing Class"
+    },
+    {
+      "id": "currency",
+      "type": "text",
+      "label": "Currency"
+    },
+    {
+      "id": "customer",
+      "type": "text",
+      "label": "Customer"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "id",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "laborbasedprojectrevenuerule",
+      "type": "text",
+      "label": "Labor Based Project Revenue Rule"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "price",
+      "type": "currency",
+      "label": "Price"
+    },
+    {
+      "id": "saleunit",
+      "type": "text",
+      "label": "Sale Unit"
+    },
+    {
+      "id": "timebasedchargerule",
+      "type": "text",
+      "label": "Time-Based Charge Rule"
+    },
+    {
+      "id": "unitstype",
+      "type": "text",
+      "label": "Units Type"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "billingclass",
+      "description": "Billing Class",
+      "actualName": "Billing Class"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

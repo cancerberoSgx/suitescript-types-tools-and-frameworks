@@ -1,0 +1,819 @@
+{
+  "label": "Event",
+  "id": "calendarevent",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accesslevel",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Event Access",
+      "required": true,
+      "help": "This determines how the event appears to others who have access to this calendar.\n\n    * Public &#x96; this event and its information appear to everyone with access to the calendar.\n    * Private &#x96; this event appears only to you on the calendar.\n    * Show As Busy &#x96; this event appears as a busy time slot to everyone with access to the calendar."
+    },
+    {
+      "id": "alldayevent",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "All Day",
+      "required": false,
+      "help": "If this event will take place all day long, check this box when you are creating the event.\n\nThe event appears in the calendar from 8:00 a.m. until 6:00 p.m."
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Company",
+      "required": false,
+      "help": "Select a customer, partner or vendor related to this event.\n\nThe event record is attached to the company's record."
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Contact",
+      "required": false,
+      "help": "If you selected a company, select the contact for that company in regards to this event."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the custom event form you would like to use to continue filling out this event record.\n\nTo use the default form, select the Standard Event Form.\n\nTo create a custom event form, select New or click Customize Form."
+    },
+    {
+      "id": "endbydate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End By",
+      "required": false,
+      "help": "If this a recurring event, enter the date this event stops repeating.\n\nThe event will stop appearing on attendees' calendars after this date."
+    },
+    {
+      "id": "enddate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "endtime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "End Time",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "frequency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "group",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Location",
+      "required": false,
+      "help": "Enter the location where this event will take place."
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Enter any message or notes for this event.\n\nThis message appears under the event title in the e-mail sent to the people invited to this event."
+    },
+    {
+      "id": "noenddate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "No End Date",
+      "required": false,
+      "help": "Check No End Date if this event continues indefinitely.\n\nLater, if the event ends, you can return to this page to enter the end date in the End By field."
+    },
+    {
+      "id": "organizer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Organizer",
+      "required": true,
+      "help": "Select the person who is organizing this event. The event organizer is automatically set as an accepted attendee for this event. \n\nIf you edit the event to change organizers, the new organizer is not automatically added to the attendee list.\n\nIf you create an event from a calendar other than your own, then select the calendar's owner as the event organizer to avoid being listed as an attendee."
+    },
+    {
+      "id": "owner",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "period",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "reminderminutes",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reminder",
+      "required": false,
+      "help": "If you would like to receive a reminder for this event, select the amount of time before the event you want to receive the reminder.\n\nSelect the type of reminder you want to receive in the Reminder Type field. Select None if you do not want to receive a reminder."
+    },
+    {
+      "id": "remindertype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reminder Type",
+      "required": false,
+      "help": "Select Email to receive an e-mail reminder at the address you log in with.\n\nSelect Popup Window to receive a popup reminder.\n\nSet the amount of time before the event your reminder should trigger in the Reminder field. If you select None, you will not receive a reminder."
+    },
+    {
+      "id": "seriesstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Series Start Date",
+      "required": false,
+      "help": "Enter a date that defines when the event begins to recur."
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Date",
+      "required": true,
+      "help": "Enter the date for this event or click the calendar icon to choose a date.\n\nThis event appears on that date in the calendar in the daily view, weekly view and monthly view.\n\nThe date will also appear below the message if you choose to send an e-mail to the attendees."
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "Start Time",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": true,
+      "help": "The status for the event can be Confirmed, Tentative or Canceled.\n\n    * Confirmed &#x96; This event is definitely going to occur.\n    * Tentative &#x96; This event may occur.\n    * Canceled &#x96; This event will not occur.\n\nIf the status changes, the event organizer can return to the event record and change the status."
+    },
+    {
+      "id": "supportcase",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Support Case",
+      "required": false,
+      "help": "If this event is related to a case of the customer, vendor, or partner selected in the Company field, select the case.\n\nThis attaches the event record to the case record."
+    },
+    {
+      "id": "timezone",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Title",
+      "required": true,
+      "help": "Enter a name for this event.\n\nThis name is the subject line of the e-mail sent to those invited to the event.\n\nThis title also appears to others if this event is marked public. The title shows on your calendar and on the calendars of those invited to this event."
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Transaction",
+      "required": false,
+      "help": "If this event is related to an transaction, select the transaction.\n\nThis event is then listed on the Events subtab of the transaction record."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "attendee",
+      "label": "Attendees",
+      "fields": [
+        {
+          "id": "attendance",
+          "type": "select",
+          "label": "Attendance",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "attendee",
+          "type": "select",
+          "label": "Send Invitation to",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "attendeetype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "availability",
+          "type": "text",
+          "label": "Availability",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "response",
+          "type": "select",
+          "label": "Response",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "resource",
+      "label": "Resources",
+      "fields": [
+        {
+          "id": "availability",
+          "type": "text",
+          "label": "Availability",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "text",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "resource",
+          "type": "select",
+          "label": "Resource",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "timeitem",
+      "label": "Time Tracking",
+      "fields": [
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer:Project",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "hours",
+          "type": "timetrack",
+          "label": "Duration",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isexempt",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isproductive",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isutilized",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Service Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "jobbillingtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "textarea",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "overriderate",
+          "type": "checkbox",
+          "label": "Lock this Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "select",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency2",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "timetype",
+          "type": "select",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "trandate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accesslevel",
+      "type": "select",
+      "label": "Event Access"
+    },
+    {
+      "id": "attendee",
+      "type": "select",
+      "label": "Attendee"
+    },
+    {
+      "id": "calendar",
+      "type": "select",
+      "label": "Calendar"
+    },
+    {
+      "id": "completeddate",
+      "type": "date",
+      "label": "Date Completed"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "instancestart",
+      "type": "datetime",
+      "label": "Instance Start"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isupcomingevent",
+      "type": "checkbox",
+      "label": "When"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Date Last Modified"
+    },
+    {
+      "id": "location",
+      "type": "text",
+      "label": "Location"
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "label": "Message"
+    },
+    {
+      "id": "organizer",
+      "type": "select",
+      "label": "Organizer"
+    },
+    {
+      "id": "resource",
+      "type": "select",
+      "label": "Resource"
+    },
+    {
+      "id": "response",
+      "type": "select",
+      "label": "Response"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accesslevel",
+      "type": "text",
+      "label": "Event Access"
+    },
+    {
+      "id": "attendee",
+      "type": "select",
+      "label": "Attendee"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "completeddate",
+      "type": "date",
+      "label": "Date Completed"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "endtime",
+      "type": "timeofday",
+      "label": "End Time"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "instanceend",
+      "type": "datetime",
+      "label": "Instance End"
+    },
+    {
+      "id": "instancestart",
+      "type": "datetime",
+      "label": "Instance Start"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "location",
+      "type": "text",
+      "label": "Location"
+    },
+    {
+      "id": "markdone",
+      "type": "text",
+      "label": "Mark"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Message"
+    },
+    {
+      "id": "organizer",
+      "type": "select",
+      "label": "Organizer"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "recurrence",
+      "type": "text",
+      "label": "Event Date"
+    },
+    {
+      "id": "resource",
+      "type": "select",
+      "label": "Resource"
+    },
+    {
+      "id": "response",
+      "type": "select",
+      "label": "Response"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "label": "Start Time"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Event"
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "label": "Transaction"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "attendeecontact",
+      "description": "Attendee (Contact)",
+      "actualName": "Contact"
+    },
+    {
+      "id": "attendeecustomer",
+      "description": "Attendee (Customer)",
+      "actualName": "Customer"
+    },
+    {
+      "id": "originatinglead",
+      "description": "Originating Lead",
+      "actualName": "Lead"
+    },
+    {
+      "id": "time",
+      "description": "Time",
+      "actualName": "Time"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "communication",
+      "label": "Communication"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "icalendar",
+      "label": "Availability"
+    },
+    {
+      "name": "istatus",
+      "label": "Attendees"
+    },
+    {
+      "name": "media",
+      "label": "File Cabinet"
+    },
+    {
+      "name": "recurrence",
+      "label": "Recurrence"
+    },
+    {
+      "name": "relatedinfo",
+      "label": "Related Info"
+    },
+    {
+      "name": "rstatus",
+      "label": "Res. Availability"
+    },
+    {
+      "name": "time",
+      "label": "Time"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

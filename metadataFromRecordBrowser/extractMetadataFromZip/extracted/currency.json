@@ -1,0 +1,228 @@
+{
+  "label": "Currency",
+  "id": "currency",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "currencyformatsample",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Format Sample",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currencyprecision",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency Precision",
+      "required": false,
+      "help": "Displays the precision of the currency, which designates the number of digits to the right of the decimal point used in currency transactions. Precision can be zero or two.\n\nThe level of decimal precision indicated is used for inventory costing calculations to maintains consistency between inventory costing and reporting. Values in report results are rounded to the base currency precision. This rounding applies to currency values and non-currency values, including formula column values.\n\nTo change this read-only field to a dropdown list through which you can change the precision from zero or two, contact NetSuite Technical Support."
+    },
+    {
+      "id": "displaysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Symbol",
+      "required": false,
+      "help": "Enter the currency symbol and text to use for this currency. Include spaces if you want to separate the symbol from the currency value.\n\nFor example, $ USD or $CAD."
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Default Exchange Rate ( to root subsidiary currency )",
+      "required": true,
+      "help": "Enter an exchange rate for this currency against the base currency of this company, or if you use OneWorld, for this currency against the base currency of the root parent subsidiary.\n\nFor example, if your company is located in Canada and you are defining the U.S. dollar, and the current exchange rate is 1.02 Canadian dollars to 1.00 U.S. dollar, the Default Exchange Rate for the U.S. dollar is 1.02/1.00, or 1.02.\n\nThis rate is the basis for rates in the Currency Exchange Rates table that are used in foreign currency transactions. If you use OneWorld, this rate also is the basis for rates in the Consolidated Exchange Rates table that are used in consolidated financials.For more information, see the help topic Setting Currency Exchange Rates."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includeinfxrateupdates",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Automatic Update",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Is Base Currency",
+      "required": false,
+      "help": "Indicates that this currency is the company's base currency or in OneWorld accounts, the base currency for a subsidiary.\n\nNote: After you have entered transactions in foreign currencies, you cannot change a base currency."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to make the currency record is inactive, or clear it to make the record active.\n\nYou cannot make a currency inactive if any open transactions exist in that currency."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter a unique name for the currency.\n\nBecause many countries use the same name for their currencies, you should use a combined name that includes the country name or abbreviation as well as the name of the currency. For example, pesos are the currency in the Philippines, Uruguay, and Mexico. In the Name field, you might enter &#x201c;Mexican peso.&#x201d;\n\nThis name appears in the Currency field on records and transactions."
+    },
+    {
+      "id": "overridecurrencyformat",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Currency Format",
+      "required": false,
+      "help": "Check this box to customize the currency format."
+    },
+    {
+      "id": "symbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ISO Code",
+      "required": true,
+      "help": "Enter the three-letter International Standards Organization (ISO) code for this currency.\n\nFor example, you would use PHP for Philippines pesos, UYU for Uruguayan pesos, and MXN for Mexican pesos."
+    },
+    {
+      "id": "symbolplacement",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Symbol Placement",
+      "required": false,
+      "help": "Select whether the symbol appears before or after the number.\n\nNote: The symbol position you select in the Symbol Placement field appears only on transaction records. It does not appear on reports."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "exchangerate",
+      "type": "float",
+      "label": "Exchange Rate"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "symbol",
+      "type": "text",
+      "label": "Symbol"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "exchangerate",
+      "type": "float",
+      "label": "Exchange Rate"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "symbol",
+      "type": "text",
+      "label": "Symbol"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

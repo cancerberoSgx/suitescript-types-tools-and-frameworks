@@ -1,0 +1,106 @@
+{
+  "label": "Pricing",
+  "id": "pricing",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "assignedpricelevel",
+      "type": "checkbox",
+      "label": "Assigned Price Level"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "maximumquantity",
+      "type": "float",
+      "label": "Maximum Quantity"
+    },
+    {
+      "id": "minimumquantity",
+      "type": "float",
+      "label": "Minimum Quantity"
+    },
+    {
+      "id": "pricelevel",
+      "type": "select",
+      "label": "Price Level"
+    },
+    {
+      "id": "rate",
+      "type": "currency",
+      "label": "Rate"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "maximumquantity",
+      "type": "float",
+      "label": "Maximum Quantity"
+    },
+    {
+      "id": "minimumquantity",
+      "type": "float",
+      "label": "Minimum Quantity"
+    },
+    {
+      "id": "pricelevel",
+      "type": "select",
+      "label": "Price Level"
+    },
+    {
+      "id": "quantityrange",
+      "type": "text",
+      "label": "Quantity Range"
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "label": "Sale Unit"
+    },
+    {
+      "id": "unitprice",
+      "type": "currency2",
+      "label": "Unit Price"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

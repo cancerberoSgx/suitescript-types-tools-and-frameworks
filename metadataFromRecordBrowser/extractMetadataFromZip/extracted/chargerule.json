@@ -1,0 +1,543 @@
+{
+  "label": "Charge Rule",
+  "id": "chargerule",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "amount",
+      "type": "poscurrency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "billingitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Item",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "caphours",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "capmoney",
+      "type": "poscurrency",
+      "nlapiSubmitField": false,
+      "label": "Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "captype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Cap Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "chargeruletype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Charge Rule Type",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "endbydate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End By",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "expamtmultiplier",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Discount / Mark-up",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "frequency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "noenddate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "No End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer:Project",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "projecttask",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Milestone/Task",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "ratemultiplier",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Rate Multiplier",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "rateroundingtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Time Rounding",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratesourcetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Rate Basis",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "ruleorder",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "Rule Order",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sale Units",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "savedsearch",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "scheduledate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "seriesstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Series Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Initial Charge Stage",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "stopifcapped",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Do Not Bill Entries Exceeding Cap",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Units Type",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "resourcerateoverride",
+      "label": "Resources",
+      "fields": [
+        {
+          "id": "name",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "poscurrency",
+          "label": "Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "billingitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "chargedate",
+      "type": "date",
+      "label": "Charge Date"
+    },
+    {
+      "id": "chargeruletype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End By"
+    },
+    {
+      "id": "expamtmultiplier",
+      "type": "float",
+      "label": "Expense Amount Multiplier"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "frequency",
+      "type": "text",
+      "label": "Frequency"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "label": "Project"
+    },
+    {
+      "id": "projecttask",
+      "type": "text",
+      "label": "Task / Milestone"
+    },
+    {
+      "id": "projecttaskcompletiondate",
+      "type": "date",
+      "label": "Completion Date"
+    },
+    {
+      "id": "projecttaskstatus",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "ratemultiplier",
+      "type": "float",
+      "label": "Rate Multiplier"
+    },
+    {
+      "id": "rateroundingtype",
+      "type": "select",
+      "label": "Rate Rounding"
+    },
+    {
+      "id": "ratesourcetype",
+      "type": "select",
+      "label": "Rate Basis"
+    },
+    {
+      "id": "ruleorder",
+      "type": "integer",
+      "label": "Rule Order"
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "label": "Sale Units"
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "label": "Initial Charge Stage"
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "label": "Units Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "billingitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "chargedate",
+      "type": "date",
+      "label": "Charge Date"
+    },
+    {
+      "id": "chargeruletype",
+      "type": "text",
+      "label": "Type"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Project"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End By"
+    },
+    {
+      "id": "expamtmultiplier",
+      "type": "float",
+      "label": "Discount / Mark-up"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "frequency",
+      "type": "text",
+      "label": "Frequency"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "projecttask",
+      "type": "select",
+      "label": "Task / Milestone"
+    },
+    {
+      "id": "projecttaskcompletiondate",
+      "type": "date",
+      "label": "Completion Date"
+    },
+    {
+      "id": "projecttaskstatus",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "ratemultiplier",
+      "type": "float",
+      "label": "Rate Multiplier"
+    },
+    {
+      "id": "rateroundingtype",
+      "type": "text",
+      "label": "Rate Rounding"
+    },
+    {
+      "id": "ratesourcetype",
+      "type": "text",
+      "label": "Rate Basis"
+    },
+    {
+      "id": "ruleorder",
+      "type": "integer",
+      "label": "Rule Order"
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "label": "Sale Units"
+    },
+    {
+      "id": "stage",
+      "type": "text",
+      "label": "Initial Charge Stage"
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "label": "Units Type"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "unitstype",
+      "description": "Units Type",
+      "actualName": "Units Type"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

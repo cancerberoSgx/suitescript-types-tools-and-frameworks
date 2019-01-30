@@ -1,0 +1,193 @@
+{
+  "label": "Topic",
+  "id": "topic",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Brief Description",
+      "required": false,
+      "help": "Enter a description of this topic.\n\nThis description shows in the topic list and also where it is published."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box if you no longer want to use this record.\n\nInactivating records removes them from lists and references everywhere in your account, but they are still available by clicking the Show Inactives box on lists."
+    },
+    {
+      "id": "longdescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Detailed Description",
+      "required": false,
+      "help": "Enter the text of this solution or topic here.\n\nYou can use Javascript, HTML and CRMDSK tags in this description.\n\nClick Preview to see how this solution will appear when published."
+    },
+    {
+      "id": "parenttopic",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subtopic of",
+      "required": false,
+      "help": "If this topic is a subtopic, select the parent topic here.\n\nIf this is a top-level topic, leave this field blank."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Title",
+      "required": true,
+      "help": "Enter a title for this solution.\n\nBecause solution titles can be searched, this title should be relative to the solution subject.\n\nThis title shows on the Solutions subtab of the case and topic records that this solution is applied to and in published knowledge bases."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "solution",
+      "description": "Solution",
+      "actualName": "Solution"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "notetab",
+      "label": "Notes"
+    },
+    {
+      "name": "publishtab",
+      "label": "Publish"
+    },
+    {
+      "name": "solutiontab",
+      "label": "Solutions"
+    },
+    {
+      "name": "subtopictab",
+      "label": "SubTopics"
+    }
+  ],
+  "transformTypes": []
+}

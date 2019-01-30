@@ -1,0 +1,397 @@
+{
+  "label": "Accounting Transaction",
+  "id": "accountingtransaction",
+  "supportCustomFields": false,
+  "searchOnly": true,
+  "supportDeletedRecordSearch": true,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accounttype",
+      "type": "select",
+      "label": "Account Type"
+    },
+    {
+      "id": "altsalesamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales)"
+    },
+    {
+      "id": "altsalesnetamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales Net)"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "bookspecifictransaction",
+      "type": "checkbox",
+      "label": "Book Specific Transaction"
+    },
+    {
+      "id": "catchupperiod",
+      "type": "select",
+      "label": "Catch Up Period"
+    },
+    {
+      "id": "creditamount",
+      "type": "currency",
+      "label": "Amount (Credit)"
+    },
+    {
+      "id": "customgl",
+      "type": "checkbox",
+      "label": "Custom GL"
+    },
+    {
+      "id": "customscript",
+      "type": "select",
+      "label": "Custom Script"
+    },
+    {
+      "id": "debitamount",
+      "type": "currency",
+      "label": "Amount (Debit)"
+    },
+    {
+      "id": "deferrevrec",
+      "type": "checkbox",
+      "label": "Hold Revenue Recognition"
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency",
+      "label": "Exchange Rate"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "grossamount",
+      "type": "currency",
+      "label": "Amount (Gross)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "multisubsidiary",
+      "type": "checkbox",
+      "label": "Intercompany"
+    },
+    {
+      "id": "netamount",
+      "type": "currency",
+      "label": "Amount (Net)"
+    },
+    {
+      "id": "posting",
+      "type": "checkbox",
+      "label": "Posting"
+    },
+    {
+      "id": "quantityrevcommitted",
+      "type": "float",
+      "label": "Quantity Rev. Committed"
+    },
+    {
+      "id": "recognizedrevenue",
+      "type": "currency",
+      "label": "Amount (Recognized)"
+    },
+    {
+      "id": "revcommitstatus",
+      "type": "select",
+      "label": "Rev. Commit. Status"
+    },
+    {
+      "id": "revenuestatus",
+      "type": "select",
+      "label": "Revenue Status"
+    },
+    {
+      "id": "revrecenddate",
+      "type": "date",
+      "label": "Rev. Rec. End Date"
+    },
+    {
+      "id": "revreconrevcommitment",
+      "type": "checkbox",
+      "label": "Rev. Rec. On Rev. Committment"
+    },
+    {
+      "id": "revrecstartdate",
+      "type": "date",
+      "label": "Rev. Rec. Start Date"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "tranisvsoebundle",
+      "type": "checkbox",
+      "label": "Transaction Is VSOE Bundle"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "vsoeallocation",
+      "type": "currency",
+      "label": "VSOE Allocation"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accounttype",
+      "type": "text",
+      "label": "Account Type"
+    },
+    {
+      "id": "altsalesamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales)"
+    },
+    {
+      "id": "altsalesnetamount",
+      "type": "currency",
+      "label": "Amount (Alt.Sales Net)"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "basecurrency",
+      "type": "text",
+      "label": "Base Currency"
+    },
+    {
+      "id": "catchupperiod",
+      "type": "text",
+      "label": "Catch Up Period"
+    },
+    {
+      "id": "creditamount",
+      "type": "currency",
+      "label": "Amount (Credit)"
+    },
+    {
+      "id": "customgl",
+      "type": "checkbox",
+      "label": "Custom GL"
+    },
+    {
+      "id": "customscript",
+      "type": "text",
+      "label": "Custom Script"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "debitamount",
+      "type": "currency",
+      "label": "Amount (Debit)"
+    },
+    {
+      "id": "deferrevrec",
+      "type": "checkbox",
+      "label": "Hold Revenue Recognition"
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "label": "Exchange Rate"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "fxamount",
+      "type": "currency",
+      "label": "Amount (Foreign Currency)"
+    },
+    {
+      "id": "grossamount",
+      "type": "currency",
+      "label": "Amount (Gross)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "multisubsidiary",
+      "type": "checkbox",
+      "label": "Intercompany"
+    },
+    {
+      "id": "netamount",
+      "type": "currency",
+      "label": "Amount (Net)"
+    },
+    {
+      "id": "posting",
+      "type": "checkbox",
+      "label": "Posting"
+    },
+    {
+      "id": "quantityrevcommitted",
+      "type": "float",
+      "label": "Quantity Rev. Committed"
+    },
+    {
+      "id": "recognizedrevenue",
+      "type": "currency",
+      "label": "Amount (Recognized)"
+    },
+    {
+      "id": "revcommitstatus",
+      "type": "text",
+      "label": "Rev. Commit. Status"
+    },
+    {
+      "id": "revenuestatus",
+      "type": "text",
+      "label": "Revenue Status"
+    },
+    {
+      "id": "revrecenddate",
+      "type": "date",
+      "label": "Rev. Rec. End Date"
+    },
+    {
+      "id": "revreconrevcommitment",
+      "type": "checkbox",
+      "label": "Rev. Rec. On Rev. Committment"
+    },
+    {
+      "id": "revrecstartdate",
+      "type": "date",
+      "label": "Rev. Rec. Start Date"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "tranisvsoebundle",
+      "type": "checkbox",
+      "label": "Transaction Is VSOE Bundle"
+    },
+    {
+      "id": "vsoeallocation",
+      "type": "currency",
+      "label": "VSOE Allocation"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "account",
+      "description": "Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "amortizationschedule",
+      "description": "Amortization Schedule",
+      "actualName": "Amortization Schedules"
+    },
+    {
+      "id": "transaction",
+      "description": "Transaction",
+      "actualName": "Transaction"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

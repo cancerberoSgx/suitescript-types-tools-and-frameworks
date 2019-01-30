@@ -1,0 +1,431 @@
+{
+  "label": "Item Demand Plan",
+  "id": "itemdemandplan",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "alternatesourceitem",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Alternate Source Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "analysisduration",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Historical Analysis Duration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "demandplancalendartype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "View",
+      "required": false,
+      "help": "You can alter your view of the demand plan by changing the date range or the plan view, as described below:\n    * Year &#x2013; Enter the year to view.\n    * Month &#x2013; Select a month to view\n    * Start Date &#x2013; Enter the first date of the period you want to view.\n    * End Date &#x2013; Enter the last date of the period you want to view.\n    * View &#x2013; Choose to see the demand results in a Daily, Weekly or Monthly format."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": "You can alter your view of the demand plan by changing the date range or the plan view, as described below:\n    * Year &#x2013; Enter the year to view.\n    * Month &#x2013; Select a month to view\n    * Start Date &#x2013; Enter the first date of the period you want to view.\n    * End Date &#x2013; Enter the last date of the period you want to view.\n    * View &#x2013; Choose to see the demand results in a Daily, Weekly or Monthly format."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": true,
+      "help": "Select the item you are entering a demand plan for."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": "If you use the Multi-Location Inventory feature, select a location. Then, the list of items that shows is filtered to show only items for the selected location that are time-phased replenishment items."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": false,
+      "help": "Optionally enter a memo for this plan. Later, you can search for this plan by the text entered here."
+    },
+    {
+      "id": "month",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Month",
+      "required": false,
+      "help": "You can alter your view of the demand plan by changing the date range or the plan view, as described below:\n    * Year &#x2013; Enter the year to view.\n    * Month &#x2013; Select a month to view\n    * Start Date &#x2013; Enter the first date of the period you want to view.\n    * End Date &#x2013; Enter the last date of the period you want to view.\n    * View &#x2013; Choose to see the demand results in a Daily, Weekly or Monthly format."
+    },
+    {
+      "id": "projectionduration",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Projection Duration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "projectioninterval",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Projection Interval",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "projectionmethod",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Projection Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "projectionstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Projection Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": "You can alter your view of the demand plan by changing the date range or the plan view, as described below:\n    * Year &#x2013; Enter the year to view.\n    * Month &#x2013; Select a month to view\n    * Start Date &#x2013; Enter the first date of the period you want to view.\n    * End Date &#x2013; Enter the last date of the period you want to view.\n    * View &#x2013; Choose to see the demand results in a Daily, Weekly or Monthly format."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Unit of Measure",
+      "required": false,
+      "help": "Select a Unit of Measure to create a demand plan based on the unit."
+    },
+    {
+      "id": "year",
+      "type": "year",
+      "nlapiSubmitField": false,
+      "label": "Year",
+      "required": false,
+      "help": "You can alter your view of the demand plan by changing the date range or the plan view, as described below:\n    * Year &#x2013; Enter the year to view.\n    * Month &#x2013; Select a month to view\n    * Start Date &#x2013; Enter the first date of the period you want to view.\n    * End Date &#x2013; Enter the last date of the period you want to view.\n    * View &#x2013; Choose to see the demand results in a Daily, Weekly or Monthly format."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "demandplandetail",
+      "label": "Demand",
+      "fields": [
+        {
+          "id": "enddate",
+          "type": "date",
+          "label": "End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity_1_",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "startdate",
+          "type": "date",
+          "label": "Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "systemcalculated",
+          "type": "float",
+          "label": "Monthly Calculated",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "alternatesourceitem",
+      "type": "select",
+      "label": "Last Alternate Source Item"
+    },
+    {
+      "id": "analysisduration",
+      "type": "integer",
+      "label": "Last Historical Analysis Duration"
+    },
+    {
+      "id": "demanddate",
+      "type": "date",
+      "label": "Demand Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Plan Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "projectionduration",
+      "type": "integer",
+      "label": "Last Projection Duration"
+    },
+    {
+      "id": "projectioninterval",
+      "type": "select",
+      "label": "Last Projection Interval"
+    },
+    {
+      "id": "projectionmethod",
+      "type": "select",
+      "label": "Last Projection Method"
+    },
+    {
+      "id": "projectionstartdate",
+      "type": "date",
+      "label": "Last Projection Start Date"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "label": "Units"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "alternatesourceitem",
+      "type": "select",
+      "label": "Last Alternate Source Item"
+    },
+    {
+      "id": "analysisduration",
+      "type": "integer",
+      "label": "Last Historical Analysis Duration"
+    },
+    {
+      "id": "demanddate",
+      "type": "date",
+      "label": "Demand Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Plan Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "projectionduration",
+      "type": "integer",
+      "label": "Last Projection Duration"
+    },
+    {
+      "id": "projectioninterval",
+      "type": "text",
+      "label": "Last Projection Interval"
+    },
+    {
+      "id": "projectionmethod",
+      "type": "text",
+      "label": "Last Projection Method"
+    },
+    {
+      "id": "projectionstartdate",
+      "type": "date",
+      "label": "Last Projection Start Date"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "quantityuom",
+      "type": "float",
+      "label": "Quantity in Demand Plan Units"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "label": "Units"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "location",
+      "description": "Location",
+      "actualName": "Location"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "demand",
+      "label": "Demand"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,295 @@
+{
+  "label": "Payroll Item",
+  "id": "payrollitem",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "allowbulkentry",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow entry from Create Payroll",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "applylimit",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Apply Limit to All Employees",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "applyrate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Apply Rate to All Employees",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "basedonquantity",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Based on quantity",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultrate",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Default Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "employeepaid",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Employee Paid",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "expenseaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Expense Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Type",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "liabilityaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Liability Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "limit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "limitiswithholding",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Wage",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "limittype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Limit Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "masterpaycode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Pay Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Item Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "reportingsection",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Report Section",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showinemployeecenter",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "View in Employee Center",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "This field shows the subsidiary or parent company that issues payroll. The selection must have a valid US address, based on its ZIP Code, and a unique US Employee Identification Number (EIN)."
+    },
+    {
+      "id": "usedefaults",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use System Defaults",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vendor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Agency",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "employeepaycodelist",
+      "label": "Employees",
+      "fields": [
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "employeeid",
+          "type": "integer",
+          "label": "Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "empprevstate",
+          "type": "text",
+          "label": "State",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "expenseaccount",
+      "type": "select",
+      "label": "Expense Account"
+    },
+    {
+      "id": "itemtypenohierarchy",
+      "type": "select",
+      "label": "Item Type (no hierarchy)"
+    },
+    {
+      "id": "liabilityaccount",
+      "type": "select",
+      "label": "Liability Account"
+    },
+    {
+      "id": "masterpaycode",
+      "type": "select",
+      "label": "Master Pay Code"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "vendor",
+      "type": "select",
+      "label": "Vendor"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "expenseaccount",
+      "type": "text",
+      "label": "Expense Account"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "itemtypenohierarchy",
+      "type": "text",
+      "label": "Item Type (no hierarchy)"
+    },
+    {
+      "id": "liabilityaccount",
+      "type": "text",
+      "label": "Liability Account"
+    },
+    {
+      "id": "masterpaycode",
+      "type": "text",
+      "label": "Master Pay Code"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "vendor",
+      "type": "text",
+      "label": "Vendor"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "employee",
+      "label": "Employee"
+    }
+  ],
+  "transformTypes": []
+}

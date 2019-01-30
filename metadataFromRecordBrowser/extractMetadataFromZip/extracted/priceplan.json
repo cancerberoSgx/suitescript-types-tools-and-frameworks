@@ -1,0 +1,104 @@
+{
+  "label": "Price Plan",
+  "id": "priceplan",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "priceplantype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Type",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "pricetiers",
+      "label": "Price Plan Price Tiers",
+      "fields": [
+        {
+          "id": "fromval",
+          "type": "integer",
+          "label": "Above Quantity",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "lineid",
+          "type": "integer",
+          "label": "Line Id",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "priceplan",
+          "type": "select",
+          "label": "Price Plan",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pricetier",
+          "type": "text",
+          "label": "Tiers",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pricingoption",
+          "type": "select",
+          "label": "Pricing Option",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "value",
+          "type": "currency2",
+          "label": "Value",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

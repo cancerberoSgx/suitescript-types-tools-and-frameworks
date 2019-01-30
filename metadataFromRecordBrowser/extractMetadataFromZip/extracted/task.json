@@ -1,0 +1,840 @@
+{
+  "label": "Task",
+  "id": "task",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accesslevel",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Private Task",
+      "required": false,
+      "help": "Check this box so that only the creator of this task or person assigned this task can view the task.\n\nIf you don't check this box, this task is considered public and can be viewed on all task lists."
+    },
+    {
+      "id": "actualtime",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Actual Time",
+      "required": false,
+      "help": "The Actual Time field shows the total amount of time entered against this task."
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Assigned To",
+      "required": true,
+      "help": "The task is assigned to the person who should complete the task.\n\nIf you are creating or editing the task, select a person's name to assign the task to the person. When creating a task, your name appears by default in this field."
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Company",
+      "required": false,
+      "help": "Select the customer, vendor or partner this task pertains to.\n\nSelecting a company adds this task to the associated record.\n\nYou can select additional companies on the Contacts subtab."
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Contact",
+      "required": false,
+      "help": "Select the contact for this task.\n\nThe contacts in this field are the contacts attached to the company selected above. Click Open next to the Company field to add contacts to a company's record.\n\nYou can select additional companies and contacts on the Contacts subtab."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the custom task form you want to use to continue entering this record.\n\nTo use the default form, select Standard Task Form.\n\nTo create a new custom task form, select New or click Customize Form."
+    },
+    {
+      "id": "duedate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Due Date",
+      "required": true,
+      "help": "Enter the projected date when this task needs to be complete."
+    },
+    {
+      "id": "enddate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "This is the date the task should be completed.\n\nIf you are entering or editing the task, type or pick the due date of the task.\n\nThis date is included in the email to the assignee."
+    },
+    {
+      "id": "endtime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "End Time",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "endtimepicker",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedtime",
+      "type": "time",
+      "nlapiSubmitField": true,
+      "label": "Initial Time Budget",
+      "required": false,
+      "help": "In the Initial Time Budget field, enter your first approximation of the amount of time this task will take. Later, you can increase or decrease your time estimate in the Current Time Budget field.\n \nBy maintaining an initial time estimate in this field, you can compare your initial estimate to your altered estimate.\n \nIf you entered a time estimate on a job task template, that amount shows here."
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "time",
+      "nlapiSubmitField": true,
+      "label": "Current Time Budget",
+      "required": false,
+      "help": "If your estimate of the time this task will take increases or decreases from your original estimate, enter the altered estimate in the Current Time Budget field."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "group",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Enter any comments about this task.\n\nThese comments appear in the e-mail sent to the person this task is assigned to."
+    },
+    {
+      "id": "milestone",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Milestone",
+      "required": false,
+      "help": "Select the milestone you want to associate with this task."
+    },
+    {
+      "id": "owner",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Created By",
+      "required": true,
+      "help": "This is the person who created this task.\n\nWhen someone creates a task, that person's name automatically appears in this field."
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Parent Task",
+      "required": false,
+      "help": "Select the parent task if this task is the subordinate of another.\nNote: By identifying this task as a subordinate, the parent task becomes a summary task. A summary task cannot have resources assigned to it because it does not track work, it only tracks information about subordinate tasks."
+    },
+    {
+      "id": "percentcomplete",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Percent Complete",
+      "required": false,
+      "help": "In the Percent Complete field, enter an estimate of how much of the total amount of work for this task is already completed.\n \nFor example, if half the work toward completion is done, enter 50%.\n \nNote: The percentage you enter in this field overrides the auto-calculated figure in the Percent Time Complete field and is used for task calculations."
+    },
+    {
+      "id": "percenttimecomplete",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Percent Time Complete",
+      "required": false,
+      "help": "The system auto-calculates a value for the Percent Time Complete field, by dividing Actual Time by Current Time Budget (or by Initial Time Budget, if no Current Time Budget has been entered). This value indicates how much of the budgeted time for the task has been completed.\n\nYou can override this value by entering a percentage value in the Percent Complete field."
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Priority",
+      "required": true,
+      "help": "This is how important the task is. Tasks with higher priorities should be worked on before tasks with lower priorities.\n\n    * High - The task very important. Do before lower priorities.\n    * Medium - The task is moderately important. Do after higher priorities and before lower priorities.\n    * Low - The task is not important. Do after higher priorities."
+    },
+    {
+      "id": "reminderminutes",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reminder",
+      "required": false,
+      "help": "Select the amount of time before the start time for this task when you would like to set a reminder for the assignee.\n\nYou must check the Block Out Time box to set a reminder.\n\nYou must also select a reminder type to set the reminder."
+    },
+    {
+      "id": "remindertype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reminder Type",
+      "required": false,
+      "help": "Select the type of reminder the assignee should receive before the start time of this task.\n\nYou must check the Block Out Time box to set a reminder.\n\nEmail reminders are sent to the email address on the employee record of the assignee.\n\nPopup reminders appear only if the assignee is logged in to his or her NetSuite account.\n\nYou must also set a time in the Reminder field to set a reminder."
+    },
+    {
+      "id": "sendemail",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Notify Assignee by Email",
+      "required": false,
+      "help": "Check this box to send an email message to the person this task is assigned to. The person the task is assigned to also receives an e-mail message when this task is updated if the Send e-mail box is checked.\n\nIf this person's record does not include an email address, no message will be sent."
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Start Date",
+      "required": true,
+      "help": "This is the date the task should be started.\n\nIf you are entering or editing the task, type or pick the start date of the task.\n\nThis date is included in the e-mail to the assignee."
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "Start Time",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "starttimepicker",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": true,
+      "help": "The status for the task can be Complete, In Progress or Not Started.\n\n    * Complete &#x96; This task has been done.\n    * In Progress &#x96; This task is being worked on.\n    * Not Started &#x96; This task has not been started.\n\nWhen status changes, someone with permission to edit the record can change the status."
+    },
+    {
+      "id": "supportcase",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Support Case",
+      "required": false,
+      "help": "If this task is related to a support case submitted by the customer, partner or vendor selected in the Company field, select the case number here.\n\nSelecting a case attaches this task record to the case record."
+    },
+    {
+      "id": "timedevent",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Reserve Time",
+      "required": false,
+      "help": "Check this box to schedule this task on the calendar of the person the task is assigned to.\n\nEnter the start and end times in the From and To fields.\n\nThis time is scheduled on the calendar for the start date."
+    },
+    {
+      "id": "timeremaining",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Time Remaining",
+      "required": false,
+      "help": "The Time Remaining field shows the estimated remaining amount of time for this task.\n \nTime remaining is calculated as follows:\n\n    (Initial Time Budget - Actual Time)\n\nIf you have entered a Current Time Budget to update your Initial Time Budget, then the time remaining for the task is calculated as:\n\n    (Current Time Budget - Actual Time)"
+    },
+    {
+      "id": "timezone",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Title",
+      "required": true,
+      "help": "Enter a name for this task.\n\nThis name is the subject line of the e-mail sent to the assignee if you check the Send e-mail box.\n\nThis title also appears to others if the Private Task box is not checked. The title shows on the Tasks list."
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Transaction",
+      "required": false,
+      "help": "If this task is associated with a transaction, select that transaction here.\n\nIf you select a transaction, this task is listed on the History subtab of the transaction."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "timeitem",
+      "label": "Time Tracking",
+      "fields": [
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer:Project",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "hours",
+          "type": "timetrack",
+          "label": "Duration",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isexempt",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isproductive",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isutilized",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Service Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "jobbillingtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "textarea",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "overriderate",
+          "type": "checkbox",
+          "label": "Lock this Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Payroll Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "select",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency2",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "timetype",
+          "type": "select",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "trandate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "actualtime",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "completeddate",
+      "type": "date",
+      "label": "Date Completed"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "Due date"
+    },
+    {
+      "id": "estimatedtime",
+      "type": "float",
+      "label": "Initial Time Budget"
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "float",
+      "label": "Current Time Budget"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isjobsummarytask",
+      "type": "checkbox",
+      "label": "Is Job Summary Task"
+    },
+    {
+      "id": "isjobtask",
+      "type": "checkbox",
+      "label": "Is Job Task"
+    },
+    {
+      "id": "isprivate",
+      "type": "checkbox",
+      "label": "Is Private"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified Date"
+    },
+    {
+      "id": "milestone",
+      "type": "integer",
+      "label": "Milestone"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "percentcomplete",
+      "type": "integer",
+      "label": "Percent Complete"
+    },
+    {
+      "id": "percenttimecomplete",
+      "type": "integer",
+      "label": "Percent Time Complete"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "timeremaining",
+      "type": "float",
+      "label": "Remaining Work"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accesslevel",
+      "type": "text",
+      "label": "Private"
+    },
+    {
+      "id": "actualtime",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "assigned",
+      "type": "select",
+      "label": "Assigned To"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Company"
+    },
+    {
+      "id": "completeddate",
+      "type": "date",
+      "label": "Date Completed"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Contact"
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "duedate",
+      "type": "date",
+      "label": "Due Date"
+    },
+    {
+      "id": "estimatedtime",
+      "type": "float",
+      "label": "Initial Time Budget"
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "float",
+      "label": "Current Time Budget"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isjobsummarytask",
+      "type": "checkbox",
+      "label": "Is Job Summary Task"
+    },
+    {
+      "id": "isjobtask",
+      "type": "checkbox",
+      "label": "Is Job Task"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "markdone",
+      "type": "text",
+      "label": "Mark"
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "label": "Comment"
+    },
+    {
+      "id": "milestone",
+      "type": "select",
+      "label": "Milestone"
+    },
+    {
+      "id": "order",
+      "type": "integer",
+      "label": "Insert"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Created By"
+    },
+    {
+      "id": "percentcomplete",
+      "type": "percent",
+      "label": "Pct Complete"
+    },
+    {
+      "id": "percenttimecomplete",
+      "type": "percent",
+      "label": "Percent Time Complete"
+    },
+    {
+      "id": "priority",
+      "type": "select",
+      "label": "Priority"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "label": "Start Time"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "timeremaining",
+      "type": "float",
+      "label": "Remaining Work"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Task Title"
+    },
+    {
+      "id": "transaction",
+      "type": "select",
+      "label": "Transaction"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "companycustomer",
+      "description": "Company (Customer)",
+      "actualName": "Customer"
+    },
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "job",
+      "description": "Job",
+      "actualName": "Job"
+    },
+    {
+      "id": "originatinglead",
+      "description": "Originating Lead",
+      "actualName": "Lead"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "communication",
+      "label": "Communication"
+    },
+    {
+      "name": "contacts",
+      "label": "Contacts"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "icalendar",
+      "label": "Availability"
+    },
+    {
+      "name": "media",
+      "label": "File Cabinet"
+    },
+    {
+      "name": "relatedinfo",
+      "label": "Related Info"
+    },
+    {
+      "name": "time",
+      "label": "Time"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

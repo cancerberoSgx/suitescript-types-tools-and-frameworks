@@ -1,0 +1,558 @@
+{
+  "label": "Manufacturing Routing",
+  "id": "manufacturingrouting",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "autocalculatelag",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto-calculate Lag",
+      "required": false,
+      "help": "Check the Autocalculate Lag box to autocalculate the routing.\nNetSuite can automatically calculate the optimal lag amount (the shortest possible lead time for each work order operation).\n\nDefine the following on the manufacturing routing record:\n\n    * Lag Amount\n    * Lag Units\n\nOnce defined, these values default on work orders. The auto-calculated lag amount is the Optimal (minimal) Lag Amount. If lag settings are changed on the operation record, NetSuite reschedules the operation when the task is saved with the new settings and reschedules all affected subsequent tasks.\n\nWhen a work order is scheduled, NetSuite calculates the optimal lag amount and maximal lag amount for each operation that has a preceding operation and has a defined lag type.\nNetSuite does not allow the lag amount to be defined outside of this range.\n\nNote: The autocalculation setting can be changed only when the work order status is Planned or Released. When Auto-calculate Lag is enabled, lag amounts on operations cannot be edited. The only available lag type is Quantity."
+    },
+    {
+      "id": "billofmaterials",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill of Materials",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isdefault",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Default",
+      "required": false,
+      "help": "Check the Default box if you want to default to use this routing for this item on forms. The Default box denotes the default steps for creating a new special work orders and mass created work orders.\nClear this box if you do not want this routing to be used by default."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check the Inactive box if you do not want this routing to show in routing lists on records and forms. Clear this box if you do want this routing to show in lists."
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": true,
+      "help": "Select the item you are creating an assembly sequence for."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": false,
+      "help": "Optionally enter a memo for this routing. Later you can search for the text you enter in this field. For example, enter Use Beta Alternate when primary widget supply is unavailable."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter a name for this routing template. This name will show for selection in the list of routings available in the Manufacturing Routing field on records and forms. For example, enter Beta Alternate Supply Routing."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "routingcomponent",
+      "label": "Component Per Operation",
+      "fields": [
+        {
+          "id": "bomquantity",
+          "type": "text",
+          "label": "BOM Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "component",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemname",
+          "type": "text",
+          "label": "Component",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "operationdisplaytext",
+          "type": "select",
+          "label": "Operation",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "operationsequencenumber",
+          "type": "text",
+          "label": "Operation Sequence Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "text",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revision",
+          "type": "text",
+          "label": "Revision",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "text",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "yield",
+          "type": "percent",
+          "label": "Yield",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "routingstep",
+      "label": "Routing Steps",
+      "fields": [
+        {
+          "id": "laborresources",
+          "type": "integer",
+          "label": "Labor Resources",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "lagamount",
+          "type": "integer",
+          "label": "Lag Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "lagtype",
+          "type": "select",
+          "label": "Lag Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "lagunits",
+          "type": "text",
+          "label": "Lag Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "machineresources",
+          "type": "integer",
+          "label": "Machine Resources",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturingcosttemplate",
+          "type": "select",
+          "label": "Manufacturing Cost Template",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "manufacturingworkcenter",
+          "type": "select",
+          "label": "Manufacturing Work Center",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "operationname",
+          "type": "text",
+          "label": "Operation Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "operationsequence",
+          "type": "integer",
+          "label": "Operation Sequence",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "operationyield",
+          "type": "percent",
+          "label": "Operation Yield",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "runrate",
+          "type": "float",
+          "label": "Run Rate (Min/Unit)",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "setuptime",
+          "type": "float",
+          "label": "Setup Time (Min)",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "autocalculatelag",
+      "type": "checkbox",
+      "label": "Auto-calculate Lag"
+    },
+    {
+      "id": "billofmaterials",
+      "type": "select",
+      "label": "Bill of Materials"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isdefault",
+      "type": "checkbox",
+      "label": "Default"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lagamount",
+      "type": "float",
+      "label": "Lag Amount"
+    },
+    {
+      "id": "lagtype",
+      "type": "select",
+      "label": "Lag Type"
+    },
+    {
+      "id": "lagunits",
+      "type": "text",
+      "label": "Lag Units"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "manufacturingcosttemplate",
+      "type": "select",
+      "label": "Manufacturing Cost Template"
+    },
+    {
+      "id": "manufacturingworkcenter",
+      "type": "select",
+      "label": "Manufacturing Work Center"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "operationname",
+      "type": "text",
+      "label": "Operation Name"
+    },
+    {
+      "id": "operationyield",
+      "type": "percent",
+      "label": "Operation Yield"
+    },
+    {
+      "id": "runrate",
+      "type": "float",
+      "label": "Run Rate"
+    },
+    {
+      "id": "sequence",
+      "type": "integer",
+      "label": "Operation Sequence"
+    },
+    {
+      "id": "setuptime",
+      "type": "float",
+      "label": "Setup Time"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "autocalculatelag",
+      "type": "checkbox",
+      "label": "Auto-calculate Lag"
+    },
+    {
+      "id": "billofmaterials",
+      "type": "select",
+      "label": "Bill of Materials"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isdefault",
+      "type": "checkbox",
+      "label": "Default"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lagamount",
+      "type": "float",
+      "label": "Lag Amount"
+    },
+    {
+      "id": "lagtype",
+      "type": "text",
+      "label": "Lag Type"
+    },
+    {
+      "id": "lagunits",
+      "type": "text",
+      "label": "Lag Units"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "manufacturingcosttemplate",
+      "type": "select",
+      "label": "Manufacturing Cost Template"
+    },
+    {
+      "id": "manufacturingworkcenter",
+      "type": "select",
+      "label": "Manufacturing Work Center"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "operationname",
+      "type": "text",
+      "label": "Operation Name"
+    },
+    {
+      "id": "operationyield",
+      "type": "percent",
+      "label": "Operation Yield"
+    },
+    {
+      "id": "runrate",
+      "type": "float",
+      "label": "Run Rate"
+    },
+    {
+      "id": "sequence",
+      "type": "integer",
+      "label": "Operation Sequence"
+    },
+    {
+      "id": "setuptime",
+      "type": "float",
+      "label": "Setup Time"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "location",
+      "description": "Location",
+      "actualName": "Location"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "routingcomponents",
+      "label": "Component Per Operation"
+    },
+    {
+      "name": "routingsteps",
+      "label": "Routing Steps"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

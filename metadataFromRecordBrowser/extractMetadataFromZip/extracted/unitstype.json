@@ -1,0 +1,252 @@
+{
+  "label": "Units Type",
+  "id": "unitstype",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to inactivate this unit record.\nWhen a record is inactive, it does not appear in lists and cannot be selected on records and transactions."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Type Name",
+      "required": true,
+      "help": "Enter a name for the type of units you are creating. For example, enter \"Length\" to create units of Inch, Foot and Yard."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "uom",
+      "label": "Units",
+      "fields": [
+        {
+          "id": "abbreviation",
+          "type": "text",
+          "label": "Abbreviation",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "baseunit",
+          "type": "checkbox",
+          "label": "Base Unit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "conversionrate",
+          "type": "posfloat",
+          "label": "Conversion Rate  (/base)",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pluralabbreviation",
+          "type": "text",
+          "label": "Plural Abbreviation",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "pluralname",
+          "type": "text",
+          "label": "Plural Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "unitname",
+          "type": "text",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "abbreviation",
+      "type": "text",
+      "label": "Abbreviation Name"
+    },
+    {
+      "id": "baseunit",
+      "type": "checkbox",
+      "label": "Is Base Unit"
+    },
+    {
+      "id": "conversionrate",
+      "type": "text",
+      "label": "Rate"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "pluralabbreviation",
+      "type": "text",
+      "label": "Abbreviation Name(Plural)"
+    },
+    {
+      "id": "pluralname",
+      "type": "text",
+      "label": "Unit Name(Plural)"
+    },
+    {
+      "id": "unitname",
+      "type": "text",
+      "label": "Unit Name"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "abbreviation",
+      "type": "text",
+      "label": "Abbreviation Name"
+    },
+    {
+      "id": "baseunit",
+      "type": "checkbox",
+      "label": "Is Base Unit"
+    },
+    {
+      "id": "conversionrate",
+      "type": "text",
+      "label": "Rate"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "pluralabbreviation",
+      "type": "text",
+      "label": "Abbreviation Name(Plural)"
+    },
+    {
+      "id": "pluralname",
+      "type": "text",
+      "label": "Unit Name(Plural)"
+    },
+    {
+      "id": "unitname",
+      "type": "text",
+      "label": "Unit Name"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

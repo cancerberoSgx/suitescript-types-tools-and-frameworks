@@ -1,0 +1,208 @@
+{
+  "label": "Nexus",
+  "id": "nexus",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "country",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": true,
+      "help": "Select the country that you are making this record for."
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": true,
+      "help": "Enter a description for this record."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "This field is false by default. Check this box to inactivate this record. Inactive records do not show on transactions and records for selection in lists.\n\nOn nexus and tax type records, this field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "parentnexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Parent Nexus",
+      "required": false,
+      "help": "If the nexus record that you are creating represents a subnexus, select a parent nexus. Otherwise, leave the Parent Nexus field blank.\n\nThis field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "State/Province/County",
+      "required": false,
+      "help": "Select the state, province, or county that you are making this record for. You can create a new state, province, or county at Setup > Company > Setup Tasks > States/Provinces/Counties.\n\nOn tax code records, this field is available only if the SuiteTax feature is disabled in your account."
+    },
+    {
+      "id": "taxagency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Agency",
+      "required": false,
+      "help": "Select the name of the tax vendor to whom you submit tax reports and remit payments. \n\nYou can set up a vendor as a tax agency in two ways:\n- By selecting Tax Agency in the Category field on the vendor record.\n- By clicking the plus icon (New) next to the Tax Agency field on the nexus record.\n\nOn tax code records, this field is available only if the SuiteTax feature is disabled in your account."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "parentnexus",
+      "type": "select",
+      "label": "Parent Nexus"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State"
+    },
+    {
+      "id": "taxagency",
+      "type": "select",
+      "label": "Tax Agency"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "parentnexus",
+      "type": "select",
+      "label": "Parent Nexus"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State"
+    },
+    {
+      "id": "taxagency",
+      "type": "select",
+      "label": "Tax Agency"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

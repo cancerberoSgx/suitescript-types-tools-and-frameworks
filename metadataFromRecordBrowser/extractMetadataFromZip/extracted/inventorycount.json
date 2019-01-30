@@ -1,0 +1,212 @@
+{
+  "label": "Inventory Count",
+  "id": "inventorycount",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Ref No.",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "adjustedquantity",
+          "type": "float",
+          "label": "Adjusted Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "binnumber",
+          "type": "select",
+          "label": "Bin",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "countdetail",
+          "type": "summary",
+          "label": "Count Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "countquantity",
+          "type": "float",
+          "label": "Count Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency2",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "snapshotquantity",
+          "type": "float",
+          "label": "Snapshot Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "viewadjustment",
+          "type": "text",
+          "label": "Variance Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "viewsnapshot",
+          "type": "text",
+          "label": "Snapshot Detail",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

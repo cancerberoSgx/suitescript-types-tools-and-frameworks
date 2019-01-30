@@ -1,0 +1,170 @@
+{
+  "label": "Merchandise Hierarchy Node",
+  "id": "merchandisehierarchynode",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "hierarchyversions",
+      "label": "Hierarchy Versions",
+      "fields": [
+        {
+          "id": "enddate",
+          "type": "date",
+          "label": "End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "hierarchylevel",
+          "type": "select",
+          "label": "Hierarchy Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "hierarchyversion",
+          "type": "select",
+          "label": "Hierarchy Version",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isincluded",
+          "type": "checkbox",
+          "label": "Included In Version",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "parentnode",
+          "type": "select",
+          "label": "Parent Node",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "startdate",
+          "type": "date",
+          "label": "Start Date",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "hierarchylevel",
+      "type": "select",
+      "label": "Hierarchy Level"
+    },
+    {
+      "id": "hierarchyversion",
+      "type": "select",
+      "label": "Hierarchy Version"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "parentnode",
+      "type": "select",
+      "label": "Hierarchy Parent Node"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "hierarchylevel",
+      "type": "text",
+      "label": "Hierarchy Level"
+    },
+    {
+      "id": "hierarchyversion",
+      "type": "text",
+      "label": "Hierarchy Version"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "parentnode",
+      "type": "text",
+      "label": "Hierarchy Parent Node"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,1005 @@
+{
+  "label": "Subsidiary",
+  "id": "subsidiary",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "addrphone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addrtext",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Attention",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "caseupdatetemplate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Case Update",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "checklayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Check Default Chart Type",
+      "required": true,
+      "help": "Select the check layout you want to use when printing checks from this subsidiary."
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "City",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": true,
+      "help": "Select the country in which this subsidiary is located."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "Select the base currency used by this subsidiary. If you do not select a currency, the currency of the parent subsidiary is used."
+    },
+    {
+      "id": "edition",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Edition",
+      "required": false,
+      "help": "This field displays the edition of NetSuite used by this subsidiary."
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Return Email Address",
+      "required": false,
+      "help": "Enter the return email address for this subsidiary."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Fax",
+      "required": false,
+      "help": "Enter the fax number for this subsidiary."
+    },
+    {
+      "id": "federalidnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Employer Identification Number (EIN)",
+      "required": false,
+      "help": "Enter the appropriate tax identification number for this subsidiary:\n\n    * United States &#x96; Employee Identification Number (EIN) or Federal Identification Number (FIN)\n    * Australia &#x96; Australian Business Number\n    * United Kingdom &#x96; VAT Registration Number\n    * All other locations &#x96; VAT Registration Number\n\nThis number is required for all businesses with employees or acting as corporations or partnerships for tax purposes. If you think you need a tax identification number or do not know what your number is, contact the tax agency with jurisdiction over this subsidiary."
+    },
+    {
+      "id": "fiscalcalendar",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Fiscal Calendar",
+      "required": true,
+      "help": "Select the calendar to roll up accounting periods. The fiscal calendar determines the start date for the accounting year."
+    },
+    {
+      "id": "heading0",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Case Email Setup",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "heading1",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Customer Notification Templates",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "heading2",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Employee Notification Templates",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "intercoaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Intercompany Account",
+      "required": false,
+      "help": "If the Intercompany Time and Expense feature is enabled in your account, an Intercompany Account is automatically associated with a subsidiary after qualifying transactions are created in the system, such as a journal to eliminate Time and Expense.\n\nThis account is determined by the subsidiary&#x2019;s base currency. It is used to offset the transfer of charges from intercompany time and expenses from this subsidiary to others."
+    },
+    {
+      "id": "iselimination",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Elimination",
+      "required": false,
+      "help": "Check this box if this subsidiary record is to be used for only journal entries and transactions between subsidiaries.\n\nWhen a loan, sale, or inventory transfer is made between subsidiaries, you use an elimination subsidiary to balance your consolidated books. By entering a journal entry against the elimination subsidiary in the same amount as the inter-company transaction, you have both a record of the transactions and a correct balance."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary is Inactive",
+      "required": false,
+      "help": "Check this box if this subsidiary is no longer active or used in your account.\n\nInactivated subsidiaries no longer show in the Subsidiary field on records and transactions unless they are currently attached to a record. Web sites of inactive subsidiaries are no longer available online."
+    },
+    {
+      "id": "languagelocale",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Language",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Legal Name",
+      "required": false,
+      "help": "Enter the legal name of this subsidiary as it should appear on tax forms."
+    },
+    {
+      "id": "logo",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary Logo (Forms)",
+      "required": false,
+      "help": "In the Subsidiary Logo (Forms) field, select the logo image to be used on all forms by this subsidiary.\n\nClick New to upload a logo. Logos must be in JPG or GIF format.\n\nNote: The logo selected in this field does not affect pages in your account. The logo displayed on pages is determined by the selection in the Subsidiary Logo (Pages) field.\n\nTo upload a logo, click Add New. Check the Available Without Login box."
+    },
+    {
+      "id": "mainaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "MOSS applies",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter the name of this subsidiary the way it should appear on all forms except checks.\n\nOn checks, your company name is pre-printed with address and MICR information.\n\nThe name can be alphanumeric. The maximum number of characters is 83."
+    },
+    {
+      "id": "override",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pagelogo",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary Logo (Pages)",
+      "required": false,
+      "help": "Select the logo image to be displayed on all pages for this subsidiary.\n\nClick New to upload a logo. Logos must be in JPG or GIF format.\n\nNote: The logo selected in this field does not affect printed forms. The logo on printed forms is determined by the selection in the Subsidiary Logo (Forms) field.\n\nTo upload a logo, click Add New. Check the Available Without Login box."
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsubsidiary of",
+      "required": true,
+      "help": "Select this direct parent of this subsidiary.\n\nSelecting a parent subsidiary sets your company hierarchy, which is shown in the subsidiaries list."
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Amount Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the amount on the vendor bill and purchase order."
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the quantity on the vendor bill and purchase order."
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Quantity Difference",
+      "required": false,
+      "help": "Enter the difference limit for the discrepancy between the quantity on the vendor bill and purchase order."
+    },
+    {
+      "id": "receiptamount",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Amount Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the amount on the vendor bill and item receipt."
+    },
+    {
+      "id": "receiptquantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the quantity on the vendor bill and item receipt."
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Quantity Difference",
+      "required": false,
+      "help": "Enter the difference limit for the discrepancy between the quantity on the vendor bill and item receipt."
+    },
+    {
+      "id": "returnaddr",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnaddress1",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Address1",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnaddress2",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Address2",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returncity",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "City",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returncountry",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnstate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "County/State/Province",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnzip",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Postal Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "roundtime",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Round Time Entry Duration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddr",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipcountry",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showsubsidiaryname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Always Display Subsidiary Name",
+      "required": false,
+      "help": "Check this box to display only the subsidiary name with your role in the upper right  corner of a page.  In addition, when logging in to an employee center, vendor center, or customer center, the dashboard displays only the logo of the subsidiary, not the company logo.\n\nClear this box to display the parent and the subsidiary name in your account."
+    },
+    {
+      "id": "ssnortin",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "SSN or TIN (Social Security Number, Tax ID Number)",
+      "required": false,
+      "help": "If you are a United States citizen and are self-emloyed with no employees, enter your Social Security Number (SSN). If you are not a US citizen but have a Taxpayer Identification Number (TIN) issued by the IRS for the purposes of operating a business with no employees, enter your TIN.\n\nThese numbers are used for tax purposes. If you think you need a SSN or TIN or do not know what your number is, contact the United States Internal Revenue Service (IRS), or go to www.irs.gov/businesses for more information."
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "State/Province",
+      "required": false,
+      "help": "Select the state or province in which this subsidiary is located."
+    },
+    {
+      "id": "taxfiscalcalendar",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Fiscal Calendar",
+      "required": true,
+      "help": "Select the calendar to roll up the tax periods. The tax fiscal calendar determines the start date for the tax year."
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Transaction Prefix",
+      "required": false,
+      "help": "When you use auto-generated numbering with NetSuite OneWorld, you can make your document number sequences independent per subsidiary.\n\nEnter up to 8 alphanumeric characters in this field to number transactions with a prefix to signify this subsidiary.\n\nTo set up auto-generated numbering, go to Setup >  Setup Tasks > Auto-Generated Numbers. On the Document Numbers subtab, check the Use Subsidiary box next to each transaction to which this prefix should be applied."
+    },
+    {
+      "id": "url",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Web Site",
+      "required": false,
+      "help": "Enter this subsidiary's Web Site address, or URL."
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Zip",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Currencies",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Base Currency",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "taxregistration",
+      "label": "Tax Registrations",
+      "fields": [
+        {
+          "id": "effectivefrom",
+          "type": "date",
+          "label": "Effective From",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "nexus",
+          "type": "select",
+          "label": "Nexus",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "nexuscountry",
+          "type": "select",
+          "label": "Country",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxagency",
+          "type": "select",
+          "label": "Tax Agency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxengine",
+          "type": "select",
+          "label": "Tax Engine",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxregistrationnumber",
+          "type": "text",
+          "label": "Tax Reg. Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "validuntil",
+          "type": "date",
+          "label": "Valid Until",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accountingbookcurrency",
+      "type": "select",
+      "label": "Accounting Book Currency"
+    },
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "effectivefrom",
+      "type": "date",
+      "label": "Effective From"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "iselimination",
+      "type": "checkbox",
+      "label": "Elimination"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "label": "Legal Name"
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "label": "MOSS Applies"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "label": "Nexus"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "taxengine",
+      "type": "select",
+      "label": "Tax Engine"
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "label": "Tax ID"
+    },
+    {
+      "id": "taxregistrationnumber",
+      "type": "text",
+      "label": "Tax Reg. Number"
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "label": "Transaction Prefix"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Web Site"
+    },
+    {
+      "id": "validuntil",
+      "type": "date",
+      "label": "Valid Until"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accountingbookcurrency",
+      "type": "select",
+      "label": "Accounting Book Currency"
+    },
+    {
+      "id": "anonymouscustomerinboundemail",
+      "type": "text",
+      "label": "Anonymous Customer - Inbound Email"
+    },
+    {
+      "id": "anonymouscustomeronlineforms",
+      "type": "text",
+      "label": "Anonymous Customer - Online Forms"
+    },
+    {
+      "id": "caseassignmenttemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Case Assignment"
+    },
+    {
+      "id": "caseautomaticclosuretemplate",
+      "type": "text",
+      "label": "Customer Notification Template - Automatic Case Closure"
+    },
+    {
+      "id": "casecopyemployeetemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Copy Employee"
+    },
+    {
+      "id": "casecreationtemplate",
+      "type": "text",
+      "label": "Customer Notification Template - Case Creation"
+    },
+    {
+      "id": "caseescalationtemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Escalation"
+    },
+    {
+      "id": "caseupdatetemplate",
+      "type": "text",
+      "label": "Customer Notification Template - Case Update"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "companynameforsupportmessages",
+      "type": "text",
+      "label": "Company Name for Support Messages"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "effectivefrom",
+      "type": "date",
+      "label": "Effective From"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "employeecaseupdatetemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Case Update"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "iselimination",
+      "type": "checkbox",
+      "label": "Elimination"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "label": "Legal Name"
+    },
+    {
+      "id": "mainsupportemailaddress",
+      "type": "email",
+      "label": "Main Support Email Address"
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "label": "MOSS Applies"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "namenohierarchy",
+      "type": "text",
+      "label": "Name (no hierarchy)"
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "label": "Nexus"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "taxengine",
+      "type": "select",
+      "label": "Tax Engine"
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "label": "Tax ID"
+    },
+    {
+      "id": "taxregistrationnumber",
+      "type": "text",
+      "label": "Tax Reg. Number"
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "label": "Transaction Prefix"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Web Site"
+    },
+    {
+      "id": "validuntil",
+      "type": "date",
+      "label": "Valid Until"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "address",
+      "description": "Address",
+      "actualName": "Address"
+    },
+    {
+      "id": "defaultadvancetoapplyaccount",
+      "description": "Default Advance to Apply Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "returnaddress",
+      "description": "Return Address",
+      "actualName": "Address"
+    },
+    {
+      "id": "shippingaddress",
+      "description": "Shipping Address",
+      "actualName": "Address"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "addressbook",
+      "label": "Address"
+    },
+    {
+      "name": "history",
+      "label": "System Notes"
+    },
+    {
+      "name": "nexustab",
+      "label": "Nexuses"
+    },
+    {
+      "name": "preferencestab",
+      "label": "Preferences"
+    },
+    {
+      "name": "returnsaddrtab",
+      "label": "Return Address"
+    },
+    {
+      "name": "shippingaddrtab",
+      "label": "Shipping Address"
+    },
+    {
+      "name": "translation",
+      "label": "Translation"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,415 @@
+{
+  "label": "Labor Based Project Revenue Rule",
+  "id": "laborbasedprojectrevenuerule",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratemultiplier",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Rate Multiplier",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "rateroundingtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Time Rounding",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratesourcetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Rate Basis",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "revenuereconciled",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Revenue Reconciled",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "savedsearch",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Service Item",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "chargerule",
+      "label": "Charge Rules",
+      "fields": [
+        {
+          "id": "actualamount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billingitem",
+          "type": "select",
+          "label": "Billing Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "chargerule",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "forecastamount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "ruletype",
+          "type": "select",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "resourcerateoverride",
+      "label": "Resources",
+      "fields": [
+        {
+          "id": "rate",
+          "type": "poscurrency",
+          "label": "Rate",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "rsrc",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "billingratecard",
+      "type": "select",
+      "label": "Billing Rate Card"
+    },
+    {
+      "id": "chargerule",
+      "type": "select",
+      "label": "Charge Rule"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "label": "Project"
+    },
+    {
+      "id": "ratemultiplier",
+      "type": "posfloat",
+      "label": "Rule Multiplier"
+    },
+    {
+      "id": "rateroundingtype",
+      "type": "select",
+      "label": "Time Rounding"
+    },
+    {
+      "id": "ratesourcetype",
+      "type": "select",
+      "label": "Rate Source"
+    },
+    {
+      "id": "revenuereconciled",
+      "type": "checkbox",
+      "label": "Revenue Reconciled"
+    },
+    {
+      "id": "ruletype",
+      "type": "select",
+      "label": "Rule Type"
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "label": "Service Item"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "billingratecard",
+      "type": "text",
+      "label": "Billing Rate Card"
+    },
+    {
+      "id": "chargerule",
+      "type": "select",
+      "label": "Charge Rule"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "project",
+      "type": "text",
+      "label": "Project"
+    },
+    {
+      "id": "ratemultiplier",
+      "type": "posfloat",
+      "label": "Rule Multiplier"
+    },
+    {
+      "id": "rateroundingtype",
+      "type": "text",
+      "label": "Time Rounding"
+    },
+    {
+      "id": "ratesourcetype",
+      "type": "text",
+      "label": "Rate Source"
+    },
+    {
+      "id": "revenuereconciled",
+      "type": "checkbox",
+      "label": "Revenue Reconciled"
+    },
+    {
+      "id": "ruletype",
+      "type": "text",
+      "label": "Rule Type"
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "label": "Service Item"
+    },
+    {
+      "id": "totalamounttorecognize",
+      "type": "currency",
+      "label": "Total Amount to Recognize"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "billingratecard",
+      "description": "Billing Rate Card",
+      "actualName": "Billing Rate Card"
+    },
+    {
+      "id": "project",
+      "description": "Project",
+      "actualName": "Job"
+    },
+    {
+      "id": "serviceitem",
+      "description": "Service Item",
+      "actualName": "Item"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "chargerules",
+      "label": "Charge Rules"
+    },
+    {
+      "name": "filterstab",
+      "label": "Filters"
+    },
+    {
+      "name": "rates",
+      "label": "Rates"
+    },
+    {
+      "name": "systeminfo",
+      "label": "System Information"
+    }
+  ],
+  "transformTypes": []
+}

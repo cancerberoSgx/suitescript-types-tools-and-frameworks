@@ -1,0 +1,1126 @@
+{
+  "label": "Project Template",
+  "id": "projecttemplate",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "allowallresourcesfortasks",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display All Resources for Project Task Assignment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowexpenses",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow Expenses",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowtasktimeforrsrcalloc",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow Allocated Resources to Enter Time to All Tasks",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowtime",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow Time Entry",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "applyprojectexpensetypetoall",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Apply to all time entries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bbudgetshowcalculatedlines",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Calculated Lines",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Calculated Values for all Billing Budgets",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Schedule",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cbudgetlaborbudgetfromalloc",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Calculate Labor Budgets from Resource Allocations",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cbudgetshowcalculatedlines",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Calculated Lines",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Calculated Values for all Cost Budgets",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "estimatedcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Cost",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedgrossprofit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Gross Profit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedgrossprofitpercent",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Estimated Gross Profit Percent",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedlaborcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Labor Cost",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedlaborrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Labor Revenue",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Revenue",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedrevenuejc",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Revenue",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Estimated Work",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includecrmtasksintotals",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include CRM Tasks in Project Totals",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isexempttime",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Classify Time as Exempt",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isproductivetime",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Classify Time as Productive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isutilizedtime",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Classify Time as Utilized",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jobbillingtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jobitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jobprice",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Project Price",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "limittimetoassignees",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Limit Time and Expenses To Resources",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "materializetime",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Create Planned Time Entries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "projectexpensetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project Expense Type",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "projectformtemplate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Project Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "useallocatedtimeforforecast",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Allocated Time for Forecast",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "bbudget",
+      "label": "Billing Budget",
+      "fields": [
+        {
+          "id": "selectline",
+          "type": "checkbox",
+          "label": "Select",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "totalamount",
+          "type": "currency",
+          "label": "Project Total",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "cbudget",
+      "label": "Cost Budget",
+      "fields": [
+        {
+          "id": "selectline",
+          "type": "checkbox",
+          "label": "Select",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "totalamount",
+          "type": "currency",
+          "label": "Project Total",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "jobresources",
+      "label": "Resource Details",
+      "fields": [
+        {
+          "id": "jobresource",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "overridencost",
+          "type": "currency",
+          "label": "Cost Override",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "role",
+          "type": "select",
+          "label": "Role",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "phone",
+      "label": "Address Phone"
+    },
+    {
+      "id": "allowallresourcesfortasks",
+      "type": "checkbox",
+      "label": "Display All Resources for ProjectTask Assignment"
+    },
+    {
+      "id": "allowexpenses",
+      "type": "checkbox",
+      "label": "Allow Expenses"
+    },
+    {
+      "id": "allowtasktimeforrsrcalloc",
+      "type": "checkbox",
+      "label": "Allow Allocated Resources to Enter Time to All Tasks"
+    },
+    {
+      "id": "allowtime",
+      "type": "checkbox",
+      "label": "Allow Time Entry"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "bounced",
+      "type": "checkbox",
+      "label": "Hard Bounced"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "label": "Comments"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name/ID"
+    },
+    {
+      "id": "estcost",
+      "type": "currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "id": "estenddate",
+      "type": "date",
+      "label": "Projected End Date"
+    },
+    {
+      "id": "estimatedgrossprofit",
+      "type": "currency",
+      "label": "Estimated Gross Profit"
+    },
+    {
+      "id": "estimatedgrossprofitpercent",
+      "type": "percent",
+      "label": "Estimated Gross Profit %"
+    },
+    {
+      "id": "estimatedlaborcost",
+      "type": "currency",
+      "label": "Estimated Labor Cost"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "image",
+      "type": "image",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isexempttime",
+      "type": "checkbox",
+      "label": "Classify Time as Exempt"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isproductivetime",
+      "type": "checkbox",
+      "label": "Classify Time as Productive"
+    },
+    {
+      "id": "isutilizedtime",
+      "type": "checkbox",
+      "label": "Classify Time as Utilized"
+    },
+    {
+      "id": "jobbillingtype",
+      "type": "select",
+      "label": "Billing Type"
+    },
+    {
+      "id": "jobitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "laborbudgetfromallocations",
+      "type": "checkbox",
+      "label": "Calculate Labor Budgets from Resource Allocations"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "limittimetoassignees",
+      "type": "checkbox",
+      "label": "Limit Time and Expenses To Resources"
+    },
+    {
+      "id": "materializetime",
+      "type": "checkbox",
+      "label": "Create Planned Time Entries"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province (Deprecated)"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "date",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Entity Type"
+    },
+    {
+      "id": "useallocatedtimeforforecast",
+      "type": "checkbox",
+      "label": "Use Allocated Time for Forecast"
+    },
+    {
+      "id": "usecalculatedbillingbudget",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Billing Budgets"
+    },
+    {
+      "id": "usecalculatedcostbudget",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Cost Budgets"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addressinternalid",
+      "type": "integer",
+      "label": "Address Internal ID"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "allowallresourcesfortasks",
+      "type": "checkbox",
+      "label": "Display All Resources for ProjectTask Assignment"
+    },
+    {
+      "id": "allowexpenses",
+      "type": "checkbox",
+      "label": "Allow Expenses"
+    },
+    {
+      "id": "allowtasktimeforrsrcalloc",
+      "type": "checkbox",
+      "label": "Allow Allocated Resources to Enter Time to All Tasks"
+    },
+    {
+      "id": "allowtime",
+      "type": "checkbox",
+      "label": "Allow Time Entry"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "label": "Alt. Email"
+    },
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "label": "Office Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "bbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Billing Budgets"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "billzipcode",
+      "type": "text",
+      "label": "Billing Zip"
+    },
+    {
+      "id": "bounced",
+      "type": "checkbox",
+      "label": "Hard Bounced"
+    },
+    {
+      "id": "cbudgetlaborbudgetfromalloc",
+      "type": "checkbox",
+      "label": "Calculate Labor Budgets from Resource Allocations"
+    },
+    {
+      "id": "cbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Cost Budgets"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "label": "Comments"
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "label": "Job Name"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "entitynumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "estimatedcost",
+      "type": "currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "id": "estimatedgrossprofit",
+      "type": "currency",
+      "label": "Estimated Gross Profit"
+    },
+    {
+      "id": "estimatedgrossprofitpercent",
+      "type": "percent",
+      "label": "Estimated Gross Profit %"
+    },
+    {
+      "id": "estimatedlaborcost",
+      "type": "currency",
+      "label": "Estimated Labor Cost"
+    },
+    {
+      "id": "estimatedlaborrevenue",
+      "type": "currency",
+      "label": "Estimated Labor Revenue"
+    },
+    {
+      "id": "estimatedrevenue",
+      "type": "currency",
+      "label": "Estimated Revenue"
+    },
+    {
+      "id": "estimatedtime",
+      "type": "float",
+      "label": "Initial Time Budget"
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "float",
+      "label": "Estimated Work"
+    },
+    {
+      "id": "estimatedtimeoverridebaseline",
+      "type": "float",
+      "label": "Estimated Work Baseline"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "label": "Fax"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "label": "Image"
+    },
+    {
+      "id": "includecrmtasksintotals",
+      "type": "checkbox",
+      "label": "Include CRM Tasks in Job Totals"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isexempttime",
+      "type": "checkbox",
+      "label": "Classify Time as Exempt"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isproductivetime",
+      "type": "checkbox",
+      "label": "Classify Time as Productive"
+    },
+    {
+      "id": "isutilizedtime",
+      "type": "checkbox",
+      "label": "Classify Time as Utilized"
+    },
+    {
+      "id": "jobbillingtype",
+      "type": "select",
+      "label": "Billing Type"
+    },
+    {
+      "id": "jobitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "jobprice",
+      "type": "currency",
+      "label": "Job Price"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "limittimetoassignees",
+      "type": "checkbox",
+      "label": "Limit Time and Expenses to Resources"
+    },
+    {
+      "id": "materializetime",
+      "type": "checkbox",
+      "label": "Create Planned Time Entries"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State/Province Display Name"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "datetime",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "useallocatedtimeforforecast",
+      "type": "checkbox",
+      "label": "Use Allocated Time for Forecast"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip Code"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "genericresource",
+      "description": "Generic Resource",
+      "actualName": "Generic Resource"
+    },
+    {
+      "id": "projecttask",
+      "description": "Project Task",
+      "actualName": "Project Task"
+    },
+    {
+      "id": "rsrcallocation",
+      "description": "Resource Allocation",
+      "actualName": "Resource Allocation"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

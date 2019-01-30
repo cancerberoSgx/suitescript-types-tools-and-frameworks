@@ -1,0 +1,357 @@
+{
+  "label": "Resource Allocation",
+  "id": "resourceallocation",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "allocationamount",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Allocate",
+      "required": true,
+      "help": "Enter the number of hours you want this resource allocated.\n\nOr, select Percent of Time in the dropdown and then enter the percentage you want this resource allocated over the selected time period.\n\nFor example, a resource that typically works 8 hours a day for a 5 day work week is allocated 50% for two weeks would work on the project 4 hours per day for a total of 40 hours."
+    },
+    {
+      "id": "allocationresource",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Resource",
+      "required": true,
+      "help": "Select a resource for this allocation.\n\nOnly employees and vendors identified as project resources are available for resource allocations. Check the Project Resource box on the employee or vendor record to identify a project resource."
+    },
+    {
+      "id": "allocationtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Allocation Type",
+      "required": true,
+      "help": "Select an allocation type.\n\nHard &#x2013; This allocation request is not flexible; the resource is committed to the dates and hours on this request.\n\nSoft &#x2013; This allocation request is flexible; adjustments can be made to the date and hours if needed to accommodate other priorities."
+    },
+    {
+      "id": "allocationunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "This field displays how this allocation is requested.\n\nHours &#x2013; A specific number of hours distributed over the selected dates is requested. \n\nPercent of Time &#x2013; A percentage of time distributed over the selected dates is requested. NetSuite calculates the number of hours based on the resources work calendar and the selected dates."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "If you customized a resource allocations form, select it here."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": true,
+      "help": "Select the date you want this allocation to end."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "notes",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Notes",
+      "required": false,
+      "help": "Enter any additional information about this allocation."
+    },
+    {
+      "id": "numberhours",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Number of Hours",
+      "required": false,
+      "help": "This field displays the number of hours requested in this allocation.\n\nIf the allocation is requested using Percent of Time, NetSuite calculates the number of hours based on the requested percentage, selected dates, and the resource's work calendar."
+    },
+    {
+      "id": "percentoftime",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Percentage of Time",
+      "required": false,
+      "help": "This field displays the percentage of time requested by this allocation. \n\nIf the allocation is requested using Number of Hours, NetSuite calculates the percentage based on the requested hours, selected dates, and the resource's work calendar."
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer:Project",
+      "required": true,
+      "help": "Select the project this allocation applies to."
+    },
+    {
+      "id": "requestor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Requested By",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": true,
+      "help": "Select the date you want this allocation to begin."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "allocationtype",
+      "type": "select",
+      "label": "Allocation Type"
+    },
+    {
+      "id": "allocationunit",
+      "type": "select",
+      "label": "Allocate By"
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "nextapprover",
+      "type": "select",
+      "label": "Next Approver"
+    },
+    {
+      "id": "notes",
+      "type": "text",
+      "label": "Notes"
+    },
+    {
+      "id": "numberhours",
+      "type": "float",
+      "label": "Number of Hours"
+    },
+    {
+      "id": "percentoftime",
+      "type": "percent",
+      "label": "Percentage of Time"
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "label": "Project"
+    },
+    {
+      "id": "requestedby",
+      "type": "select",
+      "label": "Requested by"
+    },
+    {
+      "id": "resource",
+      "type": "select",
+      "label": "Resource"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "allocationtype",
+      "type": "select",
+      "label": "Allocation Type"
+    },
+    {
+      "id": "allocationunit",
+      "type": "select",
+      "label": "Allocate By"
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "company",
+      "type": "select",
+      "label": "Project"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "nextapprover",
+      "type": "select",
+      "label": "Next Approver"
+    },
+    {
+      "id": "notes",
+      "type": "text",
+      "label": "Notes"
+    },
+    {
+      "id": "numberhours",
+      "type": "float",
+      "label": "Number of Hours"
+    },
+    {
+      "id": "percentoftime",
+      "type": "percent",
+      "label": "Percentage of Time"
+    },
+    {
+      "id": "requestedby",
+      "type": "select",
+      "label": "Requested By"
+    },
+    {
+      "id": "resource",
+      "type": "select",
+      "label": "Resource"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "employee",
+      "description": "Resource - Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "job",
+      "description": "Project",
+      "actualName": "Job"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    },
+    {
+      "id": "vendor",
+      "description": "Resource - Vendor",
+      "actualName": "Vendor"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

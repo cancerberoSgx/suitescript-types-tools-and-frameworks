@@ -1,0 +1,60 @@
+{
+  "label": "Landed Cost",
+  "id": "landedcost",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": true,
+  "fields": [
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Total",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "landedcostdata",
+      "label": "Landed Cost",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "poscurrency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "costcategory",
+          "type": "select",
+          "label": "Cost Category",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,80 @@
+{
+  "label": "Price Level",
+  "id": "pricelevel",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "discountpct",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Markup/Discount %",
+      "required": false,
+      "help": "If you like, enter a positive or negative percentage to mark up or discount prices for this price level.\n\nPrices for this level are calculated by applying the positive or negative percentage to the Base Price level.\n\nIf you want to update all items using this price level, you must also check the Update Existing Prices box.\n\nAfter you click Save, your prices automatically update.\n\nNote: Any value you enter is rounded to the nearest 0.01%"
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to remove all references to this record from your account.\n\nYou can reactivate the record at any time."
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Online Price Level",
+      "required": false,
+      "help": "Check this box to allow customers to use this in the web store."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Price Level",
+      "required": true,
+      "help": "Enter the name for this record. This name appears in lists that include this record."
+    },
+    {
+      "id": "updateexistingprices",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Existing Prices",
+      "required": false,
+      "help": "Check this box to update all items using this price level with what you entered in the Markup/Discount % field."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

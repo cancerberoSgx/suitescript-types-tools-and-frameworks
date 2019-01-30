@@ -1,0 +1,135 @@
+{
+  "label": "Bin Transfer",
+  "id": "bintransfer",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": "Select a location to associate with this transfer. \n\nThe location you select determines which bins you are able to choose from. Items can be transferred to and from bins within only one location."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Optionally enter a Memo for this transfer. Then, you can search for the text entered here to find this transfer."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "Verify or enter the date of this transfer."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "inventory",
+      "label": "Adjustments",
+      "fields": [
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemunitslabel",
+          "type": "text",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "preferredbin",
+          "type": "text",
+          "label": "Preferred Bin",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

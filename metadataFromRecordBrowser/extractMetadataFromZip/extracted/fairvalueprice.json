@@ -1,0 +1,328 @@
+{
+  "label": "Fair Value Price",
+  "id": "fairvalueprice",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fairvalue",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Base Fair Value",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "fairvalueformula",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Fair Value Formula",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "fairvaluerangepolicy",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Fair Value Range Checking Policy",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "highvalue",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "High Value",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "highvaluepercent",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "High Value Percent",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isvsoeprice",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Is VSOE Price?",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemrevenuecategory",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Revenue Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lowvalue",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Low Value",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lowvaluepercent",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Low Value Percent",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "units",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Units",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Units Type",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fairvalue",
+      "type": "float",
+      "label": "Base Fair Value"
+    },
+    {
+      "id": "fairvalueformula",
+      "type": "select",
+      "label": "Fair Value Formula"
+    },
+    {
+      "id": "fairvaluerangepolicy",
+      "type": "select",
+      "label": "Fair Value Range Checking Policy"
+    },
+    {
+      "id": "highvalue",
+      "type": "float",
+      "label": "High Value"
+    },
+    {
+      "id": "highvaluepercent",
+      "type": "percent",
+      "label": "High Value Percent"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isvsoeprice",
+      "type": "checkbox",
+      "label": "Is VSOE?"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "itemrevenuecategory",
+      "type": "select",
+      "label": "Item Revenue Category"
+    },
+    {
+      "id": "lowvalue",
+      "type": "float",
+      "label": "Low Value"
+    },
+    {
+      "id": "lowvaluepercent",
+      "type": "percent",
+      "label": "Low Value Percent"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "label": "Units Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fairvalue",
+      "type": "float",
+      "label": "Base Fair Value"
+    },
+    {
+      "id": "fairvalueformula",
+      "type": "select",
+      "label": "Fair Value Formula"
+    },
+    {
+      "id": "fairvaluerangepolicy",
+      "type": "select",
+      "label": "Fair Value Range Checking Policy"
+    },
+    {
+      "id": "highvalue",
+      "type": "float",
+      "label": "High Value"
+    },
+    {
+      "id": "highvaluepercent",
+      "type": "percent",
+      "label": "High Value Percent"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isvsoeprice",
+      "type": "checkbox",
+      "label": "Is VSOE?"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "itemrevenuecategory",
+      "type": "select",
+      "label": "Item Revenue Category"
+    },
+    {
+      "id": "lowvalue",
+      "type": "float",
+      "label": "Low Value"
+    },
+    {
+      "id": "lowvaluepercent",
+      "type": "percent",
+      "label": "Low Value Percent"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "label": "Units"
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "label": "Units Type"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

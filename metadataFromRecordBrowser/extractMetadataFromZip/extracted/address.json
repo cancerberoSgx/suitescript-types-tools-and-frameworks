@@ -1,0 +1,302 @@
+{
+  "label": "Address",
+  "id": "address",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": true,
+  "fields": [
+    {
+      "id": "addr1",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Address 1",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addr2",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Address 2",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addr3",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Address 3",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Addressee",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addressformat",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Address Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addrphone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addrtext",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Attention",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "City",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "override",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "State",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Zip",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address Text"
+    },
+    {
+      "id": "address1",
+      "type": "text",
+      "label": "Address 1"
+    },
+    {
+      "id": "address2",
+      "type": "text",
+      "label": "Address 2"
+    },
+    {
+      "id": "address3",
+      "type": "text",
+      "label": "Address 3"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "override",
+      "type": "checkbox",
+      "label": "Override"
+    },
+    {
+      "id": "phone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "label": "State"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "address1",
+      "type": "text",
+      "label": "Address 1"
+    },
+    {
+      "id": "address2",
+      "type": "text",
+      "label": "Address 2"
+    },
+    {
+      "id": "address3",
+      "type": "text",
+      "label": "Address 3"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "override",
+      "type": "text",
+      "label": "Override"
+    },
+    {
+      "id": "phone",
+      "type": "text",
+      "label": "Phone"
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "label": "State"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    }
+  ],
+  "transformTypes": []
+}

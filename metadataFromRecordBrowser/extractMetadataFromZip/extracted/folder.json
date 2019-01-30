@@ -1,0 +1,341 @@
+{
+  "label": "Folder",
+  "id": "folder",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict by Class",
+      "required": false,
+      "help": "Select a class if you want to restrict the documents and images in this folder by class.\n\nTo create a new class, go to Setup > Company > Classifications > Classes > New."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict by Department",
+      "required": false,
+      "help": "Select a department if you want to restrict the documents and images in this folder by department.\n\nTo create a new department, go to Setup > Classifications > Departments > New."
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description for this file.\n\nThis description only appears on the file record."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "foldertype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": "The Type field automatically populates with the appropriate value for the folder selected. File Cabinet folders help to organize the files you use for different purposes. In most cases, when you create a subfolder, the Type is automatically set.\n\nIf you are creating or customizing an SSP application subfolder, you may have the option to select a value for type. Note the following about the options available:\n\n    * Documents and Files - intended for storing documents and files for general use. SuiteScript files must be stored in the SuiteScripts folder or a subfolder thereof. The value for Type in SuiteScript subfolders are set to Documents and Files.\n    * SuiteCommerce Advanced Site Templates - intended for storing SSP application assets. Use this option for SSP application subfolders."
+    },
+    {
+      "id": "group",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict by Group",
+      "required": false,
+      "help": "Select a group if you want to restrict this folder by group.\n\nOnly members of this group can view the documents and images in this folder.\n\nTo create a new group to add to this list, go to Lists > Relationships > Groups > New."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to inactivate this record.\n\nWhen you check this, this file or folder will no longer appear on lists unless you check the Show Inactives box at the bottom of the Folders list."
+    },
+    {
+      "id": "isprivate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Private",
+      "required": false,
+      "help": "Check this box to make the contents of this folder visible only by you."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict by Location",
+      "required": false,
+      "help": "Select a location if you want to restrict the documents and images in this folder by location.\n\nTo create a new location, go to Setup > Classifications > Locations > New."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Folder Name",
+      "required": true,
+      "help": "Enter a name for this file cabinet folder.\n\nYou can use folders to organize the documents and images you store in your file cabinet. For example, if you are creating a folder to store human resources paperwork, you could enter Human Resources here."
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Owner",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sub-Folder of",
+      "required": false,
+      "help": "If this folder is a subfolder of another, select the parent folder here.\n\nFor example, if you are creating a subfolder for your Human Resources folder, you would select Human Resources here."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict by Subsidiary",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "group",
+      "type": "select",
+      "label": "Group"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "istoplevel",
+      "type": "checkbox",
+      "label": "Is Top Level"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "numfiles",
+      "type": "integer",
+      "label": "# of Files"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Sub of"
+    },
+    {
+      "id": "predecessor",
+      "type": "select",
+      "label": "Predecessor"
+    },
+    {
+      "id": "private",
+      "type": "checkbox",
+      "label": "Is Private"
+    },
+    {
+      "id": "size",
+      "type": "integer",
+      "label": "Size (KB)"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "foldersize",
+      "type": "integer",
+      "label": "Size (KB)"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "group",
+      "type": "select",
+      "label": "Group"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "numfiles",
+      "type": "integer",
+      "label": "# of Files"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Sub of"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

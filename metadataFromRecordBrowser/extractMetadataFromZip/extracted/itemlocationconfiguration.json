@@ -1,0 +1,751 @@
+{
+  "label": "Item Location Configuration",
+  "id": "itemlocationconfiguration",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "atpleadtime",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "ATP Lead Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "backwardconsumptiondays",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Backward Consumption Days",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "buildtime",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "Work Order Lead Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cost",
+      "type": "currency2",
+      "nlapiSubmitField": true,
+      "label": "Standard Cost",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "costinglotsize",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "Costing Lot Size",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultreturncost",
+      "type": "currency2",
+      "nlapiSubmitField": true,
+      "label": "Default Return Cost",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "demandsource",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Demand Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "demandtimefence",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Demand Time Fence",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fixedlotsize",
+      "type": "posfloat",
+      "nlapiSubmitField": true,
+      "label": "Fixed Lot Size",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "forwardconsumptiondays",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Forward Consumption Days",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inventorycosttemplate",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Inventory Cost Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "invtclassification",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Classification",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "invtcountinterval",
+      "type": "posinteger",
+      "nlapiSubmitField": true,
+      "label": "Count Interval",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isautolocassignmentallowed",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Auto Loc. Assignment Allowed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isautolocassignmentsuspended",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Auto Loc. Assignment Suspended",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "iswip",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "WIP",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Item",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "leadtime",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Lead Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "locationallowstorepickup",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Allow Store Pickup",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "locationstorepickupbufferstock",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Buffer Stock",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "nextinvtcountdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Next Count Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "periodiclotsizedays",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Periods of Supply Increment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "periodiclotsizetype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Periods of Supply Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "poreceiptcost",
+      "type": "currency2",
+      "nlapiSubmitField": true,
+      "label": "PO Receipt Cost",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "preferredstocklevel",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "Preferred Stock Level",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "reorderpoint",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "Reorder Point",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "rescheduleindays",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Reschedule In Days",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "rescheduleoutdays",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Reschedule Out Days",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "safetystocklevel",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "Safety Stock Level",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "savedleadtime",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "savedpreferredstocklevel",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "savedreorderpoint",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "Reorder Point",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "supplylotsizingmethod",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Lot Sizing Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "supplytimefence",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Planning Time Fence",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "supplytype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Supply Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "templatestored",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "atpleadtime",
+      "type": "integer",
+      "label": "ATP Lead Time"
+    },
+    {
+      "id": "backwardconsumptiondays",
+      "type": "integer",
+      "label": "Backward Consumption Days"
+    },
+    {
+      "id": "buildtime",
+      "type": "float",
+      "label": "Work Order Lead Time"
+    },
+    {
+      "id": "cost",
+      "type": "currency2",
+      "label": "Standard Cost"
+    },
+    {
+      "id": "costinglotsize",
+      "type": "float",
+      "label": "Costing Lot Size"
+    },
+    {
+      "id": "defaultreturncost",
+      "type": "currency2",
+      "label": "Default Return Cost"
+    },
+    {
+      "id": "demandsource",
+      "type": "select",
+      "label": "Demand Source"
+    },
+    {
+      "id": "demandtimefence",
+      "type": "integer",
+      "label": "Demand Time Fence"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fixedlotsize",
+      "type": "float",
+      "label": "Fixed Lot Size"
+    },
+    {
+      "id": "forwardconsumptiondays",
+      "type": "integer",
+      "label": "Forward Consumption Days"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "inventorycosttemplate",
+      "type": "select",
+      "label": "Inventory Cost Template"
+    },
+    {
+      "id": "invtclassification",
+      "type": "select",
+      "label": "Inventory Classification"
+    },
+    {
+      "id": "invtcountinterval",
+      "type": "integer",
+      "label": "Count Interval"
+    },
+    {
+      "id": "isautolocassignmentallowed",
+      "type": "checkbox",
+      "label": "Auto Loc. Assignment Allowed"
+    },
+    {
+      "id": "isautolocassignmentsuspended",
+      "type": "checkbox",
+      "label": "Auto Loc. Assignment Suspended"
+    },
+    {
+      "id": "iswip",
+      "type": "checkbox",
+      "label": "WIP"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "leadtime",
+      "type": "integer",
+      "label": "Lead Time"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationallowstorepickup",
+      "type": "checkbox",
+      "label": "Allow Store Pickup"
+    },
+    {
+      "id": "locationstorepickupbufferstock",
+      "type": "integer",
+      "label": "Buffer Stock"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nextinvtcountdate",
+      "type": "date",
+      "label": "Next Count Date"
+    },
+    {
+      "id": "periodiclotsizedays",
+      "type": "integer",
+      "label": "Periods of Supply Increment"
+    },
+    {
+      "id": "periodiclotsizetype",
+      "type": "select",
+      "label": "Periods of Supply Type"
+    },
+    {
+      "id": "poreceiptcost",
+      "type": "currency2",
+      "label": "PO Receipt Cost"
+    },
+    {
+      "id": "preferredstocklevel",
+      "type": "float",
+      "label": "Preferred Stock Level"
+    },
+    {
+      "id": "reorderpoint",
+      "type": "float",
+      "label": "Reorder Point"
+    },
+    {
+      "id": "rescheduleindays",
+      "type": "integer",
+      "label": "Reschedule In Days"
+    },
+    {
+      "id": "rescheduleoutdays",
+      "type": "integer",
+      "label": "Reschedule Out Days"
+    },
+    {
+      "id": "safetystocklevel",
+      "type": "float",
+      "label": "Safety Stock Level"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "supplylotsizingmethod",
+      "type": "select",
+      "label": "Lot Sizing Method"
+    },
+    {
+      "id": "supplytimefence",
+      "type": "integer",
+      "label": "Planning Time Fence"
+    },
+    {
+      "id": "supplytype",
+      "type": "select",
+      "label": "Supply Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "atpleadtime",
+      "type": "integer",
+      "label": "ATP Lead Time"
+    },
+    {
+      "id": "backwardconsumptiondays",
+      "type": "integer",
+      "label": "Backward Consumption Days"
+    },
+    {
+      "id": "buildtime",
+      "type": "float",
+      "label": "Work Order Lead Time"
+    },
+    {
+      "id": "cost",
+      "type": "currency2",
+      "label": "Standard Cost"
+    },
+    {
+      "id": "costinglotsize",
+      "type": "float",
+      "label": "Costing Lot Size"
+    },
+    {
+      "id": "defaultreturncost",
+      "type": "currency2",
+      "label": "Default Return Cost"
+    },
+    {
+      "id": "demandsource",
+      "type": "text",
+      "label": "Demand Source"
+    },
+    {
+      "id": "demandtimefence",
+      "type": "integer",
+      "label": "Demand Time Fence"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fixedlotsize",
+      "type": "float",
+      "label": "Fixed Lot Size"
+    },
+    {
+      "id": "forwardconsumptiondays",
+      "type": "integer",
+      "label": "Forward Consumption Days"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "inventorycosttemplate",
+      "type": "text",
+      "label": "Inventory Cost Template"
+    },
+    {
+      "id": "invtclassification",
+      "type": "text",
+      "label": "Inventory Classification"
+    },
+    {
+      "id": "invtcountinterval",
+      "type": "integer",
+      "label": "Inventory Count Interval"
+    },
+    {
+      "id": "isautolocassignmentallowed",
+      "type": "checkbox",
+      "label": "Auto Loc. Assignment Allowed"
+    },
+    {
+      "id": "isautolocassignmentsuspended",
+      "type": "checkbox",
+      "label": "Auto Loc. Assignment Suspended"
+    },
+    {
+      "id": "iswip",
+      "type": "checkbox",
+      "label": "WIP"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "leadtime",
+      "type": "integer",
+      "label": "Lead Time"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationallowstorepickup",
+      "type": "checkbox",
+      "label": "Allow Store Pickup"
+    },
+    {
+      "id": "locationstorepickupbufferstock",
+      "type": "integer",
+      "label": "Buffer Stock"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nextinvtcountdate",
+      "type": "date",
+      "label": "Next Inventory Count Date"
+    },
+    {
+      "id": "periodiclotsizedays",
+      "type": "integer",
+      "label": "Periods of Supply Increment"
+    },
+    {
+      "id": "periodiclotsizetype",
+      "type": "text",
+      "label": "Periods of Supply Type"
+    },
+    {
+      "id": "poreceiptcost",
+      "type": "currency2",
+      "label": "PO Receipt Cost"
+    },
+    {
+      "id": "preferredstocklevel",
+      "type": "float",
+      "label": "Preferred Stock Level"
+    },
+    {
+      "id": "reorderpoint",
+      "type": "float",
+      "label": "Reorder Point"
+    },
+    {
+      "id": "rescheduleindays",
+      "type": "integer",
+      "label": "Reschedule In Days"
+    },
+    {
+      "id": "rescheduleoutdays",
+      "type": "integer",
+      "label": "Reschedule Out Days"
+    },
+    {
+      "id": "safetystocklevel",
+      "type": "float",
+      "label": "Safety Stock Level"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "supplylotsizingmethod",
+      "type": "text",
+      "label": "Lot Sizing Method"
+    },
+    {
+      "id": "supplytimefence",
+      "type": "integer",
+      "label": "Planning Time Fence"
+    },
+    {
+      "id": "supplytype",
+      "type": "text",
+      "label": "Supply Type"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

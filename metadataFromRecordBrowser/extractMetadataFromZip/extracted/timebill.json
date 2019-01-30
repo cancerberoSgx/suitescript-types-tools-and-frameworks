@@ -1,0 +1,680 @@
+{
+  "label": "Time",
+  "id": "timebill",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Select an approval status for this time entry."
+    },
+    {
+      "id": "casetaskevent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Case/Task/Event",
+      "required": false,
+      "help": "Select a case, task, event or call for the customer or project you selected, to associate this time with an activity.\n\nThis time entry is added to the record you select."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Class",
+      "required": false,
+      "help": "If you want, select the class that applies to this transaction.\n\nClick New to set up a new class."
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer:Project",
+      "required": false,
+      "help": "If applicable, select the customer or project that applies to this time transaction. If you select a customer or project, you must also select a service item.\n\nClick -New- to set up a new customer."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": "Select the type of form to use."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Department",
+      "required": false,
+      "help": "If you want, select the department that applies to this transaction.\n\nClick New to set up a new department."
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Employee",
+      "required": true,
+      "help": "Select the employee whose time you are recording.\n\nClick New to set up a new employee record.\n\nFor Timesheets, click the Quick Find icon at the top of the page to select a different timesheet."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "hours",
+      "type": "timetrack",
+      "nlapiSubmitField": false,
+      "label": "Duration",
+      "required": true,
+      "help": "If you filled in the Start Time, End Time and Break fields, NetSuite automatically fills in the Duration field for you.\n\nIf you didn't fill in these fields, enter the total time worked in hours and minutes.\n\nIf you want to time yourself as you work, click the Timer link next to the Duration field."
+    },
+    {
+      "id": "isbillable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Billable",
+      "required": false,
+      "help": "Check this box if the time you are entering can be billed."
+    },
+    {
+      "id": "isexempt",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Exempt",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isproductive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Productive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isutilized",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Utilized",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Service Item",
+      "required": false,
+      "help": "If applicable, select the service that was provided. If you select a service item, you must also select a customer or project.\n\nClick New to set up a new service item."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Location",
+      "required": true,
+      "help": "Select a location to associate with this transaction. Select New to create a new location record."
+    },
+    {
+      "id": "memo",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you want, enter a memo for this time transaction.\n\nIf you are billing this time back to a customer or job, this memo appears as a description for this line item on the customer invoice."
+    },
+    {
+      "id": "overriderate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Lock this Rate",
+      "required": false,
+      "help": "If you're billing this time back to a customer, check this box to lock the rate you enter so it's not affected by rate changes that happen before the customer is billed.\n\nIf you're entering time for a charge-based project and there are time-based charge rules, the rate is determined by the applied charge rule. Any rates entered on time records are discarded.\n\nIf you are entering time for a payroll item like vacation time, leave this field blank."
+    },
+    {
+      "id": "paidexternally",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Paid Externally",
+      "required": false,
+      "help": "Check this box to designate that this time will be or has been paid to the employee outside of NetSuite.\n\nThis removes the time entry from NetSuite payroll lists and transactions but still keeps the time available for billing back to the customer."
+    },
+    {
+      "id": "payrollitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Payroll Item",
+      "required": false,
+      "help": "Select the payroll item that applies to this time entry.\n\nSelecting the correct payroll item ensures that the correct rate is applied."
+    },
+    {
+      "id": "price",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Price Level",
+      "required": false,
+      "help": "If you've set up a custom price level for your customer, it appears here. Otherwise, Sales Price 1 on the service item's record appears.\n\nIf you want to change the price level, select one from the list. Select Custom to enter a new price in the Rate field.\n\nIf you're entering time for a payroll item like vacation time, leave this field blank.\n\nIf you're entering time for a charge-based project and there are time-based charge rules, any price level selected in this field will be overridden by the applied charge rule."
+    },
+    {
+      "id": "projecttaskassignment",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "rate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": "If you selected a price in the Price Level field, it automatically appears here.\n\nIf you don't use multiple prices or if you selected Custom in the Price Level field, enter a rate for this time transaction.\n\nIf you're entering time for a payroll item like vacation time, leave this field blank.\n\nIf you're entering time for a charge-based project and there are time-based charge rules, any rate entered in this field will be overridden by the applied charge rule."
+    },
+    {
+      "id": "rejectionnote",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Rejection Note",
+      "required": false,
+      "help": "If you are rejecting this time entry, enter a rejection note for this time entry. Rejection notes are used to explain why an entry was rejected."
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Service Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "The subsidiary associated with the employee is displayed here."
+    },
+    {
+      "id": "supervisorapproval",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Supervisor Approval",
+      "required": false,
+      "help": "Check this box if you have authority as a supervisor to approve this time entry."
+    },
+    {
+      "id": "timesheet",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Timesheet",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "timetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": "The type of time transaction is displayed here. \n\nActual time is time that has been worked by an employee. Planned time is time that has been accounted for when planning a project. Allocated time is time that has been assigned due to a resource allocation."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date as the date of this transaction. You can type or pick another date."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "approved",
+      "type": "checkbox",
+      "label": "Approved"
+    },
+    {
+      "id": "billable",
+      "type": "checkbox",
+      "label": "Billable"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer:Job"
+    },
+    {
+      "id": "date",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "duration",
+      "type": "float",
+      "label": "Duration"
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "label": "Employee"
+    },
+    {
+      "id": "exempt",
+      "type": "checkbox",
+      "label": "Exempt"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodified",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "paidbypayroll",
+      "type": "checkbox",
+      "label": "Paid by Payroll"
+    },
+    {
+      "id": "paidexternally",
+      "type": "checkbox",
+      "label": "Paid Externally"
+    },
+    {
+      "id": "payitem",
+      "type": "select",
+      "label": "Payroll Item"
+    },
+    {
+      "id": "productive",
+      "type": "checkbox",
+      "label": "Productive"
+    },
+    {
+      "id": "rejectionnote",
+      "type": "text",
+      "label": "Rejection Note"
+    },
+    {
+      "id": "status",
+      "type": "checkbox",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "temporarylocaljurisdiction",
+      "type": "select",
+      "label": "Temporary Local Jurisdiction"
+    },
+    {
+      "id": "temporarystatejurisdiction",
+      "type": "select",
+      "label": "Temporary State Jurisdiction"
+    },
+    {
+      "id": "timesheet",
+      "type": "select",
+      "label": "Weekly Timesheet"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "utilized",
+      "type": "checkbox",
+      "label": "Utilized"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "break",
+      "type": "text",
+      "label": "Break"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "classnohierarchy",
+      "type": "select",
+      "label": "Class (no hierarchy)"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer:Job"
+    },
+    {
+      "id": "date",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "datecreated",
+      "type": "date",
+      "label": "Date Created"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "departmentnohierarchy",
+      "type": "select",
+      "label": "Department (no hierarchy)"
+    },
+    {
+      "id": "durationdecimal",
+      "type": "float",
+      "label": "Duration (Decimal)"
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "label": "Employee"
+    },
+    {
+      "id": "endtime",
+      "type": "timeofday",
+      "label": "End Time"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "hours",
+      "type": "text",
+      "label": "Duration"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isbillable",
+      "type": "checkbox",
+      "label": "Billable"
+    },
+    {
+      "id": "isexempt",
+      "type": "checkbox",
+      "label": "Exempt"
+    },
+    {
+      "id": "isproductive",
+      "type": "checkbox",
+      "label": "Productive"
+    },
+    {
+      "id": "isutilized",
+      "type": "checkbox",
+      "label": "Utilized"
+    },
+    {
+      "id": "item",
+      "type": "text",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodified",
+      "type": "date",
+      "label": "Last Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationnohierarchy",
+      "type": "select",
+      "label": "Location (no hierarchy)"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Note"
+    },
+    {
+      "id": "paidexternally",
+      "type": "checkbox",
+      "label": "Paid Externally"
+    },
+    {
+      "id": "payitem",
+      "type": "select",
+      "label": "Payroll Item"
+    },
+    {
+      "id": "payrolldate",
+      "type": "date",
+      "label": "Payroll Date"
+    },
+    {
+      "id": "rate",
+      "type": "currency",
+      "label": "Rate"
+    },
+    {
+      "id": "rejectionnote",
+      "type": "text",
+      "label": "Rejection Note"
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "label": "Start Time"
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "text",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "text",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "supervisorapproval",
+      "type": "checkbox",
+      "label": "Approved"
+    },
+    {
+      "id": "temporarylocaljurisdiction",
+      "type": "select",
+      "label": "Temporary Local Jurisdiction"
+    },
+    {
+      "id": "temporarystatejurisdiction",
+      "type": "select",
+      "label": "Temporary State Jurisdiction"
+    },
+    {
+      "id": "timesheet",
+      "type": "select",
+      "label": "Timesheet"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "charge",
+      "description": "Charge",
+      "actualName": "Charge"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "job",
+      "description": "Job",
+      "actualName": "Job"
+    },
+    {
+      "id": "projecttask",
+      "description": "Project Task",
+      "actualName": "ProjectTask"
+    },
+    {
+      "id": "projecttaskassignment",
+      "description": "Project Task Assignment",
+      "actualName": "Project Task Assignment"
+    },
+    {
+      "id": "task",
+      "description": "Task",
+      "actualName": "Task"
+    },
+    {
+      "id": "timesheet",
+      "description": "Weekly Timesheet",
+      "actualName": "Timesheet"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

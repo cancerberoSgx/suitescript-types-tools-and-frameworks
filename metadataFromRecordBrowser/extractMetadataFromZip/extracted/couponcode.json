@@ -1,0 +1,195 @@
+{
+  "label": "Coupon Code",
+  "id": "couponcode",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "code",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Coupon Code",
+      "required": true,
+      "help": "The coupon code that is entered on a sales transaction to apply the promotion. Coupon codes can be multiple-use or single-use. Multiple-use codes can be used any number of times by any number of customers. Each single-use code can only be used one time by a single customer."
+    },
+    {
+      "id": "datesent",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date Sent",
+      "required": false,
+      "help": "This field shows the date the coupon code was sent to the recipient."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "promotion",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Promotion",
+      "required": true,
+      "help": "This field displays the name of the promotion that the selected coupon code is used with."
+    },
+    {
+      "id": "recipient",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Recipient",
+      "required": false,
+      "help": "This field displays the recipient of the selected coupon code.\n\nNote that the recipient of the coupon code may differ from the customer who used the coupon code."
+    },
+    {
+      "id": "used",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Used",
+      "required": false,
+      "help": "The coupon has been used by the recipient when the Used box is checked."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "code",
+      "type": "text",
+      "label": "CODE"
+    },
+    {
+      "id": "datesent",
+      "type": "date",
+      "label": "Date Sent"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "promotion",
+      "type": "select",
+      "label": "Promotion"
+    },
+    {
+      "id": "recipient",
+      "type": "select",
+      "label": "Recipient"
+    },
+    {
+      "id": "usecount",
+      "type": "integer",
+      "label": "Use Count"
+    },
+    {
+      "id": "used",
+      "type": "checkbox",
+      "label": "Used"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "code",
+      "type": "text",
+      "label": "Code"
+    },
+    {
+      "id": "datesent",
+      "type": "date",
+      "label": "Date Sent"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "promotion",
+      "type": "text",
+      "label": "Promotion"
+    },
+    {
+      "id": "recipient",
+      "type": "text",
+      "label": "Recipient"
+    },
+    {
+      "id": "usecount",
+      "type": "integer",
+      "label": "Use Count"
+    },
+    {
+      "id": "used",
+      "type": "checkbox",
+      "label": "Used"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

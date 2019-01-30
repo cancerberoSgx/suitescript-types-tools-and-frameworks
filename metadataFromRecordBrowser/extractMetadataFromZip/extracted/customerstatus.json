@@ -1,0 +1,159 @@
+{
+  "label": "Customer Status",
+  "id": "customerstatus",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description of this customer status.\n\nThis field can hold 199 characters."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includeinleadreports",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include In Lead Reports",
+      "required": false,
+      "help": "Check this box if you want records with this status to appear in leads reports."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box to inactivate this status."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": true,
+      "help": "Enter a title for this status.\n\nWhat you enter here appears in the Status field of lead, prospect or customer records, depending on the stage you select.\n\nIf you select the stage Prospect, this status also appears in the Status field of Estimates."
+    },
+    {
+      "id": "probability",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Probability",
+      "required": true,
+      "help": "Enter the likelihood a lead, prospect or customer with this status will purchase from your company."
+    },
+    {
+      "id": "stage",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Stage",
+      "required": false,
+      "help": "Select which stage in the sales cycle this customer status represents."
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "includeinleadreports",
+      "type": "checkbox",
+      "label": "Include in Lead Reports"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "probability",
+      "type": "percent",
+      "label": "Probability"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "includeinleadreports",
+      "type": "checkbox",
+      "label": "Include in Lead Reports"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "probability",
+      "type": "text",
+      "label": "Probability"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,482 @@
+{
+  "label": "Message",
+  "id": "message",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "activity",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "author",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "From",
+      "required": false,
+      "help": "Select the author of this message."
+    },
+    {
+      "id": "authoremail",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "From Email Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "emailed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Emailed",
+      "required": false,
+      "help": "Check this box if you are pasting in an e-mail message."
+    },
+    {
+      "id": "entity",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entitytype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "hasattachment",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Modification Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Message",
+      "required": false,
+      "help": "Paste or enter the text of the message in this field."
+    },
+    {
+      "id": "messagedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recipient",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Attach to",
+      "required": false,
+      "help": "Select the recipient of this message.\n\nThis message is saved on the Messages subtab of the recipient's record as well as the record you are currently working with."
+    },
+    {
+      "id": "recipientemail",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "To (Email)",
+      "required": false,
+      "help": "Enter the e-mail address of the recipient."
+    },
+    {
+      "id": "record",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recordtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subject",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Subject",
+      "required": true,
+      "help": "Enter a subject or title for this email message.\n\nThis subject is displayed on the messages subtab on the records of those receiving or sending the message."
+    },
+    {
+      "id": "template",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "time",
+      "type": "timeofday",
+      "nlapiSubmitField": false,
+      "label": "Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "transaction",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "ccbcclist",
+      "label": "Copy Others",
+      "fields": [
+        {
+          "id": "bcc",
+          "type": "checkbox",
+          "label": "Bcc",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "cc",
+          "type": "checkbox",
+          "label": "Cc",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "email",
+          "type": "email",
+          "label": "Email",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "mediaitem",
+      "label": "Attachments",
+      "fields": [
+        {
+          "id": "mediaitem",
+          "type": "select",
+          "label": "Attach File",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "author",
+      "type": "select",
+      "label": "Author"
+    },
+    {
+      "id": "authoremail",
+      "type": "email",
+      "label": "From Email"
+    },
+    {
+      "id": "bcc",
+      "type": "email",
+      "label": "Bcc"
+    },
+    {
+      "id": "cc",
+      "type": "email",
+      "label": "Cc"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "hasattachment",
+      "type": "checkbox",
+      "label": "Has Attachment"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "internalonly",
+      "type": "checkbox",
+      "label": "Internal Only"
+    },
+    {
+      "id": "isincoming",
+      "type": "checkbox",
+      "label": "Is Incoming"
+    },
+    {
+      "id": "message",
+      "type": "clobtext",
+      "label": "Message"
+    },
+    {
+      "id": "messagedate",
+      "type": "datetime",
+      "label": "Date"
+    },
+    {
+      "id": "messagetype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "recipient",
+      "type": "select",
+      "label": "Recipient"
+    },
+    {
+      "id": "recipientemail",
+      "type": "email",
+      "label": "Recipient Email"
+    },
+    {
+      "id": "subject",
+      "type": "text",
+      "label": "Subject"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "author",
+      "type": "select",
+      "label": "Author"
+    },
+    {
+      "id": "authoremail",
+      "type": "text",
+      "label": "Author Email"
+    },
+    {
+      "id": "bcc",
+      "type": "email",
+      "label": "Bcc"
+    },
+    {
+      "id": "cc",
+      "type": "email",
+      "label": "Cc"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "hasattachment",
+      "type": "checkbox",
+      "label": "Files"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalonly",
+      "type": "checkbox",
+      "label": "Internal Only"
+    },
+    {
+      "id": "isemailed",
+      "type": "checkbox",
+      "label": "Email Sent"
+    },
+    {
+      "id": "isincoming",
+      "type": "checkbox",
+      "label": "Is Incoming"
+    },
+    {
+      "id": "message",
+      "type": "clobtext",
+      "label": "Message"
+    },
+    {
+      "id": "messagedate",
+      "type": "datetime",
+      "label": "Date"
+    },
+    {
+      "id": "messagetype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "recipient",
+      "type": "select",
+      "label": "Recipient"
+    },
+    {
+      "id": "recipientemail",
+      "type": "text",
+      "label": "Recipient Email"
+    },
+    {
+      "id": "subject",
+      "type": "text",
+      "label": "Subject"
+    },
+    {
+      "id": "view",
+      "type": "text",
+      "label": "View"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "campaign",
+      "description": "Campaign",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "originatinglead",
+      "description": "Originating Lead",
+      "actualName": "Lead"
+    },
+    {
+      "id": "partner",
+      "description": "Partner",
+      "actualName": "Partner"
+    },
+    {
+      "id": "vendor",
+      "description": "Vendor",
+      "actualName": "Vendor"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "attachments",
+      "label": "Attachments"
+    },
+    {
+      "name": "messages",
+      "label": "Message"
+    },
+    {
+      "name": "recipients",
+      "label": "Recipients"
+    }
+  ],
+  "transformTypes": []
+}

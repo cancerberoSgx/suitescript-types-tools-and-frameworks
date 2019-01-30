@@ -1,0 +1,864 @@
+{
+  "label": "Subscription",
+  "id": "subscription",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "advancerenewalperiodnumber",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "advancerenewalperiodunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "autorenewal",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Automatically Initiate Renewal Process",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Account",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "billingaccountstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Billing Account Start Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Schedule",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "billingsubscriptionstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewalmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Method",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewalplan",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Subscription Plan",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewalpricebook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Price Book",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewalterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Term",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewaltrantype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Transaction Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimatedrevrecenddate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Estimated Revenue Recognition End Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "frequency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Frequency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "idnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Subscription ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Initial Term",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "initialtermduration",
+      "type": "posinteger",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialtermtype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialtermunits",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastbillcycledate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Last Bill Cycle Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastbilldate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Last Bill Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Subscription Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "nextbillcycledate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Next Bill Cycle Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nextrenewalstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Next Renewal Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "otherrecordnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pricebook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Price Book",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "renewalnumber",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Number of Renewal",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Originating Sales Order",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subscription Plan",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subscriptionplanname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Subscription Plan",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "templatestored",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "priceinterval",
+      "label": "Price Book Lines",
+      "fields": [
+        {
+          "id": "chargetype",
+          "type": "select",
+          "label": "Subscription Line Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "Discount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "frequency",
+          "type": "select",
+          "label": "Charge Frequency",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "identifier",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "includedquantity",
+          "type": "posfloat",
+          "label": "Included Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "Line Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "multiplierline",
+          "type": "select",
+          "label": "Included Quantity Multiplier",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "priceplan",
+          "type": "text",
+          "label": "Price Plan",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "repeatevery",
+          "type": "select",
+          "label": "Repeat Every",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "startdate",
+          "type": "date",
+          "label": "Start Date",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "startoffsetunit",
+          "type": "select",
+          "label": "Interval",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "startoffsetvalue",
+          "type": "integer",
+          "label": "Start On",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "status",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subscriptionplanline",
+          "type": "integer",
+          "label": "Subscription Plan Line",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "sublinefromplan",
+      "label": "Lines",
+      "fields": [
+        {
+          "id": "item",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecoption",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "subscriptionline",
+      "label": "Lines",
+      "fields": [
+        {
+          "id": "billingmode",
+          "type": "select",
+          "label": "Billing Mode",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "Discount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "enddate",
+          "type": "date",
+          "label": "End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isincluded",
+          "type": "checkbox",
+          "label": "Include",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "text",
+          "label": "Line Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "recurrencestartdate",
+          "type": "date",
+          "label": "Recurrence Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "startdate",
+          "type": "date",
+          "label": "Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "status",
+          "type": "select",
+          "label": "Status",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "subscription",
+          "type": "select",
+          "label": "Subscription",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subscriptionline",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subscriptionlinetype",
+          "type": "select",
+          "label": "Subscription Line Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "terminationdate",
+          "type": "date",
+          "label": "Termination Date",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "advancerenewalperiodnumber",
+      "type": "integer",
+      "label": "Advance Renewal Period"
+    },
+    {
+      "id": "advancerenewalperiodunit",
+      "type": "select",
+      "label": "Advance Renewal Period Unit"
+    },
+    {
+      "id": "autorenewal",
+      "type": "checkbox",
+      "label": "Automatically Initiate Renewal Process"
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "label": "Billing Account"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "defaultrenewalmethod",
+      "type": "select",
+      "label": "Default Renewal Method"
+    },
+    {
+      "id": "defaultrenewalterm",
+      "type": "select",
+      "label": "Default Renewal Term"
+    },
+    {
+      "id": "defaultrenewaltrantype",
+      "type": "select",
+      "label": "Default Transaction Type"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "estimatedrevrecenddate",
+      "type": "date",
+      "label": "Estimated Revenue Recognition End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "initialterm",
+      "type": "select",
+      "label": "Initial Term"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nextrenewalstartdate",
+      "type": "date",
+      "label": "Next Renewal Start Date"
+    },
+    {
+      "id": "originalsalestransaction",
+      "type": "select",
+      "label": "Original Sales Transaction"
+    },
+    {
+      "id": "parentsubscriptionid",
+      "type": "integer",
+      "label": "Parent Subscription ID"
+    },
+    {
+      "id": "renewalsubscriptionname",
+      "type": "select",
+      "label": "Renewal Subscription Name"
+    },
+    {
+      "id": "renewaltransaction",
+      "type": "select",
+      "label": "Renewal Transaction"
+    },
+    {
+      "id": "rootsubscriptionid",
+      "type": "integer",
+      "label": "Root Subscription ID"
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "label": "Sales Order"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "label": "Subscription Plan"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "advancerenewalperiodnumber",
+      "type": "integer",
+      "label": "Advance Renewal Period"
+    },
+    {
+      "id": "advancerenewalperiodunit",
+      "type": "select",
+      "label": "Advance Renewal Period Unit"
+    },
+    {
+      "id": "autorenewal",
+      "type": "checkbox",
+      "label": "Automatically Initiate Renewal Process"
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "label": "Billing Account"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "defaultrenewalmethod",
+      "type": "select",
+      "label": "Default Renewal Method"
+    },
+    {
+      "id": "defaultrenewalterm",
+      "type": "select",
+      "label": "Default Renewal Term"
+    },
+    {
+      "id": "defaultrenewaltrantype",
+      "type": "select",
+      "label": "Default Transaction Type"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "estimatedrevrecenddate",
+      "type": "date",
+      "label": "Estimated Revenue Recognition End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "initialterm",
+      "type": "select",
+      "label": "Initial Term"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nextrenewalstartdate",
+      "type": "date",
+      "label": "Next Renewal Start Date"
+    },
+    {
+      "id": "originalsalestransaction",
+      "type": "text",
+      "label": "Original Sales Transaction"
+    },
+    {
+      "id": "renewalnumber",
+      "type": "integer",
+      "label": "Renewal Sequence"
+    },
+    {
+      "id": "renewalsubscriptionname",
+      "type": "text",
+      "label": "Renewal Subscription Name"
+    },
+    {
+      "id": "renewaltransaction",
+      "type": "select",
+      "label": "Renewal Transaction"
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "label": "Sales Order"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "label": "Subscription Plan"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "billingaccount",
+      "description": "Billing Account",
+      "actualName": "Billing Account"
+    },
+    {
+      "id": "currency",
+      "description": "Currency",
+      "actualName": "Currency"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "item",
+      "description": "Subscription Plan",
+      "actualName": "Item"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

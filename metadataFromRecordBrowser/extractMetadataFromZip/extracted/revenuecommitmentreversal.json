@@ -1,0 +1,936 @@
+{
+  "label": "Revenue Commitment Reversal",
+  "id": "revenuecommitmentreversal",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Accounting Book",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Bill To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill To Select",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "couponcode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Coupon Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "deferredrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Deferred Revenue",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "discountamount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Disc. Amt.",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "discountdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Disc. Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "discountitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Discount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "discountrate",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "discounttotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Discount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fob",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FOB",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "linkedtrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "muccpromocodeinstance",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Promo Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "otherrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "PO #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Partner",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "promocode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Promotion",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "promocodepluginimpl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Promo Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recognizedrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Recognized Revenue",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returntrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Return Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revenuestatus",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Revenue Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Choose Team",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Sales Rep",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Ship To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship To Select",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipoverride",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "source",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subtotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Subtotal",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "syncpartnerteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "syncsalesteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Additional Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Reversal #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "tranisvsoebundle",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Transaction Is VSOE Bundle",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vsoeautocalc",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto Calculate VSOE Allocation",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "amortizationperiod",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amortizationtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "daysbeforeexpiration",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertfrom",
+          "type": "text",
+          "label": "From",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertmessage",
+          "type": "textarea",
+          "label": "Gift Message",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertrecipientemail",
+          "type": "email",
+          "label": "Recipient Email",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertrecipientname",
+          "type": "text",
+          "label": "Recipient Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "job",
+          "type": "select",
+          "label": "Project",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "licensecode",
+          "type": "textarea",
+          "label": "License Code",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "select",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "printitems",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityavailable",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Unit Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rateschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecenddate",
+          "type": "date",
+          "label": "Rev. Rec. End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecschedule",
+          "type": "select",
+          "label": "Rev. Rec. Schedule",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecstartdate",
+          "type": "date",
+          "label": "Rev. Rec. Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeallocation",
+          "type": "currency",
+          "label": "Allocation Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeamount",
+          "type": "currency",
+          "label": "Calculated Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoedeferral",
+          "type": "select",
+          "label": "Deferral",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoedelivered",
+          "type": "checkbox",
+          "label": "Delivered",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeisestimate",
+          "type": "checkbox",
+          "label": "Estimate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoepermitdiscount",
+          "type": "select",
+          "label": "Permit Discount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeprice",
+          "type": "currency2",
+          "label": "Allocation Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoesopgroup",
+          "type": "select",
+          "label": "Allocation Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "label": "Partners",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "partner",
+          "type": "select",
+          "label": "Partner",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "partnerrole",
+          "type": "select",
+          "label": "Partner Role",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "salesteam",
+      "label": "Sales Team",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issalesrep",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "salesrole",
+          "type": "select",
+          "label": "Sales Role",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "multipartner",
+      "label": "Partners"
+    },
+    {
+      "name": "revenue",
+      "label": "Revenue"
+    },
+    {
+      "name": "teamselling",
+      "label": "Sales Team"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

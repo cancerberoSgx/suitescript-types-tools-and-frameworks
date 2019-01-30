@@ -1,0 +1,424 @@
+{
+  "label": "Paycheck",
+  "id": "paycheck",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": false,
+      "help": "Select the bank account from which you want to issue pay checks."
+    },
+    {
+      "id": "address",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": "Accept or enter the address of the employee."
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": "NetSuite displays the balance in the bank account you selected."
+    },
+    {
+      "id": "chkamount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "The class shown on the employee's record autofills in this field, or you can select a class for this transaction."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "The department shown on the employee's record autofills in this field, or you can select a department for this transaction."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Payee",
+      "required": true,
+      "help": "Select the name of the employee."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter a memo that prints on the check itself."
+    },
+    {
+      "id": "periodending",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Period Ending",
+      "required": false,
+      "help": "This is the last date in the payroll period."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this paycheck to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxperiod",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Check Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this paycheck. You can type or pick another date.\n\nWhat you enter here determines the date range in which this transaction appears on the Bank Register.\n\nYou can select or enter custom date ranges on registers."
+    },
+    {
+      "id": "tranid",
+      "type": "rtext",
+      "nlapiSubmitField": false,
+      "label": "Check #",
+      "required": false,
+      "help": "If you have checked the To Be Printed box, you will choose starting numbers later, when you print those checks.\n\nIf you are immediately printing this check, NetSuite increases the largest check number by one. You can type another number here, but the next number will revert to the standard pattern."
+    },
+    {
+      "id": "useramount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": true,
+      "help": "NetSuite will calculate the net pay amount as you add or edit individual items on the tabs below."
+    },
+    {
+      "id": "workplace",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Workplace",
+      "required": false,
+      "help": "NetSuite populates the Workplace field for each employee based on the workplace on each employee record."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "paycontrib",
+      "label": "Contributions",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "manualentry",
+          "type": "checkbox",
+          "label": "Manual Entry",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payitem",
+          "type": "select",
+          "label": "Contributions",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "wagebase",
+          "type": "currency",
+          "label": "Wage Base",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "paydeduct",
+      "label": "Deductions",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "manualentry",
+          "type": "checkbox",
+          "label": "Manual Entry",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payitem",
+          "type": "select",
+          "label": "Deductions",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "wagebase",
+          "type": "currency",
+          "label": "Wage Base",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "payearn",
+      "label": "Earnings",
+      "fields": [
+        {
+          "id": "count",
+          "type": "float",
+          "label": "Hours/Base",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "grossamount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "manualentry",
+          "type": "checkbox",
+          "label": "Manual Entry",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payitem",
+          "type": "select",
+          "label": "Earnings",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "serviceitem",
+          "type": "select",
+          "label": "Service Item",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "paytax",
+      "label": "Taxes",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "isexempt",
+          "type": "checkbox",
+          "label": "Exempt",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isresidenttax",
+          "type": "checkbox",
+          "label": "Resident Status",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "paytax",
+          "type": "text",
+          "label": "Taxes",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "reportablewagebase",
+          "type": "currency",
+          "label": "Reportable Wage Base",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sequence",
+          "type": "integer",
+          "label": "Sequence #",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxablewagebase",
+          "type": "currency",
+          "label": "Taxable Wage Base",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxedwagebase",
+          "type": "currency",
+          "label": "Taxed Wage Base",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "paytime",
+      "label": "Time",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Pay",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "count",
+          "type": "float",
+          "label": "Hours",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "custjob",
+          "type": "text",
+          "label": "Customer:Job",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "ddate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payitemname",
+          "type": "text",
+          "label": "Time Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "serviceitem",
+          "type": "text",
+          "label": "Service Item",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

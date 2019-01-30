@@ -1,0 +1,1738 @@
+{
+  "label": "Project",
+  "id": "job",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Account",
+      "required": false,
+      "help": "If you assign account numbers for projects, enter the account number here."
+    },
+    {
+      "id": "actualtime",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Actual Work",
+      "required": false,
+      "help": "Indicates the actual time entered for the project, including open, pending approval, approved, unapproved, and rejected time transactions. This total includes time transactions entered against project tasks and the project as a whole without a specified task.\n \nIf this project is set to include CRM tasks in project totals, then Actual Work also includes time entered for CRM tasks associated with this project."
+    },
+    {
+      "id": "allowallresourcesfortasks",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Display All Resources for ProjectTask Assignment",
+      "required": false,
+      "help": "Check this box to allow any employee or vendor designated as a project resource on the entity record or any employee or vendor that has previously been assigned to a project to be assigned to a project task.\n\nWhen you enable this preference, any resource that has been previously assigned to a project appears in the list of available resources. This allows for the possibility that an employee or vendor no longer designated as a project resource can still be assigned to a new project task.\n\nClear the box if you want to restrict project task assignment to resources you add to the Resources subtab.\n\nIf you use Resource Allocations, enabling this preference overrides the need to allocate resources prior to making task assignments. Disabling this preference requires you to allocate defined resources prior to making task assignments. Generic resources are available for task assignments regardless of project allocation."
+    },
+    {
+      "id": "allowexpenses",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Allow Expenses",
+      "required": false,
+      "help": "Check this box to allow expenses to be entered for this project.\n\nIf the Limit Time Entry to Assignees field is also checked, then only resources listed on the Resource subtab will be able to see this project in the Customer/Project select list for Expense Reporting."
+    },
+    {
+      "id": "allowtime",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Allow Time Entry",
+      "required": false,
+      "help": "Check this box to enable time to be entered for this project.\n\nIf the Limit Time Entry to Assignees field is checked, the project appears only in the Customer/Project dropdown for resources listed on the Resource tab of the project."
+    },
+    {
+      "id": "applyprojectexpensetypetoall",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Apply to all time entries",
+      "required": false,
+      "help": "Check this box to apply the selected project expense type to all time entries for this project. This preference overrides any other project expense type for time transactions recorded for this project."
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bbudgetshowcalculatedlines",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Calculated Lines",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Calculated Values for all Billing Budgets",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Schedule",
+      "required": false,
+      "help": "A billing schedule determines when and how to bill a customer over the duration of the project.\n\nBilling schedules for Fixed Bid, Interval and Time and Materials projects are public schedules and can be shared across projects. A Fixed Bid, Milestone billing schedule is private and used only for the project it is created for."
+    },
+    {
+      "id": "calculatedenddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Calculated End Date",
+      "required": false,
+      "help": "NetSuite calculates the end date for the project as the date that all project tasks will be complete according to the current project schedule.\n\nCalculated End Date changes as the project schedule changes."
+    },
+    {
+      "id": "calculatedenddatebaseline",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Calculated End Date Baseline",
+      "required": false,
+      "help": "The Calculated End Date when the baseline was set."
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Category",
+      "required": false,
+      "help": "Select the category that applies to this customer.\n\nTo add choices to this list, go to <_TABNAME=EDIT_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY= ACCOUNTINGOTHERLIST _> > New > Customer Category.\n\nFor example, you might create categories of wholesale, retail, and online."
+    },
+    {
+      "id": "cbudgetshowcalculatedlines",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Calculated Lines",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Calculated Values for all Cost Budgets",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Comments",
+      "required": false,
+      "help": "Enter other information about this project."
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Project Name",
+      "required": false,
+      "help": "Enter a unique project name.\n\nIf you use Auto-Generated Numbering, it is important to enter the project name here because the Project ID does not include the project name."
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Primary Contact",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "The customer's currency is shown here. This is the currency used for all transactions and records created for this project.\n\nIf you use the Multi-Currency Customers feature, select the customer's transaction currency you want to use for this project and its associated records and transactions."
+    },
+    {
+      "id": "currencyprecision",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Precision",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the form you want to use to enter this record.\n\nSelect Standard Project Form to continue using this form, select a custom project form you have already created, or select New to create a custom project form."
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": "Indicates the date the project was created."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Actual End Date",
+      "required": false,
+      "help": "Enter the date the project is finished."
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Project ID",
+      "required": true,
+      "help": "NetSuite copies the Project Name as the Project ID.\n\nIf you want to manually enter a Project ID, clear the Auto check box next to the field and enter the ID.\n\nIf you use Auto-Generated Numbering, then NetSuite creates this ID automatically based on your settings at <_TABNAME=ADMI_NUMBERING_> > <_TASKCATEGORY=ADMI_NUMBERING_> Set Up Auto-Generated Numbers."
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Status",
+      "required": false,
+      "help": "Indicates the progress of the project.\n\nWhen creating a new project, select the status that best indicates the progress of the project.\n\nYou can create new statuses at Setup > Accounting > Accounting Lists > New, and click Project Status."
+    },
+    {
+      "id": "estimatedcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Cost",
+      "required": false,
+      "help": "Enter the projected cost to complete this project."
+    },
+    {
+      "id": "estimatedgrossprofit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Gross Profit",
+      "required": false,
+      "help": "Estimated Gross Profit is calculated as follows:\n\nFor Time and Materials projects:\n[Estimated Labor Revenue - Estimated Labor Cost]\n\nFor Fixed Bid projects:\n[Project Price - Estimated Labor cost]"
+    },
+    {
+      "id": "estimatedgrossprofitpercent",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Estimated Gross Profit Percent",
+      "required": false,
+      "help": "Shows the expected profit percentage, calculated as:\n\nFor Time and Materials projects:\n[Estimated Gross Profit / Estimated Labor Revenue\n\nFor Fixed Bid projects:\n[Estimated Gross Profit / Project Price]"
+    },
+    {
+      "id": "estimatedlaborcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Labor Cost",
+      "required": false,
+      "help": "Estimated Labor Cost is the total amount expected to be spent on labor for the project."
+    },
+    {
+      "id": "estimatedlaborcostbaseline",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Labor Cost Baseline",
+      "required": false,
+      "help": "The value of Estimated Labor Cost when the baseline was set."
+    },
+    {
+      "id": "estimatedlaborrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Labor Revenue",
+      "required": false,
+      "help": "Indicates the projected revenue to be billed for work performed on this project."
+    },
+    {
+      "id": "estimatedrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Revenue",
+      "required": false,
+      "help": "Enter the projected revenue to be billed for work performed on this project."
+    },
+    {
+      "id": "estimatedtime",
+      "type": "time",
+      "nlapiSubmitField": true,
+      "label": "Initial Time Budget",
+      "required": false,
+      "help": "Indicates the sum of the initial time budgeted for the CRM Tasks that are included in this project."
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Estimated Work",
+      "required": false,
+      "help": "Estimated Work is the sum of the estimated work for all project tasks.\n\nEstimated Work also includes the Current Time Budget amounts for all CRM tasks if the Include CRM Tasks in Project Totals check box is selected for this project."
+    },
+    {
+      "id": "estimatedtimeoverridebaseline",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Estimated Work Baseline",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estimaterevrectemplate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Rev Rec Forecast Template",
+      "required": false,
+      "help": "Select a revenue recognition template created for the project. The template generates a schedule forecasting expected revenue to be recognized for the project."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fxrate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": false,
+      "help": "Shows the currency's exchange rate when you create the project.\n\nYou can edit the rate for this project if you want to use a different rate for cost and labor estimates."
+    },
+    {
+      "id": "includecrmtasksintotals",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Include CRM Tasks in Project Totals",
+      "required": false,
+      "help": "Check this box to allow CRM tasks to be included in costs, planned time, and actual time for this project."
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isexempttime",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Classify Time as Exempt",
+      "required": false,
+      "help": "Exempt time is excluded when calculating utilization. It is not included in the numerator or denominator of the utilization formula."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": "If you check this box, then the project no longer appears on the list of projects.\n \nYou cannot edit or make any changes to a project marked inactive.\nCheck the Show Inactives box at the bottom of the List page to view inactive projects."
+    },
+    {
+      "id": "isjob",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isproductivetime",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Classify Time as Productive",
+      "required": false,
+      "help": "Productive time is time worked on a project but not included when calculating revenue for the project.\n\nProductive time is not billed to the customer.\n\nTraining and pre-sales support are examples of productive time."
+    },
+    {
+      "id": "isutilizedtime",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Classify Time as Utilized",
+      "required": false,
+      "help": "Utilized time directly contributes to the revenue for a project."
+    },
+    {
+      "id": "jobbillingtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Type",
+      "required": false,
+      "help": "Select a method to bill project costs to the customer.\n\nCharge-Based: billable amounts are represented by charges. Charges are generated based on charge rules based on fixed dates, milestones, project progress, or time entries. This option requires that you have enabled the Charge-Based Billing feature.\n\nFixed Bid, Interval: bill customers at predefined intervals for a portion of the fixed amount based on project percent complete.\n\nFixed Bid Milestone: bill customers as milestones are completed for the percentage of the total project amount specified for the milestone.\n\nTime and Materials: bill customers for time and expenses entered against the project."
+    },
+    {
+      "id": "jobitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Item",
+      "required": false,
+      "help": "Enter the service item to appear on transactions billed to the customer."
+    },
+    {
+      "id": "jobprice",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Project Price",
+      "required": false,
+      "help": "Enter the price billed to the customer on transactions.\n\nProject Price is also used to calculate the gross profit margin for the project."
+    },
+    {
+      "id": "jobtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project Type",
+      "required": false,
+      "help": "Select the project type. Project types are user-defined values to classify projects in a way meaningful to your company."
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Language",
+      "required": false,
+      "help": "Select the language to use to display all project records and invoices."
+    },
+    {
+      "id": "lastbaselinedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Last Baseline Date",
+      "required": false,
+      "help": "The date when the last project baseline was set."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "limittimetoassignees",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Limit Time Entry to Assignees",
+      "required": false,
+      "help": "Check this box to allow only resources listed on the Resources subtab for the project to enter time and expenses.\n\nClearing this box allows any project resource to track time against this project and its project tasks.\n\nOnly resources listed on the Resource tab will be able to see the project in Project select lists for time and expenses.\n\nNote: Regardless of whether this box is marked, in the Vendor Center, this project will only show if the vendor is listed as a resource of the project."
+    },
+    {
+      "id": "materializetime",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Create Planned Time Entries",
+      "required": false,
+      "help": "Check this box to generate time entries for planned work on project tasks.\n\nResources assigned to this project will be able to see their planned time in Time Tracking or Timesheets.\n\nIf you use Project Budgets, planned time entries are required to generate calculated costs."
+    },
+    {
+      "id": "otherrelationships",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Other Relationships",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": false,
+      "help": "Enter the name of the customer for this project. If you are creating a subproject, then enter a customer and project in this field."
+    },
+    {
+      "id": "percentcomplete",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Percent Complete",
+      "required": false,
+      "help": "Enter an estimate of how much of the total project work is complete.\n \nThis percentage is not calculated or updated by NetSuite."
+    },
+    {
+      "id": "percenttimecomplete",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Percent Work Complete",
+      "required": false,
+      "help": "Shows the percent of the total planned project time that has been completed.\n\nPercent Work Complete is calculated by dividing the total number of actual hours worked and reported in Time Tracking by the number of hours entered in the Estimated Work field for each project task.\n\nThe percentage is 100% when the status of all project tasks is Completed."
+    },
+    {
+      "id": "projectedenddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Estimated End Date",
+      "required": false,
+      "help": "Enter the date you plan to complete all project tasks by. You can update this date at any time.\n \nIf you use Advanced Projects, NetSuite calculates an end date based on the project schedule and displays it in Calculated End Date."
+    },
+    {
+      "id": "projectedenddatebaseline",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Estimated End Date Baseline",
+      "required": false,
+      "help": "The Estimated End Date when the baseline was set.\n \nBaseline information is available only if you use Advanced Projects."
+    },
+    {
+      "id": "projectexpensetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project Expense Type",
+      "required": true,
+      "help": "Select a project expense type for this project.\n\nThe project expense type determines which account is debited when posting time transactions recorded for this project."
+    },
+    {
+      "id": "stage",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": "Enter the estimated date work will start on the project. You can change this date at any time during the life of the project.\n\nNetSuite schedules all project tasks without predecessors to start on this date."
+    },
+    {
+      "id": "startdatebaseline",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date Baseline",
+      "required": false,
+      "help": "The Start Date when the baseline was set.\n\nBaseline information is available only if you use Advanced Projects."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "The subsidiary for this project is displayed here."
+    },
+    {
+      "id": "timeapproval",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Time Approval",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "timeremaining",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Remaining Work",
+      "required": false,
+      "help": "Indicates the time for work yet to be done on all project tasks, calculated as:\n\n[Estimated Work(all tasks) - Actual Work (all tasks)]"
+    }
+  ],
+  "sublists": [
+    {
+      "id": "bbudget",
+      "label": "Billing Budget",
+      "fields": [
+        {
+          "id": "costcategoryref",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorysubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorytype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "selectline",
+          "type": "checkbox",
+          "label": "Select",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "totalamount",
+          "type": "currency",
+          "label": "Project Total",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "cbudget",
+      "label": "Cost Budget",
+      "fields": [
+        {
+          "id": "costcategoryref",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorysubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorytype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "selectline",
+          "type": "checkbox",
+          "label": "Select",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "totalamount",
+          "type": "currency",
+          "label": "Project Total",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "jobresources",
+      "label": "Resource Details",
+      "fields": [
+        {
+          "id": "defaultcost",
+          "type": "currency",
+          "label": "Default Cost",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "email",
+          "type": "email",
+          "label": "Email",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "jobresource",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "overridencost",
+          "type": "currency",
+          "label": "Cost Override",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "role",
+          "type": "select",
+          "label": "Role",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "percentcompleteoverride",
+      "label": "Rev Rec Percent Complete Override",
+      "fields": [
+        {
+          "id": "comments",
+          "type": "text",
+          "label": "Comments",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "percent",
+          "type": "percent",
+          "label": "Cumulative Percent Complete",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "period",
+          "type": "select",
+          "label": "Accounting Period",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "plstatement",
+      "label": "P&L",
+      "fields": [
+        {
+          "id": "costcategoryref",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorysubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costcategorytype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "actualtime",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "phone",
+      "label": "Address Phone"
+    },
+    {
+      "id": "allocatepayrollexpenses",
+      "type": "checkbox",
+      "label": "Allocate Payroll Expenses"
+    },
+    {
+      "id": "allowallresourcesfortasks",
+      "type": "checkbox",
+      "label": "Display All Resources for ProjectTask Assignment"
+    },
+    {
+      "id": "allowexpenses",
+      "type": "checkbox",
+      "label": "Allow Expenses"
+    },
+    {
+      "id": "allowtime",
+      "type": "checkbox",
+      "label": "Allow Time Entry"
+    },
+    {
+      "id": "applyprojectexpensetypetoall",
+      "type": "checkbox",
+      "label": "Apply to all time entries"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "calculatedenddate",
+      "type": "date",
+      "label": "Calculated End Date"
+    },
+    {
+      "id": "calculatedenddatebaseline",
+      "type": "date",
+      "label": "Calculated End Date Baseline"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "label": "Comments"
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "label": "Contact"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "Actual End Date"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name/ID"
+    },
+    {
+      "id": "estcost",
+      "type": "currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "id": "estenddate",
+      "type": "date",
+      "label": "Projected End Date"
+    },
+    {
+      "id": "estimatedgrossprofit",
+      "type": "currency",
+      "label": "Estimated Gross Profit"
+    },
+    {
+      "id": "estimatedgrossprofitpercent",
+      "type": "percent",
+      "label": "Estimated Gross Profit %"
+    },
+    {
+      "id": "estimatedlaborcost",
+      "type": "currency",
+      "label": "Estimated Labor Cost"
+    },
+    {
+      "id": "estimatedlaborcostbaseline",
+      "type": "currency",
+      "label": "Estimated Labor Cost Baseline"
+    },
+    {
+      "id": "estimatedlaborrevenue",
+      "type": "currency",
+      "label": "Estimated Labor Revenue"
+    },
+    {
+      "id": "estimatedtime",
+      "type": "float",
+      "label": "Initial Time Budget"
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "float",
+      "label": "Estimated Work"
+    },
+    {
+      "id": "estimatedtimeoverridebaseline",
+      "type": "float",
+      "label": "Estimated Work Baseline"
+    },
+    {
+      "id": "estrevenue",
+      "type": "currency",
+      "label": "Estimated Revenue"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "image",
+      "type": "image",
+      "label": "Image"
+    },
+    {
+      "id": "includecrmtasksintotals",
+      "type": "checkbox",
+      "label": "Include CRM Tasks in Job Totals"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isexempttime",
+      "type": "checkbox",
+      "label": "Classify Time as Exempt"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isproductivetime",
+      "type": "checkbox",
+      "label": "Classify Time as Productive"
+    },
+    {
+      "id": "isutilizedtime",
+      "type": "checkbox",
+      "label": "Classify Time as Utilized"
+    },
+    {
+      "id": "jobbillingtype",
+      "type": "select",
+      "label": "Billing Type"
+    },
+    {
+      "id": "jobitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "jobprice",
+      "type": "currency",
+      "label": "Job Price"
+    },
+    {
+      "id": "jobresource",
+      "type": "select",
+      "label": "Job Resource"
+    },
+    {
+      "id": "jobresourcerole",
+      "type": "select",
+      "label": "Job Resource Role"
+    },
+    {
+      "id": "jobtype",
+      "type": "select",
+      "label": "Job Type"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastbaselinedate",
+      "type": "date",
+      "label": "Last Baseline Date"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "limittimetoassignees",
+      "type": "checkbox",
+      "label": "Limit Time and Expenses To Resources"
+    },
+    {
+      "id": "materializetime",
+      "type": "checkbox",
+      "label": "Create Planned Time Entries"
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "label": "Sub of"
+    },
+    {
+      "id": "pctcomplete",
+      "type": "integer",
+      "label": "Percent Complete"
+    },
+    {
+      "id": "percenttimecomplete",
+      "type": "integer",
+      "label": "Percent Time Complete"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "projectedenddatebaseline",
+      "type": "date",
+      "label": "Projected End Date Baseline"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "startdatebaseline",
+      "type": "date",
+      "label": "Start Date Baseline"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "timeapproval",
+      "type": "select",
+      "label": "Time Approval"
+    },
+    {
+      "id": "timeremaining",
+      "type": "float",
+      "label": "Remaining Work"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "actualtime",
+      "type": "float",
+      "label": "Actual Work"
+    },
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addressinternalid",
+      "type": "text",
+      "label": "Address Internal ID"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "allocatepayrollexpenses",
+      "type": "checkbox",
+      "label": "Allocate Payroll Expenses"
+    },
+    {
+      "id": "allowallresourcesfortasks",
+      "type": "checkbox",
+      "label": "Display All Resources for ProjectTask Assignment"
+    },
+    {
+      "id": "allowexpenses",
+      "type": "checkbox",
+      "label": "Allow Expenses"
+    },
+    {
+      "id": "allowtime",
+      "type": "checkbox",
+      "label": "Allow Time Entry"
+    },
+    {
+      "id": "altcontact",
+      "type": "text",
+      "label": "Alt. Contact"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "label": "Alt. Email"
+    },
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "label": "Office Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "bbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Billing Budgets"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "label": "Billing Schedule"
+    },
+    {
+      "id": "billzipcode",
+      "type": "text",
+      "label": "Billing Zip"
+    },
+    {
+      "id": "calculatedenddate",
+      "type": "date",
+      "label": "Calculated End Date"
+    },
+    {
+      "id": "calculatedenddatebaseline",
+      "type": "date",
+      "label": "Calculated End Date Baseline"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "cbudgetlaborbudgetfromalloc",
+      "type": "checkbox",
+      "label": "Calculate Labor Budgets from Resource Allocations"
+    },
+    {
+      "id": "cbudgetusecalculatedvalues",
+      "type": "checkbox",
+      "label": "Use Calculated Values for all Cost Budgets"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "label": "Comments"
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "label": "Job Name"
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "label": "Primary Contact"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "Actual End Date"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "entitynumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "estimatedcost",
+      "type": "currency",
+      "label": "Estimated Cost"
+    },
+    {
+      "id": "estimatedgrossprofit",
+      "type": "currency",
+      "label": "Estimated Gross Profit"
+    },
+    {
+      "id": "estimatedgrossprofitpercent",
+      "type": "percent",
+      "label": "Estimated Gross Profit %"
+    },
+    {
+      "id": "estimatedlaborcost",
+      "type": "currency",
+      "label": "Estimated Labor Cost"
+    },
+    {
+      "id": "estimatedlaborcostbaseline",
+      "type": "currency",
+      "label": "Estimated Labor Cost Baseline"
+    },
+    {
+      "id": "estimatedlaborrevenue",
+      "type": "currency",
+      "label": "Estimated Labor Revenue"
+    },
+    {
+      "id": "estimatedrevenue",
+      "type": "currency",
+      "label": "Estimated Revenue"
+    },
+    {
+      "id": "estimatedtime",
+      "type": "float",
+      "label": "Initial Time Budget"
+    },
+    {
+      "id": "estimatedtimeoverride",
+      "type": "float",
+      "label": "Estimated Work"
+    },
+    {
+      "id": "estimatedtimeoverridebaseline",
+      "type": "float",
+      "label": "Estimated Work Baseline"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "label": "Fax"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "label": "Image"
+    },
+    {
+      "id": "includecrmtasksintotals",
+      "type": "checkbox",
+      "label": "Include CRM Tasks in Job Totals"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isexempttime",
+      "type": "checkbox",
+      "label": "Classify Time as Exempt"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isproductivetime",
+      "type": "checkbox",
+      "label": "Classify Time as Productive"
+    },
+    {
+      "id": "isutilizedtime",
+      "type": "checkbox",
+      "label": "Classify Time as Utilized"
+    },
+    {
+      "id": "jobbillingtype",
+      "type": "select",
+      "label": "Billing Type"
+    },
+    {
+      "id": "jobitem",
+      "type": "select",
+      "label": "Billing Item"
+    },
+    {
+      "id": "jobprice",
+      "type": "currency",
+      "label": "Job Price"
+    },
+    {
+      "id": "jobresource",
+      "type": "select",
+      "label": "Job Resource"
+    },
+    {
+      "id": "jobresourcerole",
+      "type": "select",
+      "label": "Job Resource Role"
+    },
+    {
+      "id": "jobtype",
+      "type": "select",
+      "label": "Job Type"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastbaselinedate",
+      "type": "date",
+      "label": "Last Baseline Date"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "limittimetoassignees",
+      "type": "checkbox",
+      "label": "Limit Time and Expenses to Resources"
+    },
+    {
+      "id": "materializetime",
+      "type": "checkbox",
+      "label": "Create Planned Time Entries"
+    },
+    {
+      "id": "percentcomplete",
+      "type": "percent",
+      "label": "Percent Complete"
+    },
+    {
+      "id": "percenttimecomplete",
+      "type": "percent",
+      "label": "Percent Time Complete"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "projectedenddate",
+      "type": "date",
+      "label": "Projected End Date"
+    },
+    {
+      "id": "projectedenddatebaseline",
+      "type": "date",
+      "label": "Projected End Date Baseline"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "startdatebaseline",
+      "type": "date",
+      "label": "Start Date Baseline"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State/Province Display Name"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "datetime",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "timeapproval",
+      "type": "select",
+      "label": "Time Approval"
+    },
+    {
+      "id": "timeremaining",
+      "type": "float",
+      "label": "Remaining Work"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip Code"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "billingschedule",
+      "description": "Billing Schedule",
+      "actualName": "Billing Schedule"
+    },
+    {
+      "id": "campaignresponse",
+      "description": "Campaign Response",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "contactprimary",
+      "description": "Contact (Primary)",
+      "actualName": "Contact"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesfrom",
+      "description": "Messages From",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesto",
+      "description": "Messages To",
+      "actualName": "Message"
+    },
+    {
+      "id": "projecttask",
+      "description": "Project Task",
+      "actualName": "ProjectTask"
+    },
+    {
+      "id": "task",
+      "description": "Task",
+      "actualName": "Task"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "budget",
+      "label": "Budget"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "financial",
+      "label": "Financial"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },
+    {
+      "name": "info",
+      "label": "Info"
+    },
+    {
+      "name": "pl",
+      "label": "P&L"
+    },
+    {
+      "name": "resources",
+      "label": "Resources"
+    },
+    {
+      "name": "schedule",
+      "label": "Schedule"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

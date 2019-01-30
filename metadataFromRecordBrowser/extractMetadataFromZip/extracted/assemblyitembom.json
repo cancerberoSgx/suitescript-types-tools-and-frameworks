@@ -1,0 +1,66 @@
+{
+  "label": "Assembly Item BOM",
+  "id": "assemblyitembom",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "assembly",
+      "type": "select",
+      "label": "Assembly"
+    },
+    {
+      "id": "billofmaterials",
+      "type": "select",
+      "label": "Bill of Materials"
+    },
+    {
+      "id": "default",
+      "type": "checkbox",
+      "label": "Default"
+    },
+    {
+      "id": "locations",
+      "type": "multiselect",
+      "label": "Locations"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "assembly",
+      "type": "select",
+      "label": "Assembly"
+    },
+    {
+      "id": "assemblyid",
+      "type": "integer",
+      "label": "Assembly ID"
+    },
+    {
+      "id": "billofmaterials",
+      "type": "select",
+      "label": "Bill of Materials"
+    },
+    {
+      "id": "billofmaterialsid",
+      "type": "integer",
+      "label": "Bill of Materials ID"
+    },
+    {
+      "id": "default",
+      "type": "checkbox",
+      "label": "Default"
+    },
+    {
+      "id": "locations",
+      "type": "multiselect",
+      "label": "Locations"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

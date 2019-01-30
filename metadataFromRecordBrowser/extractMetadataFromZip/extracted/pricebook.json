@@ -1,0 +1,161 @@
+{
+  "label": "Price Book",
+  "id": "pricebook",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Currency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Subscription Plan",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "priceinterval",
+      "label": "Price Book Lines",
+      "fields": [
+        {
+          "id": "chargetype",
+          "type": "select",
+          "label": "Subscription Line Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "Discount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "frequency",
+          "type": "select",
+          "label": "Charge Frequency",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "isrequired",
+          "type": "checkbox",
+          "label": "Required",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "Line Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "multiplierline",
+          "type": "select",
+          "label": "Included Quantity Multiplier",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "textarea",
+          "label": "Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "priceplan",
+          "type": "select",
+          "label": "Price Plan",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "repeatevery",
+          "type": "select",
+          "label": "Repeat Every",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "startoffsetunit",
+          "type": "select",
+          "label": "Interval",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "startoffsetvalue",
+          "type": "integer",
+          "label": "Start On",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "subscriptionplanline",
+          "type": "integer",
+          "label": "Subscription Plan Line",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

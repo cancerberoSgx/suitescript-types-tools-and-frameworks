@@ -1,0 +1,198 @@
+{
+  "label": "Payroll Batch",
+  "id": "payrollbatch",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "count",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Count",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "message",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Message",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "offcycle",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Off Cycle",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "payfrequency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Pay Frequency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "payrolltype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "periodending",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Period Ending",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "batchnumber",
+      "type": "integer",
+      "label": "Batch Number"
+    },
+    {
+      "id": "checkdate",
+      "type": "date",
+      "label": "Check Date"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "payfrequency",
+      "type": "text",
+      "label": "Pay Frequency"
+    },
+    {
+      "id": "periodending",
+      "type": "date",
+      "label": "Period Ending Date"
+    },
+    {
+      "id": "status",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "type",
+      "type": "text",
+      "label": "Type"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "batchnumber",
+      "type": "text",
+      "label": "Batch Number"
+    },
+    {
+      "id": "checkdate",
+      "type": "date",
+      "label": "Check Date"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "payfrequency",
+      "type": "text",
+      "label": "Pay frequency"
+    },
+    {
+      "id": "periodending",
+      "type": "date",
+      "label": "Period Ending Date"
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "text",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "type",
+      "type": "text",
+      "label": "Type"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

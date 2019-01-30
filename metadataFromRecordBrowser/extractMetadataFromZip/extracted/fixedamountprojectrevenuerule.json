@@ -1,0 +1,426 @@
+{
+  "label": "Fixed Amount Project Revenue Rule",
+  "id": "fixedamountprojectrevenuerule",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fixedamounttype",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fixedscheduletype",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Date Recurring",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revenuereconciled",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Revenue Reconciled",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Service Item",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "chargerule",
+      "label": "Charge Rules",
+      "fields": [
+        {
+          "id": "actualamount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billingitem",
+          "type": "select",
+          "label": "Billing Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "chargerule",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "forecastamount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "ruletype",
+          "type": "select",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "datesfixedamount",
+      "label": "Date Scheduled",
+      "fields": [
+        {
+          "id": "fixedamount",
+          "type": "currency",
+          "label": "Amount to Recognize",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "recognitiondate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "datespctfromtotal",
+      "label": "Date Scheduled",
+      "fields": [
+        {
+          "id": "percentfromtotal",
+          "type": "percent",
+          "label": "Percent to Recognize",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "recognitiondate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "tasksfixedamount",
+      "label": "Task Complete",
+      "fields": [
+        {
+          "id": "fixedamount",
+          "type": "currency",
+          "label": "Amount to Recognize",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "projecttask",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "taskspctfromtotal",
+      "label": "Task Complete",
+      "fields": [
+        {
+          "id": "percentfromtotal",
+          "type": "percent",
+          "label": "Percent to Recognize",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "projecttask",
+          "type": "select",
+          "label": "Name",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "chargerule",
+      "type": "select",
+      "label": "Charge Rule"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fixedamounttype",
+      "type": "select",
+      "label": "Recognize"
+    },
+    {
+      "id": "fixedscheduletype",
+      "type": "select",
+      "label": "Recognize Based On"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "project",
+      "type": "select",
+      "label": "Project"
+    },
+    {
+      "id": "revenuereconciled",
+      "type": "checkbox",
+      "label": "Revenue Reconciled"
+    },
+    {
+      "id": "ruletype",
+      "type": "select",
+      "label": "Rule Type"
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "label": "Service Item"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "chargerule",
+      "type": "select",
+      "label": "Charge Rule"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fixedamounttype",
+      "type": "text",
+      "label": "Recognize"
+    },
+    {
+      "id": "fixedscheduletype",
+      "type": "text",
+      "label": "Recognize Based On"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "project",
+      "type": "text",
+      "label": "Project"
+    },
+    {
+      "id": "revenuereconciled",
+      "type": "checkbox",
+      "label": "Revenue Reconciled"
+    },
+    {
+      "id": "ruletype",
+      "type": "text",
+      "label": "Rule Type"
+    },
+    {
+      "id": "serviceitem",
+      "type": "select",
+      "label": "Service Item"
+    },
+    {
+      "id": "totalamounttorecognize",
+      "type": "currency",
+      "label": "Total Amount to Recognize"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "project",
+      "description": "Project",
+      "actualName": "Job"
+    },
+    {
+      "id": "serviceitem",
+      "description": "Service Item",
+      "actualName": "Item"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "chargerules",
+      "label": "Charge Rules"
+    },
+    {
+      "name": "revenueplan",
+      "label": "Revenue Plan"
+    }
+  ],
+  "transformTypes": []
+}

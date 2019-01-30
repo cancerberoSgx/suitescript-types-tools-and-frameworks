@@ -1,0 +1,132 @@
+{
+  "label": "Email Template",
+  "id": "emailtemplate",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "addcompanyaddress",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Add Company Address to Message Footer in Bulk Merges",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addunsubscribelink",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Add Unsubscribe Link to Message Footer in Bulk Merges",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "campaigndomain",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Campaign Domain",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "content",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isprivate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Private",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "mediaitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "restricttogroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Restrict To Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subject",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Subject",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "usesmedia",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "File",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "marketing",
+      "label": "Marketing"
+    },
+    {
+      "name": "restriction",
+      "label": "Restrict Access"
+    },
+    {
+      "name": "template",
+      "label": "Template"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,525 @@
+{
+  "label": "Massupdate Script",
+  "id": "massupdatescript",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "defaultfunction",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Function",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "notifyadmins",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Notify All Admins",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "notifyemails",
+      "type": "emails",
+      "nlapiSubmitField": false,
+      "label": "Notify Emails",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "notifygroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Notify Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "notifyowner",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Notify Script Owner",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "notifyuser",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Notify Current User",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Owner",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "scriptfile",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Script File",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "scriptid",
+      "type": "identifier",
+      "nlapiSubmitField": false,
+      "label": "ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "scripttype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "afterinstallfunction",
+      "type": "text",
+      "label": "After Install Function"
+    },
+    {
+      "id": "aftersubmitfunction",
+      "type": "text",
+      "label": "After Submit Function"
+    },
+    {
+      "id": "afterupdatefunction",
+      "type": "text",
+      "label": "After Update Function"
+    },
+    {
+      "id": "beforeinstallfunction",
+      "type": "text",
+      "label": "Before Install Function"
+    },
+    {
+      "id": "beforeloadfunction",
+      "type": "text",
+      "label": "Before Load Function"
+    },
+    {
+      "id": "beforesubmitfunction",
+      "type": "text",
+      "label": "Before Submit Function"
+    },
+    {
+      "id": "beforeuninstallfunction",
+      "type": "text",
+      "label": "Before Uninstall Function"
+    },
+    {
+      "id": "beforeupdatefunction",
+      "type": "text",
+      "label": "Before Update Function"
+    },
+    {
+      "id": "defaultfunction",
+      "type": "text",
+      "label": "Default Function"
+    },
+    {
+      "id": "deletefunction",
+      "type": "text",
+      "label": "Delete Function"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Details"
+    },
+    {
+      "id": "fieldchangedfunction",
+      "type": "text",
+      "label": "Field Changed Function"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "getfunction",
+      "type": "text",
+      "label": "Get Function"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "lineinitfunction",
+      "type": "text",
+      "label": "Line Init Function"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "pageinitfunction",
+      "type": "text",
+      "label": "Page Init Function"
+    },
+    {
+      "id": "portlettype",
+      "type": "select",
+      "label": "Portlet Type"
+    },
+    {
+      "id": "postfunction",
+      "type": "text",
+      "label": "Post Function"
+    },
+    {
+      "id": "postsourcingfunction",
+      "type": "text",
+      "label": "Post Sourcing Function"
+    },
+    {
+      "id": "putfunction",
+      "type": "text",
+      "label": "Put Function"
+    },
+    {
+      "id": "recalcfunction",
+      "type": "text",
+      "label": "Recalc Function"
+    },
+    {
+      "id": "saverecordfunction",
+      "type": "text",
+      "label": "Save Record Function"
+    },
+    {
+      "id": "scriptfile",
+      "type": "select",
+      "label": "Script File"
+    },
+    {
+      "id": "scriptid",
+      "type": "text",
+      "label": "Script ID"
+    },
+    {
+      "id": "scripttype",
+      "type": "select",
+      "label": "Script Type"
+    },
+    {
+      "id": "validatedeletefunction",
+      "type": "text",
+      "label": "Validate Delete Function"
+    },
+    {
+      "id": "validatefieldfunction",
+      "type": "text",
+      "label": "Validate Field Function"
+    },
+    {
+      "id": "validateinsertfunction",
+      "type": "text",
+      "label": "Validate Insert Function"
+    },
+    {
+      "id": "validatelinefunction",
+      "type": "text",
+      "label": "Validate Line Function"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "afterinstallfunction",
+      "type": "text",
+      "label": "After Install Function"
+    },
+    {
+      "id": "aftersubmitfunction",
+      "type": "text",
+      "label": "After Submit Function"
+    },
+    {
+      "id": "afterupdatefunction",
+      "type": "text",
+      "label": "After Update Function"
+    },
+    {
+      "id": "beforeinstallfunction",
+      "type": "text",
+      "label": "Before Install Function"
+    },
+    {
+      "id": "beforeloadfunction",
+      "type": "text",
+      "label": "Before Load Function"
+    },
+    {
+      "id": "beforesubmitfunction",
+      "type": "text",
+      "label": "Before Submit Function"
+    },
+    {
+      "id": "beforeuninstallfunction",
+      "type": "text",
+      "label": "Before Uninstall Function"
+    },
+    {
+      "id": "beforeupdatefunction",
+      "type": "text",
+      "label": "Before Update Function"
+    },
+    {
+      "id": "defaultfunction",
+      "type": "text",
+      "label": "Default Function"
+    },
+    {
+      "id": "deletefunction",
+      "type": "text",
+      "label": "DELETE Function"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "fieldchangedfunction",
+      "type": "text",
+      "label": "Field Changed Function"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "getfunction",
+      "type": "text",
+      "label": "GET Function"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "lineinitfunction",
+      "type": "text",
+      "label": "Line Init Function"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "owner",
+      "type": "select",
+      "label": "Owner"
+    },
+    {
+      "id": "pageinitfunction",
+      "type": "text",
+      "label": "Page Init Function"
+    },
+    {
+      "id": "postfunction",
+      "type": "text",
+      "label": "POST Function"
+    },
+    {
+      "id": "postsourcingfunction",
+      "type": "text",
+      "label": "Post Sourcing Function"
+    },
+    {
+      "id": "putfunction",
+      "type": "text",
+      "label": "PUT Function"
+    },
+    {
+      "id": "recalcfunction",
+      "type": "text",
+      "label": "Recalc Function"
+    },
+    {
+      "id": "saverecordfunction",
+      "type": "text",
+      "label": "Save Record Function"
+    },
+    {
+      "id": "scriptfile",
+      "type": "select",
+      "label": "Script File"
+    },
+    {
+      "id": "scriptid",
+      "type": "text",
+      "label": "Script ID"
+    },
+    {
+      "id": "scripttype",
+      "type": "select",
+      "label": "Script Type"
+    },
+    {
+      "id": "validatedeletefunction",
+      "type": "text",
+      "label": "Validate Delete Function"
+    },
+    {
+      "id": "validatefieldfunction",
+      "type": "text",
+      "label": "Validate Field Function"
+    },
+    {
+      "id": "validateinsertfunction",
+      "type": "text",
+      "label": "Validate Insert Function"
+    },
+    {
+      "id": "validatelinefunction",
+      "type": "text",
+      "label": "Validate Line Function"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "errorhandling",
+      "label": "Unhandled Errors"
+    },
+    {
+      "name": "executionlog",
+      "label": "Execution Log"
+    },
+    {
+      "name": "historytab",
+      "label": "History"
+    },
+    {
+      "name": "scriptdeployments",
+      "label": "Deployments"
+    },
+    {
+      "name": "scripts",
+      "label": "Scripts"
+    },
+    {
+      "name": "tab_parameters",
+      "label": "Parameters"
+    }
+  ],
+  "transformTypes": []
+}

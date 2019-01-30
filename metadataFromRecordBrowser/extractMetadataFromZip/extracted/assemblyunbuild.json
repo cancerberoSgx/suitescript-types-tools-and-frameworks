@@ -1,0 +1,277 @@
+{
+  "label": "Assembly Unbuild",
+  "id": "assemblyunbuild",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "billofmaterials",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill of Materials",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billofmaterialsrevision",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill of Materials Revision",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "built",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Quantity Built",
+      "required": false,
+      "help": "This field shows the assembled quantity you currently have in stock of this item."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a class for this transaction.\n\nTo create a new class, select -New- or go to Lists > Classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inventorydetail",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "Inventory Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Assembly",
+      "required": true,
+      "help": "Select the assembly item you want to disassemble.\n\nYou must first create and build assembly item records before you can unbuild them.\n\nTo create an assembly item record, go to Lists > Items > New and click Assembly/Bill of Materials. To build assembly items, go to Transactions > Build Assemblies."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this transaction to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "quantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Quantity to Unbuild",
+      "required": true,
+      "help": "Enter the number of assembly items you want to disassemble.\n\nYou cannot enter a number higher than the Built number."
+    },
+    {
+      "id": "revision",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Revision",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revisionmemo",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Revision Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Projected Value",
+      "required": false,
+      "help": "NetSuite calculates the projected value of this transaction.\n\nThe projected value for the raw materials is the total value of the parts times the quantity being disassembled."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this transaction.\n\nYou can type or pick another date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Reference #",
+      "required": false,
+      "help": "Enter an optional reference number for this transaction.\n\nYou can use reference numbers to track transactions."
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Units",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "component",
+      "label": "Components",
+      "fields": [
+        {
+          "id": "componentinventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "quantityonhand",
+          "type": "float",
+          "label": "Quantity On Hand",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "unitcost",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "components",
+      "label": "Components"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

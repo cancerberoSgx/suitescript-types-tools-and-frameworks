@@ -1,0 +1,2647 @@
+{
+  "label": "Employee",
+  "id": "employee",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "aliennumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Alien Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "approvallimit",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Expense Approval Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "approver",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Expense Approver",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "authworkdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Authorized to work until",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingclass",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Billing Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billpay",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Enable Online Bill Pay",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "birthdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Birth Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "btemplate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Employee is Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Notes",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "commissionpaymentpreference",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Pay Commissions Using",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "directdeposit",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Direct Deposit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "eligibleforcommission",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Eligible for Commission",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "Email",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "empcenterqty",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "EmpCenter current",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "empcenterqtymax",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "EmpCenter max",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "employeestatus",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Employee Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "employeetype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Employee ID",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "ethnicity",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Ethnicity",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "expenselimit",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Expense Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Fax",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fulluserqty",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FullUser current",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fulluserqtymax",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FullUser max",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "gender",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Gender",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Give Access",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Global Subscription Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "hasofflineaccess",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Offline Client Access",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "hiredate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Hire Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Home Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "i9verified",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "I-9 Verified",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Image",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inheritiprules",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inherit IP Rules from Company",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "initials",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Initials",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ipaddressrule",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "IP Address Restriction",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "isempcenterqtyenforced",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "EmpCenter enforce",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isfulluserqtyenforced",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FullUser enforce",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isjobresource",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Project Resource",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isretailuserqtyenforced",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "RetailUser enforce",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "issalesrep",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Sales Rep",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "issupportrep",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Support Rep",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Job",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jobdescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Job Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdiction1display",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Federal:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdiction2display",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "State:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdiction3display",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "County:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdiction4display",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Local:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdiction5display",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "School District:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "laborcost",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Labor Cost",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastpaiddate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Last Paid Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastreviewdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Last Review Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "maritalstatus",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Marital Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Mobile Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nextreviewdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Next Review Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "officephone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Office Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "payfrequency",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Pay Frequency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Furigana",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchaseorderapprovallimit",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Purchase Approval Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchaseorderapprover",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Purchase Approver",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchaseorderlimit",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Purchase Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "releasedate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Termination Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requirepwdchange",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Require Password Change On Next Login",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "residentstatus",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Resident Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "retailuserqty",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "RetailUser current",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "retailuserqtymax",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "RetailUser max",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesrole",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Sales Role",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Mr./Ms...",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sendemail",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Send Notification Email",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "socialsecuritynumber",
+      "type": "ssnumber",
+      "nlapiSubmitField": true,
+      "label": "Social Security",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdatetimeoffcalc",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date for Time-Off Calculations",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "strength",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Password Strength",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "supervisor",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Supervisor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "terminationbydeath",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Termination Due To Death",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "timeapprover",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Time Approver",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "timeoffplan",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Time-off plan",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Job Title",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unsubscribe",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Unsubscribe from Campaigns",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "useperquest",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Include in Payroll",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "usetimedata",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Compensation Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "visaexpdate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Visa Expiration Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "visatype",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Visa Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wasempcenterhasaccess",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "EmpCenter hasaccess",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wasfulluserhasaccess",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FullUser hasaccess",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wasinactive",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "wasinactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "wasretailuserhasaccess",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "RetailUser hasaccess",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "workassignment",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Job",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "workcalendar",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Work Calendar",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "workplace",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Workplace",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accruedtime",
+      "label": "Accrued Time",
+      "fields": [
+        {
+          "id": "accrualmethod",
+          "type": "select",
+          "label": "Accrue As",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "accrualrate",
+          "type": "float",
+          "label": "Accrual Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "accruedhours",
+          "type": "float",
+          "label": "Accrued Hours",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "maximumaccruedhours",
+          "type": "float",
+          "label": "Maximum Hours",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "monetaryrate",
+          "type": "currency",
+          "label": "Monetary Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Sick/Vacation Time",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "resetaccruedhoursatyearend",
+          "type": "checkbox",
+          "label": "Reset at Year End",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "addressbook",
+      "label": "Address",
+      "fields": [
+        {
+          "id": "addressbookaddress",
+          "type": "summary",
+          "label": "Edit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addressid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addrtext",
+          "type": "address",
+          "label": "Address",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "attention",
+          "type": "text",
+          "label": "Attention",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "city",
+          "type": "text",
+          "label": "City",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "country",
+          "type": "select",
+          "label": "Country",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultbilling",
+          "type": "checkbox",
+          "label": "Home",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultshipping",
+          "type": "checkbox",
+          "label": "Default Shipping",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "displaystate",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Label",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "override",
+          "type": "checkbox",
+          "label": "Override",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "phone",
+          "type": "phone",
+          "label": "Phone",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "state",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "zip",
+          "type": "text",
+          "label": "Zip",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "companycontribution",
+      "label": "Company Contributions",
+      "fields": [
+        {
+          "id": "inactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "limit",
+          "type": "currency",
+          "label": "Limit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Company Contribution",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "deduction",
+      "label": "Deductions",
+      "fields": [
+        {
+          "id": "inactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "limit",
+          "type": "currency",
+          "label": "Limit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Deduction",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "directdeposit",
+      "label": "Accounts",
+      "fields": [
+        {
+          "id": "accountprenoted",
+          "type": "checkbox",
+          "label": "Prenoted",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "bankaccountnumber",
+          "type": "text",
+          "label": "Account Number",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "bankname",
+          "type": "text",
+          "label": "Bank Name",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "bankroutingnumber",
+          "type": "text",
+          "label": "Routing Number",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "netaccount",
+          "type": "checkbox",
+          "label": "Net Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "savingsaccount",
+          "type": "checkbox",
+          "label": "Savings Account",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "earning",
+      "label": "Earnings",
+      "fields": [
+        {
+          "id": "defaultearning",
+          "type": "checkbox",
+          "label": "Default",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaulthours",
+          "type": "float",
+          "label": "Default Hours",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "payrollitem",
+          "type": "select",
+          "label": "Earning",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "primaryearning",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "hcmposition",
+      "label": "Positions",
+      "fields": [
+        {
+          "id": "employmentcategory",
+          "type": "select",
+          "label": "Employment Category",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "fulltimeequivalent",
+          "type": "float",
+          "label": "Full Time Equivalent",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "position",
+          "type": "select",
+          "label": "Position",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "positionallocation",
+          "type": "float",
+          "label": "Allocated Position FTE",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "positionid",
+          "type": "text",
+          "label": "Position ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "primaryposition",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "reportsto",
+          "type": "select",
+          "label": "Reports To",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiary",
+          "type": "select",
+          "label": "Subsidiary",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "rates",
+      "label": "Rates",
+      "fields": [
+        {
+          "id": "entitycurrency",
+          "type": "select",
+          "label": "Currency",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "currency",
+          "label": "Hourly Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "phone",
+      "label": "Address Phone"
+    },
+    {
+      "id": "aliennumber",
+      "type": "text",
+      "label": "Alien Number"
+    },
+    {
+      "id": "allocation",
+      "type": "percent",
+      "label": "Allocation"
+    },
+    {
+      "id": "anniversary",
+      "type": "date",
+      "label": "Anniversary"
+    },
+    {
+      "id": "approvallimit",
+      "type": "currency",
+      "label": "Expense Approval Limit"
+    },
+    {
+      "id": "approver",
+      "type": "select",
+      "label": "Expense Approver"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "authworkdate",
+      "type": "date",
+      "label": "Authorized to work until date"
+    },
+    {
+      "id": "basewage",
+      "type": "currency",
+      "label": "Base Wage"
+    },
+    {
+      "id": "basewagetype",
+      "type": "select",
+      "label": "Base Wage Type"
+    },
+    {
+      "id": "billingclass",
+      "type": "select",
+      "label": "Billing Class"
+    },
+    {
+      "id": "birthdate",
+      "type": "date",
+      "label": "Birth Date"
+    },
+    {
+      "id": "birthday",
+      "type": "date",
+      "label": "Birthday"
+    },
+    {
+      "id": "ccontribution",
+      "type": "select",
+      "label": "Company Contribution"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "label": "Comments"
+    },
+    {
+      "id": "commissionplan",
+      "type": "select",
+      "label": "Commission Plan"
+    },
+    {
+      "id": "compensationcurrency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "concurrentwebservicesuser",
+      "type": "checkbox",
+      "label": "Concurrent Web Services User"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "deduction",
+      "type": "select",
+      "label": "Deduction"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "earning",
+      "type": "select",
+      "label": "Earning"
+    },
+    {
+      "id": "education",
+      "type": "select",
+      "label": "Education"
+    },
+    {
+      "id": "eligibleforcommission",
+      "type": "checkbox",
+      "label": "Eligible For Commission"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "employeestatus",
+      "type": "select",
+      "label": "Employee Status"
+    },
+    {
+      "id": "employeetype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "employeetypekpi",
+      "type": "checkbox",
+      "label": "Include in KPI"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name/ID"
+    },
+    {
+      "id": "ethnicity",
+      "type": "select",
+      "label": "Ethnicity"
+    },
+    {
+      "id": "expenselimit",
+      "type": "currency",
+      "label": "Expense Limit"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "gender",
+      "type": "checkbox",
+      "label": "Gender"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "group",
+      "type": "multiselect",
+      "label": "Group"
+    },
+    {
+      "id": "hiredate",
+      "type": "date",
+      "label": "Hire Date"
+    },
+    {
+      "id": "i9verified",
+      "type": "checkbox",
+      "label": "I9 Verified"
+    },
+    {
+      "id": "image",
+      "type": "image",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isjobresource",
+      "type": "checkbox",
+      "label": "Is Job Resource"
+    },
+    {
+      "id": "istemplate",
+      "type": "checkbox",
+      "label": "Is Template"
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "label": "Job"
+    },
+    {
+      "id": "jobdescription",
+      "type": "text",
+      "label": "Job Description"
+    },
+    {
+      "id": "laborcost",
+      "type": "currency",
+      "label": "Labor Cost"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "lastpaiddate",
+      "type": "date",
+      "label": "Last Paid Date"
+    },
+    {
+      "id": "lastreviewdate",
+      "type": "date",
+      "label": "Last Review Date"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "maritalstatus",
+      "type": "select",
+      "label": "Marital Status"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "nextreviewdate",
+      "type": "date",
+      "label": "Next Review Date"
+    },
+    {
+      "id": "offlineaccess",
+      "type": "checkbox",
+      "label": "Offline Access"
+    },
+    {
+      "id": "payfrequency",
+      "type": "select",
+      "label": "Pay Frequency"
+    },
+    {
+      "id": "permchangedate",
+      "type": "datetime",
+      "label": "Permission Change Date"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "permissionchange",
+      "type": "select",
+      "label": "Permission Change"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "positiontitle",
+      "type": "select",
+      "label": "Position Title"
+    },
+    {
+      "id": "primaryearningamount",
+      "type": "currency",
+      "label": "Primary Earning Amount"
+    },
+    {
+      "id": "primaryearningitem",
+      "type": "text",
+      "label": "Primary Earning Item"
+    },
+    {
+      "id": "primaryearningtype",
+      "type": "text",
+      "label": "Primary Earning Type"
+    },
+    {
+      "id": "purchaseorderapprovallimit",
+      "type": "currency",
+      "label": "Purchase Approval Limit"
+    },
+    {
+      "id": "purchaseorderapprover",
+      "type": "select",
+      "label": "Purchase Approver"
+    },
+    {
+      "id": "purchaseorderlimit",
+      "type": "currency",
+      "label": "Purchase Limit"
+    },
+    {
+      "id": "releasedate",
+      "type": "date",
+      "label": "Release Date"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "residentstatus",
+      "type": "select",
+      "label": "Resident Status"
+    },
+    {
+      "id": "role",
+      "type": "select",
+      "label": "Role"
+    },
+    {
+      "id": "rolechange",
+      "type": "select",
+      "label": "Role Change"
+    },
+    {
+      "id": "rolechangedate",
+      "type": "datetime",
+      "label": "Role Change Date"
+    },
+    {
+      "id": "salesrep",
+      "type": "checkbox",
+      "label": "Is Sales Rep"
+    },
+    {
+      "id": "salesrole",
+      "type": "select",
+      "label": "Sales Role"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "socialsecuritynumber",
+      "type": "ssnumber",
+      "label": "Social Security Number"
+    },
+    {
+      "id": "startdatetimeoffcalc",
+      "type": "date",
+      "label": "Start Date for Time-Off Calculations"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "supervisor",
+      "type": "select",
+      "label": "Supervisor"
+    },
+    {
+      "id": "supportrep",
+      "type": "checkbox",
+      "label": "Is Support Rep"
+    },
+    {
+      "id": "terminationcategory",
+      "type": "select",
+      "label": "Termination Category"
+    },
+    {
+      "id": "terminationdetails",
+      "type": "text",
+      "label": "Termination Details"
+    },
+    {
+      "id": "terminationreason",
+      "type": "select",
+      "label": "Termination Reason"
+    },
+    {
+      "id": "terminationregretted",
+      "type": "select",
+      "label": "Termination Regretted"
+    },
+    {
+      "id": "timeapprover",
+      "type": "select",
+      "label": "Time Approver"
+    },
+    {
+      "id": "timeoffplan",
+      "type": "select",
+      "label": "Time-Off Plan"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "useperquest",
+      "type": "checkbox",
+      "label": "Include In US Payroll"
+    },
+    {
+      "id": "usetimedata",
+      "type": "checkbox",
+      "label": "Use Time Data"
+    },
+    {
+      "id": "visaexpdate",
+      "type": "date",
+      "label": "Visa Expiration Date"
+    },
+    {
+      "id": "visatype",
+      "type": "select",
+      "label": "Visa Type"
+    },
+    {
+      "id": "withholding",
+      "type": "select",
+      "label": "Withholding"
+    },
+    {
+      "id": "workcalendar",
+      "type": "select",
+      "label": "Work Calendar"
+    },
+    {
+      "id": "workplace",
+      "type": "select",
+      "label": "Workplace"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addressinternalid",
+      "type": "integer",
+      "label": "Address Internal ID"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "aliennumber",
+      "type": "text",
+      "label": "Alien #"
+    },
+    {
+      "id": "allocation",
+      "type": "float",
+      "label": "Allocated Position FTE"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "label": "Alt. Email"
+    },
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "label": "Office Phone"
+    },
+    {
+      "id": "approvallimit",
+      "type": "currency",
+      "label": "Expense Approval Limit"
+    },
+    {
+      "id": "approver",
+      "type": "select",
+      "label": "Expense Approver"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "authworkdate",
+      "type": "date",
+      "label": "Authorized to work until date"
+    },
+    {
+      "id": "basewage",
+      "type": "currency",
+      "label": "Base Wage"
+    },
+    {
+      "id": "basewagetype",
+      "type": "select",
+      "label": "Base Wage Type"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billingclass",
+      "type": "select",
+      "label": "Billing Class"
+    },
+    {
+      "id": "billzipcode",
+      "type": "text",
+      "label": "Billing Zip"
+    },
+    {
+      "id": "birthdate",
+      "type": "date",
+      "label": "Birth Date"
+    },
+    {
+      "id": "birthday",
+      "type": "date",
+      "label": "Birth Day"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "label": "Class"
+    },
+    {
+      "id": "classnohierarchy",
+      "type": "select",
+      "label": "Class (no hierarchy)"
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "label": "Comments"
+    },
+    {
+      "id": "compensationcurrency",
+      "type": "select",
+      "label": "Compensation Currency"
+    },
+    {
+      "id": "concurrentwebservicesuser",
+      "type": "checkbox",
+      "label": "Concurrent Web Services User"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "label": "Department"
+    },
+    {
+      "id": "departmentnohierarchy",
+      "type": "select",
+      "label": "Department (no hierarchy)"
+    },
+    {
+      "id": "eligibleforcommission",
+      "type": "checkbox",
+      "label": "Eligible for Commission"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "employeestatus",
+      "type": "select",
+      "label": "Employee Status"
+    },
+    {
+      "id": "employeetype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "entitynumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "ethnicity",
+      "type": "select",
+      "label": "Ethnicity"
+    },
+    {
+      "id": "expenselimit",
+      "type": "currency",
+      "label": "Expense Limit"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "label": "Fax"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "gender",
+      "type": "select",
+      "label": "Gender"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "hiredate",
+      "type": "date",
+      "label": "Hire Date"
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "label": "Home Phone"
+    },
+    {
+      "id": "i9verified",
+      "type": "checkbox",
+      "label": "I9 Verified"
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "label": "Image"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isjobresource",
+      "type": "checkbox",
+      "label": "Job Resource"
+    },
+    {
+      "id": "issalesrep",
+      "type": "checkbox",
+      "label": "Sales Rep"
+    },
+    {
+      "id": "issupportrep",
+      "type": "checkbox",
+      "label": "Support Rep"
+    },
+    {
+      "id": "istemplate",
+      "type": "checkbox",
+      "label": "Is Template"
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "label": "Job"
+    },
+    {
+      "id": "laborcost",
+      "type": "currency",
+      "label": "Labor Cost"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "lastpaiddate",
+      "type": "date",
+      "label": "Last Paid Date"
+    },
+    {
+      "id": "lastreviewdate",
+      "type": "date",
+      "label": "Last Review"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "locationnohierarchy",
+      "type": "select",
+      "label": "Location (no hierarchy)"
+    },
+    {
+      "id": "maritalstatus",
+      "type": "select",
+      "label": "Marital Status"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "label": "Mobile Phone"
+    },
+    {
+      "id": "nextreviewdate",
+      "type": "date",
+      "label": "Next Review"
+    },
+    {
+      "id": "offlineaccess",
+      "type": "checkbox",
+      "label": "Offline Access"
+    },
+    {
+      "id": "payfrequency",
+      "type": "select",
+      "label": "Pay Frequency"
+    },
+    {
+      "id": "permchangedate",
+      "type": "datetime",
+      "label": "Permission Change Date"
+    },
+    {
+      "id": "permchangelevel",
+      "type": "text",
+      "label": "Permission Change Level"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "permissionchange",
+      "type": "text",
+      "label": "Permission Change"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "positiontitle",
+      "type": "text",
+      "label": "Position Title"
+    },
+    {
+      "id": "primaryearningamount",
+      "type": "currency",
+      "label": "Primary Earning Amount"
+    },
+    {
+      "id": "primaryearningitem",
+      "type": "text",
+      "label": "Primary Earning Item"
+    },
+    {
+      "id": "primaryearningtype",
+      "type": "text",
+      "label": "Primary Earning Type"
+    },
+    {
+      "id": "purchaseorderapprovallimit",
+      "type": "currency",
+      "label": "Purchase Approval Limit"
+    },
+    {
+      "id": "purchaseorderapprover",
+      "type": "select",
+      "label": "Purchase Approver"
+    },
+    {
+      "id": "purchaseorderlimit",
+      "type": "currency",
+      "label": "Purchase Limit"
+    },
+    {
+      "id": "releasedate",
+      "type": "date",
+      "label": "Release Date"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "residentstatus",
+      "type": "select",
+      "label": "Resident Status"
+    },
+    {
+      "id": "role",
+      "type": "select",
+      "label": "Role"
+    },
+    {
+      "id": "rolechange",
+      "type": "text",
+      "label": "Role Change"
+    },
+    {
+      "id": "rolechangeaction",
+      "type": "text",
+      "label": "Role Change Action"
+    },
+    {
+      "id": "rolechangedate",
+      "type": "datetime",
+      "label": "Role Change Date"
+    },
+    {
+      "id": "salesrole",
+      "type": "select",
+      "label": "Sales Role"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "socialsecuritynumber",
+      "type": "ssnumber",
+      "label": "Social Security #"
+    },
+    {
+      "id": "startdatetimeoffcalc",
+      "type": "date",
+      "label": "Start Date for Time-Off Calculations"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State/Province Display Name"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "datetime",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "supervisor",
+      "type": "select",
+      "label": "Supervisor"
+    },
+    {
+      "id": "terminationcategory",
+      "type": "select",
+      "label": "Termination Category"
+    },
+    {
+      "id": "terminationdetails",
+      "type": "text",
+      "label": "Termination Details"
+    },
+    {
+      "id": "terminationreason",
+      "type": "select",
+      "label": "Termination Reason"
+    },
+    {
+      "id": "terminationregretted",
+      "type": "select",
+      "label": "Termination Regretted"
+    },
+    {
+      "id": "timeapprover",
+      "type": "select",
+      "label": "Time Approver"
+    },
+    {
+      "id": "timeoffplan",
+      "type": "text",
+      "label": "Time-Off Plan"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "useperquest",
+      "type": "checkbox",
+      "label": "Include In US Payroll"
+    },
+    {
+      "id": "usetimedata",
+      "type": "checkbox",
+      "label": "Use Time Data"
+    },
+    {
+      "id": "visaexpdate",
+      "type": "date",
+      "label": "Visa Expiration Date"
+    },
+    {
+      "id": "visatype",
+      "type": "select",
+      "label": "Visa Type"
+    },
+    {
+      "id": "workcalendar",
+      "type": "select",
+      "label": "Work Calendar"
+    },
+    {
+      "id": "workplace",
+      "type": "select",
+      "label": "Workplace"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip Code"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "campaignresponse",
+      "description": "Campaign Response",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "department",
+      "description": "Department",
+      "actualName": "Department"
+    },
+    {
+      "id": "location",
+      "description": "Location",
+      "actualName": "Location"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesfrom",
+      "description": "Messages From",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesto",
+      "description": "Messages To",
+      "actualName": "Message"
+    },
+    {
+      "id": "subsidiary",
+      "description": "Subsidiary",
+      "actualName": "Subsidiary"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "access",
+      "label": "Access"
+    },
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "commission",
+      "label": "Commission"
+    },
+    {
+      "name": "curjurisdictions",
+      "label": "Current"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "dd",
+      "label": "ACH/Direct Deposit"
+    },
+    {
+      "name": "education",
+      "label": "Education"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },
+    {
+      "name": "hr",
+      "label": "Human Resources"
+    },
+    {
+      "name": "hrpersonal",
+      "label": "Personal"
+    },
+    {
+      "name": "hrworkstatus",
+      "label": "Work Status"
+    },
+    {
+      "name": "info",
+      "label": "Info"
+    },
+    {
+      "name": "jurisdictions",
+      "label": "Jurisdictions"
+    },
+    {
+      "name": "marketing",
+      "label": "Marketing"
+    },
+    {
+      "name": "payfed",
+      "label": "Federal Withholdings"
+    },
+    {
+      "name": "payroll",
+      "label": "Payroll"
+    },
+    {
+      "name": "support",
+      "label": "Support"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "expensereport",
+      "fieldDefaults": "customform"
+    },
+    {
+      "targetRecordType": "timebill",
+      "fieldDefaults": "customform"
+    }
+  ]
+}

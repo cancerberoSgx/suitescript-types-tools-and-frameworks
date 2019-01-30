@@ -1,0 +1,307 @@
+{
+  "label": "Tax Type",
+  "id": "taxtype",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "country",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Select the country that you are making this record for."
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description for this record."
+    },
+    {
+      "id": "doesnotaddtototal",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Does Not Add to Transaction Total",
+      "required": false,
+      "help": "Check this box for special tax types that do not impact the transaction total, such as withholding tax. Tax types with this property can be used on sales and purchase transactions.\n\nThis field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "This field is false by default. Check this box to inactivate this record. Inactive records do not show on transactions and records for selection in lists.\n\nOn nexus and tax type records, this field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter a name for this record.\n\nOn tax code records, this field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "posttoitemcost",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Post to Item Cost",
+      "required": false,
+      "help": "Check this box if the tax amounts for the tax type should be added to the related item cost. Tax types with this property can be used on purchase transactions only.\n\nThis field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "reversecharge",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Reverse Charge",
+      "required": false,
+      "help": "Check this box if reverse charge applies to transactions that have this tax type. Tax types with this property can be used on purchase transactions only.\n\nOn tax code records, this field is available only if the SuiteTax feature is disabled in your account.\n\nOn tax type records, this field is available only if the SuiteTax feature is enabled in your account."
+    },
+    {
+      "id": "taxinnetamount",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Included in Net Amount",
+      "required": false,
+      "help": "Check this box for special tax types where the tax amount is included in the item price. Tax types with this property can be used on sales and purchase transactions.\n \nThis field is available only if the SuiteTax feature is enabled in your account."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "nexusaccounts",
+      "label": "Tax",
+      "fields": [
+        {
+          "id": "nexus",
+          "type": "select",
+          "label": "Nexus",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "payablesaccount",
+          "type": "select",
+          "label": "Payables Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "receivablesaccount",
+          "type": "select",
+          "label": "Receivables Account",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "doesnotaddtototal",
+      "type": "checkbox",
+      "label": "Does Not Add to Transaction Total"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "label": "Nexus"
+    },
+    {
+      "id": "payablesaccount",
+      "type": "select",
+      "label": "Payables Account"
+    },
+    {
+      "id": "posttoitemcost",
+      "type": "checkbox",
+      "label": "Post to Item Cost"
+    },
+    {
+      "id": "receivablesaccount",
+      "type": "select",
+      "label": "Receivables Account"
+    },
+    {
+      "id": "reversecharge",
+      "type": "checkbox",
+      "label": "Reverse Charge"
+    },
+    {
+      "id": "taxinnetamount",
+      "type": "checkbox",
+      "label": "Tax Included in Net Amount"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "label": "Description"
+    },
+    {
+      "id": "doesnotaddtototal",
+      "type": "checkbox",
+      "label": "Does Not Add to Transaction Total"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "label": "Nexus"
+    },
+    {
+      "id": "payablesaccount",
+      "type": "select",
+      "label": "Payables Account"
+    },
+    {
+      "id": "posttoitemcost",
+      "type": "checkbox",
+      "label": "Post to Item Cost"
+    },
+    {
+      "id": "receivablesaccount",
+      "type": "select",
+      "label": "Receivables Account"
+    },
+    {
+      "id": "reversecharge",
+      "type": "checkbox",
+      "label": "Reverse Charge"
+    },
+    {
+      "id": "taxinnetamount",
+      "type": "checkbox",
+      "label": "Tax Included in Net Amount"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "accounts",
+      "label": "Accounts"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,211 @@
+{
+  "label": "Expense Category",
+  "id": "expensecategory",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "defaultrate",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Default Rate",
+      "required": false,
+      "help": "Enter a default rate to be used on expense reports for this category.\n\nThis rate can be overridden on individual line items."
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": "Enter a description of the expense category.\n\nIf you use the Google Checkout Integration feature, enter a description for the tracking URL. This field is optional."
+    },
+    {
+      "id": "expenseacct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Expense Account",
+      "required": true,
+      "help": "Select the expense account for items charged to this category."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box if you want to make this expense category inactive."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter the name of an expense category.\n\nIf you use the Google Checkout Integration feature, enter a name for the tracking URL.\n\nName the tracking URL for the tracking pixel vendor you use. If you use multiple vendors, you must create a conversion tracking URL record for each vendor."
+    },
+    {
+      "id": "raterequired",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Rate is Required",
+      "required": false,
+      "help": "Check this box to require a quantity and rate when this category is selected on expense reports.\n\nQuantity and rate fields are used to calculate the amount on line items with rate required expenses."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "cattrans",
+      "label": "Translation"
+    }
+  ],
+  "transformTypes": []
+}

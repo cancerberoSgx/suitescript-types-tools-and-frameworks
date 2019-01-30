@@ -1,0 +1,1758 @@
+{
+  "label": "Vendor",
+  "id": "vendor",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Account",
+      "required": false,
+      "help": "If your vendors assign account numbers to you, enter one here.\n\nThis number will later appear in these places:\n    * In the Vendor # field on purchase orders\n    * In the Memo field on checks"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "nlapiSubmitField": true,
+      "label": "Alt. Email",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Alt. Phone",
+      "required": false,
+      "help": "Enter an optional alternate phone number for this record.\n\nPhone numbers can be entered in the following formats:999-999-9999, 1-999-999-9999, (999) 999-9999, 1(999) 999-9999 or 999-999-9999 ext 9999 ."
+    },
+    {
+      "id": "autoname",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": "The vendor's current accounts payable balance due appears here."
+    },
+    {
+      "id": "balanceprimary",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "bcn",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Business Number",
+      "required": false,
+      "help": "Enter the 15-digit registration number that identifies this vendor as a client of the Canada Customs and Revenue Agency (CCRA)."
+    },
+    {
+      "id": "billpay",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Enable Online Bill Pay",
+      "required": false,
+      "help": "Check this box in order to send this vendor payments online.\n\nBefore you can use this feature, you must set up Online Bill Pay at <_TABNAME=ADMI_XML_PAYTRUST_SETUP_> > <_TASKCATEGORY=ADMI_XML_PAYTRUST_SETUP_> > Online Bill Pay."
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Category",
+      "required": false,
+      "help": "You can select the category that applies to this vendor.\n\nTo add choices to this list, go to <_TABNAME=LIST_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY=LIST_ACCOUNTINGOTHERLIST_> > Accounting Lists > New > Vendor Category.\n\nYou must select a Tax agency for sales tax agencies, payroll tax agencies and payroll benefits providers."
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Comments",
+      "required": false,
+      "help": "Enter any other information you wish to track for this vendor."
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Company Name",
+      "required": false,
+      "help": "In the Company name field, enter the supplier's legal name.\n\nIf you use Auto-Generated Numbering, you should enter the vendor name here to ensure that it appears along with the code in lists."
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Primary Contact",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditlimit",
+      "type": "poscurrency",
+      "nlapiSubmitField": true,
+      "label": "Credit Limit",
+      "required": false,
+      "help": "Enter an optional credit limit for your purchases from this vendor.\n\nIf you have a NetSuite OneWorld account, enter the global credit limit for this vendor and any assigned subsidiary. This value can exceed the sum of the vendor and subsidiary credit limits.\n\nThis credit limit sets a maximum currency amount that should be spent using credit without making a payment. The value displays in the vendor&#x2019;s primary currency.\n\nThe default is no value, or no credit limit.\n\nYou can place the vendor on hold by entering 0 (zero.) Any new purchase order or vendor bill transaction displays a warning message. You cannot enter a negative value.\n\nNetSuite validates the transaction amounts on purchase orders and vendor bills against the global credit limit specified in the Credit Limit field. NetSuite does not include individual subsidiary credit limits in the global credit limit validation."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Primary Currency",
+      "required": true,
+      "help": "Select the currency that this vendor uses.\n\nIf you use the Multi-Currency Vendors feature, select this vendor's primary currency. You can enter other transaction currencies on the Currencies subtab below.\n\nTo view existing currencies or add currencies to this list, go to <_TABNAME=LIST_CURRENCY_> > <_TASKCATEGORY=LIST_CURRENCY_> > Currencies."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Standard Vendor Form is selected here by default. Do not select another form if you want to continue using this form.\n\nIf you have already created a custom vendor form and want to use it, select that form here.\n\nTo create custom vendor forms, go to <_TABNAME=LIST_CUSTENTRYFORM_> > <_TASKCATEGORY=LIST_CUSTENTRYFORM_> > Entry Forms, and click Customize next to Standard Vendor Form."
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": "The date this record was created displays here."
+    },
+    {
+      "id": "defaultaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": "This field automatically shows the default billing address that you enter and add using the Address subtab."
+    },
+    {
+      "id": "defaultbankaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bank Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "nlapiSubmitField": false,
+      "label": "Email",
+      "required": false,
+      "help": "Enter the e-mail address of your vendor. If you allow your vendors online access, this becomes part of their access code."
+    },
+    {
+      "id": "emailpreference",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Email Preference",
+      "required": false,
+      "help": "Select the format for email that is sent to this person or company.\n\nSelect Default to use the preference set at Home > Set Preferences."
+    },
+    {
+      "id": "emailtransactions",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Email",
+      "required": false,
+      "help": "Set a preferred transaction delivery method for this vendor.\n \nChoose to send transactions by regular mail, by email, by fax, or by a combination of the three. Then, when you select the vendor on a transaction, their preferred delivery method is marked by default.\n    * Email &#x2013; Check this box to check the To Be Emailed box by default on transactions when this vendor is selected.\n    * Print &#x2013; Check this box to check the To Be Printed box by default on transactions when this vendor is selected.\n    * Fax &#x2013; Check this box to check the To Be Faxed box by default on transactions when this vendor is selected.\n\nOnce you enter these settings on the vendor record, these boxes are checked by default for transactions created from the vendor record or for transactions that are copied or converted.\n\nNote: These settings override any customized settings on transaction forms you use.\n\nThere are also preferences to set default values for new vendor records at <_TABNAME=ADMI_PRINTING_> > <_TASKCATEGORY=ADMI_PRINTING_> > Printing, Fax and Email Preferences. On the Print subtab, Fax subtab, or Email subtab, check Vendors Default to [Print/Fax/Email] Transactions.\n\nYou can also set these fields using the Mass Update function. Go to <_TABNAME=LIST_BULKOP_> > <_TASKCATEGORY=LIST_BULKOP_> > Mass Updates > General and click Vendor."
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Vendor ID",
+      "required": true,
+      "help": "In the Supplier ID field, enter your supplier's name as it should appear in all lists.\n\nIf you use Auto-Generated Numbering, this field fills with the vendor number or code."
+    },
+    {
+      "id": "expenseaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Expense Account",
+      "required": false,
+      "help": "Select the standard expense account for goods and services you purchase from this vendor. This account appears on any transaction involving this vendor. You can always change this account for any individual order or bill.\n\nSelect New to set up a new account.\n\nFor details on accounts, go to <_TABNAME=LIST_ACCOUNT_> > <_TASKCATEGORY=LIST_ACCOUNT_> > Chart of Accounts."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Fax",
+      "required": false,
+      "help": "Enter a fax number for this record. You should enter the fax number exactly as it must be dialed. If a '1' is required to fax to this number, be sure to include it at the beginning of the number.\n\nThe number you enter here automatically appears in the To Be Faxed field of transactions when you select this customer.\n\nTo fax NetSuite forms, an administrator must first set up fax service at <_TABNAME=ADMI_PRINTING_> > <_TASKCATEGORY=ADMI_PRINTING_> > Printing, Fax and Email Preferences."
+    },
+    {
+      "id": "faxtransactions",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Fax",
+      "required": false,
+      "help": "Set a preferred transaction delivery method for this vendor.\n \nChoose to send transactions by regular mail, by email, by fax, or by a combination of the three. Then, when you select the vendor on a transaction, their preferred delivery method is marked by default.\n    * Email &#x2013; Check this box to check the To Be Emailed box by default on transactions when this vendor is selected.\n    * Print &#x2013; Check this box to check the To Be Printed box by default on transactions when this vendor is selected.\n    * Fax &#x2013; Check this box to check the To Be Faxed box by default on transactions when this vendor is selected.\n\nOnce you enter these settings on the vendor record, these boxes are checked by default for transactions created from the vendor record or for transactions that are copied or converted.\n\nNote: These settings override any customized settings on transaction forms you use.\n\nThere are also preferences to set default values for new vendor records at <_TABNAME=ADMI_PRINTING_> > <_TASKCATEGORY=ADMI_PRINTING_> > Printing, Fax and Email Preferences. On the Print subtab, Fax subtab, or Email subtab, check Vendors Default to [Print/Fax/Email] Transactions.\n\nYou can also set these fields using the Mass Update function. Go to <_TABNAME=LIST_BULKOP_> > <_TASKCATEGORY=LIST_BULKOP_> > Mass Updates > General and click Vendor."
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": false,
+      "help": "Optionally enter a first name here."
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Give Access",
+      "required": false,
+      "help": "Check this box to give your vendor access to NetSuite. Then, assign a role to customize the level of access. You can assign multiple roles.\n\nTo let your vendor view prior transactions and purchase orders, select the Vendor Center role.\n\nYou must also assign a password and email address for the vendor to log in."
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Global Subscription Status",
+      "required": false,
+      "help": "Email recipients can have one of four subscription statuses:\n\n    * Confirmed Opt-In - When an email recipient has indicated that they want to receive your campaign messages, they are assigned this subscription status. Only a recipient can set his or her subscription status to Confirmed Opt-In.\n    * Soft Opt-In - Recipients with this status can receive opt-in messages that enable them to confirm whether or not they want to receive your email campaigns as well as email marketing campaigns.\n      You can set a recipient&#x2019;s status to Soft Opt-In manually or through a mass update.\n    * Soft Opt-Out - Recipients with this status cannot receive campaign email messages but can receive opt-in messages.\n      You can change this subscription status to Soft Opt-In manually or through a mass update.\n    * Confirmed Opt-Out - Only the recipient can set their subscription status to Confirmed Opt-Out.\n      Recipients with this status cannot receive email campaigns or opt-in messages. Recipients with this status can only opt in again through the Vendor Center or by clicking the link in a campaign message they have received prior to opting out."
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Home Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Image",
+      "required": false,
+      "help": "Select an image from your file cabinet to attach to this record.\n\nSelect -New- to upload a new image from your hard drive to your file cabinet in a new window."
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Incoterm",
+      "required": false,
+      "help": "Choose the standardized three-letter trade term to be used on transactions related to this vendor.\n\nThese terms are international commercial procurement practices that communicate the tasks, costs, and risks associated with the transportation and delivery of goods. Incoterms define where the customer takes ownership of the product and are typically used for international orders, such as when an item goes through customs or crosses a border."
+    },
+    {
+      "id": "is1099eligible",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "1099 Eligible",
+      "required": false,
+      "help": "If this vendor requires you to issue an annual 1099 income statement form, place a check mark in this box.\n\nVendors you pay $600 or more a year for goods and/or services are 1099 eligible.\n\nOnly vendors that use the U.S. dollar are 1099 eligible."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": "When you check this box, this vendor will no longer appear on a list unless you check the Show Inactives box at the bottom of the list page."
+    },
+    {
+      "id": "isjobresourcevend",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Project Resource",
+      "required": false,
+      "help": "Check this box to enable this vendor to be chosen as a resource on tasks and jobs. As a job resource, a vendor can be assigned to complete a task or to manage a project.\n \nClear this box if you do not want this vendor assigned as a job resource.\n\n\nNote: If you use NetSuite OneWorld, you cannot share a vendor with multiple subsidiaries and define the vendor as a resource on tasks and jobs."
+    },
+    {
+      "id": "isperson",
+      "type": "radio",
+      "nlapiSubmitField": true,
+      "label": "Company",
+      "required": false,
+      "help": "Next to Type, select to identify the supplier as a Company or Individual."
+    },
+    {
+      "id": "laborcost",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Labor Cost",
+      "required": false,
+      "help": "Enter the cost of labor for this vendor in order to be able to calculate profitability on jobs."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Optionally enter a last name here."
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Legal Name",
+      "required": false,
+      "help": "Enter the legal name for this vendor for financial purposes.\n\nIf you entered a name in the Company Name field, that name appears here."
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Mobile Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "openingbalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Opening Balance",
+      "required": false,
+      "help": "Enter the opening balance of your account with this vendor."
+    },
+    {
+      "id": "openingbalanceaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Opening Balance Account",
+      "required": false,
+      "help": "Select the account this opening balance is applied to."
+    },
+    {
+      "id": "openingbalancedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Opening Balance Date",
+      "required": false,
+      "help": "Enter the date of the balance entered in the Opening Balance field"
+    },
+    {
+      "id": "otherrelationships",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Other Relationships",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parent",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Parent",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "payablesaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Payables Account",
+      "required": false,
+      "help": "Choose the default payable account for this vendor record."
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "nlapiSubmitField": true,
+      "label": "Phone",
+      "required": false,
+      "help": "Enter a phone number for your vendor. It will appear on the Vendor List report.\n\nThis field is required for the Online Bill Pay feature."
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Furigana",
+      "required": false,
+      "help": "Enter the furigana character you want to use to sort this record."
+    },
+    {
+      "id": "printoncheckas",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Print on Check As",
+      "required": false,
+      "help": "What you enter here prints on the Pay to the Order of line of a check instead of what you entered in the Vendor field."
+    },
+    {
+      "id": "printtransactions",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Print",
+      "required": false,
+      "help": "Set a preferred transaction delivery method for this vendor.\n \nChoose to send transactions by regular mail, by email, by fax, or by a combination of the three. Then, when you select the vendor on a transaction, their preferred delivery method is marked by default.\n    * Email &#x2013; Check this box to check the To Be Emailed box by default on transactions when this vendor is selected.\n    * Print &#x2013; Check this box to check the To Be Printed box by default on transactions when this vendor is selected.\n    * Fax &#x2013; Check this box to check the To Be Faxed box by default on transactions when this vendor is selected.\n\nOnce you enter these settings on the vendor record, these boxes are checked by default for transactions created from the vendor record or for transactions that are copied or converted.\n\nNote: These settings override any customized settings on transaction forms you use.\n\nThere are also preferences to set default values for new vendor records at <_TABNAME=ADMI_PRINTING_> > <_TASKCATEGORY=ADMI_PRINTING_> > Printing, Fax and Email Preferences. On the Print subtab, Fax subtab, or Email subtab, check Vendors Default to [Print/Fax/Email] Transactions.\n\nYou can also set these fields using the Mass Update function. Go to <_TABNAME=LIST_BULKOP_> > <_TASKCATEGORY=LIST_BULKOP_> > Mass Updates > General and click Vendor."
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Amount Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the amount on the vendor bill and purchase order."
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the quantity on the vendor bill and purchase order"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Quantity Difference",
+      "required": false,
+      "help": "Enter the difference limit for the discrepancy between the quantity on the vendor bill and purchase order."
+    },
+    {
+      "id": "receiptamount",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Amount Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the amount on the vendor bill and item receipt."
+    },
+    {
+      "id": "receiptquantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance",
+      "required": false,
+      "help": "Enter the tolerance limit for the discrepancy between the quantity on the vendor bill and item receipt."
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Quantity Difference",
+      "required": false,
+      "help": "Enter the difference limit for the discrepancy between the quantity on the vendor bill and item receipt."
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Represents Subsidiary",
+      "required": false,
+      "help": "Indicates that this entity is an intercompany vendor. Select the subsidiary this vendor represents as the seller in intercompany transactions."
+    },
+    {
+      "id": "requirepwdchange",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Require Password Change On Next Login",
+      "required": false,
+      "help": "Check this box to require this user to change their password on their next login to NetSuite.\n\nWhen the user next logs in, they see the Change Password page and cannot access other NetSuite pages until a new password is created and saved.\n\nRequiring this action protects your account from unauthorized access using generic passwords and prepares your account for an audit.\n\nNote that the Require Password Change on Next Login box never displays as checked. When you check this box and save the record, an internal flag is set. When the password change occurs, the flag is cleared. If you later check the box again and resave the record, the internal flag is reset to require another password change."
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Mr./Ms...",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sendemail",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Send Notification Email",
+      "required": false,
+      "help": "Check this box if you want to send email notifying the vendor that you have given limited access to your NetSuite account.\n\nIf you do not check this box, you need to tell the vendor when you have given access and how to log in.\n\nFor security reasons, the email notification does not disclose the password. You will need to contact the vendor with this information."
+    },
+    {
+      "id": "strength",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Password Strength",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "Select the subsidiary to associate with this vendor. If you use NetSuite OneWorld, select the primary subsidiary to assign to this vendor.\n\nYou cannot enter transactions for this vendor unless a subsidiary, or primary subsidiary is assigned.\n\nThe default primary currency for the vendor is the base currency of the primary subsidiary.\n\nIf you select this vendor on a transaction, the transaction is associated with this subsidiary. The vendor is able to access only information associated with this subsidiary.\n \nNote: After a transaction has posted for the vendor, you are not able to change the subsidiary selected on the vendor record. If you have NetSuite OneWorld, after you save the vendor record, you cannot change the primary subsidiary."
+    },
+    {
+      "id": "subsidiaryedition",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Edition",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxfractionunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Rounding Precision",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Tax ID",
+      "required": false,
+      "help": "Enter your vendor's tax ID number (SSN for an individual). This is necessary if you are required to issue a 1099 form."
+    },
+    {
+      "id": "taxitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Code",
+      "required": false,
+      "help": "Select the default tax code you want applied to purchase orders and bills for this vendor.\n\nYou can change the tax code on individual transactions."
+    },
+    {
+      "id": "taxrounding",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Rounding Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "tegatamaturity",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Tegata Maturity Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Terms",
+      "required": false,
+      "help": "Select the standard discount terms for this vendor's invoices. You can always change terms for an individual order or bill, however.\n\nTo add choices to this list, go to <_TABNAME=LIST_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY=LIST_ACCOUNTINGOTHERLIST_> > Accounting Lists > New > Term."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Job Title",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Unbilled Orders",
+      "required": false,
+      "help": "This field displays the total amount of orders that have been entered but not yet billed.\n \nIf you have enabled the preference Vendor Credit Limit Includes Orders, then this total is included in credit limit calculations.\n \nSet this preference at <TABNAME=ADMI_ACCTSETUP_> > <_TASKCATEGORY=ADMI_ACCTSETUP_> > Accounting Preferences > General."
+    },
+    {
+      "id": "unbilledordersprimary",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Unbilled Orders",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unsubscribe",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Unsubscribe from Campaigns",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "nlapiSubmitField": true,
+      "label": "Web Address",
+      "required": false,
+      "help": "Enter a URL for this vendor's Web address.\n\nWhen you return to this record for viewing, this address is a link."
+    },
+    {
+      "id": "vatregnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": "Enter this vendor's VAT tax registration number."
+    },
+    {
+      "id": "workcalendar",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Work Calendar",
+      "required": true,
+      "help": "Select the work calendar for this vendor."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "addressbook",
+      "label": "Address Book",
+      "fields": [
+        {
+          "id": "addressbookaddress",
+          "type": "summary",
+          "label": "Edit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addressid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "addrtext",
+          "type": "address",
+          "label": "Address",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "attention",
+          "type": "text",
+          "label": "Attention",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "city",
+          "type": "text",
+          "label": "City",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "country",
+          "type": "select",
+          "label": "Country",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultbilling",
+          "type": "checkbox",
+          "label": "Default Billing",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "defaultshipping",
+          "type": "checkbox",
+          "label": "Default Shipping",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "displaystate",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "label",
+          "type": "text",
+          "label": "Label",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "override",
+          "type": "checkbox",
+          "label": "Override",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "phone",
+          "type": "phone",
+          "label": "Phone",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "state",
+          "type": "text",
+          "label": "State/Province",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "zip",
+          "type": "text",
+          "label": "Zip",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "currency",
+      "label": "Currencies",
+      "fields": [
+        {
+          "id": "balance",
+          "type": "currency",
+          "label": "Balance",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Currency",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "unbilledorders",
+          "type": "currency",
+          "label": "Unbilled Orders",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "phone",
+      "label": "Address Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "label": "Balance"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "textarea",
+      "label": "Comments"
+    },
+    {
+      "id": "contact",
+      "type": "text",
+      "label": "Contact"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "creditlimit",
+      "type": "currency",
+      "label": "Credit Limit"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "currentexchangerate",
+      "type": "currency",
+      "label": "Current Currency Exchange Rate"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "eligibleforcommission",
+      "type": "checkbox",
+      "label": "Eligible For Commission"
+    },
+    {
+      "id": "email",
+      "type": "text",
+      "label": "Email"
+    },
+    {
+      "id": "emailpreference",
+      "type": "select",
+      "label": "Email Preference"
+    },
+    {
+      "id": "emailtransactions",
+      "type": "checkbox",
+      "label": "Email Transactions"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name/ID"
+    },
+    {
+      "id": "expenseaccount",
+      "type": "select",
+      "label": "Default Expense Account"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "faxtransactions",
+      "type": "checkbox",
+      "label": "Fax Transactions"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "fxbalance",
+      "type": "currency",
+      "label": "Balance (Foreign Currency)"
+    },
+    {
+      "id": "fxunbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders (Foreign Currency)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "group",
+      "type": "multiselect",
+      "label": "Group"
+    },
+    {
+      "id": "hasduplicates",
+      "type": "checkbox",
+      "label": "Duplicate"
+    },
+    {
+      "id": "image",
+      "type": "image",
+      "label": "Image"
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "label": "Incoterm"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "is1099eligible",
+      "type": "checkbox",
+      "label": "1099 Eligible"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isjobresourcevend",
+      "type": "checkbox",
+      "label": "Is Job Resource"
+    },
+    {
+      "id": "isperson",
+      "type": "checkbox",
+      "label": "Is Individual"
+    },
+    {
+      "id": "laborcost",
+      "type": "currency",
+      "label": "Labor Cost"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "otherrelationships",
+      "type": "multiselect",
+      "label": "Other Relationships"
+    },
+    {
+      "id": "payablesaccount",
+      "type": "select",
+      "label": "Default Payables Account"
+    },
+    {
+      "id": "pec",
+      "type": "text",
+      "label": "PEC"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "printtransactions",
+      "type": "checkbox",
+      "label": "Print Transactions"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "label": "Tax ID"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Entity Type"
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Web Address"
+    },
+    {
+      "id": "vatregnumber",
+      "type": "text",
+      "label": "Tax Number"
+    },
+    {
+      "id": "workcalendar",
+      "type": "select",
+      "label": "Work Calendar"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountnumber",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "address",
+      "type": "text",
+      "label": "Address"
+    },
+    {
+      "id": "addressee",
+      "type": "text",
+      "label": "Addressee"
+    },
+    {
+      "id": "addressinternalid",
+      "type": "text",
+      "label": "Address Internal ID"
+    },
+    {
+      "id": "addresslabel",
+      "type": "text",
+      "label": "Address Label"
+    },
+    {
+      "id": "addressphone",
+      "type": "text",
+      "label": "Address Phone"
+    },
+    {
+      "id": "altcontact",
+      "type": "text",
+      "label": "Alt. Contact"
+    },
+    {
+      "id": "altemail",
+      "type": "email",
+      "label": "Alt. Email"
+    },
+    {
+      "id": "altname",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "altphone",
+      "type": "phone",
+      "label": "Office Phone"
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "label": "Attention"
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "label": "Balance"
+    },
+    {
+      "id": "billcountrycode",
+      "type": "text",
+      "label": "Billing Country Code"
+    },
+    {
+      "id": "billzipcode",
+      "type": "text",
+      "label": "Billing Zip"
+    },
+    {
+      "id": "category",
+      "type": "select",
+      "label": "Category"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "comments",
+      "type": "text",
+      "label": "Comments"
+    },
+    {
+      "id": "companyname",
+      "type": "text",
+      "label": "Company Name"
+    },
+    {
+      "id": "contact",
+      "type": "select",
+      "label": "Primary Contact"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "countrycode",
+      "type": "text",
+      "label": "Country Code"
+    },
+    {
+      "id": "creditlimit",
+      "type": "currency",
+      "label": "Credit Limit"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "currentexchangerate",
+      "type": "float",
+      "label": "Current Currency Exchange Rate"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "eligibleforcommission",
+      "type": "checkbox",
+      "label": "Eligible for Commission"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "emailpreference",
+      "type": "select",
+      "label": "Email Preference"
+    },
+    {
+      "id": "emailtransactions",
+      "type": "checkbox",
+      "label": "Email Transactions"
+    },
+    {
+      "id": "entityid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "entitynumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "expenseaccount",
+      "type": "select",
+      "label": "Default Expense Account"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "text",
+      "label": "Fax"
+    },
+    {
+      "id": "faxtransactions",
+      "type": "checkbox",
+      "label": "Fax Transactions"
+    },
+    {
+      "id": "firstname",
+      "type": "text",
+      "label": "First Name"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "fxbalance",
+      "type": "currency",
+      "label": "Balance (Foreign Currency)"
+    },
+    {
+      "id": "fxunbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders (Foreign Currency)"
+    },
+    {
+      "id": "giveaccess",
+      "type": "checkbox",
+      "label": "Login Access"
+    },
+    {
+      "id": "globalsubscriptionstatus",
+      "type": "select",
+      "label": "Global Subscription Status"
+    },
+    {
+      "id": "hasduplicates",
+      "type": "checkbox",
+      "label": "Duplicate"
+    },
+    {
+      "id": "homephone",
+      "type": "phone",
+      "label": "Home Phone"
+    },
+    {
+      "id": "image",
+      "type": "select",
+      "label": "Image"
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "label": "Incoterm"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "is1099eligible",
+      "type": "checkbox",
+      "label": "1099 Eligible"
+    },
+    {
+      "id": "isdefaultbilling",
+      "type": "checkbox",
+      "label": "Default Billing Address"
+    },
+    {
+      "id": "isdefaultshipping",
+      "type": "checkbox",
+      "label": "Default Shipping Address"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isjobresourcevend",
+      "type": "checkbox",
+      "label": "Job Resource"
+    },
+    {
+      "id": "isperson",
+      "type": "checkbox",
+      "label": "Is Individual"
+    },
+    {
+      "id": "laborcost",
+      "type": "currency",
+      "label": "Labor Cost"
+    },
+    {
+      "id": "language",
+      "type": "select",
+      "label": "Language"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Modified"
+    },
+    {
+      "id": "lastname",
+      "type": "text",
+      "label": "Last Name"
+    },
+    {
+      "id": "lastviewed",
+      "type": "datetime",
+      "label": "Last Viewed"
+    },
+    {
+      "id": "level",
+      "type": "select",
+      "label": "Level"
+    },
+    {
+      "id": "middlename",
+      "type": "text",
+      "label": "Middle Name"
+    },
+    {
+      "id": "mobilephone",
+      "type": "phone",
+      "label": "Mobile Phone"
+    },
+    {
+      "id": "payablesaccount",
+      "type": "select",
+      "label": "Default Payables Account"
+    },
+    {
+      "id": "pec",
+      "type": "text",
+      "label": "PEC"
+    },
+    {
+      "id": "permission",
+      "type": "select",
+      "label": "Permission"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "phoneticname",
+      "type": "text",
+      "label": "Phonetic Name"
+    },
+    {
+      "id": "printoncheckas",
+      "type": "text",
+      "label": "Print As"
+    },
+    {
+      "id": "printtransactions",
+      "type": "checkbox",
+      "label": "Print Transactions"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "representingsubsidiary",
+      "type": "select",
+      "label": "Represents Subsidiary"
+    },
+    {
+      "id": "salutation",
+      "type": "text",
+      "label": "Mr./Mrs..."
+    },
+    {
+      "id": "shipcountrycode",
+      "type": "text",
+      "label": "Shipping Country Code"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "statedisplayname",
+      "type": "select",
+      "label": "State/Province Display Name"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptiondate",
+      "type": "datetime",
+      "label": "Subscription Date"
+    },
+    {
+      "id": "subscriptionstatus",
+      "type": "checkbox",
+      "label": "Subscription Status"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "subsidiarynohierarchy",
+      "type": "select",
+      "label": "Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "label": "Tax ID"
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "label": "Terms"
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Job Title"
+    },
+    {
+      "id": "type",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "label": "Unbilled Orders"
+    },
+    {
+      "id": "url",
+      "type": "text",
+      "label": "Web Address"
+    },
+    {
+      "id": "vatregnumber",
+      "type": "text",
+      "label": "Tax Number"
+    },
+    {
+      "id": "workcalendar",
+      "type": "select",
+      "label": "Work Calendar"
+    },
+    {
+      "id": "zipcode",
+      "type": "text",
+      "label": "Zip Code"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "account",
+      "description": "Payable Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "campaignresponse",
+      "description": "Campaign Response",
+      "actualName": "Campaign"
+    },
+    {
+      "id": "contact",
+      "description": "Contact",
+      "actualName": "Contact"
+    },
+    {
+      "id": "contactprimary",
+      "description": "Contact (Primary)",
+      "actualName": "Contact"
+    },
+    {
+      "id": "expaccount",
+      "description": "Expense Account",
+      "actualName": "Account"
+    },
+    {
+      "id": "messages",
+      "description": "Messages",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesfrom",
+      "description": "Messages From",
+      "actualName": "Message"
+    },
+    {
+      "id": "messagesto",
+      "description": "Messages To",
+      "actualName": "Message"
+    },
+    {
+      "id": "msesubsidiary",
+      "description": "Subsidiary",
+      "actualName": "Subsidiary"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "access",
+      "label": "Access"
+    },
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "commission",
+      "label": "Commission"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "financial",
+      "label": "Financial"
+    },
+    {
+      "name": "general",
+      "label": "General"
+    },
+    {
+      "name": "info",
+      "label": "Info"
+    },
+    {
+      "name": "marketing",
+      "label": "Marketing"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "purchaseorder",
+      "fieldDefaults": "customform"
+    },
+    {
+      "targetRecordType": "vendorbill",
+      "fieldDefaults": "customform,entity,poids"
+    },
+    {
+      "targetRecordType": "vendorpayment",
+      "fieldDefaults": "customform"
+    }
+  ]
+}

@@ -1,0 +1,365 @@
+{
+  "label": "Amortization Template",
+  "id": "amortizationtemplate",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "acctcontra",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Contra Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "acctdeferral",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Deferral Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "accttarget",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Target Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "amortizationperiod",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Amortization Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "amortizationtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialamount",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Initial Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Period Offset",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "recogintervalsrc",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Term Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurrencetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "residual",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Residual",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revrecoffset",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Start Offset",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "totalamount",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "recurrence",
+      "label": "Custom Recurrence Pattern",
+      "fields": [
+        {
+          "id": "defrevaccount",
+          "type": "select",
+          "label": "Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "incomeaccount",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "periodoffset",
+          "type": "integer",
+          "label": "Period Offset",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "postingperiod",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "recamount",
+          "type": "rate",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "amormethod",
+      "type": "select",
+      "label": "Method"
+    },
+    {
+      "id": "amorperiod",
+      "type": "integer",
+      "label": "Amortization Period"
+    },
+    {
+      "id": "amorstartoffset",
+      "type": "integer",
+      "label": "Start Offset"
+    },
+    {
+      "id": "amortermsrc",
+      "type": "select",
+      "label": "Term Source"
+    },
+    {
+      "id": "amortype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "contraaccount",
+      "type": "select",
+      "label": "Contra Account"
+    },
+    {
+      "id": "deferralaccount",
+      "type": "select",
+      "label": "Deferral Account"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "select",
+      "label": "Name"
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "label": "Period Offset"
+    },
+    {
+      "id": "targetaccount",
+      "type": "select",
+      "label": "Target Account"
+    },
+    {
+      "id": "useforeignamounts",
+      "type": "checkbox",
+      "label": "Use Transaction Currency"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "amormethod",
+      "type": "text",
+      "label": "Method"
+    },
+    {
+      "id": "amorperiod",
+      "type": "text",
+      "label": "Amortization Period"
+    },
+    {
+      "id": "amorstartoffset",
+      "type": "text",
+      "label": "Start Offset"
+    },
+    {
+      "id": "amortermsrc",
+      "type": "text",
+      "label": "Term Source"
+    },
+    {
+      "id": "amortype",
+      "type": "text",
+      "label": "Type"
+    },
+    {
+      "id": "contraaccount",
+      "type": "text",
+      "label": "Contra Account"
+    },
+    {
+      "id": "deferralaccount",
+      "type": "text",
+      "label": "Deferral Account"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "text",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "periodoffset",
+      "type": "text",
+      "label": "Period Offset"
+    },
+    {
+      "id": "targetaccount",
+      "type": "text",
+      "label": "Target Account"
+    },
+    {
+      "id": "useforeignamounts",
+      "type": "checkbox",
+      "label": "Use Transaction Currency"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

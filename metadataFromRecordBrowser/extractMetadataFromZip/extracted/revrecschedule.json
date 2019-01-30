@@ -1,0 +1,461 @@
+{
+  "label": "Revenue Recognition Schedule",
+  "id": "revrecschedule",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "amortizationperiod",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Recognition Period",
+      "required": false,
+      "help": "This field sets the number of periods over which the schedule will amortize. For example, if you enter 12, then the schedule runs for 12 periods starting from the Rev Rec Start Date. \n \nIf both the Rev Rec Start Date and Rev Rec End Date are entered, then those dates override the recognition period set on the template. \n \nNote: If either the Rev Rec Start Date or Rev Rec End Date field is empty, NetSuite populates either date based on the recognition period."
+    },
+    {
+      "id": "amortizationtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Type",
+      "required": false,
+      "help": "Select the kind of template you are creating:\n\n    * Standard &#x2013; Select this type if you are able to enter a Method and Term Source for the template.\n    * Variable &#x2013; Select this type to use this template for percent-complete recognition.\n\nVariable templates are selected on item records and amortization amounts are determined by job completion amounts.\n\nNote: If you select Variable, you cannot set the following template fields: Recognition Method, Recognition Term Source, Recognition Period, Period Offset and Start Offset."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialamount",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Initial Amount",
+      "required": false,
+      "help": "Enter a percentage or amount to be recognized in the first recognition period. The remaining amount is then recognized according to the set amortization method."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": "Check this box if you no longer want to use this template or schedule."
+    },
+    {
+      "id": "ispublic",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Public",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter a name for this template or schedule."
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Period Offset",
+      "required": true,
+      "help": "Specify the number of periods to postpone the start of recognition for the entire schedule.\n \nFor example, if your amortization terms are based on 30-day periods, enter a 2 in this field to wait 60 days before you begin recognizing revenue.\n \nThis can be useful for services you sell that have a probationary or trial period.\n \nSetting a period offset does not change the number of periods in the schedule."
+    },
+    {
+      "id": "recogintervalsrc",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Term Source",
+      "required": false,
+      "help": "The Recognition Term Source controls how the recognition period is determined.\n\nSelect from the following:\n\n    * Rev Rec Dates Specified on Transaction &#x2013; sources the invoice or cash sale\n      The revenue recognition period is determined by Rev Rec start and end dates entered on the invoice or cash sale.\n    * Rev Rec Dates Specified on Sales Order &#x2013; sources the sales order\n      The revenue recognition period is determined by Rev Rec start and end dates entered on the sales order.\n      Note: This choice appears only when you use the Sales Order feature.\n    * Billing Schedule, Transaction Date on Sales Order &#x2013; sources the transaction date of the sales order\n      This term source creates a schedule to recognize revenue based on the sales order transaction date. NetSuite dates subsequent invoices based on the assigned billing schedule.\n    * Billing Schedule, Rev Rec Date on Sales Order - sources the Rev Rec dates from the sales order. This term source creates a schedule to recognize revenue based on the sales order revenue recognition dates, not the transaction dates."
+    },
+    {
+      "id": "recurrencetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Method",
+      "required": false,
+      "help": "Set the terms to post income from the net sales amount:\n\n   1. Straight-line, by even periods &#x2013; Amortizes income evenly for each period. Currency amounts are not prorated based on the number of days in any period.\n   2. Straight-line, prorate first & last period &#x2013; Amortizes equal amounts for periods other than the first and the final period, regardless of the number of days in each period. Amounts are prorated for the first period and the final period based on the number of days in each period.\n   3. Straight-line, using exact days &#x2013; Amortizes amounts individually for each period based on the number of days in each period.\n   4. Straight-line, prorate first & last period (period-rate) &#x2013; Determines the full number of periods in the schedule and allocates revenue based on the proportional period amount.\n   5. Custom &#x2013; Enables you to define amortization terms that can include uneven periods, amounts and multiple income accounts.</"
+    },
+    {
+      "id": "revrecoffset",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Start Offset",
+      "required": true,
+      "help": "Specify the number of periods to postpone the start of the recognition for a schedule.\n \nSetting a period offset changes the number of periods in the schedule because it postpones the beginning, but does not change the final period of the schedule."
+    },
+    {
+      "id": "totalamount",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "recurrence",
+      "label": "Custom Recurrence Pattern",
+      "fields": [
+        {
+          "id": "incomeaccount",
+          "type": "select",
+          "label": "Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "periodoffset",
+          "type": "integer",
+          "label": "Period Offset",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "postingperiod",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "recamount",
+          "type": "rate",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "amorstatus",
+      "type": "select",
+      "label": "Status"
+    },
+    {
+      "id": "amortizedamount",
+      "type": "currency",
+      "label": "Total Recognized"
+    },
+    {
+      "id": "amortype",
+      "type": "select",
+      "label": "Type"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Schedule Currency"
+    },
+    {
+      "id": "deferredamount",
+      "type": "currency",
+      "label": "Remaining Deferred Balance"
+    },
+    {
+      "id": "destacct",
+      "type": "select",
+      "label": "Destination Account"
+    },
+    {
+      "id": "initialamt",
+      "type": "currency",
+      "label": "Initial Amount"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isrecognized",
+      "type": "checkbox",
+      "label": "Is Recognized?"
+    },
+    {
+      "id": "jedoc",
+      "type": "select",
+      "label": "Journal"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Schedule Name"
+    },
+    {
+      "id": "pctcomplete",
+      "type": "float",
+      "label": "% Complete"
+    },
+    {
+      "id": "pctrecognition",
+      "type": "float",
+      "label": "% Recog."
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "label": "Period Offset"
+    },
+    {
+      "id": "postperiod",
+      "type": "select",
+      "label": "Posting Period"
+    },
+    {
+      "id": "scheddate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "schedulenumber",
+      "type": "integer",
+      "label": "Number"
+    },
+    {
+      "id": "schedulenumbertext",
+      "type": "text",
+      "label": "Number/ID"
+    },
+    {
+      "id": "sourceacct",
+      "type": "select",
+      "label": "Source Account"
+    },
+    {
+      "id": "srctranpostperiod",
+      "type": "select",
+      "label": "Source Transaction Posting Period"
+    },
+    {
+      "id": "srctrantype",
+      "type": "select",
+      "label": "Transaction Type"
+    },
+    {
+      "id": "startoffset",
+      "type": "integer",
+      "label": "Start Offset"
+    },
+    {
+      "id": "templatename",
+      "type": "text",
+      "label": "Template Name"
+    },
+    {
+      "id": "useforeignamounts",
+      "type": "checkbox",
+      "label": "Use Transaction Currency"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "amorstatus",
+      "type": "text",
+      "label": "Status"
+    },
+    {
+      "id": "amortemplate",
+      "type": "text",
+      "label": "Template Name"
+    },
+    {
+      "id": "amortizedamount",
+      "type": "currency",
+      "label": "Total Recognized"
+    },
+    {
+      "id": "amortype",
+      "type": "text",
+      "label": "Type"
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "label": "Amount (Schedule Total)"
+    },
+    {
+      "id": "currency",
+      "type": "text",
+      "label": "Schedule Currency"
+    },
+    {
+      "id": "deferredamount",
+      "type": "currency",
+      "label": "Remaining Deferred Balance"
+    },
+    {
+      "id": "destacct",
+      "type": "text",
+      "label": "Destination Account"
+    },
+    {
+      "id": "initialamt",
+      "type": "currency",
+      "label": "Initial Amount"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isrecognized",
+      "type": "checkbox",
+      "label": "Is Recognized?"
+    },
+    {
+      "id": "jedoc",
+      "type": "text",
+      "label": "Journal"
+    },
+    {
+      "id": "linesequencenumber",
+      "type": "select",
+      "label": "Line Sequence Number"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Schedule Name"
+    },
+    {
+      "id": "pctcomplete",
+      "type": "percent",
+      "label": "% Complete"
+    },
+    {
+      "id": "pctrecognition",
+      "type": "percent",
+      "label": "% Recog."
+    },
+    {
+      "id": "periodoffset",
+      "type": "integer",
+      "label": "Period Offset"
+    },
+    {
+      "id": "recuramount",
+      "type": "currency",
+      "label": "Amount"
+    },
+    {
+      "id": "recurfxamount",
+      "type": "currency",
+      "label": "Amount (Foreign Currency)"
+    },
+    {
+      "id": "scheddate",
+      "type": "date",
+      "label": "Date"
+    },
+    {
+      "id": "schedulenumber",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "sourceacct",
+      "type": "text",
+      "label": "Source Account"
+    },
+    {
+      "id": "srcdocline",
+      "type": "text",
+      "label": "Source Transaction Line"
+    },
+    {
+      "id": "srctran",
+      "type": "text",
+      "label": "Source Transaction"
+    },
+    {
+      "id": "srctranpostperiod",
+      "type": "text",
+      "label": "Posting Period"
+    },
+    {
+      "id": "startoffset",
+      "type": "integer",
+      "label": "Start Offset"
+    },
+    {
+      "id": "useforeignamounts",
+      "type": "checkbox",
+      "label": "Use Transaction Currency"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "appliedtotransaction",
+      "description": "Applied To Transaction",
+      "actualName": "Transaction"
+    },
+    {
+      "id": "customer",
+      "description": "Customer",
+      "actualName": "Customer"
+    },
+    {
+      "id": "item",
+      "description": "Item",
+      "actualName": "Item"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "history",
+      "label": "System Notes"
+    },
+    {
+      "name": "meta",
+      "label": "Recurrence"
+    }
+  ],
+  "transformTypes": []
+}

@@ -1,0 +1,224 @@
+{
+  "label": "Product",
+  "id": "issueproduct",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "issueproduct",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Product",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "issueproductdescription",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showinactiveversions",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Show Inactives",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "issuemodule",
+      "label": "Product Modules",
+      "fields": [
+        {
+          "id": "build",
+          "type": "text",
+          "label": "Module",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Internal ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isinactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issueproduct",
+          "type": "select",
+          "label": "Product",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "issueproductversions",
+      "label": "Version",
+      "fields": [
+        {
+          "id": "allowbrokenin",
+          "type": "checkbox",
+          "label": "Allow Broken In",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "allowfixedin",
+          "type": "checkbox",
+          "label": "Allow Fixed In",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "allowtarget",
+          "type": "checkbox",
+          "label": "Allow Target",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expectedreleasedate",
+          "type": "date",
+          "label": "Expected Release Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "externalid",
+          "type": "text",
+          "label": "ExternalId",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "externalreleasetarget",
+          "type": "text",
+          "label": "External Target",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Internal ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "integer",
+          "label": "Internal ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isefix",
+          "type": "checkbox",
+          "label": "E-fix",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isinactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issueproduct",
+          "type": "select",
+          "label": "Product",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issueversiondescription",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "portletdescription",
+          "type": "text",
+          "label": "Portlet Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "productversion",
+          "type": "text",
+          "label": "Product Version",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "showinportlet",
+          "type": "checkbox",
+          "label": "Show In Portlet",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

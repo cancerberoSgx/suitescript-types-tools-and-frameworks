@@ -1,0 +1,127 @@
+{
+  "label": "Vendor-Subsidiary Relationship",
+  "id": "vendorsubsidiaryrelationship",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "balancebase",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Balance (Base)",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "basecurrency",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditlimit",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Credit Limit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Vendor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "External Id",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isprimarysub",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Primary Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "primarycurrency",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Primary Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxitem",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Unbilled Orders",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unbilledordersbase",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Unbilled Orders (Base)",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

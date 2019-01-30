@@ -1,0 +1,882 @@
+{
+  "label": "Location",
+  "id": "location",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "addrphone",
+      "type": "phone",
+      "nlapiSubmitField": false,
+      "label": "Phone",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "addrtext",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowstorepickup",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow Store Pickup",
+      "required": false,
+      "help": "Check the Allow Store Pickup box to set the location as a valid store pickup location. This enables the location to be used in a store pickup fulfillment workflow.\n\nIn a sales order, when you set the Fulfillment Choice to Store Pickup, you can select this location as the fulfillment location for line items in the sales order, provided that the line items also have the Allow Store Pickup box checked."
+    },
+    {
+      "id": "attention",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Attention",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "autoassignmentregionsetting",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Auto-Assigning This Location",
+      "required": false,
+      "help": "Choose how you want the automatic location assignment feature to work with the location. You can select one of the following:\n\n    * Disallow - Disables automatic location assignment for the location. The location will not be assigned to any sales orders by the automatic location assignment engine.\n    * Allow Worldwide - The location can be assigned to sales orders with shipping addresses anywhere in the world.\n    * Allow Worldwide Except Excluded Regions - The location can be assigned to sales orders with shipping addresses anywhere in the world, except if the shipping address is in an excluded region.\n    * Allow Specified Regions Only - The location can be assigned to sales orders, but only when the shipping address is in one of the included regions."
+    },
+    {
+      "id": "bufferstock",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Buffer Stock",
+      "required": false,
+      "help": "In the Buffer Stock field, enter the minimum quantity of inventory to be maintained at the location.\n\nNetSuite uses this buffer stock when the Automatic Location Assignment feature processes orders. The buffer stock prevents NetSuite from assigning a fulfillment location to a line on an order if doing this causes inventory at the location to drop below the buffer stock.\n\nFor example, the current item inventory at a location is 6 and the buffer stock for the location is 5. If an order is created with quantity 2, NetSuite will not assign the location to the line because doing this would cause inventory to drop below the buffer stock."
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "City",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "dailyshippingcapacity",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Daily Shipping Capacity",
+      "required": false,
+      "help": "Enter the maximum number of orders that can be shipped from a location in one day. Shipping capacity is based on the number of fulfillment requests created for the location in a one day interval. Automatic location assignment will not assign orders to the location if the daily shipping capacity has been reached.\n\nThis field is only available when the Fulfillment Request feature is enabled.\n\nNote: The shipping capacity can be exceeded if the location is set manually on a sales order line."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "geolocationmethod",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Derive From Postal Code",
+      "required": false,
+      "help": "Choose the method by which automatic location assignment establishes the geographic position of the location:\n\n    * Derive From Postal Code: Choose this option when you want automatic location assignment to use the postal code to calculate the geographic coordinates of the location. Because postal codes are irregular in shape, NetSuite uses the centroid (or geometrical center) of the postal code area. NetSuite uses third-party data to calculate these coordinates.\n\n      This option is the default geolocation method for location records.\n\n    * Use Latitude/Longitude Coordinates: Choose this option when you want automatic location assignment to use the latitude and longitude coordinates as specified in the Latitude and Longitude fields of the location record."
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Location is Inactive",
+      "required": false,
+      "help": "Check this box to inactivate this location record. Inactive locations do not show in lists of locations on records and transactions."
+    },
+    {
+      "id": "latitude",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Latitude",
+      "required": false,
+      "help": "Enter the latitude coordinate of the location in decimal format, for example, \"37.5367\".\nLatitude is between -90 and 90.\n\nUse at least four decimal places to achieve a precise location. The decimal symbol you use depends on the number format in your user preferences."
+    },
+    {
+      "id": "locationtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location Type",
+      "required": false,
+      "help": "Select the kind of location: Store, Warehouse, or Undefined. The location type is one of the criteria that the Automatic Location Assignment feature uses when determining the ideal fulfillment location. You can set the location to Undefined to represent locations that are neither a store nor a warehouse."
+    },
+    {
+      "id": "logo",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Logo",
+      "required": false,
+      "help": "Select a logo to show for this location on printed and e-mailed transaction forms.\n\nTo upload a logo, go to Documents > Files > Images > New. Check the Available Without Login box.\n\nLogos must be in JPG or GIF file format.\n\nTo print your logo on standard forms, the logo must be no more than 200 pixels wide and 60 pixels high."
+    },
+    {
+      "id": "longitude",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Longitude",
+      "required": false,
+      "help": "Enter the longitude coordinate of the location in decimal format, for example, \"-122.3285\". Longitude is between -180 and 180.\n\nUse at least four decimal places to achieve a precise location. The decimal symbol you use depends on the number format in your user preferences."
+    },
+    {
+      "id": "makeinventoryavailable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Make Inventory Available",
+      "required": false,
+      "help": "Check this box to make on-hand inventory stored at the location available to orders.\nClear this box to exclude on-hand inventory stored at the location from the available count."
+    },
+    {
+      "id": "makeinventoryavailablestore",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Make Inventory Available in Web Store",
+      "required": false,
+      "help": "Check this box to include on-hand inventory stored at the location in the total quantity available to display in the Web Store.\nClear this box to exclude the on-hand inventory stored at the location from the total quantity available to display in the Web Store."
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": "Enter a name for this location. The name you enter here is the name that shows in location lists on records and transactions.\n\nThe name can be alphanumeric. The maximum number of characters is 31."
+    },
+    {
+      "id": "nextpickupcutofftime",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Next Pickup Cut-Off Time",
+      "required": false,
+      "help": "The next cut-off time for same day pickup orders at the location. NetSuite determines this time based on the same day pickup cut-off times in the business hours. The next pickup cut-off time might not be on the current day if one of the following is true:\n\n    * The current day does not have a same day pickup cut-off time defined.\n    * The same day pickup cut-off time has already passed on the current day.\n\nThis field is read only."
+    },
+    {
+      "id": "override",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sublocation of",
+      "required": false,
+      "help": "Select the name of the parent location for this new location."
+    },
+    {
+      "id": "returnaddr",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnaddress1",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Address1",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnaddress2",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Address2",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returncity",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "City",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returncountry",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Country",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnstate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "State",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnzip",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Zip",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "State/Province",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storepickupbufferstock",
+      "type": "float",
+      "nlapiSubmitField": true,
+      "label": "Store Pickup Buffer Stock",
+      "required": false,
+      "help": "In the Store Pickup Buffer Stock field, enter the minimum inventory to be maintained at the location when creating store pickup orders.\n\nNetSuite uses the store pickup buffer stock to calculate the quantity available for store pickup of an item. Visitors to the web store will only be able to create a pickup order if the quantity available for store pickup is greater than zero.\n\nThe store pickup buffer stock applies to all items at the location."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "timezone",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Time Zone",
+      "required": true,
+      "help": "Select the time zone of the location."
+    },
+    {
+      "id": "totalshippingcapacity",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Total Shipping Capacity",
+      "required": false,
+      "help": "The maximum number of shipping orders that can accumulate in the backlog of orders to be shipped from the location. Shipping orders are based on the number of open fulfillment requests.\n\nThe fulfillment workload distribution strategy in a rule uses this field to calculate current available work capacity at locations.\n\nThis field is only available when the Fulfillment Request feature is enabled."
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Transaction Prefix",
+      "required": false,
+      "help": "When you use auto-generated numbering with the Locations feature, you can make your transaction number sequences independent per location.\n\nEnter up to 8 alphanumeric characters in this field to number transactions with a prefix to signify this location. Then, click Save.\n\nTo set up auto-generated numbering, go to Setup >  Setup Tasks > Auto-Generated Numbers. On the Document Numbers subtab, check the Use Location box next to each transaction this prefix should apply to."
+    },
+    {
+      "id": "usebins",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Bins",
+      "required": false,
+      "help": "Check this box to use bins to track inventory at this location.\nClear this box to not use bins track inventory at this location."
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Zip",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "businesshours",
+      "label": "Business Hours",
+      "fields": [
+        {
+          "id": "endtime",
+          "type": "timeofday",
+          "label": "End time",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "isfriday",
+          "type": "checkbox",
+          "label": "Friday",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "ismonday",
+          "type": "checkbox",
+          "label": "Monday",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issaturday",
+          "type": "checkbox",
+          "label": "Saturday",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issunday",
+          "type": "checkbox",
+          "label": "Sunday",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isthursday",
+          "type": "checkbox",
+          "label": "Thursday",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "istuesday",
+          "type": "checkbox",
+          "label": "Tuesday",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "iswednesday",
+          "type": "checkbox",
+          "label": "Wednesday",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "samedaypickupcutofftime",
+          "type": "timeofday",
+          "label": "Same Day Pickup Cut-Off Time",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "starttime",
+          "type": "timeofday",
+          "label": "Start Time",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "excludelocationregions",
+      "label": "Exclude These Regions",
+      "fields": [
+        {
+          "id": "name",
+          "type": "text",
+          "label": "Region",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "ranking",
+          "type": "integer",
+          "label": "None",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "region",
+          "type": "select",
+          "label": "Region",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "includelocationregions",
+      "label": "Include These Regions",
+      "fields": [
+        {
+          "id": "name",
+          "type": "text",
+          "label": "Region",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "ranking",
+          "type": "integer",
+          "label": "None",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "region",
+          "type": "select",
+          "label": "Region",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "allowstorepickup",
+      "type": "checkbox",
+      "label": "Allow Store Pickup"
+    },
+    {
+      "id": "autoassignmentregionsetting",
+      "type": "select",
+      "label": "Auto-Assigning This Location"
+    },
+    {
+      "id": "bufferstock",
+      "type": "integer",
+      "label": "Buffer Stock"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "dailyshippingcapacity",
+      "type": "integer",
+      "label": "Daily Shipping Capacity"
+    },
+    {
+      "id": "endtime",
+      "type": "timeofday",
+      "label": "End Time"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "geolocationmethod",
+      "type": "select",
+      "label": "Geolocation Method"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isfriday",
+      "type": "checkbox",
+      "label": "Friday"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "ismonday",
+      "type": "checkbox",
+      "label": "Monday"
+    },
+    {
+      "id": "isoffice",
+      "type": "checkbox",
+      "label": "Staffed Location"
+    },
+    {
+      "id": "issaturday",
+      "type": "checkbox",
+      "label": "Saturday"
+    },
+    {
+      "id": "issunday",
+      "type": "checkbox",
+      "label": "Sunday"
+    },
+    {
+      "id": "isthursday",
+      "type": "checkbox",
+      "label": "Thursday"
+    },
+    {
+      "id": "istuesday",
+      "type": "checkbox",
+      "label": "Tuesday"
+    },
+    {
+      "id": "iswednesday",
+      "type": "checkbox",
+      "label": "Wednesday"
+    },
+    {
+      "id": "locationtype",
+      "type": "select",
+      "label": "Location Type"
+    },
+    {
+      "id": "makeinventoryavailable",
+      "type": "checkbox",
+      "label": "Make Inventory Available"
+    },
+    {
+      "id": "makeinventoryavailablestore",
+      "type": "checkbox",
+      "label": "Make Inventory Available in Web Store"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nextpickupcutofftime",
+      "type": "datetime",
+      "label": "Next Pickup Cut-Off Time"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "samedaypickupcutofftime",
+      "type": "timeofday",
+      "label": "Same Day Pickup Cut-Off Time"
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "label": "Start Time"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "storepickupbufferstock",
+      "type": "float",
+      "label": "Store Pickup Buffer Stock"
+    },
+    {
+      "id": "subsidiary",
+      "type": "multiselect",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "totalshippingcapacity",
+      "type": "integer",
+      "label": "Total Shipping Capacity"
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "label": "Transaction Prefix"
+    },
+    {
+      "id": "usesbins",
+      "type": "checkbox",
+      "label": "Uses Bins"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "allowstorepickup",
+      "type": "checkbox",
+      "label": "Allow Store Pickup"
+    },
+    {
+      "id": "autoassignmentregionsetting",
+      "type": "text",
+      "label": "Auto-Assigning This Location"
+    },
+    {
+      "id": "bufferstock",
+      "type": "integer",
+      "label": "Buffer Stock"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "text",
+      "label": "Country"
+    },
+    {
+      "id": "dailyshippingcapacity",
+      "type": "integer",
+      "label": "Daily Shipping Capacity"
+    },
+    {
+      "id": "endtime",
+      "type": "timeofday",
+      "label": "End Time"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "geolocationmethod",
+      "type": "select",
+      "label": "Geolocation Method"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isfriday",
+      "type": "checkbox",
+      "label": "Friday"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "ismonday",
+      "type": "checkbox",
+      "label": "Monday"
+    },
+    {
+      "id": "isoffice",
+      "type": "checkbox",
+      "label": "Staffed Location"
+    },
+    {
+      "id": "issaturday",
+      "type": "checkbox",
+      "label": "Saturday"
+    },
+    {
+      "id": "issunday",
+      "type": "checkbox",
+      "label": "Sunday"
+    },
+    {
+      "id": "isthursday",
+      "type": "checkbox",
+      "label": "Thursday"
+    },
+    {
+      "id": "istuesday",
+      "type": "checkbox",
+      "label": "Tuesday"
+    },
+    {
+      "id": "iswednesday",
+      "type": "checkbox",
+      "label": "Wednesday"
+    },
+    {
+      "id": "locationtype",
+      "type": "text",
+      "label": "Location Type"
+    },
+    {
+      "id": "makeinventoryavailable",
+      "type": "checkbox",
+      "label": "Make Inventory Available"
+    },
+    {
+      "id": "makeinventoryavailablestore",
+      "type": "checkbox",
+      "label": "Make Inventory Available in Web Store"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "namenohierarchy",
+      "type": "text",
+      "label": "Name (no hierarchy)"
+    },
+    {
+      "id": "nextpickupcutofftime",
+      "type": "datetime",
+      "label": "Next Pickup Cut-Off Time"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "samedaypickupcutofftime",
+      "type": "timeofday",
+      "label": "Same Day Pickup Cut-Off Time"
+    },
+    {
+      "id": "starttime",
+      "type": "timeofday",
+      "label": "Start Time"
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "label": "State/Province"
+    },
+    {
+      "id": "storepickupbufferstock",
+      "type": "float",
+      "label": "Store Pickup Buffer Stock"
+    },
+    {
+      "id": "subsidiary",
+      "type": "multiselect",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "totalshippingcapacity",
+      "type": "integer",
+      "label": "Total Shipping Capacity"
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "label": "Transaction Prefix"
+    },
+    {
+      "id": "usesbins",
+      "type": "checkbox",
+      "label": "Use Bins"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "address",
+      "description": "Address",
+      "actualName": "Address"
+    },
+    {
+      "id": "returnaddress",
+      "description": "Return Address",
+      "actualName": "Address"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "addressbook",
+      "label": "Address"
+    },
+    {
+      "name": "history",
+      "label": "System Notes"
+    },
+    {
+      "name": "returnsaddrtab",
+      "label": "Return Address"
+    },
+    {
+      "name": "translation",
+      "label": "Translation"
+    }
+  ],
+  "transformTypes": []
+}

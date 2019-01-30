@@ -1,0 +1,286 @@
+{
+  "label": "Timesheet",
+  "id": "timesheet",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Select an approval status for this time entry."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the type of form to use."
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Employee",
+      "required": false,
+      "help": "Select the employee whose time you are recording.\n\nClick New to set up a new employee record.\n\nFor Timesheets, click the Quick Find icon at the top of the page to select a different timesheet."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "iscomplete",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": true,
+      "help": "NetSuite displays the start date for the current timesheet."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "The subsidiary associated with the employee is displayed here."
+    },
+    {
+      "id": "totalhours",
+      "type": "time",
+      "nlapiSubmitField": false,
+      "label": "Total Hours",
+      "required": false,
+      "help": "NetSuite displays the total hours entered on this timesheet. This field is updated in real time."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "timegrid",
+      "label": "Time",
+      "fields": [
+        {
+          "id": "friday",
+          "type": "summary",
+          "label": "&nbsp",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "monday",
+          "type": "summary",
+          "label": "&nbsp",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "saturday",
+          "type": "summary",
+          "label": "&nbsp",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sunday",
+          "type": "summary",
+          "label": "&nbsp",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "thursday",
+          "type": "summary",
+          "label": "&nbsp",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "tuesday",
+          "type": "summary",
+          "label": "&nbsp",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "wednesday",
+          "type": "summary",
+          "label": "&nbsp",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status (Text)"
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "label": "Employee"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "timesheetdate",
+      "type": "date",
+      "label": "Timesheet Date"
+    },
+    {
+      "id": "totalhours",
+      "type": "float",
+      "label": "Total Hours"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status (Text)"
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "label": "Employee"
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "label": "End Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "label": "ID"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "label": "Start Date"
+    },
+    {
+      "id": "totalhours",
+      "type": "text",
+      "label": "Total Hours"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "employee",
+      "description": "Employee",
+      "actualName": "Employee"
+    },
+    {
+      "id": "timeentry",
+      "description": "Time Entry",
+      "actualName": "Time Entry"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,609 @@
+{
+  "label": "Subscription Change Order",
+  "id": "subscriptionchangeorder",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "approvaldate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Approved",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Approval Status",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Account",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "createdby",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Created By",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Effective Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "idnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "reactivationoption",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reactivation Option",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "renewalenddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Renewal End Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "renewalmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Renewal Method",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "renewalplan",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Renewal Subscription Plan",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "renewalpricebook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Renewal Price Book",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "renewalstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Renewal Start Date",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "renewalterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Renewal Term",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "renewaltrantype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Renewal Transaction Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requestoffcycleinvoice",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Request Off-Cycle Invoice For Advance Charges",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "requestor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Requester",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subscription",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subscription Plan",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subscriptiontermduration",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subscriptiontermtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "newsubline",
+      "label": "New Lines",
+      "fields": [
+        {
+          "id": "item",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subscriptionline",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "renewalsteps",
+      "label": "Renewal Steps",
+      "fields": [
+        {
+          "id": "subscription",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "subline",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Include",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billingmode",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discountnew",
+          "type": "percent",
+          "label": "New Discount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "enddate",
+          "type": "date",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "includeinrenewal",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pricemodelnew",
+          "type": "select",
+          "label": "New Price Plan",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "nonnegfloat",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitynew",
+          "type": "nonnegfloat",
+          "label": "New Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sequence",
+          "type": "text",
+          "label": "Line Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "status",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "statusnew",
+          "type": "select",
+          "label": "New Status",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subscriptionline",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "terminationdate",
+          "type": "date",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "action",
+      "type": "select",
+      "label": "Action"
+    },
+    {
+      "id": "approvaldate",
+      "type": "datetime",
+      "label": "Date Approved"
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "label": "Billing Account"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "label": "Effective Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "idnumber",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "newenddate",
+      "type": "date",
+      "label": "New End Date"
+    },
+    {
+      "id": "orderedeffectivedate",
+      "type": "date",
+      "label": "Ordered Effective Date"
+    },
+    {
+      "id": "renewalenddate",
+      "type": "date",
+      "label": "Renewal End Date"
+    },
+    {
+      "id": "renewalmethod",
+      "type": "select",
+      "label": "Renewal Method"
+    },
+    {
+      "id": "renewalstartdate",
+      "type": "date",
+      "label": "Renewal Start Date"
+    },
+    {
+      "id": "renewalterm",
+      "type": "select",
+      "label": "Renewal Term"
+    },
+    {
+      "id": "renewaltrantype",
+      "type": "select",
+      "label": "Renewal Transaction Type"
+    },
+    {
+      "id": "requestoffcycleinvoice",
+      "type": "checkbox",
+      "label": "Request Off-Cycle Invoice for Advance Charges"
+    },
+    {
+      "id": "requestor",
+      "type": "select",
+      "label": "Requestor"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "label": "Subscription Plan"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "action",
+      "type": "select",
+      "label": "Action"
+    },
+    {
+      "id": "approvaldate",
+      "type": "datetime",
+      "label": "Date Approved"
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "label": "Approval Status"
+    },
+    {
+      "id": "billingaccount",
+      "type": "select",
+      "label": "Billing Account"
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "label": "Customer"
+    },
+    {
+      "id": "datecreated",
+      "type": "datetime",
+      "label": "Date Created"
+    },
+    {
+      "id": "effectivedate",
+      "type": "date",
+      "label": "Effective Date"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "idnumber",
+      "type": "text",
+      "label": "Number"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "newenddate",
+      "type": "date",
+      "label": "New End Date"
+    },
+    {
+      "id": "renewalenddate",
+      "type": "date",
+      "label": "Renewal End Date"
+    },
+    {
+      "id": "renewalmethod",
+      "type": "select",
+      "label": "Renewal Method"
+    },
+    {
+      "id": "renewalstartdate",
+      "type": "date",
+      "label": "Renewal Start Date"
+    },
+    {
+      "id": "renewalterm",
+      "type": "select",
+      "label": "Renewal Term"
+    },
+    {
+      "id": "renewaltrantype",
+      "type": "select",
+      "label": "Renewal Transaction Type"
+    },
+    {
+      "id": "requestoffcycleinvoice",
+      "type": "checkbox",
+      "label": "Request Off-Cycle Invoice for Advance Charges"
+    },
+    {
+      "id": "requestor",
+      "type": "select",
+      "label": "Requestor"
+    },
+    {
+      "id": "subscription",
+      "type": "select",
+      "label": "Subscription"
+    },
+    {
+      "id": "subscriptionplan",
+      "type": "select",
+      "label": "Subscription Plan"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "view",
+      "type": "text",
+      "label": "View"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

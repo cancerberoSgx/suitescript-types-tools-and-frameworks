@@ -1,0 +1,1626 @@
+{
+  "label": "Shipping Item",
+  "id": "shipitem",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accchange",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account (Shipping)",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "accounthandling",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account (Handling)",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "costbasis",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "FedEx Real-Time Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "countries",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Countries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Display Name/Code",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "doifarrangement",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Web Site Rules",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doiftotal",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Available If Order Total Is",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doiftotalamt",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doiftotaloperator",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doifweight",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Available If Order Weight Is",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doifweightamt",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doifweightoperator",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "doifweightunit",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "edition",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "excludecountries",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Exclude",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "excludesites",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Exclude",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fedexdiscountrate",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Discount Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fedexonerate",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "FedEx One Rate®",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fedexservicecode",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "freeifordertotalisoveramount",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingaspercentageoftotal",
+      "type": "percent",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingbyweightamount",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingbyweightperquantity",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "per",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingbyweightperunit",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingcost",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Handling--No Handling Charge",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingflatrateamount",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingperitemamount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Default Charge",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingtablechargeby",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingtableuom",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingtaxcode",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Charge Tax on this handling portion of item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "hasmaximumshippingcost",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Maximum shipping amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "hasminimumshippingcost",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Minimum shipping amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "integratedlabelsarrangement",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Integrated Labels",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "integrationservicecode",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "invt_dispname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Display Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isfreeifordertotalisover",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Free if total order is over",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ishandlingbyweightbracketed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "In Whole Increments",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ishandlingtaxable",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Charge Tax on this handling portion of item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display in Web Site",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isshippingbyweightbracketed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "In Whole Increments",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "istaxable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Charge Tax on this shipping portion of item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Ship Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "itemtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "stype",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelplugin",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelpluginselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Shipping Partner",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelreg",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelregselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Registration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelservice",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelservicegroup",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelservicegroupselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Service Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labelserviceselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Service",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "labeltype",
+      "type": "radio",
+      "nlapiSubmitField": true,
+      "label": "Integrated Shipping Label",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "maximumshippingcost",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "minimumshippingcost",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "needsallfreeshippingitems",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "All items must be purchased",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "omitpackaging",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Omit packaging",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pluginlabelsarrangement",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Shipping Partner Labels",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pluginratearrangement",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Shipping Partner Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingplugin",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingpluginselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Shipping Partner",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingreg",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingregselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Registration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingservice",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingservicegroup",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingservicegroupselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Service Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ratingserviceselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Service",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "restrictionarrangement",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Web Store Shipping Restrictions",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnlabelreg",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnlabelregselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Registration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnlabelservice",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnlabelserviceselect",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Return Service",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnservicecode",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnsintegrated",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Return Label Integration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipitemcurrency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipperintegrated",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Shipping Label Integration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaspercentageoftotal",
+      "type": "percent",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingbyweightamount",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingbyweightperquantity",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "per",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingbyweightperunit",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Weight Unit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingcarrier",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingflatrateamount",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingperitemamount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Default Charge",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingtablechargeby",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingtableuom",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingtaxcode",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Charge Tax on this shipping portion of item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "site",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Limit To Sites",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "states",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "States",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiaries",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "tabtext",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Charge Tax on this shipping portion of item",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "taxschedulehandling",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Charge Tax on this handling portion of item",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "upsdiscountrate",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Discount Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upssavername",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upsservicecode",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "uspsdiscountrate",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Discount Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "uspsservicecode",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "handlingtable",
+      "label": "",
+      "fields": [
+        {
+          "id": "handlingtablecharge",
+          "type": "currency",
+          "label": "Charge",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "handlingtablerangevalue",
+          "type": "currency",
+          "label": "Range Value",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "shipitem",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "items",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "nqty",
+          "type": "integer",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shipitem",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "shipmethodrulerelations",
+      "label": "Shipping Items",
+      "fields": [
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Shipping Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subsidiary",
+          "type": "select",
+          "label": "Subsidiary",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "shippingtable",
+      "label": "",
+      "fields": [
+        {
+          "id": "shipitem",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shippingtablecharge",
+          "type": "currency",
+          "label": "Charge",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "shippingtablerangevalue",
+          "type": "currency",
+          "label": "Range Value",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "translations",
+      "label": "Translation",
+      "fields": [
+        {
+          "id": "displayname",
+          "type": "text",
+          "label": "Display Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "language",
+          "type": "text",
+          "label": "Language",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "locale",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shipitem",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Account"
+    },
+    {
+      "id": "accounthandling",
+      "type": "select",
+      "label": "Account (Handling)"
+    },
+    {
+      "id": "carrier",
+      "type": "text",
+      "label": "Carrier"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "label": "Dipslay Name"
+    },
+    {
+      "id": "excludedforcountries",
+      "type": "checkbox",
+      "label": "Excluded For Countries"
+    },
+    {
+      "id": "excludedforsites",
+      "type": "checkbox",
+      "label": "Excluded For Sites"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "freeiftotaloveramount",
+      "type": "float",
+      "label": "Free If Total Over Amount"
+    },
+    {
+      "id": "handlingflatrate",
+      "type": "float",
+      "label": "Handling Flat Rate"
+    },
+    {
+      "id": "handlingfunctiontype",
+      "type": "select",
+      "label": "Handling Rate Type"
+    },
+    {
+      "id": "handlingrateaspercentoftotal",
+      "type": "float",
+      "label": "Handling Rate As Percent of Total"
+    },
+    {
+      "id": "handlingratebyitem",
+      "type": "float",
+      "label": "Handling Rate By Item"
+    },
+    {
+      "id": "handlingratebyweight",
+      "type": "float",
+      "label": "Handling Rate By Weight"
+    },
+    {
+      "id": "handlingratebyweightbracketed",
+      "type": "checkbox",
+      "label": "Handling Rate By Weight Bracketed"
+    },
+    {
+      "id": "handlingratebyweightper",
+      "type": "float",
+      "label": "Handling Rate By Weight Per"
+    },
+    {
+      "id": "handlingratebyweightunit",
+      "type": "select",
+      "label": "Handling Rate By Weight Unit"
+    },
+    {
+      "id": "handlingratetabletype",
+      "type": "select",
+      "label": "Handling Rate Table Type"
+    },
+    {
+      "id": "hasmaxshippingcost",
+      "type": "checkbox",
+      "label": "Has Maximum Shipping Cost"
+    },
+    {
+      "id": "hasminshippingcost",
+      "type": "checkbox",
+      "label": "Has Minimum Shipping Cost"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isfreeiftotalover",
+      "type": "checkbox",
+      "label": "Is Free If Total Over"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "label": "Display in Web Site"
+    },
+    {
+      "id": "isreturnsintegrated",
+      "type": "checkbox",
+      "label": "Is Return Service Integrated"
+    },
+    {
+      "id": "isshipperintegrated",
+      "type": "checkbox",
+      "label": "Is Integrated Shipping Item"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "labelpluginid",
+      "type": "select",
+      "label": "Label Plugin Id"
+    },
+    {
+      "id": "labelregistration",
+      "type": "select",
+      "label": "Label Registration"
+    },
+    {
+      "id": "labelservicegroupid",
+      "type": "select",
+      "label": "Label Service Group Id"
+    },
+    {
+      "id": "labelserviceid",
+      "type": "select",
+      "label": "Label Service Id"
+    },
+    {
+      "id": "limitedtocountries",
+      "type": "multiselect",
+      "label": "Limited To Countries"
+    },
+    {
+      "id": "limitedtosites",
+      "type": "multiselect",
+      "label": "Limited To Sites"
+    },
+    {
+      "id": "limitedtostates",
+      "type": "multiselect",
+      "label": "Limited To States"
+    },
+    {
+      "id": "limitwebsitevisibilitybytotal",
+      "type": "checkbox",
+      "label": "Web Site Visibility Limited by Total"
+    },
+    {
+      "id": "limitwebsitevisibilitybyweight",
+      "type": "checkbox",
+      "label": "Web Site Visibility Limited by Weight"
+    },
+    {
+      "id": "maxshippingcost",
+      "type": "float",
+      "label": "Maximum Shipping Cost"
+    },
+    {
+      "id": "minshippingcost",
+      "type": "float",
+      "label": "Minimum Shipping Cost"
+    },
+    {
+      "id": "ratingpluginid",
+      "type": "select",
+      "label": "Rating Plugin Id"
+    },
+    {
+      "id": "ratingregistration",
+      "type": "select",
+      "label": "Rating Registration"
+    },
+    {
+      "id": "ratingservicegroupid",
+      "type": "select",
+      "label": "Rating Service Group Id"
+    },
+    {
+      "id": "ratingserviceid",
+      "type": "select",
+      "label": "Rating Service Id"
+    },
+    {
+      "id": "realtimerateservice",
+      "type": "select",
+      "label": "Real-Time Rate Service"
+    },
+    {
+      "id": "returnlabelregistration",
+      "type": "select",
+      "label": "Return Label Registration"
+    },
+    {
+      "id": "returnlabelserviceid",
+      "type": "select",
+      "label": "Return Label Service Id"
+    },
+    {
+      "id": "returnshippingservice",
+      "type": "select",
+      "label": "Return Shipping Service"
+    },
+    {
+      "id": "shippingdiscountrate",
+      "type": "float",
+      "label": "Shipping Rate Discount"
+    },
+    {
+      "id": "shippingflatrate",
+      "type": "float",
+      "label": "Shipping Flat Rate"
+    },
+    {
+      "id": "shippingfunctiontype",
+      "type": "select",
+      "label": "Shipping Rate Type"
+    },
+    {
+      "id": "shippingrateaspercentoftotal",
+      "type": "float",
+      "label": "Shipping Rate As Percent of Total"
+    },
+    {
+      "id": "shippingratebyitem",
+      "type": "float",
+      "label": "Shipping Rate By Item"
+    },
+    {
+      "id": "shippingratebyweight",
+      "type": "float",
+      "label": "Shipping Rate By Weight"
+    },
+    {
+      "id": "shippingratebyweightbracketed",
+      "type": "checkbox",
+      "label": "Shipping Rate By Weight Bracketed"
+    },
+    {
+      "id": "shippingratebyweightper",
+      "type": "float",
+      "label": "Shipping Rate By Weight Per"
+    },
+    {
+      "id": "shippingratebyweightunit",
+      "type": "select",
+      "label": "Shipping Rate By Weight Unit"
+    },
+    {
+      "id": "shippingratetabletype",
+      "type": "select",
+      "label": "Shipping Rate Table Type"
+    },
+    {
+      "id": "shippingservice",
+      "type": "select",
+      "label": "Shipping Service"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "websitevisibilitybytotaltype",
+      "type": "select",
+      "label": "Web Site Visibility By Total Type"
+    },
+    {
+      "id": "websitevisibilitybyweighttype",
+      "type": "select",
+      "label": "Web Site Visibility By Weight Type"
+    },
+    {
+      "id": "websitevisibilitytotallimit",
+      "type": "float",
+      "label": "Web Site Visibility By Total Limit"
+    },
+    {
+      "id": "websitevisibilityweightlimit",
+      "type": "float",
+      "label": "Web Site Visibility By Weight Limit"
+    },
+    {
+      "id": "websitevisibilityweightunit",
+      "type": "select",
+      "label": "Web Site Visibility By Weight Unit"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "account",
+      "type": "text",
+      "label": "Account"
+    },
+    {
+      "id": "accounthandling",
+      "type": "text",
+      "label": "Account (Handling)"
+    },
+    {
+      "id": "carrier",
+      "type": "text",
+      "label": "Carrier"
+    },
+    {
+      "id": "description",
+      "type": "text",
+      "label": "Description"
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "label": "Display Name"
+    },
+    {
+      "id": "excludedforcountries",
+      "type": "checkbox",
+      "label": "Excluded For Countries"
+    },
+    {
+      "id": "excludedforsites",
+      "type": "checkbox",
+      "label": "Excluded For Sites"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "freeiftotaloveramount",
+      "type": "float",
+      "label": "Free Shipping Total Treshold"
+    },
+    {
+      "id": "handlingflatrate",
+      "type": "float",
+      "label": "Handling Flat Rate"
+    },
+    {
+      "id": "handlingfunctiontype",
+      "type": "text",
+      "label": "Handling Rate Type"
+    },
+    {
+      "id": "handlingrateaspercentoftotal",
+      "type": "float",
+      "label": "Handling Rate As Percent of Total"
+    },
+    {
+      "id": "handlingratebyitem",
+      "type": "float",
+      "label": "Handling Rate By Item"
+    },
+    {
+      "id": "handlingratebyweight",
+      "type": "float",
+      "label": "Handling Rate By Weight"
+    },
+    {
+      "id": "handlingratebyweightbracketed",
+      "type": "checkbox",
+      "label": "Handling Rate By Weight Whole Increments"
+    },
+    {
+      "id": "handlingratebyweightper",
+      "type": "float",
+      "label": "Handling Rate By Weight Per"
+    },
+    {
+      "id": "handlingratebyweightunit",
+      "type": "float",
+      "label": "Handling Rate By Weight Unit"
+    },
+    {
+      "id": "handlingratetabletype",
+      "type": "text",
+      "label": "Handling Rate Table Type"
+    },
+    {
+      "id": "hasmaxshippingcost",
+      "type": "checkbox",
+      "label": "Has Maximum Shipping Cost"
+    },
+    {
+      "id": "hasminshippingcost",
+      "type": "checkbox",
+      "label": "Has Minimum Shipping Cost"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isfreeiftotalover",
+      "type": "checkbox",
+      "label": "Free Shipping total"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "label": "Display in Web Site"
+    },
+    {
+      "id": "isreturnserviceintegrated",
+      "type": "checkbox",
+      "label": "Is Return Service Integrated"
+    },
+    {
+      "id": "isshipperintegrated",
+      "type": "checkbox",
+      "label": "Is Integrated Shipping Item"
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "labelpluginid",
+      "type": "text",
+      "label": "Label Plugin Id"
+    },
+    {
+      "id": "labelregistration",
+      "type": "text",
+      "label": "Label Registration"
+    },
+    {
+      "id": "labelservicegroupid",
+      "type": "text",
+      "label": "Label Service Group Id"
+    },
+    {
+      "id": "labelserviceid",
+      "type": "text",
+      "label": "Label Service Id"
+    },
+    {
+      "id": "limitedtocountries",
+      "type": "multiselect",
+      "label": "Limited To Countries"
+    },
+    {
+      "id": "limitedtosites",
+      "type": "multiselect",
+      "label": "Limited To Sites"
+    },
+    {
+      "id": "limitedtostates",
+      "type": "multiselect",
+      "label": "Limited To States"
+    },
+    {
+      "id": "limitwebsitevisibilitybytotal",
+      "type": "checkbox",
+      "label": "Web Site Visibility Limited by Total"
+    },
+    {
+      "id": "limitwebsitevisibilitybyweight",
+      "type": "checkbox",
+      "label": "Web Site Visibility Limited by Weight"
+    },
+    {
+      "id": "maxshippingcost",
+      "type": "float",
+      "label": "Maximum Shipping Cost"
+    },
+    {
+      "id": "minshippingcost",
+      "type": "float",
+      "label": "Minimum Shipping Cost"
+    },
+    {
+      "id": "ratingpluginid",
+      "type": "text",
+      "label": "Rating Plugin Id"
+    },
+    {
+      "id": "ratingregistration",
+      "type": "text",
+      "label": "Rating Registration"
+    },
+    {
+      "id": "ratingservicegroupid",
+      "type": "text",
+      "label": "Rating Service Group Id"
+    },
+    {
+      "id": "ratingserviceid",
+      "type": "text",
+      "label": "Rating Service Id"
+    },
+    {
+      "id": "realtimerateservice",
+      "type": "text",
+      "label": "Real-Time Rate Service"
+    },
+    {
+      "id": "returnlabelregistration",
+      "type": "text",
+      "label": "Return Label Registration"
+    },
+    {
+      "id": "returnlabelserviceid",
+      "type": "text",
+      "label": "Return Label Service Id"
+    },
+    {
+      "id": "returnshippingservice",
+      "type": "text",
+      "label": "Return Shipping Service"
+    },
+    {
+      "id": "shippingdiscountrate",
+      "type": "float",
+      "label": "Shipping Rate Discount"
+    },
+    {
+      "id": "shippingflatrate",
+      "type": "float",
+      "label": "Shipping Flat Rate"
+    },
+    {
+      "id": "shippingfunctiontype",
+      "type": "text",
+      "label": "Shipping Rate Type"
+    },
+    {
+      "id": "shippingrateaspercentoftotal",
+      "type": "float",
+      "label": "Shipping Rate As Percent of Total"
+    },
+    {
+      "id": "shippingratebyitem",
+      "type": "float",
+      "label": "Shipping Rate By Item"
+    },
+    {
+      "id": "shippingratebyweight",
+      "type": "float",
+      "label": "Shipping Rate By Weight"
+    },
+    {
+      "id": "shippingratebyweightbracketed",
+      "type": "checkbox",
+      "label": "Shipping Rate By Weight Whole Increments"
+    },
+    {
+      "id": "shippingratebyweightper",
+      "type": "float",
+      "label": "Shipping Rate By Weight Per"
+    },
+    {
+      "id": "shippingratebyweightunit",
+      "type": "float",
+      "label": "Shipping Rate By Weight Unit"
+    },
+    {
+      "id": "shippingratetabletype",
+      "type": "text",
+      "label": "Shipping Rate Table Type"
+    },
+    {
+      "id": "shippingservice",
+      "type": "text",
+      "label": "Shipping Service"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "websitevisibilitybytotaltype",
+      "type": "text",
+      "label": "Web Site Visibility By Total Type"
+    },
+    {
+      "id": "websitevisibilitybyweighttype",
+      "type": "text",
+      "label": "Web Site Visibility By Weight Type"
+    },
+    {
+      "id": "websitevisibilitytotallimit",
+      "type": "float",
+      "label": "Web Site Visibility By Total Limit"
+    },
+    {
+      "id": "websitevisibilityweightlimit",
+      "type": "float",
+      "label": "Web Site Visibility By Weight Limit"
+    },
+    {
+      "id": "websitevisibilityweightunit",
+      "type": "text",
+      "label": "Web Site Visibility By Weight Unit"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "freeshipping",
+      "label": "Free Shipping Items"
+    },
+    {
+      "name": "handling",
+      "label": "Handling Rate"
+    },
+    {
+      "name": "rules",
+      "label": "Shipping and Handling Rules"
+    },
+    {
+      "name": "shipping",
+      "label": "Shipping Rate"
+    },
+    {
+      "name": "shippinglabels",
+      "label": "Shipping Labels"
+    },
+    {
+      "name": "translation",
+      "label": "Translation"
+    }
+  ],
+  "transformTypes": []
+}

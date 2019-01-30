@@ -1,0 +1,466 @@
+{
+  "label": "Intercompany Journal Entry",
+  "id": "intercompanyjournalentry",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Accounting Book",
+      "required": false,
+      "help": "Select an accounting book. You may select the primary book or any secondary accounting book to which you have access."
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Approval Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "approved",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Approved",
+      "required": false,
+      "help": "Check this box to indicate that this journal entry is approved.\n\nIf you check this box, this journal entry will post immediately.\n\nIf you do not check this box, this journal entry must be approved before it posts."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "If this entry is associated with a particular class, select it. Click &#x2014;New&#x2014; to set up a new class."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Void Of",
+      "required": false,
+      "help": "This field shows the original transaction that is being voided.\n \nClick the link to open the original transaction."
+    },
+    {
+      "id": "credittotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Credit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "This field is the currency used for all amounts in this journal entry.\n\nFor regular journal entries, currency defaults to the base currency of your company or root parent subsidiary, and can be changed to any other currency available in your account.\n\nFor intercompany journal entries in OneWorld, currency defaults to the base currency of the selected initiating subsidiary and can be changed to the currency of the To Subsidiary."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the custom journal entry record, if required."
+    },
+    {
+      "id": "debittotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Debit",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "If you like, select a department.\n\nClick New to enter a new department."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "This field displays the default exchange rate of the To Subsidiary's currency to the Subsidiary's currency.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency exchange rates list."
+    },
+    {
+      "id": "expenseallocjournalcount",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Count",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you wish, enter a memo to describe this journal entry. It will appear on this transaction detail as well as reports such as a 2-line account register."
+    },
+    {
+      "id": "nextapprover",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Next Approver",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parentexpensealloc",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From Allocation",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "The current period is entered as the posting period for the journal entry. If this period is closed before the journal entry is approved, the posting period is the earliest open period."
+    },
+    {
+      "id": "reversaldate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Reversal Date",
+      "required": false,
+      "help": "If this journal entry is intended to be reversed, enter the date for the reversing entry to be posted.\n\nIf Defer Entry is checked, this field is mandatory."
+    },
+    {
+      "id": "reversaldefer",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Defer Entry",
+      "required": false,
+      "help": "Check this box to make the reversal a memorized transaction that automatically occurs on the date entered in the required Reversal Date field.\n\nClear this box to make the reversal an immediately entered transaction with the date in the Reversal Date field."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "If you are entering a regular, book specific, or statistical journal entry:\n\nIn the Subsidiary field, select the subsidiary to associate with this journal entry.\n\nNote: If the subsidiary you select is assigned to one or more shared vendor records, you can make journal entries for any of the vendors to which the selected subsidiary is assigned. To do this, on the Lines subtab, select the shared vendor from the Name field. \n\nNote: When a journal entry is associated with a subsidiary, the journal posts to that subsidiary and the schedule is restricted to be viewed only by entities associated with the subsidiary.\n\nIf you are entering an intercompany journal entry:\n\nIn the Subsidiary field, choose the subsidiary initiating the ledger transaction. The first line of this journal entry must post to the subsidiary you choose here.\n\nNote: All lines of an intercompany journal entry must post to either the Subsidary or the To Subsidiary. No other subsidiaries can be associated with lines on this journal entry.\n\nIf you are entering an advanced intercompany journal entry:\n\nIn the Subsidiary field, choose the subsidiary initiating the ledger transaction. The first line of this journal entry must post to the subsidiary you choose here. The remaining lines can post to any subsidiary to which you are granted access."
+    },
+    {
+      "id": "tosubsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "To Subsidiary",
+      "required": true,
+      "help": "Choose the second subsidiary for this ledger transaction.\nNote: All lines of this journal entry must post to either the Subsidary or the To Subsidiary. No other subsidiaries can be associated with lines on this journal entry."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date as the date of this journal entry. You can enter or select another date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Entry No.",
+      "required": false,
+      "help": "NetSuite increases the largest journal entry number by one. If you wish, you can type another number.\n\nThe next journal entry number will revert to the standard pattern.\n\nYou can enter a maximum of 45 characters in this field."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "subsidiary",
+          "type": "select",
+          "label": "Subsidiary",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "line",
+      "label": "Lines",
+      "fields": [
+        {
+          "id": "account",
+          "type": "select",
+          "label": "Account",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "amortizationtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "credit",
+          "type": "currency",
+          "label": "Credit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "debit",
+          "type": "currency",
+          "label": "Debit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "enddate",
+          "type": "date",
+          "label": "End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "entity",
+          "type": "select",
+          "label": "Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "entitytype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertcode",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "grossamt",
+          "type": "currency",
+          "label": "Gross Amt",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linesubsidiary",
+          "type": "select",
+          "label": "Subsidiary",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "residual",
+          "type": "rate",
+          "label": "Residual",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revenuerecognitionrule",
+          "type": "select",
+          "label": "Revenue Recognition Rule",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedule",
+          "type": "select",
+          "label": "Schedule",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedulenum",
+          "type": "select",
+          "label": "Schedule No.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "scheduletype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "startdate",
+          "type": "date",
+          "label": "Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "tax1acct",
+          "type": "select",
+          "label": "Tax Account",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "tax1amt",
+          "type": "currency",
+          "label": "VAT Amt",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "VAT",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxrate1",
+          "type": "percent",
+          "label": "VAT Rate",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "lines",
+      "label": "Lines"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

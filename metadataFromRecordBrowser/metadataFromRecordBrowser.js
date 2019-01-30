@@ -13,13 +13,14 @@ function getRecord() {
   return {
     label: jQuery('#contentPanel h1').arr()[0].text().trim(),
     id: jQuery('#contentPanel h3').arr()[0].text().trim().toLowerCase().split('internal id:')[1].trim(),
-    supportCustomFields: !!jQuery('#contentPanel h3').arr().find(h => h.containsText('supports custom fields')),searchOnly: !!jQuery('#contentPanel h3').arr().find(h => h.containsText('Search Only')),
+    supportCustomFields: !!jQuery('#contentPanel h3').arr().find(h => h.containsText('supports custom fields')), searchOnly: !!jQuery('#contentPanel h3').arr().find(h => h.containsText('Search Only')),
     supportDeletedRecordSearch: !!jQuery('#contentPanel h3').arr().find(h => h.containsText('Supports Deleted Record Search')),
     fields: getFields(),
     sublists: getSublists(),
     searchFilters: getSearchFilters(),
     searchColumns: getSearchColumns(),
     searchJoins: getSearchJoins(),
+    searchData: getSearchData(),
     tabs: getTabs(),
     transformTypes: getTransformTypes(),
   }
@@ -41,10 +42,11 @@ function getFields() {
 }
 
 function getSublists() {
-  const h2 = jQuery('#contentPanel h2').arr().find(h =>  h.containsText('Sublists'))
+  const h2 = jQuery('#contentPanel h2').arr().find(h => h.containsText('Sublists'))
   if (!h2) { return [] }
   return h2
     .nextUntil('h2', 'h4').arr()
+    .filter(h4 => h4.next('table').arr().length)
     .map(h4 => {
       return {
         id: h4.text().trim().split('-')[0].trim(),
@@ -63,7 +65,7 @@ function getSublists() {
 }
 
 function getTabs() {
-  const h2 = jQuery('#contentPanel h2').arr().find(h => h.text().toLowerCase().trim()==='Tabs'.toLowerCase())
+  const h2 = jQuery('#contentPanel h2').arr().find(h => h.text().toLowerCase().trim() === 'Tabs'.toLowerCase())
   if (!h2) { return [] }
   return h2
     .next('table')
@@ -76,6 +78,9 @@ function getTabs() {
 }
 
 function getSearchJoins() {
+  if (getSearchData()) {
+    return []
+  }
   const h2 = jQuery('#contentPanel h2').arr().find(h => h.containsText('Search Joins'))
   if (!h2) { return [] }
   return h2
@@ -90,6 +95,9 @@ function getSearchJoins() {
 }
 
 function getSearchFilters() {
+  if (getSearchData()) {
+    return []
+  }
   const h2 = jQuery('#contentPanel h2').arr().find(h => h.containsText('Search Filters'))
   if (!h2) { return [] }
   return h2
@@ -102,7 +110,11 @@ function getSearchFilters() {
       label: tr.find('td').arr()[2].text().trim(),
     }))
 }
+
 function getSearchColumns() {
+  if (getSearchData()) {
+    return []
+  }
   const h2 = jQuery('#contentPanel h2').arr().find(h => h.containsText('Search Columns'))
   if (!h2) { return [] }
   return h2.next('table')
@@ -128,5 +140,22 @@ function getTransformTypes() {
     }))
 }
 
-// copy(JSON.stringify(getRecord(), null, 2))
+function getSearchData() {
+  // return
+  const h2 = jQuery('#contentPanel h2').arr().find(h => h.text().trim() === 'Search Data')
+  if (h2) {
+    const a = h2.next('h3').arr()[0].find('a').arr()
+    if (a && a.length) {
+      // console.log('getSearchData', '!a || !a.length')
+      return a[0].attr('href').split('.html')[0]
+    }
+    else {
+      // console.log('getSearchData', '!a || !a.length')
+    }
+  }
+}
+
+// if (typeof copy === 'function') {
+//   copy(JSON.stringify(getRecord(), null, 2))
+// }
 

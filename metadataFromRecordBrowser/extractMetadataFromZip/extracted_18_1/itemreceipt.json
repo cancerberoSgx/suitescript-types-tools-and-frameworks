@@ -1,0 +1,477 @@
+{
+  "label": "Item Receipt",
+  "id": "itemreceipt",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": "This field shows the purchase order this item receipt is created from.\n\nClick the link to open the purchase order."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "The currency used on the purchase order for this receipt is shown here."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This customer's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Vendor",
+      "required": false,
+      "help": "This field shows the name of the entity you are receiving items from."
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n \nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inboundshipment",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Inbound Shipment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemfulfillment",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Fulfillment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "landedcostperline",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Landed Cost per Line",
+      "required": false,
+      "help": "If this box is checked, all new item receipts, credit card charges, vendor bills, and checks default to use landed cost per line."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "To Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter an optional reference memo for this receipt. Later, you can search for this receipt by text entered in the memo."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this transaction to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "This is the date you are receiving this order.\n\nIf you want to change the date, enter or click Pick to select a different date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Reference #",
+      "required": false,
+      "help": "NetSuite increases the largest item receipt number by one. If you wish, you can type another number. The next item receipt number will revert to the standard pattern."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "expense",
+      "label": "Expenses",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "markreceived",
+          "type": "checkbox",
+          "label": "Mark Received",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "class",
+          "type": "text",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "countryofmanufacture",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "text",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemdescription",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemkey",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemname",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemreceive",
+          "type": "checkbox",
+          "label": "Receive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "To Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "manufactureraddr1",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturercity",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturerstate",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturertariff",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturertaxid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "manufacturerzip",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "multmanufactureaddr",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "onhand",
+          "type": "float",
+          "label": "On Hand",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "preferencecriterion",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "producer",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityremaining",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "restock",
+          "type": "checkbox",
+          "label": "Restock?",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedulebcode",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedulebnumber",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "schedulebquantity",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sitemname",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "landedcost",
+      "label": "Landed Cost"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

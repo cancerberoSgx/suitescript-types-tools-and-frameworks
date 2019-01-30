@@ -1,0 +1,320 @@
+{
+  "label": "Item Supply Plan",
+  "id": "itemsupplyplan",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item",
+      "required": true,
+      "help": "Select the item to create a supply plan for."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": "If you use the Multi-Location Inventory feature, select a location. Then, the list of items that shows is filtered to show only items for the selected location that are time-phased replenishment items.TEST"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": false,
+      "help": "Optionally enter a memo. You can later search for this plan using this text."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "If you use NetSuite OneWorld, select a Subsidiary."
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Unit of Measure",
+      "required": false,
+      "help": "Select a Unit of Measure to create a supply plan based on the unit."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "order",
+      "label": "Orders",
+      "fields": [
+        {
+          "id": "orderdate",
+          "type": "date",
+          "label": "Order Date",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "ordertype",
+          "type": "select",
+          "label": "Order Type",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "receiptdate",
+          "type": "date",
+          "label": "Receipt Date",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "sourcelocation",
+          "type": "select",
+          "label": "Source Location",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Plan Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "ordercreated",
+      "type": "checkbox",
+      "label": "Order Created"
+    },
+    {
+      "id": "orderdate",
+      "type": "date",
+      "label": "Order Date"
+    },
+    {
+      "id": "ordertype",
+      "type": "select",
+      "label": "Order Type"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "receiptdate",
+      "type": "date",
+      "label": "Receipt Date"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "label": "Units"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "label": "Last Plan Modified"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "ordercreated",
+      "type": "checkbox",
+      "label": "Order Created"
+    },
+    {
+      "id": "orderdate",
+      "type": "date",
+      "label": "Order Date"
+    },
+    {
+      "id": "ordertype",
+      "type": "select",
+      "label": "Order Type"
+    },
+    {
+      "id": "quantity",
+      "type": "float",
+      "label": "Quantity"
+    },
+    {
+      "id": "quantityuom",
+      "type": "float",
+      "label": "Quantity in Supply Plan Units"
+    },
+    {
+      "id": "receiptdate",
+      "type": "date",
+      "label": "Receipt Date"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Subsidiary"
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "label": "Units"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "location",
+      "description": "Location",
+      "actualName": "Location"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "orders",
+      "label": "Orders"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

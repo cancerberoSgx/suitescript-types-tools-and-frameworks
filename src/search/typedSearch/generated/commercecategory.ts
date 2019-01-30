@@ -4,106 +4,107 @@
 // Search Columns
 
 /** Commerce Category (commercecategory) Search Columns definition */
-export interface commercecategorySearchColumn {/** Add to Head (addtohead: text) */
-  addtohead?: string;
+export interface commercecategorySearchColumn {
+  /** Add to Head (addtohead: text) */
+      addtohead?: string;
   /** Catalog (catalog: select) */
-  catalog?: string;
+      catalog?: string;
   /** Creation Date/Time (created: date) */
-  created?: Date;
+      created?: Date;
   /** Description (description: textarea) */
-  description?: string;
+      description?: string;
   /** Display in Web Site (displayinsite: checkbox) */
-  displayinsite?: boolean;
+      displayinsite?: boolean;
   /** External ID (externalid: select) */
-  externalid?: string;
+      externalid?: string;
   /** Full URL (fullurl: text) */
-  fullurl?: string;
+      fullurl?: string;
   /** ID Path (idpath: text) */
-  idpath?: string;
+      idpath?: string;
   /** Internal ID (internalid: select) */
-  internalid?: string;
+      internalid?: string;
   /** Inactive (isinactive: checkbox) */
-  isinactive?: boolean;
+      isinactive?: boolean;
   /** Is Primary URL (isprimaryurl: checkbox) */
-  isprimaryurl?: boolean;
+      isprimaryurl?: boolean;
   /** Item Description (itemdescription: textarea) */
-  itemdescription?: string;
+      itemdescription?: string;
   /** Item ID (itemid: integer) */
-  itemid?: number;
+      itemid?: number;
   /** Item Sequence Number (itemsequencenumber: integer) */
-  itemsequencenumber?: number;
+      itemsequencenumber?: number;
   /** Last Modified (lastmodified: date) */
-  lastmodified?: Date;
+      lastmodified?: Date;
   /** Modified By (lastmodifiedby: select) */
-  lastmodifiedby?: string;
+      lastmodifiedby?: string;
   /** Meta Description (metadescription: text) */
-  metadescription?: string;
+      metadescription?: string;
   /** Meta Tag HTML (metakeywords: text) */
-  metakeywords?: string;
+      metakeywords?: string;
   /** Name (name: text) */
-  name?: string;
+      name?: string;
   /** Nest Level (nestlevel: integer) */
-  nestlevel?: number;
+      nestlevel?: number;
   /** Category Page Banner (pagebanner: image) */
-  pagebanner?: string;
+      pagebanner?: string;
   /** Category Page Banner URL (pagebannerurl: text) */
-  pagebannerurl?: string;
+      pagebannerurl?: string;
   /** Page Heading (pageheading: text) */
-  pageheading?: string;
+      pageheading?: string;
   /** Page Title (pagetitle: text) */
-  pagetitle?: string;
+      pagetitle?: string;
   /** Primary Category of Item (primarycategory: checkbox) */
-  primarycategory?: boolean;
+      primarycategory?: boolean;
   /** Primary Parent (primaryparent: select) */
-  primaryparent?: string;
+      primaryparent?: string;
   /** Sequence Number (sequencenumber: integer) */
-  sequencenumber?: number;
+      sequencenumber?: number;
   /** Sitemap Priority (sitemappriority: float) */
-  sitemappriority?: number;
+      sitemappriority?: number;
   /** Subcategory Add to Head Override (subcataddtoheadoverride: text) */
-  subcataddtoheadoverride?: string;
+      subcataddtoheadoverride?: string;
   /** Subcategory Description Override (subcatdescoverride: text) */
-  subcatdescoverride?: string;
+      subcatdescoverride?: string;
   /** Subcategory Display In Site Override (subcatdisplayinsiteoverride: checkbox) */
-  subcatdisplayinsiteoverride?: boolean;
+      subcatdisplayinsiteoverride?: boolean;
   /** Subcategory ID (subcatid: integer) */
-  subcatid?: number;
+      subcatid?: number;
   /** Subcategory Meta Description Override (subcatmetadescoverride: text) */
-  subcatmetadescoverride?: string;
+      subcatmetadescoverride?: string;
   /** Subcategory Meta Keywords Override (subcatmetakeywordsoverride: text) */
-  subcatmetakeywordsoverride?: string;
+      subcatmetakeywordsoverride?: string;
   /** Subcategory Name Override (subcatnameoverride: text) */
-  subcatnameoverride?: string;
+      subcatnameoverride?: string;
   /** Subcategory Page Banner Override (subcatpagebanneroverride: select) */
-  subcatpagebanneroverride?: string;
+      subcatpagebanneroverride?: string;
   /** Subcategory Page Banner URL Override (subcatpagebannerurloverride: text) */
-  subcatpagebannerurloverride?: string;
+      subcatpagebannerurloverride?: string;
   /** Subcategory Page Heading Override (subcatpageheadingoverride: text) */
-  subcatpageheadingoverride?: string;
+      subcatpageheadingoverride?: string;
   /** Subcategory Page Title Override (subcatpagetitleoverride: text) */
-  subcatpagetitleoverride?: string;
+      subcatpagetitleoverride?: string;
   /** Subcategory Parent ID (subcatparent: integer) */
-  subcatparent?: number;
+      subcatparent?: number;
   /** Subcategory Sequence Number (subcatsequencenumber: integer) */
-  subcatsequencenumber?: number;
+      subcatsequencenumber?: number;
   /** Subcategory Thumbnail Override (subcatthumbnailoverride: select) */
-  subcatthumbnailoverride?: string;
+      subcatthumbnailoverride?: string;
   /** Subcategory Thumbnail URL Override (subcatthumbnailurloverride: text) */
-  subcatthumbnailurloverride?: string;
+      subcatthumbnailurloverride?: string;
   /** Subcategory URL Fragment Override (subcaturlfragmentoverride: text) */
-  subcaturlfragmentoverride?: string;
+      subcaturlfragmentoverride?: string;
   /** Category Thumbnail (thumbnail: image) */
-  thumbnail?: string;
+      thumbnail?: string;
   /** Category Thumbnail URL (thumbnailurl: text) */
-  thumbnailurl?: string;
+      thumbnailurl?: string;
   /** URL Category (urlcommcat: integer) */
-  urlcommcat?: number;
+      urlcommcat?: number;
   /** URL Category Association (urlcommcatassoc: integer) */
-  urlcommcatassoc?: number;
+      urlcommcatassoc?: number;
   /** URL (urlfragment: text) */
-  urlfragment?: string;
+      urlfragment?: string;
   /** Version (version: integer) */
-  version?: number;
+      version?: number;
 }
 
 

@@ -1,0 +1,276 @@
+{
+  "label": "Supply Chain Snapshot",
+  "id": "supplychainsnapshot",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "daterun",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Run",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "futurehorizon",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Future Horizon",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "futurehorizondate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Future Horizon Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Name/Number",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pasthorizon",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Past Horizon",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "pasthorizondate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Past Horizon Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "replenishmentmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Replenishment Method",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "stockunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Stock Unit",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "daterun",
+      "type": "datetime",
+      "label": "Date Run"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "futurehorizon",
+      "type": "integer",
+      "label": "Future Horizon"
+    },
+    {
+      "id": "futurehorizondate",
+      "type": "date",
+      "label": "Future Horizon Date"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "pasthorizon",
+      "type": "integer",
+      "label": "Past Horizon"
+    },
+    {
+      "id": "pasthorizondate",
+      "type": "date",
+      "label": "Past Horizon Date"
+    },
+    {
+      "id": "replenishmentmethod",
+      "type": "select",
+      "label": "Replenishment Method"
+    },
+    {
+      "id": "stockunit",
+      "type": "select",
+      "label": "Stock Unit"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "daterun",
+      "type": "datetime",
+      "label": "Date Run"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "futurehorizon",
+      "type": "integer",
+      "label": "Future Horizon"
+    },
+    {
+      "id": "futurehorizondate",
+      "type": "date",
+      "label": "Future Horizon Date"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "item",
+      "type": "select",
+      "label": "Item"
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "label": "Memo"
+    },
+    {
+      "id": "pasthorizon",
+      "type": "integer",
+      "label": "Past Horizon"
+    },
+    {
+      "id": "pasthorizondate",
+      "type": "date",
+      "label": "Past Horizon Date"
+    },
+    {
+      "id": "replenishmentmethod",
+      "type": "text",
+      "label": "Replenishment Method"
+    },
+    {
+      "id": "stockunit",
+      "type": "text",
+      "label": "Stock Unit"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "item",
+      "description": "Item",
+      "actualName": "Item"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,320 @@
+{
+  "label": "Inventory Adjustment",
+  "id": "inventoryadjustment",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Adjustment Account",
+      "required": true,
+      "help": "Select the appropriate account for inventory adjustments. Usually, this will be an expense account.\n\nFor details on accounts, go to <_TABNAME=LIST_ACCOUNT_> > <_TASKCATEGORY=LIST_ACCOUNT_> > Chart of Accounts."
+    },
+    {
+      "id": "adjlocation",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Adjustment Location",
+      "required": false,
+      "help": "To select the location to associate with this adjustment transaction:\n\n   1. Select New to enter a new location.\n   2. Go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations for information on existing locations.\n\nNote: You can select locations for items on the Adjustments subtab."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a class to associate with this transaction.\n\nTo create a new class, select New.\n\nFor details on existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": false,
+      "help": "If this inventory adjustment is a project-related cost but is not specifically billed as a line item, select the appropriate customer or project.\nFor example, when a caterer bills his or her customers a per person rate for a beer and wine bar, they can then enter an inventory adjustment to account for the actual number of bottles consumed."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a department to associate with this transaction.\n\nTo create a new department, select New.\n\nFor details on existing departments, go to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments."
+    },
+    {
+      "id": "estimatedtotalvalue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Estimated Total Value",
+      "required": false,
+      "help": "This is the total value of the change in your inventory.\n\nWhen you submit the adjustment, the current cost is determined from your inventory database and your adjustment totals are updated."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter an optional memo for this adjustment. It will appear on a register or Account Detail report."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this inventory adjustment to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "If you have a NetSuite OneWorld account, select a Subsidiary from the list."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "Today's date autofills as the date of this inventory adjustment.\n\nYou can enter or choose another date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Reference #",
+      "required": false,
+      "help": "Enter an optional reference number for this inventory adjustment.\n\nReference Numbers for inventory adjustments do not have to be consecutive.\n\nYou can enter a maximum of 45 characters in this field."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "inventory",
+      "label": "Adjustments",
+      "fields": [
+        {
+          "id": "adjustqtyby",
+          "type": "float",
+          "label": "Adjust Qty. By",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costingmethod",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currentvalue",
+          "type": "currency",
+          "label": "Current Value",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "label",
+          "type": "label",
+          "label": "Exchange Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "labelcurrency",
+          "type": "label",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "labelfxunitcost",
+          "type": "label",
+          "label": "Unit Cost in Foreign Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "newquantity",
+          "type": "float",
+          "label": "New Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityonhand",
+          "type": "float",
+          "label": "Qty. On Hand",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "unitcost",
+          "type": "currency2",
+          "label": "Est. Unit Cost",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "adjustments",
+      "label": "Adjustments"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

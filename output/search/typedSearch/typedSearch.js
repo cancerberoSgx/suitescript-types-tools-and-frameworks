@@ -5,6 +5,7 @@
 define(["require", "exports", "N/search"], function (require, exports, nsSearch) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // import { ValueOfNumberKey, ValueOfStringKey } from '../../misc/misc';
     function search(options) {
         return nsSearch.create(options);
     }

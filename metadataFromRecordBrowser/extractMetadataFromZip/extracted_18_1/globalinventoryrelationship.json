@@ -1,0 +1,349 @@
+{
+  "label": "Global Inventory Relationship",
+  "id": "globalinventoryrelationship",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "alllocationscustomerreturn",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "All Customer Return Locations",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "alllocationsfulfillment",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "All Fulfillment Locations",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowcrosssubcustomerreturn",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow Cross-Subsidiary Customer Return",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowcrosssubfulfillment",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Allow Cross-Subsidiary Fulfillment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inventorysubsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Inventory Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "originatingsubsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Originating Subsidiary",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "customerreturn",
+      "label": "Customer Return",
+      "fields": [
+        {
+          "id": "city",
+          "type": "text",
+          "label": "City",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "country",
+          "type": "text",
+          "label": "Country",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorylocation",
+          "type": "select",
+          "label": "Inventory Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "state",
+          "type": "text",
+          "label": "State",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "fulfillment",
+      "label": "Fulfillment",
+      "fields": [
+        {
+          "id": "city",
+          "type": "text",
+          "label": "City",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "country",
+          "type": "text",
+          "label": "Country",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorylocation",
+          "type": "select",
+          "label": "Inventory Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "state",
+          "type": "text",
+          "label": "State",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "alllocationscustomerreturn",
+      "type": "checkbox",
+      "label": "All Customer Return Locations"
+    },
+    {
+      "id": "alllocationsfulfillment",
+      "type": "checkbox",
+      "label": "All Fulfillment Locations"
+    },
+    {
+      "id": "allowcrosssubcustomerreturn",
+      "type": "checkbox",
+      "label": "Allow Cross-Subsidiary Customer Return"
+    },
+    {
+      "id": "allowcrosssubfulfillment",
+      "type": "checkbox",
+      "label": "Allow Cross-Subsidiary Fulfillment"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "intercompanyactivitytype",
+      "type": "select",
+      "label": "Intercompany Activity Type"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Is Inactive"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Inventory Location"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Inventory Subsidiary"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "alllocationscustomerreturn",
+      "type": "checkbox",
+      "label": "All Customer Return Locations"
+    },
+    {
+      "id": "alllocationsfulfillment",
+      "type": "checkbox",
+      "label": "All Fulfillment Locations"
+    },
+    {
+      "id": "allowcrosssubcustomerreturn",
+      "type": "checkbox",
+      "label": "Allow Cross-Subsidiary Customer Return"
+    },
+    {
+      "id": "allowcrosssubfulfillment",
+      "type": "checkbox",
+      "label": "Allow Cross-Subsidiary Fulfillment"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "formulacurrency",
+      "type": "currency",
+      "label": "Formula (Currency)"
+    },
+    {
+      "id": "formuladate",
+      "type": "date",
+      "label": "Formula (Date)"
+    },
+    {
+      "id": "formuladatetime",
+      "type": "datetime",
+      "label": "Formula (Date/Time)"
+    },
+    {
+      "id": "formulanumeric",
+      "type": "float",
+      "label": "Formula (Numeric)"
+    },
+    {
+      "id": "formulapercent",
+      "type": "percent",
+      "label": "Formula (Percent)"
+    },
+    {
+      "id": "formulatext",
+      "type": "text",
+      "label": "Formula (Text)"
+    },
+    {
+      "id": "intercompanyactivitytype",
+      "type": "select",
+      "label": "Intercompany Activity Type"
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "label": "Internal ID"
+    },
+    {
+      "id": "inventorysubsidiary",
+      "type": "select",
+      "label": "Inventory Subsidiary"
+    },
+    {
+      "id": "inventorysubsidiarynohierarchy",
+      "type": "select",
+      "label": "Inventory Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "label": "Location"
+    },
+    {
+      "id": "origsubsidiarynohierarchy",
+      "type": "select",
+      "label": "Originating Subsidiary (no hierarchy)"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Originating Subsidiary"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "inventorysubsidiary",
+      "description": "Inventory Subsidiary",
+      "actualName": "Subsidiary"
+    },
+    {
+      "id": "location",
+      "description": "Inventory Location",
+      "actualName": "Location"
+    },
+    {
+      "id": "originatingsubsidiary",
+      "description": "Originating Subsidiary",
+      "actualName": "Subsidiary"
+    }
+  ],
+  "tabs": [
+    {
+      "name": "invtloccustreturn",
+      "label": "Customer Return"
+    },
+    {
+      "name": "invtlocfulfillment",
+      "label": "Fulfillment"
+    },
+    {
+      "name": "s_sysinfo",
+      "label": "System Information"
+    }
+  ],
+  "transformTypes": []
+}

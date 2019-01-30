@@ -1,0 +1,128 @@
+{
+  "label": "Bin Worksheet",
+  "id": "binworksheet",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": "Select a Location to display only work orders for that location.\nSelect All to display work orders for all locations.\n\nIf you use Multi-Location Inventory, the selected location is the one that component inventory items are committed from."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter any comment about why you are deleting this transaction.\n\nIf you selected the standard deletion reason, Other, you must provide a comment in this field."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's Date as the date of this transaction.\nYou can enter another date."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "description",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemname",
+          "type": "text",
+          "label": "Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemonhand",
+          "type": "float",
+          "label": "Total",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "posfloat",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [],
+  "transformTypes": []
+}

@@ -1,0 +1,582 @@
+{
+  "label": "Check",
+  "id": "check",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": false,
+      "help": "Select the bank account that will be affected by this transaction.\n\nTo set up a new bank account, click New.\n\nFor details about existing bank accounts, go to <_TABNAME=LIST_ACCOUNT_> > <_TASKCATEGORY=LIST_ACCOUNT_> > Accounts."
+    },
+    {
+      "id": "address",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": "NetSuite inserts the address of the payee from the payee record. \n\nTo enable or disable the Auto Fill preference, go to <_TABNAME=TRAN_USERPREFS_> > Set Preferences.\n\nIf you want, you can change it here for just this transaction by typing up to five rows of information."
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": "NetSuite displays the balance of the selected bank account."
+    },
+    {
+      "id": "billpay",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Bill Pay",
+      "required": false,
+      "help": "Check this box to send this check online.\n\nYou must follow the set up procedure in How Do I Set Up Online Bill Pay before you can use this feature.\n\nThe NetSuite basic package includes a set number of bill pay transactions. Click the Charges may apply link for more information."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a class to associate with this transaction.\n\nTo create a new class, select New.\n\nFor details on existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "Select the currency this check is paid in."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a department to associate with this transaction.\n\nTo create a new department, select New.\n\nFor details on existing departments, go to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Payee",
+      "required": true,
+      "help": "Select the person or company you are paying with this check.\n\nTo set up a new payee, click New."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "landedcostperline",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Landed Cost per Line",
+      "required": false,
+      "help": "Check this box if you want to specify the landed cost per line item."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": "Select a location to associate with this item.\n\nSelect New to create a new location record.\n\nGo to Lists > Locations for details about existing locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you want, enter a memo. What you enter here will print on the memo line of the check."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": true,
+      "help": "Select the period to which you want to post this check.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "If you use NetSuite OneWorld, the Subsidiary field defaults to the primary subsidiary associated with the Payee.\n\nNote: If you share vendor records with multiple subsidiaries, you can change the subsidiary from the primary subsidiary to a secondary subsidiary. Changing the subsidiary updates the bank account to that of the selected subsidiary, updates the currency to that of the new bank, and clears the lines on the Expenses and Items subtabs."
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "To Be Printed",
+      "required": false,
+      "help": "If you want to save this in a queue of checks to print, check this box.\n\nOtherwise, to save and print this check now, you can click Save & Print."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this check. You can type or pick another date.\n\nWhat you enter here determines the date range in which this transaction appears on the Bank register.\n\nYou can select or enter custom date ranges on registers."
+    },
+    {
+      "id": "tranid",
+      "type": "rtext",
+      "nlapiSubmitField": false,
+      "label": "Check #",
+      "required": false,
+      "help": "NetSuite automatically fills this field.\n\nIf you checked the To Be Printed box, this field autofills with To Print. You choose starting numbers when you print those checks.\n\nIf you are immediately printing this check, NetSuite increases the largest check number by one. You can type another number here, but the next number reverts to the standard pattern.\n\nYou can also use this field to record ACH, ATM, or other reference numbers."
+    },
+    {
+      "id": "transactionnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Transaction Number",
+      "required": false,
+      "help": "This field displays the system-generated number for this transaction type."
+    },
+    {
+      "id": "usertotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": "You can enter the dollar amount of the check, but NetSuite will update this amount as you add or edit line items."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "expense",
+      "label": "Expenses",
+      "fields": [
+        {
+          "id": "account",
+          "type": "select",
+          "label": "Account",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "category",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rateschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxrate1",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vendorname",
+          "type": "text",
+          "label": "Vendor Name",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "landedcost",
+      "label": "Landed Cost"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "journalentry",
+      "fieldDefaults": "customform,void"
+    }
+  ]
+}

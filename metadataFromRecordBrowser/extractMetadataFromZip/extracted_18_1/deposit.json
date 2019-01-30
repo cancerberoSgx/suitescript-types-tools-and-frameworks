@@ -1,0 +1,490 @@
+{
+  "label": "Deposit",
+  "id": "deposit",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": true,
+      "help": "Select the bank account to receive these funds. Click New to set up a new bank account.\n\nFor details about existing bank accounts, go to <_TABNAME=LIST_ACCOUNT_> > Accounts."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Choose a class to associate with this transaction.\n\nTo enter a new class, click New.\n\nFor details about existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditcardprocessor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processing Profile",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "The currency of this bank account is shown in this field."
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the custom form for this deposit."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Choose a department to associate with this transaction.\n\nClick New to enter a new department.\n\nGo to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments for details about existing departments."
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nIf the bank account's currency is the same as the subsidiary's base currency, the exchange rate is a read-only field."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select a location to associate with this transaction.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you want, enter a memo to describe this deposit. It will appear on reports."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period to which you want to post this deposit.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "If you use NetSuite OneWorld, the subsidiary defaults to that associated with the selected bank account."
+    },
+    {
+      "id": "taxperiod",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "To Be Printed",
+      "required": false,
+      "help": "If you enter multiple deposits before printing, you can print all the slips at once. To do this, check the To Be Printed box on each transaction page as you enter deposits.\n \nTo print the queued deposits, go to <_TABNAME=TRAN_PRINT_DEPOSIT_> > <_TASKCATEGORY=TRAN_PRINT_DEPOSIT_> Print Deposits."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": "Enter the Amount being deposited."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this deposit. You can type or pick another date.\n\nWhat you enter here determines the date range in which this transaction appears on the Bank register.\n\nYou can select or enter custom date ranges on registers."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Deposit #",
+      "required": false,
+      "help": "This field displays the system-generated number associated with this deposit."
+    },
+    {
+      "id": "updatecurrency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Update Currency",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "cashback",
+      "label": "Cash Back",
+      "fields": [
+        {
+          "id": "account",
+          "type": "select",
+          "label": "Account",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Other Deposits",
+      "fields": [
+        {
+          "id": "account",
+          "type": "select",
+          "label": "Account",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "entity",
+          "type": "select",
+          "label": "Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "paymentmethod",
+          "type": "select",
+          "label": "Payment Method",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "refnum",
+          "type": "text",
+          "label": "Number",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "payment",
+      "label": "Payments",
+      "fields": [
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deposit",
+          "type": "checkbox",
+          "label": "Deposit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "docdate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "docnumber",
+          "type": "text",
+          "label": "Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "entity",
+          "type": "select",
+          "label": "From",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "lineid",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "paymentamount",
+          "type": "currency",
+          "label": "Amount (null)",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "paymentmethod",
+          "type": "select",
+          "label": "Pmt. Meth.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pmtcurrencyprecision",
+          "type": "text",
+          "label": "Currency Precision",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "refnum",
+          "type": "text",
+          "label": "Ref No.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "transactionamount",
+          "type": "currency",
+          "label": "Payment Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "type",
+          "type": "select",
+          "label": "Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "multibook",
+      "label": "Accounting Books"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

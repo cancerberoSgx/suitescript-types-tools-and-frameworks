@@ -1,0 +1,690 @@
+{
+  "label": "Customer Refund",
+  "id": "customerrefund",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": true,
+      "help": "Select the bank account you are using for this refund. Click &#x2014;New&#x2014; to set up a new account.\n\nFor details on accounts, go to <_TABNAME=LIST_ACCOUNT_> > <_TASKCATEGORY=LIST_ACCOUNT_> > Chart of Accounts."
+    },
+    {
+      "id": "address",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": "NetSuite inserts the billing address of the customer from the record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. You can change the address for just this transaction by typing up to 5 rows of information in this field."
+    },
+    {
+      "id": "allowemptycards",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Credits",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "aracct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "A/R Account",
+      "required": false,
+      "help": "Select the Accounts Receivable account that will be affected by this transaction.</p\n\nClick &#x2014;New &#x2014; to set up a new account."
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": "This field shows the current customer balance."
+    },
+    {
+      "id": "ccapproved",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "CC Approved",
+      "required": false,
+      "help": "Place a check mark in this box only after the credit card refund has been validated outside NetSuite, such as by a card-swipe terminal.\n\nIf you have a NetSuite merchant account, then this field is automatically filled as soon as the refund is approved."
+    },
+    {
+      "id": "ccexpiredate",
+      "type": "ccexpdate",
+      "nlapiSubmitField": false,
+      "label": "Expires (MM/YYYY)",
+      "required": false,
+      "help": "Enter the credit card's expiration date using this format: MM/YYYY."
+    },
+    {
+      "id": "cchold",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccholdetails",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccispurchasecardbin",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Purchase Card BIN",
+      "required": false,
+      "help": "If you use the Send Purchase Card Data feature, this box is marked when NetSuite determines that the credit card entered is a purchase card. If the Process as Purchase Card box is also checked, this credit card payment will be processed by NetSuite as a purchase card.\n\nContact your NetSuite account representative for more information."
+    },
+    {
+      "id": "ccname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name on Card",
+      "required": false,
+      "help": "NetSuite enters the cardholder name from the default credit card on the customer's record.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Financial subtab of the customer's record, verify that the Cardholder Name field contains the correct information."
+    },
+    {
+      "id": "ccnumber",
+      "type": "ccnumber",
+      "nlapiSubmitField": false,
+      "label": "Credit Card #",
+      "required": false,
+      "help": "If refund is by credit card, enter the card number here. Enter numbers only, without spaces.\n\nNetSuite is a secure site. If a NetSuite merchant gives a customer access to view payment information, only that merchant and that customer will be able to see this number."
+    },
+    {
+      "id": "ccprocessoraccount",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processing Profile",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccstreet",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Street",
+      "required": false,
+      "help": "NetSuite enters the street address from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct street address."
+    },
+    {
+      "id": "cczipcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Zip Code",
+      "required": false,
+      "help": "NetSuite enters the zip or postal code from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct zip or postal code."
+    },
+    {
+      "id": "chargeit",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Process Credit Card",
+      "required": false,
+      "help": "If refund is by credit card, place a check mark in this box to process the credit to the customer's charge account over the Internet. You must have previously set up a NetSuite merchant account for this to work."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "consolidatebalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Consolidated Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditcard",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Select",
+      "required": false,
+      "help": "Select a credit card stored on the customer record to use as the method to refund the payment for this sale.\n\nClick New to enter a new credit card."
+    },
+    {
+      "id": "creditcardprocessor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processor",
+      "required": false,
+      "help": "Select the credit card processor you want to use for this transaction.\n\nYou can set up credit card processors at <_TABNAME=ADMI_CREDCARD_> > <_TASKCATEGORY=ADMI_CREDCARD_> > Set Up Credit Card Processing."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "If you do not use the Multi-Currency Customers feature, the currency of the customer you are creating this transaction for is shown here.\n\nIf you use the Multi-Currency Customers feature, select the currency of the credits or deposits you want to refund. The currency selected in the Currency field filters the list of credits and deposits on the Apply subtab."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This customer's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": "Select the customer for this refund. If you are using projects, select the appropriate project rather than the master customer account.\n\nClick &#x2014;New&#x2014; to set up a new customer.\n\nGo to <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers for details about existing customers and projects."
+    },
+    {
+      "id": "customercode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Customer Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "debitcardissueno",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Issue No.",
+      "required": false,
+      "help": "If the card is a debit card, enter the card's issue number."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Choose a department to associate with this transaction.\n\nClick New to enter a new department.\n\nGo to Lists > Departments for details about existing departments."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inputpnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ispurchasecard",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Choose a location to associate with this transaction.\n\nSelect New to enter a new location record.\n\nGo to Lists > Locations for details about existing location records."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter an optional memo to describe this refund.\n\nFor example, you may want to include the original transaction number on the refund.\n\nThis memo appears on issued checks and register reports."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overridehold",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overrideholdchecked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventdate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventholdreason",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reason",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventpurchasedatasent",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventresult",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventupdatedby",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymentmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Refund Method",
+      "required": true,
+      "help": "Select the method to refund the payment for this sale.\n\nTo add additional choices to this list, go to <_TABNAME=LIST_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY=LIST_ACCOUNTINGOTHERLIST_> > Accounting Lists > New > Payment Method."
+    },
+    {
+      "id": "pnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "P/N Ref.",
+      "required": false,
+      "help": "If you accept credit card payments, the Verisign authentication code appears here once the transaction is approved."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this refund to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "softdescriptor",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Soft Descriptor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "This field shows the subsidiary associated with this transaction."
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "To Be Printed",
+      "required": false,
+      "help": "Check this box to queue this refund to be printed."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Refund Amount",
+      "required": false,
+      "help": "NetSuite updates the refund amount as you check or clear the Apply check boxes at the bottom of the form."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date as the date of this refund. You can type or pick another date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Check #",
+      "required": false,
+      "help": "If you are issuing a check, NetSuite supplies the next consecutive number."
+    },
+    {
+      "id": "transactionnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Transaction Number",
+      "required": false,
+      "help": "The number automatically generated for the transaction by NetSuite."
+    },
+    {
+      "id": "validfrom",
+      "type": "ccvalidfrom",
+      "nlapiSubmitField": false,
+      "label": "Valid From / Start Date (MM/YYYY)",
+      "required": false,
+      "help": "Enter the date when this card first became valid."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "label": "Credits",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Payment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "applydate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdfrom",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "doc",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "due",
+          "type": "currency",
+          "label": "Amount Remaining",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "duedate",
+          "type": "date",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "text",
+          "label": "Hidden",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "refnum",
+          "type": "text",
+          "label": "Ref No.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "total",
+          "type": "currency",
+          "label": "Orig. Amt.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "deposit",
+      "label": "Deposits",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Payment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "depositdate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "doc",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "remaining",
+          "type": "currency",
+          "label": "Amount Remaining",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "total",
+          "type": "currency",
+          "label": "Orig. Amt.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "applications",
+      "label": "Applications"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "payment",
+      "label": "Payment"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

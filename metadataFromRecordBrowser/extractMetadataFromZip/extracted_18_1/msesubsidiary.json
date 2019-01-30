@@ -1,0 +1,521 @@
+{
+  "label": "MSE Subsidiary",
+  "id": "msesubsidiary",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [],
+  "sublists": [],
+  "searchFilters": [
+    {
+      "id": "account",
+      "type": "select",
+      "label": "Default Payable Account for Expense Reports"
+    },
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accountingbookcurrency",
+      "type": "select",
+      "label": "Accounting Book Currency"
+    },
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "effectivefrom",
+      "type": "date",
+      "label": "Effective From"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "externalidstring",
+      "type": "text",
+      "label": "External ID (Text)"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "fiscalcalendar",
+      "type": "select",
+      "label": "Fiscal Calendar"
+    },
+    {
+      "id": "glimpactlocking",
+      "type": "checkbox",
+      "label": "Gl Impact Locking"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "iselimination",
+      "type": "checkbox",
+      "label": "Elimination"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "label": "Legal Name"
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "label": "MOSS Applies"
+    },
+    {
+      "id": "mossnexus",
+      "type": "select",
+      "label": "MOSS Nexus"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "label": "Nexus"
+    },
+    {
+      "id": "parent",
+      "type": "integer",
+      "label": "Parent Subsidiary"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "primary",
+      "type": "checkbox",
+      "label": "Primary (Y/N)"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "serviceitemforforecastreports",
+      "type": "select",
+      "label": "Service Item for Forecast Reports"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "label": "Name (select)"
+    },
+    {
+      "id": "taxengine",
+      "type": "select",
+      "label": "Tax Engine"
+    },
+    {
+      "id": "taxfiscalcalendar",
+      "type": "select",
+      "label": "Tax Fiscal Calendar"
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "label": "Tax ID"
+    },
+    {
+      "id": "taxregistrationnumber",
+      "type": "text",
+      "label": "Tax Reg. Number"
+    },
+    {
+      "id": "traninternalprefix",
+      "type": "text",
+      "label": "Internal Transaction Prefix"
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "label": "Transaction Prefix"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Web Site"
+    },
+    {
+      "id": "validuntil",
+      "type": "date",
+      "label": "Valid Until"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "accountingbook",
+      "type": "select",
+      "label": "Accounting Book"
+    },
+    {
+      "id": "accountingbookcurrency",
+      "type": "select",
+      "label": "Accounting Book Currency"
+    },
+    {
+      "id": "address1",
+      "type": "text",
+      "label": "Address 1"
+    },
+    {
+      "id": "address2",
+      "type": "text",
+      "label": "Address 2"
+    },
+    {
+      "id": "address3",
+      "type": "text",
+      "label": "Address 3"
+    },
+    {
+      "id": "anonymouscustomerinboundemail",
+      "type": "text",
+      "label": "Anonymous Customer - Inbound Email"
+    },
+    {
+      "id": "anonymouscustomeronlineforms",
+      "type": "text",
+      "label": "Anonymous Customer - Online Forms"
+    },
+    {
+      "id": "caseassignmenttemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Case Assignment"
+    },
+    {
+      "id": "caseautomaticclosuretemplate",
+      "type": "text",
+      "label": "Customer Notification Template - Automatic Case Closure"
+    },
+    {
+      "id": "casecopyemployeetemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Copy Employee"
+    },
+    {
+      "id": "casecreationtemplate",
+      "type": "text",
+      "label": "Customer Notification Template - Case Creation"
+    },
+    {
+      "id": "caseescalationtemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Escalation"
+    },
+    {
+      "id": "caseupdatetemplate",
+      "type": "text",
+      "label": "Customer Notification Template - Case Update"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "companynameforsupportmessages",
+      "type": "text",
+      "label": "Company Name for Support Messages"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "label": "Currency"
+    },
+    {
+      "id": "defaultadvanceacctforexprept",
+      "type": "text",
+      "label": "Default Advance to Apply Account for Expense Reports"
+    },
+    {
+      "id": "defaultapaccountforexprept",
+      "type": "text",
+      "label": "Default Payable Account for Expense Reports"
+    },
+    {
+      "id": "defaultcaseprofile",
+      "type": "text",
+      "label": "Default Case Profile"
+    },
+    {
+      "id": "effectivefrom",
+      "type": "date",
+      "label": "Effective From"
+    },
+    {
+      "id": "email",
+      "type": "email",
+      "label": "Email"
+    },
+    {
+      "id": "employeecaseupdatetemplate",
+      "type": "text",
+      "label": "Employee Notification Template - Case Update"
+    },
+    {
+      "id": "externalid",
+      "type": "select",
+      "label": "External ID"
+    },
+    {
+      "id": "fax",
+      "type": "phone",
+      "label": "Fax"
+    },
+    {
+      "id": "fiscalcalendar",
+      "type": "select",
+      "label": "Fiscal Calendar"
+    },
+    {
+      "id": "glimpactlocking",
+      "type": "checkbox",
+      "label": "Gl Impact Locking"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "iselimination",
+      "type": "checkbox",
+      "label": "Elimination"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "legalname",
+      "type": "text",
+      "label": "Legal Name"
+    },
+    {
+      "id": "mainsupportemailaddress",
+      "type": "email",
+      "label": "Main Support Email Address"
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "label": "MOSS Applies"
+    },
+    {
+      "id": "mossnexus",
+      "type": "select",
+      "label": "MOSS Nexus"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "namenohierarchy",
+      "type": "text",
+      "label": "Name (no hierarchy)"
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "label": "Nexus"
+    },
+    {
+      "id": "parent",
+      "type": "integer",
+      "label": "Parent Subsidiary"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "primary",
+      "type": "checkbox",
+      "label": "Primary (Y/N)"
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Amount Tolerance"
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance"
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Purchase Order Quantity Difference"
+    },
+    {
+      "id": "receiptamount",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Amount Tolerance"
+    },
+    {
+      "id": "receiptquantity",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance"
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "float",
+      "label": "Vendor Bill - Item Receipt Quantity Difference"
+    },
+    {
+      "id": "serviceitemforforecastreports",
+      "type": "text",
+      "label": "Service Item for Forecast Reports"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "taxengine",
+      "type": "select",
+      "label": "Tax Engine"
+    },
+    {
+      "id": "taxfiscalcalendar",
+      "type": "select",
+      "label": "Tax Fiscal Calendar"
+    },
+    {
+      "id": "taxidnum",
+      "type": "text",
+      "label": "Tax ID"
+    },
+    {
+      "id": "taxregistrationnumber",
+      "type": "text",
+      "label": "Tax Reg. Number"
+    },
+    {
+      "id": "traninternalprefix",
+      "type": "text",
+      "label": "Internal Transaction Prefix"
+    },
+    {
+      "id": "tranprefix",
+      "type": "text",
+      "label": "Transaction Prefix"
+    },
+    {
+      "id": "url",
+      "type": "url",
+      "label": "Web Site"
+    },
+    {
+      "id": "validuntil",
+      "type": "date",
+      "label": "Valid Until"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

@@ -8,10 +8,10 @@
 // import { loadScriptBrowser } from "../src/script";
 // import { staticServer } from "./staticServer";
 // import { readFileSync, writeFileSync } from 'fs';
-import {  extractAll } from '.';
+import { extractAll } from '.';
 
 // async function test() {
-  
+
 //   // const server = await staticServer(join(__dirname, 'fixtures', 'static1'), 9999)
 //   const browser = await launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 //   const page = await browser.newPage();
@@ -27,9 +27,15 @@ import {  extractAll } from '.';
 
 
 const puppeteerTargetFolder = '/home/sg/git/suitecommerce-types/jasmine-puppeteer-results/node_modules'
-async function test2(){
+async function test2() {
   // const tool = new Tool()
-  await extractAll({puppeteerTargetFolder, inputFolder: '', startUrl: 'http://127.0.0.1:8080/script/record/account.html', outputFolder: 'extracted'})
+  await extractAll({
+    puppeteerTargetFolder,
+    inputFolder: '',
+    // startUrl: 'http://127.0.0.1:8080/script/record/account.html',
+    startUrl: 'https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/script/record/account.html',
+    outputFolder: 'extracted_18_1'
+  })
   // await tool.installPuppeteer()
   // const data = await tool.extractPage()
   // console.log(data);

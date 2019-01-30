@@ -1,0 +1,728 @@
+{
+  "label": "Work Order",
+  "id": "workorder",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "assemblyitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Assembly",
+      "required": true,
+      "help": "Select the Assembly you need to build.\n\nAfter an item is selected, the assembly components are displayed on the Items subtab.\nThis field cannot be changed after an assembly build is associated with this work order."
+    },
+    {
+      "id": "autocalculatelag",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto-calculate Lag",
+      "required": false,
+      "help": "Check the Auto-Calculate Lag box to automatically calculate the optimal lag amount, which is the shortest possible lead time for each work order."
+    },
+    {
+      "id": "billofmaterials",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill of Materials",
+      "required": false,
+      "help": "Select the Bill of Materials (BOM) you want to associate with this assembly."
+    },
+    {
+      "id": "billofmaterialsrevision",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill of Materials Revision",
+      "required": false,
+      "help": "Select a Bill of Materials Revision to associate with this work order.\nA BOM Revision displays BOM updates and details throughout the product lifecycle."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a Class if you track them.\nThe selected class carries over to the assembly build."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": "The Created From field displays the number of the sales order associated with this work order, if any.\n\nNote: The Created From field is not available if you are creating a stand-alone work order on the Enter Work Orders page. The Created From field appears only on existing work orders created from sales orders using one of these methods:\n    * By clicking on the Work Ord. link on the line item in the sales order\n    * By automatic work order creation from a sales order when the Create WO field is marked upon saving the sales order"
+    },
+    {
+      "id": "currency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "In the Custom Form list, select the form to use with this work order."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a Department to associate with the assemblies on this work order.\nThis selection is carried over to the assembly build.\n\nClick New to enter a new department."
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Production End Date",
+      "required": false,
+      "help": "In the Production End Date field, enter the date you expect to complete assembly production.\n\nThis field defaults to show the transaction date plus lead time."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": false,
+      "help": "Select a Customer to associate with this work order."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "expandassembly",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Build Sub-Assemblies",
+      "required": false,
+      "help": "Check the Mark Sub-Assemblies Phantom box to build member items that are also assemblies used to complete the work order.\nSub-assembly components are displayed on the Items subtab.\n\nTo learn more, see Work Orders and Sub-Assemblies"
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "firmed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Firmed",
+      "required": false,
+      "help": "Check the Firmed box to save the the order and process it when the supply planning engine runs."
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project",
+      "required": false,
+      "help": "Select a job if the assemblies on this work order are for a particular job. Click the Open icon to open a list of jobs."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select a Location to display only work orders for that location.\nSelect All to display work orders for all locations.\n\nIf you use Multi-Location Inventory, the selected location is the one that component inventory items are committed from."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Optionally, enter a Memo for this work order.\nYou can search for the memo text to find this work order."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "orderstatus",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": "Select the work order Status.\nFor example, In-Process or Built."
+    },
+    {
+      "id": "quantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Quantity",
+      "required": true,
+      "help": "Enter the Quantity of assembly items you want to create.\nThis can be a fractional number."
+    },
+    {
+      "id": "revision",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Revision",
+      "required": false,
+      "help": "For work orders, NetSuite automatically populates the effective revision based on the effective date. If you change the revision selected on the work order, then NetSuite changes the components on the top level assembly based on the revision selected.\n\nIf you change the revision selected on the work order and the Build Subassembly box is checked, then top-level components will change based on the revision selected and the lower level components are determined based on the effective date."
+    },
+    {
+      "id": "revisionmemo",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Revision Memo",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Choose Team",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Sales Rep",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "schedulingmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Scheduling Method",
+      "required": true,
+      "help": "Select a Scheduling Method:\n\nForward Scheduling - to set production start date and calculate the time, materials, and resources required to complete all necessary operations to finish the task.\n\nBackward Scheduling to set the production end date, which is the date you need to have the completed items. NetSuite calculates the time, materials, and resources required to complete all necessary operations."
+    },
+    {
+      "id": "source",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Production Start Date",
+      "required": false,
+      "help": "In the Production Start Date field, enter the date you expect to begin assembly production. This field defaults to today's date.\n\n    * Demand Planning bases component demand on the production start date.\n    * Manufacturing Routing production start date depends on whether NetSuite uses forward or backward scheduling to calculate production requirements.\n\nTo learn more, see Production Scheduling Methods Overview."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": "If you use OneWorld, select a subsidiary."
+    },
+    {
+      "id": "syncpartnerteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "syncsalesteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite displays today's Date as the default work order date.\nYou can enter or select another date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Order #",
+      "required": false,
+      "help": "NetSuite increases the largest work order number by one.\n\n   1. To enter another order number, go to Setup > Company > Setup Tasks > Auto-Generated Numbers.\n   2. On the Transactions subtab, next to Work Order, check the Allow Override box.\n   3. Click Save.\n      The next order number will revert to the standard pattern."
+    },
+    {
+      "id": "units",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Units",
+      "required": false,
+      "help": "The Units field displays the units of the component used in the parent assembly."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "commitinventory",
+          "type": "select",
+          "label": "Commit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createpo",
+          "type": "select",
+          "label": "Create PO",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createwo",
+          "type": "checkbox",
+          "label": "Create WO",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "daysbeforeexpiration",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isclosed",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemid",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemsource",
+          "type": "select",
+          "label": "Item Source",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "operationsequencenumber",
+          "type": "integer",
+          "label": "Operation Sequence Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "orderpriority",
+          "type": "float",
+          "label": "Order Priority",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "plannedissuedate",
+          "type": "datetime",
+          "label": "Planned Component Issue Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "porate",
+          "type": "currency2",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "povendor",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "printitems",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityavailable",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitybackordered",
+          "type": "float",
+          "label": "Back Ordered",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitycommitted",
+          "type": "float",
+          "label": "Committed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityfulfilled",
+          "type": "float",
+          "label": "Used in Build",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rateschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "label": "Partners",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "partner",
+          "type": "select",
+          "label": "Partner",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "partnerrole",
+          "type": "select",
+          "label": "Partner Role",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "salesteam",
+      "label": "Sales Team",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issalesrep",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "salesrole",
+          "type": "select",
+          "label": "Sales Role",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "multipartner",
+      "label": "Partners"
+    },
+    {
+      "name": "teamselling",
+      "label": "Sales Team"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

@@ -5,10 +5,11 @@
 
 
 import * as nsSearch from 'N/search';
-import { SearchRecordType } from "../../sharedTypes";
-import { ColumnName, FilterName, FilterSupportedOperators, JoinName } from './searchTypingHelpers';
-import { ValueOfNumberKey, ValueOfStringKey } from '../../misc/misc';
-
+// import { SearchRecordType } from "../../sharedTypes";
+import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType } from './searchTypingHelpers';
+import { StringKeyOf } from '../../misc/misc';
+import { TypedSearchColumnNames } from './generated';
+// import { ValueOfNumberKey, ValueOfStringKey } from '../../misc/misc';
 
 export function search<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>): Search<RecordType> {
   return nsSearch.create(options as any) as any

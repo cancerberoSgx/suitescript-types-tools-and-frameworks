@@ -1,0 +1,437 @@
+{
+  "label": "Vendor Payment",
+  "id": "vendorpayment",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": true,
+      "help": "Select the bank account that will be used to pay these bills.\n\nFor details on accounts, go to <_TABNAME=LIST_ACCOUNT_> > <_TASKCATEGORY=LIST_ACCOUNT_> > Chart of Accounts."
+    },
+    {
+      "id": "address",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Address",
+      "required": false,
+      "help": "NetSuite inserts the mailing address of the vendor from the record at <_TABNAME=LIST_VENDOR_> > <_TASKCATEGORY=LIST_VENDOR_> > Vendors. If you wish, you can change it here for just this transaction by typing up to 4 rows of information."
+    },
+    {
+      "id": "apacct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "A/P Account",
+      "required": false,
+      "help": "Select the Accounts Payable account that will be affected by this transaction.</P\n\nClick New to set up a new account.\n\nFor details on accounts, go to <_TABNAME=LIST_ACCOUNT_> > <_TASKCATEGORY=LIST_ACCOUNT_> > Chart of Accounts."
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": "NetSuite shows you the balance in this bank account."
+    },
+    {
+      "id": "billpay",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Bill Pay",
+      "required": false,
+      "help": "Check this box to send this payment online.\n\nYou must follow the set up procedure in How Do I Set Up Online Bill Pay before you can use this feature.\n\nThe NetSuite basic package includes a set number of bill pay transactions. Click the Charges May Apply link for more information."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Choose a class to associate with this transaction.\n\nClick New to enter a new class.\n\nGo to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes for details about existing classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "Select the vendor's transaction currency you want to enter this bill in."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This vendor's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Choose a department to associate with this transaction.\n\nClick New to enter a new department.\n\nGo to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments for details about existing departments."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Payee",
+      "required": true,
+      "help": "Select the payee for this purchase.\n\n    * Select a vendor to pay vendor bills.\n    * Select an employee to pay an employee expense.\n\nNote: If you have NetSuite OneWorld and you have defined vendor records that are shared with multiple secondary subsidiaries, the Subsidiary field defaults to the vendor&#x2019;s primary subsidiary for this vendor bill. You can, however, change it to any secondary subsidiary assigned to this vendor. \n\nIf the vendor record you select is not shared with multiple subsidiaries, the Subsidiary field defaults to the vendor&#x2019;s assigned subsidiary.\n\nGo to <_TABNAME=LIST_VENDOR_> > <_TASKCATEGORY=LIST_VENDOR_> > Vendors for details about existing vendors.\n\nGo to <_TABNAME=LIST_EMPLOYEE_> > <_TASKCATEGORY=LIST_EMPLOYEE_> > Employees for details about existing employees."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select a location to associate with this transaction.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter a memo that shows the vendor's invoice number or your account number.\n\nThis appears on the memo line of the check."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this bill payment to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "printvoucher",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Voucher",
+      "required": false,
+      "help": "Check this box to queue a voucher to print for this payment.\n \nAfter you have entered payments, print vouchers for them at <_TABNAME=TRAN_PRINT_> > <_TASKCATEGORY=TRAN_PRINT_> > Print Checks and Forms > Payment Vouchers."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "In a OneWorld environment, NetSuite displays the name of the subsidiary associated with the bill in a read-only field."
+    },
+    {
+      "id": "toach",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "To ACH",
+      "required": false,
+      "help": "Check this box to send this payment via ACH processing.\n\nBefore you can use this function, you must follow the set up procedures in:\n\n    * Set Up ACH Processing\n    * Set Up Vendor Records for ACH Payments"
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "To Be Printed",
+      "required": false,
+      "help": "Check this box if you wish to save this in a queue of checks to print.\n\nYou can also click Save & Print to print this at once."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": "NetSuite will update this amount as you add or edit line items."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this bill payment. You can type or pick another date.\n\nWhat you enter here determines the date range in which this transaction appears on the Accounts Payable Register.\n\nYou can select or enter custom date ranges on registers."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Check #",
+      "required": false,
+      "help": "If you have clicked To Be Printed, you will choose starting check numbers later, when you print those checks. If you are submitting and immediately printing this check, NetSuite increases the largest check number by one. If you wish, you can type another number here, and the next check number will revert to the standard pattern."
+    },
+    {
+      "id": "transactionnumber",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Transaction Number",
+      "required": false,
+      "help": "This field displays the system-generated number associated with this transaction."
+    },
+    {
+      "id": "unapplied",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Unapplied",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "label": "Apply",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Payment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "applydate",
+          "type": "date",
+          "label": "Date Due",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdfrom",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "disc",
+          "type": "poscurrency",
+          "label": "Disc. Taken",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discamt",
+          "type": "currency",
+          "label": "Disc. Avail.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discdate",
+          "type": "date",
+          "label": "Disc. Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "doc",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "due",
+          "type": "currency",
+          "label": "Amt. Due",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "duedate",
+          "type": "date",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "text",
+          "label": "Hidden",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "refnum",
+          "type": "text",
+          "label": "Ref No.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "total",
+          "type": "currency",
+          "label": "Orig. Amt.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "applications",
+      "label": "Applications"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

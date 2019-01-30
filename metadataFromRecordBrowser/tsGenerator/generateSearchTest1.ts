@@ -6,10 +6,11 @@ import { generateAfter } from './search/generateProject';
 
 // })
 generateProject({
+  // inputFolder: './extractMetadataFromZip/extracted', 
   inputFolder: './extractMetadataFromZip/extracted', 
   // inputFolder: './extracted', 
-  outputFolder: './generated/search', 
-  // outputFolder: '../src/search/typedSearch/generated', 
+  // outputFolder: './generated/search', 
+  outputFolder: '../src/search/typedSearch/generated', 
   typedRecordImportBase: '../', 
   cleanOutput: true,
   generateAfter,

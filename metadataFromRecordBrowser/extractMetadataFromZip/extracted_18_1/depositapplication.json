@@ -1,0 +1,310 @@
+{
+  "label": "Deposit Application",
+  "id": "depositapplication",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "applied",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Applied",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "aracct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "A/R Account",
+      "required": false,
+      "help": "Select the Accounts Receivable account that will be affected by this transaction. Click New to set up a new account.\n\nFor details on accounts, go to <_TABNAME=LIST_ACCOUNT_> > <_TASKCATEGORY=LIST_ACCOUNT_> > Chart of Accounts."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a class to associate with this transaction.\n\nTo create a new class, select New.\n\nFor details on existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer:Project",
+      "required": false,
+      "help": "The customer or project shows in this field."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a department to associate with this transaction.\n\nTo create a new department, select New.\n\nFor details on existing departments, go to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments."
+    },
+    {
+      "id": "deposit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Application Of",
+      "required": false,
+      "help": "This field shows a link to the customer deposit being applied."
+    },
+    {
+      "id": "depositdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Deposit Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select a location to associate with this transaction.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter a memo to identify this application transaction."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this deposit to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "To Apply",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "The current date defaults to show in this field.\n\nYou can select or enter another date if necessary."
+    },
+    {
+      "id": "unapplied",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Unapplied",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "label": "Invoices",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Payment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "applydate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdfrom",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "doc",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "due",
+          "type": "currency",
+          "label": "Amt. Due",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "duedate",
+          "type": "date",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "text",
+          "label": "Hidden",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "job",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "refnum",
+          "type": "text",
+          "label": "Ref No.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "total",
+          "type": "currency",
+          "label": "Orig. Amt.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [],
+  "transformTypes": []
+}

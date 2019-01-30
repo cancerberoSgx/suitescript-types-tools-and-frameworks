@@ -1,0 +1,1566 @@
+{
+  "label": "Cash Refund",
+  "id": "cashrefund",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": false,
+      "help": "Select the cash or bank account from which you are refunding this money."
+    },
+    {
+      "id": "allowemptycards",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Credits",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "althandlingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Handling Cost",
+      "required": false,
+      "help": "This is the amount the customer was charged for handling."
+    },
+    {
+      "id": "altshippingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost",
+      "required": false,
+      "help": "This is the amount the customer was charged for shipping."
+    },
+    {
+      "id": "billaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Bill To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill To Select",
+      "required": false,
+      "help": "Select the appropriate billing address for this transaction. Select New to enter a new billing address."
+    },
+    {
+      "id": "billingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccapproved",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Approved",
+      "required": false,
+      "help": "Place a check mark in this box only if the credit card transaction has been performed outside NetSuite, such as by a card-swipe terminal.\n\nIf you have a NetSuite merchant account, then this field is automatically filled as soon as the transaction is approved."
+    },
+    {
+      "id": "ccexpiredate",
+      "type": "ccexpdate",
+      "nlapiSubmitField": false,
+      "label": "Expires (MM/YYYY)",
+      "required": false,
+      "help": "Enter the credit card's expiration date using this format: MM/YYYY."
+    },
+    {
+      "id": "cchold",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccholdetails",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccispurchasecardbin",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Purchase Card BIN",
+      "required": false,
+      "help": "If you use the Send Purchase Card Data feature, this box is marked when NetSuite determines that the credit card entered is a purchase card. If the Process as Purchase Card box is also checked, this credit card payment will be processed by NetSuite as a purchase card.\n\nContact your NetSuite account representative for more information."
+    },
+    {
+      "id": "ccname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name on Card",
+      "required": false,
+      "help": "NetSuite enters the cardholder name from the default credit card on the customer's record.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Financial subtab of the customer's record, verify that the Cardholder Name field contains the correct information."
+    },
+    {
+      "id": "ccnumber",
+      "type": "ccnumber",
+      "nlapiSubmitField": false,
+      "label": "Credit Card #",
+      "required": false,
+      "help": "If refund is by credit card, enter the card number here. Enter numbers only, without spaces.\n\nNetSuite is a secure site. If a NetSuite merchant gives a customer access to view payment information, only that merchant and that customer will be able to see this number."
+    },
+    {
+      "id": "ccprocessoraccount",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processing Profile",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccstreet",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Street",
+      "required": false,
+      "help": "NetSuite enters the street address from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct street address."
+    },
+    {
+      "id": "cczipcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Zip Code",
+      "required": false,
+      "help": "NetSuite enters the zip or postal code from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct zip or postal code."
+    },
+    {
+      "id": "chargeit",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Process Credit Card",
+      "required": false,
+      "help": "If refund is by credit card, place a check mark in this box to process the credit to the customer's charge account over the Internet. You must have previously set up a NetSuite merchant account for this to work."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "If you wish, select the class that applies to this refund.\n\nTo create a new class, select New.\n\nFor details on existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "couponcode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Coupon Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": "This field shows the return Authorization this refund is created from.\n\nClick the link to open the return authorization."
+    },
+    {
+      "id": "creditcard",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Select",
+      "required": false,
+      "help": "Select a credit card stored on the customer record to use as the method to refund this payment.\n\nClick New to enter a new credit card."
+    },
+    {
+      "id": "creditcardprocessor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processor",
+      "required": false,
+      "help": "Select the credit card processor you want to use for this transaction.\n\nYou can set up credit card processors at <_TABNAME=ADMI_CREDCARD_> > <_TASKCATEGORY=ADMI_CREDCARD_> > Set Up Credit Card Processing."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "If you do not use the Multi-Currency Customers feature, the currency of the customer you are creating this transaction for is shown here.\n\nIf you use the Multi-Currency Customers feature, select the transaction currency you want to create this transaction in. This customer's primary currency is selected by default.\n\nIf you have already selected items on this transaction, selecting a new currency refreshes them to show the price in the new currency (except for items you entered custom prices for) and recalculates tax and gross profit."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This customer's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customercode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Customer Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "If you customized a cash refund form, select it here, or click New to customize a new cash refund form."
+    },
+    {
+      "id": "debitcardissueno",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Issue No.",
+      "required": false,
+      "help": "If the card is a debit card, enter the card's issue number."
+    },
+    {
+      "id": "deferredrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Deferred Revenue",
+      "required": false,
+      "help": "Deferred Revenue:\n\namount of revenue deferred on this transaction"
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a department to associate with this transaction.\n\nTo create a new department, select New.\n\nFor details on existing departments, go to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments."
+    },
+    {
+      "id": "discountitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Discount",
+      "required": false,
+      "help": "You can select a discount for this cash refund if one was used on the original sale. NetSuite fills the Rate and Discount Total fields based on the discount you choose.\n\nLeave this field blank if you do not want to apply a discount to this transaction.\n\nFor details on existing discount items, go to <_TABNAME=LIST_ITEM_> > <_TASKCATEGORY=LIST_ITEM_> > Items and select Discount in the type field in the footer.\n\nTo create new discount items, go to <_TABNAME=EDIT_ITEM_> > <_TASKCATEGORY=EDIT_ITEM_> > Items > New and click Discount."
+    },
+    {
+      "id": "discountrate",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": "NetSuite enters the rate for the discount item you selected. You can change the discount rate for this cash refund.\n\nEnter the discount as a dollar amount like 10.00, or as a percentage like 10%."
+    },
+    {
+      "id": "discounttotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Discount",
+      "required": false,
+      "help": "NetSuite enters the amount discounted on this cash refund.\n\nIf this discount item is taxable, the discount is applied before taxes. If it is not taxable, the discount is applied after taxes."
+    },
+    {
+      "id": "email",
+      "type": "emails",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": "Select the customer for this refund. If you are using jobs, select the appropriate job rather than the master customer account.\n\nTo create a new customer record, select New. For details on existing customers and projects, go to <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entitytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estgrossprofit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Est. Gross Profit",
+      "required": false,
+      "help": "Estimated Gross Profit is a read-only field that equals the revenue amount minus the Est. Cost. At the transaction level, it equals the gross profit of all lines, factoring transaction-level discounts and markups."
+    },
+    {
+      "id": "estgrossprofitpercent",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Est. Gross Profit Percent",
+      "required": false,
+      "help": "Estimated Gross Profit Margin, as a percentage: Read-only field that equals the Est. Gross Profit divided by revenue, expressed as a percentage. At the transaction level, it equals the gross profit percent of all lines, factoring transaction-level discounts and markups."
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "excludecommission",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Exclude Commissions",
+      "required": false,
+      "help": "Check this option to exclude this transaction and its subordinate transactions from inclusion in all commission calculations."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Handling Cost",
+      "required": false,
+      "help": "Enter the amount the customer was charged for handling."
+    },
+    {
+      "id": "handlingtax1rate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax Rate",
+      "required": false,
+      "help": "The tax rate for this tax code is shown here."
+    },
+    {
+      "id": "handlingtaxcode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Handling Tax Code",
+      "required": false,
+      "help": "Select the tax code that determines the tax for handling charges."
+    },
+    {
+      "id": "inputpnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ispurchasecard",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "istaxable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Taxable",
+      "required": false,
+      "help": "Place a check mark in this box if the original order was taxable."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Lead Source",
+      "required": false,
+      "help": "Select the lead source this transaction is associated with.\n\nIf you use the Marketing Automation feature, your list of lead sources is your list of campaigns.\n\nIf you do not use Marketing Automation, you can create new lead sources at <_TABNAME=LIST_CRMOTHERLIST_> > <_TASKCATEGORY=LIST_CRMOTHERLIST_> > CRM Lists > New > Lead Source."
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": true,
+      "help": "Choose the location you want to associate with this transaction.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you wish, enter a memo to describe this cash refund. It will appear on reports such as the 2-line Undeposited Funds register."
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Customer Message",
+      "required": false,
+      "help": "Edit the message you selected in the Select Message field, or enter a new message here.\n\nIf you choose to print, email or fax this transaction to the customer, this message shows on the transaction."
+    },
+    {
+      "id": "muccpromocodeinstance",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Promo Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": "This field shows the nexus of the transaction. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different nexus in the dropdown list, the corresponding tax registration number is automatically selected in the Subsidiary Tax Reg. Number field."
+    },
+    {
+      "id": "otherrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Check #",
+      "required": false,
+      "help": "If required, enter the customer's original check number."
+    },
+    {
+      "id": "overridehold",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overrideholdchecked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Partner",
+      "required": false,
+      "help": "The partner associated with this customer appears in the Partner field.\n \nYou can change the partner for this transaction."
+    },
+    {
+      "id": "paymenteventdate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventholdreason",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reason",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventpurchasedatasent",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventresult",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventupdatedby",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymentmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Payment Method",
+      "required": false,
+      "help": "Enter the customer's original payment method."
+    },
+    {
+      "id": "paypalauthid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Authorization ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paypalprocess",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Process PayPal Payment",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paypalstatus",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "PayPal Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paypaltranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "PayPal Tran. ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "P/N Ref.",
+      "required": false,
+      "help": "If you accept credit card payments, the Verisign authentication code appears here once the payment is approved."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": true,
+      "help": "Select the period you want to post this refund to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "promocode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Promotion",
+      "required": false,
+      "help": "Select a promotion code to apply to this transaction.\n\nCustomers associated with a partner can only use that partner's promotion codes.\nIf you select a promotion code associated with a partner, this transaction is attributed to that partner for reporting purposes.\n\nCreate new promotion codes at <_TABNAME=EDIT_REFERRALCODE_> > <_TASKCATEGORY=EDIT_REFERRALCODE_> > Promotion Codes > New."
+    },
+    {
+      "id": "promocodepluginimpl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Promo Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recognizedrevenue",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Recognized Revenue",
+      "required": false,
+      "help": "Recognized Revenue:\n\ncumulative amount of revenue recognized for this transaction"
+    },
+    {
+      "id": "refundcheck",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Create Check",
+      "required": false,
+      "help": "Place a check mark in the box after Create Check if you wish to refund money by check.\n\nClear this box if you want to issue a cash or credit card refund."
+    },
+    {
+      "id": "revenuestatus",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Revenue Status",
+      "required": false,
+      "help": "The possible values for this field are:\n\n   1. Pending: indicates that no recognition has occurred. All revenue is still deferred.\n   2. In Progress: indicates that some recognition has occurred.\n   3. Completed: indicates that all recognition has occurred. No deferred revenue remains."
+    },
+    {
+      "id": "revreconrevcommitment",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Rev Rec on Rev Commit.",
+      "required": false,
+      "help": "Check this check box to create a Revenue Commitment or Revenue Commitment Reversal.\n\n    * On a Sales Order, the Revenue Commitment replaces an invoice\n    * On a Return Authorization, the Revenue Commitment Reversal replaces a credit memo.\n\nNetSuite creates all applicable Revenue Recognition schedules the Revenue Commitment or Revenue Commitment Reversal."
+    },
+    {
+      "id": "saleseffectivedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Sales Effective Date",
+      "required": false,
+      "help": "You can change the sales effective date for this transaction.\n\nThe sales effective date determines which commission plan and historical sales team this transaction applies to.\n\nIf this return is created from a sales transaction, the sales effective date from the sale shown in the Created From field is set by default for this refund."
+    },
+    {
+      "id": "salesgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Choose Team",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Sales Rep",
+      "required": false,
+      "help": "NetSuite inserts the sales representative associated with this company on the customer record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers.\n\nIf a different sales rep is assigned to this refund, select that sales rep here.\n\nTo add additional sales reps to this list, go to <_TABNAME=EDIT_EMPLOYEE_> > <_TASKCATEGORY=EDIT_EMPLOYEE_> > Employees > New."
+    },
+    {
+      "id": "shipaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Ship To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship To Select",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship Via",
+      "required": false,
+      "help": "Enter the method used to ship this order to the customer."
+    },
+    {
+      "id": "shipoverride",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost",
+      "required": false,
+      "help": "Enter the amount the customer was charged for shipping."
+    },
+    {
+      "id": "shippingcostoverridden",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost Overridden",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingtax1rate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax Rate",
+      "required": false,
+      "help": "The tax rate for this tax code is shown here."
+    },
+    {
+      "id": "shippingtaxcode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Tax Code",
+      "required": false,
+      "help": "Select the tax code that determines the tax charged for shipping."
+    },
+    {
+      "id": "softdescriptor",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Soft Descriptor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "source",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiarytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": "This field shows the tax registration number of the transaction nexus. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different tax registration number in the dropdown list, the corresponding nexus is automatically selected in the Nexus field."
+    },
+    {
+      "id": "subtotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Subtotal",
+      "required": false,
+      "help": "This field shows the subtotal of the items on this cash refund.\n\nThis is the total before discounts, shipping costs, handling costs or taxes are added to the refund."
+    },
+    {
+      "id": "syncpartnerteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": "Check this box if you want to update the sales team on the customer's record with changes you make here."
+    },
+    {
+      "id": "syncsalesteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": "Check this box if you want to update the sales team on the customer's record with changes you make here."
+    },
+    {
+      "id": "taxdetailsoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Details Override",
+      "required": false,
+      "help": "Check this box to override the tax information on the Tax Details subtab of the transaction. Only roles with at least the Edit level of the Tax Details Tab permission can override the tax details."
+    },
+    {
+      "id": "taxitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax",
+      "required": false,
+      "help": "A tax item is a tax that you collect at one certain rate and pay to one tax agency for this sale. NetSuite inserts the tax item for this customer from the record at Lists > Customers. To change it just for this refund, select another tax item.\n\nTo add additional choices to this list, go to Lists > New Item > Sales Tax Item."
+    },
+    {
+      "id": "taxrate",
+      "type": "float",
+      "nlapiSubmitField": false,
+      "label": "Tax %",
+      "required": false,
+      "help": "NetSuite inserts the percentage rate of the tax item from its record at Lists > Items. You can change it here for just this transaction if you wish."
+    },
+    {
+      "id": "taxregoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Registration Override",
+      "required": false,
+      "help": "Check this box to override the values in the Nexus and Subsidiary Tax Reg. Number fields. Only roles with at least the Edit level of the Tax Details Tab permission can override the values that NetSuite automatically selects in these fields."
+    },
+    {
+      "id": "taxtotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Tax Total",
+      "required": false,
+      "help": "NetSuite multiplies the tax rate by the taxable total of line items and enters it here."
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "To Be E-mailed",
+      "required": false,
+      "help": "Check this box if you want to e-mail this cash refund form. Then, enter the e-mail address in the space to the right of the check box.\n\nYou can enter multiple e-mail addresses by separating them with semicolons. It is important to separate the addresses with only semicolons, and do not include any spaces."
+    },
+    {
+      "id": "tobefaxed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "To Be Faxed",
+      "required": false,
+      "help": "Check this box if you want to fax this cash sale refund.\n\nEnter the fax number in the space to the right of the check box if it doesn't already appear.\n\nTo fax NetSuite forms, an administrator must first set up fax service at <_TABNAME=ADMI_PRINTING_> > <_TASKCATEGORY=ADMI_PRINTING_> > Printing, Fax and E-mail Preferences."
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "To Be Printed",
+      "required": false,
+      "help": "Check this box if you wish to save this in a queue of cash refund forms to print. Otherwise, you can click Print below to submit and print this form at once."
+    },
+    {
+      "id": "toprint2",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Print Check",
+      "required": false,
+      "help": "Place a check mark in the box after Print Check if you are creating a check and if you wish to print that check."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total",
+      "required": false,
+      "help": "NetSuite computes the total of line items and tax, and then enters it here."
+    },
+    {
+      "id": "totalcostestimate",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Est. Extended Cost",
+      "required": false,
+      "help": "The estimated cost of the specific number of items. This is calculated as:\n\n    estimated rate x quantity = estimated cost"
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this cash refund. You can type or pick another date.\n\nWhat you enter here determines the date range in which this transaction appears in the A/R and A/P registers.\n\nYou can select or enter custom date ranges on registers."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Refund #",
+      "required": false,
+      "help": "NetSuite increases the largest refund number by one. If you wish, you can type another number. The next refund number will revert to the standard pattern.\n\nYou can enter a maximum of 45 characters in this field."
+    },
+    {
+      "id": "tranisvsoebundle",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Transaction Is VSOE Bundle",
+      "required": false,
+      "help": "Check this box to include all items added to this transaction as a VSOE bundle."
+    },
+    {
+      "id": "validfrom",
+      "type": "ccvalidfrom",
+      "nlapiSubmitField": false,
+      "label": "Valid From / Start Date (MM/YYYY)",
+      "required": false,
+      "help": "Enter the date when this card first became valid. Use the format MM/YYYY."
+    },
+    {
+      "id": "vsoeautocalc",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto Calculate VSOE Allocation",
+      "required": false,
+      "help": "The VSOE allocation amount can be calculated automatically by checking the Auto Calculate VSOE Allocation box. Allocation is the process to determine the VSOE price for items.\n \nThe total VSOE amount allocated is the revenue amount to be recognized for the bundle."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "revreconrevcommitment",
+          "type": "checkbox",
+          "label": "Rev Rec on Rev Commit.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "tranisvsoebundle",
+          "type": "checkbox",
+          "label": "Transaction Is VSOE Bundle",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "amortizationperiod",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amortizationtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "chargetype",
+          "type": "select",
+          "label": "Charge Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimate",
+          "type": "currency",
+          "label": "Est. Extended Cost",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimaterate",
+          "type": "rate",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimatetype",
+          "type": "select",
+          "label": "Cost Estimate Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "daysbeforeexpiration",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertfrom",
+          "type": "text",
+          "label": "From",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertmessage",
+          "type": "textarea",
+          "label": "Gift Message",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertrecipientemail",
+          "type": "email",
+          "label": "Recipient Email",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "giftcertrecipientname",
+          "type": "text",
+          "label": "Recipient Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "istaxable",
+          "type": "checkbox",
+          "label": "Tax",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "job",
+          "type": "select",
+          "label": "Project",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "select",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "printitems",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rateschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecenddate",
+          "type": "date",
+          "label": "Rev. Rec. End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecschedule",
+          "type": "select",
+          "label": "Rev. Rec. Schedule",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecstartdate",
+          "type": "date",
+          "label": "Rev. Rec. Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxamount",
+          "type": "currency",
+          "label": "Tax Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxdetailsreference",
+          "type": "text",
+          "label": "Tax Details Reference",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxrate1",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeallocation",
+          "type": "currency",
+          "label": "Allocation Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeamount",
+          "type": "currency",
+          "label": "Calculated Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoedeferral",
+          "type": "select",
+          "label": "Deferral",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoedelivered",
+          "type": "checkbox",
+          "label": "Delivered",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeisestimate",
+          "type": "checkbox",
+          "label": "Estimate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoepermitdiscount",
+          "type": "select",
+          "label": "Permit Discount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoeprice",
+          "type": "currency2",
+          "label": "Allocation Price",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vsoesopgroup",
+          "type": "select",
+          "label": "Allocation Type",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "label": "Partners",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "partner",
+          "type": "select",
+          "label": "Partner",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "partnerrole",
+          "type": "select",
+          "label": "Partner Role",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "salesteam",
+      "label": "Sales Team",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issalesrep",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "salesrole",
+          "type": "select",
+          "label": "Sales Role",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "taxdetails",
+      "label": "Tax Detail",
+      "fields": [
+        {
+          "id": "calcdetail",
+          "type": "textarea",
+          "label": "Details",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "grossamount",
+          "type": "currency",
+          "label": "Gross Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "netamount",
+          "type": "currency",
+          "label": "Net Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxamount",
+          "type": "currency",
+          "label": "Tax Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxbasis",
+          "type": "currency",
+          "label": "Tax Basis",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxdetailsreference",
+          "type": "text",
+          "label": "Tax Details Reference",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxrate",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "select",
+          "label": "Transaction",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "multipartner",
+      "label": "Partners"
+    },
+    {
+      "name": "output",
+      "label": "Messages"
+    },
+    {
+      "name": "payment",
+      "label": "Payment"
+    },
+    {
+      "name": "revenue",
+      "label": "Revenue"
+    },
+    {
+      "name": "shipping",
+      "label": "Shipping"
+    },
+    {
+      "name": "teamselling",
+      "label": "Sales Team"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "creditmemo",
+      "fieldDefaults": "customform,entity,invoices,account"
+    }
+  ]
+}

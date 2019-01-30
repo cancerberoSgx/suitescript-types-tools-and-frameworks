@@ -1,0 +1,928 @@
+{
+  "label": "Customer Payment",
+  "id": "customerpayment",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": "Click the button to the left and then select the account where you want to deposit the amount received.\n\nFor example, an approved credit card payment might go directly into your checking account, but an unapproved payment would go into the non-posting account specifically for unapproved payments."
+    },
+    {
+      "id": "allowemptycards",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Credits",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "applied",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Applied",
+      "required": false,
+      "help": "NetSuite keeps track of the total applied payments here.\n\nYou can apply payments by placing or clearing check marks in the Apply column next to the appropriate invoices at the bottom of the page.\n\nIf you want, you can change dollar amounts in the Payment column next to these invoices. When you do this, the Applied field automatically updates."
+    },
+    {
+      "id": "aracct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "A/R Account",
+      "required": false,
+      "help": "Select the Accounts Receivable account that will be affected by this transaction.</p\n\nClick &#x2014;New &#x2014; to set up a new account."
+    },
+    {
+      "id": "authcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Auth. Code",
+      "required": false,
+      "help": "If you have a NetSuite merchant account, then this field autofills with the authorization code as soon as the charge is approved.\n\nIf you do not have a NetSuite merchant account, enter the authorization code you receive when the charge to the customer's credit card is validated outside of NetSuite, such as by a card-swipe terminal."
+    },
+    {
+      "id": "autoapply",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Auto Apply",
+      "required": false,
+      "help": "Check this box to automatically apply payments to the oldest open receivable.\n\nIf you clear this box, the payment amount defaults to unapplied and you must later apply the payment amount to an open receivable.\n\nNote: When you enter a customer payment and check the Auto Apply box, only the payment you enter on the transaction is applied. Other existing credits and deposits are not automatically applied against open receivables.\n\nOnce you check or uncheck the Auto Apply box on a payment and save it, the box retains the setting the next time you enter a payment."
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": "NetSuite shows you the balance in this customer account."
+    },
+    {
+      "id": "ccapproved",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "CC Approved",
+      "required": false,
+      "help": "Place a check mark in this box only after the credit card charge has been validated outside NetSuite, such as by a card-swipe terminal.\n\nIf you have a Internet Merchant Solutions (IMS) merchant account, then this field is automatically filled as soon as the charge is approved."
+    },
+    {
+      "id": "ccavsstreetmatch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "AVS Street Match",
+      "required": false,
+      "help": "This field shows the AVS result code that is returned from Verisign when a credit card transaction takes place.\nThe codes returned could be:\n\nY &#x96; The address information submitted did match.\nN &#x96; The address information submitted did not match."
+    },
+    {
+      "id": "ccavszipmatch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "AVS Zip Match",
+      "required": false,
+      "help": "This field shows the AVS result code that is returned from Verisign when a credit card transaction takes place.\nThe codes returned could be:\n\nY &#x96; The address information submitted did match.\nN &#x96; The address information submitted did not match."
+    },
+    {
+      "id": "ccexpiredate",
+      "type": "ccexpdate",
+      "nlapiSubmitField": false,
+      "label": "Expires (MM/YYYY)",
+      "required": false,
+      "help": "Enter the credit card's expiration date using this format: MM/YYYY."
+    },
+    {
+      "id": "cchold",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccholdetails",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cciavsmatch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "IAVS Match",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccispurchasecardbin",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Purchase Card BIN",
+      "required": false,
+      "help": "This box is marked when NetSuite determines that the credit card entered is a purchase card. If you use the Send Purchase Card Data feature and the Process as Purchase Card box is also checked, this credit card payment will be processed by NetSuite as a purchase card.\n\nContact your NetSuite account representative for more information."
+    },
+    {
+      "id": "ccname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name on Card",
+      "required": false,
+      "help": "NetSuite enters the cardholder name from the default credit card on the customer's record.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Financial subtab of the customer's record, verify that the Cardholder Name field contains the correct information."
+    },
+    {
+      "id": "ccnumber",
+      "type": "ccnumber",
+      "nlapiSubmitField": false,
+      "label": "Credit Card #",
+      "required": false,
+      "help": "If payment is by credit card, enter the card number here. Enter numbers only, without spaces.\n\nNetSuite is a secure site. If a NetSuite merchant gives a customer access to view payment information, only that merchant and that customer will be able to see this number."
+    },
+    {
+      "id": "ccprocessoraccount",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processing Profile",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccsecuritycode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "CSC",
+      "required": false,
+      "help": "Enter the three digit code found on the back of Visa, MasterCard, and Discover cards; for American Express cards, enter the four digit code found on the front of the card."
+    },
+    {
+      "id": "ccsecuritycodematch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "CSC Match",
+      "required": false,
+      "help": "This field shows the Card Security Code (CSC) result code returned to VeriSign when a credit card transaction takes place.\n\nThe possible codes are:\n\n   1. Y: The code submitted did match.\n   2. N: The code submitted did not match.\n   3. X: The credit card company does not support CSC, or no information was returned to VeriSign."
+    },
+    {
+      "id": "ccstreet",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Street",
+      "required": false,
+      "help": "NetSuite enters the street address from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct street address."
+    },
+    {
+      "id": "cczipcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Zip Code",
+      "required": false,
+      "help": "NetSuite enters the zip or postal code from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct zip or postal code."
+    },
+    {
+      "id": "chargeit",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Charge Credit Card",
+      "required": false,
+      "help": "Check this box to make this payment by charging the credit card chosen in the Credit Card Select field."
+    },
+    {
+      "id": "checknum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Check #",
+      "required": false,
+      "help": "If payment is by check, enter the check number here. It will appear on reports such as the 2-line Undeposited Funds register."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a class to associate with this transaction.\n\nTo create a new class, select New.\n\nFor details on existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "consolidatebalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Consolidated Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditcard",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Select",
+      "required": false,
+      "help": "Select a credit card stored on the customer record to use as the payment method.\n\nClick New to enter a new credit card."
+    },
+    {
+      "id": "creditcardprocessor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processor",
+      "required": false,
+      "help": "Select the credit card processor you want to use for this transaction.\n\nYou can set up credit card processors at <_TABNAME=ADMI_CREDCARD_> > <_TASKCATEGORY=ADMI_CREDCARD_> > Set Up Credit Card Processing."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "If you do not use the Multiple Currencies or Multi-Currency Customers features, the currency of the customer for whom you are creating this transaction is shown here.\n\nIf you use the Multiple Currencies or Multi-Currency Customers features, select the transaction currency in which you want to accept payment. This customer's primary currency is selected by default.\n\nThe currency you select filters the list of invoices to which you can apply payment, and lists of credits and deposits you can apply.\n\nIf you are accepting payment through a top-level customer, you can make payments toward any invoices entered for a customer in the hierarchy as long as the invoice currency is set as a transaction currency for that top-level parent.\n\nImportant: Beginning with Version 2014 Release 2, the capabilities associated with the Multiple Currencies, Multi-Currency Customers, and Multi-Currency Vendors features are combined in the Multiple Currencies feature. If you are new to NetSuite, already using all three features, or not using all three features, only the Multiple Currencies box will appear on the Company subtab of the Enable Features page. You can enable or disable this feature. When you enable this feature, you gain access to support for multiple currency customers and vendors. If you are already using Multiple Currencies and Multi-Currency Customers or Multi-Currency Vendors but not all three features, you will continue to see and maintain three boxes on the Company subtab. Regardless of the number of boxes visible in your account, the purpose associated with these three features remains the same."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This customer's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": "Select the customer. If you use projects, select the appropriate project rather than the master customer account.\n\n Go to <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers for details about existing customers and projects."
+    },
+    {
+      "id": "customercode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Customer Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "debitcardissueno",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Issue No.",
+      "required": false,
+      "help": "If the card is a debit card, enter the card's issue number."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a department to associate with this transaction.\n\nTo create a new department, select New.\n\nFor details on existing departments, go to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ignoreavs",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Ignore AVS",
+      "required": false,
+      "help": "Check the Ignore AVS box to ignore the results of the Address Verification System (AVS) pre-authorization check.\n \nIf you choose to ignore the AVS check, when a customer's address information does not match the billing address of the credit card account, then Cybersource still processes the payment."
+    },
+    {
+      "id": "ignorecsc",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Ignore CSC",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inputpnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ispurchasecard",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isrecurringpayment",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Recurring Payment",
+      "required": false,
+      "help": "This box is checked if this payment was created for a recurring cash sale.\n\nPayments marked as recurring can be successfully processed even if the credit card expires during the billing schedule.\n\nYou should not check this box for standalone payments. You should only check this box for transactions with recurring payments.\n\nIt can be used for cash sale sales orders with billing schedules or memorizes cash sale sales orders."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select a location to associate with this transaction.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you wish, enter a memo to describe this payment. It will appear on reports such as the 2-line Accounts Receivable register that NetSuite merchants and their guest-customers can see (if given permission to log in and view their transaction history)."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overridehold",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overrideholdchecked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "payment",
+      "type": "poscurrency",
+      "nlapiSubmitField": false,
+      "label": "Payment Amount",
+      "required": true,
+      "help": "Enter the currency amount of the payment here."
+    },
+    {
+      "id": "paymenteventdate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventholdreason",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reason",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventpurchasedatasent",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventresult",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventupdatedby",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymentmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Payment Method",
+      "required": false,
+      "help": "Select the payment method for this payment.\n\nTo add additional choices to this list, go to <_TABNAME=LIST_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY=LIST_ACCOUNTINGOTHERLIST_> > Accounting Lists > New > Payment Method."
+    },
+    {
+      "id": "pending",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Pending",
+      "required": false,
+      "help": "If your customer has unapproved credit card payments, NetSuite automatically fills in the sum amount of these payments here.\n\nIf you validate credit card payments outside of NetSuite, these payments will be pending until they are approved. Once payments are approved, check the Card Approved box."
+    },
+    {
+      "id": "pnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "P/N Ref.",
+      "required": false,
+      "help": "If you accept credit card payments, the Verisign authentication code appears here once the payment is approved."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this payment to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "softdescriptor",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Soft Descriptor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "This field shows the subsidiary associated with this transaction."
+    },
+    {
+      "id": "threedstatuscode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Payer Authentication Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "To Apply",
+      "required": false,
+      "help": "NetSuite adds the payment amount from above plus any credits you have chosen to apply and displays the total here."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this payment. You can enter or select another date.\n\nWhat you enter here determines the date range in which this transaction appears on the Accounts Receivable Register."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Payment #",
+      "required": false,
+      "help": "This is the document number automatically generated for the transaction by NetSuite."
+    },
+    {
+      "id": "unapplied",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Unapplied",
+      "required": false,
+      "help": "NetSuite shows the difference between amounts available to apply to payments and payments you have actually applied. To make this equal to 0.00, you can (1) change the Payment Amount above, (2) check the Apply Existing Credits check box above, or (3) change Payment amounts below."
+    },
+    {
+      "id": "undepfunds",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Undep. Funds",
+      "required": false,
+      "help": "If you are entering a payment that will be deposited to a bank account later, click Undep. Funds.\n\nIf you are entering a payment that has already been deposited, click Account and select the bank account."
+    },
+    {
+      "id": "validfrom",
+      "type": "ccvalidfrom",
+      "nlapiSubmitField": false,
+      "label": "Valid From / Start Date (MM/YYYY)",
+      "required": false,
+      "help": "Enter the date when this card first became valid."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "apply",
+      "label": "Invoices",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Payment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "applydate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdfrom",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "disc",
+          "type": "poscurrency",
+          "label": "Disc. Taken",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discamt",
+          "type": "currency",
+          "label": "Disc. Avail.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discdate",
+          "type": "date",
+          "label": "Disc. Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "doc",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "due",
+          "type": "currency",
+          "label": "Amt. Due",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "duedate",
+          "type": "date",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "text",
+          "label": "Hidden",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "job",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "refnum",
+          "type": "text",
+          "label": "Ref No.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "total",
+          "type": "currency",
+          "label": "Orig. Amt.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "credit",
+      "label": "Credits",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Credit",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdfrom",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "creditdate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "doc",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "due",
+          "type": "currency",
+          "label": "Amount Remaining",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "duedate",
+          "type": "date",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "internalid",
+          "type": "text",
+          "label": "Hidden",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "refnum",
+          "type": "text",
+          "label": "Ref No.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "total",
+          "type": "currency",
+          "label": "Orig. Amt.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "deposit",
+      "label": "Deposits",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Payment",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "apply",
+          "type": "checkbox",
+          "label": "Apply",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "depositdate",
+          "type": "date",
+          "label": "Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "doc",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "remaining",
+          "type": "currency",
+          "label": "Amount Remaining",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "total",
+          "type": "currency",
+          "label": "Orig. Amt.",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "url",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "applications",
+      "label": "Applications"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "payment",
+      "label": "Payment"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

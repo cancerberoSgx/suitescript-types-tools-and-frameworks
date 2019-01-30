@@ -1,0 +1,607 @@
+{
+  "label": "Customer Deposit",
+  "id": "customerdeposit",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowemptycards",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Credits",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "authcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Auth. Code",
+      "required": false,
+      "help": "If you have a NetSuite merchant account, then this field autofills with the authorization code as soon as the charge is approved.\n\nIf you do not have a NetSuite merchant account, enter the authorization code you receive when the charge to the customer's credit card is validated outside of NetSuite, such as by a card-swipe terminal."
+    },
+    {
+      "id": "ccapproved",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "CC Approved",
+      "required": false,
+      "help": "Place a check mark in this box only if the credit card transaction has been performed outside NetSuite, such as by a card-swipe terminal.\n\nIf you have a NetSuite merchant account, then this field is automatically filled as soon as the transaction is approved."
+    },
+    {
+      "id": "ccavsstreetmatch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "AVS Street Match",
+      "required": false,
+      "help": "This field shows the Address Verification Services (AVS) result code returned to VeriSign when a credit card transaction takes place.\n\nThe possible codes are:\n\n   1. Y &#x96; The address information submitted did match.\n   2. N &#x96; The address information submitted did not match.\n   3. X &#x96; The credit card company does not support AVS, or no information was returned to VeriSign."
+    },
+    {
+      "id": "ccavszipmatch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "AVS Zip Match",
+      "required": false,
+      "help": "This field shows the Address Verification Services (AVS) result code returned to VeriSign when a credit card transaction takes place.\n\nThe possible codes are:\n\n   1. Y &#x96; The address information submitted did match.\n   2. N &#x96; The address information submitted did not match.\n   3. X &#x96; The credit card company does not support AVS, or no information was returned to VeriSign."
+    },
+    {
+      "id": "ccexpiredate",
+      "type": "ccexpdate",
+      "nlapiSubmitField": false,
+      "label": "Expires (MM/YYYY)",
+      "required": false,
+      "help": "Enter the credit card's expiration date using this format: MM/YYYY."
+    },
+    {
+      "id": "cchold",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccholdetails",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Detail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cciavsmatch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "IAVS Match",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccispurchasecardbin",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Purchase Card BIN",
+      "required": false,
+      "help": "If you use the Send Purchase Card Data feature, this box is marked when NetSuite determines that the credit card entered is a purchase card. If the Process as Purchase Card box is also checked, this credit card payment will be processed by NetSuite as a purchase card.\n\nContact your NetSuite account representative for more information."
+    },
+    {
+      "id": "ccname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name on Card",
+      "required": false,
+      "help": "NetSuite enters the cardholder name from the default credit card on the customer's record.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Financial subtab of the customer's record, verify that the Cardholder Name field contains the correct information."
+    },
+    {
+      "id": "ccnumber",
+      "type": "ccnumber",
+      "nlapiSubmitField": false,
+      "label": "Credit Card #",
+      "required": false,
+      "help": "If the deposit is paid by credit card, enter the card number here. Enter numbers only, without spaces."
+    },
+    {
+      "id": "ccprocessoraccount",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processing Profile",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ccsecuritycode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "CSC",
+      "required": false,
+      "help": "Enter the three-digit card security code on the back of the customer's credit card."
+    },
+    {
+      "id": "ccsecuritycodematch",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "CSC Match",
+      "required": false,
+      "help": "This field shows the Card Security Code (CSC) result code returned to VeriSign when a credit card transaction takes place.\n\nThe possible codes are:\n\n   1. Y &#x96; The code submitted did match.\n   2. N &#x96; The code submitted did not match.\n   3. X &#x96; The credit card company does not support CSC, or no information was returned to VeriSign."
+    },
+    {
+      "id": "ccstreet",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Street",
+      "required": false,
+      "help": "NetSuite enters the street address from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct street address."
+    },
+    {
+      "id": "cczipcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Card Zip Code",
+      "required": false,
+      "help": "NetSuite enters the zip or postal code from the customer's billing address.\n\nIf the field contains no value or the wrong value, check the customer's record at <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers. On the Address subtab of the customer's record, make sure the default billing address contains the correct zip or postal code."
+    },
+    {
+      "id": "chargeit",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Charge Credit Card",
+      "required": false,
+      "help": "If payment is by credit card, place a check mark in this box to process the credit card charge over the Internet. The effect is the same as swiping a card through a terminal. Funds will move if the card is accepted. If rejected, you will be told why. You must have previously set up a NetSuite merchant account for this to work."
+    },
+    {
+      "id": "checknum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Check #",
+      "required": false,
+      "help": "If your customer paid by check, enter the number here."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Select a class to associate with this transaction.\n\nTo create a new class, select New.\n\nFor details on existing classes, go to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "creditcard",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Select",
+      "required": false,
+      "help": "Select a credit card stored on the customer record to use as the payment method for this deposit.\n\nClick New to enter a new credit card."
+    },
+    {
+      "id": "creditcardprocessor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Credit Card Processor",
+      "required": false,
+      "help": "Select the credit card processor you want to use for this transaction.\n\nYou can set up credit card processors at <_TABNAME=ADMI_CREDCARD_> > <_TASKCATEGORY=ADMI_CREDCARD_> > Set Up Credit Card Processing."
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "If you do not use the Multi-Currency Customers feature, the currency of the customer you are creating this transaction for is shown here.\n\nIf you use the Multi-Currency Customers feature, select the transaction currency you want to create this transaction in. This customer's primary currency is selected by default.\n\nIf you have already selected items on this transaction, selecting a new currency refreshes them to show the price in the new currency (except for items you entered custom prices for) and recalculates tax and gross profit."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This customer's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customer",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": "Select the customer. If you are using projects, select the appropriate project rather than the master customer account.\n\nClick New to set up a new customer. Go to <_TABNAME=LIST_CUSTJOB_> > <_TASKCATEGORY=LIST_CUSTJOB_> > Customers for details about existing customers and projects."
+    },
+    {
+      "id": "customercode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Customer Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "debitcardissueno",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Issue No.",
+      "required": false,
+      "help": "If the card is a debit card, enter the card's issue number."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Select a department to associate with this deposit.\n\nTo create a new department, select New.\n\nFor details on existing departments, go to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ignoreavs",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Ignore AVS",
+      "required": false,
+      "help": "Check the Ignore AVS box to ignore the results of the Address Verification System (AVS) pre-authorization check.\n \nIf you choose to ignore the AVS check, when a customer's address information does not match the billing address of the credit card account, then Cybersource still processes the payment."
+    },
+    {
+      "id": "ignorecsc",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Ignore CSC",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "inputpnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ispurchasecard",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isrecurringpayment",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Recurring Payment",
+      "required": false,
+      "help": "This box is checked if this cash sale was generated from a sales order for a recurring payment.\n\nPayments marked as recurring can be successfully processed even if the credit card expires during the billing schedule.\n\nYou should not check this box for standalone cash sales. You should only check this box for transactions with recurring payments. It can be used for cash sale sales orders with billing schedules or memorized cash sale sales order. </P"
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select a location to associate with this transaction.\n\nTo create a new location, select New.\n\nFor details on existing locations, go to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "Enter a Memo to identify this deposit transaction."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overridehold",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overrideholdchecked",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "payment",
+      "type": "poscurrency",
+      "nlapiSubmitField": false,
+      "label": "Payment Amount",
+      "required": true,
+      "help": "Enter the curency amount of the deposit here."
+    },
+    {
+      "id": "paymenteventdate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventholdreason",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Reason",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventpurchasedatasent",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventresult",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymenteventupdatedby",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Override Hold",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "paymentmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Payment Method",
+      "required": false,
+      "help": "Select the payment method for this deposit.\n\nTo add additional choices to this list, go to <_TABNAME=LIST_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY=LIST_ACCOUNTINGOTHERLIST_> > Accounting Lists > New > Payment Method."
+    },
+    {
+      "id": "pnrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "P/N Ref.",
+      "required": false,
+      "help": "If you accept credit card payments, the Verisign authentication code appears here once the payment is approved."
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": false,
+      "help": "Select the period you want to post this deposit to.\n\nIf a period is closed, you cannot post to that period."
+    },
+    {
+      "id": "salesorder",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sales Order",
+      "required": false,
+      "help": "This deposit is reserved for the sales order shown here. This deposit can only be applied to this order.\n\nIf this deposit amount exceeds the sales order amount, the excess is used to create a separate deposit that can be applied to any invoice."
+    },
+    {
+      "id": "softdescriptor",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Soft Descriptor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "threedstatuscode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Payer Authentication Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for this deposit. You can enter or select another date.\n\nWhat you enter here determines the date range in which this transaction appears on the Accounts Receivable Register.\n\nDeposits are recorded in your general ledger as a liability until the goods or services are actually delivered and do not affect the customer's accounts receivable balance."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Deposit #",
+      "required": false,
+      "help": "The system generated deposit number."
+    },
+    {
+      "id": "undepfunds",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Undep. Funds",
+      "required": false,
+      "help": "* If you receive payment by cash or check, click\n      Undep. Funds.\n      Once you deposit the money, you will need to go to <_TABNAME=EDIT_TRAN_DEPOSIT_> > <_TASKCATEGORY=EDIT_TRAN_DEPOSIT_> > Make Deposits.\n\n    * If you receive payment by credit card, click Account\n      and select the account to be credited."
+    },
+    {
+      "id": "validfrom",
+      "type": "ccvalidfrom",
+      "nlapiSubmitField": false,
+      "label": "Valid From / Start Date (MM/YYYY)",
+      "required": false,
+      "help": "Enter the date when this card first became valid."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "applications",
+      "label": "Applications"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "payment",
+      "label": "Payment"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "depositapplication",
+      "fieldDefaults": "customform"
+    }
+  ]
+}

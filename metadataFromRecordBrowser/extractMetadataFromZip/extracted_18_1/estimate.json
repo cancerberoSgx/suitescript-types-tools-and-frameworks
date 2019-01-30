@@ -1,0 +1,1501 @@
+{
+  "label": "Estimate",
+  "id": "estimate",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "althandlingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Handling Cost",
+      "required": false,
+      "help": "The handling cost automatically calculates depending on the shipping method you select in the Ship Via field.\n\nTo change the cost of handling, go to Lists > Shipping Items and select the shipping method with the handling cost you want to change."
+    },
+    {
+      "id": "altsalestotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total (Alt. Sales)",
+      "required": false,
+      "help": "The alternate sales amount total is shown here."
+    },
+    {
+      "id": "altshippingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost",
+      "required": false,
+      "help": "The shipping cost automatically calculates depending on the shipping method you select in the Ship Via field above.\n\nTo change the cost of a shipping method, go to <_TABNAME=EDIT_SHIPITEM_> > <_TASKCATEGORY=EDIT_SHIPITEM_> > Shipping Items and select the shipping method you want to change.\n\nIf you use UPS Real-Time rates, shipments over 150lbs are broken up into shipments less than or equal to 150lbs for charging."
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Bill To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Bill To Select",
+      "required": false,
+      "help": "Select the appropriate billing address for this transaction. Select New to enter a new billing address."
+    },
+    {
+      "id": "billingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Schedule",
+      "required": false,
+      "help": "Choose the billing schedule you want to associate with this transaction.\n\nWhen you select a billing schedule, all items on the order are billed according to the billing schedule.\n\nClick New to enter a new billing schedule.\n\nWhen you create a new billing schedule on-the-fly, it can be identified as Public or Private. Private billing schedules show only in the transaction it is created from. If you create a private billing schedule from an estimate, that schedule is attached to items on the resulting sales order.\n\nGo to <_TABNAME=EDIT_BILLINGSCHEDULE_> > <_TASKCATEGORY=EDIT_BILLINGSCHEDULE_> > Billing Schedules for details about existing billing schedules."
+    },
+    {
+      "id": "billisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "canhavestackable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Can have Stackable Promotions",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "If you wish, select the class that applies to this estimate. Click New to set up a new class.\n\nGo to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes for details about existing classes."
+    },
+    {
+      "id": "consolidatebalance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Consolidated Balance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "couponcode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Coupon Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "If you do not use the Multi-Currency Customers feature, the currency of the customer you are creating this transaction for is shown here.\n\nIf you use the Multi-Currency Customers feature, select the transaction currency you want to create this transaction in. This customer's primary currency is selected by default.\n\nIf you have already selected items on this transaction, selecting a new currency refreshes them to show the price in the new currency (except for items you entered custom prices for) and recalculates tax and gross profit."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This customer's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "Select the customized estimate form to use."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "If you like, select a department.\n\nClick New to enter a new department.\n\nGo to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments for details about existing departments."
+    },
+    {
+      "id": "discountitem",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Discount",
+      "required": false,
+      "help": "You can select a discount for this estimate. NetSuite fills the Rate and Discount Total fields based on the discount you choose.\n\nLeave this field blank if you do not want to apply a discount to this transaction.\n\nTo create new discount items, go to <_TABNAME=EDIT_ITEM_> > <_TASKCATEGORY=EDIT_ITEM_> > Items > New. On the New Item page, click Discount."
+    },
+    {
+      "id": "discountrate",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": "NetSuite enters the rate for the discount item you selected. You can change the discount rate for this cash refund.\n\nEnter the discount as a dollar amount like 10.00, or as a percentage like 10%."
+    },
+    {
+      "id": "discounttotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Discount",
+      "required": false,
+      "help": "NetSuite enters the amount discounted on this estimate.\n\nIf this discount item is taxable, the discount is applied before taxes. If it is not taxable, the discount is applied after taxes."
+    },
+    {
+      "id": "duedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Expires",
+      "required": false,
+      "help": "Type or pick a date this estimate expires."
+    },
+    {
+      "id": "email",
+      "type": "emails",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enddate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "End Date",
+      "required": false,
+      "help": "Enter or pick the end date for this estimate."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Customer",
+      "required": true,
+      "help": "Select the customer for this estimate. If you are using jobs, select the appropriate job rather than the master customer account.\n\nClick New to set up a new customer."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entitystatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": true,
+      "help": "Accept or change the status of this estimate. What appears in the Probability field is based on the status selected.\n\nIf this estimate is for a prospect, the prospect's record is updated with what is entered here.\n\nTo change the default status of estimates, go to <_TABNAME=ADMI_SFASETUP_> > <_TASKCATEGORY=ADMI_SFASETUP_> > Sales Preferences and select a new status in the Prospect Status field."
+    },
+    {
+      "id": "entitytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "estgrossprofit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Est. Gross Profit",
+      "required": false,
+      "help": "Estimated Gross Profit: Read-only field that equals the revenue amount minus the Est. Cost. At the transaction level, it equals the gross profit of all lines, factoring transaction-level discounts and markups."
+    },
+    {
+      "id": "estgrossprofitpercent",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Est. Gross Profit Percent",
+      "required": false,
+      "help": "Estimated Gross Profit Margin, as a percentage: Read-only field that equals the Est. Gross Profit divided by revenue, expressed as a percentage. At the transaction level, it equals the gross profit percent of all lines, factoring transaction-level discounts and markups."
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange Rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "expectedclosedate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Exp. Close",
+      "required": true,
+      "help": "Enter the date you expect this estimate to close."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fob",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FOB",
+      "required": false,
+      "help": "Enter the location where the customers technically acquire ownership. For example, if your customers own goods as soon as they ship and pay the shipping costs from your location to theirs, you might enter Our warehouse."
+    },
+    {
+      "id": "forecasttype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Forecast Type",
+      "required": false,
+      "help": "Choose which forecast category this estimate belongs in.\n\nIf you do not want this estimate to appear in forecasts, select Omitted."
+    },
+    {
+      "id": "handlingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Handling Cost",
+      "required": false,
+      "help": "The handling cost automatically calculates depending on the shipping method you select in the Ship Via field.\n\nTo change the cost of handling, go to <_TABNAME=EDIT_SHIPITEM_> > <_TASKCATEGORY=EDIT_SHIPITEM_> > Shipping Items and select the shipping method with the handling cost you want to change."
+    },
+    {
+      "id": "handlingtax1rate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax Rate",
+      "required": false,
+      "help": "The tax rate for this handling shipping item is shown here."
+    },
+    {
+      "id": "handlingtaxcode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Handling Tax Code",
+      "required": false,
+      "help": "Select the tax code for this handling shipping item."
+    },
+    {
+      "id": "includeinforecasthigh",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includeinforecastlow",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ismultishipto",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Enable Item Line Shipping",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "istaxable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Taxable",
+      "required": false,
+      "help": "Place a check mark in this box if the order you are quoting will be taxable."
+    },
+    {
+      "id": "job",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Project",
+      "required": false,
+      "help": "Select the project this estimate is associated with."
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "leadsource",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Lead Source",
+      "required": false,
+      "help": "The lead source  for this transaction is shown here. You can choose a different lead source for this transaction.\n\nThe default lead source is determined by the Default Lead Source on Sales Transactions preference at <_TABNAME=TRAN_CAMPAIGNSETUP_> > <_TASKCATEGORY=TRAN_CAMPAIGNSETUP_> > Marketing Preferences"
+    },
+    {
+      "id": "linkedtrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Choose the location you want to associate with this transaction.\n\nSelect New to enter a new location record.\n\nGo to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations for details about existing location records."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you wish, enter a memo to describe this estimate. It will appear on reports such as the 2-line Estimates register that your customers can see if you give them permission to log in and view their transaction history."
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Customer Message",
+      "required": false,
+      "help": "The text of the customer message you select in the Select Message field appears here.\n\nYou can edit the message or enter a new customer message for only this transaction."
+    },
+    {
+      "id": "messagesel",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Select Message",
+      "required": false,
+      "help": "Select a customer message to appear on this form. For example, you may add \"Thank you for your business!\" Choose from the list of existing customer messages stored at <_TABNAME=LIST_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY=LIST_ACCOUNTINGOTHERLIST_> > Accounting Lists.\n\nThe text of the selected message appears in the Customer Message field. In this field, you can optionally edit the message or enter a new customer message for only this transaction.\n\nTo add messages to appear in the Select Message field, go to <_TABNAME=LIST_ACCOUNTINGOTHERLIST_> > <_TASKCATEGORY=LIST_ACCOUNTINGOTHERLIST_> > Accounting Lists > New, and click Customer Message."
+    },
+    {
+      "id": "muccpromocodeinstance",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Promo Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": "This field shows the nexus of the transaction. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different nexus in the dropdown list, the corresponding tax registration number is automatically selected in the Subsidiary Tax Reg. Number field."
+    },
+    {
+      "id": "onetime",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "One Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "opportunity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Opportunity",
+      "required": false,
+      "help": "If you are entering this transaction for an opportunity, select the opportunity.\n\nYou can create opportunity records at <_TABNAME=EDIT_TRAN_OPPRTNTY_> > <_TASKCATEGORY=EDIT_TRAN_OPPRTNTY_> > Create Opportunities."
+    },
+    {
+      "id": "otherrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "PO #",
+      "required": false,
+      "help": "If a purchase order number applies to this estimate, enter it here."
+    },
+    {
+      "id": "partner",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Partner",
+      "required": false,
+      "help": "The partner associated with this customer appears in this field.\n\nYou can choose a different partner to associate with this transaction."
+    },
+    {
+      "id": "probability",
+      "type": "percent",
+      "nlapiSubmitField": false,
+      "label": "Probability",
+      "required": true,
+      "help": "Accept or change the probability that this estimate will be converted to a sale. The Probability field shows the probability of the status selected.\n\nIf this estimate is for a prospect, the prospect's record is updated with what is entered here.\n\nTo change the default probability of a status, go to <_TABNAME=EDIT_CUSTOMERSTATUS_> > <_TASKCATEGORY=EDIT_CUSTOMERSTATUS_> > Customer Statuses, and click the status you want to change."
+    },
+    {
+      "id": "promocode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Promotion",
+      "required": false,
+      "help": "If you want to apply a multiple-use coupon code to this transaction, select the promotion here.\n\nIf you want to apply a single-use coupon code, enter the code in the Coupon Code field. The promotion for that coupon code is shown here.\n\nCustomers associated with a partner can only use coupon codes from that partner's promotions. If you select a promotion associated with a partner, this transaction is attributed to that partner for reporting purposes.\n\nYou can choose to have a promotion selected by default at <_TABNAME=TRAN_CAMPAIGNSETUP_> > <_TASKCATEGORY=TRAN_CAMPAIGNSETUP_> > Marketing Preferences in the Default Promotion Code on Sales Transactions field.\n\nCreate new promotion codes at <_TABNAME=LIST_REFERRALCODE_> > <_TASKCATEGORY=LIST_REFERRALCODE_> > Promotions > New."
+    },
+    {
+      "id": "promocodepluginimpl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Promo Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurannually",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Annually",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurmonthly",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Monthly",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurquarterly",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Quarterly",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "recurweekly",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Weekly",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returntrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Return Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Choose Team",
+      "required": false,
+      "help": "Select a sales team to associate with this transaction.\n\nTo create a sales team, go to <_TABNAME=EDIT_CRMGROUP_> > <_TASKCATEGORY=EDIT_CRMGROUP_> > New > Select Sales Team Members."
+    },
+    {
+      "id": "salesrep",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Sales Rep",
+      "required": false,
+      "help": "NetSuite inserts the sales representative associated with this company on the customer record at Lists > Customers.\n\nIf a different sales rep is assigned to this transaction, select that sales rep here.\n\nTo add additional sales reps to this list, go to Lists > New Employee."
+    },
+    {
+      "id": "shipaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Ship To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddresslist",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship To Select",
+      "required": false,
+      "help": "Select the appropriate shipping address for this transaction. Select New to enter a new shipping address."
+    },
+    {
+      "id": "shipdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Ship Date",
+      "required": false,
+      "help": "Enter, pick or accept the date you expect to ship items ordered."
+    },
+    {
+      "id": "shipisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship Via",
+      "required": false,
+      "help": "Select a shipping method for this estimate.\n\nIf you automatically charge for shipping, the shipping amount is entered in the shipping costs field. To automatically charge for shipping, go to <_TABNAME=ADMI_SHIPPING_> > <_TASKCATEGORY=ADMI_SHIPPING_> > Shipping, and check the Charge for Shipping box. Click Submit. You must also set up the charge details of your shipping items.\n\nTo add or edit shipping items, go to Lists > Shipping Item."
+    },
+    {
+      "id": "shipoverride",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingcost",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost",
+      "required": false,
+      "help": "The shipping cost automatically calculates depending on the shipping method you select in the Ship Via field.\n\nIf this field reads ReCalc, click the Recalculate Shipping button to receive a shipping cost.\n\nIf you use UPS Real-Time rates and a package is over 150lbs, the package is charged as multiple packages equal to or less than 150lbs."
+    },
+    {
+      "id": "shippingcostoverridden",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping Cost Overridden",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingtax1rate",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tax Rate",
+      "required": false,
+      "help": "The tax rate for this shipping item tax code is show here."
+    },
+    {
+      "id": "shippingtaxcode",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Tax Code",
+      "required": false,
+      "help": "Select the tax code to apply to this shipping item."
+    },
+    {
+      "id": "source",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": "If there is an expected closing date for this estimate, accept today's date or enter a new date here."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "This field displays the subsidiary associated with this transaction."
+    },
+    {
+      "id": "subsidiarytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": "This field shows the tax registration number of the transaction nexus. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different tax registration number in the dropdown list, the corresponding nexus is automatically selected in the Nexus field."
+    },
+    {
+      "id": "subtotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Subtotal",
+      "required": false,
+      "help": "This field shows the total of the items on this sales order.\n\nThis is the total before any discounts, shipping cost, handling cost or tax is added to the order."
+    },
+    {
+      "id": "syncpartnerteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": "Check this box if you want to update the partner team on the customer record with changes you make here."
+    },
+    {
+      "id": "syncsalesteams",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Update Customer",
+      "required": false,
+      "help": "Check this box if you want to update the sales team on the customer's record with changes you make here."
+    },
+    {
+      "id": "taxdetailsoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Details Override",
+      "required": false,
+      "help": "Check this box to override the tax information on the Tax Details subtab of the transaction. Only roles with at least the Edit level of the Tax Details Tab permission can override the tax details."
+    },
+    {
+      "id": "taxregoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Registration Override",
+      "required": false,
+      "help": "Check this box to override the values in the Nexus and Subsidiary Tax Reg. Number fields. Only roles with at least the Edit level of the Tax Details Tab permission can override the values that NetSuite automatically selects in these fields."
+    },
+    {
+      "id": "taxtotal",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Tax Total",
+      "required": false,
+      "help": "NetSuite multiplies the tax rate by the taxable total of line items and enters it here."
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Terms",
+      "required": false,
+      "help": "Select discount terms.\n\nIf this estimate is later turned into a sale, the terms set here autofill on the sales form."
+    },
+    {
+      "id": "title",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Title",
+      "required": false,
+      "help": "Enter a title for this estimate. The estimate title text appears on lists, shows in search and reporting results, and shows on the Estimates subtab of records it is associated with.\n \nWhen an estimate is converted from an opportunity, the title from the opportunity defaults into the title field on the estimate.   If there is already an estimate against the opportunity, then the second estimate has a number following the title.\n \nFor example, if the first estimate title is &#x201c;Project Estimate&#x201d;, then the second estimate title is &#x201c;Project Estimate1&#x201d;. For each subsequent estimate created against that opportunity, the number in the title increases by 1 to help distinguish between multiple estimates associated to a single opportunity.\n \nThe estimate title field is also available for customization, direct list editing, and mass updates."
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "To Be E-mailed",
+      "required": false,
+      "help": "Check this box if you want to email this estimate. Then enter the email address in the space to the right of the check box.\n\nYou can enter multiple email addresses by separating them with semicolons. It is important to separate the addresses with only semicolons, and do not include any spaces."
+    },
+    {
+      "id": "tobefaxed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "To Be Faxed",
+      "required": false,
+      "help": "Check this box if you want to fax this estimate.\n\nEnter the fax number in the space to the right of the check box if it doesn't already appear.\n\nTo fax NetSuite forms, an administrator must first set up fax service at <_TABNAME=ADMI_PRINTING_> > <_TASKCATEGORY=ADMI_PRINTING_> > Printing, Fax and Email Preferences."
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "To Be Printed",
+      "required": false,
+      "help": "Check this box if you wish to save this in a queue of estimates to print.\n\nOtherwise, you can click Print below to submit and print this estimate at once."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total",
+      "required": false,
+      "help": "NetSuite computes the total of line items and tax and then enters it here."
+    },
+    {
+      "id": "totalcostestimate",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Est. Extended Cost",
+      "required": false,
+      "help": "Estimated Cost: Estimated cost of the specific number of items; estimated rate x quantity = estimated cost."
+    },
+    {
+      "id": "trackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Additional Tracking #",
+      "required": false,
+      "help": "Enter the shipment tracking number from the shipping company.\n\nIf a tracking number is entered in the exact format used by UPS or FedEx and the transaction is saved, the tracking number will show on the transaction as a link to the UPS or FedEx website. You can click the link to check the status of the shipment."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this estimate. You can type or pick another date.\n\nWhat you enter here determines the date range in which this transaction appears on the estimate registers.\n\nYou can select or enter custom date ranges on registers."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Estimate #",
+      "required": false,
+      "help": "NetSuite increases the largest estimate number by one. If you wish, you can type another number. The next estimate number will revert to the standard pattern."
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Unbilled Orders",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "visibletocustomer",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Available In Customer",
+      "required": false,
+      "help": "Check the Available in Customer Center box to make this estimate available to customers in the Customer Center.\n \nClear this box to leave this estimate off the list of estimates available to customers in the Customer Center.\n\nThis field is checked by default."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "altsalesamt",
+          "type": "currency",
+          "label": "Alt. Sales",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "chargetype",
+          "type": "select",
+          "label": "Charge Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimate",
+          "type": "currency",
+          "label": "Est. Extended Cost",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimaterate",
+          "type": "rate",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "costestimatetype",
+          "type": "select",
+          "label": "Cost Estimate Type",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "daysbeforeexpiration",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "excludefromraterequest",
+          "type": "checkbox",
+          "label": "Exclude Item from Rate Request",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expectedshipdate",
+          "type": "date",
+          "label": "Expected Ship Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "fromjob",
+          "type": "checkbox",
+          "label": "Project Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isestimate",
+          "type": "checkbox",
+          "label": "Billable Estimate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "istaxable",
+          "type": "checkbox",
+          "label": "Tax",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "job",
+          "type": "select",
+          "label": "Job",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "price",
+          "type": "select",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "printitems",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityavailable",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rateschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shipaddress",
+          "type": "select",
+          "label": "Ship To",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shipcarrier",
+          "type": "select",
+          "label": "Shipping Carrier",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shipmethod",
+          "type": "select",
+          "label": "Ship Via",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "subscription",
+          "type": "select",
+          "label": "Subscription",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxrate1",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "partners",
+      "label": "Partners",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "partner",
+          "type": "select",
+          "label": "Partner",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "partnerrole",
+          "type": "select",
+          "label": "Partner Role",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "promotions",
+      "label": "Promotions",
+      "fields": [
+        {
+          "id": "cannotbecombined",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "couponcode",
+          "type": "select",
+          "label": "Coupon Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "select",
+          "label": "Discount Item",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discountrate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "muccpromocodeinstance",
+          "type": "text",
+          "label": "Promo Code",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "promocode",
+          "type": "select",
+          "label": "Promotion",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "purchasediscount",
+          "type": "currency",
+          "label": "Purchase Discount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shippingdiscount",
+          "type": "rtext",
+          "label": "Shipping Discount",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "salesteam",
+      "label": "Sales Team",
+      "fields": [
+        {
+          "id": "contribution",
+          "type": "percent",
+          "label": "Contribution %",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "employee",
+          "type": "select",
+          "label": "Employee",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isprimary",
+          "type": "checkbox",
+          "label": "Primary",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "issalesrep",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "salesrole",
+          "type": "select",
+          "label": "Sales Role",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "shipgroup",
+      "label": "Shipment",
+      "fields": [
+        {
+          "id": "destinationaddress",
+          "type": "text",
+          "label": "Ship To",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "handlingrate",
+          "type": "currency",
+          "label": "Handling Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shippingcarrier",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shippingmethod",
+          "type": "text",
+          "label": "Ship Via",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "shippingrate",
+          "type": "currency",
+          "label": "Shipping Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sourceaddress",
+          "type": "text",
+          "label": "Ship From",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "weight",
+          "type": "float",
+          "label": "",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "taxdetails",
+      "label": "Tax Detail",
+      "fields": [
+        {
+          "id": "calcdetail",
+          "type": "textarea",
+          "label": "Details",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "grossamount",
+          "type": "currency",
+          "label": "Gross Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "netamount",
+          "type": "currency",
+          "label": "Net Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxamount",
+          "type": "currency",
+          "label": "Tax Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxbasis",
+          "type": "currency",
+          "label": "Tax Basis",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxdetailsreference",
+          "type": "text",
+          "label": "Tax Details Reference",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxrate",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "select",
+          "label": "Transaction",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "multipartner",
+      "label": "Partners"
+    },
+    {
+      "name": "output",
+      "label": "Messages"
+    },
+    {
+      "name": "shipping",
+      "label": "Shipping"
+    },
+    {
+      "name": "teamselling",
+      "label": "Sales Team"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "cashsale",
+      "fieldDefaults": "customform,billdate"
+    },
+    {
+      "targetRecordType": "invoice",
+      "fieldDefaults": "customform,billdate"
+    },
+    {
+      "targetRecordType": "salesorder",
+      "fieldDefaults": "customform"
+    }
+  ]
+}

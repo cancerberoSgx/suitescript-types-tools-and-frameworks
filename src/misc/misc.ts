@@ -40,6 +40,11 @@ export type StringKeyOf<T extends any> = Extract<keyof T, string>;
 export type NumberKeyOf<T extends any> = Extract<keyof T, number>;
 // export type Value<T extends any> = Extract<keyof T, string>;
 
+export type Extended <T extends any, K extends any = any> = T extends K ? T : never
+export type NamedMemberNamesOf <T extends any, K extends Extended<T> = Extended<T>> = StringKeyOf<K>
+export type NamedMemberValuesOf <T extends any, K extends Extended<T> = Extended<T>> = ValueOfStringKey<K, NamedMemberNamesOf<K>>
+
+
 export type TODO = any
 export function checkThrow<T>(r?: T, msg = 'Throwing on undefined value'): T {
   if (!r) { throw new Error(msg) }

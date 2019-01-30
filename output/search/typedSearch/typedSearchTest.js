@@ -19,6 +19,7 @@ define(["require", "exports", "./typedSearch", "N/search"], function (require, e
             console.log("primaryparent: " + f.getValue('displayinsite')); // gives type error- wrong column
             return true;
         });
+        var s3 = typedSearch_1.search({ type: 'inventoryitem' });
     }
     exports.typedSearchTest = typedSearchTest;
 });

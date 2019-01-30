@@ -1,0 +1,389 @@
+{
+  "label": "Expense Report",
+  "id": "expensereport",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "account",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Account",
+      "required": false,
+      "help": "Select an account for this expense.\n\nNote: This field is available to edit only in the following cases:\n    * You have checked the Accounting Approval box on this form.\n    * You are editing an expense report entered previously."
+    },
+    {
+      "id": "accountingapproval",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Accounting Approval",
+      "required": false,
+      "help": "If you have the appropriate accounting authority to approve this report indicating it is ready to pay, place a check mark in this box."
+    },
+    {
+      "id": "advance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Advance To Apply",
+      "required": false,
+      "help": "Enter any advance that should be applied to any reimbursement for these expenses."
+    },
+    {
+      "id": "amount",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Amount",
+      "required": false,
+      "help": "The number NetSuite enters here represents the total of all line items minus any advances and lines marked as non-reimbursable."
+    },
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Approval Status",
+      "required": false,
+      "help": "When you use SuiteFlow for expense report approvals, the forms now include an Approval Status field. The Approval Status field reflects the state of the transaction in the approval process.\nExpense reports may have one of the following statuses:\n    * Pending Approval &#x2013; The expense is in the approval queue.\n    * Approved &#x2013; The expense has been given approval for processing.\n    * Rejected &#x2013; The expense has not been approved and will not be processed."
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "Choose a class to associate with this transaction.\n\nClick New to enter a new class."
+    },
+    {
+      "id": "complete",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Complete",
+      "required": false,
+      "help": "This field shows if this report is complete. Only complete reports are submitted for approval and processing.\n \nNote: Once an expense report is marked complete, you can no longer make changes to it."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "To use a different custom form to enter the expense report, select it here."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "Choose a department to associate with this transaction.\n\nClick New to enter a new department."
+    },
+    {
+      "id": "duedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date Due",
+      "required": false,
+      "help": "Enter the due date of the expense report."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Employee",
+      "required": true,
+      "help": "Enter the name of the employee who incurred these expenses."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Choose a location to associate with this transaction.\n\nSelect New to enter a new location record.\n\nGo to Lists > Locations for details about existing location records."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Purpose",
+      "required": false,
+      "help": "Enter the purpose of the entire expense report."
+    },
+    {
+      "id": "nextapprover",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Next Approver",
+      "required": false,
+      "help": "When you use SuiteFlow for expense approvals, expense reports include a Next Approver field. This field is populated based on the associated workflow.\nFor example, in your workflow you may create a state of Pending Approval. In that state you create a formula to set the Next Approver as the employee&#x2019;s supervisor."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "postingperiod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Posting Period",
+      "required": true,
+      "help": "The current period is entered as the posting period for the expense report. If this period is closed before the expense report is approved, the posting period is the earliest open period."
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Status",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "The subsidiary associated with the selected employee is displayed here.\n\nTo enter expenses associated with other subsidiaries, the Intercompany Time and Expense feature must be enabled, and journal entries will need to be created to adjust for intercompany expenses.\n\nAutomated intercompany adjustments can be generated at <_TABNAME=TRAN_CREATEINTERCOADJJE_> > <_TASKCATEGORY=TRAN_CREATEINTERCOADJJE_> > Create Intercompany Adjustments."
+    },
+    {
+      "id": "supervisorapproval",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Supervisor Approval",
+      "required": false,
+      "help": "If you have the appropriate authority as a supervisor to approve this report, place a check mark in this box."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Expenses Total",
+      "required": false,
+      "help": "NetSuite will keep track of the total expenses as you add and edit line items below."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date as the date of this expense report. You can type or pick another date."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Exp. Rept. #",
+      "required": false,
+      "help": "NetSuite increases the largest expense report number by one. If you wish, you can type another number. The next expense number will revert to the standard pattern.\n\nYou can enter a maximum of 45 characters in this field."
+    },
+    {
+      "id": "usemulticurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Use Multi Currency",
+      "required": false,
+      "help": "Check this box if you want to enter expenses in foreign currencies on this expense report.\n\nThis box is checked by default if you have enabled the Use Multicurrency Expense Reports preference on the General subtab at Home > Set Preferences.\n\nForeign amounts are translated into base currency amounts. Note that exchange rates and converted amounts displayed on expense lines are provided as approximations only. Actual reimbursement amounts will be based on rates at the time of reimbursement."
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "expense",
+      "label": "Expenses",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "category",
+          "type": "select",
+          "label": "Category",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "currency",
+          "type": "select",
+          "label": "Currency",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expensedate",
+          "type": "date",
+          "label": "Date",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "foreignamount",
+          "type": "currency2",
+          "label": "Foreign Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isnonreimbursable",
+          "type": "checkbox",
+          "label": "Non-reimbursable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "receipt",
+          "type": "checkbox",
+          "label": "Receipt",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

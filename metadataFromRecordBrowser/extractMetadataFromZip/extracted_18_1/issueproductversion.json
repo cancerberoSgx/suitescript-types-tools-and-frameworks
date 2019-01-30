@@ -1,0 +1,205 @@
+{
+  "label": "Version",
+  "id": "issueproductversion",
+  "supportCustomFields": false,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "allowbrokenin",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Allow Broken In",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowfixedin",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Allow Fixed In",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "allowtarget",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Allow Target",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "expectedreleasedate",
+      "type": "date",
+      "nlapiSubmitField": true,
+      "label": "Expected Release Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalreleasetarget",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "External Target",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "id",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isefix",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "E-fix",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "issueproduct",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Product",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "issueversiondescription",
+      "type": "textarea",
+      "nlapiSubmitField": true,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "portletdescription",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Portlet Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "productversion",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Product Version",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "showinportlet",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Show In Portlet",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "availablebuild",
+      "label": "Build",
+      "fields": [
+        {
+          "id": "allowbrokenin",
+          "type": "checkbox",
+          "label": "Allow Broken In",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "allowfixedin",
+          "type": "checkbox",
+          "label": "Allow Fixed In",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "allowtarget",
+          "type": "checkbox",
+          "label": "Allow Target",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "build",
+          "type": "text",
+          "label": "Build",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "builtdate",
+          "type": "date",
+          "label": "Build Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "integer",
+          "label": "Internal ID",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isinactive",
+          "type": "checkbox",
+          "label": "Inactive",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "productversion",
+          "type": "select",
+          "label": "Product Version",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "tabs": [],
+  "transformTypes": []
+}

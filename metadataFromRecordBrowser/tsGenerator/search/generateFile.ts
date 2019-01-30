@@ -39,17 +39,27 @@ ${generateSearchColumnTypes(config).output}
 
 export function generateSearchColumn(config: FileConfig): { output: string } {
   const { data } = config;
-  const output = `
+  let output: string = ''
+  if (data.searchData) {
+    output = `import { ${data.searchData}SearchColumn } from './${data.searchData}'
+/** ${data.label} (${data.id}) Search Columns definition */
+export interface ${data.id}SearchColumn extends ${data.searchData}SearchColumn {
+
+}`
+  }
+  else {
+    output = `
 /** ${data.label} (${data.id}) Search Columns definition */
 export interface ${data.id}SearchColumn {
-${data.searchColumns.map(c => {
-    const type = getType(c.type);
-    return `
-${indent()}/** ${c.label} (${c.id}: ${c.type}) */
-${indent()}${c.id}?: ${type};
-`.trim()
-  }).join(`\n${indent()}`)}
+  ${data.searchColumns.map(c => {
+      const type = getType(c.type);
+      return `
+    ${indent()}/** ${c.label} (${c.id}: ${c.type}) */
+    ${indent()}${c.id}?: ${type};
+    `.trim()
+    }).join(`\n${indent()}`)}
 }`.trim()
+  }
   return { output }
 }
 

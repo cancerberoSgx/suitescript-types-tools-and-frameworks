@@ -8,6 +8,7 @@ export interface RecordMetadata {
   sublists: Sublist[];
   searchFilters: AbstractField[];
   searchColumns: AbstractField[];
+  searchData?: string
   searchJoins: {
     id: string;
     description: string;

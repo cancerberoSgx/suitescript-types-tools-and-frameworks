@@ -20,6 +20,8 @@ export function typedSearchTest() {
     console.log(`primaryparent: ${f.getValue('displayinsite')}`); // gives type error- wrong column
     return true;
   });
+
+  const s3 = search({ type: 'inventoryitem' });
 }
 
 // export function findMatrixParent(id?: string): Result | undefined {

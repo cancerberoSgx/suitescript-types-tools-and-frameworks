@@ -1,8 +1,12 @@
-import { StringKeyOf, ValueOfStringKey } from '../../misc/misc';
-import { SearchRecordType } from "../../sharedTypes";
+import { StringKeyOf, ValueOfStringKey, NamedMemberNamesOf } from '../../misc/misc';
 import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames, TypedSearchColumnTypes, TypedSearchFilterTypes, SearchTypesOperatorsSupport } from './generated';
 
 // Helper types. Extract columns, filters, joins names and types and operator support types from generated types
+
+
+
+export type  SearchRecordType = StringKeyOf<TypedSearchColumnNames>
+
 
 export type JoinName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<ValueOfStringKey<TypedSearchJoinTypes, RecordType>>;
 
@@ -11,7 +15,7 @@ type ColumnValue<RecordType extends SearchRecordType = SearchRecordType> = Value
 type FilterValue<RecordType extends SearchRecordType = SearchRecordType> = ValueOfStringKey<TypedSearchFilterNames, RecordType>;
 // let columnValue: ColumnValue<'item'>
 
-export type ColumnName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<ColumnValue<RecordType>>;
+export type ColumnName<RecordType extends SearchRecordType = SearchRecordType> = NamedMemberNamesOf<ColumnValue<RecordType>>;
 
 export type FilterName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<FilterValue<RecordType>>;
 // let columnName: ColumnName<'item'> // this is all column names of 'item'

@@ -4,622 +4,623 @@
 // Search Columns
 
 /** Item (item) Search Columns definition */
-export interface itemSearchColumn {/** Accounting Book Rev Rec Forecast Rule (accbookrevrecforecastrule: select) */
-  accbookrevrecforecastrule?: string;
+export interface itemSearchColumn {
+  /** Accounting Book Rev Rec Forecast Rule (accbookrevrecforecastrule: select) */
+      accbookrevrecforecastrule?: string;
   /** Accounting Book (accountingbook: select) */
-  accountingbook?: string;
+      accountingbook?: string;
   /** Accounting Book Amortization Schedule (accountingbookamortization: select) */
-  accountingbookamortization?: string;
+      accountingbookamortization?: string;
   /** Accounting Book Create Revenue Plans On (accountingbookcreateplanson: select) */
-  accountingbookcreateplanson?: string;
+      accountingbookcreateplanson?: string;
   /** Accounting Book Revenue Recognition Rule (accountingbookrevrecrule: select) */
-  accountingbookrevrecrule?: string;
+      accountingbookrevrecrule?: string;
   /** Accounting Book Rev. Rec. Schedule (accountingbookrevrecschedule: select) */
-  accountingbookrevrecschedule?: string;
+      accountingbookrevrecschedule?: string;
   /** Alternate Source Item (alternatedemandsourceitem: text) */
-  alternatedemandsourceitem?: string;
+      alternatedemandsourceitem?: string;
   /** Asset Account (assetaccount: select) */
-  assetaccount?: string;
+      assetaccount?: string;
   /** ATP Lead Time (atpleadtime: float) */
-  atpleadtime?: number;
+      atpleadtime?: number;
   /** Default ATP Method (atpmethod: text) */
-  atpmethod?: string;
+      atpmethod?: string;
   /** Auto Lead Time (autoleadtime: checkbox) */
-  autoleadtime?: boolean;
+      autoleadtime?: boolean;
   /** Auto Stock Level (autopreferredstocklevel: checkbox) */
-  autopreferredstocklevel?: boolean;
+      autopreferredstocklevel?: boolean;
   /** Auto Reorder Point (autoreorderpoint: checkbox) */
-  autoreorderpoint?: boolean;
+      autoreorderpoint?: boolean;
   /** Available to Partners (availabletopartners: checkbox) */
-  availabletopartners?: boolean;
+      availabletopartners?: boolean;
   /** Average Cost (averagecost: currency2) */
-  averagecost?: number;
+      averagecost?: number;
   /** Backward Consumption Days (backwardconsumptiondays: integer) */
-  backwardconsumptiondays?: number;
+      backwardconsumptiondays?: number;
   /** Base Price (baseprice: currency2) */
-  baseprice?: number;
+      baseprice?: number;
   /** Bill Exchange Rate Variance Account (billexchratevarianceacct: select) */
-  billexchratevarianceacct?: string;
+      billexchratevarianceacct?: string;
   /** Bill Price Variance Account (billpricevarianceacct: select) */
-  billpricevarianceacct?: string;
+      billpricevarianceacct?: string;
   /** Bill Quantity Variance Account (billqtyvarianceacct: select) */
-  billqtyvarianceacct?: string;
+      billqtyvarianceacct?: string;
   /** Bin Number (binnumber: text) */
-  binnumber?: string;
+      binnumber?: string;
   /** Bin On Hand Available (binonhandavail: float) */
-  binonhandavail?: number;
+      binonhandavail?: number;
   /** Bin On Hand Count (binonhandcount: float) */
-  binonhandcount?: number;
+      binonhandcount?: number;
   /** BOM Quantity (bomquantity: float) */
-  bomquantity?: number;
+      bomquantity?: number;
   /** Build Sub-Assemblies (buildentireassembly: checkbox) */
-  buildentireassembly?: boolean;
+      buildentireassembly?: boolean;
   /** Work Order Lead Time (buildtime: float) */
-  buildtime?: number;
+      buildtime?: number;
   /** eBay Buy It Now Price (buyitnowprice: currency) */
-  buyitnowprice?: number;
+      buyitnowprice?: number;
   /** Category (category: text) */
-  category?: string;
+      category?: string;
   /** Category (no hierarchy) (categorynohierarchy: text) */
-  categorynohierarchy?: string;
+      categorynohierarchy?: string;
   /** Category (preferred) (categorypreferred: text) */
-  categorypreferred?: string;
+      categorypreferred?: string;
   /** Class (class: select) */
-  class?: string;
+      class?: string;
   /** Class (no hierarchy) (classnohierarchy: select) */
-  classnohierarchy?: string;
+      classnohierarchy?: string;
   /** Component Yield (componentyield: float) */
-  componentyield?: number;
+      componentyield?: number;
   /** Eligible for Contingent Revenue Handling (contingentrevenuehandling: checkbox) */
-  contingentrevenuehandling?: boolean;
+      contingentrevenuehandling?: boolean;
   /** Copy SO Descr. (copydescription: checkbox) */
-  copydescription?: boolean;
+      copydescription?: boolean;
   /** Correlated Item (correlateditem: select) */
-  correlateditem?: string;
+      correlateditem?: string;
   /** Correlated Item Correlation (correlateditemcorrelation: float) */
-  correlateditemcorrelation?: number;
+      correlateditemcorrelation?: number;
   /** Correlated Item Count (correlateditemcount: integer) */
-  correlateditemcount?: number;
+      correlateditemcount?: number;
   /** Correlated Item Lift (correlateditemlift: float) */
-  correlateditemlift?: number;
+      correlateditemlift?: number;
   /** Correlated Item Purchase Rate (correlateditempurchaserate: float) */
-  correlateditempurchaserate?: number;
+      correlateditempurchaserate?: number;
   /** Purchase Price (cost: currency2) */
-  cost?: number;
+      cost?: number;
   /** Cost Accounting Status (costaccountingstatus: text) */
-  costaccountingstatus?: string;
+      costaccountingstatus?: string;
   /** Cost Category (costcategory: text) */
-  costcategory?: string;
+      costcategory?: string;
   /** Item Defined Cost (costestimate: currency2) */
-  costestimate?: number;
+      costestimate?: number;
   /** Cost Estimate Type (costestimatetype: text) */
-  costestimatetype?: string;
+      costestimatetype?: string;
   /** Costing Method (costingmethod: select) */
-  costingmethod?: string;
+      costingmethod?: string;
   /** Manufacturer Country (countryofmanufacture: text) */
-  countryofmanufacture?: string;
+      countryofmanufacture?: string;
   /** Date Created (created: datetime) */
-  created?: Date;
+      created?: Date;
   /** Create Job (createjob: checkbox) */
-  createjob?: boolean;
+      createjob?: boolean;
   /** Create Revenue Plans On (createrevenueplanson: select) */
-  createrevenueplanson?: string;
+      createrevenueplanson?: string;
   /** Current Standard Cost (currentstandardcost: currency2) */
-  currentstandardcost?: number;
+      currentstandardcost?: number;
   /** Current Standard Cost Effective Date (currentstdcosteffectivedate: date) */
-  currentstdcosteffectivedate?: Date;
+      currentstdcosteffectivedate?: Date;
   /** Customer Return Variance Account (custreturnvarianceaccount: select) */
-  custreturnvarianceaccount?: string;
+      custreturnvarianceaccount?: string;
   /** Date Viewed (dateviewed: datetime) */
-  dateviewed?: Date;
+      dateviewed?: Date;
   /** Days Before Expiration (daysbeforeexpiration: text) */
-  daysbeforeexpiration?: string;
+      daysbeforeexpiration?: string;
   /** Default Return Cost (defaultreturncost: currency2) */
-  defaultreturncost?: number;
+      defaultreturncost?: number;
   /** Deferred Expense Account (deferredexpenseaccount: select) */
-  deferredexpenseaccount?: string;
+      deferredexpenseaccount?: string;
   /** Deferred Revenue Account (deferredrevenueaccount: select) */
-  deferredrevenueaccount?: string;
+      deferredrevenueaccount?: string;
   /** Hold Revenue Recognition (deferrevrec: checkbox) */
-  deferrevrec?: boolean;
+      deferrevrec?: boolean;
   /** Expected Demand Change (demandmodifier: percent) */
-  demandmodifier?: number;
+      demandmodifier?: number;
   /** Demand Source (demandsource: text) */
-  demandsource?: string;
+      demandsource?: string;
   /** Department (department: select) */
-  department?: string;
+      department?: string;
   /** Department (no hierarchy) (departmentnohierarchy: select) */
-  departmentnohierarchy?: string;
+      departmentnohierarchy?: string;
   /** Direct Revenue Posting (directrevenueposting: checkbox) */
-  directrevenueposting?: boolean;
+      directrevenueposting?: boolean;
   /** eBay Store (displayinebaystore: checkbox) */
-  displayinebaystore?: boolean;
+      displayinebaystore?: boolean;
   /** Display Name (displayname: text) */
-  displayname?: string;
+      displayname?: string;
   /** Distribution Category (distributioncategory: text) */
-  distributioncategory?: string;
+      distributioncategory?: string;
   /** Distribution Network (distributionnetwork: text) */
-  distributionnetwork?: string;
+      distributionnetwork?: string;
   /** Don't Show Price (dontshowprice: checkbox) */
-  dontshowprice?: boolean;
+      dontshowprice?: boolean;
   /** eBay Description (ebayitemdescription: clobtext) */
-  ebayitemdescription?: string;
+      ebayitemdescription?: string;
   /** eBay Subtitle (ebayitemsubtitle: text) */
-  ebayitemsubtitle?: string;
+      ebayitemsubtitle?: string;
   /** eBay Title (ebayitemtitle: text) */
-  ebayitemtitle?: string;
+      ebayitemtitle?: string;
   /** eBay Relisting Option (ebayrelistingoption: text) */
-  ebayrelistingoption?: string;
+      ebayrelistingoption?: string;
   /** Effective BOM Control (effectivebomcontrol: text) */
-  effectivebomcontrol?: string;
+      effectivebomcontrol?: string;
   /** Effective Date (effectivedate: date) */
-  effectivedate?: Date;
+      effectivedate?: Date;
   /** Effective Revision (effectiverevision: select) */
-  effectiverevision?: string;
+      effectiverevision?: string;
   /** eBay End Auctions When Out of Stock (endauctionswhenoutofstock: checkbox) */
-  endauctionswhenoutofstock?: boolean;
+      endauctionswhenoutofstock?: boolean;
   /** Exclude from Sitemap (excludefromsitemap: checkbox) */
-  excludefromsitemap?: boolean;
+      excludefromsitemap?: boolean;
   /** Expense/COGS Account (expenseaccount: select) */
-  expenseaccount?: string;
+      expenseaccount?: string;
   /** External ID (externalid: select) */
-  externalid?: string;
+      externalid?: string;
   /** Featured Description (featureddescription: clobtext) */
-  featureddescription?: string;
+      featureddescription?: string;
   /** Feed Description (feeddescription: text) */
-  feeddescription?: string;
+      feeddescription?: string;
   /** Feed Name (feedname: text) */
-  feedname?: string;
+      feedname?: string;
   /** Fixed Lot Size (fixedlotsize: float) */
-  fixedlotsize?: number;
+      fixedlotsize?: number;
   /** Formula (Currency) (formulacurrency: currency) */
-  formulacurrency?: number;
+      formulacurrency?: number;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+      formuladate?: Date;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-  formuladatetime?: Date;
+      formuladatetime?: Date;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+      formulanumeric?: number;
   /** Formula (Percent) (formulapercent: percent) */
-  formulapercent?: number;
+      formulapercent?: number;
   /** Formula (Text) (formulatext: text) */
-  formulatext?: string;
+      formulatext?: string;
   /** Forward Consumption Days (forwardconsumptiondays: integer) */
-  forwardconsumptiondays?: number;
+      forwardconsumptiondays?: number;
   /** Fraud Risk (fraudrisk: select) */
-  fraudrisk?: string;
+      fraudrisk?: string;
   /** Google Base Product Feed (froogleproductfeed: checkbox) */
-  froogleproductfeed?: boolean;
+      froogleproductfeed?: boolean;
   /** Purchase Price (Foreign Currency) (fxcost: currency2) */
-  fxcost?: number;
+      fxcost?: number;
   /** Gain/Loss Account (gainlossaccount: select) */
-  gainlossaccount?: string;
+      gainlossaccount?: string;
   /** Generate Accruals (generateaccruals: checkbox) */
-  generateaccruals?: boolean;
+      generateaccruals?: boolean;
   /** Gift Certificate Auth Code (giftcertauthcode: text) */
-  giftcertauthcode?: string;
+      giftcertauthcode?: string;
   /** Gift Certificate To (Email) (giftcertemail: text) */
-  giftcertemail?: string;
+      giftcertemail?: string;
   /** Gift Certificate Exp Date (giftcertexpirationdate: text) */
-  giftcertexpirationdate?: string;
+      giftcertexpirationdate?: string;
   /** Gift Certificate From (Name) (giftcertfrom: text) */
-  giftcertfrom?: string;
+      giftcertfrom?: string;
   /** Gift Certificate Message (giftcertmessage: text) */
-  giftcertmessage?: string;
+      giftcertmessage?: string;
   /** Gift Certificate Orig Amount (giftcertoriginalamount: text) */
-  giftcertoriginalamount?: string;
+      giftcertoriginalamount?: string;
   /** Gift Certificate To (Name) (giftcertrecipient: text) */
-  giftcertrecipient?: string;
+      giftcertrecipient?: string;
   /** # Times Viewed (hits: integer) */
-  hits?: number;
+      hits?: number;
   /** Image URL (imageurl: text) */
-  imageurl?: string;
+      imageurl?: string;
   /** Income Account (incomeaccount: select) */
-  incomeaccount?: string;
+      incomeaccount?: string;
   /** Intercompany Deferred Revenue Account (intercodefrevaccount: select) */
-  intercodefrevaccount?: string;
+      intercodefrevaccount?: string;
   /** Intercompany Expense/COGS Account (intercoexpenseaccount: select) */
-  intercoexpenseaccount?: string;
+      intercoexpenseaccount?: string;
   /** Intercompany Income Account (intercoincomeaccount: select) */
-  intercoincomeaccount?: string;
+      intercoincomeaccount?: string;
   /** Internal ID (internalid: select) */
-  internalid?: string;
+      internalid?: string;
   /** Inventory Location (inventorylocation: select) */
-  inventorylocation?: string;
+      inventorylocation?: string;
   /** Inventory Classification (invtclassification: text) */
-  invtclassification?: string;
+      invtclassification?: string;
   /** Inventory Count Interval (invtcountinterval: integer) */
-  invtcountinterval?: number;
+      invtcountinterval?: number;
   /** Is Available? (isavailable: checkbox) */
-  isavailable?: boolean;
+      isavailable?: boolean;
   /** Drop Ship Item (isdropshipitem: checkbox) */
-  isdropshipitem?: boolean;
+      isdropshipitem?: boolean;
   /** Can be Fulfilled (isfulfillable: checkbox) */
-  isfulfillable?: boolean;
+      isfulfillable?: boolean;
   /** Google Checkout Compliant (isgcocompliant: checkbox) */
-  isgcocompliant?: boolean;
+      isgcocompliant?: boolean;
   /** Inactive (isinactive: checkbox) */
-  isinactive?: boolean;
+      isinactive?: boolean;
   /** Is Lot Numbered Item (islotitem: checkbox) */
-  islotitem?: boolean;
+      islotitem?: boolean;
   /** Display in Web Site (isonline: checkbox) */
-  isonline?: boolean;
+      isonline?: boolean;
   /** Is Serialized Item (isserialitem: checkbox) */
-  isserialitem?: boolean;
+      isserialitem?: boolean;
   /** Special Order Item (isspecialorderitem: checkbox) */
-  isspecialorderitem?: boolean;
+      isspecialorderitem?: boolean;
   /** Special Work Order Item (isspecialworkorderitem: checkbox) */
-  isspecialworkorderitem?: boolean;
+      isspecialworkorderitem?: boolean;
   /** Store Pickup Allowed (isstorepickupallowed: checkbox) */
-  isstorepickupallowed?: boolean;
+      isstorepickupallowed?: boolean;
   /** Product (issueproduct: select) */
-  issueproduct?: string;
+      issueproduct?: string;
   /** Taxable (istaxable: checkbox) */
-  istaxable?: boolean;
+      istaxable?: boolean;
   /** Is VSOE Bundle? (isvsoebundle: checkbox) */
-  isvsoebundle?: boolean;
+      isvsoebundle?: boolean;
   /** WIP (iswip: checkbox) */
-  iswip?: boolean;
+      iswip?: boolean;
   /** Name (itemid: text) */
-  itemid?: string;
+      itemid?: string;
   /** Item URL (itemurl: text) */
-  itemurl?: string;
+      itemurl?: string;
   /** Last Inventory Count Date (lastinvtcountdate: date) */
-  lastinvtcountdate?: Date;
+      lastinvtcountdate?: Date;
   /** Last Purchase Price (lastpurchaseprice: currency) */
-  lastpurchaseprice?: number;
+      lastpurchaseprice?: number;
   /** Last Quantity Available Change (lastquantityavailablechange: datetime) */
-  lastquantityavailablechange?: Date;
+      lastquantityavailablechange?: Date;
   /** Last Viewed (lastviewed: datetime) */
-  lastviewed?: Date;
+      lastviewed?: Date;
   /** Lead Time (leadtime: integer) */
-  leadtime?: number;
+      leadtime?: number;
   /** Liability Account (liabilityaccount: select) */
-  liabilityaccount?: string;
+      liabilityaccount?: string;
   /** eBay Duration (listingduration: text) */
-  listingduration?: string;
+      listingduration?: string;
   /** Location (location: select) */
-  location?: string;
+      location?: string;
   /** Location Allow Store Pickup (locationallowstorepickup: checkbox) */
-  locationallowstorepickup?: boolean;
+      locationallowstorepickup?: boolean;
   /** Location ATP Lead Time (locationatpleadtime: float) */
-  locationatpleadtime?: number;
+      locationatpleadtime?: number;
   /** Location Average Cost (locationaveragecost: currency2) */
-  locationaveragecost?: number;
+      locationaveragecost?: number;
   /** Location Bin Available (locationbinquantityavailable: float) */
-  locationbinquantityavailable?: number;
+      locationbinquantityavailable?: number;
   /** Location Work Order Lead Time (locationbuildtime: float) */
-  locationbuildtime?: number;
+      locationbuildtime?: number;
   /** Location Standard Cost (locationcost: currency) */
-  locationcost?: number;
+      locationcost?: number;
   /** Location Cost Accounting Status (locationcostaccountingstatus: text) */
-  locationcostaccountingstatus?: string;
+      locationcostaccountingstatus?: string;
   /** Location Default Return Cost (locationdefaultreturncost: currency2) */
-  locationdefaultreturncost?: number;
+      locationdefaultreturncost?: number;
   /** Location Demand Source (locationdemandsource: text) */
-  locationdemandsource?: string;
+      locationdemandsource?: string;
   /** Location Fixed Lot Size (locationfixedlotsize: float) */
-  locationfixedlotsize?: number;
+      locationfixedlotsize?: number;
   /** Location Inventory Classification (locationinvtclassification: text) */
-  locationinvtclassification?: string;
+      locationinvtclassification?: string;
   /** Location Inventory Count Interval (locationinvtcountinterval: integer) */
-  locationinvtcountinterval?: number;
+      locationinvtcountinterval?: number;
   /** Location Last Inventory Count Date (locationlastinvtcountdate: date) */
-  locationlastinvtcountdate?: Date;
+      locationlastinvtcountdate?: Date;
   /** Location Lead Time (locationleadtime: integer) */
-  locationleadtime?: number;
+      locationleadtime?: number;
   /** Location Next Inventory Count Date (locationnextinvtcountdate: date) */
-  locationnextinvtcountdate?: Date;
+      locationnextinvtcountdate?: Date;
   /** Location (no hierarchy) (locationnohierarchy: select) */
-  locationnohierarchy?: string;
+      locationnohierarchy?: string;
   /** Location Preferred Stock Level (locationpreferredstocklevel: float) */
-  locationpreferredstocklevel?: number;
+      locationpreferredstocklevel?: number;
   /** Location Available for Store Pickup (locationqtyavailforstorepickup: float) */
-  locationqtyavailforstorepickup?: number;
+      locationqtyavailforstorepickup?: number;
   /** Location Available (locationquantityavailable: float) */
-  locationquantityavailable?: number;
+      locationquantityavailable?: number;
   /** Location Back Ordered (locationquantitybackordered: float) */
-  locationquantitybackordered?: number;
+      locationquantitybackordered?: number;
   /** Location Committed (locationquantitycommitted: float) */
-  locationquantitycommitted?: number;
+      locationquantitycommitted?: number;
   /** Location In Transit (locationquantityintransit: float) */
-  locationquantityintransit?: number;
+      locationquantityintransit?: number;
   /** Location On Hand (locationquantityonhand: float) */
-  locationquantityonhand?: number;
+      locationquantityonhand?: number;
   /** Location On Order (locationquantityonorder: float) */
-  locationquantityonorder?: number;
+      locationquantityonorder?: number;
   /** Location Reorder Point (locationreorderpoint: float) */
-  locationreorderpoint?: number;
+      locationreorderpoint?: number;
   /** Location Safety Stock Level (locationsafetystocklevel: float) */
-  locationsafetystocklevel?: number;
+      locationsafetystocklevel?: number;
   /** Location Store Pickup Buffer Stock (locationstorepickupbufferstock: float) */
-  locationstorepickupbufferstock?: number;
+      locationstorepickupbufferstock?: number;
   /** Location Supply Lot Sizing Method (locationsupplylotsizingmethod: text) */
-  locationsupplylotsizingmethod?: string;
+      locationsupplylotsizingmethod?: string;
   /** Location Supply Type (locationsupplytype: text) */
-  locationsupplytype?: string;
+      locationsupplytype?: string;
   /** Location Total Value (locationtotalvalue: currency2) */
-  locationtotalvalue?: number;
+      locationtotalvalue?: number;
   /** Manufacturer (manufacturer: text) */
-  manufacturer?: string;
+      manufacturer?: string;
   /** Manufacturer Address (manufactureraddr1: text) */
-  manufactureraddr1?: string;
+      manufactureraddr1?: string;
   /** Manufacturer City (manufacturercity: text) */
-  manufacturercity?: string;
+      manufacturercity?: string;
   /** Manufacturer State (manufacturerstate: text) */
-  manufacturerstate?: string;
+      manufacturerstate?: string;
   /** Manufacturer Tariff (manufacturertariff: text) */
-  manufacturertariff?: string;
+      manufacturertariff?: string;
   /** Manufacturer Tax Id (manufacturertaxid: text) */
-  manufacturertaxid?: string;
+      manufacturertaxid?: string;
   /** Manufacturer Zip (manufacturerzip: text) */
-  manufacturerzip?: string;
+      manufacturerzip?: string;
   /** Match Bill To Receipt (matchbilltoreceipt: checkbox) */
-  matchbilltoreceipt?: boolean;
+      matchbilltoreceipt?: boolean;
   /** Maximum Quantity (maximumquantity: text) */
-  maximumquantity?: string;
+      maximumquantity?: string;
   /** Member Item (memberitem: select) */
-  memberitem?: string;
+      memberitem?: string;
   /** Member Quantity (memberquantity: float) */
-  memberquantity?: number;
+      memberquantity?: number;
   /** Meta Tag Html (metataghtml: clobtext) */
-  metataghtml?: string;
+      metataghtml?: string;
   /** Minimum Quantity (minimumquantity: text) */
-  minimumquantity?: string;
+      minimumquantity?: string;
   /** Last Modified (modified: datetime) */
-  modified?: Date;
+      modified?: Date;
   /** MOSS Applies (mossapplies: checkbox) */
-  mossapplies?: boolean;
+      mossapplies?: boolean;
   /** MPN (mpn: text) */
-  mpn?: string;
+      mpn?: string;
   /** Multiple Manufacture Addresses (multmanufactureaddr: checkbox) */
-  multmanufactureaddr?: boolean;
+      multmanufactureaddr?: boolean;
   /** NexTag Category (nextagcategory: text) */
-  nextagcategory?: string;
+      nextagcategory?: string;
   /** NexTag Product Feed (nextagproductfeed: checkbox) */
-  nextagproductfeed?: boolean;
+      nextagproductfeed?: boolean;
   /** Next Inventory Count Date (nextinvtcountdate: date) */
-  nextinvtcountdate?: Date;
+      nextinvtcountdate?: Date;
   /** No Price Message (nopricemessage: text) */
-  nopricemessage?: string;
+      nopricemessage?: string;
   /** eBay Active Listings (numactivelistings: integer) */
-  numactivelistings?: number;
+      numactivelistings?: number;
   /** Number of Allowed Downloads (numberalloweddownloads: text) */
-  numberalloweddownloads?: string;
+      numberalloweddownloads?: string;
   /** eBay Quantity Currently Listed (numcurrentlylisted: integer) */
-  numcurrentlylisted?: number;
+      numcurrentlylisted?: number;
   /** Obsolete Date (obsoletedate: date) */
-  obsoletedate?: Date;
+      obsoletedate?: Date;
   /** Obsolete Revision (obsoleterevision: select) */
-  obsoleterevision?: string;
+      obsoleterevision?: string;
   /** Offer Support (offersupport: checkbox) */
-  offersupport?: boolean;
+      offersupport?: boolean;
   /** Online Customer Price (onlinecustomerprice: currency) */
-  onlinecustomerprice?: number;
+      onlinecustomerprice?: number;
   /** Online Price (onlineprice: currency) */
-  onlineprice?: number;
+      onlineprice?: number;
   /** On Special (onspecial: checkbox) */
-  onspecial?: boolean;
+      onspecial?: boolean;
   /** Other Prices (otherprices: currency) */
-  otherprices?: number;
+      otherprices?: number;
   /** Vendor (othervendor: select) */
-  othervendor?: string;
+      othervendor?: string;
   /** Out Of Stock Behavior (outofstockbehavior: text) */
-  outofstockbehavior?: string;
+      outofstockbehavior?: string;
   /** Out Of Stock Message (outofstockmessage: text) */
-  outofstockmessage?: string;
+      outofstockmessage?: string;
   /** Overall Qty. Pricing Type (overallquantitypricingtype: select) */
-  overallquantitypricingtype?: string;
+      overallquantitypricingtype?: string;
   /** Page Title (pagetitle: textarea) */
-  pagetitle?: string;
+      pagetitle?: string;
   /** Parent (parent: select) */
-  parent?: string;
+      parent?: string;
   /** Preference Criterion (preferencecriterion: text) */
-  preferencecriterion?: string;
+      preferencecriterion?: string;
   /** Preferred Bin (preferredbin: checkbox) */
-  preferredbin?: boolean;
+      preferredbin?: boolean;
   /** Preferred Location (preferredlocation: select) */
-  preferredlocation?: string;
+      preferredlocation?: string;
   /** Preferred Stock Level (preferredstocklevel: float) */
-  preferredstocklevel?: number;
+      preferredstocklevel?: number;
   /** Days Supply (preferredstockleveldays: integer) */
-  preferredstockleveldays?: number;
+      preferredstockleveldays?: number;
   /** Prices Include Tax (pricesincludetax: checkbox) */
-  pricesincludetax?: boolean;
+      pricesincludetax?: boolean;
   /** Pricing Group (pricinggroup: select) */
-  pricinggroup?: string;
+      pricinggroup?: string;
   /** eBay Category Id (primarycategory: text) */
-  primarycategory?: string;
+      primarycategory?: string;
   /** Production Price Variance Account (prodpricevarianceacct: select) */
-  prodpricevarianceacct?: string;
+      prodpricevarianceacct?: string;
   /** Production Quantity Variance Account (prodqtyvarianceacct: select) */
-  prodqtyvarianceacct?: string;
+      prodqtyvarianceacct?: string;
   /** Purchase Description (purchasedescription: text) */
-  purchasedescription?: string;
+      purchasedescription?: string;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-  purchaseorderamount?: number;
+      purchaseorderamount?: number;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-  purchaseorderquantity?: number;
+      purchaseorderquantity?: number;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-  purchaseorderquantitydiff?: number;
+      purchaseorderquantitydiff?: number;
   /** Purchase Price Variance Account (purchasepricevarianceacct: select) */
-  purchasepricevarianceacct?: string;
+      purchasepricevarianceacct?: string;
   /** Purchase Unit (purchaseunit: select) */
-  purchaseunit?: string;
+      purchaseunit?: string;
   /** Available (quantityavailable: float) */
-  quantityavailable?: number;
+      quantityavailable?: number;
   /** Back Ordered (quantitybackordered: float) */
-  quantitybackordered?: number;
+      quantitybackordered?: number;
   /** Committed (quantitycommitted: float) */
-  quantitycommitted?: number;
+      quantitycommitted?: number;
   /** On Hand (quantityonhand: float) */
-  quantityonhand?: number;
+      quantityonhand?: number;
   /** On Order (quantityonorder: float) */
-  quantityonorder?: number;
+      quantityonorder?: number;
   /** Quantity Pricing Schedule (quantitypricingschedule: select) */
-  quantitypricingschedule?: string;
+      quantitypricingschedule?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-  receiptamount?: number;
+      receiptamount?: number;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-  receiptquantity?: number;
+      receiptquantity?: number;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-  receiptquantitydiff?: number;
+      receiptquantitydiff?: number;
   /** Reorder Multiple (reordermultiple: integer) */
-  reordermultiple?: number;
+      reordermultiple?: number;
   /** Reorder Point (reorderpoint: float) */
-  reorderpoint?: number;
+      reorderpoint?: number;
   /** eBay Reserve Price (reserveprice: currency) */
-  reserveprice?: number;
+      reserveprice?: number;
   /** Rev Rec Forecast Rule (revrecforecastrule: select) */
-  revrecforecastrule?: string;
+      revrecforecastrule?: string;
   /** Foreign Currency Adjustment Account (revreclassfxaccount: select) */
-  revreclassfxaccount?: string;
+      revreclassfxaccount?: string;
   /** Rev. Rec. Schedule (revrecschedule: select) */
-  revrecschedule?: string;
+      revrecschedule?: string;
   /** Round Up Quantity as Component (roundupascomponent: checkbox) */
-  roundupascomponent?: boolean;
+      roundupascomponent?: boolean;
   /** Safety Stock Level (safetystocklevel: float) */
-  safetystocklevel?: number;
+      safetystocklevel?: number;
   /** Safety Stock Days (safetystockleveldays: integer) */
-  safetystockleveldays?: number;
+      safetystockleveldays?: number;
   /** Description (salesdescription: text) */
-  salesdescription?: string;
+      salesdescription?: string;
   /** Tax Code (salestaxcode: select) */
-  salestaxcode?: string;
+      salestaxcode?: string;
   /** Sale Unit (saleunit: select) */
-  saleunit?: string;
+      saleunit?: string;
   /** Same as Primary Book Amortization (sameasprimarybookamortization: checkbox) */
-  sameasprimarybookamortization?: boolean;
+      sameasprimarybookamortization?: boolean;
   /** Same as Primary Book Rev. Rec. (sameasprimarybookrevrec: checkbox) */
-  sameasprimarybookrevrec?: boolean;
+      sameasprimarybookrevrec?: boolean;
   /** Schedule B Code (schedulebcode: text) */
-  schedulebcode?: string;
+      schedulebcode?: string;
   /** Schedule B Number (schedulebnumber: text) */
-  schedulebnumber?: string;
+      schedulebnumber?: string;
   /** Schedule B Quantity (schedulebquantity: text) */
-  schedulebquantity?: string;
+      schedulebquantity?: string;
   /** Scrap Account (scrapacct: select) */
-  scrapacct?: string;
+      scrapacct?: string;
   /** Search Keywords (searchkeywords: text) */
-  searchkeywords?: string;
+      searchkeywords?: string;
   /** Seasonal Demand (seasonaldemand: checkbox) */
-  seasonaldemand?: boolean;
+      seasonaldemand?: boolean;
   /** eBay Auction (sellonebay: checkbox) */
-  sellonebay?: boolean;
+      sellonebay?: boolean;
   /** Serial/Lot Number (serialnumber: text) */
-  serialnumber?: string;
+      serialnumber?: string;
   /** Serial/Lot Number Location (serialnumberlocation: text) */
-  serialnumberlocation?: string;
+      serialnumberlocation?: string;
   /** Ships Individually (shipindividually: checkbox) */
-  shipindividually?: boolean;
+      shipindividually?: boolean;
   /** Shipping Package (shippackage: select) */
-  shippackage?: string;
+      shippackage?: string;
   /** Shipping Rate (shippingrate: currency) */
-  shippingrate?: number;
+      shippingrate?: number;
   /** Shopping.com Category (shoppingdotcomcategory: text) */
-  shoppingdotcomcategory?: string;
+      shoppingdotcomcategory?: string;
   /** Shopping.com Product Feed (shoppingproductfeed: checkbox) */
-  shoppingproductfeed?: boolean;
+      shoppingproductfeed?: boolean;
   /** Shopzilla Category Id (shopzillacategoryid: integer) */
-  shopzillacategoryid?: number;
+      shopzillacategoryid?: number;
   /** Shopzilla Product Feed (shopzillaproductfeed: checkbox) */
-  shopzillaproductfeed?: boolean;
+      shopzillaproductfeed?: boolean;
   /** Sitemap Priority (sitemappriority: float) */
-  sitemappriority?: number;
+      sitemappriority?: number;
   /** Soft Descriptor (softdescriptor: select) */
-  softdescriptor?: string;
+      softdescriptor?: string;
   /** eBay Starting Price (startingprice: currency) */
-  startingprice?: number;
+      startingprice?: number;
   /** Stock Description (stockdescription: text) */
-  stockdescription?: string;
+      stockdescription?: string;
   /** Stock Unit (stockunit: select) */
-  stockunit?: string;
+      stockunit?: string;
   /** Store Description (storedescription: text) */
-  storedescription?: string;
+      storedescription?: string;
   /** Detailed Description (storedetaileddescription: clobtext) */
-  storedetaileddescription?: string;
+      storedetaileddescription?: string;
   /** Store Display Image (storedisplayimage: select) */
-  storedisplayimage?: string;
+      storedisplayimage?: string;
   /** Store Display Name (storedisplayname: text) */
-  storedisplayname?: string;
+      storedisplayname?: string;
   /** Store Display Thumbnail (storedisplaythumbnail: select) */
-  storedisplaythumbnail?: string;
+      storedisplaythumbnail?: string;
   /** Subsidiary (subsidiary: select) */
-  subsidiary?: string;
+      subsidiary?: string;
   /** Subsidiary (no hierarchy) (subsidiarynohierarchy: select) */
-  subsidiarynohierarchy?: string;
+      subsidiarynohierarchy?: string;
   /** SubType (subtype: text) */
-  subtype?: string;
+      subtype?: string;
   /** Supply Lot Sizing Method (supplylotsizingmethod: text) */
-  supplylotsizingmethod?: string;
+      supplylotsizingmethod?: string;
   /** Replenishment Method (supplyreplenishmentmethod: text) */
-  supplyreplenishmentmethod?: string;
+      supplyreplenishmentmethod?: string;
   /** Supply Type (supplytype: text) */
-  supplytype?: string;
+      supplytype?: string;
   /** Tax Schedule (taxschedule: select) */
-  taxschedule?: string;
+      taxschedule?: string;
   /** Thumbnail URL (thumbnailurl: text) */
-  thumbnailurl?: string;
+      thumbnailurl?: string;
   /** Total Value (totalvalue: currency2) */
-  totalvalue?: number;
+      totalvalue?: number;
   /** Track Landed Cost (tracklandedcost: checkbox) */
-  tracklandedcost?: boolean;
+      tracklandedcost?: boolean;
   /** Transfer Price (transferprice: currency2) */
-  transferprice?: number;
+      transferprice?: number;
   /** Type (type: select) */
-  type?: string;
+      type?: string;
   /** Unbuild Variance Account (unbuildvarianceaccount: select) */
-  unbuildvarianceaccount?: string;
+      unbuildvarianceaccount?: string;
   /** Units Type (unitstype: select) */
-  unitstype?: string;
+      unitstype?: string;
   /** UPC Code (upccode: text) */
-  upccode?: string;
+      upccode?: string;
   /** URL Component (urlcomponent: text) */
-  urlcomponent?: string;
+      urlcomponent?: string;
   /** Use Bins (usebins: checkbox) */
-  usebins?: boolean;
+      usebins?: boolean;
   /** Use Component Yield (usecomponentyield: checkbox) */
-  usecomponentyield?: boolean;
+      usecomponentyield?: boolean;
   /** Use Marginal Rates (usemarginalrates: checkbox) */
-  usemarginalrates?: boolean;
+      usemarginalrates?: boolean;
   /** Preferred Vendor (vendor: select) */
-  vendor?: string;
+      vendor?: string;
   /** Vendor Code (vendorcode: text) */
-  vendorcode?: string;
+      vendorcode?: string;
   /** Vendor Price (vendorcost: currency) */
-  vendorcost?: number;
+      vendorcost?: number;
   /** Vendor Price (Entered) (vendorcostentered: currency) */
-  vendorcostentered?: number;
+      vendorcostentered?: number;
   /** Vendor Name (vendorname: text) */
-  vendorname?: string;
+      vendorname?: string;
   /** Vendor Price Currency (vendorpricecurrency: text) */
-  vendorpricecurrency?: string;
+      vendorpricecurrency?: string;
   /** Vendor Schedule (vendorschedule: select) */
-  vendorschedule?: string;
+      vendorschedule?: string;
   /** Vendor Return Variance Account (vendreturnvarianceaccount: select) */
-  vendreturnvarianceaccount?: string;
+      vendreturnvarianceaccount?: string;
   /** Deferral (vsoedeferral: select) */
-  vsoedeferral?: string;
+      vsoedeferral?: string;
   /** Default as Delivered (vsoedelivered: checkbox) */
-  vsoedelivered?: boolean;
+      vsoedelivered?: boolean;
   /** Permit Discount (vsoepermitdiscount: select) */
-  vsoepermitdiscount?: string;
+      vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: currency2) */
-  vsoeprice?: number;
+      vsoeprice?: number;
   /** Allocation Type (vsoesopgroup: checkbox) */
-  vsoesopgroup?: boolean;
+      vsoesopgroup?: boolean;
   /** Web Site (website: select) */
-  website?: string;
+      website?: string;
   /** Weight (weight: float) */
-  weight?: number;
+      weight?: number;
   /** Weight Units (weightunit: select) */
-  weightunit?: string;
+      weightunit?: string;
   /** WIP Account (wipacct: select) */
-  wipacct?: string;
+      wipacct?: string;
   /** WIP Cost Variance Account (wipvarianceacct: select) */
-  wipvarianceacct?: string;
+      wipvarianceacct?: string;
   /** Yahoo Shopping Product Feed (yahooproductfeed: checkbox) */
-  yahooproductfeed?: boolean;
+      yahooproductfeed?: boolean;
 }
 
 

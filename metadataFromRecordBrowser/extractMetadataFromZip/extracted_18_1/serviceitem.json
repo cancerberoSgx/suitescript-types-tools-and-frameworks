@@ -1,0 +1,1981 @@
+{
+  "label": "Service",
+  "id": "serviceitem",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "amortizationperiod",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Amortization Period",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "amortizationtemplate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Amortization Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "auctionquantity",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "Auction Quantity",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "auctiontype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Auction Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "availabletopartners",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Available to Adv. Partners",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Billing Schedule",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "buyitnowprice",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Buy It Now Price",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "conditionenabled",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "conditionhelpurl",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "contingentrevenuehandling",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Eligible For Contingent Revenue Handling",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "cost",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Purchase Price",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "costcategory",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Cost Category",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "costestimate",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Item Defined Cost",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "costestimatetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Cost Estimate Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "costunits",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createjob",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Create Project",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createrevenueplanson",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Create Revenue Plans On",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "deferralaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Deferred Expense Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "deferredrevenueaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Deferred Revenue Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "deferrevrec",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Hold Revenue Recognition",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "directrevenueposting",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Direct Revenue Posting",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "displayinebaystore",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "eBay Store",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Display Name/Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "dontshowprice",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Don't Show Price",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayhandlingtime",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Handling Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayintlinsurancefee",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Insurance Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayintlpackagehandlingfee",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Package & Handling Fee",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayintlshipinsurance",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Insurance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayintlshippingitem1",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Item 1",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayintlshippingitem2",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Item 2",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayintlshippingitem3",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Item 3",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayisintlcalculatedrate",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Flat Rates",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayisirregularpackage",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Irregular Package",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayitemdescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Item Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayitemlocdisplay",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Item Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayitemloczipcode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Item Location Zip Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayitemlots",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Lot Size",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayitemsubtitle",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Subtitle",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayitemtitle",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Item Title",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayitemweightamt",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Item Weight",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebaylayout",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Chart Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebaypackagetype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Package",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebaypagecounter",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Page Counter",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebayrelistingoption",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Relisting Option",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebaytheme",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Theme",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "ebaythemegroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Theme Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "endauctionswhenoutofstock",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "End Auctions When Item is Out of Stock",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "enforceminqtyinternally",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Enforce Internally",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "excludefromsitemap",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Exclude From Sitemap",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "expenseaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Expense Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "featureddescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Featured Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "gallery",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Gallery",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "galleryfeatured",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Featured First",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "generateaccruals",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Generate Accruals",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "gifttypeexpressship",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Express shipping",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "gifttypegiftwrap",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Gift wrap / gift card",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "gifttypeshiptorecipient",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Ship to gift recipient",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "handlinggroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Handling",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "imagesgroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Images",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "imageslocation",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Images Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Children",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "incomeaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Income Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "intercodefrevaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Intercompany Deferred Revenue Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "intercoexpenseaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Intercompany Expense Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "intercoincomeaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Intercompany Income Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "internalid",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Internal ID",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "iscalculatedrate",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Flat Rates",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isdonationitem",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Variable Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isfulfillable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Can be Fulfilled/Received",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isgcocompliant",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Allow Google Checkout Purchase",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isonline",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Display in Web Store",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "issueproduct",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Product Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemcondition",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Condition",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemhandlingfee",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Package & Handling Fee",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Item Name/Number",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "iteminsurancefee",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Insurance Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemoptions",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Options",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemrevenuecategory",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Revenue Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemshipinsurance",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Insurance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "listimmediate",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Start listing when submitted",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "listingduration",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Duration",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "listingstartdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Start Date",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "listingstarttime",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Start Time",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "manufacturingchargeitem",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Manufacturing Charge Item",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "matrixitemnametemplate",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Matrix Item Name Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "matrixtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Matrix Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "maxdonationamount",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Maximum Variable Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "maximumquantity",
+      "type": "posinteger",
+      "nlapiSubmitField": true,
+      "label": "Maximum Quantity",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "metataghtml",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Meta Tag HTML",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "minimumquantity",
+      "type": "posinteger",
+      "nlapiSubmitField": true,
+      "label": "Minimum Quantity",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "minimumquantityunits",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "mossapplies",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "MOSS Applies",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "nopricemessage",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "No Price Message",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "numactivelistings",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Active Listings",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "numcurrentlylisted",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Quantity Currently Listed",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "offersupport",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Offer Support",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "outofstockbehavior",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Out Of Stock Behavior",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "outofstockmessage",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Out Of Stock Message",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "overheadtype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Overhead Type",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "packageheight",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "Height",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "packagelength",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "Length",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "packagewidth",
+      "type": "posinteger",
+      "nlapiSubmitField": false,
+      "label": "Width",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pagetitle",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Page Title",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subitem of",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "pricinggroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Pricing Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "primarycatdisplayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "primarycategory",
+      "type": "integer",
+      "nlapiSubmitField": true,
+      "label": "Primary Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchasedescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Purchase Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchaseorderamount",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Amount Tolerance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchaseorderquantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Quantity Tolerance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchaseorderquantitydiff",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Purchase Order Quantity Difference",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "purchaseunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Purchase Units",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "receiptamount",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Amount Tolerance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "receiptquantity",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Quantity Tolerance",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "receiptquantitydiff",
+      "type": "posfloat",
+      "nlapiSubmitField": false,
+      "label": "Vendor Bill - Item Receipt Quantity Difference",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "refundgivenas",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Refund will be given as",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "relateditemsdescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Related Items Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "reserveprice",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Reserve Price",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "residual",
+      "type": "rate",
+      "nlapiSubmitField": false,
+      "label": "Residual",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnpolicy",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Return Policy",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnpolicydetails",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Details",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnshippingpaidby",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Return Shipping will be paid by",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "returnswithin",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item must be returned within",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revenueallocationgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Revenue Allocation Group",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revenuerecognitionrule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Revenue Recognition Rule",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revrecforecastrule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Rev Rec Forecast Rule",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "revreclassfxaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Foreign Currency Adjustment Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "revrecschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Revenue Recognition Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "salesdescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Sales Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "saleunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sale Units",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "searchkeywords",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Search Keywords",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "secondarycatdisplayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "secondarycategory",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Secondary Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sellonebay",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Sell on eBay",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipasia",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Asia",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaustralia",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Australia",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipcanada",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Canada",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipeurope",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Europe",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipgermany",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Germany",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipjapan",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Japan",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmexico",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Mexico",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipnorthsouthamerica",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "North and South America",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingdomesticmethodsgroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping Methods",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingdomgroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Domestic Shipping Settings",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingintlgroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "International Shipping Settings",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingintlgroup1",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping Method 1",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingintlgroup2",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping Method 2",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingintlgroup3",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping Method 3",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingitem1",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Item 1",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingitem2",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Item 2",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingitem3",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Shipping Item 3",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippinglocationsgroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Ship-to Locations",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingpackaginggroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Packaging",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingrate1",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingrate2",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingrate3",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Rate",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipuk",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "United Kingdom",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipworldwide",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Worldwide",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showasgift",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show as Gift",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "showdefaultdonationamount",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Show Default Amount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "sitemappriority",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Sitemap Priority",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "softdescriptor",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Soft Descriptor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "standardimages",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Standard",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "startingprice",
+      "type": "currency",
+      "nlapiSubmitField": true,
+      "label": "Starting Price",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storecatdisplayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storecatdisplayname2",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storecategory",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Store Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storecategory2",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "Secondary Store Category",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storedescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Web Store Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storedetaileddescription",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Detailed Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storedisplayimage",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Display Image",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storedisplayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Web Store Display Name",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storedisplaythumbnail",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Display Thumbnail",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "storeitemtemplate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Item Drilldown Template",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "supersizeimages",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Supersize Pictures",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxable",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Taxable",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "taxschedule",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Tax Schedule",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "templatesgroup",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Templates",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "unitstype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Units Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "upccode",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "UPC Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "urlcomponent",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "URL Component",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vendorname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Vendor Name/Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vsoedeferral",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Deferral",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vsoedelivered",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Default as Delivered",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vsoepermitdiscount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Permit Discount",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vsoeprice",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "VSOE Price",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "vsoesopgroup",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Allocation Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "willship",
+      "type": "radio",
+      "nlapiSubmitField": false,
+      "label": "Will Ship to the US and the following:",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Accounting Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "amortizationtemplate",
+          "type": "select",
+          "label": "Amortization Template",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createrevenueplanson",
+          "type": "select",
+          "label": "Create Revenue Plans On",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revenuerecognitionrule",
+          "type": "select",
+          "label": "Revenue Recognition Rule",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecforecastrule",
+          "type": "select",
+          "label": "Rev Rec Forecast Rule",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "revrecschedule",
+          "type": "select",
+          "label": "Revenue Recognition Template",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sameasprimaryamortization",
+          "type": "checkbox",
+          "label": "Same as Primary Book Amortization",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "sameasprimaryrevrec",
+          "type": "checkbox",
+          "label": "Same as Primary Book Rev Rec",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "price1",
+      "label": "US Dollar",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discountdisplay",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pricelevel",
+          "type": "text",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "price2",
+      "label": "British pound",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discountdisplay",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pricelevel",
+          "type": "text",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "price3",
+      "label": "Canadian Dollar",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discountdisplay",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pricelevel",
+          "type": "text",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "price4",
+      "label": "Euro",
+      "fields": [
+        {
+          "id": "currency",
+          "type": "text",
+          "label": "Currency",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discount",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "discountdisplay",
+          "type": "percent",
+          "label": "Default Discount %",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pricelevel",
+          "type": "text",
+          "label": "Price Level",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "sitecategory",
+      "label": "Web Site List",
+      "fields": [
+        {
+          "id": "category",
+          "type": "select",
+          "label": "Site Category",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "categorydescription",
+          "type": "text",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isdefault",
+          "type": "checkbox",
+          "label": "Preferred Category",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "website",
+          "type": "select",
+          "label": "Site",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "translations",
+      "label": "Item Translation",
+      "fields": [
+        {
+          "id": "displayname",
+          "type": "text",
+          "label": "Display Name",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "featureddescription",
+          "type": "textarea",
+          "label": "Featured Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "language",
+          "type": "text",
+          "label": "Language",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "locale",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "nopricemessage",
+          "type": "textarea",
+          "label": "No Price Message",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "outofstockmessage",
+          "type": "textarea",
+          "label": "Out Of Stock Message",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "pagetitle",
+          "type": "textarea",
+          "label": "Page Title",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "salesdescription",
+          "type": "textarea",
+          "label": "Sales Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "storedescription",
+          "type": "textarea",
+          "label": "Store Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "storedetaileddescription",
+          "type": "textarea",
+          "label": "Detailed Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "storedisplayname",
+          "type": "text",
+          "label": "Store Display Name",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "item",
+  "tabs": [
+    {
+      "name": "basic",
+      "label": "Basic"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "matrix",
+      "label": "Matrix"
+    },
+    {
+      "name": "pricing",
+      "label": "Pricing"
+    },
+    {
+      "name": "projects",
+      "label": "Projects"
+    },
+    {
+      "name": "relitems",
+      "label": "Related Items"
+    },
+    {
+      "name": "specials",
+      "label": "Specials"
+    },
+    {
+      "name": "store",
+      "label": "Store"
+    },
+    {
+      "name": "translation",
+      "label": "Translation"
+    },
+    {
+      "name": "vsoepricing",
+      "label": "Rev Rec / Amort"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": []
+}

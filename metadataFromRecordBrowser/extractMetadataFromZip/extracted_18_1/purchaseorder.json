@@ -1,0 +1,995 @@
+{
+  "label": "Purchase Order",
+  "id": "purchaseorder",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "approvalstatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Approval Status",
+      "required": false,
+      "help": "When you use SuiteFlow for purchase approvals, purchase orders and requests include the Approval Status field. The Approval Status field reflects the state of the transaction in the approval process.\n\nPurchase orders and requests may have one of the following statuses:\n\n    * Pending Approval &#x2013; The purchase has not yet been approved.\n    * Approved &#x2013; The purchase has been given approval for processing.\n    * Rejected &#x2013; The purchase approval is refused and the order will not be processed.\nYou may manually select a different status in this field if needed."
+    },
+    {
+      "id": "availablevendorcredit",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Available Vendor Credit",
+      "required": false,
+      "help": "If you have customized the purchase order to display the Available Vendor Credit field, changing the subsidiary changes the available credit limit value to reflect the currency of the selected subsidiary."
+    },
+    {
+      "id": "balance",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Vendor",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "billisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Class",
+      "required": false,
+      "help": "If you wish, select the class that applies to this purchase order. Click New to set up a new class.\n\nGo to <_TABNAME=LIST_CLASS_> > <_TASKCATEGORY=LIST_CLASS_> > Classes for details about existing classes."
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createdfrom",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Created From",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "currency",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": true,
+      "help": "This field displays the vendor Currency used for this transaction.\n\nIf you use the Multiple Currencies or Multi-Currency Vendors features, you can select any of this vendor's currencies to use on this transaction.\n\nImportant: Beginning with Version 2014 Release 2, the capabilities associated with the Multiple Currencies, Multi-Currency Customers, and Multi-Currency Vendors features are combined in the Multiple Currencies feature. If you are new to NetSuite, already using all three features, or not using all three features, only the Multiple Currencies box will appear on the Company subtab of the Enable Features page. When you enable this feature, you gain access to support for multiple currency customers and vendors. If you are already using Multiple Currencies and Multi-Currency Customers or Multi-Currency Vendors but not all three features, you will continue to see and maintain three boxes on the Company subtab."
+    },
+    {
+      "id": "currencyname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency",
+      "required": false,
+      "help": "This vendor's currency is shown in this field.\n\nAll currency amounts on this transaction are shown in this currency."
+    },
+    {
+      "id": "currencysymbol",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Currency Symbol",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "customform",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Custom Form",
+      "required": true,
+      "help": "If you customized a purchase order form, select it here, or click New to customize a new purchase order form."
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Department",
+      "required": false,
+      "help": "If you like, select a department.\n\nClick New to enter a new department.\n\nGo to <_TABNAME=LIST_DEPARTMENT_> > <_TASKCATEGORY=LIST_DEPARTMENT_> > Departments for details about existing departments."
+    },
+    {
+      "id": "duedate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Receive By",
+      "required": false,
+      "help": "Enter the date by which the items to be ordered are needed."
+    },
+    {
+      "id": "email",
+      "type": "emails",
+      "nlapiSubmitField": true,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "employee",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Employee",
+      "required": false,
+      "help": "If you are entering a purchase request for an employee, select the employee's name here. If this employee has a supervisor, the supervisor must approve this request before it is treated as a purchase order.\n\nClick New to set up a new employee record.\n\nGo to <_TABNAME=LIST_EMPLOYEE_> > <_TASKCATEGORY=LIST_EMPLOYEE_> > Employees for details about existing employees."
+    },
+    {
+      "id": "entity",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Vendor",
+      "required": true,
+      "help": "Select the vendor for this purchase.\n\nClick New to set up a new vendor.\n\nGo to <_TABNAME=LIST_VENDOR_> > <_TASKCATEGORY=LIST_VENDOR_> > Vendors for details about existing suppliers.\n\nNote:  If you use NetSuite OneWorld and the selected vendor record is shared with multiple subsidiaries, you can select an assigned subsidiary to associate with this purchase order. After you select the Subsidiary, the fields on the Items subtab change to reflect the values associated with the selected subsidiary. In addition, in the Classification section, the Class, Department, Location, Currency, Tax Nexus and other fields also change to reflect the selected subsidiary."
+    },
+    {
+      "id": "entitynexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "entitytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "exchangerate",
+      "type": "currency2",
+      "nlapiSubmitField": false,
+      "label": "Exchange rate",
+      "required": true,
+      "help": "The currency's exchange rate is shown in this field.\n\nYou can edit the exchange rate for this transaction only, or you can update the currency record with the exchange rate you enter here."
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "fob",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "FOB",
+      "required": false,
+      "help": "Enter the location where you technically acquire ownership. For example, if you own goods as soon as they ship and pay the shipping costs from your vendor s location to your own, you might enter Shipping point."
+    },
+    {
+      "id": "incoterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Incoterm",
+      "required": false,
+      "help": "Select the standardized term for this transaction.\n\nIncoterms are international commercial procurement practices that communicate the tasks, costs, and risks associated with the transportation and delivery of goods.\nIncoterms define where the customer takes ownership of the product and are typically used for international orders, such as when an item goes through customs or crosses a border."
+    },
+    {
+      "id": "intercostatus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Intercompany Status",
+      "required": false,
+      "help": "Intercompany Transaction Status can be:\n\n    * Linked - intercompany order has been paired with an intercompany order in another subsidiary.\n    * Pending - iintercompany order has not been paired with a corresponding order in another subsidiary.\n    * Rejected - intercompany purchase order or vendor return authorization cannot be paired with a sales order or return authorization because it contains incorrect information, such as subsidiary, currency, amount, or other detail."
+    },
+    {
+      "id": "intercotransaction",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Paired Intercompany Transaction",
+      "required": false,
+      "help": "Identifies the intercompany order in another subsidiary that this order is paired with.\n\nOrder pairs include Sales Order/Purchase Order and Vendor Return Authorization/Return Authorization."
+    },
+    {
+      "id": "isbasecurrency",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Base Currency",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "linkedtrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Location",
+      "required": false,
+      "help": "Select a location to associate with this purchase. Select New to create a new location record.\n\nGo to <_TABNAME=LIST_LOCATION_> > <_TASKCATEGORY=LIST_LOCATION_> > Locations for details about existing locations."
+    },
+    {
+      "id": "memo",
+      "type": "text",
+      "nlapiSubmitField": true,
+      "label": "Memo",
+      "required": false,
+      "help": "If you wish, enter a memo to describe this order. It will appear on reports such as the 2-line Purchase Orders register."
+    },
+    {
+      "id": "message",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Vendor Message",
+      "required": false,
+      "help": "If you wish, type a message that will appear on the Purchase Order form."
+    },
+    {
+      "id": "nextapprover",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Next Approver",
+      "required": false,
+      "help": "When you use SuiteFlow for purchase approvals, purchase orders and requests include the Next Approver field.\nThe Next Approver field displays the employee who approves or rejects the purchase based on the workflow requirements.\nYou can manually select a different approver in this field if necessary.\n\nNote: If you have an approval chain or series of approvers for the same transaction, the value in this field can change during the approval process."
+    },
+    {
+      "id": "nexus",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Nexus",
+      "required": false,
+      "help": "This field shows the nexus of the transaction. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different nexus in the dropdown list, the corresponding tax registration number is automatically selected in the Subsidiary Tax Reg. Number field."
+    },
+    {
+      "id": "orderstatus",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "otherrefnum",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Vendor #",
+      "required": false,
+      "help": "NetSuite inserts your account number for this vendor as entered at <_TABNAME=LIST_VENDOR_> > <_TASKCATEGORY=LIST_VENDOR_> > Vendors on the Financial subtab for this vendor's record."
+    },
+    {
+      "id": "purchasecontract",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Purchase Contract",
+      "required": false,
+      "help": "This field displays the purchase contract associated with this order. For details about purchase contracts, click Help and read Purchase Contracts."
+    },
+    {
+      "id": "returntrackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Return Tracking #",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipaddress",
+      "type": "address",
+      "nlapiSubmitField": false,
+      "label": "Ship To",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipdate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Ship Date",
+      "required": false,
+      "help": "Enter the date you expect the items to be shipped."
+    },
+    {
+      "id": "shipisresidential",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Shipping address is residential",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship Via",
+      "required": false,
+      "help": "Select your shipping method for this transaction."
+    },
+    {
+      "id": "shipoverride",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shippingaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "shipto",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Ship To",
+      "required": false,
+      "help": "Select the customer you are shipping this order to. Select New to enter a new shipping address."
+    },
+    {
+      "id": "source",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Source",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "status",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "statusRef",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": "This field displays the subsidiary associated with this transaction."
+    },
+    {
+      "id": "subsidiarytaxregnum",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Tax Reg. Number",
+      "required": false,
+      "help": "This field shows the tax registration number of the transaction nexus. NetSuite automatically populates this field based on the nexus lookup logic. \n\nYou can override the transaction nexus and tax registration number that NetSuite automatically selects by checking the Nexus Override box. When you select a different tax registration number in the dropdown list, the corresponding nexus is automatically selected in the Nexus field."
+    },
+    {
+      "id": "supervisorapproval",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Supervisor Approval",
+      "required": false,
+      "help": "If you have permission to approve this purchase order, check the Supervisor Approval box."
+    },
+    {
+      "id": "taxdetailsoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Details Override",
+      "required": false,
+      "help": "Check this box to override the tax information on the Tax Details subtab of the transaction. Only roles with at least the Edit level of the Tax Details Tab permission can override the tax details."
+    },
+    {
+      "id": "taxregoverride",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "Tax Registration Override",
+      "required": false,
+      "help": "Check this box to override the values in the Nexus and Subsidiary Tax Reg. Number fields. Only roles with at least the Edit level of the Tax Details Tab permission can override the values that NetSuite automatically selects in these fields."
+    },
+    {
+      "id": "terms",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Terms",
+      "required": false,
+      "help": "Select the discount terms that will apply to this order.\n\nTo add additional choices to this list, go to Setup > Accounting > Accounting Lists > New > Terms."
+    },
+    {
+      "id": "tobeemailed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "To Be E-mailed",
+      "required": false,
+      "help": "Check this box if you want to e-mail this purchase order. Then enter the e-mail address in the space to the right of the check box.\n\nYou can enter multiple e-mail addresses by separating them with semicolons. It is important to separate the addresses with only semicolons, and do not include any spaces."
+    },
+    {
+      "id": "tobefaxed",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "To Be Faxed",
+      "required": false,
+      "help": "Check this box if you want to fax this purchase order.\n\nEnter the fax number in the space to the right of the check box if it doesn't already appear.\n\nTo fax NetSuite forms, an administrator must first set up fax service at <_TABNAME=ADMI_PRINTING_> > <_TASKCATEGORY=ADMI_PRINTING_> > Printing, Fax and Email Preferences."
+    },
+    {
+      "id": "tobeprinted",
+      "type": "checkbox",
+      "nlapiSubmitField": true,
+      "label": "To Be Printed",
+      "required": false,
+      "help": "Check this box if you wish to save this in a queue of purchase orders to print.\n\nOtherwise, you can click Print below to submit and print this purchase order at once."
+    },
+    {
+      "id": "total",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "Total",
+      "required": false,
+      "help": "NetSuite computes the total of line items and then enters it here."
+    },
+    {
+      "id": "trackingnumbers",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Additional Tracking #",
+      "required": false,
+      "help": "Enter the shipment tracking number from the shipping company.\n\nIf a tracking number is entered in the exact format used by UPS or FedEx and the transaction is saved, the tracking number will show on the transaction as a link to the UPS or FedEx website. You can click the link to check the status of the shipment."
+    },
+    {
+      "id": "trandate",
+      "type": "date",
+      "nlapiSubmitField": false,
+      "label": "Date",
+      "required": true,
+      "help": "NetSuite inserts today's date for the posting date of this purchase order. You can type or pick another date.\n\nWhat you enter here determines the date range in which this transaction appears on the Purchase Orders Register.\n\nYou can select or enter custom date ranges on registers."
+    },
+    {
+      "id": "tranid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "PO #",
+      "required": false,
+      "help": "NetSuite increases the largest purchase order number by one. If you wish, you can type another number. The next PO number will revert to the standard pattern.\n\nNote: The maximum number of characters you can enter in this field is 45."
+    },
+    {
+      "id": "unbilledorders",
+      "type": "currency",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "accountingbookdetail",
+      "label": "Accounting Books",
+      "fields": [
+        {
+          "id": "accountingbook",
+          "type": "select",
+          "label": "Secondary Book",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "exchangerate",
+          "type": "currency2",
+          "label": "Exchange Rate",
+          "required": true,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "expense",
+      "label": "Expenses",
+      "fields": [
+        {
+          "id": "account",
+          "type": "select",
+          "label": "Account",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "category",
+          "type": "select",
+          "label": "Category",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdfrom",
+          "type": "select",
+          "label": "Created From",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isclosed",
+          "type": "checkbox",
+          "label": "Closed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linkedorder",
+          "type": "select",
+          "label": "Linked Order",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "location",
+          "type": "select",
+          "label": "Location",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "memo",
+          "type": "text",
+          "label": "Memo",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "item",
+      "label": "Items",
+      "fields": [
+        {
+          "id": "amount",
+          "type": "currency",
+          "label": "Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "billvariancestatus",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "catchupperiod",
+          "type": "select",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "class",
+          "type": "select",
+          "label": "Class",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "createdfrom",
+          "type": "select",
+          "label": "Created From",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "customer",
+          "type": "select",
+          "label": "Customer",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "deferrevrec",
+          "type": "checkbox",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "department",
+          "type": "select",
+          "label": "Department",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "description",
+          "type": "textarea",
+          "label": "Description",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expectedreceiptdate",
+          "type": "date",
+          "label": "Expected Receipt Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "id",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "inventorydetail",
+          "type": "summary",
+          "label": "Inventory Detail",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isbillable",
+          "type": "checkbox",
+          "label": "Billable",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isclosed",
+          "type": "checkbox",
+          "label": "Closed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "isvsoebundle",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "itemsubtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "itemtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "landedcostcategory",
+          "type": "select",
+          "label": "Landed Cost Category",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "leadtime",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "line",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linkedorder",
+          "type": "select",
+          "label": "Linked Order",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matchbilltoreceipt",
+          "type": "checkbox",
+          "label": "Match Bill To Receipt",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "matrixtype",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "options",
+          "type": "namevaluelist",
+          "label": "Options",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "printitems",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "purchasecontract",
+          "type": "select",
+          "label": "Purchase Contract",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantity",
+          "type": "float",
+          "label": "Quantity",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantitybilled",
+          "type": "float",
+          "label": "Billed",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityonshipments",
+          "type": "float",
+          "label": "Quantity On Shipments",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "quantityreceived",
+          "type": "float",
+          "label": "Received",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rate",
+          "type": "rate",
+          "label": "Rate",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "rateschedule",
+          "type": "text",
+          "label": "",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "units",
+          "type": "select",
+          "label": "Units",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "vendorname",
+          "type": "text",
+          "label": "Vendor Name",
+          "required": false,
+          "help": ""
+        }
+      ]
+    },
+    {
+      "id": "taxdetails",
+      "label": "Tax Detail",
+      "fields": [
+        {
+          "id": "calcdetail",
+          "type": "textarea",
+          "label": "Details",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "grossamount",
+          "type": "currency",
+          "label": "Gross Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "netamount",
+          "type": "currency",
+          "label": "Net Amount",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxamount",
+          "type": "currency",
+          "label": "Tax Amount",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxbasis",
+          "type": "currency",
+          "label": "Tax Basis",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxcode",
+          "type": "select",
+          "label": "Tax Code",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "taxdetailsreference",
+          "type": "text",
+          "label": "Tax Details Reference",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "taxrate",
+          "type": "percent",
+          "label": "Tax Rate",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "transaction",
+          "type": "select",
+          "label": "Transaction",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "transaction",
+  "tabs": [
+    {
+      "name": "address",
+      "label": "Address"
+    },
+    {
+      "name": "custom",
+      "label": "Custom"
+    },
+    {
+      "name": "history",
+      "label": "History"
+    },
+    {
+      "name": "items",
+      "label": "Items"
+    },
+    {
+      "name": "output",
+      "label": "Messages"
+    },
+    {
+      "name": "shipping",
+      "label": "Shipping"
+    },
+    {
+      "name": "workflow",
+      "label": "Workflow"
+    }
+  ],
+  "transformTypes": [
+    {
+      "targetRecordType": "itemreceipt",
+      "fieldDefaults": "customform"
+    },
+    {
+      "targetRecordType": "vendorbill",
+      "fieldDefaults": "customform,entity,poids"
+    }
+  ]
+}

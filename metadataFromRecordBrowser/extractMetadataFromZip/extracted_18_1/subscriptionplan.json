@@ -1,0 +1,262 @@
+{
+  "label": "Subscription Plan",
+  "id": "subscriptionplan",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "advancerenewalperiodnumber",
+      "type": "integer",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "advancerenewalperiodunit",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "autorenewal",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Automatically Initiate Renewal Process",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "class",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Class",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "createddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Date Created",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewalmethod",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Method",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewalplan",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Subscription Plan",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewalterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Term",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "defaultrenewaltrantype",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Default Renewal Transaction Type",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "department",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Department",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "description",
+      "type": "textarea",
+      "nlapiSubmitField": false,
+      "label": "Description",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "displayname",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Display Name/Code",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "includechildren",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Include Children",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "incomeaccount",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Income Account",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "initialterm",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Initial Term",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "itemid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Subscription Plan Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "itemtype",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "lastmodifieddate",
+      "type": "datetime",
+      "nlapiSubmitField": false,
+      "label": "Last Modified",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "location",
+      "type": "select",
+      "nlapiSubmitField": true,
+      "label": "Location",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": false,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "member",
+      "label": "Lines",
+      "fields": [
+        {
+          "id": "billingmode",
+          "type": "select",
+          "label": "Billing Mode",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "isrequired",
+          "type": "checkbox",
+          "label": "Required",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "item",
+          "type": "select",
+          "label": "Item",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "lineid",
+          "type": "integer",
+          "label": "Line Id",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "linenumber",
+          "type": "integer",
+          "label": "Line Number",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "prorateenddate",
+          "type": "checkbox",
+          "label": "Prorate End Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "proratestartdate",
+          "type": "checkbox",
+          "label": "Prorate Start Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "renewaloption",
+          "type": "select",
+          "label": "Include In Renewal Subscription",
+          "required": true,
+          "help": ""
+        },
+        {
+          "id": "subscriptionlinetype",
+          "type": "select",
+          "label": "Type",
+          "required": true,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [],
+  "searchColumns": [],
+  "searchJoins": [],
+  "searchData": "item",
+  "tabs": [],
+  "transformTypes": []
+}

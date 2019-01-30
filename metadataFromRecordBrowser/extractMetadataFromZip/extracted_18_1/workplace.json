@@ -1,0 +1,261 @@
+{
+  "label": "Workplace",
+  "id": "workplace",
+  "supportCustomFields": true,
+  "searchOnly": false,
+  "supportDeletedRecordSearch": false,
+  "fields": [
+    {
+      "id": "externalid",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "ExternalId",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "nlapiSubmitField": false,
+      "label": "Workplace is Inactive",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdictioncounty",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "County:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdictionfederal",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Federal:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdictionlocal",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Local:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdictionschool",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "School District:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "jurisdictionstate",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "State:",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "mainaddress",
+      "type": "summary",
+      "nlapiSubmitField": false,
+      "label": "",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "nlapiSubmitField": false,
+      "label": "Name",
+      "required": true,
+      "help": ""
+    },
+    {
+      "id": "parent",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subworkplace of",
+      "required": false,
+      "help": ""
+    },
+    {
+      "id": "subsidiary",
+      "type": "select",
+      "nlapiSubmitField": false,
+      "label": "Subsidiary",
+      "required": true,
+      "help": ""
+    }
+  ],
+  "sublists": [
+    {
+      "id": "jurisdictionhist",
+      "label": "History",
+      "fields": [
+        {
+          "id": "effectivedate",
+          "type": "date",
+          "label": "Effective Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "expirationdate",
+          "type": "date",
+          "label": "Expiration Date",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "name",
+          "type": "text",
+          "label": "Jurisdiction",
+          "required": false,
+          "help": ""
+        },
+        {
+          "id": "type",
+          "type": "text",
+          "label": "Level",
+          "required": false,
+          "help": ""
+        }
+      ]
+    }
+  ],
+  "searchFilters": [
+    {
+      "id": "address",
+      "type": "textarea",
+      "label": "Address"
+    },
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "select",
+      "label": "Country"
+    },
+    {
+      "id": "county",
+      "type": "text",
+      "label": "County/State"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "internalidnumber",
+      "type": "integer",
+      "label": "Internal ID (Number)"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "state",
+      "type": "select",
+      "label": "State/Province"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchColumns": [
+    {
+      "id": "city",
+      "type": "text",
+      "label": "City"
+    },
+    {
+      "id": "country",
+      "type": "text",
+      "label": "Country"
+    },
+    {
+      "id": "internalid",
+      "type": "select",
+      "label": "Internal ID"
+    },
+    {
+      "id": "isinactive",
+      "type": "checkbox",
+      "label": "Inactive"
+    },
+    {
+      "id": "name",
+      "type": "text",
+      "label": "Name"
+    },
+    {
+      "id": "namenohierarchy",
+      "type": "text",
+      "label": "Name (no hierarchy)"
+    },
+    {
+      "id": "phone",
+      "type": "phone",
+      "label": "Phone"
+    },
+    {
+      "id": "state",
+      "type": "text",
+      "label": "State/Province"
+    },
+    {
+      "id": "zip",
+      "type": "text",
+      "label": "Zip"
+    }
+  ],
+  "searchJoins": [
+    {
+      "id": "address",
+      "description": "Address",
+      "actualName": "Address"
+    },
+    {
+      "id": "time",
+      "description": "Time",
+      "actualName": "Time"
+    },
+    {
+      "id": "timeentry",
+      "description": "Time Entry",
+      "actualName": "Time Entry"
+    },
+    {
+      "id": "user",
+      "description": "User",
+      "actualName": "Employee"
+    }
+  ],
+  "tabs": [],
+  "transformTypes": []
+}

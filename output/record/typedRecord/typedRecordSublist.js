@@ -1,75 +1,67 @@
-define(["require", "exports", "../../misc/misc"], function (require, exports, misc_1) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var LineImpl = /** @class */ (function () {
-        function LineImpl(typedRecord, sublistId, sublistFieldImpl) {
-            this.typedRecord = typedRecord;
-            this.sublistId = sublistId;
-            this.sublistFieldImpl = sublistFieldImpl;
-        }
-        LineImpl.prototype.getArrayItem = function (n) {
-            return this.line(n);
-        };
-        LineImpl.prototype.setArrayItem = function (n, t) {
-            this.setLine(n, t);
-        };
-        LineImpl.prototype.get = function (fieldId, line) {
-            return this.typedRecord.nsRecord.getSublistValue({ sublistId: this.sublistId, line: line, fieldId: fieldId });
-        };
-        LineImpl.prototype.set = function (fieldId, line, V) {
-            this.typedRecord.nsRecord.setSublistValue({ sublistId: this.sublistId, line: line, fieldId: fieldId, value: V });
-        };
-        LineImpl.prototype.append = function (f) {
-            this.typedRecord.nsRecord.insertLine({ line: this.lineCount(), sublistId: this.sublistId });
-        };
-        LineImpl.prototype.remove = function (line) {
-            if (line === void 0) { line = this.lineCount(); }
-            this.typedRecord.nsRecord.removeLine({ line: line, sublistId: this.sublistId });
-        };
-        LineImpl.prototype.line = function (l) {
-            return this.getLine(l);
-        };
-        LineImpl.prototype.getLine = function (l) {
-            return new this.sublistFieldImpl(l);
-        };
-        LineImpl.prototype.setLine = function (l, f) {
-            var _this = this;
-            misc_1.objectKeys(f).forEach(function (fieldId) { return _this.set(fieldId, l, f[fieldId]); });
-        };
-        Object.defineProperty(LineImpl.prototype, "lines", {
-            get: function () {
-                var _this = this;
-                return this.linesIndexes().map(function (l) { return _this.line(l); });
-            },
-            set: function (value) {
-                var _this = this;
-                this.linesIndexes().forEach(function (line) { return _this.typedRecord.nsRecord.removeLine({ sublistId: _this.sublistId, line: line }); });
-                value.forEach(function (field) { return _this.append(field); });
-            },
-            enumerable: true,
-            configurable: true
-        });
-        LineImpl.prototype.lineCount = function () {
-            return this.typedRecord.nsRecord.getLineCount({ sublistId: this.sublistId });
-        };
-        LineImpl.prototype.linesIndexes = function () {
-            return misc_1.array(this.lineCount()).map(function (l, i) { return i; });
-        };
-        return LineImpl;
-    }());
-    exports.LineImpl = LineImpl;
-    var SublistFieldImpl = /** @class */ (function () {
-        function SublistFieldImpl(typedRecord, line) {
-            this.typedRecord = typedRecord;
-            this.line = line;
-        }
-        SublistFieldImpl.prototype.getSublistValue = function (fieldId) {
-            return this.typedRecord.nsRecord.getSublistValue({ sublistId: this.sublistId, fieldId: fieldId, line: this.line });
-        };
-        SublistFieldImpl.prototype.setSublistValue = function (fieldId, value) {
-            this.typedRecord.nsRecord.setSublistValue({ sublistId: this.sublistId, fieldId: fieldId, line: this.line, value: value });
-        };
-        return SublistFieldImpl;
-    }());
-    exports.SublistFieldImpl = SublistFieldImpl;
-});
+"use strict";
+// import { EmptyObject, StringKeyOf, ValueOfStringKey, array, objectKeys } from '../../misc/misc';
+// import { Record } from './typedRecord';
+// export interface Line<Field extends EmptyObject = EmptyObject> {
+//   get<K extends StringKeyOf<Field> = StringKeyOf<Field>>(fieldId: K, line: number): ValueOfStringKey<Field, K>;
+//   set<K extends StringKeyOf<Field> = StringKeyOf<Field>>(fieldId: K, line: number, V: ValueOfStringKey<Field, K>): void;
+//   line(l: number): Field;
+//   lines: Field[];
+//   lineCount(): number;
+//   linesIndexes(): number[];
+// }
+// export interface SublistFieldImplType<Field extends EmptyObject = EmptyObject> {
+//   new(l: number): Field;
+// }
+// export class LineImpl<Field extends EmptyObject = EmptyObject> implements Line<Field> {
+//   getArrayItem(n: number): Field {
+//     return this.line(n)
+//   }
+//   setArrayItem(n: number, t: Field) {
+//     this.setLine(n, t)
+//   }
+//   get<K extends StringKeyOf<Field> = StringKeyOf<Field>>(fieldId: K, line: number): ValueOfStringKey<Field, K> {
+//     return this.typedRecord.nsRecord.getSublistValue({ sublistId: this.sublistId, line: line, fieldId }) as any;
+//   }
+//   set<K extends StringKeyOf<Field> = StringKeyOf<Field>>(fieldId: K, line: number, V: ValueOfStringKey<Field, K>): void {
+//     this.typedRecord.nsRecord.setSublistValue({ sublistId: this.sublistId, line: line, fieldId, value: V as any });
+//   }
+//   append(f: Field) {
+//     this.typedRecord.nsRecord.insertLine({ line: this.lineCount(), sublistId: this.sublistId })
+//   }
+//   remove(line: number = this.lineCount()) {
+//     this.typedRecord.nsRecord.removeLine({ line, sublistId: this.sublistId })
+//   }
+//   line(l: number): Field {
+//     return this.getLine(l)
+//   }
+//   getLine(l: number): Field {
+//     return new this.sublistFieldImpl(l) as any as Field;
+//   }
+//   setLine(l: number, f: Field) {
+//     objectKeys(f).forEach(fieldId=>this.set(fieldId, l, f[fieldId]))
+//   }
+//   get lines(): Field[] {
+//     return this.linesIndexes().map(l => this.line(l));
+//   }
+//   set lines(value: Field[]) {
+//     this.linesIndexes().forEach(line => this.typedRecord.nsRecord.removeLine({ sublistId: this.sublistId, line }))
+//     value.forEach(field => this.append(field))
+//   }
+//   lineCount(): number {
+//     return this.typedRecord.nsRecord.getLineCount({ sublistId: this.sublistId });
+//   }
+//   linesIndexes(): number[] {
+//     return array(this.lineCount()).map((l, i) => i);
+//   }
+// }
+// export class SublistFieldImpl {
+//   protected sublistId!: string
+//   constructor(protected typedRecord: TypedRecord, protected line: number) {
+//   }
+//   protected getSublistValue(fieldId: string) {
+//     return this.typedRecord.nsRecord.getSublistValue({ sublistId: this.sublistId, fieldId, line: this.line })
+//   }
+//   protected setSublistValue(fieldId: string, value: any) {
+//     this.typedRecord.nsRecord.setSublistValue({ sublistId: this.sublistId, fieldId, line: this.line, value })
+//   }
+// }

@@ -1,9 +1,10 @@
-define(["require", "exports", "../../misc/misc", "N/record", "./generated/recordConstructor"], function (require, exports, misc_1, record, recordConstructor_1) {
+define(["require", "exports", "../../misc/misc", "N/record"], function (require, exports, misc_1, record) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // import { recordTypes, recordConstructorsImpl } from './generated/recordConstructor';
     function load(options) {
-        var r = record.load(options);
-        return r ? recordConstructor_1.recordConstructorsImpl[options.type](r) : undefined;
+        return record.load(options);
+        // return r ? recordConstructorsImpl[options.type](r) : undefined as any
     }
     exports.load = load;
     function loadOrThrow(options) {
@@ -12,26 +13,8 @@ define(["require", "exports", "../../misc/misc", "N/record", "./generated/record
     }
     exports.loadOrThrow = loadOrThrow;
     function create(options) {
-        var r = record.create(options);
-        return recordConstructor_1.recordConstructorsImpl[options.type](r);
+        return record.create(options);
+        // return recordConstructorsImpl[options.type](r) as any
     }
     exports.create = create;
 });
-// interface SearchFilter<> {
-//   value1: 
-// }
-// export function findMatrixParent(id?: string): Result | undefined {
-//   const filter = [
-//       ['matrix', Operator.IS, 'T'],
-//       'AND',
-//       ['matrixchild', Operator.IS, 'F']
-//   ]
-//   return find(create({
-//       type: Type.ITEM,
-//       filters: id ? [
-//           ['internalid', Operator.ANYOF, id],
-//           'AND', filter] : filter
-//   }).run(), result => {
-//       return true
-//   })
-// }

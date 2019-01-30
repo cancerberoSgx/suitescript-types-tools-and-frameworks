@@ -13,11 +13,13 @@ export interface ProjectConfig {
   generateFile(config: FileConfig): { output: string }
   generateAfter(config: ProjectConfig & { recordIds: string[] }): void
   throwOnError?: boolean
+  generateAccessorsApi?: boolean
 }
 
 export interface FileConfig {
   data: RecordMetadata,
   typedRecordImportBase: string
+  generateAccessorsApi?: boolean
 }
 
 export function generateProject(config: ProjectConfig) {

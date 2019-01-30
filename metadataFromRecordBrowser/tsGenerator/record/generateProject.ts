@@ -8,25 +8,38 @@ import { join } from 'path';
 import { indent } from '../util';
 import { ProjectConfig, FileConfig } from '../generateProject';
 
-export function generateAfter(config: ProjectConfig&{recordIds: string[]}){
+export function generateAfter(config: ProjectConfig&{recordIds: string[], generateAccessorsApi?: boolean}){
   const { inputFolder, outputFolder, typedRecordImportBase, recordIds } = config
   writeFileSync(join(outputFolder, 'recordConstructor.ts'), generateRecordConstructor({ recordIds, typedRecordImportBase }))
 }
 
-function generateRecordConstructor(config: { recordIds: string[], typedRecordImportBase: string }) {
+function generateRecordConstructor(config: { recordIds: string[], typedRecordImportBase: string,  generateAccessorsApi?: boolean }) {
   return `
-import { ${config.recordIds.map(id => `${id}RecordImpl`).concat(config.recordIds.map(id => `${id}Record`)).join(', ')} } from './index';
+import { ${(config.generateAccessorsApi ? config.recordIds.map(id => `${id}RecordImpl' : ''}`) : []).concat(config.recordIds.map(id => `${id}Fields`)).concat(config.recordIds.map(id => `${id}Sublists`)).join(', ')} } from './index';
 import { StringKeyOf } from '${config.typedRecordImportBase}../../misc/misc';
 import * as record from 'N/record';
 
+${config.generateAccessorsApi ? `
 export type recordTypes = {
   ${config.recordIds.map(id => `
-'${id}': ${id}RecordImpl
+'${id}': ${id}Record${config.generateAccessorsApi ? 'Impl':''}
+`.trim()).join(`,\n${indent()}`)}
+}
+` : ``}
+
+export type recordFieldTypes = {
+  ${config.recordIds.map(id => `
+'${id}': ${id}Fields
 `.trim()).join(`,\n${indent()}`)}
 }
 
-export type RecordType = StringKeyOf<recordTypes>
+export type recordSublistsTypes = {
+  ${config.recordIds.map(id => `
+'${id}': ${id}Sublists
+`.trim()).join(`,\n${indent()}`)}
+}
 
+${config.generateAccessorsApi ? `
 export type recordConstructors = {
   ${config.recordIds.map(id => `
 '${id}': (r: record.Record) => ${id}Record
@@ -38,14 +51,12 @@ export const recordConstructorsImpl: recordConstructors = {
   '${id}': (r: record.Record) => new ${id}RecordImpl(r) 
   `.trim()).join(`,\n${indent()}`)}
 }
+` : ``}
 `
 }
 
 export function generateFile(config: FileConfig): { output: string } {
   const output = `// This file is auto generated, do not edit it. 
-
-import { TypedRecord, TypedRecordImpl } from '${config.typedRecordImportBase}typedRecord';
-import { Record } from 'N/record';
 
 ${generateRecord({ data: config.data })}
 `

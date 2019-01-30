@@ -4,7 +4,6 @@
     "target": "es2018",
     "moduleResolution": "node",
     "strict": true,
-    "outdir": "dist",
     "lib": [
       "es2018",
     ]

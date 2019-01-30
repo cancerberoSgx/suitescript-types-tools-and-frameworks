@@ -1,47 +1,280 @@
-define(["require", "exports", "../recordRef"], function (require, exports, recordRef_1) {
+define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var TypedRecordImpl = /** @class */ (function () {
-        function TypedRecordImpl(nsRecordOrRefOrResult) {
-            this._sublists = null;
-            this._fields = null;
-            this.nsRecord = recordRef_1.asRecordOrThrow(nsRecordOrRefOrResult);
-        }
-        Object.defineProperty(TypedRecordImpl.prototype, "id", {
-            get: function () {
-                return this.nsRecord.id + '';
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(TypedRecordImpl.prototype, "type", {
-            get: function () {
-                return this.nsRecord.type + '';
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(TypedRecordImpl.prototype, "fields", {
-            get: function () {
-                return this._fields;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        Object.defineProperty(TypedRecordImpl.prototype, "sublists", {
-            get: function () {
-                return this._sublists;
-            },
-            enumerable: true,
-            configurable: true
-        });
-        TypedRecordImpl.prototype.save = function (options) {
-            this.nsRecord.save(options);
-        };
-        return TypedRecordImpl;
-    }());
-    exports.TypedRecordImpl = TypedRecordImpl;
 });
+// export interface Sublist<SublistName> {
+//   /**
+//    * The name of the sublist.
+//    */    
+//   readonly name: string;   
+//   /**
+//    * The name of the sublist.
+//    */    
+//   readonly id: string;     
+//   /**
+//    * The type of the sublist.
+//    */    
+//   readonly type: string;    
+//   /**
+//    * The sublist is changed
+//    */    
+//   readonly isChanged: boolean;    
+//   /**
+//    * The sublist is hidden
+//    */    
+//   readonly isHidden: boolean;    
+//   /**
+//    * The sublist is display
+//    */    
+//   readonly isDisplay: boolean;    
+//   /**
+//    * A flag to indicate whether or not the sublist supports multi-line buffer feature.
+//    */    
+//   readonly isMultilineEditable: boolean;  
+//   /**
+//    * Returns a column in the sublist.
+//    * Client and server-side scripts
+//    */
+//   getColumn(options: GetColumnOptions): Column
+//   /**
+//    * Returns the object type name (sublist.Sublist)
+//    */    
+//   toString(): string    
+//   /**
+//    * JSON.stringify() implementation.
+//    */    
+//   toJSON(): {id: string, type: string, isChanged: boolean, isDisplay: boolean}
+// }
+// export interface GetColumnOptions {
+//   /** The internal ID of the column field in the sublist. */
+//   fieldId: string;
+// }
+// /**
+// * Encapsulates a column of a sublist on a standard or custom record.
+// * For a complete list of this object’s properties, see Column Object Members.
+// * This object does not return a value, it returns information about the sublist column.
+// * Client and server-side scripts
+// */
+// export interface Column {
+//   /** Client and server-side scripts. Returns the internal ID of the column. */
+//   readonly id: string;
+//   /** Client and server-side scripts. Returns the column type. */
+//   readonly type: string;
+//   /** Client and server-side scripts. Returns the UI label for the column. */
+//   readonly label: string
+//   /** Client and server-side scripts. Returns the internal ID of the standard or custom sublist that contains the column. */
+//   readonly sublistId: string
+// }
+// type FieldValue = Date | number | number[] | string | string[] | boolean | null;
+/** Almost like a full Record, except without things like save(). */
+// export interface ClientCurrentRecord extends {
+/** Cancels the currently selected line on a sublist. */
+// cancelLine(options: CancelCommitLineOptions): Record;
+// cancelLine(sublistId: string): Record;
+// /** Commits the currently selected line on a sublist. */
+// commitLine(options: CancelCommitLineOptions): Record;
+// copy: RecordCopyFunction;
+// /** Performs macro operation and returns its result in a plain JavaScript object. */
+// executeMacro: ExecuteMacroFunction;
+// /** Returns the line number of the first instance where a specified value is found in a specified column of the matrix. */
+// findMatrixSublistLineWIthValue(options: FindSublistLineWithValueOptions): number;
+// /** Returns the line number for the first occurrence of a field value in a sublist. */
+// findSublistLineWithValue(options: FindSublistLineWithValueOptions): number;
+// /** Gets the value for the currently selected line in the matrix. */
+// getCurrentMatrixSublistValue(options: GetCurrentSublistValueOptions): number | Date | string | string[] | boolean;
+// /** Returns the line number of the currently selected line. */  
+// /**
+//  * return field object from record's sublist current line. Only available in dynamic record
+//  * @throws {SuiteScriptError} SSS_MISSING_REQD_ARGUMENT if sublistId or fieldId is missing
+//  * @restriction only available in dynamic record
+//  */    
+// getCurrentSublistField(options: GetCurrentSublistFieldOptions): Field;
+// getCurrentSublistIndex(options: RecordGetLineCountOptions): number;
+// /** Gets the subrecord for the associated sublist field on the current line. */
+// getCurrentSublistSubrecord(options: GetCurrentSublistValueOptions): Record;
+// /** Returns a text representation of the field value in the currently selected line. */
+// getCurrentSublistText(options: GetCurrentSublistValueOptions): string;
+// /** Returns the value of a sublist field on the currently selected sublist line. */
+// getCurrentSublistValue(options: GetCurrentSublistValueOptions): FieldValue;
+// getCurrentSublistValue(sublistId: string, fieldId: string): FieldValue;
+// /** 
+//  * Returns a field object from a record. 
+//  * 
+//  * @throws {SuiteScriptError} SSS_MISSING_REQD_ARGUMENT if options.fieldId is missing or undefined
+//  */
+// getField(options: GetFieldOptions): Field;
+// /** Returns the number of lines in a sublist. */
+// getLineCount(options: RecordGetLineCountOptions): number;
+// getLineCount(sublistId: string): number;
+// /** Provides a macro to be executed. */
+// getMacro(options: { id: string }): Function; // TODO: Test this!
+// /** Provides a plain JavaScript object of available macro objects defined for a record type, indexed by the Macro ID. */
+// getMacros(): { [macroId: string]: Macro };
+// /** Returns the number of columns for the specified matrix. */
+// getMatrixHeaderCount(options: GetMatrixHeaderCountOptions): number;
+// /** Gets the field for the specified header in the matrix.
+//  * @throws {SuiteScriptError} SSS_MISSING_REQD_ARGUMENT if any required values are missing
+//  */
+// getMatrixHeaderField(options: GetMatrixHeaderFieldOptions): Field;
+// /** Gets the value for the associated header in the matrix. */
+// getMatrixHeaderValue(options: GetMatrixHeaderFieldOptions): FieldValue;
+// /** Gets the field for the specified sublist in the matrix. */
+// getMatrixSublistField(options: GetMatrixSublistFieldOptions): Field;
+// /** Gets the value for the associated field in the matrix. */
+// getMatrixSublistValue(options: GetMatrixSublistValueOptions): FieldValue;
+// /** Returns the specified sublist. */
+// getSublist(options: RecordGetLineCountOptions): Sublist;
+// /** 
+//  * Return field object from record's sublist
+//  * @throws {SuiteScriptError} SSS_MISSING_REQD_ARGUMENT if sublistId or fieldId is missing
+//  * @throws {SuiteScriptError} SSS_INVALID_SUBLIST_OPERATION if line number is invalid
+//  */
+// getSublistField(options: GetSublistFieldOptions): Field;
+// /** Returns the value of a sublist field in a text representation. */
+// getSublistText(options: GetSublistValueOptions): string;
+// /** Returns the value of a sublist field. */
+// getSublistValue(options: GetSublistValueOptions): FieldValue;
+// getSublistValue(sublistId: string, fieldId: string, line: number): FieldValue;
+// /** Gets the subrecord for the associated field. */
+// getSubrecord(options: GetFieldOptions): Record;
+/** Returns the text representation of a field value. */
+// getText(options: GetFieldOptions): string | string[];
+// getText(fieldId: string): string | string[];
+// /** Returns the value of a field. */
+// getValue(options: GetFieldOptions): FieldValue;
+// getValue(fieldId: string): FieldValue;
+// /** Returns a value indicating whether the associated sublist field has a subrecord on the current line. This method can only be used on dynamic records. */
+// hasCurrentSublistSubrecord(options: GetCurrentSublistValueOptions): boolean;
+// /** Returns a value indicating whether the associated sublist field contains a subrecord. */
+// hasSublistSubrecord(options: GetSublistValueOptions): boolean;
+// /** Returns a value indicating whether the field contains a subrecord. */
+// hasSubrecord(options: HasSubrecordOptions): boolean;
+// /** The internal ID of a specific record. */
+// id: number;
+// /** Inserts a sublist line. */
+// insertLine(options: InsertLineOptions): void;
+// /**
+//  * Indicates whether the record is in dynamic or standard mode.
+//  * - If set to true, the record is currently in dynamic mode. If set to false, the record is currently in standard mode.
+//  *  - When a SuiteScript 2.0 script creates, copies, loads, or transforms a record in standard mode, the record’s body fields and sublist line items are not sourced, calculated, and validated until the record is saved (submitted) with Record.save(options).
+//  *  - When you work with a record in standard mode, you do not need to set values in any particular order. After submitting the record, NetSuite processes the record’s body fields and sublist line items in the correct order, regardless of the organization of your script.
+//  *  - When a SuiteScript 2.0 script creates, copies, loads, or transforms a record in dynamic mode, the record’s body fields and sublist line items are sourced, calculated, and validated in real-time. A record in dynamic mode emulates the behavior of a record in the UI.
+//  *  - When you work with a record in dynamic mode, it is important that you set values in the same order you would within the UI. If you fail to do this, your results may not be accurate.
+//  * This value is set when the record is created or accessed.
+//  */
+// isDynamic: boolean;
+// /** 
+//  * Removes the subrecord for the associated sublist field on the current line. 
+//  * @return {Record} same record, for chaining
+//  */
+// removeCurrentSublistSubrecord(options: GetCurrentSublistValueOptions): this;
+// /** 
+//  * Removes a sublist line.
+//  * @return {Record} same record, for chaining 
+//  */
+// removeLine(options: InsertLineOptions): this;
+// /** 
+//  * Removes the subrecord for the associated field. 
+//  * @return {Record} same record, for chaining
+//  */
+// removeSubrecord(options: RecordGetLineCountOptions): this;
+// /** Selects an existing line in a sublist. */
+// selectLine(options: SelectLineOptions): void;
+// selectLine(sublistId: string, line: number): void;
+// /** Selects a new line at the end of a sublist. */
+// selectNewLine(options: RecordGetLineCountOptions): void;
+// /** Sets the value for the line currently selected in the matrix. */
+// setCurrentMatrixSublistValue(options: SetCurrentMatrixSublistValueOptions): Record;
+// /** Sets the value for the field in the currently selected line by a text representation. */
+// setCurrentSublistText(options: SetCurrentSublistTextOptions): void;
+// /** Sets the value for the field in the currently selected line. */
+// setCurrentSublistValue(options: SetCurrentSublistValueOptions): void;
+// setCurrentSublistValue(sublistId: string, fieldId: string, value: FieldValue): void;
+// /** Sets the value for the associated header in the matrix. */
+// setMatrixHeaderValue(options: SetCurrentMatrixSublistValueOptions): Record;
+// /** Sets the value for the associated field in the matrix. */
+// setMatrixSublistValue(options: SetSublistValueOptions): Record;
+// /** Sets the value of the field by a text representation. */
+// setText(options: SetFieldTextOptions): void;
+// setText(fieldId: string, value: string): void;
+// /** Sets the value of a field. */
+// setValue(options: SetValueOptions): void;
+// setValue(fieldId: string, value: FieldValue): void;
+// /** The record type. */
+// type: Type | string;
+// }
+// // Exported for other modules to be able to consume this type
+// export interface Record extends record.Record {
+//   /** Returns the body field names (internal ids) of all the fields in the record, including machine header field and matrix header fields. */
+//   getFields(): string[];
+//   // getText(options: GetFieldOptions): string | string[];
+//   // getText(fieldId: string): string | string[];
+//   // /** Returns the value of a field. */
+//   // getValue(options: GetFieldOptions): FieldValue;
+//   // getValue(fieldId: string): FieldValue;
+//   // /** Returns all the names of all the sublists. */
+//   // getSublists(): string[];
+//   // /** Returns all the field names in a sublist. */
+//   // getSublistFields(options: RecordGetLineCountOptions): string[];
+//   // /** Gets the subrecord associated with a sublist field. */
+//   // getSublistSubrecord(options: GetSublistValueOptions): Record;
+//   // /** 
+//   //  * Removes the subrecord for the associated sublist field. 
+//   //  * @restriction only available in deferred dynamic record
+//   //  * @return {Record} same record, for chaining
+//   //  */
+//   // removeSublistSubrecord(options: GetSublistValueOptions): this;
+//   // /** 
+//   //  * Submits a new record or saves edits to an existing record. 
+//   //  * 
+//   //  * @governance 20 units for transactions, 4 for custom records, 10 for all other records
+//   //  * @return id of submitted record
+//   // */
+//   // save: RecordSaveFunction;
+//   // /** Sets the value of a sublist field by a text representation. */
+//   // setSublistText(options: SetSublistTextOptions): Record;
+//   // /** Sets the value of a sublist field. (standard mode only). */
+//   // setSublistValue(options: SetSublistValueOptions): Record;
+//   // toString(): string;
+//   // /** get JSON format of the object, something like `{id: string, type: string, fields: {[fieldId: string]: any}, sublists: {[sublistId:string]: {[line_id:string]:{[sublist_field_id:string]: string}}}` */  
+//   // toJSON(): RecordToJSONReturnValue
+// }
+// export interface TypedRecord<Fields extends EmptyObject = EmptyObject, Sublists extends EmptyObject = EmptyObject> {
+//   readonly nsRecord: record.Record
+//   readonly id: string
+//   readonly type: RecordType
+//   readonly fields: Fields
+//   readonly sublists: Sublists
+// }
+// export class TypedRecordImpl<Fields extends EmptyObject = EmptyObject, Sublists extends EmptyObject = EmptyObject> implements TypedRecord<Fields, Sublists> {
+//   nsRecord: Record
+//   protected _sublists: Sublists = null as any
+//   protected _fields: Fields = null as any
+//   constructor(nsRecordOrRefOrResult: RecordOrRefResult) {
+//     this.nsRecord = asRecordOrThrow(nsRecordOrRefOrResult)
+//   }
+//   public get id(): string {
+//     return this.nsRecord.id + ''
+//   }
+//   public get type(): RecordType {
+//     return this.nsRecord.type + '' as any
+//   }
+//   public get fields(): Fields {
+//     return this._fields
+//   }
+//   public get sublists(): Sublists {
+//     return this._sublists
+//   }
+//   // save(options?: SaveOptions){
+//   //   this.nsRecord.save(options)
+//   // }
+// }
+// interface SaveOptions {
+//   /** Indicates whether to enable sourcing during the record update. Defaults to true. */
+//   enableSourcing?: boolean;
+//   /** Indicates whether to ignore mandatory fields during record submission. Default is false. */
+//   ignoreMandatoryFields?: boolean;
+// }
 // // /** the api should allow the user to do somethin like 
 // //  * `const line = c2.sublists.subcategories.line(1).primarycategory` 
 // //  * - all typed - line will have an interface and types

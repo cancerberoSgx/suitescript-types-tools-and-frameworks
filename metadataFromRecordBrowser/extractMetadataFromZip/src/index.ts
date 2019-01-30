@@ -1,68 +1,106 @@
 import { launch, Page, Browser } from 'puppeteer';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 // import { linkDependencies } from 'jasmine-puppeteer-results'
 
 interface Config {
   inputFolder: string
   puppeteerTargetFolder?: string
   startUrl: string
+  outputFolder: string
 }
-export class Tool {
-  config: Config;
+export async function extractAll(config: Config): Promise<void> {
+  const tool = await new Tool()
+  return await tool.extractAll(config)
+}
+
+class Tool {
+  config!: Config;
   browser!: Browser;
   page!: Page;
-  constructor(config: Config) {
-    this.config = config
-    // this.installPuppeteer()
-  }
-  public async  installPuppeteer() {
-    // if (this.config.puppeteerTargetFolder) {
-    //   const thisProject = './node_modules'
-    //   const puppeteerTargetFolder = this.config.puppeteerTargetFolder// '/home/sg/git/suitecommerce-types/jasmine-puppeteer-results/node_modules'
-    //   linkDependencies(puppeteerTargetFolder, thisProject)
-    // }
+  metadataFromRecordBrowserCode!: string;
+
+  public async extractAll(config: Config) {
+    this.metadataFromRecordBrowserCode = await readFileSync('../metadataFromRecordBrowser.js').toString()
+    this.config = await config
     this.browser = await launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
     this.page = await this.browser.newPage();
     await this.page.goto(this.config.startUrl)
-    // await this.page.waitForNavigation()
-  }
-
-  public async extractPage(): Promise<any> {
-    // const server = await staticServer(join(__dirname, 'fixtures', 'static1'), 9999)
-    // await this.page.goto(url)
-    const fnString = `(()=>{${readFileSync('../metadataFromRecordBrowser.js').toString()}; return JSON.stringify(getRecord(), null, 2) })()`
-    // const code = `${fnString}; return document.body.innerHTML.length `
-    // const fn = eval(`(${fnString})`)// as any as ((...args: any[])=> string)
-    const data = JSON.parse(await this.page.evaluate(fnString))
-    // await this.browser.close();
-    return data
-  }
-
-  async destroy(): Promise<void> {
+    await this.visitAllPages(async data => {
+      await writeFileSync(this.config.outputFolder + '/' + data.id + '.json', JSON.stringify(data, null, 2))
+    })
     await this.browser.close()
   }
 
 
-  public async visitAllPageRecords(fn?: (data: any) => Promise<any>) {
-    let recordCount: number = await this.page.evaluate(() => jQuery('#recordlist button[name="recordswitch"]').length)
-    console.log(recordCount);
-    
-    for (let i = 0; i < recordCount; i++) {
-      await this.page.waitFor('#contentPanel h1')
-      const data = await this.extractPage()
-      // console.log(data.fields.length, data.sublists.length)
-      let currentRecord: string = await this.page.evaluate((i) => jQuery('#recordlist button[name="recordswitch"]').arr()[i].attr('id'), i)
-      console.log(currentRecord, data.id, data.fields.length, data.sublists.length, data.searchFilters.length);
-      await this.page.click(`#${currentRecord}`)
-      await this.page.reload()
-      // await this.page.waitForNavigation({timeout: 500})
-      // await this.page.waitFor(()=>new Promise(resolve=>setTimeout(()=>resolve(), 500)))
+  protected async extractCurrentPageRecord(): Promise<any> {
+    const fnString = `(()=>{${await this.metadataFromRecordBrowserCode}; return JSON.stringify(getRecord(), null, 2) })()`
+    const data = await JSON.parse(await this.page.evaluate(fnString))
+    return await data
+  }
 
+  protected async visitAllPageRecords(fn: (data: any) => Promise<void>) {
+    await this.page.waitFor(await '#contentPanel h1')
+    await this.page.waitFor(await '#recordlist button[name="recordswitch"]')
+    let recordCount: number = await this.page.evaluate(() => jQuery('#recordlist button[name="recordswitch"]').length)
+    // console.log('visitAllPageRecords',recordCount);
+    let currentRecord: string = await ''
+    for (let i = await 0; i < await recordCount; await i++) {
+      await this.page.waitFor('#contentPanel h1')
+      await this.page.waitFor('#recordlist button[name="recordswitch"]')
+      try {
+        const data = await this.extractCurrentPageRecord()
+        await fn(await data)
+        await console.log('extractCurrentPageRecord ', await data.id, await data.label, await data.fields.length, await data.sublists.length, await data.searchFilters.length);
+      } catch (error) {
+        await console.error('ERROR on extractPage for ' + currentRecord, error);
+      }
+      // console.log(data.fields.length, data.sublists.length)
+      currentRecord = await this.page.evaluate((i) => jQuery('#recordlist button[name="recordswitch"]').arr()[i].attr('id'), await i)
+      // console.log(currentRecord, data.id, data.fields.length, data.sublists.length, data.searchFilters.length);
+      await this.page.click(await `#${await currentRecord}`)
+      
+      await this.page.reload(await {waitUntil: await 'networkidle2'})
+      await this.page.waitFor(await '#contentPanel h1')
+      await this.page.waitFor(await '#recordlist button[name="recordswitch"]')
     }
   }
-  protected async visitAllPages(fn: () => void) {
-
+  protected async visitAllPages(fn: (data: any) => Promise<void>) {
+    await this.page.waitFor(await '#contentPanel h1')
+    await this.page.waitFor(await '#alphabetrecordswitch button[name="alphabetswitch"]')
+    let letterCount: number = await this.page.evaluate(await (() => jQuery('#alphabetrecordswitch button[name="alphabetswitch"]').length))
+    // console.log(letterCount);
+    let currentLetter: string = await ''
+    for (let j = await 0; await j < await letterCount; await j++) {
+      await this.page.waitFor(await '#contentPanel h1')
+      await this.page.waitFor(await '#alphabetrecordswitch button[name="alphabetswitch"]')
+      currentLetter = await this.page.evaluate((j) => { jQuery.fn.arr = function () { return this.toArray().map(e => jQuery(e)) }; return jQuery('#alphabetrecordswitch button[name="alphabetswitch"]').arr()[j].attr('id') }, j)
+      await console.log(await `letter ${await currentLetter}`)
+      await this.visitAllPageRecords(await fn)
+      // console.log('letter '+currentLetter);
+      await this.page.click(await `#${await currentLetter}`)
+      await this.page.reload(await {waitUntil: await 'networkidle2'})
+      await this.page.waitFor(await '#contentPanel h1')
+      await this.page.waitFor(await '#alphabetrecordswitch button[name="alphabetswitch"]')
+    }
+    await this.browser.close()
   }
+
+  // async destroy(): Promise<void> {
+  //   await this.browser.close()
+  // }
+
+  // protected async  installPuppeteer() {
+  //   // if (this.config.puppeteerTargetFolder) {
+  //   //   const thisProject = './node_modules'
+  //   //   const puppeteerTargetFolder = this.config.puppeteerTargetFolder// '/home/sg/git/suitecommerce-types/jasmine-puppeteer-results/node_modules'
+  //   //   linkDependencies(puppeteerTargetFolder, thisProject)
+  //   // }
+  //   this.browser = await launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
+  //   this.page = await this.browser.newPage();
+  //   await this.page.goto(this.config.startUrl)
+  //   // await this.page.waitForNavigation()
+  // }
 }
 
-declare function jQuery(...args: any[]): any 
+declare var jQuery: any
+

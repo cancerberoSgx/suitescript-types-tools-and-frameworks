@@ -4,6 +4,7 @@
     "target": "es2018",
     "moduleResolution": "node",
     "strict": true,
+    "noImplicitAny": false,
     "lib": [
       "es2018","dom"
     ]

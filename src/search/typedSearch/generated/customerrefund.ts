@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Customer Refund (customerrefund) Search Columns definition */
-export interface customerrefundSearchColumn {
-  
+export interface customerrefundSearchColumn extends transactionSearchColumn {
+
 }
 
 

@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Period End Journal (periodendjournal) Search Columns definition */
-export interface periodendjournalSearchColumn {
-  
+export interface periodendjournalSearchColumn extends transactionSearchColumn {
+
 }
 
 

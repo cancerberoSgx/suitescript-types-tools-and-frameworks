@@ -32,9 +32,11 @@ async function test2() {
   await extractAll({
     puppeteerTargetFolder,
     inputFolder: '',
-    // startUrl: 'http://127.0.0.1:8080/script/record/account.html',
-    startUrl: 'https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/script/record/account.html',
-    outputFolder: 'extracted_18_1'
+    startUrl: 'http://127.0.0.1:8080/script/record/account.html',
+    // startUrl: 'https://system.netsuite.com/help/helpcenter/en_US/srbrowser/Browser2018_1/script/record/account.html',
+    outputFolder: 'extracted_18_1',
+
+
   })
   // await tool.installPuppeteer()
   // const data = await tool.extractPage()

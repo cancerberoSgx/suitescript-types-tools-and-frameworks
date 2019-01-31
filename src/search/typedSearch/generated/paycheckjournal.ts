@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Paycheck Journal (paycheckjournal) Search Columns definition */
-export interface paycheckjournalSearchColumn {
-  
+export interface paycheckjournalSearchColumn extends transactionSearchColumn {
+
 }
 
 

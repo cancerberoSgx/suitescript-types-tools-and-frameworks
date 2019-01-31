@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Assembly Unbuild (assemblyunbuild) Search Columns definition */
-export interface assemblyunbuildSearchColumn {
-  
+export interface assemblyunbuildSearchColumn extends transactionSearchColumn {
+
 }
 
 

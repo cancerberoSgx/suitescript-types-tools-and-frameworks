@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Non-Inventory Part (noninventoryitem) Search Columns definition */
-export interface noninventoryitemSearchColumn {
-  
+export interface noninventoryitemSearchColumn extends itemSearchColumn {
+
 }
 
 

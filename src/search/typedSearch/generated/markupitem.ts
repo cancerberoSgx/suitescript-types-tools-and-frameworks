@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Markup Item (markupitem) Search Columns definition */
-export interface markupitemSearchColumn {
-  
+export interface markupitemSearchColumn extends itemSearchColumn {
+
 }
 
 

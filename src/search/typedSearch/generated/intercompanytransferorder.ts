@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Intercompany Transfer Order (intercompanytransferorder) Search Columns definition */
-export interface intercompanytransferorderSearchColumn {
-  
+export interface intercompanytransferorderSearchColumn extends transactionSearchColumn {
+
 }
 
 

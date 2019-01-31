@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Build/Assembly Item (assemblyitem) Search Columns definition */
-export interface assemblyitemSearchColumn {
-  
+export interface assemblyitemSearchColumn extends itemSearchColumn {
+
 }
 
 

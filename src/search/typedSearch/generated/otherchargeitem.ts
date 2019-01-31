@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Other Charge Item (otherchargeitem) Search Columns definition */
-export interface otherchargeitemSearchColumn {
-  
+export interface otherchargeitemSearchColumn extends itemSearchColumn {
+
 }
 
 

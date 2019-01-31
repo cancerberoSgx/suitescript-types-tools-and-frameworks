@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Blanket Purchase Order (blanketpurchaseorder) Search Columns definition */
-export interface blanketpurchaseorderSearchColumn {
-  
+export interface blanketpurchaseorderSearchColumn extends transactionSearchColumn {
+
 }
 
 

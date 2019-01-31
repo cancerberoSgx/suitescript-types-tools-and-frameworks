@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Lot Numbered Build/Assembly Item (lotnumberedassemblyitem) Search Columns definition */
-export interface lotnumberedassemblyitemSearchColumn {
-  
+export interface lotnumberedassemblyitemSearchColumn extends itemSearchColumn {
+
 }
 
 

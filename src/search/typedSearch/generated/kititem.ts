@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Kit Item (kititem) Search Columns definition */
-export interface kititemSearchColumn {
-  
+export interface kititemSearchColumn extends itemSearchColumn {
+
 }
 
 

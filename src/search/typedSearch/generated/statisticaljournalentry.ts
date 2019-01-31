@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Statistical Journal Entry (statisticaljournalentry) Search Columns definition */
-export interface statisticaljournalentrySearchColumn {
-  
+export interface statisticaljournalentrySearchColumn extends transactionSearchColumn {
+
 }
 
 

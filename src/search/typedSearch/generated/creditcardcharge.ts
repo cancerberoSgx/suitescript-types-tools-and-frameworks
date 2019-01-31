@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Credit Card Charge (creditcardcharge) Search Columns definition */
-export interface creditcardchargeSearchColumn {
-  
+export interface creditcardchargeSearchColumn extends transactionSearchColumn {
+
 }
 
 

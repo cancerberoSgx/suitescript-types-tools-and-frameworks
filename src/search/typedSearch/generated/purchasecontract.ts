@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Purchase Contract (purchasecontract) Search Columns definition */
-export interface purchasecontractSearchColumn {
-  
+export interface purchasecontractSearchColumn extends transactionSearchColumn {
+
 }
 
 

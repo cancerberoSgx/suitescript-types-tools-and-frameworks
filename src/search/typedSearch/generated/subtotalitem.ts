@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Subtotal Item (subtotalitem) Search Columns definition */
-export interface subtotalitemSearchColumn {
-  
+export interface subtotalitemSearchColumn extends itemSearchColumn {
+
 }
 
 

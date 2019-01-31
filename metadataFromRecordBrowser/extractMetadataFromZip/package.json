@@ -8,7 +8,8 @@
     "scripts": {
         "build": "npx tsc",
         "build-watch": "npx tsc -w",
-        "clean": "rm -rf dist"
+        "clean": "rm -rf dist", 
+        "extract": "npx ts-node src/test1.ts"
     },
     "repository": {
         "type": "git",

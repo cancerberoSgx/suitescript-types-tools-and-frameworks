@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Return Authorization (returnauthorization) Search Columns definition */
-export interface returnauthorizationSearchColumn {
-  
+export interface returnauthorizationSearchColumn extends transactionSearchColumn {
+
 }
 
 

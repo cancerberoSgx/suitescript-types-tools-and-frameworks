@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Revenue Commitment Reversal (revenuecommitmentreversal) Search Columns definition */
-export interface revenuecommitmentreversalSearchColumn {
-  
+export interface revenuecommitmentreversalSearchColumn extends transactionSearchColumn {
+
 }
 
 

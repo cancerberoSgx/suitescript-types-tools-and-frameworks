@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Gift Certificate Item (giftcertificateitem) Search Columns definition */
-export interface giftcertificateitemSearchColumn {
-  
+export interface giftcertificateitemSearchColumn extends itemSearchColumn {
+
 }
 
 

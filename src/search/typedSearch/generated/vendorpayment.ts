@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Vendor Payment (vendorpayment) Search Columns definition */
-export interface vendorpaymentSearchColumn {
-  
+export interface vendorpaymentSearchColumn extends transactionSearchColumn {
+
 }
 
 

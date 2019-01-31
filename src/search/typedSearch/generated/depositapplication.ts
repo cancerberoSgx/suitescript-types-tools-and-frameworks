@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Deposit Application (depositapplication) Search Columns definition */
-export interface depositapplicationSearchColumn {
-  
+export interface depositapplicationSearchColumn extends transactionSearchColumn {
+
 }
 
 

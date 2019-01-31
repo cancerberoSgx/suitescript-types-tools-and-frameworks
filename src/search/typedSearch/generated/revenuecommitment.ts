@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Revenue Commitment (revenuecommitment) Search Columns definition */
-export interface revenuecommitmentSearchColumn {
-  
+export interface revenuecommitmentSearchColumn extends transactionSearchColumn {
+
 }
 
 

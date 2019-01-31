@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Subscription Plan (subscriptionplan) Search Columns definition */
-export interface subscriptionplanSearchColumn {
-  
+export interface subscriptionplanSearchColumn extends itemSearchColumn {
+
 }
 
 

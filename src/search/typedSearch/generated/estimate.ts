@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Estimate (estimate) Search Columns definition */
-export interface estimateSearchColumn {
-  
+export interface estimateSearchColumn extends transactionSearchColumn {
+
 }
 
 

@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Bin Worksheet (binworksheet) Search Columns definition */
-export interface binworksheetSearchColumn {
-  
+export interface binworksheetSearchColumn extends transactionSearchColumn {
+
 }
 
 

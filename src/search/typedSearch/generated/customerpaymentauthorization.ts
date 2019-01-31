@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Customer Payment Authorization (customerpaymentauthorization) Search Columns definition */
-export interface customerpaymentauthorizationSearchColumn {
-  
+export interface customerpaymentauthorizationSearchColumn extends transactionSearchColumn {
+
 }
 
 

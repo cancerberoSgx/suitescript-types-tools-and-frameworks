@@ -2,48 +2,120 @@ import * as record from "N/record";
 import { StringKeyOf, ValueOfStringKey } from '../../misc/misc';
 import { recordFieldTypes, recordSublistsTypes } from './generated/recordConstructor';
 
-export type RecordType = StringKeyOf<recordFieldTypes>
+export type RecordType = StringKeyOf<Required<recordFieldTypes>>
 export type FieldName<RType extends RecordType> = StringKeyOf<ValueOfStringKey<recordFieldTypes, RType>>
 export type FieldValue<RType extends RecordType, FName extends FieldName<RType>> = ValueOfStringKey<ValueOfStringKey<recordFieldTypes, RType>, FName>
 
+// type Tuple<TItem, TLength extends number> = [TItem, ...TItem[]] & { length: TLength };
 
 export type SublistType = StringKeyOf<recordSublistsTypes>
-export type SublistName<RType extends SublistType> = StringKeyOf<ValueOfStringKey<recordFieldTypes, RType>>
+export type SublistName<RType extends SublistType> = StringKeyOf<ValueOfStringKey<recordSublistsTypes, RType>>
 export type SublistValue<RType extends RecordType, SName extends SublistName<RType>> = ValueOfStringKey<ValueOfStringKey<recordSublistsTypes, RType>, SName>
 
 export type SublistFieldName<RType extends RecordType, SName extends SublistName<RType>> = StringKeyOf<SublistValue<RType, SName>>
 export type SublistFieldValue<RType extends RecordType, SName extends SublistName<RType>> = SublistValue<RType, SName>[SublistFieldName<RType, SName>]
 
+// /**
+//  * Creates a union from the types of an Array or tuple
+//  */
+// type UnionOf<T extends any[]> = T[number];
+
+// /**
+//  * Returns the length of an array or tuple
+//  */
+// type LengthOf<T extends any[]> = T["length"];
+
+// /**
+//  * Returns all but the first item's type in a tuple/array
+//  */
+// export type Tail<T extends any[]> =
+// 	((...args: T) => any) extends ((head: any, ...tail: infer R) => any) ? R : never;
+
+// /**
+//  * Returns the given tuple/array with the item type prepended to it
+//  */
+// type Unshift<List extends any[], Item> =
+// 	((first: Item, ...rest: List) => any) extends ((...list: infer R) => any) ? R : never;
+
+// /**
+//  * Tests if two types are equal
+//  */
+// type Equals<T, S> =
+// 	[T] extends [S] ? (
+// 		[S] extends [T] ? true : false
+// 	) : false;
+
+// type Range<N, T extends number[] = []> = {
+// 	0: T,
+// 	1: Range<N, Unshift<T, LengthOf<T>>>,
+// }[Equals<LengthOf<Tail<T>>, N> extends true ? 0 : 1];
+
+// /** Tests if N > M */
+// type IsGreaterThan<N, M> = N extends Exclude<Range<N>, Range<M>> ? true : false;
+// /** Tests if N <= M */
+// // type IsLessThanOrEqual<N, M> = Not<IsGreaterThan<N, M>>;
+// /** Tests if N < M */
+// type IsLessThan<N, M> = M extends Exclude<Range<M>, Range<N>> ? true : false;
+// /** Tests if N >= M */
+// // type IsGreaterThanOrEqual<N, M> = Not<IsLessThan<N, M>>;
+
+
+// // type fff = 1|2
+
+// type UnionToArray0<T> = []
+// type UnionToArray1<T> = [T]
+// type UnionToArray2<T, T1 = Extract<T, T2>, T2 =Extract<T, T1>> = T1 extends T2 ? (T2 extends T1 ? never : [T, T]) : [T, T]
+
+// type UnionToArray<T, t0 = UnionToArray0<T>,t1 = UnionToArray1<T>,t2 = UnionToArray2<T>> = t2 extends never ? (t1 extends never ? (t0 extends never ? never : t0) : t1 ) : t2 //t0 extends never ? (t1 extends never ? never : t1) : t0
+
+// let gg : UnionToArray<1|2> = [1,1]
+
+
+// type TTT<T, F extends T[] = T[]> = F extends (T[]&{length: 0}) ? [] : (F extends (T[]&{length: 1}) ? [T] : never)
+// // type M1 = [ [1|2]-?: 1 ];
+
+// let ggg : TTT<1>
+
+// type Zip<T1, T2> = [ [1|2]:1 ];
+// // type y =[number for E in tt];
+
+// type tt = 1|2
+// type yy = Exclude<keyof tt, keyof Array<any>>
+
 
 // @ts-ignore
-export interface Record<RType extends RecordType, SType extends SublistName<RType>=SublistName<RType>, FType extends SublistFieldName<RType, SType>=SublistFieldName<RType, SType>> extends record.Record {
+export interface Record<RType extends RecordType
+// , SType extends SublistName<RType>=SublistName<RType>, FType extends SublistFieldName<RType, SType>=SublistFieldName<RType, SType>
+> 
+
+extends record.Record 
+{
   type: RType
   
-  getValue<FName extends FieldName<RType>>(options: GetFieldOptions<RType>): FieldValue<RType, FName>;
-  getValue<FName extends FieldName<RType>>(fieldId: FName): FieldValue<RType, FName>;
-  getText<FName extends FieldName<RType>>(options: GetFieldOptions<RType>): string;
-  getText<FName extends FieldName<RType>>(fieldId: FName): string;
+  getValue< F extends FieldName<RType>=FieldName<RType>>(options: GetFieldOptions<RType, F>): FieldValue<RType, F>
+  getValue< F extends FieldName<RType>=FieldName<RType>>(fieldId: F): FieldValue<RType, F>;
+  // getText<FName extends FieldName<RType>>(options: GetFieldOptions<RType>): string;
+  // getText<FName extends FieldName<RType>>(fieldId: FName): string;
 
-
-  getSublists(): SType[];
+  /** Returns sublists ids */
+  getSublists(): Tuple<SublistName<RType>, StringKeyOf<{[k in SublistName<RType>]: number}>;
   /** Returns all the field names in a sublist. */
-  getSublistFields(options: RecordGetLineCountOptions<RType, SType>): SublistFieldName<RType, SType>[];
-  /** Gets the subrecord associated with a sublist field. */
+  getSublistFields(options: RecordGetLineCountOptions<RType>): SublistFieldName<RType, SublistName<RType>>[];
 
 
     /** Returns the value of a sublist field in a text representation. */
-    getSublistText(options: GetSublistValueOptions<RType, SType, FType>): string;
+    getSublistText(options: GetSublistValueOptions<RType>): string;
     /** Returns the value of a sublist field. */
-    getSublistValue(options: GetSublistValueOptions<RType, SType, FType>): ValueOfStringKey<SublistFieldValue<RType, SType>, FType>;
-    getSublistValue(sublistId: SType, fieldId: FType, line: number): ValueOfStringKey<SublistFieldValue<RType, SType>, FType>;
+    getSublistValue(options: GetSublistValueOptions<RType>): ValueOfStringKey<SublistFieldValue<RType, SublistName<RType>>, SublistFieldName<RType, SublistName<RType>>>;
+  //   getSublistValue(sublistId: SType, fieldId: FType, line: number): ValueOfStringKey<SublistFieldValue<RType, SType>, FType>;
 
-     /**
-     * return field object from record's sublist current line. Only available in dynamic record
-     * @throws {SuiteScriptError} SSS_MISSING_REQD_ARGUMENT if sublistId or fieldId is missing
-     * @restriction only available in dynamic record
-     */    
-    getCurrentSublistField(options: GetCurrentSublistFieldOptions<RType, SType, FType>): SublistField<RType, SType, FType>;
-    getCurrentSublistIndex(options: RecordGetLineCountOptions<RType, SType>): number;
+  //    /**
+  //    * return field object from record's sublist current line. Only available in dynamic record
+  //    * @throws {SuiteScriptError} SSS_MISSING_REQD_ARGUMENT if sublistId or fieldId is missing
+  //    * @restriction only available in dynamic record
+  //    */    
+  //   getCurrentSublistField(options: GetCurrentSublistFieldOptions<RType, SType, FType>): SublistField<RType, SType, FType>;
+  //   getCurrentSublistIndex(options: RecordGetLineCountOptions<RType, SType>): number;
     // /** Gets the subrecord for the associated sublist field on the current line. */
     // getCurrentSublistSubrecord(options: GetCurrentSublistValueOptions): Record;
 
@@ -56,9 +128,9 @@ export interface Record<RType extends RecordType, SType extends SublistName<RTyp
 }
 
 
-interface RecordGetLineCountOptions<RType extends RecordType, SType extends SublistName<RType>> {
+interface RecordGetLineCountOptions<RType extends RecordType> {
   /** The internal ID of the sublist. */
-  sublistId: SType;
+  sublistId: SublistName<RType>
 }
 
 
@@ -76,22 +148,22 @@ interface GetCurrentSublistFieldOptions<RType extends RecordType, SType extends 
   fieldId: FType;
 }
 
-interface GetSublistValueOptions<RType extends RecordType, SType extends SublistName<RType>, FName extends SublistFieldName<RType, SType>> {
+interface GetSublistValueOptions<RType extends RecordType> {
   /** The internal ID of the sublist. */
-  sublistId: SType;
+  sublistId: SublistName<RType>;
   /** The internal ID of a standard or custom sublist field. */
-  fieldId: SType;
+  fieldId: SublistFieldName<RType, SublistName<RType>>;
 }
 
-interface GetFieldOptions<RType extends RecordType> {
+interface GetFieldOptions<RType extends RecordType, FName extends FieldName<RType>> {
   /** The internal ID of a standard or custom body field. */
-  fieldId: FieldName<RType>;
+  fieldId: FName;
 }
 
-interface RecordGetLineCountOptions<RType extends RecordType, SType extends SublistName<RType>> {
-    /** The internal ID of the sublist. */
-    sublistId: SType;
-}
+// interface RecordGetLineCountOptions<RType extends RecordType, SType extends SublistName<RType>> {
+//     /** The internal ID of the sublist. */
+//     sublistId: SType;
+// }
 
 /**
 * Client and server-side scripts. 

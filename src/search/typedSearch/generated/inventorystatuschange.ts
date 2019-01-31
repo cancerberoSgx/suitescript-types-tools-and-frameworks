@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Inventory Status Change (inventorystatuschange) Search Columns definition */
-export interface inventorystatuschangeSearchColumn {
-  
+export interface inventorystatuschangeSearchColumn extends transactionSearchColumn {
+
 }
 
 

@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Payment Item (paymentitem) Search Columns definition */
-export interface paymentitemSearchColumn {
-  
+export interface paymentitemSearchColumn extends itemSearchColumn {
+
 }
 
 

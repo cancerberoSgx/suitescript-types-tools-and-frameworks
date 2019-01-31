@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Description Item (descriptionitem) Search Columns definition */
-export interface descriptionitemSearchColumn {
-  
+export interface descriptionitemSearchColumn extends itemSearchColumn {
+
 }
 
 

@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Store Pickup Fulfillment (storepickupfulfillment) Search Columns definition */
-export interface storepickupfulfillmentSearchColumn {
-  
+export interface storepickupfulfillmentSearchColumn extends transactionSearchColumn {
+
 }
 
 

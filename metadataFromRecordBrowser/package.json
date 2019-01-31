@@ -8,6 +8,9 @@
     "scripts": {
         "build": "npx tsc",
         "build-watch": "npx tsc -w",
+        "extract": "cd extractMetadataFromZip && npm run extract",
+        "generate": "npx ts-node tsGenerator/generateAll",
+        "extract-and-generate": "npm run extract && npm run generate",
         "clean": "rm -rf dist"
     },
     "repository": {

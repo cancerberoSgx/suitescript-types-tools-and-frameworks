@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Serialized Inventory Item (serializedinventoryitem) Search Columns definition */
-export interface serializedinventoryitemSearchColumn {
-  
+export interface serializedinventoryitemSearchColumn extends itemSearchColumn {
+
 }
 
 

@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Revenue Arrangement (revenuearrangement) Search Columns definition */
-export interface revenuearrangementSearchColumn {
-  
+export interface revenuearrangementSearchColumn extends transactionSearchColumn {
+
 }
 
 

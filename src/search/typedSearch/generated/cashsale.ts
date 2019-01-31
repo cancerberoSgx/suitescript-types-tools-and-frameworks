@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Cash Sale (cashsale) Search Columns definition */
-export interface cashsaleSearchColumn {
-  
+export interface cashsaleSearchColumn extends transactionSearchColumn {
+
 }
 
 

@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Bin Transfer (bintransfer) Search Columns definition */
-export interface bintransferSearchColumn {
-  
+export interface bintransferSearchColumn extends transactionSearchColumn {
+
 }
 
 

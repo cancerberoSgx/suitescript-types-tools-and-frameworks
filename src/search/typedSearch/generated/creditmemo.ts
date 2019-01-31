@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Credit Memo (creditmemo) Search Columns definition */
-export interface creditmemoSearchColumn {
-  
+export interface creditmemoSearchColumn extends transactionSearchColumn {
+
 }
 
 

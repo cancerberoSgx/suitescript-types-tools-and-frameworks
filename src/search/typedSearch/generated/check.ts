@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Check (check) Search Columns definition */
-export interface checkSearchColumn {
-  
+export interface checkSearchColumn extends transactionSearchColumn {
+
 }
 
 

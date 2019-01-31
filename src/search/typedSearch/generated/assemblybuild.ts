@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Assembly Build (assemblybuild) Search Columns definition */
-export interface assemblybuildSearchColumn {
-  
+export interface assemblybuildSearchColumn extends transactionSearchColumn {
+
 }
 
 

@@ -1,4 +1,4 @@
-import { accountSearchColumn, accountingbookSearchColumn, accountingcontextSearchColumn, accountingperiodSearchColumn, accountingtransactionSearchColumn, activitySearchColumn, addressSearchColumn, advintercompanyjournalentrySearchColumn, allocationscheduleSearchColumn, amortizationscheduleSearchColumn, amortizationtemplateSearchColumn, assemblybuildSearchColumn, assemblyitemSearchColumn, assemblyitembomSearchColumn, assemblyunbuildSearchColumn, billingaccountSearchColumn, billingclassSearchColumn, billingratecardSearchColumn, billingrevenueeventSearchColumn, billingscheduleSearchColumn, binSearchColumn, bintransferSearchColumn, binworksheetSearchColumn, blanketpurchaseorderSearchColumn, bomSearchColumn, bulkownershiptransferSearchColumn, calendareventSearchColumn, campaignSearchColumn, campaignresponseSearchColumn, campaigntemplateSearchColumn, cashrefundSearchColumn, cashsaleSearchColumn, chargeSearchColumn, chargeruleSearchColumn, checkSearchColumn, classificationSearchColumn, clientscriptSearchColumn, cmscontentSearchColumn, cmscontenttypeSearchColumn, commercecategorySearchColumn, competitorSearchColumn, consolidatedexchangerateSearchColumn, contactSearchColumn, contactcategorySearchColumn, contactroleSearchColumn, costcategorySearchColumn, couponcodeSearchColumn, creditcardchargeSearchColumn, creditcardrefundSearchColumn, creditmemoSearchColumn, currencySearchColumn, customerSearchColumn, customercategorySearchColumn, customerdepositSearchColumn, customermessageSearchColumn, customerpaymentSearchColumn, customerpaymentauthorizationSearchColumn, customerrefundSearchColumn, customerstatusSearchColumn, customersubsidiaryrelationshipSearchColumn, customrecordSearchColumn, deletedrecordSearchColumn, departmentSearchColumn, depositSearchColumn, depositapplicationSearchColumn, descriptionitemSearchColumn, discountitemSearchColumn, emailtemplateSearchColumn, employeeSearchColumn, entitySearchColumn, entityaccountmappingSearchColumn, entitygroupSearchColumn, estimateSearchColumn, expensecategorySearchColumn, fairvaluepriceSearchColumn, fileSearchColumn, fixedamountprojectrevenueruleSearchColumn, folderSearchColumn, genericresourceSearchColumn, giftcertificateSearchColumn, giftcertificateitemSearchColumn, globalaccountmappingSearchColumn, inboundshipmentSearchColumn, intercompallocationscheduleSearchColumn, intercompanyjournalentrySearchColumn, intercompanytransferorderSearchColumn, inventoryadjustmentSearchColumn, inventorycostrevaluationSearchColumn, inventorycountSearchColumn, inventorydetailSearchColumn, inventoryitemSearchColumn, inventorynumberSearchColumn, inventorynumberbinSearchColumn, inventorystatusSearchColumn, inventorystatuschangeSearchColumn, inventorytransferSearchColumn, invoiceSearchColumn, issueSearchColumn, issueproductSearchColumn, itemSearchColumn, itemaccountmappingSearchColumn, itembinnumberSearchColumn, itemdemandplanSearchColumn, itemfulfillmentSearchColumn, itemgroupSearchColumn, itemlocationconfigurationSearchColumn, itemreceiptSearchColumn, itemrevisionSearchColumn, jobSearchColumn, jobstatusSearchColumn, jobtypeSearchColumn, kititemSearchColumn, laborbasedprojectrevenueruleSearchColumn, landedcostSearchColumn, leadSearchColumn, locationSearchColumn, lotnumberedassemblyitemSearchColumn, manufacturingcosttemplateSearchColumn, manufacturingoperationtaskSearchColumn, manufacturingroutingSearchColumn, mapreducescriptSearchColumn, markupitemSearchColumn, massupdatescriptSearchColumn, merchandisehierarchylevelSearchColumn, merchandisehierarchynodeSearchColumn, merchandisehierarchyversionSearchColumn, messageSearchColumn, mfgplannedtimeSearchColumn, nexusSearchColumn, noninventoryitemSearchColumn, noteSearchColumn, opportunitySearchColumn, orderscheduleSearchColumn, originatingleadSearchColumn, otherchargeitemSearchColumn, othernameSearchColumn, partnerSearchColumn, partnercategorySearchColumn, paycheckSearchColumn, paycheckjournalSearchColumn, paymentitemSearchColumn, paymentmethodSearchColumn, payrollbatchSearchColumn, payrollitemSearchColumn, pctcompleteprojectrevenueruleSearchColumn, periodendjournalSearchColumn, phonecallSearchColumn, portletSearchColumn, pricebookSearchColumn, pricelevelSearchColumn, priceplanSearchColumn, pricingSearchColumn, pricinggroupSearchColumn, projectexpensetypeSearchColumn, projecttaskSearchColumn, projecttaskassignmentSearchColumn, projecttemplateSearchColumn, promotioncodeSearchColumn, prospectSearchColumn, purchasecontractSearchColumn, purchaserequisitionSearchColumn, reallocateitemSearchColumn, receiveinboundshipmentSearchColumn, resourceallocationSearchColumn, restletSearchColumn, returnauthorizationSearchColumn, revenuearrangementSearchColumn, revenuecommitmentSearchColumn, revenuecommitmentreversalSearchColumn, revenueplanSearchColumn, revrecscheduleSearchColumn, revrectemplateSearchColumn, salesorderSearchColumn, salesroleSearchColumn, salestaxitemSearchColumn, scheduledscriptSearchColumn, scheduledscriptinstanceSearchColumn, scriptdeploymentSearchColumn, serializedassemblyitemSearchColumn, serializedinventoryitemSearchColumn, serviceitemSearchColumn, shipitemSearchColumn, shoppingcartSearchColumn, solutionSearchColumn, statisticaljournalentrySearchColumn, storepickupfulfillmentSearchColumn, subscriptionSearchColumn, subscriptionchangeorderSearchColumn, subscriptionlineSearchColumn, subscriptionplanSearchColumn, subsidiarySearchColumn, subtotalitemSearchColumn, suiteletSearchColumn, supportcaseSearchColumn, taskSearchColumn, taxacctSearchColumn, taxdetailSearchColumn, taxgroupSearchColumn, taxperiodSearchColumn, taxtypeSearchColumn, termSearchColumn, timebillSearchColumn, timeentrySearchColumn, timesheetSearchColumn, topicSearchColumn, transactionSearchColumn, unitstypeSearchColumn, vendorSearchColumn, vendorbillSearchColumn, vendorcategorySearchColumn, vendorcreditSearchColumn, vendorpaymentSearchColumn, vendorreturnauthorizationSearchColumn, vendorsubsidiaryrelationshipSearchColumn } from './index';
+import { accountSearchColumn, accountingbookSearchColumn, accountingcontextSearchColumn, accountingperiodSearchColumn, accountingtransactionSearchColumn, activitySearchColumn, addressSearchColumn, advintercompanyjournalentrySearchColumn, allocationscheduleSearchColumn, amortizationscheduleSearchColumn, amortizationtemplateSearchColumn, assemblybuildSearchColumn, assemblyitemSearchColumn, assemblyitembomSearchColumn, assemblyunbuildSearchColumn, billingaccountSearchColumn, billingclassSearchColumn, billingratecardSearchColumn, billingrevenueeventSearchColumn, billingscheduleSearchColumn, binSearchColumn, bintransferSearchColumn, binworksheetSearchColumn, blanketpurchaseorderSearchColumn, bomSearchColumn, bomrevisionSearchColumn, bulkownershiptransferSearchColumn, bundleinstallationscriptSearchColumn, calendareventSearchColumn, campaignSearchColumn, campaignresponseSearchColumn, campaigntemplateSearchColumn, cashrefundSearchColumn, cashsaleSearchColumn, chargeSearchColumn, chargeruleSearchColumn, checkSearchColumn, classificationSearchColumn, clientscriptSearchColumn, cmscontentSearchColumn, cmscontenttypeSearchColumn, commercecategorySearchColumn, competitorSearchColumn, consolidatedexchangerateSearchColumn, contactSearchColumn, contactcategorySearchColumn, contactroleSearchColumn, costcategorySearchColumn, couponcodeSearchColumn, creditcardchargeSearchColumn, creditcardrefundSearchColumn, creditmemoSearchColumn, currencySearchColumn, customerSearchColumn, customercategorySearchColumn, customerdepositSearchColumn, customermessageSearchColumn, customerpaymentSearchColumn, customerpaymentauthorizationSearchColumn, customerrefundSearchColumn, customerstatusSearchColumn, customersubsidiaryrelationshipSearchColumn, customrecordSearchColumn, deletedrecordSearchColumn, departmentSearchColumn, depositSearchColumn, depositapplicationSearchColumn, descriptionitemSearchColumn, discountitemSearchColumn, downloaditemSearchColumn, emailtemplateSearchColumn, employeeSearchColumn, entitySearchColumn, entityaccountmappingSearchColumn, entitygroupSearchColumn, estimateSearchColumn, expensecategorySearchColumn, expensereportSearchColumn, fairvaluepriceSearchColumn, fileSearchColumn, fixedamountprojectrevenueruleSearchColumn, folderSearchColumn, fulfillmentrequestSearchColumn, genericresourceSearchColumn, giftcertificateSearchColumn, giftcertificateitemSearchColumn, globalaccountmappingSearchColumn, globalinventoryrelationshipSearchColumn, inboundshipmentSearchColumn, intercompallocationscheduleSearchColumn, intercompanyjournalentrySearchColumn, intercompanytransferorderSearchColumn, inventoryadjustmentSearchColumn, inventorycostrevaluationSearchColumn, inventorycountSearchColumn, inventorydetailSearchColumn, inventoryitemSearchColumn, inventorynumberSearchColumn, inventorynumberbinSearchColumn, inventorystatusSearchColumn, inventorystatuschangeSearchColumn, inventorytransferSearchColumn, invoiceSearchColumn, issueSearchColumn, issueproductSearchColumn, issueproductversionSearchColumn, itemSearchColumn, itemaccountmappingSearchColumn, itembinnumberSearchColumn, itemdemandplanSearchColumn, itemfulfillmentSearchColumn, itemgroupSearchColumn, itemlocationconfigurationSearchColumn, itemreceiptSearchColumn, itemrevisionSearchColumn, itemsupplyplanSearchColumn, jobSearchColumn, jobstatusSearchColumn, jobtypeSearchColumn, journalentrySearchColumn, kititemSearchColumn, laborbasedprojectrevenueruleSearchColumn, landedcostSearchColumn, leadSearchColumn, locationSearchColumn, lotnumberedassemblyitemSearchColumn, lotnumberedinventoryitemSearchColumn, manufacturingcosttemplateSearchColumn, manufacturingoperationtaskSearchColumn, manufacturingroutingSearchColumn, mapreducescriptSearchColumn, markupitemSearchColumn, massupdatescriptSearchColumn, merchandisehierarchylevelSearchColumn, merchandisehierarchynodeSearchColumn, merchandisehierarchyversionSearchColumn, messageSearchColumn, mfgplannedtimeSearchColumn, msesubsidiarySearchColumn, nexusSearchColumn, noninventoryitemSearchColumn, noteSearchColumn, notetypeSearchColumn, opportunitySearchColumn, orderscheduleSearchColumn, originatingleadSearchColumn, otherchargeitemSearchColumn, othernameSearchColumn, othernamecategorySearchColumn, partnerSearchColumn, partnercategorySearchColumn, paycheckSearchColumn, paycheckjournalSearchColumn, paymentitemSearchColumn, paymentmethodSearchColumn, payrollbatchSearchColumn, payrollitemSearchColumn, pctcompleteprojectrevenueruleSearchColumn, periodendjournalSearchColumn, phonecallSearchColumn, portletSearchColumn, pricebookSearchColumn, pricelevelSearchColumn, priceplanSearchColumn, pricingSearchColumn, pricinggroupSearchColumn, projectexpensetypeSearchColumn, projecttaskSearchColumn, projecttaskassignmentSearchColumn, projecttemplateSearchColumn, promotioncodeSearchColumn, prospectSearchColumn, purchasecontractSearchColumn, purchaseorderSearchColumn, purchaserequisitionSearchColumn, reallocateitemSearchColumn, receiveinboundshipmentSearchColumn, resourceallocationSearchColumn, restletSearchColumn, returnauthorizationSearchColumn, revenuearrangementSearchColumn, revenuecommitmentSearchColumn, revenuecommitmentreversalSearchColumn, revenueplanSearchColumn, revrecscheduleSearchColumn, revrectemplateSearchColumn, roleSearchColumn, salesorderSearchColumn, salesroleSearchColumn, salestaxitemSearchColumn, scheduledscriptSearchColumn, scheduledscriptinstanceSearchColumn, scriptdeploymentSearchColumn, serializedassemblyitemSearchColumn, serializedinventoryitemSearchColumn, serviceitemSearchColumn, shipitemSearchColumn, shoppingcartSearchColumn, solutionSearchColumn, statisticaljournalentrySearchColumn, storepickupfulfillmentSearchColumn, subscriptionSearchColumn, subscriptionchangeorderSearchColumn, subscriptionlineSearchColumn, subscriptionplanSearchColumn, subsidiarySearchColumn, subtotalitemSearchColumn, suiteletSearchColumn, supplychainsnapshotSearchColumn, supportcaseSearchColumn, taskSearchColumn, taxacctSearchColumn, taxdetailSearchColumn, taxgroupSearchColumn, taxperiodSearchColumn, taxtypeSearchColumn, termSearchColumn, timebillSearchColumn, timeentrySearchColumn, timesheetSearchColumn, topicSearchColumn, transactionSearchColumn, transferorderSearchColumn, unitstypeSearchColumn, usereventscriptSearchColumn, vendorSearchColumn, vendorbillSearchColumn, vendorcategorySearchColumn, vendorcreditSearchColumn, vendorpaymentSearchColumn, vendorreturnauthorizationSearchColumn, vendorsubsidiaryrelationshipSearchColumn, websiteSearchColumn, winlossreasonSearchColumn, workflowactionscriptSearchColumn, workorderSearchColumn, workordercloseSearchColumn, workordercompletionSearchColumn, workorderissueSearchColumn, workplaceSearchColumn } from './index';
 /** Record Type - Field Search Column type definitions. */
 export interface TypedSearchColumnTypes {
   account: accountSearchColumn;
@@ -26,7 +26,9 @@ export interface TypedSearchColumnTypes {
   binworksheet: binworksheetSearchColumn;
   blanketpurchaseorder: blanketpurchaseorderSearchColumn;
   bom: bomSearchColumn;
+  bomrevision: bomrevisionSearchColumn;
   bulkownershiptransfer: bulkownershiptransferSearchColumn;
+  bundleinstallationscript: bundleinstallationscriptSearchColumn;
   calendarevent: calendareventSearchColumn;
   campaign: campaignSearchColumn;
   campaignresponse: campaignresponseSearchColumn;
@@ -68,6 +70,7 @@ export interface TypedSearchColumnTypes {
   depositapplication: depositapplicationSearchColumn;
   descriptionitem: descriptionitemSearchColumn;
   discountitem: discountitemSearchColumn;
+  downloaditem: downloaditemSearchColumn;
   emailtemplate: emailtemplateSearchColumn;
   employee: employeeSearchColumn;
   entity: entitySearchColumn;
@@ -75,14 +78,17 @@ export interface TypedSearchColumnTypes {
   entitygroup: entitygroupSearchColumn;
   estimate: estimateSearchColumn;
   expensecategory: expensecategorySearchColumn;
+  expensereport: expensereportSearchColumn;
   fairvalueprice: fairvaluepriceSearchColumn;
   file: fileSearchColumn;
   fixedamountprojectrevenuerule: fixedamountprojectrevenueruleSearchColumn;
   folder: folderSearchColumn;
+  fulfillmentrequest: fulfillmentrequestSearchColumn;
   genericresource: genericresourceSearchColumn;
   giftcertificate: giftcertificateSearchColumn;
   giftcertificateitem: giftcertificateitemSearchColumn;
   globalaccountmapping: globalaccountmappingSearchColumn;
+  globalinventoryrelationship: globalinventoryrelationshipSearchColumn;
   inboundshipment: inboundshipmentSearchColumn;
   intercompallocationschedule: intercompallocationscheduleSearchColumn;
   intercompanyjournalentry: intercompanyjournalentrySearchColumn;
@@ -100,6 +106,7 @@ export interface TypedSearchColumnTypes {
   invoice: invoiceSearchColumn;
   issue: issueSearchColumn;
   issueproduct: issueproductSearchColumn;
+  issueproductversion: issueproductversionSearchColumn;
   item: itemSearchColumn;
   itemaccountmapping: itemaccountmappingSearchColumn;
   itembinnumber: itembinnumberSearchColumn;
@@ -109,15 +116,18 @@ export interface TypedSearchColumnTypes {
   itemlocationconfiguration: itemlocationconfigurationSearchColumn;
   itemreceipt: itemreceiptSearchColumn;
   itemrevision: itemrevisionSearchColumn;
+  itemsupplyplan: itemsupplyplanSearchColumn;
   job: jobSearchColumn;
   jobstatus: jobstatusSearchColumn;
   jobtype: jobtypeSearchColumn;
+  journalentry: journalentrySearchColumn;
   kititem: kititemSearchColumn;
   laborbasedprojectrevenuerule: laborbasedprojectrevenueruleSearchColumn;
   landedcost: landedcostSearchColumn;
   lead: leadSearchColumn;
   location: locationSearchColumn;
   lotnumberedassemblyitem: lotnumberedassemblyitemSearchColumn;
+  lotnumberedinventoryitem: lotnumberedinventoryitemSearchColumn;
   manufacturingcosttemplate: manufacturingcosttemplateSearchColumn;
   manufacturingoperationtask: manufacturingoperationtaskSearchColumn;
   manufacturingrouting: manufacturingroutingSearchColumn;
@@ -129,14 +139,17 @@ export interface TypedSearchColumnTypes {
   merchandisehierarchyversion: merchandisehierarchyversionSearchColumn;
   message: messageSearchColumn;
   mfgplannedtime: mfgplannedtimeSearchColumn;
+  msesubsidiary: msesubsidiarySearchColumn;
   nexus: nexusSearchColumn;
   noninventoryitem: noninventoryitemSearchColumn;
   note: noteSearchColumn;
+  notetype: notetypeSearchColumn;
   opportunity: opportunitySearchColumn;
   orderschedule: orderscheduleSearchColumn;
   originatinglead: originatingleadSearchColumn;
   otherchargeitem: otherchargeitemSearchColumn;
   othername: othernameSearchColumn;
+  othernamecategory: othernamecategorySearchColumn;
   partner: partnerSearchColumn;
   partnercategory: partnercategorySearchColumn;
   paycheck: paycheckSearchColumn;
@@ -161,6 +174,7 @@ export interface TypedSearchColumnTypes {
   promotioncode: promotioncodeSearchColumn;
   prospect: prospectSearchColumn;
   purchasecontract: purchasecontractSearchColumn;
+  purchaseorder: purchaseorderSearchColumn;
   purchaserequisition: purchaserequisitionSearchColumn;
   reallocateitem: reallocateitemSearchColumn;
   receiveinboundshipment: receiveinboundshipmentSearchColumn;
@@ -173,6 +187,7 @@ export interface TypedSearchColumnTypes {
   revenueplan: revenueplanSearchColumn;
   revrecschedule: revrecscheduleSearchColumn;
   revrectemplate: revrectemplateSearchColumn;
+  role: roleSearchColumn;
   salesorder: salesorderSearchColumn;
   salesrole: salesroleSearchColumn;
   salestaxitem: salestaxitemSearchColumn;
@@ -194,6 +209,7 @@ export interface TypedSearchColumnTypes {
   subsidiary: subsidiarySearchColumn;
   subtotalitem: subtotalitemSearchColumn;
   suitelet: suiteletSearchColumn;
+  supplychainsnapshot: supplychainsnapshotSearchColumn;
   supportcase: supportcaseSearchColumn;
   task: taskSearchColumn;
   taxacct: taxacctSearchColumn;
@@ -207,7 +223,9 @@ export interface TypedSearchColumnTypes {
   timesheet: timesheetSearchColumn;
   topic: topicSearchColumn;
   transaction: transactionSearchColumn;
+  transferorder: transferorderSearchColumn;
   unitstype: unitstypeSearchColumn;
+  usereventscript: usereventscriptSearchColumn;
   vendor: vendorSearchColumn;
   vendorbill: vendorbillSearchColumn;
   vendorcategory: vendorcategorySearchColumn;
@@ -215,4 +233,12 @@ export interface TypedSearchColumnTypes {
   vendorpayment: vendorpaymentSearchColumn;
   vendorreturnauthorization: vendorreturnauthorizationSearchColumn;
   vendorsubsidiaryrelationship: vendorsubsidiaryrelationshipSearchColumn;
+  website: websiteSearchColumn;
+  winlossreason: winlossreasonSearchColumn;
+  workflowactionscript: workflowactionscriptSearchColumn;
+  workorder: workorderSearchColumn;
+  workorderclose: workordercloseSearchColumn;
+  workordercompletion: workordercompletionSearchColumn;
+  workorderissue: workorderissueSearchColumn;
+  workplace: workplaceSearchColumn;
 }

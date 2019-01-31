@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Invoice (invoice) Search Columns definition */
-export interface invoiceSearchColumn {
-  
+export interface invoiceSearchColumn extends transactionSearchColumn {
+
 }
 
 

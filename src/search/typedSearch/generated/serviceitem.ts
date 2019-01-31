@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { itemSearchColumn } from './item'
 /** Service (serviceitem) Search Columns definition */
-export interface serviceitemSearchColumn {
-  
+export interface serviceitemSearchColumn extends itemSearchColumn {
+
 }
 
 

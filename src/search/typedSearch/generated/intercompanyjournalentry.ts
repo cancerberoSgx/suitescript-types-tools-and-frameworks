@@ -3,9 +3,10 @@
 
 // Search Columns
 
+import { transactionSearchColumn } from './transaction'
 /** Intercompany Journal Entry (intercompanyjournalentry) Search Columns definition */
-export interface intercompanyjournalentrySearchColumn {
-  
+export interface intercompanyjournalentrySearchColumn extends transactionSearchColumn {
+
 }
 
 

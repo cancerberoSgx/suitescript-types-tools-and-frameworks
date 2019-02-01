@@ -45,15 +45,25 @@ export type NumberKeyOf<T extends any> = Extract<keyof T, number>;
 // export type NamedMemberValuesOf <T extends any, K extends Extended<T> = Extended<T>> = ValueOfStringKey<K, NamedMemberNamesOf<K>>
 
 
-type UnionToArray0<T> = []
-type UnionToArray1<T> = [T]
-type UnionToArray2<T, T1 = Extract<T, T2>, T2 =Extract<T, T1>> = T1 extends T2 ? (T2 extends T1 ? never : [T, T]) : [T, T]
-type UnionToArray3<T, T3 = Extract<T, T2>, T2 = Extract<T, UnionToArray2<T>>> = T3 extends T2 ? (T2 extends T3 ? never : T2) : [T, T, T]
-//Extract<T, T2&T3>, T2 =Extract<T, T1&T3>,  T3 =Extract<T, T1&T2>> = T1 extends T2 ? (T2 extends T1 ? never : [T, T]) : [T, T]
+// type UnionToArray0<T> = []
+// type UnionToArray1<T> = [T]
+// type UnionToArray2<T, T1 = Extract<T, T2>, T2 =Extract<T, T1>> = T1 extends T2 ? (T2 extends T1 ? never : [T, T]) : [T, T]
+// type UnionToArray3<T, T3 = Extract<T, T2>, T2 = Extract<T, UnionToArray2<T>>> = T3 extends T2 ? (T2 extends T3 ? never : T2) : [T, T, T]
+// type UnionToArray3<T, T0 = Extract<T, T1|T2|T3>, T1 = Extract<T, T0|T2|T3>, T2 =Extract<T, T0|T1|T3>, T3 =Extract<T, T0|T1|T2>, > = T3 extends T2|T1|T0 ? (T2|T1|T0 extends T3 ? (T2 extends T0|T1|T3 ? (T0|T1|T3 extends T2 ? (T1 extends T0|T2|T3 ? (T0|T2|T3 extends T1 ? never : [T]) :[T]) : [T,T]) :[T,T]) : [T,T,T]):[T,T,T]
+// // (T3 extends T1 ? (T1 extends T3 ? (T0 extends T3 ? (T3 extends T0 ? never : []): []) :[T]):[T]):[T,T]) :[T,T]
+// //Extract<T, T2&T3>, T2 =Extract<T, T1&T3>,  T3 =Extract<T, T1&T2>> = T1 extends T2 ? (T2 extends T1 ? never : [T, T]) : [T, T]
+
+// type UnionToArray3<T, t0 = UnionToArray0<T>, t1 = UnionToArray1<T>, t2 = Extract<T, t3>, t3 = Extract<T, t2>> = t3 extends t2 ? (t2 extends t3 ? never: [T,T,T]): [T,T,T]
+
+
+type UnionToArray3<T, t1 = Extract<T, t3|t2>, t2 = Extract<T, t3|t1>, t3 = Extract<T, t2|t1>> = t3 extends t2 ? (t2 extends t3 ? (t1 extends t3 ? (t3 extends t1 ? never: [T,T,T]): [T,T,T]) : [T,T,T]) : [T,T,T]
+
+
+
 type UnionToArray<T, t0 = UnionToArray0<T>,t1 = UnionToArray1<T>,t2 = UnionToArray2<T>, t3 = UnionToArray3<T>> = t3 extends never ? (t2 extends never ? (t1 extends never ? (t0 extends never ? never : t0) : t1 ) : t2) : t3 //t0 extends never ? (t1 extends never ? never : t1) : t0
 // type UnionToArray<T, t0 = UnionToArray0<T>,t1 = UnionToArray1<T>,t2 = UnionToArray2<T>, t3 = UnionToArray3<T>> = t0 extends never ? (t1 extends never ? (t2 extends never ? (t3 extends never ? never : t3) : t2 ) : t1) : t0
 
-let gg : UnionToArray<1|2>
+let gg : UnionToArray2<1|2|3>
 
 
 

@@ -7,6 +7,7 @@ define(["require", "exports", "N/record", "../../log/log"], function (require, e
         var fields = fromRecord.getFields().filter(function (f) { return (ignoreFields || []).concat(['id']).indexOf(f) === -1; });
         log_1.log("cloned fields: " + fields.join(', '));
         customFieldValues = customFieldValues || {};
+        // @ts-ignore
         fields.forEach(function (field) { return toRecord.setValue({ fieldId: field, value: (typeof customFieldValues[field] === 'undefined') ? fromRecord.getValue(field) : customFieldValues[field] }); });
         if (!config.dontSave) {
             var id = toRecord.save();

@@ -1,14 +1,21 @@
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../log/log", "./textReporter", "../misc/misc"], function (require, exports, log_1, textReporter_1, misc_1) {
+define(["require", "exports", "./textReporter", "../misc/misc"], function (require, exports, textReporter_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // import { now } from "../misc/dateUtil";
+    function now() {
+        return Date.now();
+    }
     /** user needs to instantiate this, add their describe functions and execute run() in order to run the tests adn obtain the results */
     var SpecRunner = /** @class */ (function () {
         function SpecRunner() {
@@ -33,19 +40,19 @@ define(["require", "exports", "../log/log", "./textReporter", "../misc/misc"], f
                     s();
                 }
                 catch (error) {
-                    log_1.log("Exception while evaluating describe() and its() of the #" + index + " given specs function:" + error);
-                    log_1.log((_this._currentDescribe && _this._currentDescribe.name) + ' ' + (_this._currentIt && _this._currentIt.name));
+                    console.log("Exception while evaluating describe() and its() of the #" + index + " given specs function:" + error);
+                    console.log((_this._currentDescribe && _this._currentDescribe.name) + ' ' + (_this._currentIt && _this._currentIt.name));
                     // if (config.breakOnFirstError) {
-                    log_1.log(misc_1.printNativeError(error));
+                    console.log(misc_1.printNativeError(error));
                     // throw error
                     // }
                 }
             });
-            var totalTime = misc_1.now();
+            var totalTime = now();
             this.describes.forEach(function (d) {
                 _this._currentDescribe = d;
                 d.its.forEach(function (i) {
-                    // log('sesjkdfjksdkhf')
+                    // console.log('sesjkdfjksdkhf')
                     _this._currentIt = i;
                     try {
                         i.fn();
@@ -53,16 +60,16 @@ define(["require", "exports", "../log/log", "./textReporter", "../misc/misc"], f
                     catch (err) {
                         var error = __assign({}, err, { nativeException: err });
                         i.error = error;
-                        log_1.log('Exception catch in it ' + i.name);
+                        console.log('Exception catch in it ' + i.name);
                         if (config.breakOnFirstError) {
-                            log_1.log(textReporter_1.printError(error));
+                            console.log(textReporter_1.printError(error));
                             throw error;
                         }
                     }
                 });
             });
             var results = this.getResults(this.describes);
-            totalTime = misc_1.now() - totalTime;
+            totalTime = now() - totalTime;
             return { results: results, totalTime: totalTime };
         };
         SpecRunner.prototype.getResults = function (describes) {

@@ -1,4 +1,4 @@
-define(["require", "exports", "../misc/misc", "../log/log"], function (require, exports, misc_1, log_1) {
+define(["require", "exports", "../misc/misc", "../misc/printMs"], function (require, exports, misc_1, printMs_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var TextReporter = /** @class */ (function () {
@@ -18,7 +18,7 @@ define(["require", "exports", "../misc/misc", "../log/log"], function (require, 
                 .forEach(function (d) { return d.results.filter(function (i) { return i.type !== 'x'; }) //TODO:fit and fdescribe
                 .forEach(function (i) {
                 if (i.error) {
-                    log_1.log(printError(i.error, i, d));
+                    console.log(printError(i.error, i, d));
                 }
                 totalItCount++;
                 var expectFail = i.results.filter(function (r) {
@@ -30,7 +30,7 @@ define(["require", "exports", "../misc/misc", "../log/log"], function (require, 
                     totalItFail++;
                 }
             }); });
-            output += "\n" + totalItCount + " spec, " + totalItFail + " failures " + ((this.config.format === 'detailed' || true) ? "\n" + totalExpectCount + " expectations, " + totalExpectFail + " failures" : "") + "\nFinished in " + misc_1.printMs(this.config.result.totalTime, { seconds: true, ms: true }) + "\n";
+            output += "\n" + totalItCount + " spec, " + totalItFail + " failures " + ((this.config.format === 'detailed' || true) ? "\n" + totalExpectCount + " expectations, " + totalExpectFail + " failures" : "") + "\nFinished in " + printMs_1.printMs(this.config.result.totalTime, { seconds: true, ms: true }) + "\n";
             return {
                 output: output
             };

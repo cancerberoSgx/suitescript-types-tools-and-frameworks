@@ -1,5 +1,5 @@
 import * as record from "N/record";
-import { StringKeyOf, ValueOfStringKey } from '../../misc/misc';
+import { StringKeyOf, ValueOfStringKey } from "../../misc/typesUtil";
 import { recordFieldTypes, recordSublistsTypes } from './generated/recordConstructor';
 
 export type RecordType = StringKeyOf<Required<recordFieldTypes>>

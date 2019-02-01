@@ -1,6 +1,5 @@
 import { SpecRunner } from "./runner";
 import { It } from "./it";
-import { log } from "../log/log";
 import { NativeError } from '../nstypes';
 
 export interface SpecBaseWithoutParent {

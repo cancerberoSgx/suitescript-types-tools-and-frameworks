@@ -1,10 +1,11 @@
 import { ReportConfig, Reporter, ReportResult } from "./reporter";
 import { DescribeResult, ItResult } from "./runner";
 import { ExpectResult } from "./expect";
-import { repeat, find, printNativeError, printMs, indent } from "../misc/misc";
-import { log } from "../log/log";
+import { repeat, find, printNativeError, indent } from "../misc/misc";
+import { printMs } from "../misc/printMs";
+// import { log } from "../log/log";
 import { Describe, SpecError } from './describe';
-import { NativeError } from '../nstypes';
+// import { NativeError } from '../nstypes';
 
 export interface TextReportResult extends ReportResult {
   output: string
@@ -29,7 +30,7 @@ export class TextReporter implements Reporter<TextReportConfig, TextReportResult
     .forEach(d=>d.results.filter(i=>i.type!=='x')//TODO:fit and fdescribe
     .forEach(i=>{
       if(i.error){
-        log(printError(i.error, i, d))
+        console.log(printError(i.error, i, d))
       }
       totalItCount++
       const expectFail =i.results.filter(r=>{

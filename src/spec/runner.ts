@@ -1,9 +1,14 @@
 import { Describe, SpecType, SpecError } from "./describe";
 import { It } from "./it";
 import { ExpectResult } from "./expect";
-import { log } from "../log/log";
+// import { log } from "../log/log";
 import { printError } from './textReporter';
-import { printNativeError, now } from '../misc/misc';
+import { printNativeError } from '../misc/misc';
+// import { now } from "../misc/dateUtil";
+
+function now() { // not using now() from "../misc/dateUtil"; since we want to run spec specs with node
+  return Date.now()
+}
 
 /** user needs to instantiate this, add their describe functions and execute run() in order to run the tests adn obtain the results */
 export class SpecRunner {
@@ -32,11 +37,11 @@ export class SpecRunner {
         s()
       }
       catch (error) {
-        log(`Exception while evaluating describe() and its() of the #${index} given specs function:` + error)
-        log((this._currentDescribe && this._currentDescribe.name) + ' ' + (this._currentIt && this._currentIt.name));
+        console.log(`Exception while evaluating describe() and its() of the #${index} given specs function:` + error)
+        console.log((this._currentDescribe && this._currentDescribe.name) + ' ' + (this._currentIt && this._currentIt.name));
 
         // if (config.breakOnFirstError) {
-        log(printNativeError(error))
+        console.log(printNativeError(error))
         // throw error
         // }
       }
@@ -45,7 +50,7 @@ export class SpecRunner {
     this.describes.forEach(d => {
       this._currentDescribe = d
       d.its.forEach(i => {
-        // log('sesjkdfjksdkhf')
+        // console.log('sesjkdfjksdkhf')
         this._currentIt = i
         try {
           i.fn()
@@ -53,9 +58,9 @@ export class SpecRunner {
         catch (err) {
           const error = { ...err, nativeException: err }
           i.error = error
-          log('Exception catch in it ' + i.name);
+          console.log('Exception catch in it ' + i.name);
           if (config.breakOnFirstError) {
-            log(printError(error))
+            console.log(printError(error))
             throw error
           }
         }
@@ -100,6 +105,7 @@ export interface ItResult {
 
 export interface SpecRunnerRunConfig {
   specs?: (() => void)[]
+  // log: (s:string)=>any
   random?: boolean
   breakOnFirstError?: boolean
   reset?: boolean

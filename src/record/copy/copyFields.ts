@@ -8,6 +8,7 @@ export function copyFields(config: CopyFieldsConfig): record.Record {
     const fields = fromRecord.getFields().filter(f => [...(ignoreFields || []), 'id'].indexOf(f) === -1);
     log(`cloned fields: ${fields.join(', ')}`);
     customFieldValues = customFieldValues || {};
+    // @ts-ignore
     fields.forEach(field => toRecord.setValue({ fieldId: field, value: (typeof customFieldValues[field] === 'undefined') ? fromRecord.getValue(field) : customFieldValues[field] }));
     if(!config.dontSave){
         const id = toRecord.save();

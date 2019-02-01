@@ -6,18 +6,19 @@
 // import * as nsSearch from 'N/search';
 // // import { SearchRecordType } from "../../sharedTypes";
 // import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType, ColumnType } from './searchTypingHelpers';
-// import { StringKeyOf, ValueOfStringKey, UnionOf, NamedMemberValueOf } from '../../misc/misc';
-// import { TypedSearchColumnNames } from './generated';
+// import { UnionOf } from '../../misc/misc';
+// // import { StringKeyOf } from '../../misc/misc';
+// // import { TypedSearchColumnNames } from './generated';
 // // import { ValueOfNumberKey, ValueOfStringKey } from '../../misc/misc';
-// export function search<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]>(options: SearchCreateOptions<RecordType, Columns>): Search<RecordType, Columns> {
+// export function search<RecordType extends SearchRecordType, Columns extends ColumnName<RecordType>[] = ColumnName<RecordType>[]>(options: SearchCreateOptions<RecordType>): Search<RecordType, Columns> {
 //   return nsSearch.create(options as any) as any
 // }
-// export interface Search<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]> {
+// export interface Search<RecordType extends SearchRecordType, Columns extends ColumnName<RecordType>[] = ColumnName<RecordType>[]> {
 //   searchType: RecordType
 //   searchId: number;
 //   filters: TypedFilter<RecordType>[]
 //   filterExpression: any[];
-//   columns: Columns
+//   columns: TypedColumn<RecordType>[] // TODO: Columns 
 //   title: string;
 //   id: string;
 //   isPublic: boolean;
@@ -25,10 +26,10 @@
 //   run(): ResultSet<RecordType, Columns>;
 //   runPaged: SearchRunPagedFunction
 // }
-// interface SearchCreateOptions<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]> {
+// interface SearchCreateOptions<RecordType extends SearchRecordType, Columns extends ColumnName<RecordType>[] = ColumnName<RecordType>[]> {
 //   type: RecordType
 //   filters?: TypedFilter<RecordType>[] | FilterName<RecordType>[]
-//   columns?: Columns
+//   columns?: TypedColumn<RecordType>[] | Columns // TODO: union of Columns
 //   title?: string;
 //   id?: string;
 //   isPublic?: boolean;
@@ -62,33 +63,33 @@
 //   formula: string;
 // }
 // // type ResultValue<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = 
-// export interface Result<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]> {
-//   getValue<C extends NamedMemberValueOf<UnionOf<Columns>, 'fieldId'>>(column: C): ColumnType<RecordType, C> // TODO: typed return value
+// export interface Result<RecordType extends SearchRecordType, Columns extends ColumnName<RecordType>[] = ColumnName<RecordType>[]> {
+//   getValue(column: TypedColumn<RecordType, UnionOf<Columns>> | UnionOf<Columns>): ColumnType<RecordType, UnionOf<Columns>> // TODO: typed return value
 //   getText(options: TypedColumn<RecordType> | ColumnName<RecordType>): string;
 //   recordType: RecordType;
 //   id: string;
-//   columns: TypedColumn<RecordType>[];
+//   columns: TypedColumn<RecordType>[]; // TODO: UnionOf<Columns>
 // }
 // // the rest I had to copy&past from ss2-typings and add generics:
 // interface SearchResultSetGetRangeOptions {
 //   start: number;
 //   end: number;
 // }
-// interface SearchResultSetGetRangeFunction<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]> {
-//   promise(options: SearchResultSetGetRangeOptions): Promise<Result<RecordType, Columns>[]>;
-//   (options: SearchResultSetGetRangeOptions): Result<RecordType, Columns>[];
+// interface SearchResultSetGetRangeFunction<RecordType extends SearchRecordType> {
+//   promise(options: SearchResultSetGetRangeOptions): Promise<Result<RecordType>[]>;
+//   (options: SearchResultSetGetRangeOptions): Result<RecordType>[];
 // }
-// // interface SearchResultSetEachFunction<RecordType extends SearchRecordType> {
-// //   promise(callback: (result: Result<RecordType>, index: number) => boolean): Promise<boolean>;
-// //   (callback: (result: Result<RecordType>, index: number) => boolean): void;
-// // }
-// export interface ResultSet<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]> {
+// interface SearchResultSetEachFunction<RecordType extends SearchRecordType> {
+//   promise(callback: (result: Result<RecordType>, index: number) => boolean): Promise<boolean>;
+//   (callback: (result: Result<RecordType>, index: number) => boolean): void;
+// }
+// export interface ResultSet<RecordType extends SearchRecordType, Columns extends ColumnName<RecordType>[] = ColumnName<RecordType>[]> {
 //   each: SearchResultSetEachFunction<RecordType, Columns>;
-//   getRange: SearchResultSetGetRangeFunction<RecordType, Columns>;
+//   getRange: SearchResultSetGetRangeFunction<RecordType>;
 //   columns: Columns
 // }
-// interface SearchResultSetEachFunction<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]> {
-//   promise(callback: (result: Result<RecordType, Columns>, index: number) => boolean): Promise<boolean>;
+// interface SearchResultSetEachFunction<RecordType, Columns extends ColumnName<RecordType>[] = ColumnName<RecordType>[]> {
+//   promise(callback: (result: Result<RecordType>, index: number) => boolean): Promise<boolean>;
 //   (callback: (result: Result<RecordType, Columns>, index: number) => boolean): Result<RecordType, Columns>|undefined;
 // }
 // interface RunPagedOptions {

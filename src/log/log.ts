@@ -1,4 +1,4 @@
-import { printMs } from '../misc/misc';
+import { printMs } from "../misc/printMs";
 import { nanoTime } from 'N/util'
 
 export interface Logger {

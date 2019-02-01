@@ -7,7 +7,7 @@
 import * as nsSearch from 'N/search';
 // import { SearchRecordType } from "../../sharedTypes";
 import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType, ColumnType } from './searchTypingHelpers';
-import { StringKeyOf } from '../../misc/misc';
+import { StringKeyOf } from "../../misc/typesUtil";
 import { TypedSearchColumnNames } from './generated';
 // import { ValueOfNumberKey, ValueOfStringKey } from '../../misc/misc';
 

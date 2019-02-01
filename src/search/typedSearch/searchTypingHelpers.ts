@@ -1,11 +1,11 @@
-import { StringKeyOf, ValueOfStringKey, NamedMemberNamesOf, NamedMemberValueOf, NamedMemberValuesOf } from '../../misc/misc';
+import { StringKeyOf, ValueOfStringKey, NamedMemberNamesOf, NamedMemberValueOf, NamedMemberValuesOf } from "../../misc/typesUtil";
 import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames, TypedSearchColumnTypes, TypedSearchFilterTypes, SearchTypesOperatorsSupport } from './generated';
 
 // Helper types. Extract columns, filters, joins names and types and operator support types from generated types
 
 
 
-export type  SearchRecordType = StringKeyOf<TypedSearchColumnNames>
+export type SearchRecordType = StringKeyOf<TypedSearchColumnNames>
 
 
 export type JoinName<RecordType extends SearchRecordType = SearchRecordType> = NamedMemberNamesOf<ValueOfStringKey<TypedSearchJoinTypes, RecordType>>;
@@ -20,7 +20,10 @@ export type ColumnName<RecordType extends SearchRecordType = SearchRecordType> =
 export type FilterName<RecordType extends SearchRecordType = SearchRecordType> = NamedMemberNamesOf<FilterValue<RecordType>>;
 // let columnName: ColumnName<'item'> // this is all column names of 'item'
 
-export type ColumnType<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = NamedMemberValueOf<NamedMemberValueOf<TypedSearchColumnTypes,RecordType>,Column>
+export type ColumnType<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = NamedMemberValueOf<NamedMemberValueOf<TypedSearchColumnTypes, RecordType>, Column>
+
+export type ColumnType2<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = ValueOfStringKey<ValueOfStringKey<TypedSearchColumnTypes, RecordType>, Column>
+
 
 type t = NamedMemberValueOf<NamedMemberValueOf<TypedSearchColumnTypes, 'inventoryitem'>, 'isavailable'>
 type t2 = ColumnType<'inventoryitem', 'isavailable'>

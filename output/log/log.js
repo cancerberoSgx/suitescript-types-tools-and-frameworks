@@ -1,4 +1,4 @@
-define(["require", "exports", "../misc/misc", "N/util"], function (require, exports, misc_1, util_1) {
+define(["require", "exports", "../misc/printMs", "N/util"], function (require, exports, printMs_1, util_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var defaultLogger;
@@ -64,7 +64,7 @@ define(["require", "exports", "../misc/misc", "N/util"], function (require, expo
             // return this.timeEnd_Date_getTime(label)
             var nano = util_1.nanoTime() - this.times[label];
             var ms = nano / 1e+6;
-            this.log(misc_1.printMs(ms));
+            this.log(printMs_1.printMs(ms));
             return ms;
         };
         return ConsoleImpl;

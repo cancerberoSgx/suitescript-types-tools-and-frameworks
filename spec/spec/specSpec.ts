@@ -1,5 +1,5 @@
 import { describe as ssDescribe, expect as ssExpect, fail as ssFail, it as ssIt, SpecRunner, skip as ssSkip } from '../../src/spec';
-// import { TextReporter } from '../../src/spec/textReporter';
+
 describe('spec', () => {
     it('basic', () => {
         SpecRunner.getInstance().reset()

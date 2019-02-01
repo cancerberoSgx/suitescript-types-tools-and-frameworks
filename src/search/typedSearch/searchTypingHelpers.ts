@@ -1,4 +1,4 @@
-import { StringKeyOf, ValueOfStringKey, NamedMemberNamesOf } from '../../misc/misc';
+import { StringKeyOf, ValueOfStringKey, NamedMemberNamesOf, NamedMemberValueOf, NamedMemberValuesOf } from '../../misc/misc';
 import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames, TypedSearchColumnTypes, TypedSearchFilterTypes, SearchTypesOperatorsSupport } from './generated';
 
 // Helper types. Extract columns, filters, joins names and types and operator support types from generated types
@@ -8,7 +8,7 @@ import { TypedSearchJoinTypes, TypedSearchColumnNames, TypedSearchFilterNames, T
 export type  SearchRecordType = StringKeyOf<TypedSearchColumnNames>
 
 
-export type JoinName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<ValueOfStringKey<TypedSearchJoinTypes, RecordType>>;
+export type JoinName<RecordType extends SearchRecordType = SearchRecordType> = NamedMemberNamesOf<ValueOfStringKey<TypedSearchJoinTypes, RecordType>>;
 
 type ColumnValue<RecordType extends SearchRecordType = SearchRecordType> = ValueOfStringKey<TypedSearchColumnNames, RecordType>;
 
@@ -17,10 +17,13 @@ type FilterValue<RecordType extends SearchRecordType = SearchRecordType> = Value
 
 export type ColumnName<RecordType extends SearchRecordType = SearchRecordType> = NamedMemberNamesOf<ColumnValue<RecordType>>;
 
-export type FilterName<RecordType extends SearchRecordType = SearchRecordType> = StringKeyOf<FilterValue<RecordType>>;
+export type FilterName<RecordType extends SearchRecordType = SearchRecordType> = NamedMemberNamesOf<FilterValue<RecordType>>;
 // let columnName: ColumnName<'item'> // this is all column names of 'item'
 
-type ColumnType<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = ValueOfStringKey<ValueOfStringKey<TypedSearchColumnTypes, RecordType>, Column> & string;
+export type ColumnType<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = NamedMemberValueOf<NamedMemberValueOf<TypedSearchColumnTypes,RecordType>,Column>
+
+type t = NamedMemberValueOf<NamedMemberValueOf<TypedSearchColumnTypes, 'inventoryitem'>, 'isavailable'>
+type t2 = ColumnType<'inventoryitem', 'isavailable'>
 
 type FilterType<RecordType extends SearchRecordType, Filter extends FilterName<RecordType>> = ValueOfStringKey<ValueOfStringKey<TypedSearchFilterTypes, RecordType>, Filter> & string;
 

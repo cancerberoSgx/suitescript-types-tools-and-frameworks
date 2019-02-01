@@ -16,10 +16,18 @@ define(["require", "exports", "./typedSearch", "N/search"], function (require, e
         });
         var i = s2.run().each(function (f) {
             console.log("primaryparent: " + f.getValue('primaryparent'));
-            console.log("primaryparent: " + f.getValue('displayinsite')); // gives type error- wrong column
+            // console.log(`primaryparent: ${f.getValue('displaasdyinsite')}`); // gives type error- wrong column
             return true;
         });
-        var s3 = typedSearch_1.search({ type: 'inventoryitem' });
+        var s3 = typedSearch_1.search({ type: 'inventoryitem', columns: ['currentstdcosteffectivedate'] });
+        var i2 = s3.run().each(function (f) {
+            // const v = f.getValue('foo')
+            var v = f.getValue('dateviewed'); // Date | undefined
+            var v2 = f.getValue('safetystocklevel'); // number|undefined
+            var v3 = f.getValue('isavailable'); // boolean|undefined
+            // console.log(`primaryparent: ${}`); // gives type error- wrong column
+            return true;
+        });
     }
     exports.typedSearchTest = typedSearchTest;
 });

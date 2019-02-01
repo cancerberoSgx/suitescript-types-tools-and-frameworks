@@ -6,7 +6,7 @@
 
 import * as nsSearch from 'N/search';
 // import { SearchRecordType } from "../../sharedTypes";
-import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType } from './searchTypingHelpers';
+import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType, ColumnType } from './searchTypingHelpers';
 import { StringKeyOf } from '../../misc/misc';
 import { TypedSearchColumnNames } from './generated';
 // import { ValueOfNumberKey, ValueOfStringKey } from '../../misc/misc';
@@ -71,11 +71,11 @@ interface TypedFilter<
   formula: string;
 }
 
-
+// type ResultValue<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = 
 export interface Result<RecordType extends SearchRecordType> {
-  getValue(column: TypedColumn<RecordType> | ColumnName<RecordType>): boolean | string | string[]; // TODO: typed return value
+  getValue<C extends ColumnName<RecordType>>(column: TypedColumn<RecordType, C> | C): ColumnType<RecordType, C> // TODO: typed return value
   getText(options: TypedColumn<RecordType> | ColumnName<RecordType>): string;
-  recordType: RecordType | string;
+  recordType: RecordType;
   id: string;
   columns: TypedColumn<RecordType>[];
 }
@@ -105,7 +105,7 @@ export interface ResultSet<RecordType extends SearchRecordType> {
 
 interface SearchResultSetEachFunction<RecordType> {
   promise(callback: (result: Result<RecordType>, index: number) => boolean): Promise<boolean>;
-  (callback: (result: Result<RecordType>, index: number) => boolean): void;
+  (callback: (result: Result<RecordType>, index: number) => boolean): Result<RecordType>|undefined;
 }
 interface RunPagedOptions {
   /**

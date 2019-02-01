@@ -17,11 +17,23 @@ export function typedSearchTest() {
   });
   const i = s2.run().each(f => {
     console.log(`primaryparent: ${f.getValue('primaryparent')}`);
-    console.log(`primaryparent: ${f.getValue('displayinsite')}`); // gives type error- wrong column
+    // console.log(`primaryparent: ${f.getValue('displaasdyinsite')}`); // gives type error- wrong column
     return true;
   });
 
-  const s3 = search({ type: 'inventoryitem' });
+
+  const s3 = search({ type: 'inventoryitem', columns: ['currentstdcosteffectivedate'] });
+
+  const i2 = s3.run().each(f => {
+    // const v = f.getValue('foo')
+    const v = f.getValue('dateviewed') // Date | undefined
+    const v2 = f.getValue('safetystocklevel') // number|undefined
+    const v3 = f.getValue('isavailable') // boolean|undefined
+    // console.log(`primaryparent: ${}`); // gives type error- wrong column
+    return true;
+  });
+
+
 }
 
 // export function findMatrixParent(id?: string): Result | undefined {

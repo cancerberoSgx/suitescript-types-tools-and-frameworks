@@ -10,7 +10,16 @@
     "lib": [
       "es2018",
     ],
+    "baseUrl": "./",
+    "paths": {
+      "N": [
+        "node_modules/@hitc/netsuite-types/N"
+      ],
+      "N/*": [
+        "node_modules/@hitc/netsuite-types/N/*"
+      ]
+    }
   },
-  "include": ["../src/spec", "./spec"],
+  "include": ["../src/spec", "./spec", "../src/record/typedRecord", "node_modules/@hitc"],
   "exclude": ["dist", "output", "node_modules"]
 }

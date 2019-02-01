@@ -40,33 +40,15 @@ export type StringKeyOf<T extends any> = Extract<keyof T, string>;
 export type NumberKeyOf<T extends any> = Extract<keyof T, number>;
 // export type Value<T extends any> = Extract<keyof T, string>;
 
-// export type Extended <T extends any, K extends any = any> = T extends K ? T : never
-// export type NamedMemberNamesOf <T extends any, K extends Extended<T> = Extended<T>> = StringKeyOf<K>
-// export type NamedMemberValuesOf <T extends any, K extends Extended<T> = Extended<T>> = ValueOfStringKey<K, NamedMemberNamesOf<K>>
-
-
-// type UnionToArray0<T> = []
-// type UnionToArray1<T> = [T]
-// type UnionToArray2<T, T1 = Extract<T, T2>, T2 =Extract<T, T1>> = T1 extends T2 ? (T2 extends T1 ? never : [T, T]) : [T, T]
-// type UnionToArray3<T, T3 = Extract<T, T2>, T2 = Extract<T, UnionToArray2<T>>> = T3 extends T2 ? (T2 extends T3 ? never : T2) : [T, T, T]
-// type UnionToArray3<T, T0 = Extract<T, T1|T2|T3>, T1 = Extract<T, T0|T2|T3>, T2 =Extract<T, T0|T1|T3>, T3 =Extract<T, T0|T1|T2>, > = T3 extends T2|T1|T0 ? (T2|T1|T0 extends T3 ? (T2 extends T0|T1|T3 ? (T0|T1|T3 extends T2 ? (T1 extends T0|T2|T3 ? (T0|T2|T3 extends T1 ? never : [T]) :[T]) : [T,T]) :[T,T]) : [T,T,T]):[T,T,T]
-// // (T3 extends T1 ? (T1 extends T3 ? (T0 extends T3 ? (T3 extends T0 ? never : []): []) :[T]):[T]):[T,T]) :[T,T]
-// //Extract<T, T2&T3>, T2 =Extract<T, T1&T3>,  T3 =Extract<T, T1&T2>> = T1 extends T2 ? (T2 extends T1 ? never : [T, T]) : [T, T]
-
-// type UnionToArray3<T, t0 = UnionToArray0<T>, t1 = UnionToArray1<T>, t2 = Extract<T, t3>, t3 = Extract<T, t2>> = t3 extends t2 ? (t2 extends t3 ? never: [T,T,T]): [T,T,T]
-
-
-type UnionToArray3<T, t1 = Extract<T, t3|t2>, t2 = Extract<T, t3|t1>, t3 = Extract<T, t2|t1>> = t3 extends t2 ? (t2 extends t3 ? (t1 extends t3 ? (t3 extends t1 ? never: [T,T,T]): [T,T,T]) : [T,T,T]) : [T,T,T]
-
-
-
-type UnionToArray<T, t0 = UnionToArray0<T>,t1 = UnionToArray1<T>,t2 = UnionToArray2<T>, t3 = UnionToArray3<T>> = t3 extends never ? (t2 extends never ? (t1 extends never ? (t0 extends never ? never : t0) : t1 ) : t2) : t3 //t0 extends never ? (t1 extends never ? never : t1) : t0
-// type UnionToArray<T, t0 = UnionToArray0<T>,t1 = UnionToArray1<T>,t2 = UnionToArray2<T>, t3 = UnionToArray3<T>> = t0 extends never ? (t1 extends never ? (t2 extends never ? (t3 extends never ? never : t3) : t2 ) : t1) : t0
-
-let gg : UnionToArray2<1|2|3>
-
-
-
+/** return T and all its super interfaces/classes ascendants */
+export type Extended <T extends any, K extends any = any> = T extends K ? T : never
+export type NamedMemberNamesOf <T extends any, K extends Extended<T> = Extended<T>> = StringKeyOf<K>
+export type NamedMemberValuesOf <T extends any, K extends Extended<T> = Extended<T>> = ValueOfStringKey<K, NamedMemberNamesOf<K>>
+export type NamedMemberValueOf <T extends any, K extends NamedMemberNamesOf<T>> = ValueOfStringKey<Extended<T>, K>
+// interface a{a:number} interface b{b:string} interface c extends a, b {c:Date}
+// type n = NamedMemberValueOf<c, 'c'>
+/** return an fixed length array with item type TItem */
+// export type Tuple<TItem, TLength extends number> = [TItem, ...TItem[]] & { length: TLength };
 
 
 export type TODO = any
@@ -93,6 +75,52 @@ export class TypedMapImpl<PropTypes extends EmptyObject> implements TypedMap<Pro
     this.props[name] = value
   }
 }
+
+
+// /**
+//  * Creates a union from the types of an Array or tuple
+//  */
+// type UnionOf<T extends any[]> = T[number];
+
+// /**
+//  * Returns the length of an array or tuple
+//  */
+// type LengthOf<T extends any[]> = T["length"];
+
+// /**
+//  * Returns all but the first item's type in a tuple/array
+//  */
+// export type Tail<T extends any[]> =
+// 	((...args: T) => any) extends ((head: any, ...tail: infer R) => any) ? R : never;
+
+// /**
+//  * Returns the given tuple/array with the item type prepended to it
+//  */
+// type Unshift<List extends any[], Item> =
+// 	((first: Item, ...rest: List) => any) extends ((...list: infer R) => any) ? R : never;
+
+// /**
+//  * Tests if two types are equal
+//  */
+// type Equals<T, S> =
+// 	[T] extends [S] ? (
+// 		[S] extends [T] ? true : false
+// 	) : false;
+
+// type Range<N, T extends number[] = []> = {
+// 	0: T,
+// 	1: Range<N, Unshift<T, LengthOf<T>>>,
+// }[Equals<LengthOf<Tail<T>>, N> extends true ? 0 : 1];
+
+// /** Tests if N > M */
+// type IsGreaterThan<N, M> = N extends Exclude<Range<N>, Range<M>> ? true : false;
+// /** Tests if N <= M */
+// // type IsLessThanOrEqual<N, M> = Not<IsGreaterThan<N, M>>;
+// /** Tests if N < M */
+// type IsLessThan<N, M> = M extends Exclude<Range<M>, Range<N>> ? true : false;
+// /** Tests if N >= M */
+// // type IsGreaterThanOrEqual<N, M> = Not<IsLessThan<N, M>>;
+
 
 
 

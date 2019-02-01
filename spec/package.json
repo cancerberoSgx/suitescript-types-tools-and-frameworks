@@ -19,8 +19,12 @@
     ],
     "author": "Sebastián Gurin",
     "license": "MIT",
-    "dependencies": {},
+    "dependencies": {
+        
+    },
     "devDependencies": {
+        "@hitc/netsuite-types": "file:../../git/typings-suitescript-2.0",
+        "tsd-check": "*",
         "@types/jasmine": "^3.3.5",
         "jasmine": "^2.8.0",
         "ts-node": "^7.0.1",

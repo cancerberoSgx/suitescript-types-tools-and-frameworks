@@ -3,6 +3,7 @@ import * as nsSearch from 'N/search'
 import { find } from '../results';
 import { Result, ResultSet } from 'N/search';
 import { RecordId } from '../../record/recordRef';
+import { list, find as tfind } from './typedSearchOperations';
 
 export function typedSearchTest() {
 
@@ -10,37 +11,54 @@ export function typedSearchTest() {
 
   // allCategories();
 
-  findRootFolder()
-  // ls()
+  // findRootFolder()
+  
+  // ls(-15)
+
+  // findFileNamedTest()
+
+  
 
 }
 
-// function ls(parent?: RecordId) {
-//   const parentId = parent || '@NONE@'
 
-//   const found = find(create({
-//     type: 'folder',
-//     columns: ['name'],
-//     filters: [
-//       {
-//         name: 'parent',
-//         operator: 'anyOf',
-//         values: parentId
-//       }
-//     ]
-//   }).run() as any as ResultSet, f => {
-//     console.log(f.getValue('name'), name, f.getValue('name') === name);
-//     return f.getValue('name') === name
-//   })
-//   if (found) {
-//     console.log(`Found : ` + found.id);
-//   }
-//   else {
-//     console.log('not found');
-//   }
+function findFileNamedTest(){
+  const found = findFileNamed(-15, name=>name.indexOf('SCA')!==-1)
+  if(found){console.log(`found ${found.getValue('name')}`)}
+}
+function findFileNamed(parentId: RecordId|undefined, predicate: (name:string)=>boolean) {
+  return tfind({
+    type: 'file',
+    columns: ['name'],
+    filters: [
+      {
+        name: 'folder',
+        operator: 'anyOf',
+        values: parentId
+      }
+    ]
+  }, f=> predicate(f.getValue('name') as string))
+}
 
 
-// }
+function ls(parent?: RecordId) {
+  const parentId = parent || '@NONE@'
+  const found = list({
+    type: 'folder',
+    columns: ['name'],
+    filters: [
+      {
+        name: 'parent',
+        operator: 'anyOf',
+        values: parentId
+      }
+    ]
+  })
+  console.log(`Found : ` + found.map(f => f.getValue('name')).join('\n'))
+  return found
+}
+
+
 function findRootFolder() {
   const name = 'SuiteScripts'
   const found = find(create({

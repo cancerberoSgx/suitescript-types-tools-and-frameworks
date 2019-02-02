@@ -21,6 +21,7 @@ import { recordToJsonTest1 } from './experiments/recordToJson1';
 import { typedRecordTest } from './record/typedRecord/typedRecordTest';
 import { query1Test } from './experiments/query1';
 import { typedSearchTest } from './search/typedSearch/typedSearchTest';
+import { lsTest } from './file/ls';
 // import { getObjectValueTypes } from './misc';
 // import * as nsError from 'N/error';
 
@@ -28,8 +29,9 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
     setDefaultLogger(new ResponseLogger(context.response))
 
-    console.log('seba')
-    typedSearchTest()
+    // console.log('seba')
+    // typedSearchTest()
+    lsTest()
     
     // query1Test()
     // typedRecordTest()

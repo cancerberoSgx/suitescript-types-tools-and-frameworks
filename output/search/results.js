@@ -41,7 +41,6 @@ define(["require", "exports"], function (require, exports) {
         results.each(function (r) {
             if (predicate(r, index)) {
                 found.push(r);
-                // return false
             }
             index++;
             return true;

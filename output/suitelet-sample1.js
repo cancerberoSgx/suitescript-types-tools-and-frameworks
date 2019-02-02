@@ -2,15 +2,16 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/log", "./log/responseLogger", "./search/typedSearch/typedSearchTest"], function (require, exports, log_1, responseLogger_1, typedSearchTest_1) {
+define(["require", "exports", "./log/log", "./log/responseLogger", "./file/ls"], function (require, exports, log_1, responseLogger_1, ls_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // import { getObjectValueTypes } from './misc';
     // import * as nsError from 'N/error';
     exports.onRequest = function (context) {
         log_1.setDefaultLogger(new responseLogger_1.ResponseLogger(context.response));
-        console.log('seba');
-        typedSearchTest_1.typedSearchTest();
+        // console.log('seba')
+        // typedSearchTest()
+        ls_1.lsTest();
         // query1Test()
         // typedRecordTest()
         // const newCategory = copyCategory({

@@ -1,36 +1,49 @@
-define(["require", "exports", "./typedSearch", "N/search", "../results"], function (require, exports, typedSearch_1, nsSearch, results_1) {
+define(["require", "exports", "./typedSearch", "N/search", "../results", "./typedSearchOperations"], function (require, exports, typedSearch_1, nsSearch, results_1, typedSearchOperations_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function typedSearchTest() {
         // rootFolders();
         // allCategories();
-        findRootFolder();
-        // ls()
+        // findRootFolder()
+        // ls(-15)
+        // findFileNamedTest()
     }
     exports.typedSearchTest = typedSearchTest;
-    // function ls(parent?: RecordId) {
-    //   const parentId = parent || '@NONE@'
-    //   const found = find(create({
-    //     type: 'folder',
-    //     columns: ['name'],
-    //     filters: [
-    //       {
-    //         name: 'parent',
-    //         operator: 'anyOf',
-    //         values: parentId
-    //       }
-    //     ]
-    //   }).run() as any as ResultSet, f => {
-    //     console.log(f.getValue('name'), name, f.getValue('name') === name);
-    //     return f.getValue('name') === name
-    //   })
-    //   if (found) {
-    //     console.log(`Found : ` + found.id);
-    //   }
-    //   else {
-    //     console.log('not found');
-    //   }
-    // }
+    function findFileNamedTest() {
+        var found = findFileNamed(-15, function (name) { return name.indexOf('SCA') !== -1; });
+        if (found) {
+            console.log("found " + found.getValue('name'));
+        }
+    }
+    function findFileNamed(parentId, predicate) {
+        return typedSearchOperations_1.find({
+            type: 'file',
+            columns: ['name'],
+            filters: [
+                {
+                    name: 'folder',
+                    operator: 'anyOf',
+                    values: parentId
+                }
+            ]
+        }, function (f) { return predicate(f.getValue('name')); });
+    }
+    function ls(parent) {
+        var parentId = parent || '@NONE@';
+        var found = typedSearchOperations_1.list({
+            type: 'folder',
+            columns: ['name'],
+            filters: [
+                {
+                    name: 'parent',
+                    operator: 'anyOf',
+                    values: parentId
+                }
+            ]
+        });
+        console.log("Found : " + found.map(function (f) { return f.getValue('name'); }).join('\n'));
+        return found;
+    }
     function findRootFolder() {
         var name = 'SuiteScripts';
         var found = results_1.find(typedSearch_1.create({

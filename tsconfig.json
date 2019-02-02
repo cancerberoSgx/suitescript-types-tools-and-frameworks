@@ -15,7 +15,7 @@
     "baseUrl": ".",
     // "rootDir": ".",
     "lib": [
-      "es6",
+      "es5",
     ],
     "removeComments": false,
     "paths": {

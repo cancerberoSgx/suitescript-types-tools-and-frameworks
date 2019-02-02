@@ -1,2 +1,8 @@
-"use strict";
-// glob(parentFolder, '**/*.js') will return a list of all files/folders matching the glob
+define(["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function glob(config) {
+        throw 1;
+    }
+    exports.glob = glob;
+});

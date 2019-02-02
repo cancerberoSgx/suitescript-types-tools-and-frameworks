@@ -18,8 +18,8 @@ export function run(s: Search): Result[] {
     return toArray(s.run())
 }
 
-/** array.find() like function. it won't convert the whole results into an array but iterate throug the result set to be more performant */
-export function find(results: ResultSet, predicate: (r: Result, index?: number) => boolean): Result|undefined {
+/** array.find() like function. it won't convert the whole results into an array but iterate through the result set to be fast */
+export function find(results: ResultSet, predicate: FindPredicate): Result|undefined {
     let found : Result|undefined
     let index = 0
     results.each(r => {
@@ -32,6 +32,7 @@ export function find(results: ResultSet, predicate: (r: Result, index?: number) 
     })
     return found
 }  
+export type FindPredicate =(r: Result, index?: number) => boolean
 
 /** array.filter() like function. it won't convert the whole results into an array but iterate throug the result set to be more performant */
 export function filter(results: ResultSet, predicate: (r: Result, index?: number) => boolean): Result[] {

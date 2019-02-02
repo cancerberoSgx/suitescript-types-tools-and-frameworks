@@ -19,7 +19,7 @@ define(["require", "exports"], function (require, exports) {
         return toArray(s.run());
     }
     exports.run = run;
-    /** array.find() like function. it won't convert the whole results into an array but iterate throug the result set to be more performant */
+    /** array.find() like function. it won't convert the whole results into an array but iterate through the result set to be fast */
     function find(results, predicate) {
         var found;
         var index = 0;

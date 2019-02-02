@@ -5,10 +5,15 @@
 
 import * as nsSearch from 'N/search';
 import { ColumnName, ColumnType, FilterName, FilterSupportedOperators, JoinName, SearchRecordType } from './searchTypingHelpers';
+import { find as resultFind, FindPredicate } from '../results';
 
 
 export function create<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>): Search<RecordType> {
   return nsSearch.create(options as any) as any
+}
+
+export function find<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>, predicate: FindPredicate): Result<RecordType>|undefined {
+  return resultFind(create(options).run() as any, predicate) as any
 }
 
 export interface Search<RecordType extends SearchRecordType> {

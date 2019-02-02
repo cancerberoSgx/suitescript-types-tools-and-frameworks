@@ -1,12 +1,60 @@
-define(["require", "exports", "./typedSearch", "N/search"], function (require, exports, typedSearch_1, nsSearch) {
+define(["require", "exports", "./typedSearch", "N/search", "../results"], function (require, exports, typedSearch_1, nsSearch, results_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function typedSearchTest() {
-        // const s = search({ type: 'item' });
-        // const r = s.run().each(f => {
-        //   f.getValue('location');
-        //   return false;
-        // });
+        // rootFolders();
+        // allCategories();
+        findRootFolder();
+        // ls()
+    }
+    exports.typedSearchTest = typedSearchTest;
+    // function ls(parent?: RecordId) {
+    //   const parentId = parent || '@NONE@'
+    //   const found = find(create({
+    //     type: 'folder',
+    //     columns: ['name'],
+    //     filters: [
+    //       {
+    //         name: 'parent',
+    //         operator: 'anyOf',
+    //         values: parentId
+    //       }
+    //     ]
+    //   }).run() as any as ResultSet, f => {
+    //     console.log(f.getValue('name'), name, f.getValue('name') === name);
+    //     return f.getValue('name') === name
+    //   })
+    //   if (found) {
+    //     console.log(`Found : ` + found.id);
+    //   }
+    //   else {
+    //     console.log('not found');
+    //   }
+    // }
+    function findRootFolder() {
+        var name = 'SuiteScripts';
+        var found = results_1.find(typedSearch_1.create({
+            type: 'folder',
+            columns: ['name'],
+            filters: [
+                {
+                    name: 'parent',
+                    operator: 'anyOf',
+                    values: '@NONE@'
+                }
+            ]
+        }).run(), function (f) {
+            console.log(f.getValue('name'), name, f.getValue('name') === name);
+            return f.getValue('name') === name;
+        });
+        if (found) {
+            console.log("Found : " + found.id);
+        }
+        else {
+            console.log('not found');
+        }
+    }
+    function allCategories() {
         var s2 = typedSearch_1.create({
             type: 'commercecategory',
             columns: [{
@@ -23,89 +71,22 @@ define(["require", "exports", "./typedSearch", "N/search"], function (require, e
             // console.log(`primaryparent: ${f.getValue('displaasdyinsite')}`); // gives type error- wrong column
             return true;
         });
-        // const s3 = search({ type: 'inventoryitem', columns: ['currentstdcosteffectivedate'] });
-        // const i2 = s3.run().each(f => {
-        //   // const v = f.getValue('foo')
-        //   const v = f.getValue('dateviewed') // Date | undefined
-        //   const v2 = f.getValue('safetystocklevel') // number|undefined
-        //   const v3 = f.getValue('isavailable') // boolean|undefined
-        //   // console.log(`primaryparent: ${}`); // gives type error- wrong column
-        //   return true;
-        // });
     }
-    exports.typedSearchTest = typedSearchTest;
+    function rootFolders() {
+        var sss = typedSearch_1.create({
+            type: 'folder',
+            columns: ['name', 'parent', 'location'],
+            filters: [
+                {
+                    name: 'parent',
+                    operator: 'anyOf',
+                    values: '@NONE@'
+                }
+            ]
+        });
+        sss.run().each(function (f) {
+            console.log("name: " + f.getValue('name') + " location " + f.getValue('location'));
+            return true;
+        });
+    }
 });
-// export function findMatrixParent(id?: string): Result | undefined {
-//   const filter = [
-//       ['matrix', Operator.IS, 'T'],
-//       'AND',
-//       ['matrixchild', Operator.IS, 'F']
-//   ]
-//   return find(create({
-//       type: Type.ITEM,
-//       filters: id ? [
-//           ['internalid', Operator.ANYOF, id],
-//           'AND', filter] : filter
-//   }).run(), result => {
-//       return true
-//   })
-// }
-// var search = query.create({
-//   type: query.Type.CUSTOMER
-// }); 
-// var salesrep = search.join({
-//   fieldId: 'salesrep'
-// });
-// var cond1 = search.createCondition({
-//   fieldId: 'id',
-//   operator: query.Operator.EQUAL,
-//   values: 107
-// });
-// var cond2 = search.createCondition({
-//   fieldId: 'id',
-//   operator: query.Operator.EQUAL,
-//   values: 2647
-// });
-// var cond3 = salesrep.createCondition({
-//   fieldId: 'email',
-//   operator: query.Operator.START_WITH_NOT,
-//   values: 'foo'
-// });
-// search.condition = search.and(
-//   cond3, search.not(
-//       search.or(cond1, cond2)
-//   )
-// );
-// var search = query.create({
-//   type: query.Type.CUSTOMER
-// });
-// var salesrep = search.join({
-//   fieldId: 'salesrep'
-// });
-// search.columns = [
-//   search.createColumn({
-//       fieldId: 'entityid'
-//   }),
-//   search.createColumn({
-//       fieldId: 'id'
-//   }),
-//   salesrep.createColumn({
-//       fieldId: 'entityid'
-//   }),
-//   salesrep.createColumn({
-//       fieldId: 'email'
-//   }),
-//   salesrep.createColumn({
-//       fieldId: 'hiredate'
-//   }),
-// ];
-// search.sort = [
-//   search.createSort({
-//       column: search.columns[1]
-//   }),
-//   salesrep.createSort({
-//       column: salesrep.columns[0],
-//       ascending: false
-//   })
-// ];
-// var resultSet = search.run();

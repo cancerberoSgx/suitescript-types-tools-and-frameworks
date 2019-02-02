@@ -9,6 +9,7 @@ define(["require", "exports", "./log/log", "./log/responseLogger", "./search/typ
     // import * as nsError from 'N/error';
     exports.onRequest = function (context) {
         log_1.setDefaultLogger(new responseLogger_1.ResponseLogger(context.response));
+        console.log('seba');
         typedSearchTest_1.typedSearchTest();
         // query1Test()
         // typedRecordTest()

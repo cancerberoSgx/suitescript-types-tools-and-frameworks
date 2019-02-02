@@ -1,13 +1,17 @@
 // TODO: 
 // * filters: ['foo',... ] is wrong because it only allow to use filter names as string
 // * if I set install columns ['a', 'b'] then whe I call getValue() it should only let me reference those column names
-define(["require", "exports", "N/search"], function (require, exports, nsSearch) {
+define(["require", "exports", "N/search", "../results"], function (require, exports, nsSearch, results_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function create(options) {
         return nsSearch.create(options);
     }
     exports.create = create;
+    function find(options, predicate) {
+        return results_1.find(create(options).run(), predicate);
+    }
+    exports.find = find;
 });
 // export interface Search2<RecordType extends SearchRecordType, Columns extends TypedColumn<RecordType>[]
 // // , ColumnNames extends ValueOfStringKey<Unarray<Columns>, 'name'>

@@ -28,7 +28,9 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
     setDefaultLogger(new ResponseLogger(context.response))
 
+    console.log('seba')
     typedSearchTest()
+    
     // query1Test()
     // typedRecordTest()
 

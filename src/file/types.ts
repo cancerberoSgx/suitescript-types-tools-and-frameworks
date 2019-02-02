@@ -17,6 +17,6 @@ export interface File extends AbstractFile {
 
 export interface AbstractConfig {
   root?: string
-  rootAbsoluteName?: string
+  rootAbsoluteName: string
 }
 export type FilePredicate = (f:AbstractFile)=>boolean

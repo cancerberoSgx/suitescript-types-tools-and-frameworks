@@ -26,42 +26,76 @@ define(["require", "exports", "../search/typedSearch/typedSearchOperations", "..
                 };
                 return file;
             }) : [];
-        var directChildren = fileResults.filter(function (f) { return f.parent === root; });
         // now we get the folders folders (since fileResults has all descendants not only direct children)
         var folderIds = fileResults.filter(function (f) { return f.parent !== root; })
             .map(function (f) { return f.parent; })
             // .concat([root]) // add root just in case
             .filter(function (i, index, arr) { return i && arr.indexOf(i) === index; }); // dedup
         var folderResults = type === 'folder' || !type ?
-            typedSearchOperations_1.list({
-                type: 'folder',
-                columns: ['name'],
-                filters: [
-                    {
-                        name: 'internalid',
-                        operator: 'anyOf',
-                        values: folderIds
-                    }
-                ]
-            }).map(function (r) {
-                var name = r.getValue('name');
-                var folder = {
-                    type: "folder",
-                    id: r.id,
-                    name: name,
-                    parent: root,
-                    absoluteName: name
-                };
-                return folder;
-            }) : [];
+            getFolders(folderIds) : [];
         var files = folderResults.concat(fileResults);
-        buildAbsoluteNames(files, rootAbsoluteName);
+        buildAbsoluteNames(files, config);
         return files;
     }
     exports.ls = ls;
-    function buildAbsoluteNames(files, rootAbsoluteName) {
+    function getFolders(folderIds) {
+        return typedSearchOperations_1.list({
+            type: 'folder',
+            columns: ['name', 'parent'],
+            filters: [
+                {
+                    name: 'internalid',
+                    operator: 'anyOf',
+                    values: folderIds
+                }
+            ]
+        }).map(function (r) {
+            var name = r.getValue('name');
+            var parent = r.getValue('parent');
+            var folder = {
+                type: "folder",
+                id: r.id,
+                name: name,
+                parent: parent,
+                absoluteName: name
+            };
+            return folder;
+        });
+    }
+    var cc = 0;
+    function buildMissingFolders(files, config) {
+        var withNoParent = files.filter(function (f) { return f.parent && !misc_1.find(files, function (p) { return p.id === f.parent; }); }); //.map(f=>{id: f.idf.parent}).filter(i=>i!==undefined) as string[]
+        // console.log(`withNoParent ${withNoParent.length}`);
+        // // return
+        // // const missingParentIds = withNoParent.map(f => f.parent) as string[]
+        if (withNoParent.length > 1) {
+            getFolders(withNoParent.map(function (f) { return f.parent; })).forEach(function (p, i) {
+                if (!misc_1.find(files, function (f) { return f.id === p.id; })) {
+                    files.push(p);
+                }
+            });
+        }
+        // withNoParent = files.filter(f => f.parent && !find(files, p => p.id === f.parent))
+        // console.log(`withNoParent ${withNoParent.length}`);
+        //  if (withNoParent.length>1) {
+        //   getFolders(withNoParent.map(f => f.parent) as string[], config.rootAbsoluteName).forEach(p => {
+        //     if (!find(files, f => f.id === p.id)) {
+        //       files.push(p)
+        //     }
+        //   })
+        // }
+        var missingCount = files.filter(function (f) { return f.parent && !misc_1.find(files, function (p) { return p.id === f.parent; }); }).length;
+        if (missingCount > 1 && cc < 3) {
+            console.log('buildMissingFolders ' + missingCount);
+            cc++;
+            buildMissingFolders(files, config);
+        }
+        return;
+    }
+    function buildAbsoluteNames(files, config) {
+        buildMissingFolders(files, config);
         files.forEach(function (f) {
-            var pname = getParentAbsoluteName(f, files, rootAbsoluteName);
+            var pname = getParentAbsoluteName(f, files, config.rootAbsoluteName);
             f.absoluteName = pname + '/' + f.name;
         });
     }
@@ -70,18 +104,18 @@ define(["require", "exports", "../search/typedSearch/typedSearchOperations", "..
             return rootAbsoluteName;
         }
         var parent = misc_1.find(allFiles, function (p) { return p.id === f.parent; });
-        if (!parent || !parent.absoluteName) {
+        if (!parent) {
             // console.log(`Warning, file parent not found: ${f.name} ${f.id}`)
             return rootAbsoluteName + '/unknown' + counter++;
         }
         if (!parent.absoluteName) {
             return getParentAbsoluteName(parent, allFiles, rootAbsoluteName);
         }
-        return parent.absoluteName;
+        return parent.absoluteName.indexOf(rootAbsoluteName) === 0 ? parent.absoluteName : rootAbsoluteName + '/' + parent.absoluteName;
     }
     var counter = 0;
     function lsTest() {
-        ls({ root: '3742', rootAbsoluteName: '/SuiteScripts/DeployExtensions' })
+        ls({ root: '5226', rootAbsoluteName: '/SuiteScripts/DeployExtensions/AwaLabs' })
             .sort(function (a, b) { return a.absoluteName.localeCompare(b.absoluteName); })
             .forEach(function (f) {
             console.log(f.absoluteName + " " + f.type + " " + f.id + " " + f.parent);

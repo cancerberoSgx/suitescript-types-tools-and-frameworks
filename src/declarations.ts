@@ -1,2 +1,2 @@
 
-declare var toString:  (s: any) => string
+// declare var toString:  (s: any) => string

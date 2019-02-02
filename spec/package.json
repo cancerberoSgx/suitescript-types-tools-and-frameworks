@@ -8,7 +8,8 @@
         "test": "npx tsc && npx ts-node node_modules/jasmine/bin/jasmine.js",
         "build": "npx tsc",
         "run": "npm test",
-        "run-js": "rm -rf dist && npx tsc && mkdir -p dist/spec/support && cp -r spec/support/jasmine-js.json dist/spec/support/jasmine.json && cd dist && node ../node_modules/jasmine/bin/jasmine"
+        "run-js": "rm -rf dist && npx tsc && mkdir -p dist/spec/support && cp -r spec/support/jasmine-js.json dist/spec/support/jasmine.json && cd dist && node ../node_modules/jasmine/bin/jasmine",
+        "all": "npm run build && npm run run  && npm run run-js"
     },
     "keywords": [
         "SuiteScript",
@@ -28,6 +29,6 @@
         "@types/jasmine": "^3.3.5",
         "jasmine": "^2.8.0",
         "ts-node": "^7.0.1",
-        "typescript": "^2.6.2"
+        "typescript": "^3.3.1"
     }
 }

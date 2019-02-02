@@ -45,7 +45,7 @@ describe('typedRecord', () => {
       expectType<Extends<string, fieldT>>(false)
 
 
-      expectType<Identical<Date, typeof field.type>>(true)
+      expectType<Identical<Date|undefined, typeof field.type>>(true)
 
       // var fieldType = field.type
 

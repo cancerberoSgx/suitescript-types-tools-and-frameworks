@@ -194,17 +194,16 @@ describe('typedsearch', () => {
       const f2: TypedFilter<'item', 'isinactive'> = { name: 'isinactive', operator: 'equalTo' }
       expectType<Identical<typeof f2.operator, 'is' | 'equalTo'>>(true) // because of error - should be 'notBetween
 
-
+      // @ts-i gnore
       const s5 = create({
         type: 'item',
         columns: ['created'],
-        // @ts-ignore
         filters: [
+          // @ts-ignore
           { name: 'created', operator: 'equalTo' }, // error - equalTo operator doesn't apply to dates (created)
           { name: 'isinactive', operator: 'equalTo' } // it does apply to booleans
         ]
       });
-      const t = s5.filters[0].name
       expectType<ThereWasATypeError<typeof s5>>(true)
 
       const s6 = create({

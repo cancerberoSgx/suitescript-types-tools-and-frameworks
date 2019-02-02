@@ -9,6 +9,7 @@ export function expect<R>(real: R): Expect<R> {
 export interface Expect<R> {
   toBe(expected: R): void
   toContain<T extends ValueOf<R, 0>>(value: T): void
+  notToContain<T extends ValueOf<R, 0>>(value: T): void
 }
 
 class ExpectImpl<R> implements Expect<R>{
@@ -42,7 +43,7 @@ class ExpectImpl<R> implements Expect<R>{
   }
 
   /** array or string to contain (.indexOf()) */
-  toContain<J extends ValueOf<R, 0>>(value: J | string): void {
+  toContain<J extends ValueOf<R, 0>>(value: J | string, _not:boolean=false): void {
 
     if (!Array.isArray(this.real) && typeof this.real !== 'string') { 
       throw new Error('toContain must be called with a array or string value and it was ' + (typeof this.real) + ' - ' + this.real)
@@ -52,18 +53,25 @@ class ExpectImpl<R> implements Expect<R>{
     if ((this.real as any).indexOf(value) === -1) {
       result = {
         message,
-        type: 'fail'
+        type: _not?'pass' : 'fail'
       }
     }
     else {
       result = {
         message, 
-        type: 'pass' 
+        type: _not ? 'fail':'pass' 
       }
     }
     addToCurrentIt(result)
   }
+   /** array or string to contain (.indexOf()) */
+   notToContain<J extends ValueOf<R, 0>>(value: J | string): void {
+    this.toContain(value, true)
+  }
+
+
 }
+
 
 
 export function fail(label?: string) {

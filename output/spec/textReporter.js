@@ -32,6 +32,7 @@ define(["require", "exports", "../misc/misc", "../misc/printMs"], function (requ
             }); });
             output += "\n" + totalItCount + " spec, " + totalItFail + " failures " + ((this.config.format === 'detailed' || true) ? "\n" + totalExpectCount + " expectations, " + totalExpectFail + " failures" : "") + "\nFinished in " + printMs_1.printMs(this.config.result.totalTime, { seconds: true, ms: true }) + "\n";
             return {
+                fail: !!totalItFail,
                 output: output
             };
         };

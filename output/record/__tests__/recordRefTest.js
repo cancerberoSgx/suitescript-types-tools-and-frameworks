@@ -15,7 +15,8 @@ define(["require", "exports", "../../spec/index", "../../catalog/matrixItem", ".
                 index_1.expect(recordRef_1.isRecord(record)).toBe(true);
                 // console.log(printObjectValueTypes(record));
                 //@ts-ignore
-                console.log(JSON.stringify(record.toJSON(), null, 2));
+                // console.log(JSON.stringify(record.toJSON(), null, 2));
+                var a = 1;
                 // record.
             });
             index_1.it('should return a record when a Result is given', function () {

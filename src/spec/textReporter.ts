@@ -9,6 +9,7 @@ import { Describe, SpecError } from './describe';
 
 export interface TextReportResult extends ReportResult {
   output: string
+  fail: boolean
 }
 
 export interface TextReportConfig extends ReportConfig {
@@ -48,10 +49,12 @@ ${totalItCount} spec, ${totalItFail} failures ${(this.config.format==='detailed'
 ${totalExpectCount} expectations, ${totalExpectFail} failures` : ``}
 Finished in ${printMs(this.config.result.totalTime, {seconds: true, ms: true})}
 `
-    return { 
+    return {
+      fail: !!totalItFail,
       output
     }
-  } 
+  }
+
 //   printError(i: It, d: Describe): string {
 //     
 //       }

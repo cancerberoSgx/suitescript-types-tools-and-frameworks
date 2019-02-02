@@ -29,6 +29,7 @@ define(["require", "exports"], function (require, exports) {
         }
     }
     exports.find = find;
+    Array.prototype.find = typeof Array.prototype.find === 'undefined' ? function (predicate) { return find(this, predicate); } : Array.prototype.find;
     function objectKeys(o) {
         return Object.keys(o);
     }

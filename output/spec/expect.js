@@ -43,7 +43,8 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
             i.results.push(result);
         };
         /** array or string to contain (.indexOf()) */
-        ExpectImpl.prototype.toContain = function (value) {
+        ExpectImpl.prototype.toContain = function (value, _not) {
+            if (_not === void 0) { _not = false; }
             if (!Array.isArray(this.real) && typeof this.real !== 'string') {
                 throw new Error('toContain must be called with a array or string value and it was ' + (typeof this.real) + ' - ' + this.real);
             }
@@ -52,16 +53,20 @@ define(["require", "exports", "./runner"], function (require, exports, runner_1)
             if (this.real.indexOf(value) === -1) {
                 result = {
                     message: message,
-                    type: 'fail'
+                    type: _not ? 'pass' : 'fail'
                 };
             }
             else {
                 result = {
                     message: message,
-                    type: 'pass'
+                    type: _not ? 'fail' : 'pass'
                 };
             }
             addToCurrentIt(result);
+        };
+        /** array or string to contain (.indexOf()) */
+        ExpectImpl.prototype.notToContain = function (value) {
+            this.toContain(value, true);
         };
         return ExpectImpl;
     }());

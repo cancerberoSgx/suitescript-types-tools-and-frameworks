@@ -17,7 +17,7 @@ export function repeat(n: number, s: string): string {
 export function indent(i: number=1, tabSize=2): string {
   return repeat(i*tabSize, ' ')
 }
-export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[]) => boolean): T | undefined {
+export function find<T>(a: T[], predicate: FindPredicate<T>): T | undefined {
   for (let i = 0; i < a.length; i++) {
     const v = a[i];
     if (predicate(v, i, a)) {
@@ -25,6 +25,19 @@ export function find<T>(a: T[], predicate: (o: T, index?: number, arr?: T[]) => 
     }
   }
 }
+
+// also we declare and implement Array.prototype.find that doesn't exists in es5
+type FindPredicate<T> = (o: T, index?: number, arr?: T[]) => boolean
+type ArrayPrototypeFind<T> = (this: T[], predicate: FindPredicate<T>)=> T | undefined
+declare global {
+  interface Array<T> {
+      find: ArrayPrototypeFind<T>
+  }
+}
+Array.prototype.find = typeof Array.prototype.find === 'undefined' ? function<T>(this: T[], predicate: FindPredicate<T>){return find(this, predicate)} : Array.prototype.find 
+
+
+
 export function objectKeys<Field extends EmptyObject = EmptyObject>(o: Field):StringKeyOf<Field>[] {
   return Object.keys(o) as StringKeyOf<Field>[]
 }

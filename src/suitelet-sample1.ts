@@ -4,9 +4,10 @@
  */
 
 import { EntryPoints } from 'N/types';
-import { reactLikeText as reactLikeTest } from './experiments/reactLike/test';
 import { setDefaultLogger } from "./log/log";
 import { ResponseLogger } from './log/responseLogger';
+import { runSpecs } from './__tests__';
+import { find } from './misc/misc';
 
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
@@ -15,7 +16,9 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
     // lsTest()
     // query1Test()
     // typedRecordTest()
-    reactLikeTest( )    
-} 
+    // reactLikeTest( )   
+    
+    runSpecs();
 
+} 
 

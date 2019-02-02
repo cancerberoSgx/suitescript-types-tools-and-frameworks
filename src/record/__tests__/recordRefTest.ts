@@ -21,9 +21,9 @@ export function recordRefTest() {
       expect(isRecord(record)).toBe(true)
       // console.log(printObjectValueTypes(record));
       //@ts-ignore
-      console.log(JSON.stringify(record.toJSON(), null, 2));
+      // console.log(JSON.stringify(record.toJSON(), null, 2));
       
-      
+      var a = 1
       // record.
     })
 

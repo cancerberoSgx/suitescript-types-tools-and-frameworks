@@ -11,7 +11,7 @@ define(["require", "exports", "./createElement"], function (require, exports, cr
         createElement_1.ReactLike.createElement(List, null, props.apples.map(function (a) { return createElement_1.ReactLike.createElement(Apple, { apple: a }); }))); };
     function reactLikeText() {
         var apples = [{ color: 'red' }, { color: 'blue' }];
-        console.log(createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(Main, { apples: apples })));
+        console.log(createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(Main, { apples: apples }), { indent: true }));
     }
     exports.reactLikeText = reactLikeText;
     // this test can be executed in node with 

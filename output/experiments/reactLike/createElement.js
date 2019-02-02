@@ -18,11 +18,20 @@ define(["require", "exports", "../../misc/misc"], function (require, exports, mi
     function isNode(n) {
         return n && n.render;
     }
+    function isElementNodeLIke(n) {
+        return n && n.setAttribute;
+    }
+    function isTextNodeLIke(n) {
+        return n && !n.setAttribute && n.content;
+    }
     var TextNodeLikeImpl = /** @class */ (function () {
         function TextNodeLikeImpl(content) {
             this.content = content;
         }
-        TextNodeLikeImpl.prototype.render = function (config) { return this.content; };
+        TextNodeLikeImpl.prototype.render = function (config) {
+            if (config === void 0) { config = defaultRenderConfig; }
+            return "" + this.content;
+        };
         return TextNodeLikeImpl;
     }());
     var ElementNodeLikeImpl = /** @class */ (function () {
@@ -39,17 +48,16 @@ define(["require", "exports", "../../misc/misc"], function (require, exports, mi
         };
         ElementNodeLikeImpl.prototype.render = function (config) {
             var _this = this;
-            if (config === void 0) { config = { indent: false, indentLevel: 0 }; }
-            return indent(config) + "<" + this.tag + Object.keys(this.attrs).map(function (a) {
-                return " " + a + "=\"" + _this.attrs[a] + "\"";
-            }).join('') + ">" + this.children.map(function (c) {
-                return c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 }));
-            }).join('') + "</" + this.tag + ">";
+            if (config === void 0) { config = defaultRenderConfig; }
+            var newLine = config.indent ? "\n" : "";
+            return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + newLine + indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children.map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); }).join('') + newLine + indent(config) + "</" + this.tag + ">";
         };
         return ElementNodeLikeImpl;
     }());
+    var defaultRenderConfig = { indentLevel: 0, indentTabSize: 2 };
     function indent(config) {
-        return config.indent ? misc_1.indent(config.indentLevel || 0, config.indentTabSize) : '';
+        if (config === void 0) { config = defaultRenderConfig; }
+        return config.indent ? misc_1.indent(config.indentLevel || 0, config.indentTabSize || 2) : '';
     }
     var Module = {
         createElement: function (tag, attrs) {

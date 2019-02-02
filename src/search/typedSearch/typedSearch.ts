@@ -4,7 +4,7 @@
 
 
 import * as nsSearch from 'N/search';
-import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType, ColumnType, FilterArray } from './searchTypingHelpers';
+import { ColumnName, ColumnType, FilterName, FilterSupportedOperators, JoinName, SearchRecordType } from './searchTypingHelpers';
 
 
 export function create<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>): Search<RecordType> {
@@ -27,14 +27,20 @@ export interface Search<RecordType extends SearchRecordType> {
 
 type FilterValue = string | number | Date | string[] | number[] | Date[]
 
-export type FilterArray2<R extends SearchRecordType,
+/**
+ * IMPORTANT: for some reason for this to work, IT MUST BE IN THIS FILE - IF MOVED TO ANOTHER FILE IT WON'T Auxiliary
+ * type used to declare `filters` property so it validates that names exists for record type and also operator is
+ * supported by the filter type. For example, if filter 'isfulfillable' of record 'item' is a boolean / checkbox then it
+ * will validate that only the operators 'equalTo' and 'is' will be valid - other whise compile error 
+ */
+type TypedFilterOptions<R extends SearchRecordType,
   F extends FilterName<R> = FilterName<R>,
   // @ts-ignore  TODO: there's an error here but it works.
   > = F extends infer FI ? TypedFilter<R, F> & { name: FI, operator: FilterSupportedOperators<R, FI> } : never
 
 interface SearchCreateOptions<RecordType extends SearchRecordType> {
   type: RecordType
-  filters?: FilterArray2<RecordType>[]// |( FilterValue[]|FilterValue[][]|FilterValue[][][])
+  filters?: TypedFilterOptions<RecordType>[] | (FilterValue[]|FilterValue[][]|FilterValue[][][])
   columns?: TypedColumn<RecordType>[] | ColumnName<RecordType>[]
   title?: string;
   id?: string;

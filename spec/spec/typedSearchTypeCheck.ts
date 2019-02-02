@@ -1,10 +1,9 @@
 import { expectType } from 'tsd-check';
 import { NamedMemberValueOf } from '../../src/misc/typesUtil';
-import { SearchTypesOperatorsSupport, TypedSearchFilterNames } from '../../src/search/typedSearch/generated';
-import { FilterSupportedOperators, FilterType, SearchRecordType, FilterName } from '../../src/search/typedSearch/searchTypingHelpers';
+import { SearchTypesOperatorsSupport } from '../../src/search/typedSearch/generated';
+import { FilterName, FilterSupportedOperators, FilterType, SearchRecordType } from '../../src/search/typedSearch/searchTypingHelpers';
 import { create, Result, TypedFilter } from "../../src/search/typedSearch/typedSearch";
 import { CanBeUndefined, Identical, ThereWasATypeError } from './typeCheckUtil';
-import { Operator } from '@hitc/netsuite-types/N/search';
 
 describe('typedsearch', () => {
 

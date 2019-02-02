@@ -17,7 +17,7 @@ import { ResponseLogger } from './log/responseLogger';
 import { actionsExperiment1 } from './experiments/actions1';
 import { writeRecordJsonInResponse } from './introspection/dumpRecordToJsonResponse';
 import { recordToJsonTest1 } from './experiments/recordToJson1';
-import { recordFieldsTypesTest1 } from './experiments/recordFieldsTypesTest1';
+// import { recordFieldsTypesTest1 } from './experiments/recordFieldsTypesTest1';
 import { typedRecordTest } from './record/typedRecord/typedRecordTest';
 import { query1Test } from './experiments/query1';
 import { typedSearchTest } from './search/typedSearch/typedSearchTest';

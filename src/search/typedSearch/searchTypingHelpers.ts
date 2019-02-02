@@ -42,10 +42,10 @@ export type FilterSupportedOperators<
   NamedMemberValueOf2<Required<SearchTypesOperatorsSupport>, FT>;
 ;
 
-export type FilterArray<R extends SearchRecordType,
-  F extends FilterName<R> = FilterName<R>,
-  // @ts-ignore  TODO: there's an error here but it works.
-  > = F extends infer FI ? TypedFilter<R, F> & { name: FI, operator: FilterSupportedOperators<R, FI> } : never
+// export type FilterArray<R extends SearchRecordType,
+//   F extends FilterName<R> = FilterName<R>,
+//   // @ts-ignore  TODO: there's an error here but it works.
+//   > = F extends infer FI ? TypedFilter<R, F> & { name: FI, operator: FilterSupportedOperators<R, FI> } : never
 
 // type rt = 'item';
 // type fn = FilterName<rt>

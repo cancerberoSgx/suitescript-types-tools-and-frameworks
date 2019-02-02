@@ -24,6 +24,9 @@ export type NamedMemberNamesOf<T extends any, K extends Extended<T> = Extended<T
 // export type NamedMemberNamesOfPartial <T extends any, K extends Extended<T> = Extended<T>> = Partial<StringKeyOf<K>>
 export type NamedMemberValuesOf<T extends any, K extends Extended<T> = Extended<T>> = ValueOfStringKey<K, NamedMemberNamesOf<K>>;
 export type NamedMemberValueOf<T extends any, K extends NamedMemberNamesOf<T>> = ValueOfStringKey<Extended<T>, K>;
+
+export type NamedMemberValueOf2<T extends any, K extends string> = ValueOfStringKey<Extended<T>, K>;
+
 // export type NamedMemberValueOfPartial <T extends any, K extends NamedMemberNamesOfPartial<T>> = ValueOfStringKeyPartial<Extended<T>, K>
 // interface a{a:number} interface b{b:string} interface c extends a, b {c:Date}
 // type n = NamedMemberValueOf<c, 'c'>

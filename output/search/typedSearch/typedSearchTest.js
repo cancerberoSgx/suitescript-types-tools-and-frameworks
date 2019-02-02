@@ -2,32 +2,36 @@ define(["require", "exports", "./typedSearch", "N/search"], function (require, e
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function typedSearchTest() {
-        var s = typedSearch_1.search({ type: 'item' });
-        var r = s.run().each(function (f) {
-            f.getValue('location');
-            return false;
-        });
-        var s2 = typedSearch_1.search({
+        // const s = search({ type: 'item' });
+        // const r = s.run().each(f => {
+        //   f.getValue('location');
+        //   return false;
+        // });
+        var s2 = typedSearch_1.create({
             type: 'commercecategory',
             columns: [{
                     name: 'primaryparent',
                     sort: nsSearch.Sort.ASC
-                },]
+                }, {
+                    name: 'created',
+                    sort: nsSearch.Sort.ASC
+                }]
         });
         var i = s2.run().each(function (f) {
-            console.log("primaryparent: " + f.getValue('primaryparent'));
+            console.log("primaryparent: " + f.getValue('primaryparent') + "  " + typeof f.getValue('primaryparent'));
+            console.log("created: " + f.getValue('created') + "  " + typeof f.getValue('created'));
             // console.log(`primaryparent: ${f.getValue('displaasdyinsite')}`); // gives type error- wrong column
             return true;
         });
-        var s3 = typedSearch_1.search({ type: 'inventoryitem', columns: ['currentstdcosteffectivedate'] });
-        var i2 = s3.run().each(function (f) {
-            // const v = f.getValue('foo')
-            var v = f.getValue('dateviewed'); // Date | undefined
-            var v2 = f.getValue('safetystocklevel'); // number|undefined
-            var v3 = f.getValue('isavailable'); // boolean|undefined
-            // console.log(`primaryparent: ${}`); // gives type error- wrong column
-            return true;
-        });
+        // const s3 = search({ type: 'inventoryitem', columns: ['currentstdcosteffectivedate'] });
+        // const i2 = s3.run().each(f => {
+        //   // const v = f.getValue('foo')
+        //   const v = f.getValue('dateviewed') // Date | undefined
+        //   const v2 = f.getValue('safetystocklevel') // number|undefined
+        //   const v3 = f.getValue('isavailable') // boolean|undefined
+        //   // console.log(`primaryparent: ${}`); // gives type error- wrong column
+        //   return true;
+        // });
     }
     exports.typedSearchTest = typedSearchTest;
 });

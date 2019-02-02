@@ -1,17 +1,13 @@
 // TODO: 
-//  * createFilter(), createColumn(), join()(), createCOndition()
 // * filters: ['foo',... ] is wrong because it only allow to use filter names as string
 // * if I set install columns ['a', 'b'] then whe I call getValue() it should only let me reference those column names
 
 
 import * as nsSearch from 'N/search';
-// import { SearchRecordType } from "../../sharedTypes";
-import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType, ColumnType } from './searchTypingHelpers';
-import { StringKeyOf } from "../../misc/typesUtil";
-import { TypedSearchColumnNames } from './generated';
-// import { ValueOfNumberKey, ValueOfStringKey } from '../../misc/misc';
+import { ColumnName, FilterName, FilterSupportedOperators, JoinName, SearchRecordType, ColumnType, FilterArray } from './searchTypingHelpers';
 
-export function search<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>): Search<RecordType> {
+
+export function create<RecordType extends SearchRecordType>(options: SearchCreateOptions<RecordType>): Search<RecordType> {
   return nsSearch.create(options as any) as any
 }
 
@@ -29,9 +25,16 @@ export interface Search<RecordType extends SearchRecordType> {
   runPaged: SearchRunPagedFunction
 }
 
+type FilterValue = string | number | Date | string[] | number[] | Date[]
+
+export type FilterArray2<R extends SearchRecordType,
+  F extends FilterName<R> = FilterName<R>,
+  // @ts-ignore  TODO: there's an error here but it works.
+  > = F extends infer FI ? TypedFilter<R, F> & { name: FI, operator: FilterSupportedOperators<R, FI> } : never
+
 interface SearchCreateOptions<RecordType extends SearchRecordType> {
   type: RecordType
-  filters?: TypedFilter<RecordType>[] | FilterName<RecordType>[]
+  filters?: FilterArray2<RecordType>[]// |( FilterValue[]|FilterValue[][]|FilterValue[][][])
   columns?: TypedColumn<RecordType>[] | ColumnName<RecordType>[]
   title?: string;
   id?: string;
@@ -51,25 +54,56 @@ interface TypedColumn<
   name: Column
 }
 
+// type InferOperator< 
+// RecordType extends SearchRecordType,
+// Filter extends FilterName<RecordType>,
+// O extends FilterSupportedOperators<RecordType, Filter>> = Partial<FilterSupportedOperators<RecordType, Filter>> extends infer O ? O : never
 
 /** Encapsulates a single search column in a search.Search. Use the methods and properties available to the Column object to get or set Column properties. */
-interface TypedFilter<
+export interface TypedFilter<
   RecordType extends SearchRecordType,
+  Filter extends FilterName<RecordType> = FilterName<RecordType>,
   Join extends JoinName<RecordType> = JoinName<RecordType>,
-  Filter extends FilterName<RecordType> = FilterName<RecordType>
+  Operator extends FilterSupportedOperators<RecordType, Filter> = FilterSupportedOperators<RecordType, Filter> 
   > {
 
   /** Join ID for a search column as a string. */
-  join: Join
+  join?: Join
   /** Name of a search column as a string. */
   name: Filter
   /** Operator used for the search filter. See search.Operator. */
-  operator: FilterSupportedOperators<RecordType, Filter>
+  operator: Operator // InferOperator<RecordType, Filter, Operator>
   /** Summary type for the search filter. Use this property to get or set the value of the summary type. See search.Summary. */
-  summary: nsSearch.Summary;
+  summary?: nsSearch.Summary;
   /** Formula used by the search filter. Use this property to get or set the formula used by the search filter. */
-  formula: string;
+  formula?: string;
+
+  values?: FilterValue
+
 }
+
+// export interface TypedFilterCreateOptions<
+//   RecordType extends SearchRecordType,
+//   Filter extends FilterName<RecordType> = FilterName<RecordType>,
+//   Join extends JoinName<RecordType> = JoinName<RecordType>,
+//   Operator extends FilterSupportedOperators<RecordType, Filter> = FilterSupportedOperators<RecordType, Filter>
+//   >
+// // extends TypedFilter<RecordType, Filter,Join, Operator>
+// {
+  /** Join ID for a search column as a string. */
+  // join?: Join
+  // /** Name of a search column as a string. */
+  // name: Filter
+  // /** Operator used for the search filter. See search.Operator. */
+  // operator: Operator
+  // /** Summary type for the search filter. Use this property to get or set the value of the summary type. See search.Summary. */
+  // summary?: nsSearch.Summary;
+  // /** Formula used by the search filter. Use this property to get or set the formula used by the search filter. */
+  // formula?: string;
+  // values?: FilterValue
+// }
+
+
 
 // type ResultValue<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = 
 export interface Result<RecordType extends SearchRecordType> {
@@ -105,7 +139,7 @@ export interface ResultSet<RecordType extends SearchRecordType> {
 
 interface SearchResultSetEachFunction<RecordType> {
   promise(callback: (result: Result<RecordType>, index: number) => boolean): Promise<boolean>;
-  (callback: (result: Result<RecordType>, index: number) => boolean): Result<RecordType>|undefined;
+  (callback: (result: Result<RecordType>, index: number) => boolean): Result<RecordType> | undefined;
 }
 interface RunPagedOptions {
   /**
@@ -131,7 +165,7 @@ interface SearchRunPagedFunction {
 //  > {
 //   searchType: RecordType
 //   columns: Columns
-  
+
 // }
 // // // unwrap up to one level
 // type Unarray<T> = T extends Array<infer U> ? U : T;

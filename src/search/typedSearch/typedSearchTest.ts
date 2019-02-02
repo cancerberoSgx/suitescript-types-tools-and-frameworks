@@ -1,37 +1,41 @@
-import { search } from './typedSearch';
+import { create } from './typedSearch';
 import * as nsSearch from 'N/search'
 
 export function typedSearchTest() {
-  const s = search({ type: 'item' });
-  const r = s.run().each(f => {
-    f.getValue('location');
-    return false;
-  });
+  // const s = search({ type: 'item' });
+  // const r = s.run().each(f => {
+  //   f.getValue('location');
+  //   return false;
+  // });
 
-  const s2 = search({
+  const s2 = create({
     type: 'commercecategory',
     columns: [{
       name: 'primaryparent',
       sort: nsSearch.Sort.ASC
-    }, ]
+    }, {
+      name: 'created',
+      sort: nsSearch.Sort.ASC
+    }]
   });
   const i = s2.run().each(f => {
-    console.log(`primaryparent: ${f.getValue('primaryparent')}`);
+    console.log(`primaryparent: ${f.getValue('primaryparent')}  ${typeof f.getValue('primaryparent')}`);
+    console.log(`created: ${f.getValue('created')}  ${typeof f.getValue('created')}`);
     // console.log(`primaryparent: ${f.getValue('displaasdyinsite')}`); // gives type error- wrong column
     return true;
   });
 
 
-  const s3 = search({ type: 'inventoryitem', columns: ['currentstdcosteffectivedate'] });
+  // const s3 = search({ type: 'inventoryitem', columns: ['currentstdcosteffectivedate'] });
 
-  const i2 = s3.run().each(f => {
-    // const v = f.getValue('foo')
-    const v = f.getValue('dateviewed') // Date | undefined
-    const v2 = f.getValue('safetystocklevel') // number|undefined
-    const v3 = f.getValue('isavailable') // boolean|undefined
-    // console.log(`primaryparent: ${}`); // gives type error- wrong column
-    return true;
-  });
+  // const i2 = s3.run().each(f => {
+  //   // const v = f.getValue('foo')
+  //   const v = f.getValue('dateviewed') // Date | undefined
+  //   const v2 = f.getValue('safetystocklevel') // number|undefined
+  //   const v3 = f.getValue('isavailable') // boolean|undefined
+  //   // console.log(`primaryparent: ${}`); // gives type error- wrong column
+  //   return true;
+  // });
 
 
 }

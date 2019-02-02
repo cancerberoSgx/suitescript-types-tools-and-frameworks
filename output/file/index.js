@@ -1,4 +1,8 @@
-define(["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-});
+"use strict";
+// export interface AbstractFile {
+//   id: string
+//   parentId: string
+//   name: string
+// }
+// export interface Folder extends AbstractFile {
+// } 

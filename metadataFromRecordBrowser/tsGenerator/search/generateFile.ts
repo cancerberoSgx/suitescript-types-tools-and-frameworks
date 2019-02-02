@@ -1,6 +1,6 @@
 import { FileConfig } from '../generateProject';
 import { indent } from '../util';
-import { getType } from '../getType';
+import { getTypeForSearchValue } from '../getType';
 
 export function generateFile(config: FileConfig): { output: string } {
   const { data } = config;
@@ -52,7 +52,7 @@ export interface ${data.id}SearchColumn extends ${data.searchData}SearchColumn {
 /** ${data.label} (${data.id}) Search Columns definition */
 export interface ${data.id}SearchColumn {
   ${data.searchColumns.map(c => {
-      const type = getType(c.type);
+      const type = getTypeForSearchValue(c.type);
       return `
     ${indent()}/** ${c.label} (${c.id}: ${c.type}) */
     ${indent()}${c.id}?: ${type};
@@ -70,7 +70,7 @@ export function generateSearchFilter(config: FileConfig): { output: string } {
 /** ${data.label} (${data.id}) Search Filters definition */
 export interface ${data.id}SearchFilter {
 ${data.searchFilters.map(c => {
-    const type = getType(c.type);
+    const type = getTypeForSearchValue(c.type);
     return `
 /** ${c.label} (${c.id}: ${c.type}) */
 ${indent()}${c.id}?: ${type};

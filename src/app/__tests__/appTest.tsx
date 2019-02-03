@@ -1,11 +1,12 @@
 import { ServerRequest, ServerResponse } from 'N/http';
 import { ReactLike } from "../../jsx/createElement";
-import { list } from '../../search/typedSearch/typedSearchOperations';
-import { App } from '../app';
+import { list, filter } from '../../search/typedSearch/typedSearchOperations';
+import { App, Route } from '../app';
 import { recordViewRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
 import { CategoryList, MainPage } from './appTestUI';
 import { findRecordRoute } from '../searchView/findRecordRoute';
+import { ListRecordTypes, listRecordTypesRoute } from '../searchView/listRecordTypesView';
 
 
 export function appTest(request: ServerRequest, response: ServerResponse) {
@@ -24,7 +25,23 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
 
   app.addRoute(findRecordRoute(app))
 
-  app.addRoute({
+  app.addRoute(listCategoriesRoute(app))
+
+  app.addRoute(recordViewRoute(app))
+
+  app.addRoute(listRecordTypesRoute(app))
+
+  app.addRoute(setFieldValueRoute(app))
+
+
+  app.dispatch({ request, response })
+}
+
+
+
+
+function listCategoriesRoute(app: App): Route {
+  return {
     name: 'listCategories',
     handler(o) {
       const cats = list({
@@ -33,20 +50,12 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
       })
         .map(c => ({
           name: c.getValue('name'), id: c.id, parent: c.getValue('primaryparent'), url: c.getValue('fullurl')
-        }))
-      return ReactLike.render(<CategoryList cats={cats} renderLink={app.renderLink.bind(app)}   ></CategoryList>)
+        }));
+      return ReactLike.render(<CategoryList cats={cats} renderLink={app.renderLink.bind(app)}></CategoryList>);
     }
-  })
-
-  app.addRoute(recordViewRoute(app))
-
-
-  // a service that will call setValue on a record and redirect the user according to redirect param
-  app.addRoute(setFieldValueRoute(app))
-
-
-  app.dispatch({ request, response })
+  };
 }
+
 
 
 

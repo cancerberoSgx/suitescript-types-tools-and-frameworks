@@ -43,6 +43,11 @@ const Module: ReactLikeType = {
             throw `unrecognized object attribute "${name}" - the only object attribute supported is "style"`
           }
         }
+        else if(typeof value ==='boolean'){
+          if(value){
+            element.setAttribute(name, name)
+          }
+        }
         else {
           throw `unrecognized attribute "${name}" with type ${typeof value}`
         }

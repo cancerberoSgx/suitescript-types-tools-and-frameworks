@@ -60,6 +60,14 @@ define(["require", "exports", "../StatelessComponent", "../createElement", "../.
             else if (el.type === 'number') {
                 return el.valueAsNumber;
             }
+            if (el.tagName.toLowerCase() === 'select') {
+                // ListRecordTypesSelect
+                var selectedOptions = el.selectedOptions;
+                if (selectedOptions && selectedOptions.length) {
+                    return selectedOptions.item(0).value;
+                    // return option ? option.value : undefined as any
+                }
+            }
             else {
                 return el.value;
             }

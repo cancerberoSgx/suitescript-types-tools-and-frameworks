@@ -17,7 +17,7 @@ define(["require", "exports", "../../jsx/util/BindInputValue", "../../jsx/util/B
         if ((f.type === 'text' || f.type === 'date') && typeof f.value !== 'boolean') {
             return createElement_1.ReactLike.createElement("span", null,
                 createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-field-id" + f.id }, (f.type === 'date' && util_1.isDate(f.value)) ?
-                    createElement_1.ReactLike.createElement("input", { type: "date", value: dateUtil_1.formatDate(f.value, 'YYYY-MM-DD') }) :
+                    createElement_1.ReactLike.createElement("input", { disabled: f.isReadonly, type: "date", value: dateUtil_1.formatDate(f.value, 'YYYY-MM-DD') }) :
                     createElement_1.ReactLike.createElement("input", { value: f.value + '' })),
                 createElement_1.ReactLike.createElement(Bind_1.BindInputValueAndStoreData, { bindListenerId: "data-field-id" + f.id, data: {
                         routeName: 'setFieldValue',

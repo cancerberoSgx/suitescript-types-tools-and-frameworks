@@ -41,7 +41,10 @@ export class BindInputValue extends StatelessComponent<BindInputValueProps>{
 
 // declare function formatDate(date: Date, format: 'YYYY-MM-DD'|'MM/DD/YYYY'): string
 
-function getBindInputValue<T extends string|number|Date = string>(listenerEl: HTMLElement, config: {dateAsString?: boolean} = {}): T | undefined {
+function getBindInputValue<T extends string|number|Date = string>(listenerEl: HTMLElement, config: {
+  dateAsString?: boolean, 
+  // isSelect?: boolean
+} = {}): T | undefined {
   const id = listenerEl.getAttribute('data-bind-value-id')
   const el = document.querySelector<HTMLInputElement>(`[data-bind-value-id="${id}"]`)
   if (el) {
@@ -50,6 +53,14 @@ function getBindInputValue<T extends string|number|Date = string>(listenerEl: HT
     }
     else if(el.type==='number'){
       return el.valueAsNumber as any
+    }
+    if(el.tagName.toLowerCase()==='select'){
+      // ListRecordTypesSelect
+      const selectedOptions = (el as any as HTMLSelectElement).selectedOptions
+      if(selectedOptions&& selectedOptions.length){
+        return  selectedOptions.item(0)!.value as any
+        // return option ? option.value : undefined as any
+      }
     }
     else {
       return el.value as any

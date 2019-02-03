@@ -58,6 +58,11 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                             throw "unrecognized object attribute \"" + name_1 + "\" - the only object attribute supported is \"style\"";
                         }
                     }
+                    else if (typeof value === 'boolean') {
+                        if (value) {
+                            element.setAttribute(name_1, name_1);
+                        }
+                    }
                     else {
                         throw "unrecognized attribute \"" + name_1 + "\" with type " + typeof value;
                     }

@@ -7,12 +7,6 @@ import { ValuedField, Props } from "./recordViewTypes";
 import { ReactLike } from "../../jsx/createElement";
 
 
-declare function buildRouteUrl(config: RenderLinkOptions): string;
-declare function getBindInputValue<T extends string | number | Date = string>(listenerEl: HTMLElement, config?: {
-  dateAsString?: boolean;
-}): T | undefined;
-declare function getStoreData<T>(listenerEl: HTMLElement): T | undefined;
-
 export const FieldEditor = (props: {
   field: ValuedField;
 } & Props) => {
@@ -22,7 +16,7 @@ export const FieldEditor = (props: {
       
       <BindInputValue bindInputId={`data-field-id${f.id}`}>
         {(f.type === 'date' && isDate(f.value)) ?
-          <input type="date" value={formatDate(f.value as any, 'YYYY-MM-DD')}></input> :
+          <input disabled={f.isReadonly} type="date" value={formatDate(f.value as any, 'YYYY-MM-DD')}></input> :
           <input value={f.value + ''}></input>}
       </BindInputValue>
 

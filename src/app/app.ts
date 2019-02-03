@@ -32,15 +32,13 @@ interface Route<Params extends string=string> {
 
 
 
-
 export class App implements IApp {
   routes: Route[] = []
   protected paramPrefix = ROUTEPARAMPREFIX
-  protected routeParamName = 'routeParamName'
+  protected routeParamName = ROUTEPARAMNAME_NOPREFIX
   currentDispatchOptions: DispatchOptions | undefined;
   
   addRoute(r: Route): void {
-    ROUTEPARAMNAME = `${this.paramPrefix}${this.routeParamName}`
     this.routes.push(r)
   }
   
@@ -65,6 +63,7 @@ export class App implements IApp {
       d.response.write(JSON.stringify(result))
     }
     else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
+      d.response.write(`<script>${fetchAndRenderHtmlFragmentHandlerString()}</script>`)
       d.response.write(result)
     }
     // else if not result we assume the route already write in the response.
@@ -133,8 +132,9 @@ export interface RenderFragmentOptions extends RenderLinkOptions {
 
 
 
+const ROUTEPARAMNAME_NOPREFIX = 'routeParamName'
 const ROUTEPARAMPREFIX = '__app__'
-let ROUTEPARAMNAME:string
+const ROUTEPARAMNAME:string = ROUTEPARAMPREFIX+ROUTEPARAMNAME_NOPREFIX
 
 /** this function is meant to be evaluated in the browser and also in the server! */
 function buildUrl(config: BuildUrlOptions) {
@@ -146,10 +146,8 @@ function buildUrl(config: BuildUrlOptions) {
 const linkPrefix = '/app/site/hosting/scriptlet.nl'
 
 /** this function is meant to be evaluated in the browser! */
-export function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
-  const params : Params = {}
-  Object.keys(config.params).map(p=>{params[`${ROUTEPARAMPREFIX}${p}`] = config.params[p]})
-  const url = buildUrl({ ...config, currentUrlSearchFragment: location.search, params})
+function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
+  const url = buildRouteUrl(config)
   fetch(url)
     .then(function (response) {
       return response.text();
@@ -161,19 +159,30 @@ export function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
       }
     });
 }
-export function fetchAndRenderHtmlFragmentHandlerString() {
+function buildRouteUrl(config: RenderLinkOptions): string{
+  const params : Params = {}
+  Object.keys(config.params).map(p=>{params[`${ROUTEPARAMPREFIX}${p}`] = config.params[p]})
+  const url = buildUrl({ ...config, currentUrlSearchFragment: location.search, params})
+  return url
+}
+function fetchAndRenderHtmlFragmentHandlerString() {
   // @ts-ignore
   const assign = __assign.toString()
   const  s = `
 var ROUTEPARAMNAME = "${ROUTEPARAMNAME}";
 var ROUTEPARAMPREFIX = "${ROUTEPARAMPREFIX}";
 var linkPrefix = "${linkPrefix}"; 
+var __assign = ${assign}
+${buildRouteUrl.toString()}
+${buildUrl.toString()}
+${fetchAndRenderHtmlFragment.toString()}
 function fetchAndRenderHtml(config){
-  var __assign = ${assign}
-  ${buildUrl.toString()}
-  ${fetchAndRenderHtmlFragment.toString()}
   return fetchAndRenderHtmlFragment(config)
 }
+function buildLink(config){
+  return buildRouteUrl(config)
+}
+var a = 1
   `
   return s
   // console.log(`<textarea>${s}</textarea>`);

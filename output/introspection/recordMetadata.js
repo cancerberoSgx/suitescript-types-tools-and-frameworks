@@ -8,6 +8,8 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
             var fields = this.extractFields(r);
             var sublists = this.extractSublists(r);
             return {
+                id: r.id + '',
+                name: r.type + '',
                 fields: fields,
                 sublists: sublists
             };
@@ -21,12 +23,12 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
         RecordBuilder.prototype.extractField = function (r, fieldId) {
             if (fieldId.indexOf('sys_') === 0) {
                 return {
-                    id: fieldId, type: 'text'
+                    id: fieldId, type: 'text', isReadonly: false, isMandatory: false,
                 };
             }
             var field = r.getField({ fieldId: fieldId });
             if (field) {
-                return { id: field.id, name: field.label, type: field.type };
+                return { id: field.id, name: field.label, isReadonly: field.isReadOnly, isMandatory: field.isMandatory, type: field.type, };
             }
             else {
                 this.log('Cannot get record field (getField) with id ' + fieldId);

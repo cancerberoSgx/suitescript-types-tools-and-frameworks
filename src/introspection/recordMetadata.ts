@@ -5,7 +5,7 @@ import { log } from "../log/log";
 import { getObjectKeys } from './objectExplorer';
 
 // untyped record  - i.e basically the info that is in xml=T without the values
-interface Record {
+export interface Record extends Base {
   fields: Field[]
   sublists: Sublist[]
 }
@@ -17,12 +17,14 @@ interface Base {
   id: string,
   name?: string
 }
-interface Field extends Base {
+export interface Field extends Base {
   type: string
   // id: string,
   // label: string
+  isReadonly: boolean,
+  isMandatory: boolean
 }
-interface Sublist extends Base {
+export interface Sublist extends Base {
   fields: Field[]
   // name: string
 }
@@ -33,6 +35,8 @@ class RecordBuilder {
     const fields = this.extractFields(r)
     const sublists = this.extractSublists(r)
     return {
+      id: r.id+'',
+      name: r.type+'',
       fields,
       sublists
     }
@@ -47,12 +51,12 @@ class RecordBuilder {
   extractField(r: record.Record, fieldId: string): Field | undefined {
     if(fieldId.indexOf('sys_')===0){
       return {
-        id: fieldId, type: 'text'
+        id: fieldId, type: 'text',isReadonly:false,isMandatory:false,
       }
     }
     const field = r.getField({ fieldId })
     if (field) {
-      return { id: field.id, name: field.label, type: field.type }
+      return { id: field.id, name: field.label, isReadonly: field.isReadOnly,isMandatory: field.isMandatory, type: field.type, }
     }
     else {
       this.log('Cannot get record field (getField) with id ' + fieldId)

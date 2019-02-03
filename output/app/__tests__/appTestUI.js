@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../app"], function (require, exports, createElement_1, app_1) {
+define(["require", "exports", "../../jsx/createElement"], function (require, exports, createElement_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function getStyles() {
@@ -25,13 +25,16 @@ define(["require", "exports", "../../jsx/createElement", "../app"], function (re
         };
         return styles;
     }
-    var MainPage = function (props, children) {
-        // const h = props.fetchAndRenderHtmlFragment;
+    // declare function buildLink(config: RenderLinkOptions): string
+    exports.MainPage = function (props, children) {
         return createElement_1.ReactLike.createElement("article", null,
-            createElement_1.ReactLike.createElement("script", null, app_1.fetchAndRenderHtmlFragmentHandlerString()),
             createElement_1.ReactLike.createElement("h1", null,
                 "Welcome ",
                 props.userName),
+            "Interesting links: ",
+            createElement_1.ReactLike.createElement("ul", null,
+                createElement_1.ReactLike.createElement("li", null,
+                    createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: { id: '7', type: 'commercecategory' } }) }, "category 7 record view"))),
             createElement_1.ReactLike.createElement("p", null,
                 "Search for categories by name:",
                 createElement_1.ReactLike.createElement("input", { id: "categoryName", placeholder: "parent", value: "parent" }),
@@ -50,11 +53,7 @@ define(["require", "exports", "../../jsx/createElement", "../app"], function (re
             createElement_1.ReactLike.createElement("p", null, "Result list all "),
             createElement_1.ReactLike.createElement("div", { id: "resultsList" }));
     };
-    function renderMainPage(props) {
-        return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(MainPage, { userName: props.userName, categories: props.categories }));
-    }
-    exports.renderMainPage = renderMainPage;
-    var ListCategories = function (props) { return createElement_1.ReactLike.createElement("ul", null, props.cats.map(function (c) { return createElement_1.ReactLike.createElement("li", null,
+    exports.CategoryList = function (props) { return createElement_1.ReactLike.createElement("ul", null, props.cats.map(function (c) { return createElement_1.ReactLike.createElement("li", null,
         c.name,
         " ",
         c.url,
@@ -62,9 +61,4 @@ define(["require", "exports", "../../jsx/createElement", "../app"], function (re
         c.parent,
         " id: ",
         c.id); })); };
-    function renderListCategories(props) {
-        return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(ListCategories, { cats: props.cats }));
-    }
-    exports.renderListCategories = renderListCategories;
 });
-// {name: ''/* document.querySelector('#categoryName').value as string */}

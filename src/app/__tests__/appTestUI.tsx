@@ -1,6 +1,6 @@
 import { ReactLike } from "../../jsx/createElement";
 import { ReactLikeChild } from '../../jsx/jsx';
-import { RenderLinkOptions, fetchAndRenderHtmlFragmentHandlerString, RenderFragmentOptions } from '../app';
+import { RenderLinkOptions, RenderFragmentOptions } from '../app';
 
 interface Class extends Partial<CSSStyleDeclaration> { }
 interface IClasses {
@@ -26,27 +26,21 @@ function getStyles() {
   return styles;
 }
 
-// const Button = (props: {
-//   className?: 'button' | 'primaryButton';
-//   children?: ReactLikeChild | ReactLikeChild[];
-// }) => <button className={props.className || ''}></button>;
-
-interface FetchAndRenderHtmlFragment extends RenderLinkOptions {
-  selector: string
-}
 interface MainPageProps {
   userName: String
   categories: { name: string, id: string }[]
-  // fetchAndRenderHtmlFragment(options: FetchAndRenderHtmlFragment): void
+  renderLink(config: RenderLinkOptions): string
 }
 
 declare function fetchAndRenderHtml(config: RenderFragmentOptions):void
+// declare function buildLink(config: RenderLinkOptions): string
 
-const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
-  // const h = props.fetchAndRenderHtmlFragment;
+export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
   return <article>
-    <script>{fetchAndRenderHtmlFragmentHandlerString()}</script>
     <h1>Welcome {props.userName}</h1>
+    Interesting links: <ul>
+      <li><a href={props.renderLink({routeName: 'recordView', params: {id: '7', type: 'commercecategory'}})}>category 7 record view</a></li>
+      </ul>
     <p>Search for categories by name: 
       <input id="categoryName" placeholder="parent" value="parent"></input>
     <button onClick={e => fetchAndRenderHtml({
@@ -66,23 +60,15 @@ const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
   </article>
 }
 
-export function renderMainPage(props: MainPageProps): string {
-  return ReactLike.render(<MainPage userName={props.userName} categories={props.categories} 
-    // fetchAndRenderHtmlFragment={props.fetchAndRenderHtmlFragment}
-    ></MainPage>)
-}
 
-interface C{
+
+
+interface Category{
   name?: string, parent?: string, url?: string, id?: string
 }
-interface LC {
-cats: C[]
+interface CategoryList {
+cats: Category[]
 }
-const ListCategories = (props: LC)=> <ul>
+export const CategoryList = (props: CategoryList)=> <ul>
   {props.cats.map(c=><li>{c.name} {c.url} parent: {c.parent} id: {c.id}</li>)}
 </ul>
-
-export function renderListCategories(props: LC): string {
-  return ReactLike.render(<ListCategories cats={props.cats}     ></ListCategories>)
-}
-// {name: ''/* document.querySelector('#categoryName').value as string */}

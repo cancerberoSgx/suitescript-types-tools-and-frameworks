@@ -17,10 +17,9 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
         function App() {
             this.routes = [];
             this.paramPrefix = ROUTEPARAMPREFIX;
-            this.routeParamName = 'routeParamName';
+            this.routeParamName = ROUTEPARAMNAME_NOPREFIX;
         }
         App.prototype.addRoute = function (r) {
-            ROUTEPARAMNAME = "" + this.paramPrefix + this.routeParamName;
             this.routes.push(r);
         };
         App.prototype.dispatch = function (d) {
@@ -43,6 +42,7 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
                 d.response.write(JSON.stringify(result));
             }
             else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
+                d.response.write("<script>" + fetchAndRenderHtmlFragmentHandlerString() + "</script>");
                 d.response.write(result);
             }
             // else if not result we assume the route already write in the response.
@@ -95,8 +95,9 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
         return App;
     }());
     exports.App = App;
+    var ROUTEPARAMNAME_NOPREFIX = 'routeParamName';
     var ROUTEPARAMPREFIX = '__app__';
-    var ROUTEPARAMNAME;
+    var ROUTEPARAMNAME = ROUTEPARAMPREFIX + ROUTEPARAMNAME_NOPREFIX;
     /** this function is meant to be evaluated in the browser and also in the server! */
     function buildUrl(config) {
         var clean = "" + linkPrefix + config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf("&" + ROUTEPARAMNAME + "=")) + "&" + ROUTEPARAMNAME + "=" + config.routeName;
@@ -106,9 +107,7 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
     var linkPrefix = '/app/site/hosting/scriptlet.nl';
     /** this function is meant to be evaluated in the browser! */
     function fetchAndRenderHtmlFragment(config) {
-        var params = {};
-        Object.keys(config.params).map(function (p) { params["" + ROUTEPARAMPREFIX + p] = config.params[p]; });
-        var url = buildUrl(__assign({}, config, { currentUrlSearchFragment: location.search, params: params }));
+        var url = buildRouteUrl(config);
         fetch(url)
             .then(function (response) {
             return response.text();
@@ -120,15 +119,19 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
             }
         });
     }
-    exports.fetchAndRenderHtmlFragment = fetchAndRenderHtmlFragment;
+    function buildRouteUrl(config) {
+        var params = {};
+        Object.keys(config.params).map(function (p) { params["" + ROUTEPARAMPREFIX + p] = config.params[p]; });
+        var url = buildUrl(__assign({}, config, { currentUrlSearchFragment: location.search, params: params }));
+        return url;
+    }
     function fetchAndRenderHtmlFragmentHandlerString() {
         // @ts-ignore
         var assign = __assign.toString();
-        var s = "\nvar ROUTEPARAMNAME = \"" + ROUTEPARAMNAME + "\";\nvar ROUTEPARAMPREFIX = \"" + ROUTEPARAMPREFIX + "\";\nvar linkPrefix = \"" + linkPrefix + "\"; \nfunction fetchAndRenderHtml(config){\n  var __assign = " + assign + "\n  " + buildUrl.toString() + "\n  " + fetchAndRenderHtmlFragment.toString() + "\n  return fetchAndRenderHtmlFragment(config)\n}\n  ";
+        var s = "\nvar ROUTEPARAMNAME = \"" + ROUTEPARAMNAME + "\";\nvar ROUTEPARAMPREFIX = \"" + ROUTEPARAMPREFIX + "\";\nvar linkPrefix = \"" + linkPrefix + "\"; \nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\nvar a = 1\n  ";
         return s;
         // console.log(`<textarea>${s}</textarea>`);
         // return ()=>{}
         // return eval(`(${s})`)
     }
-    exports.fetchAndRenderHtmlFragmentHandlerString = fetchAndRenderHtmlFragmentHandlerString;
 });

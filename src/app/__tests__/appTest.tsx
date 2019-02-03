@@ -1,20 +1,25 @@
 import { ServerRequest, ServerResponse } from 'N/http';
 import { find, list } from '../../search/typedSearch/typedSearchOperations';
 import { App } from '../app';
-import { renderMainPage, renderListCategories } from './appTestUI';
+import {  MainPage, CategoryList } from './appTestUI';
+import { ReactLike } from "../../jsx/createElement";
+import { load } from 'N/record';
+import { RecordView, buildRecordViewModel } from './recordView';
+
 
 export function appTest(request: ServerRequest, response: ServerResponse) {
 
   // This app will have a home page at that renders a html app that will let user do ajax calls to another route 
   const app = new App()
+
+
   app.addRoute({
     name: 'mainPage',
     handler(o) {
-      return renderMainPage({
-        userName: o.params.name, categories: [],
-      })
+      return ReactLike.render(<MainPage userName={o.params.userName} categories={[]} renderLink={app.renderLink.bind(app)}></MainPage>)
     }
   })
+
 
   app.addRoute({
     name: 'findCategory',
@@ -43,11 +48,27 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
         type: 'commercecategory',
         columns: ['name', 'primaryparent', 'fullurl'],
       })
-      return renderListCategories({
-        cats: cats.map(c => ({
-          name: c.getValue('name'), id: c.id, parent: c.getValue('primaryparent'), url: c.getValue('fullurl')
-        }))
-      })
+      .map(c => ({
+        name: c.getValue('name'), id: c.id, parent: c.getValue('primaryparent'), url: c.getValue('fullurl')
+      }))
+      return ReactLike.render(<CategoryList cats={cats}     ></CategoryList>)
+    }
+  })
+
+
+
+  app.addRoute({
+    name: 'recordView',
+    handler(o) {
+      const {id, type} = o.params;
+      if(!id|| !type) {
+        return 'Cannot open record view without an id or type, given id, type: '+`${id}, ${type}`
+      }
+      const record = load({id, type})
+      if(!record) {
+        return 'Record id, type: '+`${id}, ${type} not be found`
+      }
+      return ReactLike.render(<RecordView record={buildRecordViewModel(record)}    ></RecordView>)
     }
   })
 

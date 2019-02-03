@@ -2,7 +2,7 @@
  * @NApiVersion 2.x
  * @NScriptType Suitelet
  */
-define(["require", "exports", "./log/log", "./log/responseLogger", "./__tests__"], function (require, exports, log_1, responseLogger_1, __tests__1) {
+define(["require", "exports", "./log/log", "./log/responseLogger", "./app/__tests__/appTest"], function (require, exports, log_1, responseLogger_1, appTest_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.onRequest = function (context) {
@@ -12,6 +12,7 @@ define(["require", "exports", "./log/log", "./log/responseLogger", "./__tests__"
         // query1Test()
         // typedRecordTest()
         // reactLikeTest( )   
-        __tests__1.runSpecs();
+        // runSpecs();
+        appTest_1.appTest(context.request, context.response);
     };
 });

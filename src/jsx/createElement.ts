@@ -66,9 +66,11 @@ const Module: ReactLikeType = {
     });
     return element;
   },
+
   render(el: JSX.Element, config?: RenderConfig): string {
     return (el as any as NodeLike).render(config);
   }
+  
 } as ReactLikeType;
 
 

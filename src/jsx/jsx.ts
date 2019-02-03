@@ -48,7 +48,7 @@ export interface RenderConfig {
 
 export interface ReactLike {
   createElement(tag: ReactLikeTag, attrs: ReactLikeAttrs, ...children: ReactLikeChild[]): ElementLike
-  render(el: JSX.Element, config: RenderConfig): string
+  render(el: JSX.Element, config?: RenderConfig): string
 }
 
 

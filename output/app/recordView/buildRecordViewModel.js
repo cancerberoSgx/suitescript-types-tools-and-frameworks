@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../introspection/recordMetadata"], function (require, exports, recordMetadata_1) {
+define(["require", "exports", "../../introspection/recordMetadata", "../../misc/misc"], function (require, exports, recordMetadata_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function buildRecordViewModel(r, seeValues, showAllFields) {
@@ -31,14 +31,8 @@ define(["require", "exports", "../../introspection/recordMetadata"], function (r
                 return f;
             }
             var value, text;
-            try {
-                //@ts-i gnore     
-                value = r.getValue(f.id);
-                text = r.getText(f.id);
-            }
-            catch (error) {
-                value = "ERROR " + f.id;
-            }
+            value = misc_1.tryTo(function () { return r.getValue(f.id); });
+            text = misc_1.tryTo(function () { return r.getText(f.id); });
             return __assign({}, f, { value: value, text: text });
         })
             .sort(function (a, b) { return a.id.localeCompare(b.id); });
@@ -51,8 +45,8 @@ define(["require", "exports", "../../introspection/recordMetadata"], function (r
             var _loop_1 = function (line) {
                 s.lines[line] = { rows: [] };
                 s.fields.forEach(function (f) {
-                    var text = r.getSublistText({ sublistId: s.id, fieldId: f.id, line: line });
-                    var value = r.getSublistValue({ sublistId: s.id, fieldId: f.id, line: line });
+                    var text = misc_1.tryTo(function () { return r.getSublistText({ sublistId: s.id, fieldId: f.id, line: line }); });
+                    var value = misc_1.tryTo(function () { return r.getSublistValue({ sublistId: s.id, fieldId: f.id, line: line }); });
                     s.lines[line].rows.push({ text: text, value: value, field: f });
                 });
             };

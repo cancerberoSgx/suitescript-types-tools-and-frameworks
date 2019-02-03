@@ -1,4 +1,4 @@
-define(["require", "exports", "../../jsx/createElement", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "./appTestUI", "../searchView/findRecordRoute", "../searchView/listRecordTypesView"], function (require, exports, createElement_1, app_1, recordViewRoute_1, setFieldValueRoute_1, appTestUI_1, findRecordRoute_1, listRecordTypesView_1) {
+define(["require", "exports", "../../jsx/createElement", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "./appTestUI", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute"], function (require, exports, createElement_1, app_1, recordViewRoute_1, setFieldValueRoute_1, appTestUI_1, findRecordRoute_1, listRecordTypesRoute_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function appTest(request, response) {
@@ -13,7 +13,7 @@ define(["require", "exports", "../../jsx/createElement", "../app", "../recordVie
         app.addRoute(findRecordRoute_1.findRecordRoute(app));
         // app.addRoute(listCategoriesRoute(app))
         app.addRoute(recordViewRoute_1.recordViewRoute(app));
-        app.addRoute(listRecordTypesView_1.listRecordTypesRoute(app));
+        app.addRoute(listRecordTypesRoute_1.listRecordTypesRoute(app));
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
         app.dispatch({ request: request, response: response });
     }

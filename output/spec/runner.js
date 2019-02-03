@@ -12,7 +12,6 @@ var __assign = (this && this.__assign) || function () {
 define(["require", "exports", "./textReporter", "../misc/misc"], function (require, exports, textReporter_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    // import { now } from "../misc/dateUtil";
     function now() {
         return Date.now();
     }
@@ -42,17 +41,13 @@ define(["require", "exports", "./textReporter", "../misc/misc"], function (requi
                 catch (error) {
                     console.log("Exception while evaluating describe() and its() of the #" + index + " given specs function:" + error);
                     console.log((_this._currentDescribe && _this._currentDescribe.name) + ' ' + (_this._currentIt && _this._currentIt.name));
-                    // if (config.breakOnFirstError) {
                     console.log(misc_1.printNativeError(error));
-                    // throw error
-                    // }
                 }
             });
             var totalTime = now();
             this.describes.forEach(function (d) {
                 _this._currentDescribe = d;
                 d.its.forEach(function (i) {
-                    // console.log('sesjkdfjksdkhf')
                     _this._currentIt = i;
                     try {
                         i.fn();

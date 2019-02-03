@@ -1,7 +1,7 @@
 import { Field, Record, Sublist } from '../../introspection/recordMetadata';
 import { RenderLinkOptions } from "../browserCode";
 
-export type Value = string | boolean | number | Date | null | number[] | string[];
+export type Value = string | boolean | number | Date | null | number[] | string[] |undefined
 
 export type Text = string | string[] | undefined;
 

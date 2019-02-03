@@ -60,6 +60,7 @@ define(["require", "exports", "../log/log"], function (require, exports, log_1) 
                 name = s && s.name;
             }
             catch (error) {
+                this.log('recordMetadata, extractSublist Exception when r.extractSublist({ sublistId }) for sublistId==' + sublistId);
             }
             var fields = this.extractSublistFields(config, sublistId);
             return {
@@ -74,7 +75,7 @@ define(["require", "exports", "../log/log"], function (require, exports, log_1) 
                 sublistFields = r.getSublistFields({ sublistId: sublistId });
             }
             catch (error) {
-                this.log('Exception when r.getSublistFields({ sublistId }) for sublistId==' + sublistId);
+                this.log('recordMetadata, extractSublistFields Exception when r.getSublistFields({ sublistId }) for sublistId==' + sublistId);
             }
             return sublistFields
                 .filter(function (f) { return f.indexOf('sys_') !== 0; })
@@ -87,11 +88,11 @@ define(["require", "exports", "../log/log"], function (require, exports, log_1) 
                     var lineCount = config.record.getLineCount({ sublistId: sublistId });
                     if (lineCount > 0) {
                         var f = config.record.getSublistField({ sublistId: sublistId, fieldId: fieldId, line: 0 });
-                        // console.log({${f.}});
                         type = f.type;
                     }
                 }
                 catch (error) {
+                    this.log('recordMetadata, extractSublistField, Exception when r.getSublistField({ sublistId }) for sublistId==' + sublistId);
                 }
             }
             return {

@@ -1,12 +1,10 @@
-import { ReactLike } from "../../jsx/createElement";
 import { RenderLinkOptions } from '../browserCode';
 import { getSearchRecordTypes } from '../../search/getSearchRecordTypes';
-import { App, Route } from '../app';
-import { filter } from '../../search/typedSearch/typedSearchOperations';
 import { Result } from '../../search/typedSearch/typedSearch';
 import { RecordType } from '../../record/typedRecord/typedRecord';
 import { BindInputValue } from '../../jsx/util/BindInputValue';
-import { BindInputValueAndStoreData } from '../../jsx/util/Bind';
+import { ReactLike } from "../../jsx/createElement";
+
 
 interface Props {
   type?: string
@@ -20,7 +18,7 @@ const bindInputValueId = `data-list-record-types`
 
 export const ListRecordTypes = (props: Props) => {
   return <div>
-    Record type: {props.dynamicResultsRender}
+    Record type: {props.type} {props.results && props.results.length}
     <BindInputValue bindInputId={bindInputValueId}>
       <select id="ListRecordTypesSelect">
         {getSearchRecordTypes().map(r =>
@@ -45,7 +43,8 @@ export const ListRecordTypes = (props: Props) => {
     }
     </BindInputValue>
 
-    {props.dynamicResultsRender ? <div id="listRecordTypesDynamicResults"></div> : 
+    <span id="listRecordTypesDynamicResults"></span> 
+
     <span>{props.results ? <div>
       Results:
     <ul>{props.results.map(r =>
@@ -54,29 +53,10 @@ export const ListRecordTypes = (props: Props) => {
         </li>)}
       </ul>
     </div> : <span></span>}</span>
-    }
+
   </div>
 }
 
 
 
-export function listRecordTypesRoute(app: App): Route {
-  return {
-    name: 'listRecordTypes',
-    handler(o) {
-      const { type} = o.params
-      const pageSize = parseInt(o.params.pageSize||'20', 10)
-      const dynamicResultsRender = !!o.params.dynamicResultsRender
-      if (!type) {
-        return ReactLike.render(<ListRecordTypes pageSize={pageSize} renderLink={app.renderLink.bind(app)}></ListRecordTypes>);
-      }
-      let counter = 0
-      const results = filter({
-        type: type as any,
-        columns: []
-      }, r => (((counter++) > pageSize) || !r) ? false : true)
 
-      return ReactLike.render(<ListRecordTypes pageSize={pageSize} renderLink={app.renderLink.bind(app)} type={type} results={results} dynamicResultsRender={dynamicResultsRender}></ListRecordTypes>);
-    }
-  };
-}

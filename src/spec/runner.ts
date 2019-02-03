@@ -1,10 +1,8 @@
 import { Describe, SpecType, SpecError } from "./describe";
 import { It } from "./it";
 import { ExpectResult } from "./expect";
-// import { log } from "../log/log";
 import { printError } from './textReporter';
 import { printNativeError } from '../misc/misc';
-// import { now } from "../misc/dateUtil";
 
 function now() { // not using now() from "../misc/dateUtil"; since we want to run spec specs with node
   return Date.now()
@@ -39,18 +37,13 @@ export class SpecRunner {
       catch (error) {
         console.log(`Exception while evaluating describe() and its() of the #${index} given specs function:` + error)
         console.log((this._currentDescribe && this._currentDescribe.name) + ' ' + (this._currentIt && this._currentIt.name));
-
-        // if (config.breakOnFirstError) {
         console.log(printNativeError(error))
-        // throw error
-        // }
       }
     })
     let totalTime = now()
     this.describes.forEach(d => {
       this._currentDescribe = d
       d.its.forEach(i => {
-        // console.log('sesjkdfjksdkhf')
         this._currentIt = i
         try {
           i.fn()

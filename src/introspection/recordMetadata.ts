@@ -19,15 +19,12 @@ interface Base {
   name?: string
 }
 export interface Field extends Base {
-  // id: string,
-  // label: string
   isReadonly: boolean,
   isMandatory: boolean
   type: string
 }
 export interface Sublist extends Base {
   fields: Field[]
-  // name: string
 }
 
 interface ExtractConfig {
@@ -99,6 +96,7 @@ class RecordBuilder {
       const s = r.getSublist({ sublistId })
       name = s && s.name
     } catch (error) {
+      this.log('recordMetadata, extractSublist Exception when r.extractSublist({ sublistId }) for sublistId==' + sublistId)
 
     }
     const fields = this.extractSublistFields(config, sublistId)
@@ -113,7 +111,7 @@ class RecordBuilder {
     try {
       sublistFields = r.getSublistFields({ sublistId })
     } catch (error) {
-      this.log('Exception when r.getSublistFields({ sublistId }) for sublistId==' + sublistId)
+      this.log('recordMetadata, extractSublistFields Exception when r.getSublistFields({ sublistId }) for sublistId==' + sublistId)
     }
     return sublistFields
       .filter(f => f.indexOf('sys_') !== 0)
@@ -127,11 +125,10 @@ class RecordBuilder {
         const lineCount = config.record.getLineCount({ sublistId })
         if (lineCount > 0) {
           const f = config.record.getSublistField({ sublistId, fieldId, line: 0 })
-          // console.log({${f.}});
           type=f.type
         }
       } catch (error) {
-
+        this.log('recordMetadata, extractSublistField, Exception when r.getSublistField({ sublistId }) for sublistId==' + sublistId)
       }
     }
     return {

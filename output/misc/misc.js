@@ -34,35 +34,6 @@ define(["require", "exports"], function (require, exports) {
         return Object.keys(o);
     }
     exports.objectKeys = objectKeys;
-    // /**
-    //  * Returns all but the first item's type in a tuple/array
-    //  */
-    // export type Tail<T extends any[]> =
-    // 	((...args: T) => any) extends ((head: any, ...tail: infer R) => any) ? R : never;
-    // /**
-    //  * Returns the given tuple/array with the item type prepended to it
-    //  */
-    // type Unshift<List extends any[], Item> =
-    // 	((first: Item, ...rest: List) => any) extends ((...list: infer R) => any) ? R : never;
-    // /**
-    //  * Tests if two types are equal
-    //  */
-    // type Equals<T, S> =
-    // 	[T] extends [S] ? (
-    // 		[S] extends [T] ? true : false
-    // 	) : false;
-    // type Range<N, T extends number[] = []> = {
-    // 	0: T,
-    // 	1: Range<N, Unshift<T, LengthOf<T>>>,
-    // }[Equals<LengthOf<Tail<T>>, N> extends true ? 0 : 1];
-    // /** Tests if N > M */
-    // type IsGreaterThan<N, M> = N extends Exclude<Range<N>, Range<M>> ? true : false;
-    // /** Tests if N <= M */
-    // // type IsLessThanOrEqual<N, M> = Not<IsGreaterThan<N, M>>;
-    // /** Tests if N < M */
-    // type IsLessThan<N, M> = M extends Exclude<Range<M>, Range<N>> ? true : false;
-    // /** Tests if N >= M */
-    // // type IsGreaterThanOrEqual<N, M> = Not<IsLessThan<N, M>>;
     function checkThrow(r, msg) {
         if (msg === void 0) { msg = 'Throwing on undefined value'; }
         if (!r) {
@@ -71,6 +42,14 @@ define(["require", "exports"], function (require, exports) {
         return r;
     }
     exports.checkThrow = checkThrow;
+    function tryTo(f) {
+        try {
+            return f();
+        }
+        catch (error) {
+        }
+    }
+    exports.tryTo = tryTo;
     var TypedMapImpl = /** @class */ (function () {
         function TypedMapImpl(props) {
             this.props = props;

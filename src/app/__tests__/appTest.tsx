@@ -6,7 +6,8 @@ import { recordViewRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
 import { MainPage } from './appTestUI';
 import { findRecordRoute } from '../searchView/findRecordRoute';
-import { ListRecordTypes, listRecordTypesRoute } from '../searchView/listRecordTypesView';
+import { ListRecordTypes } from '../searchView/listRecordTypesView';
+import { listRecordTypesRoute } from "../searchView/listRecordTypesRoute";
 
 
 export function appTest(request: ServerRequest, response: ServerResponse) {

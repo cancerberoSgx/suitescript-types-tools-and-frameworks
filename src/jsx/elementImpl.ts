@@ -1,5 +1,5 @@
 import { indent as _indent } from '../misc/misc';
-import { ReactLikeComponent, NodeLike, ElementNodeLike, TextNodeLIke, RenderConfig } from './jsx';
+import { ReactLikeComponent, NodeLike, ElementLike, TextNodeLIke, RenderConfig } from './jsx';
 
 
 export function isReactLikeComponent(c: any): c is ReactLikeComponent {
@@ -8,7 +8,7 @@ export function isReactLikeComponent(c: any): c is ReactLikeComponent {
 export function isNode(n: any): n is NodeLike {
   return n && n.render;
 }
-export function isElementNodeLIke(n: any): n is ElementNodeLike {
+export function isElementIke(n: any): n is ElementLike {
   return n && n.setAttribute;
 }
 export function isTextNodeLIke(n: any): n is TextNodeLIke {
@@ -20,7 +20,7 @@ export class TextNodeLikeImpl implements TextNodeLIke {
     return `${this.content}`;
   }
 }
-export class ElementNodeLikeImpl implements ElementNodeLike {
+export class ElementLikeImpl implements ElementLike {
   attrs: {
     [name: string]: string;
   };
@@ -44,3 +44,5 @@ const defaultRenderConfig = { indentLevel: 0, indentTabSize: 2 };
 function indent(config: RenderConfig = defaultRenderConfig) {
   return config.indent ? _indent(config.indentLevel || 0, config.indentTabSize || 2) : '';
 }
+
+

@@ -22,7 +22,7 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
             var originalAttrs = attrs;
             var element;
             if (typeof tag === 'string') {
-                element = new elementImpl_1.ElementNodeLikeImpl(tag);
+                element = new elementImpl_1.ElementLikeImpl(tag);
             }
             else {
                 if (elementImpl_1.isReactLikeComponent(tag)) {
@@ -40,7 +40,9 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                         element.setAttribute(name_1, name_1);
                     }
                     else if (typeof value === 'function') {
-                        throw 'Function attributes not supported';
+                        var code = "(" + value.toString() + ").apply(this, arguments)";
+                        var escaped = code.replace(/\"/gmi, '&quot;');
+                        element.setAttribute(name_1, escaped);
                     }
                     else if (value !== false && value != null && typeof value !== 'object') {
                         if (name_1 === 'className') {

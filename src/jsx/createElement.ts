@@ -1,13 +1,13 @@
-import { ElementNodeLikeImpl, isReactLikeComponent, isNode, TextNodeLikeImpl } from './elementImpl';
-import { ReactLikeTag, ReactLike as ReactLikeType, ReactLikeAttrs, ReactLikeChild, ElementNodeLike, RenderConfig, NodeLike } from './jsx';
+import { ElementLikeImpl, isReactLikeComponent, isNode, TextNodeLikeImpl } from './elementImpl';
+import { ReactLikeTag, ReactLike as ReactLikeType, ReactLikeAttrs, ReactLikeChild, ElementLike, RenderConfig, NodeLike } from './jsx';
 import * as decls from './declarations/domElementDeclarations' // this needs to be here!
 
 const Module: ReactLikeType = {
-  createElement(tag: ReactLikeTag, attrs: ReactLikeAttrs = {}, ...children: ReactLikeChild[]): ElementNodeLike {
+  createElement(tag: ReactLikeTag, attrs: ReactLikeAttrs = {}, ...children: ReactLikeChild[]): ElementLike {
     const originalAttrs = attrs;
-    var element: ElementNodeLike;
+    var element: ElementLike;
     if (typeof tag === 'string') {
-      element = new ElementNodeLikeImpl(tag);
+      element = new ElementLikeImpl(tag);
     }
     else {
       if (isReactLikeComponent(tag)) {
@@ -25,7 +25,9 @@ const Module: ReactLikeType = {
           element.setAttribute(name, name);
         }
         else if (typeof value === 'function') {
-          throw 'Function attributes not supported';
+          const code = `(${value.toString()}).apply(this, arguments)`
+          const escaped = code.replace(/\"/gmi, '&quot;')
+          element.setAttribute(name, escaped);
         }
         else if (value !== false && value != null && typeof value !== 'object') {
           if (name === 'className') {

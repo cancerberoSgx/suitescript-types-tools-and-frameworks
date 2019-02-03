@@ -20,10 +20,10 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
         return n && n.render;
     }
     exports.isNode = isNode;
-    function isElementNodeLIke(n) {
+    function isElementIke(n) {
         return n && n.setAttribute;
     }
-    exports.isElementNodeLIke = isElementNodeLIke;
+    exports.isElementIke = isElementIke;
     function isTextNodeLIke(n) {
         return n && !n.setAttribute && n.content;
     }
@@ -39,27 +39,27 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
         return TextNodeLikeImpl;
     }());
     exports.TextNodeLikeImpl = TextNodeLikeImpl;
-    var ElementNodeLikeImpl = /** @class */ (function () {
-        function ElementNodeLikeImpl(tag) {
+    var ElementLikeImpl = /** @class */ (function () {
+        function ElementLikeImpl(tag) {
             this.tag = tag;
             this.attrs = {};
             this.children = [];
         }
-        ElementNodeLikeImpl.prototype.setAttribute = function (name, value) {
+        ElementLikeImpl.prototype.setAttribute = function (name, value) {
             this.attrs[name] = value;
         };
-        ElementNodeLikeImpl.prototype.appendChild = function (c) {
+        ElementLikeImpl.prototype.appendChild = function (c) {
             this.children.push(c);
         };
-        ElementNodeLikeImpl.prototype.render = function (config) {
+        ElementLikeImpl.prototype.render = function (config) {
             var _this = this;
             if (config === void 0) { config = defaultRenderConfig; }
             var newLine = config.indent ? "\n" : "";
             return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + newLine + indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children.map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); }).join('') + newLine + indent(config) + "</" + this.tag + ">";
         };
-        return ElementNodeLikeImpl;
+        return ElementLikeImpl;
     }());
-    exports.ElementNodeLikeImpl = ElementNodeLikeImpl;
+    exports.ElementLikeImpl = ElementLikeImpl;
     var defaultRenderConfig = { indentLevel: 0, indentTabSize: 2 };
     function indent(config) {
         if (config === void 0) { config = defaultRenderConfig; }

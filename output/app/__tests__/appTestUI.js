@@ -60,5 +60,6 @@ define(["require", "exports", "../../jsx/createElement"], function (require, exp
         " parent: ",
         c.parent,
         " id: ",
-        c.id); })); };
+        c.id,
+        createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: { id: c.id + '', type: 'commercecategory' } }) }, "link")); })); };
 });

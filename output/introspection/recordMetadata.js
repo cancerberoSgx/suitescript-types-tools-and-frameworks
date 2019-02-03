@@ -11,7 +11,8 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
                 id: r.id + '',
                 name: r.type + '',
                 fields: fields,
-                sublists: sublists
+                sublists: sublists,
+                type: r.type + ''
             };
         };
         RecordBuilder.prototype.extractFields = function (r) {
@@ -28,7 +29,7 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
             }
             var field = r.getField({ fieldId: fieldId });
             if (field) {
-                return { id: field.id, name: field.label, isReadonly: field.isReadOnly, isMandatory: field.isMandatory, type: field.type, };
+                return { id: field.id + '', name: field.label + '', isReadonly: !!field.isReadOnly, isMandatory: !!field.isMandatory, type: field.type + '', };
             }
             else {
                 this.log('Cannot get record field (getField) with id ' + fieldId);

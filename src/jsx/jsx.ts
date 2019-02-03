@@ -49,6 +49,12 @@ export interface RenderConfig {
 export interface ReactLike {
   createElement(tag: ReactLikeTag, attrs: ReactLikeAttrs, ...children: ReactLikeChild[]): ElementLike
   render(el: JSX.Element, config?: RenderConfig): string
+  registerClientCode(f: ClientCode): void
+  getClientCode(): ClientCode[]
 }
-
+export interface ClientCode {
+  name?: string, 
+  code: string,
+  description?: string
+}
 

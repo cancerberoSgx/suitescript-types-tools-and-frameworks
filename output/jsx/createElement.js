@@ -41,7 +41,7 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                     }
                     else if (typeof value === 'function') {
                         var code = "(" + value.toString() + ").apply(this, arguments)";
-                        var escaped = code.replace(/\"/gmi, '&quot;');
+                        var escaped = escapeHtmlAttribute(code);
                         element.setAttribute(name_1, escaped);
                     }
                     else if (value !== false && value != null && typeof value !== 'object') {
@@ -83,9 +83,24 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
         },
         render: function (el, config) {
             return el.render(config);
+        },
+        registerClientCode: function (f) {
+            clientCode.push(f);
+        },
+        getClientCode: function () {
+            return clientCode;
         }
     };
+    var clientCode = [];
     exports.ReactLike = Module;
     //@ts-ignore
     exports.ReactLike = Module; // creates a global variable needed so emitted .js calls work. See tsconfig.json `"jsxFactory": "ReactLike.createElement",`
+    function escapeHtmlAttribute(code) {
+        return code.replace(/\"/gmi, '&quot;');
+    }
+    exports.escapeHtmlAttribute = escapeHtmlAttribute;
+    function unEscapeHtmlAttribute(code) {
+        return code.replace(/\&quot\;/gmi, '"');
+    }
+    exports.unEscapeHtmlAttribute = unEscapeHtmlAttribute;
 });

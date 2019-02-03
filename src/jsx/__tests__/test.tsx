@@ -1,8 +1,9 @@
-import { ReactLike } from "../createElement";
+import { ReactLike, escapeHtmlAttribute } from "../createElement";
 import { StatelessComponent, StatelessComponentProps } from '../StatelessComponent';
-import { TextNodeLIke, ReactLikeChild } from '../jsx';
+import { TextNodeLIke, ReactLikeChild, NodeLike } from '../jsx';
 import { StringKeyOf } from '../../misc/typesUtil';
 import { indent } from '../../misc/misc';
+import { isElementIke } from '../elementImpl';
 
 function cssTest1() {
   const Comp = () => <div className="apple" style={{ border: '1 px solid pink', background: 'blue' }}>i'm pink</div>
@@ -89,7 +90,7 @@ export function moreOnCss() {
     primaryButton
   }
   // this tag will force users to use discrete classNames only
-  const Button = (props: { className?: 'button'|'primaryButton', children?: ReactLikeChild | ReactLikeChild[] }) => <button className={props.className || ''}></button>
+  const Button = (props: { className?: 'button' | 'primaryButton', children?: ReactLikeChild | ReactLikeChild[] }) => <button className={props.className || ''}></button>
 
   const main = <div><Button className="button">click me</Button></div>
 
@@ -106,10 +107,67 @@ ${ReactLike.render(main, { indent: true })}
 `
   console.log(s);
 }
-moreOnCss()
+// moreOnCss()
 
 
-// this test can be executed in node with 
-// npx ts-node -P tsconfig-node.json src/experiments/reactLike/test.tsx
-// and un comment the following line:
-// reactLikeText()
+export function customComponentAffectChild() {
+  interface Props {
+    data: { [k: string]: string }
+  }
+  class Data extends StatelessComponent<Props>{
+    render(): JSX.Element {
+      const el = <span></span>
+      // if(!this.props.children){return el }
+      this.addDataToChildren('addedfromparent', escapeHtmlAttribute(JSON.stringify(this.props.data)), this.props);
+      return el
+    }
+    addDataToChildren(dataName: string, data: string, props: StatelessComponentProps<any>) {
+      this.childrenElementsAsArray().forEach(c => {
+        c.attrs[`data-${dataName}`] = data
+      });
+    }
+  }
+  const main = <Data data={{ g: 'asd' }}><span className="child1">hello</span></Data>
+  console.log(ReactLike.render(main, { indent: true }));
+
+  interface BindValueProps {
+    bindId: string
+  }
+  class BindInputValue extends StatelessComponent<BindValueProps>{
+    protected static counter = 0
+    render(): JSX.Element {
+      BindInputValue.checkRegisteredCode()
+      const c = this.firstChildElement()
+      if (c && c.tag === 'input') {
+        c.attrs['data-bind-value-id'] = 'bind-value-' + BindInputValue.counter++
+      }
+      return <span></span>
+    }
+    private static checkRegisteredCode(): any {
+      function getBindInputValue(id: string): string | undefined {
+        const el = document.querySelector<HTMLInputElement>(`[data-bind-value-id]="${id}"`)
+        if (el) {
+          return el.value
+        }
+      }
+      if (!BindInputValue.registered) {
+        ReactLike.registerClientCode({
+          name: 'BindInputValue',
+          code: getBindInputValue.toString(),
+          description : `Gets the current input value declared with wrapper <BindInputValue><input...`
+        })
+        BindInputValue.registered=true
+      }
+    }
+    private static registered = false
+  }
+  
+  const test = <BindInputValue bindId="id1"><input></input></BindInputValue>
+const s = ReactLike.render(test, { indent: true })
+  console.log(s, ReactLike.getClientCode().map(c=>c.code).join('\n'));
+  
+
+}
+customComponentAffectChild()
+
+

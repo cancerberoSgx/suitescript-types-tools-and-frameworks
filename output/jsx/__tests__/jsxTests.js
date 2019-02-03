@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../spec/index", "../createElement", "../StatelessComponent", "../Style", "../../spec/expectExtras"], function (require, exports, index_1, createElement_1, StatelessComponent_1, Style_1, expectExtras_1) {
+define(["require", "exports", "../../spec/index", "../createElement", "../StatelessComponent", "../Style", "../../spec/expectExtras", "../elementImpl"], function (require, exports, index_1, createElement_1, StatelessComponent_1, Style_1, expectExtras_1, elementImpl_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function jsxTests() {
@@ -107,6 +107,32 @@ define(["require", "exports", "../../spec/index", "../createElement", "../Statel
                 // console.log(s)
                 index_1.expect(s).toContain('border: 2px solid pink;');
                 expectExtras_1.expectCodeToContain(s, "\n      <div> hello<style> .button { border: 2px solid pink; padding: 5px; }; .primaryButton { border: 2px solid pink; padding: 5px; color: red; fontWeight: bolder; } </style><article> <button class=\"button\"> click me </button> </article> </div>\n  ");
+            });
+            index_1.it('custom el affecting children', function () {
+                var Data = /** @class */ (function (_super) {
+                    __extends(Data, _super);
+                    function Data() {
+                        return _super !== null && _super.apply(this, arguments) || this;
+                    }
+                    Data.prototype.render = function () {
+                        var _this = this;
+                        if (!this.props.children) {
+                            return createElement_1.ReactLike.createElement("span", null);
+                        }
+                        var children = (Array.isArray(this.props.children) ? this.props.children : [this.props.children]);
+                        children.forEach(function (c) {
+                            if (!elementImpl_1.isElementIke(c)) {
+                                return;
+                            }
+                            c.attrs = __assign({}, (c.attrs || {}), { 'data-data': createElement_1.escapeHtmlAttribute(JSON.stringify(_this.props.data)) });
+                        });
+                        return createElement_1.ReactLike.createElement("span", null);
+                    };
+                    return Data;
+                }(StatelessComponent_1.StatelessComponent));
+                var s = createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(Data, { data: { g: 'asd' } },
+                    createElement_1.ReactLike.createElement("span", { className: "child1" }, "hello")), { indent: true });
+                expectExtras_1.expectCodeToContain(s, "<span>\n      <span class=\"child1\" data-data=\"{&quot;g&quot;:&quot;asd&quot;}\">\n        hello\n      </span>\n    </span>\n    ");
             });
             // console.log(ReactLike.render(<Main apples={apples}></Main>, { indent: true }));
         });

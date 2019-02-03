@@ -9,10 +9,14 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../misc/misc"], function (require, exports, misc_1) {
+define(["require", "exports", "../misc/misc", "../jsx/createElement"], function (require, exports, misc_1, createElement_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var f = misc_1.find; // install array.prototype.find
+    var ROUTEPARAMNAME_NOPREFIX = 'routeParamName';
+    var ROUTEPARAMPREFIX = '__app__';
+    var ROUTEPARAMNAME = ROUTEPARAMPREFIX + ROUTEPARAMNAME_NOPREFIX;
+    var SCRIPTLETURLPREFIX = '/app/site/hosting/scriptlet.nl';
     var App = /** @class */ (function () {
         function App() {
             this.routes = [];
@@ -42,7 +46,7 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
                 d.response.write(JSON.stringify(result));
             }
             else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
-                d.response.write("<script>" + fetchAndRenderHtmlFragmentHandlerString() + "</script>");
+                d.response.write("<script>\n" + fetchAndRenderHtmlFragmentHandlerString() + "\n" + createElement_1.ReactLike.getClientCode().map(function (c) { return c.code; }).join('\n') + "\n</script>");
                 d.response.write(result);
             }
             // else if not result we assume the route already write in the response.
@@ -81,6 +85,14 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
             });
             return params_;
         };
+        App.prototype.getCurrentRealUrlSearchFragment = function () {
+            var params = this.currentDispatchOptions.request.parameters;
+            var otherParams = this.getOtherParams();
+            var otherParamsUrl = Object.keys(otherParams).map(function (p) { return p + "=" + otherParams[p]; }).join('&');
+            var routeNameUrl = Object.keys(params).filter(function (p) { return p === ROUTEPARAMNAME; }).map(function (p) { return p + "=" + params[p]; }).join('&');
+            var routeParamsUrl = Object.keys(params).filter(function (p) { return p !== ROUTEPARAMNAME && p.indexOf(ROUTEPARAMPREFIX) === 0; }).map(function (p) { return p + "=" + params[p]; }).join('&');
+            return SCRIPTLETURLPREFIX + "?" + otherParamsUrl + "&" + routeNameUrl + "&" + routeParamsUrl;
+        };
         App.prototype.renderLink = function (config) {
             var _a;
             var otherParams = this.getOtherParams();
@@ -95,16 +107,12 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
         return App;
     }());
     exports.App = App;
-    var ROUTEPARAMNAME_NOPREFIX = 'routeParamName';
-    var ROUTEPARAMPREFIX = '__app__';
-    var ROUTEPARAMNAME = ROUTEPARAMPREFIX + ROUTEPARAMNAME_NOPREFIX;
     /** this function is meant to be evaluated in the browser and also in the server! */
     function buildUrl(config) {
-        var clean = "" + linkPrefix + config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf("&" + ROUTEPARAMNAME + "=")) + "&" + ROUTEPARAMNAME + "=" + config.routeName;
+        var clean = "" + SCRIPTLETURLPREFIX + config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf("&" + ROUTEPARAMNAME + "=")) + "&" + ROUTEPARAMNAME + "=" + config.routeName;
         var newParams = clean + "&" + Object.keys(config.params).map(function (p) { return p + "=" + config.params[p]; }).join('&');
         return newParams;
     }
-    var linkPrefix = '/app/site/hosting/scriptlet.nl';
     /** this function is meant to be evaluated in the browser! */
     function fetchAndRenderHtmlFragment(config) {
         var url = buildRouteUrl(config);
@@ -128,7 +136,7 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
     function fetchAndRenderHtmlFragmentHandlerString() {
         // @ts-ignore
         var assign = __assign.toString();
-        var s = "\nvar ROUTEPARAMNAME = \"" + ROUTEPARAMNAME + "\";\nvar ROUTEPARAMPREFIX = \"" + ROUTEPARAMPREFIX + "\";\nvar linkPrefix = \"" + linkPrefix + "\"; \nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\nvar a = 1\n  ";
+        var s = "\nvar ROUTEPARAMNAME = \"" + ROUTEPARAMNAME + "\";\nvar ROUTEPARAMPREFIX = \"" + ROUTEPARAMPREFIX + "\";\nvar SCRIPTLETURLPREFIX = \"" + SCRIPTLETURLPREFIX + "\"; \nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\nvar a = 1\n  ";
         return s;
         // console.log(`<textarea>${s}</textarea>`);
         // return ()=>{}

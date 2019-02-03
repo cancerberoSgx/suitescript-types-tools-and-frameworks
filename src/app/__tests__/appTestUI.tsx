@@ -32,22 +32,22 @@ interface MainPageProps {
   renderLink(config: RenderLinkOptions): string
 }
 
-declare function fetchAndRenderHtml(config: RenderFragmentOptions):void
+declare function fetchAndRenderHtml(config: RenderFragmentOptions): void
 // declare function buildLink(config: RenderLinkOptions): string
 
 export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
   return <article>
     <h1>Welcome {props.userName}</h1>
     Interesting links: <ul>
-      <li><a href={props.renderLink({routeName: 'recordView', params: {id: '7', type: 'commercecategory'}})}>category 7 record view</a></li>
-      </ul>
-    <p>Search for categories by name: 
+      <li><a href={props.renderLink({ routeName: 'recordView', params: { id: '7', type: 'commercecategory' } })}>category 7 record view</a></li>
+    </ul>
+    <p>Search for categories by name:
       <input id="categoryName" placeholder="parent" value="parent"></input>
-    <button onClick={e => fetchAndRenderHtml({
-      routeName: 'findCategory',
-      params: { categoryName: document.querySelector<HTMLInputElement>('#categoryName')!.value },
-      selector: '#results'
-    })}>search</button></p>
+      <button onClick={e => fetchAndRenderHtml({
+        routeName: 'findCategory',
+        params: { categoryName: document.querySelector<HTMLInputElement>('#categoryName')!.value },
+        selector: '#results'
+      })}>search</button></p>
     <button onClick={e => fetchAndRenderHtml({
       routeName: 'listCategories',
       params: {},
@@ -63,12 +63,16 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
 
 
 
-interface Category{
+interface Category {
   name?: string, parent?: string, url?: string, id?: string
 }
 interface CategoryList {
-cats: Category[]
+  renderLink(config: RenderLinkOptions): string
+  cats: Category[]
 }
-export const CategoryList = (props: CategoryList)=> <ul>
-  {props.cats.map(c=><li>{c.name} {c.url} parent: {c.parent} id: {c.id}</li>)}
+export const CategoryList = (props: CategoryList) => <ul>
+  {props.cats.map(c => <li>
+    {c.name} {c.url} parent: {c.parent} id: {c.id}
+    <a href={props.renderLink({ routeName: 'recordView', params: { id: c.id + '', type: 'commercecategory' } })}>link</a>
+  </li>)}
 </ul>

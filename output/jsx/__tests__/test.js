@@ -103,9 +103,67 @@ define(["require", "exports", "../createElement", "../StatelessComponent", "../.
         console.log(s);
     }
     exports.moreOnCss = moreOnCss;
-    moreOnCss();
+    // moreOnCss()
+    function customComponentAffectChild() {
+        var Data = /** @class */ (function (_super) {
+            __extends(Data, _super);
+            function Data() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            Data.prototype.render = function () {
+                var el = createElement_1.ReactLike.createElement("span", null);
+                // if(!this.props.children){return el }
+                this.addDataToChildren('addedfromparent', createElement_1.escapeHtmlAttribute(JSON.stringify(this.props.data)), this.props);
+                return el;
+            };
+            Data.prototype.addDataToChildren = function (dataName, data, props) {
+                this.childrenElementsAsArray().forEach(function (c) {
+                    c.attrs["data-" + dataName] = data;
+                });
+            };
+            return Data;
+        }(StatelessComponent_1.StatelessComponent));
+        var main = createElement_1.ReactLike.createElement(Data, { data: { g: 'asd' } },
+            createElement_1.ReactLike.createElement("span", { className: "child1" }, "hello"));
+        console.log(createElement_1.ReactLike.render(main, { indent: true }));
+        var BindInputValue = /** @class */ (function (_super) {
+            __extends(BindInputValue, _super);
+            function BindInputValue() {
+                return _super !== null && _super.apply(this, arguments) || this;
+            }
+            BindInputValue.prototype.render = function () {
+                BindInputValue.checkRegisteredCode();
+                var c = this.firstChildElement();
+                if (c && c.tag === 'input') {
+                    c.attrs['data-bind-value-id'] = 'bind-value-' + BindInputValue.counter++;
+                }
+                return createElement_1.ReactLike.createElement("span", null);
+            };
+            BindInputValue.checkRegisteredCode = function () {
+                function getBindInputValue(id) {
+                    var el = document.querySelector("[data-bind-value-id]=\"" + id + "\"");
+                    if (el) {
+                        return el.value;
+                    }
+                }
+                if (!BindInputValue.registered) {
+                    createElement_1.ReactLike.registerClientCode({
+                        name: 'BindInputValue',
+                        code: getBindInputValue.toString(),
+                        description: "Gets the current input value declared with wrapper <BindInputValue><input..."
+                    });
+                    BindInputValue.registered = true;
+                }
+            };
+            BindInputValue.counter = 0;
+            BindInputValue.registered = false;
+            return BindInputValue;
+        }(StatelessComponent_1.StatelessComponent));
+        var test = createElement_1.ReactLike.createElement(BindInputValue, { bindId: "id1" },
+            createElement_1.ReactLike.createElement("input", null));
+        var s = createElement_1.ReactLike.render(test, { indent: true });
+        console.log(s, createElement_1.ReactLike.getClientCode().map(function (c) { return c.code; }).join('\n'));
+    }
+    exports.customComponentAffectChild = customComponentAffectChild;
+    customComponentAffectChild();
 });
-// this test can be executed in node with 
-// npx ts-node -P tsconfig-node.json src/experiments/reactLike/test.tsx
-// and un comment the following line:
-// reactLikeText()

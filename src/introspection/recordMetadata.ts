@@ -8,6 +8,7 @@ import { getObjectKeys } from './objectExplorer';
 export interface Record extends Base {
   fields: Field[]
   sublists: Sublist[]
+  type: string
 }
 
 // enum FieldType { 'string', 'boolean', }// TODO - is there a record for extracting this ? 
@@ -18,11 +19,11 @@ interface Base {
   name?: string
 }
 export interface Field extends Base {
-  type: string
   // id: string,
   // label: string
   isReadonly: boolean,
   isMandatory: boolean
+  type: string
 }
 export interface Sublist extends Base {
   fields: Field[]
@@ -38,7 +39,8 @@ class RecordBuilder {
       id: r.id+'',
       name: r.type+'',
       fields,
-      sublists
+      sublists, 
+      type: r.type+''
     }
   }
 
@@ -56,7 +58,7 @@ class RecordBuilder {
     }
     const field = r.getField({ fieldId })
     if (field) {
-      return { id: field.id, name: field.label, isReadonly: field.isReadOnly,isMandatory: field.isMandatory, type: field.type, }
+      return { id: field.id+'', name: field.label+'', isReadonly: !!field.isReadOnly, isMandatory: !!field.isMandatory, type: field.type+'', }
     }
     else {
       this.log('Cannot get record field (getField) with id ' + fieldId)

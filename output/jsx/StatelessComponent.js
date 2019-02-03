@@ -1,4 +1,4 @@
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "./elementImpl"], function (require, exports, elementImpl_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
@@ -14,6 +14,15 @@ define(["require", "exports"], function (require, exports) {
         }
         StatelessComponent.prototype.render = function () {
             throw new Error('Not Implemented');
+        };
+        StatelessComponent.prototype.childrenAsArray = function () {
+            return (Array.isArray(this.props.children) ? this.props.children : [this.props.children]);
+        };
+        StatelessComponent.prototype.childrenElementsAsArray = function () {
+            return this.childrenAsArray().filter(function (c) { return elementImpl_1.isElementIke(c); });
+        };
+        StatelessComponent.prototype.firstChildElement = function () {
+            return this.childrenAsArray().find(function (e) { return true; });
         };
         return StatelessComponent;
     }());

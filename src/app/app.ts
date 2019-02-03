@@ -1,6 +1,7 @@
 import { ServerRequest, ServerResponse } from 'N/http';
 
-import { find } from '../misc/misc'; var f = find// install array.prototype.find
+import { find } from '../misc/misc';import { ReactLike } from '../jsx/createElement';
+ var f = find// install array.prototype.find
 
 
 
@@ -29,6 +30,11 @@ interface Route<Params extends string=string> {
 }
 
 
+
+const ROUTEPARAMNAME_NOPREFIX = 'routeParamName'
+const ROUTEPARAMPREFIX = '__app__'
+const ROUTEPARAMNAME:string = ROUTEPARAMPREFIX+ROUTEPARAMNAME_NOPREFIX
+const SCRIPTLETURLPREFIX = '/app/site/hosting/scriptlet.nl'
 
 
 
@@ -63,14 +69,19 @@ export class App implements IApp {
       d.response.write(JSON.stringify(result))
     }
     else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
-      d.response.write(`<script>${fetchAndRenderHtmlFragmentHandlerString()}</script>`)
+      d.response.write(`<script>
+${fetchAndRenderHtmlFragmentHandlerString()}
+${ReactLike.getClientCode().map(c=>c.code).join('\n')}
+</script>`)
       d.response.write(result)
     }
     // else if not result we assume the route already write in the response.
   }
+
   notFound(d: DispatchOptions, msg = 'Page not found'): any {
     console.log(`App Error: ${msg}`);
   }
+  
   protected getParamsWithoutPrefix(request: ServerRequest): Params {
     const params: Params = {}
     Object.keys(request.parameters).filter(p => p.indexOf(this.paramPrefix) === 0).forEach(p => {
@@ -99,6 +110,15 @@ export class App implements IApp {
     return params_
   }
   
+  getCurrentRealUrlSearchFragment(): string{
+    const params = this.currentDispatchOptions!.request.parameters
+    const otherParams = this.getOtherParams()
+    const otherParamsUrl = Object.keys(otherParams).map(p => `${p}=${otherParams[p]}`).join('&')
+    const routeNameUrl = Object.keys(params).filter(p => p === ROUTEPARAMNAME).map(p=>`${p}=${params[p]}`).join('&')
+    const routeParamsUrl = Object.keys(params).filter(p => p !== ROUTEPARAMNAME && p.indexOf(ROUTEPARAMPREFIX)===0).map(p=>`${p}=${params[p]}`).join('&')
+    return `${SCRIPTLETURLPREFIX}?${otherParamsUrl}&${routeNameUrl}&${routeParamsUrl}`
+  }
+
   renderLink(config: RenderLinkOptions): string {
     const otherParams = this.getOtherParams()
     const otherParamsUrl = Object.keys(otherParams).map(p => `${p}=${otherParams[p]}`).join('&')
@@ -132,18 +152,13 @@ export interface RenderFragmentOptions extends RenderLinkOptions {
 
 
 
-const ROUTEPARAMNAME_NOPREFIX = 'routeParamName'
-const ROUTEPARAMPREFIX = '__app__'
-const ROUTEPARAMNAME:string = ROUTEPARAMPREFIX+ROUTEPARAMNAME_NOPREFIX
-
 /** this function is meant to be evaluated in the browser and also in the server! */
 function buildUrl(config: BuildUrlOptions) {
-  const clean = `${linkPrefix}${config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf(`&${ROUTEPARAMNAME}=`))}&${ROUTEPARAMNAME}=${config.routeName}`
+  const clean = `${SCRIPTLETURLPREFIX}${config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf(`&${ROUTEPARAMNAME}=`))}&${ROUTEPARAMNAME}=${config.routeName}`
   const newParams = `${clean}&${Object.keys(config.params).map(p => `${p}=${config.params[p]}`).join('&')}`
   return newParams
 }
 
-const linkPrefix = '/app/site/hosting/scriptlet.nl'
 
 /** this function is meant to be evaluated in the browser! */
 function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
@@ -159,19 +174,22 @@ function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
       }
     });
 }
+
+
 function buildRouteUrl(config: RenderLinkOptions): string{
   const params : Params = {}
   Object.keys(config.params).map(p=>{params[`${ROUTEPARAMPREFIX}${p}`] = config.params[p]})
   const url = buildUrl({ ...config, currentUrlSearchFragment: location.search, params})
   return url
 }
+
 function fetchAndRenderHtmlFragmentHandlerString() {
   // @ts-ignore
   const assign = __assign.toString()
   const  s = `
 var ROUTEPARAMNAME = "${ROUTEPARAMNAME}";
 var ROUTEPARAMPREFIX = "${ROUTEPARAMPREFIX}";
-var linkPrefix = "${linkPrefix}"; 
+var SCRIPTLETURLPREFIX = "${SCRIPTLETURLPREFIX}"; 
 var __assign = ${assign}
 ${buildRouteUrl.toString()}
 ${buildUrl.toString()}

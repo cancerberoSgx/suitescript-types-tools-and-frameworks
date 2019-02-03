@@ -1,11 +1,12 @@
 import { describe, expect, fail, it, skip } from "../../spec/index";
-import { ReactLike } from '../createElement'
+import { ReactLike, escapeHtmlAttribute } from '../createElement'
 import { StatelessComponent } from '../StatelessComponent';
 import { indent } from '../../misc/misc';
-import { ReactLikeChild } from '../jsx';
+import { ReactLikeChild, NodeLike } from '../jsx';
 import { StringKeyOf } from '../../misc/typesUtil';
 import { Style } from '../Style';
 import { expectCodeToContain } from '../../spec/expectExtras';
+import { isElementIke } from '../elementImpl';
 
 export function jsxTests() {
 
@@ -108,6 +109,30 @@ export function jsxTests() {
       expectCodeToContain(s, `
       <div> hello<style> .button { border: 2px solid pink; padding: 5px; }; .primaryButton { border: 2px solid pink; padding: 5px; color: red; fontWeight: bolder; } </style><article> <button class="button"> click me </button> </article> </div>
   `)
+    })
+
+    it('custom el affecting children', ()=>{
+      interface Props {
+        data: {[k:string]:string}
+      }
+      class Data extends StatelessComponent<Props>{
+        render(): JSX.Element {
+          if(!this.props.children){return <span></span>}
+          const children = (Array.isArray(this.props.children) ? this.props.children : [this.props.children]) as NodeLike[]
+          children.forEach(c=>{
+            if(!isElementIke(c)){return }
+            c.attrs = {...(c.attrs||{}), 'data-data': escapeHtmlAttribute(JSON.stringify(this.props.data))}
+          })
+          return <span></span>
+        }
+      }
+      const s = ReactLike.render(<Data data={{g: 'asd'}}><span className="child1">hello</span></Data>, { indent: true })
+      expectCodeToContain(s, `<span>
+      <span class="child1" data-data="{&quot;g&quot;:&quot;asd&quot;}">
+        hello
+      </span>
+    </span>
+    `)
     })
 
     // console.log(ReactLike.render(<Main apples={apples}></Main>, { indent: true }));

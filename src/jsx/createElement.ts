@@ -1,5 +1,5 @@
 import { ElementLikeImpl, isReactLikeComponent, isNode, TextNodeLikeImpl } from './elementImpl';
-import { ReactLikeTag, ReactLike as ReactLikeType, ReactLikeAttrs, ReactLikeChild, ElementLike, RenderConfig, NodeLike } from './jsx';
+import { ReactLikeTag, ReactLike as ReactLikeType, ReactLikeAttrs, ReactLikeChild, ElementLike, RenderConfig, NodeLike, ClientCode } from './jsx';
 import * as decls from './declarations/domElementDeclarations' // this needs to be here!
 
 const Module: ReactLikeType = {
@@ -26,7 +26,7 @@ const Module: ReactLikeType = {
         }
         else if (typeof value === 'function') {
           const code = `(${value.toString()}).apply(this, arguments)`
-          const escaped = code.replace(/\"/gmi, '&quot;')
+          const escaped = escapeHtmlAttribute(code)
           element.setAttribute(name, escaped);
         }
         else if (value !== false && value != null && typeof value !== 'object') {
@@ -69,10 +69,19 @@ const Module: ReactLikeType = {
 
   render(el: JSX.Element, config?: RenderConfig): string {
     return (el as any as NodeLike).render(config);
+  },
+
+
+  registerClientCode(f: ClientCode) {
+    clientCode.push(f)
+  },
+  getClientCode(): ClientCode[]{
+    return clientCode
   }
   
 } as ReactLikeType;
 
+const clientCode : ClientCode []=[] 
 
 export const ReactLike: ReactLikeType = Module;
 
@@ -80,4 +89,12 @@ export const ReactLike: ReactLikeType = Module;
 //@ts-ignore
 ReactLike = Module; // creates a global variable needed so emitted .js calls work. See tsconfig.json `"jsxFactory": "ReactLike.createElement",`
 
+
+
+export function escapeHtmlAttribute(code: string) {
+  return code.replace(/\"/gmi, '&quot;');
+}
+export function unEscapeHtmlAttribute(code: string) {
+  return code.replace(/\&quot\;/gmi, '"');
+}
 

@@ -4,7 +4,7 @@ import { list, filter } from '../../search/typedSearch/typedSearchOperations';
 import { App, Route } from '../app';
 import { recordViewRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
-import { CategoryList, MainPage } from './appTestUI';
+import { MainPage } from './appTestUI';
 import { findRecordRoute } from '../searchView/findRecordRoute';
 import { ListRecordTypes, listRecordTypesRoute } from '../searchView/listRecordTypesView';
 
@@ -25,7 +25,7 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
 
   app.addRoute(findRecordRoute(app))
 
-  app.addRoute(listCategoriesRoute(app))
+  // app.addRoute(listCategoriesRoute(app))
 
   app.addRoute(recordViewRoute(app))
 
@@ -40,21 +40,21 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
 
 
 
-function listCategoriesRoute(app: App): Route {
-  return {
-    name: 'listCategories',
-    handler(o) {
-      const cats = list({
-        type: 'commercecategory',
-        columns: ['name', 'primaryparent', 'fullurl'],
-      })
-        .map(c => ({
-          name: c.getValue('name'), id: c.id, parent: c.getValue('primaryparent'), url: c.getValue('fullurl')
-        }));
-      return ReactLike.render(<CategoryList cats={cats} renderLink={app.renderLink.bind(app)}></CategoryList>);
-    }
-  };
-}
+// function listCategoriesRoute(app: App): Route {
+//   return {
+//     name: 'listCategories',
+//     handler(o) {
+//       const cats = list({
+//         type: 'commercecategory',
+//         columns: ['name', 'primaryparent', 'fullurl'],
+//       })
+//         .map(c => ({
+//           name: c.getValue('name'), id: c.id, parent: c.getValue('primaryparent'), url: c.getValue('fullurl')
+//         }));
+//       return ReactLike.render(<CategoryList cats={cats} renderLink={app.renderLink.bind(app)}></CategoryList>);
+//     }
+//   };
+// }
 
 
 

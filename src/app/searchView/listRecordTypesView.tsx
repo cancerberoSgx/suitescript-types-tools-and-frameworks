@@ -13,13 +13,14 @@ interface Props {
   pageSize?: number
   renderLink(config: RenderLinkOptions): string
   results?: Result<RecordType>[]
+  dynamicResultsRender?: boolean
 }
 
 const bindInputValueId = `data-list-record-types`
 
 export const ListRecordTypes = (props: Props) => {
   return <div>
-    Record type:
+    Record type: {props.dynamicResultsRender}
     <BindInputValue bindInputId={bindInputValueId}>
       <select id="ListRecordTypesSelect">
         {getSearchRecordTypes().map(r =>
@@ -29,21 +30,31 @@ export const ListRecordTypes = (props: Props) => {
     </BindInputValue>
 
     <BindInputValue bindListenerId={bindInputValueId}    >
-      <button onClick={e => {
+    {props.dynamicResultsRender ? 
+      <button 
+      onClick={e => {
+        let type = getBindInputValue<string>(e.currentTarget);
+        fetchAndRenderHtml({ routeName: 'listRecordTypes', params: { type }, selector: '#listRecordTypesDynamicResults' })
+      }}>Search</button> : 
+      <button 
+      onClick={e => {
         let type = getBindInputValue<string>(e.currentTarget);
         window.location.href = buildRouteUrl({ routeName: 'listRecordTypes', params: { type } });
-      }}>
-        Search</button>
+      }}
+      >   Search</button>
+    }
     </BindInputValue>
 
-    {props.results ? <div>
+    {props.dynamicResultsRender ? <div id="listRecordTypesDynamicResults"></div> : 
+    <span>{props.results ? <div>
       Results:
     <ul>{props.results.map(r =>
         <li>
           <a href={props.renderLink({ routeName: 'recordView', params: { id: r.id, type: r.recordType } })}>{r.recordType}  {r.id}</a>
         </li>)}
       </ul>
-    </div> : <span></span>}
+    </div> : <span></span>}</span>
+    }
   </div>
 }
 
@@ -53,8 +64,9 @@ export function listRecordTypesRoute(app: App): Route {
   return {
     name: 'listRecordTypes',
     handler(o) {
-      const { type, pageSizeS = '20' } = o.params
-      const pageSize = parseInt(pageSizeS, 10)
+      const { type} = o.params
+      const pageSize = parseInt(o.params.pageSize||'20', 10)
+      const dynamicResultsRender = !!o.params.dynamicResultsRender
       if (!type) {
         return ReactLike.render(<ListRecordTypes pageSize={pageSize} renderLink={app.renderLink.bind(app)}></ListRecordTypes>);
       }
@@ -64,7 +76,7 @@ export function listRecordTypesRoute(app: App): Route {
         columns: []
       }, r => (((counter++) > pageSize) || !r) ? false : true)
 
-      return ReactLike.render(<ListRecordTypes pageSize={pageSize} renderLink={app.renderLink.bind(app)} type={type} results={results}></ListRecordTypes>);
+      return ReactLike.render(<ListRecordTypes pageSize={pageSize} renderLink={app.renderLink.bind(app)} type={type} results={results} dynamicResultsRender={dynamicResultsRender}></ListRecordTypes>);
     }
   };
 }

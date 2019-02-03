@@ -1,57 +1,71 @@
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-define(["require", "exports", "../../jsx/createElement"], function (require, exports, createElement_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/BindInputValue", "../../jsx/util/StoreData"], function (require, exports, createElement_1, BindInputValue_1, StoreData_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function getStyles() {
-        var button = {
-            border: '2px solid pink',
-            padding: '5px'
-        };
-        // this class extends another:
-        var primaryButton = __assign({}, button, { color: 'red', fontWeight: 'bolder' });
-        var styles = {
-            button: button,
-            primaryButton: primaryButton
-        };
-        return styles;
-    }
-    // declare function buildLink(config: RenderLinkOptions): string
     exports.MainPage = function (props, children) {
         return createElement_1.ReactLike.createElement("article", null,
+            createElement_1.ReactLike.createElement(MainPageInit, null),
             createElement_1.ReactLike.createElement("h1", null,
                 "Welcome ",
                 props.userName),
-            "Interesting links: ",
+            "This is an experiment of mine (Sebasti\u00E1n Gurin) using JSX & TypeScript technologies to render server side pages. Try to use the buttons and links below to see some pages:",
             createElement_1.ReactLike.createElement("ul", null,
                 createElement_1.ReactLike.createElement("li", null,
-                    createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: { id: '7', type: 'commercecategory' } }) }, "category 7 record view"))),
-            createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
-                    routeName: 'listCategories',
-                    params: {},
-                    selector: '#resultsList'
-                }); } }, "list all categories"),
-            createElement_1.ReactLike.createElement("p", null, "Result by name: "),
-            createElement_1.ReactLike.createElement("div", { id: "results" }),
-            createElement_1.ReactLike.createElement("p", null, "Result list all "),
-            createElement_1.ReactLike.createElement("div", { id: "resultsList" }));
+                    createElement_1.ReactLike.createElement("a", { href: props.renderLink({
+                            routeName: 'recordView',
+                            params: { id: '7', type: 'commercecategory' }
+                        }) }, "record view link")),
+                createElement_1.ReactLike.createElement("li", null,
+                    createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
+                            routeName: 'recordView',
+                            params: { id: '7', type: 'commercecategory' },
+                            selector: '#mainView'
+                        }); } }, "record view embedded")),
+                createElement_1.ReactLike.createElement("li", null,
+                    createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
+                            routeName: 'listRecordTypes',
+                            params: { dynamicResultsRender: true, type: 'item' },
+                            selector: '#mainView'
+                        }); } }, "listRecordTypes item embedded"))),
+            createElement_1.ReactLike.createElement("div", { id: "mainView" }));
     };
-    exports.CategoryList = function (props) { return createElement_1.ReactLike.createElement("ul", null, props.cats.map(function (c) { return createElement_1.ReactLike.createElement("li", null,
-        c.name,
-        " ",
-        c.url,
-        " parent: ",
-        c.parent,
-        " id: ",
-        c.id,
-        createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: { id: c.id + '', type: 'commercecategory' } }) }, "link")); })); };
+    /** we call custom tags so they get initialized and their scripts are embedded in the main html - if not they won't be present when complex pages are rendered inside dynamically using fetchAndRenderHtml */
+    var MainPageInit = function () { return createElement_1.ReactLike.createElement("span", null,
+        createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, null),
+        createElement_1.ReactLike.createElement(StoreData_1.StoreData, { data: {} })); };
 });
+// interface Class extends Partial<CSSStyleDeclaration> { }
+// interface IClasses {
+//   [k: string]: Class
+//   button: Class,
+//   primaryButton: Class
+// }
+// function getStyles() {
+//   const button: Class = {
+//     border: '2px solid pink',
+//     padding: '5px'
+//   };
+//   // this class extends another:
+//   const primaryButton: Class = {
+//     ...button,
+//     color: 'red',
+//     fontWeight: 'bolder'
+//   };
+//   const styles: IClasses = {
+//     button,
+//     primaryButton
+//   };
+//   return styles;
+// }
+// interface Category {
+//   name?: string, parent?: string, url?: string, id?: string
+// }
+// interface CategoryList {
+//   renderLink(config: RenderLinkOptions): string
+//   cats: Category[]
+// }
+// export const CategoryList = (props: CategoryList) => <ul>
+//   {props.cats.map(c => <li>
+//     {c.name} {c.url} parent: {c.parent} id: {c.id}
+//     <a href={props.renderLink({ routeName: 'recordView', params: { id: c.id + '', type: 'commercecategory' } })}>link</a>
+//   </li>)}
+// </ul>

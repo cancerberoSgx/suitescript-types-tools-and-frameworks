@@ -1,16 +1,23 @@
+import * as record from 'N/record';
+import { Field, getRecordTypeMetadata, Record, Sublist } from '../../introspection/recordMetadata';
 import { ReactLike } from "../../jsx/createElement";
-import * as record from 'N/record'
-import { getRecordTypeMetadata, Record, Field, Sublist } from '../../introspection/recordMetadata';
 import { RenderLinkOptions } from "../browserCode";
 import { FieldEditor } from './fieldEditor';
-import { array } from '../../misc/misc';
 
-type Value = string | boolean | number | Date
-export interface ValuedField extends Field {
+type Value = string | boolean | number | Date | null | number[] | string[]
+interface Valued {
+
   value?: Value
+  text?: Text
 }
-interface SublistLine {
-  rows: { fieldId: string, value: Value }[]
+type Text = string | string[] | undefined
+export interface ValuedField extends Field, Valued {
+}
+interface Row extends Valued {
+  field: Field
+}
+interface SublistLine extends Valued {
+  rows: Row[]
 }
 interface ValuedSublist extends Sublist {
   lines: SublistLine[]
@@ -107,11 +114,12 @@ const Sublist = (props: { sublist: ValuedSublist } & Props) => {
 
 const SublistLinesEditor = (props: { sublist: ValuedSublist } & Props) => {
   return <table>
-    <thead><tr>{props.sublist.fields.map(f => <th>{f.id}</th>)}</tr></thead>
+    <thead><tr>{props.sublist.fields.map(f => <th>{f.id}{f.type ? ` (${f.type})` : ''}</th>)}</tr></thead>
     <tbody>
       {props.sublist.lines.map((line, index) => <tr>
         {line.rows.map((row, i) =>
-          <td>{row.value}</td>
+          <td>{row.text} {row.value} {row.field.type === 'select' ?
+            <a href={props.renderLink({ routeName: 'recordView', params: { id: '7', type: row.field.id } })}></a> : ''}</td>
         )}
       </tr>
       )}
@@ -125,10 +133,11 @@ export function buildRecordViewModel(r: record.Record, seeValues: boolean, showA
   const record = getRecordTypeMetadata({
     record: r,
     fieldPredicate: showAllFields ? f => true : internalFilterPredicate,
-    debug: false
+    debug: false,
+    callGetSublistField: true
   }) as RecordV
-  if (!record) { 
-    throw 'record not found' 
+  if (!record) {
+    throw 'record not found'
   }
 
   record.fields = record.fields
@@ -137,18 +146,16 @@ export function buildRecordViewModel(r: record.Record, seeValues: boolean, showA
       if (!seeValues) {
         return f
       }
-      let value: any
+      let value: Value, text: Text
       try {
-        //@ts-ignore     
+        //@ts-i gnore     
         value = r.getValue(f.id)
+        text = r.getText(f.id)
       }
       catch (error) {
         value = "ERROR " + f.id
       }
-      return {
-        ...f,
-        value: seeValues ? value : ''
-      }
+      return { ...f, value, text }
     })
     .sort((a, b) => a.id.localeCompare(b.id))
 
@@ -161,8 +168,9 @@ export function buildRecordViewModel(r: record.Record, seeValues: boolean, showA
       for (let line = 0; line < s.lineCount; line++) {
         s.lines[line] = { rows: [] }
         s.fields.forEach(f => {
-          const value = r.getSublistText({ sublistId: s.id, fieldId: f.id, line })
-          s.lines[line].rows.push({ fieldId: f.id, value })
+          const text = r.getSublistText({ sublistId: s.id, fieldId: f.id, line })
+          const value = r.getSublistValue({ sublistId: s.id, fieldId: f.id, line })
+          s.lines[line].rows.push({ text, value, field: f })
         })
       }
       return s

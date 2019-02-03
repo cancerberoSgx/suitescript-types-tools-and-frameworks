@@ -91,16 +91,25 @@ define(["require", "exports", "../../introspection/recordMetadata", "../../jsx/c
     var SublistLinesEditor = function (props) {
         return createElement_1.ReactLike.createElement("table", null,
             createElement_1.ReactLike.createElement("thead", null,
-                createElement_1.ReactLike.createElement("tr", null, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("th", null, f.id); }))),
+                createElement_1.ReactLike.createElement("tr", null, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("th", null,
+                    f.id,
+                    f.type ? " (" + f.type + ")" : ''); }))),
             createElement_1.ReactLike.createElement("tbody", null, props.sublist.lines.map(function (line, index) { return createElement_1.ReactLike.createElement("tr", null, line.rows.map(function (row, i) {
-                return createElement_1.ReactLike.createElement("td", null, row.value);
+                return createElement_1.ReactLike.createElement("td", null,
+                    row.text,
+                    " ",
+                    row.value,
+                    " ",
+                    row.field.type === 'select' ?
+                        createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: { id: '7', type: row.field.id } }) }) : '');
             })); })));
     };
     function buildRecordViewModel(r, seeValues, showAllFields) {
         var record = recordMetadata_1.getRecordTypeMetadata({
             record: r,
             fieldPredicate: showAllFields ? function (f) { return true; } : internalFilterPredicate,
-            debug: false
+            debug: false,
+            callGetSublistField: true
         });
         if (!record) {
             throw 'record not found';
@@ -111,15 +120,16 @@ define(["require", "exports", "../../introspection/recordMetadata", "../../jsx/c
             if (!seeValues) {
                 return f;
             }
-            var value;
+            var value, text;
             try {
-                //@ts-ignore     
+                //@ts-i gnore     
                 value = r.getValue(f.id);
+                text = r.getText(f.id);
             }
             catch (error) {
                 value = "ERROR " + f.id;
             }
-            return __assign({}, f, { value: seeValues ? value : '' });
+            return __assign({}, f, { value: value, text: text });
         })
             .sort(function (a, b) { return a.id.localeCompare(b.id); });
         record.sublists = record.sublists
@@ -131,8 +141,9 @@ define(["require", "exports", "../../introspection/recordMetadata", "../../jsx/c
             var _loop_1 = function (line) {
                 s.lines[line] = { rows: [] };
                 s.fields.forEach(function (f) {
-                    var value = r.getSublistText({ sublistId: s.id, fieldId: f.id, line: line });
-                    s.lines[line].rows.push({ fieldId: f.id, value: value });
+                    var text = r.getSublistText({ sublistId: s.id, fieldId: f.id, line: line });
+                    var value = r.getSublistValue({ sublistId: s.id, fieldId: f.id, line: line });
+                    s.lines[line].rows.push({ text: text, value: value, field: f });
                 });
             };
             for (var line = 0; line < s.lineCount; line++) {

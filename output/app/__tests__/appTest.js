@@ -1,4 +1,4 @@
-define(["require", "exports", "../../search/typedSearch/typedSearchOperations", "../../misc/misc", "../app", "./appTestUI", "../../jsx/createElement", "N/record", "./recordView"], function (require, exports, typedSearchOperations_1, misc_1, app_1, appTestUI_1, createElement_1, record_1, recordView_1) {
+define(["require", "exports", "../../jsx/createElement", "../../search/typedSearch/typedSearchOperations", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "./appTestUI"], function (require, exports, createElement_1, typedSearchOperations_1, app_1, recordViewRoute_1, setFieldValueRoute_1, appTestUI_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function appTest(request, response) {
@@ -42,55 +42,9 @@ define(["require", "exports", "../../search/typedSearch/typedSearchOperations", 
                 return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(appTestUI_1.CategoryList, { cats: cats, renderLink: app.renderLink.bind(app) }));
             }
         });
-        app.addRoute({
-            name: 'recordView',
-            handler: function (o) {
-                var _a = o.params, id = _a.id, type = _a.type, messageFromRedirect = _a.messageFromRedirect;
-                var seeValues = !!o.params.seeValues;
-                var showAllFields = !!o.params.showAllFields;
-                var showSublistLines = !!o.params.showSublistLines;
-                if (!id || !type) {
-                    return 'Cannot open record view without an id or type, given id, type: ' + (id + ", " + type);
-                }
-                var record = record_1.load({ id: id, type: type });
-                if (!record) {
-                    return 'Record id, type: ' + (id + ", " + type + " not be found");
-                }
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: recordView_1.buildRecordViewModel(record, seeValues, showAllFields), seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines }));
-            }
-        });
+        app.addRoute(recordViewRoute_1.recordViewRoute(app));
         // a service that will call setValue on a record and redirect the user according to redirect param
-        app.addRoute({
-            name: 'setFieldValue',
-            handler: function (o) {
-                var _a = o.params, recordId = _a.recordId, recordType = _a.recordType, fieldId = _a.fieldId, fieldValue = _a.fieldValue, fieldType = _a.fieldType;
-                var redirect = decodeURIComponent(o.params.redirect);
-                if (!recordId || !recordType || !fieldId || !fieldValue) {
-                    return 'Invalid call - !id|| !type || !fieldId || ! fieldValue must apply ' + (recordId + ", " + recordType + ", " + fieldId + "," + fieldValue);
-                }
-                var record = record_1.load({ id: recordId, type: recordType });
-                if (!record) {
-                    return 'Record id, type: ' + (recordId + ", " + recordType + " not found");
-                }
-                if (!misc_1.find(record.getFields(), function (f) { return f === fieldId; })) {
-                    return 'Record id, type: ' + (recordId + ", " + recordType + " does not have fieldId " + fieldId);
-                }
-                try {
-                    record.setValue({ fieldId: fieldId, value: fieldValue });
-                    record.save();
-                    var messageFromRedirect = "record (" + recordType + ", " + recordId + ") field \"" + fieldId + "\" value changed to \"" + fieldValue + "\" (" + fieldType + ") successfully ";
-                    if (redirect) {
-                        return app.redirect({ redirect: redirect, messageFromRedirect: messageFromRedirect });
-                    }
-                    else {
-                        return messageFromRedirect;
-                    }
-                }
-                catch (error) {
-                    return "<p><br/>\n        <a href=\"" + redirect + "\">Go to previous page</a></p>setFieldValue: ERROR: while trying to set field on " + JSON.stringify({ recordId: recordId, recordType: recordType, fieldId: fieldId, fieldValue: fieldValue, fieldType: fieldType }) + " error: \n" + error + " " + error.stack;
-                }
-            }
-        });
+        app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
         app.dispatch({ request: request, response: response });
     }
     exports.appTest = appTest;

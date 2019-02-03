@@ -11,10 +11,6 @@ export type Params = { [name: string]: string }
 interface RouterHandlerOptions extends DispatchOptions {
   params: Params
 }
-interface Param {
-  name: string
-  value: string
-}
 interface DispatchOptions {
   request: ServerRequest
   response: ServerResponse
@@ -25,7 +21,7 @@ interface IApp {
   dispatch(d: DispatchOptions): void
 }
 
-interface Route {
+export interface Route {
   /** the route unique name and it will be used as a param for this route always */
   name: string
   handler(handler: RouterHandlerOptions): any

@@ -81,8 +81,22 @@ define(["require", "exports", "../log/log"], function (require, exports, log_1) 
                 .map(function (fieldId) { return _this.extractSublistField(config, sublistId, fieldId); });
         };
         RecordBuilder.prototype.extractSublistField = function (config, sublistId, fieldId) {
+            var type;
+            if (config.callGetSublistField) {
+                try {
+                    var lineCount = config.record.getLineCount({ sublistId: sublistId });
+                    if (lineCount > 0) {
+                        var f = config.record.getSublistField({ sublistId: sublistId, fieldId: fieldId, line: 0 });
+                        // console.log({${f.}});
+                        type = f.type;
+                    }
+                }
+                catch (error) {
+                }
+            }
             return {
-                id: fieldId
+                id: fieldId,
+                type: type
             };
         };
         return RecordBuilder;

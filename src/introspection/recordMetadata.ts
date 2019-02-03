@@ -35,6 +35,8 @@ interface ExtractConfig {
   fieldPredicate?: (id: string) => boolean
   excludeSublists?: (id: string) => boolean
   debug?: boolean
+  /** perform record.getSublistField() to try getting sublist fields information like type ? */
+  callGetSublistField?: boolean
 }
 class RecordBuilder {
   config: ExtractConfig | undefined;
@@ -119,8 +121,22 @@ class RecordBuilder {
   }
 
   extractSublistField(config: ExtractConfig, sublistId: string, fieldId: string): any {
+    let type: string|undefined
+    if (config.callGetSublistField) {
+      try {
+        const lineCount = config.record.getLineCount({ sublistId })
+        if (lineCount > 0) {
+          const f = config.record.getSublistField({ sublistId, fieldId, line: 0 })
+          // console.log({${f.}});
+          type=f.type
+        }
+      } catch (error) {
+
+      }
+    }
     return {
-      id: fieldId
+      id: fieldId,
+      type
     }
   }
 

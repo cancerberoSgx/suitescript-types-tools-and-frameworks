@@ -1,12 +1,14 @@
-define(["require", "exports", "../record/recordRef", "../log/log"], function (require, exports, recordRef_1, log_1) {
+define(["require", "exports", "../log/log"], function (require, exports, log_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var RecordBuilder = /** @class */ (function () {
         function RecordBuilder() {
         }
-        RecordBuilder.prototype.extractRecord = function (r) {
-            var fields = this.extractFields(r);
-            var sublists = this.extractSublists(r);
+        RecordBuilder.prototype.extractRecord = function (config) {
+            this.config = config;
+            var r = config.record;
+            var fields = this.extractFields(config);
+            var sublists = this.extractSublists(config);
             return {
                 id: r.id + '',
                 name: r.type + '',
@@ -15,13 +17,16 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
                 type: r.type + ''
             };
         };
-        RecordBuilder.prototype.extractFields = function (r) {
+        RecordBuilder.prototype.extractFields = function (config) {
             var _this = this;
+            var r = config.record;
             return r.getFields()
-                .map(function (fieldId) { return _this.extractField(r, fieldId); })
+                .filter(function (f) { return config.fieldPredicate && config.fieldPredicate(f); })
+                .map(function (fieldId) { return _this.extractField(config, fieldId); })
                 .filter(function (f) { return !!f; });
         };
-        RecordBuilder.prototype.extractField = function (r, fieldId) {
+        RecordBuilder.prototype.extractField = function (config, fieldId) {
+            var r = config.record;
             if (fieldId.indexOf('sys_') === 0) {
                 return {
                     id: fieldId, type: 'text', isReadonly: false, isMandatory: false,
@@ -36,15 +41,19 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
             }
         };
         RecordBuilder.prototype.log = function (s) {
-            log_1.log(s);
+            if (this.config && this.config.debug) {
+                log_1.log(s);
+            }
         };
-        RecordBuilder.prototype.extractSublists = function (r) {
+        RecordBuilder.prototype.extractSublists = function (config) {
             var _this = this;
+            var r = config.record;
             return r.getSublists()
-                .map(function (sublistId) { return _this.extractSublist(r, sublistId); })
+                .map(function (sublistId) { return _this.extractSublist(config, sublistId); })
                 .filter(function (s) { return !!s; });
         };
-        RecordBuilder.prototype.extractSublist = function (r, sublistId) {
+        RecordBuilder.prototype.extractSublist = function (config, sublistId) {
+            var r = config.record;
             var name;
             try {
                 var s = r.getSublist({ sublistId: sublistId });
@@ -52,13 +61,14 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
             }
             catch (error) {
             }
-            var fields = this.extractSublistFields(r, sublistId);
+            var fields = this.extractSublistFields(config, sublistId);
             return {
                 id: sublistId, fields: fields, name: name
             };
         };
-        RecordBuilder.prototype.extractSublistFields = function (r, sublistId) {
+        RecordBuilder.prototype.extractSublistFields = function (config, sublistId) {
             var _this = this;
+            var r = config.record;
             var sublistFields = [];
             try {
                 sublistFields = r.getSublistFields({ sublistId: sublistId });
@@ -68,26 +78,18 @@ define(["require", "exports", "../record/recordRef", "../log/log"], function (re
             }
             return sublistFields
                 .filter(function (f) { return f.indexOf('sys_') !== 0; })
-                .map(function (fieldId) { return _this.extractSublistField(r, sublistId, fieldId); });
+                .map(function (fieldId) { return _this.extractSublistField(config, sublistId, fieldId); });
         };
-        RecordBuilder.prototype.extractSublistField = function (r, sublistId, fieldId) {
+        RecordBuilder.prototype.extractSublistField = function (config, sublistId, fieldId) {
             return {
                 id: fieldId
             };
-            // let name:string|undefined, type: string|undefined
-            // try {
-            //   const f = 
-            // } catch (error) {
-            // }
-            // throw new Error('Method not implemented.');
         };
         return RecordBuilder;
     }());
-    function getRecordTypeMetadata(rr) {
-        // if (!r) { return }
+    function getRecordTypeMetadata(config) {
         var builder = new RecordBuilder();
-        var r = recordRef_1.asRecordOrThrow(rr);
-        return builder.extractRecord(r);
+        return builder.extractRecord(config);
     }
     exports.getRecordTypeMetadata = getRecordTypeMetadata;
 });

@@ -1,4 +1,4 @@
-define(["require", "exports", "N/redirect", "../../search/typedSearch/typedSearchOperations", "../../misc/misc", "../app", "./appTestUI", "../../jsx/createElement", "N/record", "./recordView"], function (require, exports, redirect_1, typedSearchOperations_1, misc_1, app_1, appTestUI_1, createElement_1, record_1, recordView_1) {
+define(["require", "exports", "../../search/typedSearch/typedSearchOperations", "../../misc/misc", "../app", "./appTestUI", "../../jsx/createElement", "N/record", "./recordView"], function (require, exports, typedSearchOperations_1, misc_1, app_1, appTestUI_1, createElement_1, record_1, recordView_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function appTest(request, response) {
@@ -45,8 +45,9 @@ define(["require", "exports", "N/redirect", "../../search/typedSearch/typedSearc
         app.addRoute({
             name: 'recordView',
             handler: function (o) {
-                var _a = o.params, id = _a.id, type = _a.type;
+                var _a = o.params, id = _a.id, type = _a.type, messageFromRedirect = _a.messageFromRedirect;
                 var seeValues = !!o.params.seeValues;
+                var showAllFields = !!o.params.showAllFields;
                 if (!id || !type) {
                     return 'Cannot open record view without an id or type, given id, type: ' + (id + ", " + type);
                 }
@@ -54,13 +55,13 @@ define(["require", "exports", "N/redirect", "../../search/typedSearch/typedSearc
                 if (!record) {
                     return 'Record id, type: ' + (id + ", " + type + " not be found");
                 }
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: recordView_1.buildRecordViewModel(record, seeValues), seeValues: seeValues, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment() }));
+                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: recordView_1.buildRecordViewModel(record, seeValues, showAllFields), seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect }));
             }
         });
         app.addRoute({
             name: 'setFieldValue',
             handler: function (o) {
-                var _a = o.params, recordId = _a.recordId, recordType = _a.recordType, fieldId = _a.fieldId, fieldValue = _a.fieldValue;
+                var _a = o.params, recordId = _a.recordId, recordType = _a.recordType, fieldId = _a.fieldId, fieldValue = _a.fieldValue, fieldType = _a.fieldType;
                 var redirect = decodeURIComponent(o.params.redirect);
                 if (!recordId || !recordType || !fieldId || !fieldValue) {
                     return 'Invalid call - !id|| !type || !fieldId || ! fieldValue must apply ' + (recordId + ", " + recordType + ", " + fieldId + "," + fieldValue);
@@ -72,13 +73,19 @@ define(["require", "exports", "N/redirect", "../../search/typedSearch/typedSearc
                 if (!misc_1.find(record.getFields(), function (f) { return f === fieldId; })) {
                     return 'Record id, type: ' + (recordId + ", " + recordType + " does not have fieldId " + fieldId);
                 }
-                record.setValue({ fieldId: fieldId, value: fieldValue });
-                record.save();
-                if (redirect) {
-                    redirect_1.redirect({ url: redirect });
+                try {
+                    record.setValue({ fieldId: fieldId, value: fieldValue });
+                    record.save();
+                    var messageFromRedirect = "record (" + recordType + ", " + recordId + ") field \"" + fieldId + "\" value changed to \"" + fieldValue + "\" (" + fieldType + ") successfully";
+                    if (redirect) {
+                        return app.redirect({ redirect: redirect, messageFromRedirect: messageFromRedirect });
+                    }
+                    else {
+                        return messageFromRedirect;
+                    }
                 }
-                else {
-                    return console.log('record field changed to ' + (recordId + ", " + recordType + ", " + fieldId + "," + fieldValue));
+                catch (error) {
+                    return "<p><br/>\n        <a href=\"" + redirect + "\">Go to previous page</a></p>setFieldValue: ERROR: while trying to set field on " + JSON.stringify({ recordId: recordId, recordType: recordType, fieldId: fieldId, fieldValue: fieldValue, fieldType: fieldType }) + " error: \n" + error + " " + error.stack;
                 }
             }
         });

@@ -6,7 +6,7 @@ define(["require", "exports", "../spec/index", "./recordMetadata", "../record/re
             var r = recordRef_1.asRecordOrThrow(matrixItem_1.findMatrixChildOrThrow(itemTestPreconditions_1.get().oneMatrixChildId));
             log_1.log(objectExplorer_1.printNamedTypedArray(objectExplorer_1.getObjectValueTypes(r)));
             // const metadata = getRecordTypeMetadata(load({id: r.id, type: r.type, isDynamic: true}))
-            var metadata = recordMetadata_1.getRecordTypeMetadata(r);
+            var metadata = recordMetadata_1.getRecordTypeMetadata({ record: r });
             log_1.log(JSON.stringify(metadata, null, 2));
         });
         //  3

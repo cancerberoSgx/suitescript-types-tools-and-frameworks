@@ -24,6 +24,13 @@ define(["require", "exports", "../StatelessComponent", "../createElement", "./Bi
             BindInputValue_1.BindInputValue.prototype.render.apply(this, []);
             return createElement_1.ReactLike.createElement("span", null);
         };
+        BindInputValueAndStoreData.prototype.checkRegisteredCode = function () {
+            if (!BindInputValueAndStoreData.registered) {
+                StoreData_1.StoreData.prototype.checkRegisteredCode.apply(this, []);
+                BindInputValue_1.BindInputValue.prototype.checkRegisteredCode.apply(this, []);
+            }
+        };
+        BindInputValueAndStoreData.registered = false;
         return BindInputValueAndStoreData;
     }(StatelessComponent_1.StatelessComponent));
     exports.BindInputValueAndStoreData = BindInputValueAndStoreData;

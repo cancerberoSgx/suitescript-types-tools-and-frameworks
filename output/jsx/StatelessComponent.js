@@ -11,10 +11,12 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
         function StatelessComponent(props) {
             this.props = props;
             this.props = props;
+            this.checkRegisteredCode();
         }
         StatelessComponent.prototype.render = function () {
             throw new Error('Not Implemented');
         };
+        StatelessComponent.prototype.checkRegisteredCode = function () { };
         StatelessComponent.prototype.childrenAsArray = function () {
             return (Array.isArray(this.props.children) ? this.props.children : [this.props.children]);
         };

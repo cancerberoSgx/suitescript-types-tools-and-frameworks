@@ -30,35 +30,47 @@ export interface Sublist extends Base {
   // name: string
 }
 
+interface ExtractConfig {
+  record: record.Record
+  fieldPredicate?: (id: string) => boolean
+  excludeSublists?: (id: string) => boolean
+  debug?: boolean
+}
 class RecordBuilder {
+  config: ExtractConfig | undefined;
 
-  extractRecord(r: record.Record): Record {
-    const fields = this.extractFields(r)
-    const sublists = this.extractSublists(r)
+  extractRecord(config: ExtractConfig): Record {
+    this.config = config
+    const r = config.record
+    const fields = this.extractFields(config)
+    const sublists = this.extractSublists(config)
     return {
-      id: r.id+'',
-      name: r.type+'',
+      id: r.id + '',
+      name: r.type + '',
       fields,
-      sublists, 
-      type: r.type+''
+      sublists,
+      type: r.type + ''
     }
   }
 
-  extractFields(r: record.Record): Field[] {
+  extractFields(config: ExtractConfig): Field[] {
+    const r = config.record
     return r.getFields()
-      .map(fieldId => this.extractField(r, fieldId))
+      .filter(f => config.fieldPredicate && config.fieldPredicate(f))
+      .map(fieldId => this.extractField(config, fieldId))
       .filter(f => !!f) as Field[]
   }
 
-  extractField(r: record.Record, fieldId: string): Field | undefined {
-    if(fieldId.indexOf('sys_')===0){
+  extractField(config: ExtractConfig, fieldId: string): Field | undefined {
+    const r = config.record
+    if (fieldId.indexOf('sys_') === 0) {
       return {
-        id: fieldId, type: 'text',isReadonly:false,isMandatory:false,
+        id: fieldId, type: 'text', isReadonly: false, isMandatory: false,
       }
     }
     const field = r.getField({ fieldId })
     if (field) {
-      return { id: field.id+'', name: field.label+'', isReadonly: !!field.isReadOnly, isMandatory: !!field.isMandatory, type: field.type+'', }
+      return { id: field.id + '', name: field.label + '', isReadonly: !!field.isReadOnly, isMandatory: !!field.isMandatory, type: field.type + '', }
     }
     else {
       this.log('Cannot get record field (getField) with id ' + fieldId)
@@ -66,16 +78,20 @@ class RecordBuilder {
   }
 
   log(s: string): any {
-    log(s)
+    if (this.config && this.config.debug) {
+      log(s)
+    }
   }
 
-  extractSublists(r: record.Record): Sublist[] {
+  extractSublists(config: ExtractConfig): Sublist[] {
+    const r = config.record
     return r.getSublists()
-      .map(sublistId => this.extractSublist(r, sublistId))
+      .map(sublistId => this.extractSublist(config, sublistId))
       .filter(s => !!s) as Sublist[]
   }
 
-  extractSublist(r: record.Record, sublistId: string): Sublist {
+  extractSublist(config: ExtractConfig, sublistId: string): Sublist {
+    const r = config.record
     let name: string | undefined
     try {
       const s = r.getSublist({ sublistId })
@@ -83,92 +99,35 @@ class RecordBuilder {
     } catch (error) {
 
     }
-    const fields = this.extractSublistFields(r, sublistId)
+    const fields = this.extractSublistFields(config, sublistId)
     return {
       id: sublistId, fields, name
     }
   }
 
-  extractSublistFields(r: record.Record, sublistId: string): Field[] {
+  extractSublistFields(config: ExtractConfig, sublistId: string): Field[] {
+    const r = config.record
     let sublistFields: string[] = []
     try {
       sublistFields = r.getSublistFields({ sublistId })
     } catch (error) {
-      this.log('Exception when r.getSublistFields({ sublistId }) for sublistId=='+sublistId)
+      this.log('Exception when r.getSublistFields({ sublistId }) for sublistId==' + sublistId)
     }
-    return sublistFields  
+    return sublistFields
       .filter(f => f.indexOf('sys_') !== 0)
-      .map(fieldId => this.extractSublistField(r, sublistId, fieldId))
+      .map(fieldId => this.extractSublistField(config, sublistId, fieldId))
   }
-  extractSublistField(r: record.Record, sublistId: string, fieldId: string): any {
+
+  extractSublistField(config: ExtractConfig, sublistId: string, fieldId: string): any {
     return {
       id: fieldId
     }
-    // let name:string|undefined, type: string|undefined
-    // try {
-    //   const f = 
-    // } catch (error) {
-
-    // }
-    // throw new Error('Method not implemented.');
   }
-  // .filter(f>=!!f) as Field[]
 
-  //   const c = s.getColumn({ fieldId })
-  // log('FIELDKSD' + fieldId)
-  // if (c) {
-  //   return {
-  //     id: c.id,
-  //     label: c.label,
-  //     type: c.type
-  //   }
-  // }
-
-  // })
-  // try {
-  //    const s = r.getSublist({ sublistId })
-  //    if(s){
-  //    }
-  // } catch (error) {
-
-  // }
-  // const s = r.getSublist({ sublistId })
-  // if (s) {
-  //   return this.extractSublist(r, s, sublistId)
-  // }
-  // else {
-  //   this.log('Cannot get record sublist (getSublist) with id ' + sublistId)
-  // }
-  // // const fieldBlackList = ['sys_id']
-  // const fields: Field[] = r.getSublistFields({ sublistId })
-  //   .filter(f => f.indexOf('sys_') !== 0)
-  //   .map((fieldId, i) => {
-  //     // log(`s=${getObjectKeys(s)}`)
-  //     const c = s.getColumn({ fieldId })
-  //     log('FIELDKSD' + fieldId)
-  //     if (c) {
-  //       return {
-  //         id: c.id,
-  //         label: c.label,
-  //         type: c.type
-  //       }
-  //     }
-  //     else {
-  //       this.log(`Error extracting sublist column (getColumn()) sublistId: ${sublistId}, fieldId: ${fieldId}`)
-  //     }
-  //   })
-  //   .filter(f => !!f) as Field[]
-  //   return {
-  //     id: sublistId,
-  //     name: s.name,
-  //     fields
-  //   }
-  // }
 }
-export function getRecordTypeMetadata(rr: RecordOrRef): Record | undefined {
-  // if (!r) { return }
-  const builder = new RecordBuilder()
-  const r = asRecordOrThrow(rr)
-  return builder.extractRecord(r)
 
+
+export function getRecordTypeMetadata(config: ExtractConfig): Record | undefined {
+  const builder = new RecordBuilder()
+  return builder.extractRecord(config)
 }

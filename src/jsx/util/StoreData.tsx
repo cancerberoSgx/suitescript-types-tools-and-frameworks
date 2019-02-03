@@ -8,7 +8,6 @@ export interface StoreDataProps {
 export class StoreData extends StatelessComponent<StoreDataProps>{
 
   render(): JSX.Element {
-    StoreData.checkRegisteredCode()
     const c = this.firstChildElement()
     if (c) {
       c.attrs['data-store-data'] = escapeHtmlAttribute(JSON.stringify(this.props.data))
@@ -16,7 +15,7 @@ export class StoreData extends StatelessComponent<StoreDataProps>{
     return <span></span>
   }
 
-  static checkRegisteredCode(): any {
+  public checkRegisteredCode(): any {
     if (!StoreData.registered) {
       ReactLike.registerClientCode({
         name: 'StoreData',

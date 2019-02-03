@@ -62,8 +62,9 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
   app.addRoute({
     name: 'recordView',
     handler(o) {
-      const { id, type } = o.params;
+      const { id, type, messageFromRedirect } = o.params;
       const seeValues = !!o.params.seeValues
+      const showAllFields = !!o.params.showAllFields
       if (!id || !type) {
         return 'Cannot open record view without an id or type, given id, type: ' + `${id}, ${type}`
       }
@@ -72,7 +73,7 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
         return 'Record id, type: ' + `${id}, ${type} not be found`
       }
 
-      return ReactLike.render(<RecordView record={buildRecordViewModel(record, seeValues)} seeValues={seeValues} renderLink={app.renderLink.bind(app)} currentUrl={app.getCurrentRealUrlSearchFragment()}></RecordView>)
+      return ReactLike.render(<RecordView record={buildRecordViewModel(record, seeValues, showAllFields)} seeValues={seeValues} showAllFields={showAllFields} renderLink={app.renderLink.bind(app)} currentUrl={app.getCurrentRealUrlSearchFragment()} messageFromRedirect={messageFromRedirect}></RecordView>)
     }
   })
 
@@ -81,7 +82,7 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
   app.addRoute({
     name: 'setFieldValue',
     handler(o) {
-      const { recordId, recordType, fieldId, fieldValue } = o.params;
+      const { recordId, recordType, fieldId, fieldValue, fieldType } = o.params;
       const redirect = decodeURIComponent(o.params.redirect)
       if (!recordId || !recordType || !fieldId || !fieldValue) {
         return 'Invalid call - !id|| !type || !fieldId || ! fieldValue must apply ' + `${recordId}, ${recordType}, ${fieldId},${fieldValue}`
@@ -93,14 +94,22 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
       if (!Find(record.getFields(), f => f === fieldId)) {
         return 'Record id, type: ' + `${recordId}, ${recordType} does not have fieldId ${fieldId}`
       }
-      record.setValue({ fieldId, value: fieldValue })
-      record.save()
-      if (redirect) {
-        Redirect({ url: redirect })
+      try {
+        record.setValue({ fieldId, value: fieldValue })
+        record.save()
+        const messageFromRedirect = `record (${recordType}, ${recordId}) field "${fieldId}" value changed to "${fieldValue}" (${fieldType}) successfully`
+        if (redirect) {
+          return app.redirect({redirect, messageFromRedirect})
+        }
+        else {
+          return messageFromRedirect
+        }
       }
-      else {
-        return console.log('record field changed to ' + `${recordId}, ${recordType}, ${fieldId},${fieldValue}`)
+      catch(error){
+        return `<p><br/>
+        <a href="${redirect}">Go to previous page</a></p>setFieldValue: ERROR: while trying to set field on ${JSON.stringify({recordId, recordType, fieldId, fieldValue, fieldType})} error: \n${error} ${error.stack}`
       }
+     
     }
   })
 

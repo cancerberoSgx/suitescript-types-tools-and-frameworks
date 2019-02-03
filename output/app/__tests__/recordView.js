@@ -9,17 +9,29 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../introspection/recordMetadata", "../../jsx/util/BindInputValue", "../../jsx/util/Bind"], function (require, exports, createElement_1, recordMetadata_1, BindInputValue_1, Bind_1) {
+define(["require", "exports", "../../jsx/createElement", "../../introspection/recordMetadata", "../../jsx/util/BindInputValue", "../../jsx/util/Bind", "N/util", "../../misc/dateUtil"], function (require, exports, createElement_1, recordMetadata_1, BindInputValue_1, Bind_1, util_1, dateUtil_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.RecordView = function (props) {
         var _a = props.record, fields = _a.fields, sublists = _a.sublists, id = _a.id, name = _a.name;
+        var commonParams = { id: props.record.id, type: props.record.type, };
+        var showValuesToggleLink = props.seeValues ?
+            props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { seeValues: '' }) }) :
+            props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { seeValues: 'true' }) });
+        var showAllFieldsToggleLink = props.showAllFields ?
+            props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showAllFields: '' }) }) :
+            props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showAllFields: 'true' }) });
         return createElement_1.ReactLike.createElement("div", null,
+            props.messageFromRedirect ? createElement_1.ReactLike.createElement("p", { style: { border: '2px solid green' } }, props.messageFromRedirect) : createElement_1.ReactLike.createElement("span", null),
+            createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'mainPage', params: __assign({}, commonParams) }) }, "Go back to Main Page"),
             createElement_1.ReactLike.createElement("h1", null,
+                "Record ",
                 name,
-                " id: ",
+                ", id: ",
                 id),
-            createElement_1.ReactLike.createElement("a", { href: props.seeValues ? props.renderLink({ routeName: 'recordView', params: { id: props.record.id, type: props.record.type, seeValues: '' } }) : props.renderLink({ routeName: 'recordView', params: { id: props.record.id, type: props.record.type, seeValues: 'true' } }) }, props.seeValues ? 'Hide Values' : 'See values'),
+            createElement_1.ReactLike.createElement("a", { href: showValuesToggleLink }, props.seeValues ? 'Hide Values' : 'See Values'),
+            createElement_1.ReactLike.createElement("br", null),
+            createElement_1.ReactLike.createElement("a", { href: showAllFieldsToggleLink }, props.showAllFields ? 'Hide Internal Fields' : 'Show All Fields'),
             createElement_1.ReactLike.createElement("div", null,
                 createElement_1.ReactLike.createElement("h3", null, "Fields:"),
                 createElement_1.ReactLike.createElement("ul", null, fields.map(function (f) { return createElement_1.ReactLike.createElement("li", null,
@@ -30,7 +42,7 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
                     createElement_1.ReactLike.createElement(Sublist, { sublist: s })); }))));
     };
     var Field = function (props) {
-        return createElement_1.ReactLike.createElement("div", null,
+        return createElement_1.ReactLike.createElement("span", null,
             createElement_1.ReactLike.createElement("strong", null, props.field.id),
             " ",
             props.field.type ? ", type: " + props.field.type : '',
@@ -38,19 +50,21 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
             props.field.name ? ", name: " + props.field.name : '',
             props.field.isReadonly ? ", Readonly" : '',
             props.field.isMandatory ? ", Mandatory" : '',
-            props.seeValues ? createElement_1.ReactLike.createElement("blockquote", null,
-                createElement_1.ReactLike.createElement("strong", null, "value"),
+            props.seeValues ? createElement_1.ReactLike.createElement("span", null,
+                ". Value (",
+                typeof props.field.value,
+                ") :",
                 !props.field.isReadonly ? createElement_1.ReactLike.createElement(FieldEditor, __assign({}, props)) : createElement_1.ReactLike.createElement("span", null,
                     "$",
                     props.field.value + '',
                     " (read only)")) : createElement_1.ReactLike.createElement("span", null));
     };
     var Sublist = function (props) {
-        return createElement_1.ReactLike.createElement("div", null,
+        return createElement_1.ReactLike.createElement("span", null,
             props.sublist.id,
             " ",
             props.sublist.name ? ", name: " + props.sublist.name : '',
-            props.sublist.fields.length ? createElement_1.ReactLike.createElement("div", null,
+            props.sublist.fields.length ? createElement_1.ReactLike.createElement("span", null,
                 "Sublist fields:",
                 createElement_1.ReactLike.createElement("ul", null, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("li", null,
                     f.name,
@@ -61,68 +75,66 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
                     f.isReadonly ? ", Readonly: " + f.isReadonly : ''); })))
                 : createElement_1.ReactLike.createElement("blockquote", null, "No sublist fields found"));
     };
+    // declare function formatDate(date: Date, format: 'YYYY-MM-DD'|'MM/DD/YYYY'): string
     var FieldEditor = function (props) {
         var f = props.field;
-        if (f.type === 'text') {
-            return createElement_1.ReactLike.createElement("div", null,
-                createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-field-id" + f.id },
-                    createElement_1.ReactLike.createElement("input", { value: f.value })),
+        if ((f.type === 'text' || f.type === 'date') && typeof f.value !== 'boolean') {
+            return createElement_1.ReactLike.createElement("span", null,
+                createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-field-id" + f.id }, (f.type === 'date' && util_1.isDate(f.value)) ? createElement_1.ReactLike.createElement("input", { type: "date", value: dateUtil_1.formatDate(f.value, 'YYYY-MM-DD') }) : createElement_1.ReactLike.createElement("input", { value: f.value + '' })),
                 createElement_1.ReactLike.createElement(Bind_1.BindInputValueAndStoreData, { bindListenerId: "data-field-id" + f.id, data: {
                         routeName: 'setFieldValue',
                         params: {
                             recordId: props.record.id,
                             recordType: props.record.type,
+                            fieldType: f.type,
                             fieldId: f.id,
                             redirect: encodeURIComponent(props.currentUrl)
                         }
                     } },
-                    createElement_1.ReactLike.createElement("button", { 
-                        // data-field-id={f.id} data-partial-link={props.renderLink({
-                        //   routeName: 'setFieldValue', params: {
-                        //     recordId: props.record.id, recordType: props.record.type,
-                        //     fieldId: f.id, redirect: encodeURIComponent(props.currentUrl)
-                        //   }
-                        // })}
-                        onClick: function (e) {
-                            var fieldValue = getBindInputValue(e.currentTarget);
+                    createElement_1.ReactLike.createElement("button", { onClick: function (e) {
                             var data = getStoreData(e.currentTarget);
+                            // if(!data){
+                            //   return
+                            // }
+                            var fieldValue = getBindInputValue(e.currentTarget, { dateAsString: true });
+                            // if(data.params.fieldType==='date'){
+                            //   const val = getBindInputValue<string>(e.currentTarget, {dateAsString: true})
+                            //   // if(val){
+                            //   //   fieldValue = dateToInputValue(val, 'MM/DD/YYYY')
+                            //   // }
+                            // }
+                            // else {
+                            //   fieldValue = getBindInputValue<string>(e.currentTarget)||''
+                            // }
+                            // new Intl.DateTimeFormat('en-US').format(d)
+                            // const fieldValue = getBindInputValue(e.currentTarget)
                             if (!data || fieldValue === undefined) {
                                 return;
                             }
                             data.params = __assign({}, data.params, { fieldValue: fieldValue });
                             var url = buildRouteUrl(data);
-                            // alert(url)
-                            // debugger
                             window.location.href = url;
-                            // const fieldId = e.currentTarget.getAttribute('data-field-id')
-                            // const input = document.querySelector<HTMLInputElement>('input[data-field-id="' + fieldId + '"]')
-                            // const value = input!.value
-                            // const partialLink = e.currentTarget.getAttribute('data-partial-link')
-                            // const link = partialLink + '&fieldValue=' + value
-                            // window.location.href = link
-                        } }, "Edit2")),
-                createElement_1.ReactLike.createElement("a", { href: props.renderLink({
-                        routeName: 'setFieldValue', params: {
-                            recordId: props.record.id, recordType: props.record.type,
-                            fieldId: f.id,
-                            fieldValue: f.value + '',
-                            redirect: encodeURIComponent(props.currentUrl)
-                        }
-                    }) }, "Edit"));
+                        } }, "Change!")));
         }
         return createElement_1.ReactLike.createElement("span", null);
     };
-    function buildRecordViewModel(r, seeValues) {
-        var record = recordMetadata_1.getRecordTypeMetadata(r);
+    function internalFilterPredicate(f) { return f.indexOf('_') !== 0 && f.indexOf('sys_') !== 0 && f.indexOf('nsapi') !== 0; }
+    function buildRecordViewModel(r, seeValues, showAllFields) {
+        var record = recordMetadata_1.getRecordTypeMetadata({
+            record: r,
+            fieldPredicate: showAllFields ? function (f) { return true; } : internalFilterPredicate,
+            debug: false
+        });
         if (!record) {
             throw 'record not found';
         }
         record.fields = record.fields
             .filter(function (f) { return f.id; })
             .map(function (f) {
-            var value = '';
+            var value;
             try {
-                value = r.getText(f.id) + '';
+                //@ts-ignore     
+                value = r.getValue(f.id);
             }
             catch (error) {
                 value = "ERROR " + f.id;

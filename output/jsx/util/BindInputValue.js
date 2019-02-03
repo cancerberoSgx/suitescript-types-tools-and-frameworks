@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "../StatelessComponent", "../createElement"], function (require, exports, StatelessComponent_1, createElement_1) {
+define(["require", "exports", "../StatelessComponent", "../createElement", "../../misc/dateUtil"], function (require, exports, StatelessComponent_1, createElement_1, dateUtil_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var BindInputValue = /** @class */ (function (_super) {
@@ -20,7 +20,6 @@ define(["require", "exports", "../StatelessComponent", "../createElement"], func
             return _super !== null && _super.apply(this, arguments) || this;
         }
         BindInputValue.prototype.render = function () {
-            BindInputValue.checkRegisteredCode();
             var c = this.firstChildElement();
             if (c && this.props.bindInputId) {
                 c.attrs['data-bind-value-id'] = this.props.bindInputId;
@@ -30,11 +29,16 @@ define(["require", "exports", "../StatelessComponent", "../createElement"], func
             }
             return createElement_1.ReactLike.createElement("span", null);
         };
-        BindInputValue.checkRegisteredCode = function () {
+        BindInputValue.prototype.checkRegisteredCode = function () {
             if (!BindInputValue.registered) {
                 createElement_1.ReactLike.registerClientCode({
-                    name: 'BindInputValue',
+                    name: 'getBindInputValue',
                     code: getBindInputValue.toString(),
+                    description: "Gets the current input value declared with wrapper <BindInputValue><input..."
+                });
+                createElement_1.ReactLike.registerClientCode({
+                    name: 'formatDate',
+                    code: dateUtil_1.formatDate.toString() + "; dateUtil_1 = {formatDate: formatDate}; ",
                     description: "Gets the current input value declared with wrapper <BindInputValue><input..."
                 });
                 BindInputValue.registered = true;
@@ -44,11 +48,21 @@ define(["require", "exports", "../StatelessComponent", "../createElement"], func
         return BindInputValue;
     }(StatelessComponent_1.StatelessComponent));
     exports.BindInputValue = BindInputValue;
-    function getBindInputValue(listenerEl) {
+    // declare function formatDate(date: Date, format: 'YYYY-MM-DD'|'MM/DD/YYYY'): string
+    function getBindInputValue(listenerEl, config) {
+        if (config === void 0) { config = {}; }
         var id = listenerEl.getAttribute('data-bind-value-id');
         var el = document.querySelector("[data-bind-value-id=\"" + id + "\"]");
         if (el) {
-            return el.value;
+            if (el.type === 'date') {
+                return config.dateAsString ? dateUtil_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
+            }
+            else if (el.type === 'number') {
+                return el.valueAsNumber;
+            }
+            else {
+                return el.value;
+            }
         }
     }
 });

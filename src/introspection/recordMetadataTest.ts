@@ -13,7 +13,7 @@ export function recordMetadataTest() {
     const r = asRecordOrThrow(findMatrixChildOrThrow(get().oneMatrixChildId))
     log(printNamedTypedArray(getObjectValueTypes(r)))
     // const metadata = getRecordTypeMetadata(load({id: r.id, type: r.type, isDynamic: true}))
-    const metadata = getRecordTypeMetadata(r)
+    const metadata = getRecordTypeMetadata({record: r})
     log(JSON.stringify(metadata, null, 2))
   })
 

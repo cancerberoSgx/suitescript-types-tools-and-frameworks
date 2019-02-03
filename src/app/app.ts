@@ -1,12 +1,13 @@
 import { ServerRequest, ServerResponse } from 'N/http';
 
 import { find } from '../misc/misc';import { ReactLike } from '../jsx/createElement';
+import { redirect } from 'N/redirect';
  var f = find// install array.prototype.find
 
 
 
-interface RouterHandlerOptions<Params extends string=string> extends DispatchOptions {
-  params: { [name in Params]: string }
+interface RouterHandlerOptions extends DispatchOptions {
+  params: { [name: string]: string }
 }
 interface Param {
   name: string
@@ -17,12 +18,12 @@ interface DispatchOptions {
   response: ServerResponse
 }
 
-export interface IApp {
+interface IApp {
   addRoute(r: Route): void
   dispatch(d: DispatchOptions): void
 }
 
-interface Route<Params extends string=string> {
+interface Route {
   /** the route unique name and it will be used as a param for this route always */
   name: string
   handler(handler: RouterHandlerOptions): any
@@ -81,35 +82,12 @@ ${ReactLike.getClientCode().map(c=>c.code).join('\n')}
   notFound(d: DispatchOptions, msg = 'Page not found'): any {
     console.log(`App Error: ${msg}`);
   }
-  
-  protected getParamsWithoutPrefix(request: ServerRequest): Params {
-    const params: Params = {}
-    Object.keys(request.parameters).filter(p => p.indexOf(this.paramPrefix) === 0).forEach(p => {
-      params[p.substring(this.paramPrefix.length, p.length)] = request.parameters[p]
-    })
-    return params
+
+  redirect(config: {redirect: string, messageFromRedirect?: string}){
+     redirect({ url: `${config.redirect}&${ROUTEPARAMPREFIX}messageFromRedirect=${config.messageFromRedirect||''}`, })
   }
   
-  getOtherParams(): Params {
-    const otherParams: Params = {}
-    Object.keys(this.currentDispatchOptions!.request.parameters).filter(p => p.indexOf(this.paramPrefix) !== 0).forEach(p => {
-      otherParams[p] = this.currentDispatchOptions!.request.parameters[p]
-    })
-    return otherParams
-  }
-  
-  getParamsUrl(params: Params, except: string[] = []) {
-    return `${Object.keys(params).filter(p => except.indexOf(p) === -1).map(p => `${this.paramPrefix}${p}=${params[p]}`).join('&')}`
-  }
-  
-  getParamsWithPrefix(params: Params, except: string[] = []): Params {
-    var params_: Params = {}
-    Object.keys(params).filter(p => except.indexOf(p) === -1).forEach(p => {
-      params_[this.paramPrefix + p] = params[p]
-    })
-    return params_
-  }
-  
+
   getCurrentRealUrlSearchFragment(): string{
     const params = this.currentDispatchOptions!.request.parameters
     const otherParams = this.getOtherParams()
@@ -132,6 +110,36 @@ ${ReactLike.getClientCode().map(c=>c.code).join('\n')}
       currentUrlSearchFragment: currentUrlSearchFragment
     })
   }
+
+
+  protected getParamsWithoutPrefix(request: ServerRequest): Params {
+    const params: Params = {}
+    Object.keys(request.parameters).filter(p => p.indexOf(this.paramPrefix) === 0).forEach(p => {
+      params[p.substring(this.paramPrefix.length, p.length)] = request.parameters[p]
+    })
+    return params
+  }
+  
+  protected getOtherParams(): Params {
+    const otherParams: Params = {}
+    Object.keys(this.currentDispatchOptions!.request.parameters).filter(p => p.indexOf(this.paramPrefix) !== 0).forEach(p => {
+      otherParams[p] = this.currentDispatchOptions!.request.parameters[p]
+    })
+    return otherParams
+  }
+  
+  protected getParamsUrl(params: Params, except: string[] = []) {
+    return `${Object.keys(params).filter(p => except.indexOf(p) === -1).map(p => `${this.paramPrefix}${p}=${params[p]}`).join('&')}`
+  }
+  
+  protected getParamsWithPrefix(params: Params, except: string[] = []): Params {
+    var params_: Params = {}
+    Object.keys(params).filter(p => except.indexOf(p) === -1).forEach(p => {
+      params_[this.paramPrefix + p] = params[p]
+    })
+    return params_
+  }
+  
 }
 
 type Params = { [name: string]: string }
@@ -143,11 +151,9 @@ export interface RenderLinkOptions {
 interface BuildUrlOptions extends RenderLinkOptions {
   /** the part of the current url with the search query with a routeParamName parameter present like `?script=293&deploy=1&compid=TSTDRV1844288&h=192074825c3ca8751438&routeParamName=mainPage&name=lau` */
   currentUrlSearchFragment: string
-  // routeParamName: string
 }
 export interface RenderFragmentOptions extends RenderLinkOptions {
   selector: string
-  // routeParamName: string
 }
 
 

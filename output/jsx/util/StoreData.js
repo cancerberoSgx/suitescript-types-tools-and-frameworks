@@ -20,14 +20,13 @@ define(["require", "exports", "../StatelessComponent", "../createElement"], func
             return _super !== null && _super.apply(this, arguments) || this;
         }
         StoreData.prototype.render = function () {
-            StoreData.checkRegisteredCode();
             var c = this.firstChildElement();
             if (c) {
                 c.attrs['data-store-data'] = escapeHtmlAttribute(JSON.stringify(this.props.data));
             }
             return createElement_1.ReactLike.createElement("span", null);
         };
-        StoreData.checkRegisteredCode = function () {
+        StoreData.prototype.checkRegisteredCode = function () {
             if (!StoreData.registered) {
                 createElement_1.ReactLike.registerClientCode({
                     name: 'StoreData',

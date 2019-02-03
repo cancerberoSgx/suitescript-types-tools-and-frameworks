@@ -18,11 +18,13 @@ export interface IStatelessComponent<P={}> {
 export class StatelessComponent<P={}> implements IStatelessComponent<P> {
   constructor(public readonly props: StatelessComponentProps<P>) {
     this.props = props
+    this.checkRegisteredCode()
   }
   render(): JSX.Element {
     throw new Error('Not Implemented')
   }
 
+  public checkRegisteredCode(){}
   protected childrenAsArray(): NodeLike[] {
     return (Array.isArray(this.props.children) ? this.props.children : [this.props.children]) as NodeLike[];
   }

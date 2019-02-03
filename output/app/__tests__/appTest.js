@@ -1,4 +1,4 @@
-define(["require", "exports", "../../jsx/createElement", "../../search/typedSearch/typedSearchOperations", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "./appTestUI"], function (require, exports, createElement_1, typedSearchOperations_1, app_1, recordViewRoute_1, setFieldValueRoute_1, appTestUI_1) {
+define(["require", "exports", "../../jsx/createElement", "../../search/typedSearch/typedSearchOperations", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "./appTestUI", "../searchView/findRecordRoute"], function (require, exports, createElement_1, typedSearchOperations_1, app_1, recordViewRoute_1, setFieldValueRoute_1, appTestUI_1, findRecordRoute_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function appTest(request, response) {
@@ -10,25 +10,7 @@ define(["require", "exports", "../../jsx/createElement", "../../search/typedSear
                 return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(appTestUI_1.MainPage, { userName: o.params.userName, categories: [], renderLink: app.renderLink.bind(app) }));
             }
         });
-        app.addRoute({
-            name: 'findCategory',
-            contentType: 'json',
-            handler: function (o) {
-                var categoryName = o.params.categoryName;
-                if (!categoryName) {
-                    return app.notFound(o, 'Category name not provided');
-                }
-                var cat = typedSearchOperations_1.find({
-                    type: 'commercecategory',
-                    columns: ['name'],
-                    filters: [{ name: 'name', values: categoryName, operator: 'contains' }]
-                }, function (r) { return true; });
-                if (!cat) {
-                    return app.notFound(o, 'Category not found: ' + categoryName);
-                }
-                return { name: categoryName, id: cat.id };
-            }
-        });
+        app.addRoute(findRecordRoute_1.findRecordRoute(app));
         app.addRoute({
             name: 'listCategories',
             handler: function (o) {

@@ -1,4 +1,4 @@
-define(["require", "exports", "../../jsx/createElement", "N/record", "./recordView"], function (require, exports, createElement_1, record_1, recordView_1) {
+define(["require", "exports", "../../jsx/createElement", "N/record", "./recordView", "./buildRecordViewModel"], function (require, exports, createElement_1, record_1, recordView_1, buildRecordViewModel_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function recordViewRoute(app) {
@@ -16,7 +16,7 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
                 if (!record) {
                     return 'Record id, type: ' + (id + ", " + type + " not be found");
                 }
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: recordView_1.buildRecordViewModel(record, seeValues, showAllFields), seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines }));
+                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: buildRecordViewModel_1.buildRecordViewModel(record, seeValues, showAllFields), seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines }));
             }
         };
     }

@@ -35,14 +35,6 @@ define(["require", "exports", "../../jsx/createElement"], function (require, exp
             createElement_1.ReactLike.createElement("ul", null,
                 createElement_1.ReactLike.createElement("li", null,
                     createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: { id: '7', type: 'commercecategory' } }) }, "category 7 record view"))),
-            createElement_1.ReactLike.createElement("p", null,
-                "Search for categories by name:",
-                createElement_1.ReactLike.createElement("input", { id: "categoryName", placeholder: "parent", value: "parent" }),
-                createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
-                        routeName: 'findCategory',
-                        params: { categoryName: document.querySelector('#categoryName').value },
-                        selector: '#results'
-                    }); } }, "search")),
             createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
                     routeName: 'listCategories',
                     params: {},

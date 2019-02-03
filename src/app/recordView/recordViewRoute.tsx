@@ -1,7 +1,8 @@
 import { App, Route } from '../app';
 import { ReactLike } from "../../jsx/createElement";
 import { load } from 'N/record';
-import { RecordView, buildRecordViewModel } from './recordView';
+import { RecordView } from './recordView';
+import { buildRecordViewModel } from "./buildRecordViewModel";
 export function recordViewRoute(app: App): Route {
   return {
     name: 'recordView',

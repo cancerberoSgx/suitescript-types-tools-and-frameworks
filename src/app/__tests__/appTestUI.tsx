@@ -41,13 +41,13 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
     Interesting links: <ul>
       <li><a href={props.renderLink({ routeName: 'recordView', params: { id: '7', type: 'commercecategory' } })}>category 7 record view</a></li>
     </ul>
-    <p>Search for categories by name:
+    {/* <p>Search for categories by name:
       <input id="categoryName" placeholder="parent" value="parent"></input>
       <button onClick={e => fetchAndRenderHtml({
         routeName: 'findCategory',
         params: { categoryName: document.querySelector<HTMLInputElement>('#categoryName')!.value },
         selector: '#results'
-      })}>search</button></p>
+      })}>search</button></p> */}
     <button onClick={e => fetchAndRenderHtml({
       routeName: 'listCategories',
       params: {},

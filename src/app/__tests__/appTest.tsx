@@ -1,10 +1,11 @@
 import { ServerRequest, ServerResponse } from 'N/http';
 import { ReactLike } from "../../jsx/createElement";
-import { find, list } from '../../search/typedSearch/typedSearchOperations';
+import { list } from '../../search/typedSearch/typedSearchOperations';
 import { App } from '../app';
 import { recordViewRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
 import { CategoryList, MainPage } from './appTestUI';
+import { findRecordRoute } from '../searchView/findRecordRoute';
 
 
 export function appTest(request: ServerRequest, response: ServerResponse) {
@@ -21,25 +22,7 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
   })
 
 
-  app.addRoute({
-    name: 'findCategory',
-    contentType: 'json',
-    handler(o) {
-      const categoryName = o.params.categoryName
-      if (!categoryName) {
-        return app.notFound(o, 'Category name not provided')
-      }
-      const cat = find({
-        type: 'commercecategory',
-        columns: ['name'],
-        filters: [{ name: 'name', values: categoryName, operator: 'contains' }]
-      }, r => true)
-      if (!cat) {
-        return app.notFound(o, 'Category not found: ' + categoryName)
-      }
-      return { name: categoryName, id: cat.id }
-    }
-  })
+  app.addRoute(findRecordRoute(app))
 
   app.addRoute({
     name: 'listCategories',
@@ -64,6 +47,7 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
 
   app.dispatch({ request, response })
 }
+
 
 
 

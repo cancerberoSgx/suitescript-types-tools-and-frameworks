@@ -1,41 +1,6 @@
-import * as record from 'N/record';
-import { Field, getRecordTypeMetadata, Record, Sublist } from '../../introspection/recordMetadata';
 import { ReactLike } from "../../jsx/createElement";
-import { RenderLinkOptions } from "../browserCode";
 import { FieldEditor } from './fieldEditor';
-
-type Value = string | boolean | number | Date | null | number[] | string[]
-interface Valued {
-
-  value?: Value
-  text?: Text
-}
-type Text = string | string[] | undefined
-export interface ValuedField extends Field, Valued {
-}
-interface Row extends Valued {
-  field: Field
-}
-interface SublistLine extends Valued {
-  rows: Row[]
-}
-interface ValuedSublist extends Sublist {
-  lines: SublistLine[]
-  lineCount: number
-}
-interface RecordV extends Record {
-  fields: ValuedField[]
-  sublists: ValuedSublist[]
-}
-export interface Props {
-  record: RecordV
-  seeValues: boolean
-  renderLink(config: RenderLinkOptions): string
-  currentUrl: string
-  showAllFields: boolean
-  messageFromRedirect?: string
-  showSublistLines?: boolean
-}
+import { Props, ValuedField, ValuedSublist } from './recordViewTypes';
 
 export const RecordView = (props: Props) => {
   const { fields, sublists, id, name } = props.record
@@ -82,7 +47,7 @@ export const RecordView = (props: Props) => {
   </div>
 }
 
-const Field = (props: { field: ValuedField } & Props) => {
+export const Field = (props: { field: ValuedField } & Props) => {
   return <span>
     <strong>{props.field.id}</strong> {props.field.type ? `, type: ${props.field.type}` : ''} {props.field.name ? `, name: ${props.field.name}` : ''}{props.field.isReadonly ? `, Readonly` : ''}{props.field.isMandatory ? `, Mandatory` : ''}
     {props.seeValues ? <span>. Value ({typeof props.field.value}) :
@@ -93,7 +58,7 @@ const Field = (props: { field: ValuedField } & Props) => {
   </span>
 }
 
-const Sublist = (props: { sublist: ValuedSublist } & Props) => {
+export const Sublist = (props: { sublist: ValuedSublist } & Props) => {
   return <span>
     {props.sublist.id} {props.sublist.name ? `, name: ${props.sublist.name}` : ''}
     , lines: #{props.sublist.lineCount}
@@ -116,10 +81,10 @@ const SublistLinesEditor = (props: { sublist: ValuedSublist } & Props) => {
   return <table>
     <thead><tr>{props.sublist.fields.map(f => <th>{f.id}{f.type ? ` (${f.type})` : ''}</th>)}</tr></thead>
     <tbody>
-      {props.sublist.lines.map((line, index) => <tr>
+      {props.sublist.lines.map(line => <tr>
         {line.rows.map((row, i) =>
           <td>{row.text} {row.value} {row.field.type === 'select' ?
-            <a href={props.renderLink({ routeName: 'recordView', params: { id: '7', type: row.field.id } })}></a> : ''}</td>
+            <a href={props.renderLink({ routeName: 'findRecord', params: { id: row.value as any, type: row.field.id } })}>find</a> : ''}</td>
         )}
       </tr>
       )}
@@ -129,55 +94,3 @@ const SublistLinesEditor = (props: { sublist: ValuedSublist } & Props) => {
 
 
 
-export function buildRecordViewModel(r: record.Record, seeValues: boolean, showAllFields: boolean): RecordV {
-  const record = getRecordTypeMetadata({
-    record: r,
-    fieldPredicate: showAllFields ? f => true : internalFilterPredicate,
-    debug: false,
-    callGetSublistField: true
-  }) as RecordV
-  if (!record) {
-    throw 'record not found'
-  }
-
-  record.fields = record.fields
-    .filter(f => f.id)
-    .map(f => {
-      if (!seeValues) {
-        return f
-      }
-      let value: Value, text: Text
-      try {
-        //@ts-i gnore     
-        value = r.getValue(f.id)
-        text = r.getText(f.id)
-      }
-      catch (error) {
-        value = "ERROR " + f.id
-      }
-      return { ...f, value, text }
-    })
-    .sort((a, b) => a.id.localeCompare(b.id))
-
-  record.sublists = record.sublists
-    .sort((a, b) => a.id.localeCompare(b.id))
-    .map(s => {
-      s.fields = s.fields.sort((a, b) => a.id.localeCompare(b.id))
-      s.lineCount = r.getLineCount({ sublistId: s.id })
-      s.lines = []
-      for (let line = 0; line < s.lineCount; line++) {
-        s.lines[line] = { rows: [] }
-        s.fields.forEach(f => {
-          const text = r.getSublistText({ sublistId: s.id, fieldId: f.id, line })
-          const value = r.getSublistValue({ sublistId: s.id, fieldId: f.id, line })
-          s.lines[line].rows.push({ text, value, field: f })
-        })
-      }
-      return s
-    })
-  return record
-}
-
-function internalFilterPredicate(f: string): boolean {
-  return f.indexOf('_') !== 0 && f.indexOf('sys_') !== 0 && f.indexOf('nsapi') !== 0
-}

@@ -3,7 +3,7 @@ import { BindInputValue } from '../../jsx/util/BindInputValue';
 import { BindInputValueAndStoreData } from '../../jsx/util/Bind';
 import { isDate } from 'N/util';
 import { formatDate } from '../../misc/dateUtil';
-import { ValuedField, Props } from './recordView';
+import { ValuedField, Props } from "./recordViewTypes";
 import { ReactLike } from "../../jsx/createElement";
 
 

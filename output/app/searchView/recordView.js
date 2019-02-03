@@ -101,7 +101,7 @@ define(["require", "exports", "../../jsx/createElement", "./fieldEditor"], funct
                     row.value,
                     " ",
                     row.field.type === 'select' ?
-                        createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'findRecord', params: { id: row.value, type: row.field.id } }) }, "find") : '');
+                        createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: { id: row.value, type: row.field.id } }) }, "view") : '');
             })); })));
     };
 });

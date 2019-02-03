@@ -11,7 +11,18 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "../createElement", "../StatelessComponent"], function (require, exports, createElement_1, StatelessComponent_1) {
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+define(["require", "exports", "../createElement", "../StatelessComponent", "../../misc/misc"], function (require, exports, createElement_1, StatelessComponent_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function cssTest1() {
@@ -68,7 +79,31 @@ define(["require", "exports", "../createElement", "../StatelessComponent"], func
         console.log(s);
     }
     exports.functionAttributes = functionAttributes;
-    functionAttributes();
+    // functionAttributes()
+    function moreOnCss() {
+        var button = {
+            border: '2px solid pink',
+            padding: '5px'
+        };
+        // this class extends another:
+        var primaryButton = __assign({}, button, { color: 'red', fontWeight: 'bolder' });
+        var styles = {
+            button: button,
+            primaryButton: primaryButton
+        };
+        // this tag will force users to use discrete classNames only
+        var Button = function (props) { return createElement_1.ReactLike.createElement("button", { className: props.className || '' }); };
+        var main = createElement_1.ReactLike.createElement("div", null,
+            createElement_1.ReactLike.createElement(Button, { className: "button" }, "click me"));
+        // this will render the <style> tag with all classes and styles inside.
+        var Styles = createElement_1.ReactLike.createElement("style", null, Object.keys(styles).map(function (c) {
+            return misc_1.indent(1) + "." + c + ": {\n" + Object.keys(styles[c]).map(function (p) { return "" + misc_1.indent(2) + p + ": " + styles[c][p] + ";"; }).join("\n") + "\n" + misc_1.indent(1) + "}";
+        }).join('\n'));
+        var s = "\n" + createElement_1.ReactLike.render(Styles, { indent: true }) + "\n" + createElement_1.ReactLike.render(main, { indent: true }) + "\n";
+        console.log(s);
+    }
+    exports.moreOnCss = moreOnCss;
+    moreOnCss();
 });
 // this test can be executed in node with 
 // npx ts-node -P tsconfig-node.json src/experiments/reactLike/test.tsx

@@ -7,11 +7,10 @@ export interface IStatelessComponent<P={}> {
 }
 
 /** 
- * let declare custom tag components with classes instead of functions. 
- * Notice that differently than React's, it doesn't ake any sense to support state in SuiteScript 
- * back end's scripts (suitelet, restlet, etc). 
- * 
- * TODO: what about client scripts ?  
+ * Let declare custom tag components with classes instead of just functions or variables.
+ *  
+ * Notice that differently than React's, it doesn't make any sense to support component's state in SuiteScript 
+ * back end's scripts (suitelet, restlet, etc) so it's no included. TODO: what about client scripts ?  
  */
 
 export class StatelessComponent<P={}> implements IStatelessComponent<P> {

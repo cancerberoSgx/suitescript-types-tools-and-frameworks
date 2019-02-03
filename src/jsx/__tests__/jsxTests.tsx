@@ -1,6 +1,11 @@
 import { describe, expect, fail, it, skip } from "../../spec/index";
 import { ReactLike } from '../createElement'
 import { StatelessComponent } from '../StatelessComponent';
+import { indent } from '../../misc/misc';
+import { ReactLikeChild } from '../jsx';
+import { StringKeyOf } from '../../misc/typesUtil';
+import { Style } from '../Style';
+import { expectCodeToContain } from '../../spec/expectExtras';
 
 export function jsxTests() {
 
@@ -68,6 +73,41 @@ export function jsxTests() {
       </div>
       const s = ReactLike.render(main, { indent: true })
       // console.log(s); // to be tested in the browser
+    })
+
+
+
+    it('Style tag : typed styles', () => {
+      interface Class extends Partial<CSSStyleDeclaration> { }
+      const button: Class = {
+        border: '2px solid pink',
+        padding: '5px'
+      }
+      // this class extends another:
+      const primaryButton: Class = {
+        ...button,
+        color: 'red',
+        fontWeight: 'bolder'
+      }
+      const myStyles = {
+        button,
+        primaryButton
+      }
+
+      // this tag will force users to use discrete classNames only
+      const Button = (props: { className?: StringKeyOf<typeof myStyles>, children?: ReactLikeChild | ReactLikeChild[] }) => <button className={props.className || ''}></button>
+
+      const main = <div> hello
+        <Style classes={myStyles}></Style>
+        <article><Button className="button">click me</Button></article>
+      </div>
+
+      const s = ReactLike.render(main, { indent: true })
+      // console.log(s)
+      expect(s).toContain('border: 2px solid pink;')
+      expectCodeToContain(s, `
+      <div> hello<style> .button { border: 2px solid pink; padding: 5px; }; .primaryButton { border: 2px solid pink; padding: 5px; color: red; fontWeight: bolder; } </style><article> <button class="button"> click me </button> </article> </div>
+  `)
     })
 
     // console.log(ReactLike.render(<Main apples={apples}></Main>, { indent: true }));

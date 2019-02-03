@@ -2,11 +2,10 @@ define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
-     * let declare custom tag components with classes instead of functions.
-     * Notice that differently than React's, it doesn't ake any sense to support state in SuiteScript
-     * back end's scripts (suitelet, restlet, etc).
+     * Let declare custom tag components with classes instead of just functions or variables.
      *
-     * TODO: what about client scripts ?
+     * Notice that differently than React's, it doesn't make any sense to support component's state in SuiteScript
+     * back end's scripts (suitelet, restlet, etc) so it's no included. TODO: what about client scripts ?
      */
     var StatelessComponent = /** @class */ (function () {
         function StatelessComponent(props) {

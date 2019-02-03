@@ -1,5 +1,8 @@
 import { ReactLike } from "../createElement";
 import { StatelessComponent, StatelessComponentProps } from '../StatelessComponent';
+import { TextNodeLIke, ReactLikeChild } from '../jsx';
+import { StringKeyOf } from '../../misc/typesUtil';
+import { indent } from '../../misc/misc';
 
 function cssTest1() {
   const Comp = () => <div className="apple" style={{ border: '1 px solid pink', background: 'blue' }}>i'm pink</div>
@@ -47,7 +50,7 @@ export function statelessComponentTest() {
   const persons: PersonModel[] = [p0, p1]
   const main = <div>
     <p>Some people:</p>
-  {persons.map(p => <Person name={p.name} friends={p.friends}></Person>)}
+    {persons.map(p => <Person name={p.name} friends={p.friends}></Person>)}
   </div>
   console.log(ReactLike.render(main, { indent: true }));
 }
@@ -55,15 +58,55 @@ export function statelessComponentTest() {
 
 export function functionAttributes() {
   const main = <div>
-   <button onClick={e=>{alert('foo')}}>click me</button>
-        <button onClick={e => { alert("foo\nhello") }}>click me22</button>
+    <button onClick={e => { alert('foo') }}>click me</button>
+    <button onClick={e => { alert("foo\nhello") }}>click me22</button>
   </div>
   const s = ReactLike.render(main, { indent: true })
   console.log(s);
 }
+// functionAttributes()
 
 
-functionAttributes()
+export function moreOnCss() {
+  interface Class extends Partial<CSSStyleDeclaration> { }
+  interface IClasses {
+    [k: string]: Class
+    button: Class,
+    primaryButton: Class
+  }
+  const button: Class = {
+    border: '2px solid pink',
+    padding: '5px'
+  }
+  // this class extends another:
+  const primaryButton: Class = {
+    ...button,
+    color: 'red',
+    fontWeight: 'bolder'
+  }
+  const styles: IClasses = {
+    button,
+    primaryButton
+  }
+  // this tag will force users to use discrete classNames only
+  const Button = (props: { className?: 'button'|'primaryButton', children?: ReactLikeChild | ReactLikeChild[] }) => <button className={props.className || ''}></button>
+
+  const main = <div><Button className="button">click me</Button></div>
+
+  // this will render the <style> tag with all classes and styles inside.
+  const Styles = <style>{Object.keys(styles).map(c =>
+    `${indent(1)}.${c}: {
+${Object.keys(styles[c]).map(p => `${indent(2)}${p}: ${styles[c][p as any]};`).join(`\n`)}
+${indent(1)}}`).join('\n')}
+  </style>
+
+  const s = `
+${ReactLike.render(Styles, { indent: true })}
+${ReactLike.render(main, { indent: true })}
+`
+  console.log(s);
+}
+moreOnCss()
 
 
 // this test can be executed in node with 

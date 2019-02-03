@@ -1,13 +1,15 @@
 import { ServerRequest, ServerResponse } from 'N/http';
 
-import { find } from '../misc/misc';import { ReactLike } from '../jsx/createElement';
+import { find } from '../misc/misc';
+import { ReactLike } from '../jsx/createElement';
 import { redirect } from 'N/redirect';
- var f = find// install array.prototype.find
+import { renderBrowserCode, RenderLinkOptions, buildUrl, ROUTEPARAMNAME_NOPREFIX, ROUTEPARAMNAME, ROUTEPARAMPREFIX, SCRIPTLETURLPREFIX } from './browserCode';
+var f = find// install array.prototype.find
 
-
+export type Params = { [name: string]: string }
 
 interface RouterHandlerOptions extends DispatchOptions {
-  params: { [name: string]: string }
+  params: Params
 }
 interface Param {
   name: string
@@ -32,28 +34,20 @@ interface Route {
 
 
 
-const ROUTEPARAMNAME_NOPREFIX = 'routeParamName'
-const ROUTEPARAMPREFIX = '__app__'
-const ROUTEPARAMNAME:string = ROUTEPARAMPREFIX+ROUTEPARAMNAME_NOPREFIX
-const SCRIPTLETURLPREFIX = '/app/site/hosting/scriptlet.nl'
-
 
 
 export class App implements IApp {
   routes: Route[] = []
-  protected paramPrefix = ROUTEPARAMPREFIX
-  protected routeParamName = ROUTEPARAMNAME_NOPREFIX
   currentDispatchOptions: DispatchOptions | undefined;
-  
+
   addRoute(r: Route): void {
     this.routes.push(r)
   }
-  
-  
+
   dispatch(d: DispatchOptions): void {
     this.currentDispatchOptions = d
     const params = this.getParamsWithoutPrefix(d.request)
-    const routeName = params[`${this.routeParamName}`]
+    const routeName = params[`${ROUTEPARAMNAME_NOPREFIX}`]
     if (!routeName) {
       return this.notFound(d, `no route name given in url`)
     }
@@ -71,8 +65,8 @@ export class App implements IApp {
     }
     else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
       d.response.write(`<script>
-${fetchAndRenderHtmlFragmentHandlerString()}
-${ReactLike.getClientCode().map(c=>c.code).join('\n')}
+${renderBrowserCode()}
+${ReactLike.getClientCode().map(c => c.code).join('\n')}
 </script>`)
       d.response.write(result)
     }
@@ -83,17 +77,16 @@ ${ReactLike.getClientCode().map(c=>c.code).join('\n')}
     console.log(`App Error: ${msg}`);
   }
 
-  redirect(config: {redirect: string, messageFromRedirect?: string}){
-     redirect({ url: `${config.redirect}&${ROUTEPARAMPREFIX}messageFromRedirect=${config.messageFromRedirect||''}`, })
+  redirect(config: { redirect: string, messageFromRedirect?: string }) {
+    redirect({ url: `${config.redirect}&${ROUTEPARAMPREFIX}messageFromRedirect=${config.messageFromRedirect || ''}`, })
   }
-  
 
-  getCurrentRealUrlSearchFragment(): string{
+  getCurrentRealUrlSearchFragment(): string {
     const params = this.currentDispatchOptions!.request.parameters
     const otherParams = this.getOtherParams()
     const otherParamsUrl = Object.keys(otherParams).map(p => `${p}=${otherParams[p]}`).join('&')
-    const routeNameUrl = Object.keys(params).filter(p => p === ROUTEPARAMNAME).map(p=>`${p}=${params[p]}`).join('&')
-    const routeParamsUrl = Object.keys(params).filter(p => p !== ROUTEPARAMNAME && p.indexOf(ROUTEPARAMPREFIX)===0).map(p=>`${p}=${params[p]}`).join('&')
+    const routeNameUrl = Object.keys(params).filter(p => p === ROUTEPARAMNAME).map(p => `${p}=${params[p]}`).join('&')
+    const routeParamsUrl = Object.keys(params).filter(p => p !== ROUTEPARAMNAME && p.indexOf(ROUTEPARAMPREFIX) === 0).map(p => `${p}=${params[p]}`).join('&')
     return `${SCRIPTLETURLPREFIX}?${otherParamsUrl}&${routeNameUrl}&${routeParamsUrl}`
   }
 
@@ -101,115 +94,43 @@ ${ReactLike.getClientCode().map(c=>c.code).join('\n')}
     const otherParams = this.getOtherParams()
     const otherParamsUrl = Object.keys(otherParams).map(p => `${p}=${otherParams[p]}`).join('&')
     const paramsUrl = this.getParamsUrl(config.params)
-    const routeParamsUrl = this.getParamsUrl({ [this.routeParamName]: config.routeName })
+    const routeParamsUrl = this.getParamsUrl({ [ROUTEPARAMNAME_NOPREFIX]: config.routeName })
     const currentUrlSearchFragment = `?${otherParamsUrl}&${routeParamsUrl}&${paramsUrl}`
     return buildUrl({
       ...config,
       params: this.getParamsWithPrefix(config.params),
-      // routeParamName: `${this.paramPrefix}${this.routeParamName}`,
       currentUrlSearchFragment: currentUrlSearchFragment
     })
   }
 
-
   protected getParamsWithoutPrefix(request: ServerRequest): Params {
     const params: Params = {}
-    Object.keys(request.parameters).filter(p => p.indexOf(this.paramPrefix) === 0).forEach(p => {
-      params[p.substring(this.paramPrefix.length, p.length)] = request.parameters[p]
+    Object.keys(request.parameters).filter(p => p.indexOf(ROUTEPARAMPREFIX) === 0).forEach(p => {
+      params[p.substring(ROUTEPARAMPREFIX.length, p.length)] = request.parameters[p]
     })
     return params
   }
-  
+
   protected getOtherParams(): Params {
     const otherParams: Params = {}
-    Object.keys(this.currentDispatchOptions!.request.parameters).filter(p => p.indexOf(this.paramPrefix) !== 0).forEach(p => {
+    Object.keys(this.currentDispatchOptions!.request.parameters).filter(p => p.indexOf(ROUTEPARAMPREFIX) !== 0).forEach(p => {
       otherParams[p] = this.currentDispatchOptions!.request.parameters[p]
     })
     return otherParams
   }
-  
+
   protected getParamsUrl(params: Params, except: string[] = []) {
-    return `${Object.keys(params).filter(p => except.indexOf(p) === -1).map(p => `${this.paramPrefix}${p}=${params[p]}`).join('&')}`
+    return `${Object.keys(params).filter(p => except.indexOf(p) === -1).map(p => `${ROUTEPARAMPREFIX}${p}=${params[p]}`).join('&')}`
   }
-  
+
   protected getParamsWithPrefix(params: Params, except: string[] = []): Params {
     var params_: Params = {}
     Object.keys(params).filter(p => except.indexOf(p) === -1).forEach(p => {
-      params_[this.paramPrefix + p] = params[p]
+      params_[ROUTEPARAMPREFIX + p] = params[p]
     })
     return params_
   }
-  
-}
 
-type Params = { [name: string]: string }
-
-export interface RenderLinkOptions {
-  routeName: string,
-  params: Params,
-}
-interface BuildUrlOptions extends RenderLinkOptions {
-  /** the part of the current url with the search query with a routeParamName parameter present like `?script=293&deploy=1&compid=TSTDRV1844288&h=192074825c3ca8751438&routeParamName=mainPage&name=lau` */
-  currentUrlSearchFragment: string
-}
-export interface RenderFragmentOptions extends RenderLinkOptions {
-  selector: string
 }
 
 
-
-/** this function is meant to be evaluated in the browser and also in the server! */
-function buildUrl(config: BuildUrlOptions) {
-  const clean = `${SCRIPTLETURLPREFIX}${config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf(`&${ROUTEPARAMNAME}=`))}&${ROUTEPARAMNAME}=${config.routeName}`
-  const newParams = `${clean}&${Object.keys(config.params).map(p => `${p}=${config.params[p]}`).join('&')}`
-  return newParams
-}
-
-
-/** this function is meant to be evaluated in the browser! */
-function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
-  const url = buildRouteUrl(config)
-  fetch(url)
-    .then(function (response) {
-      return response.text();
-    })
-    .then(function (html) {
-      const parent = document.querySelector(config.selector)
-      if (parent) {
-        parent.innerHTML = html
-      }
-    });
-}
-
-
-function buildRouteUrl(config: RenderLinkOptions): string{
-  const params : Params = {}
-  Object.keys(config.params).map(p=>{params[`${ROUTEPARAMPREFIX}${p}`] = config.params[p]})
-  const url = buildUrl({ ...config, currentUrlSearchFragment: location.search, params})
-  return url
-}
-
-function fetchAndRenderHtmlFragmentHandlerString() {
-  // @ts-ignore
-  const assign = __assign.toString()
-  const  s = `
-var ROUTEPARAMNAME = "${ROUTEPARAMNAME}";
-var ROUTEPARAMPREFIX = "${ROUTEPARAMPREFIX}";
-var SCRIPTLETURLPREFIX = "${SCRIPTLETURLPREFIX}"; 
-var __assign = ${assign}
-${buildRouteUrl.toString()}
-${buildUrl.toString()}
-${fetchAndRenderHtmlFragment.toString()}
-function fetchAndRenderHtml(config){
-  return fetchAndRenderHtmlFragment(config)
-}
-function buildLink(config){
-  return buildRouteUrl(config)
-}
-var a = 1
-  `
-  return s
-  // console.log(`<textarea>${s}</textarea>`);
-  // return ()=>{}
-  // return eval(`(${s})`)
-}

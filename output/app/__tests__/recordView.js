@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../introspection/recordMetadata", "../../jsx/util/BindInputValue", "../../jsx/util/Bind", "N/util", "../../misc/dateUtil"], function (require, exports, createElement_1, recordMetadata_1, BindInputValue_1, Bind_1, util_1, dateUtil_1) {
+define(["require", "exports", "../../jsx/createElement", "../../introspection/recordMetadata", "./fieldEditor"], function (require, exports, createElement_1, recordMetadata_1, fieldEditor_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.RecordView = function (props) {
@@ -21,6 +21,9 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
         var showAllFieldsToggleLink = props.showAllFields ?
             props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showAllFields: '' }) }) :
             props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showAllFields: 'true' }) });
+        var showSublistLinesToggleLink = props.showSublistLines ?
+            props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showSublistLines: '' }) }) :
+            props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showSublistLines: 'true' }) });
         return createElement_1.ReactLike.createElement("div", null,
             props.messageFromRedirect ? createElement_1.ReactLike.createElement("p", { style: { border: '2px solid green' } }, props.messageFromRedirect) : createElement_1.ReactLike.createElement("span", null),
             createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'mainPage', params: __assign({}, commonParams) }) }, "Go back to Main Page"),
@@ -29,9 +32,11 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
                 name,
                 ", id: ",
                 id),
-            createElement_1.ReactLike.createElement("a", { href: showValuesToggleLink }, props.seeValues ? 'Hide Values' : 'See Values'),
+            createElement_1.ReactLike.createElement("a", { href: showValuesToggleLink }, props.seeValues ? 'Hide Field Values' : 'Show Field Values'),
             createElement_1.ReactLike.createElement("br", null),
             createElement_1.ReactLike.createElement("a", { href: showAllFieldsToggleLink }, props.showAllFields ? 'Hide Internal Fields' : 'Show All Fields'),
+            createElement_1.ReactLike.createElement("br", null),
+            createElement_1.ReactLike.createElement("a", { href: showSublistLinesToggleLink }, props.showSublistLines ? 'Hide Sublists lines' : 'Show Sublists lines'),
             createElement_1.ReactLike.createElement("div", null,
                 createElement_1.ReactLike.createElement("h3", null, "Fields:"),
                 createElement_1.ReactLike.createElement("ul", null, fields.map(function (f) { return createElement_1.ReactLike.createElement("li", null,
@@ -39,7 +44,7 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
             createElement_1.ReactLike.createElement("div", null,
                 createElement_1.ReactLike.createElement("h3", null, "Sublists:"),
                 createElement_1.ReactLike.createElement("ul", null, sublists.map(function (s) { return createElement_1.ReactLike.createElement("li", null,
-                    createElement_1.ReactLike.createElement(Sublist, { sublist: s })); }))));
+                    createElement_1.ReactLike.createElement(Sublist, __assign({ sublist: s }, props))); }))));
     };
     var Field = function (props) {
         return createElement_1.ReactLike.createElement("span", null,
@@ -54,71 +59,43 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
                 ". Value (",
                 typeof props.field.value,
                 ") :",
-                !props.field.isReadonly ? createElement_1.ReactLike.createElement(FieldEditor, __assign({}, props)) : createElement_1.ReactLike.createElement("span", null,
-                    "$",
-                    props.field.value + '',
-                    " (read only)")) : createElement_1.ReactLike.createElement("span", null));
+                !props.field.isReadonly ?
+                    createElement_1.ReactLike.createElement(fieldEditor_1.FieldEditor, __assign({}, props)) :
+                    createElement_1.ReactLike.createElement("span", null,
+                        "$",
+                        props.field.value + '',
+                        " (read only)")) :
+                createElement_1.ReactLike.createElement("span", null));
     };
     var Sublist = function (props) {
         return createElement_1.ReactLike.createElement("span", null,
             props.sublist.id,
             " ",
             props.sublist.name ? ", name: " + props.sublist.name : '',
-            props.sublist.fields.length ? createElement_1.ReactLike.createElement("span", null,
-                "Sublist fields:",
-                createElement_1.ReactLike.createElement("ul", null, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("li", null,
-                    f.name,
-                    " id: ",
-                    f.id,
-                    f.type ? ", type: " + f.type : '',
-                    f.isMandatory ? ", Mandatory: " + f.isMandatory : '',
-                    f.isReadonly ? ", Readonly: " + f.isReadonly : ''); })))
+            ", lines: #",
+            props.sublist.lineCount,
+            props.sublist.fields.length ? createElement_1.ReactLike.createElement("span", null, props.showSublistLines ? createElement_1.ReactLike.createElement("span", null,
+                createElement_1.ReactLike.createElement(SublistLinesEditor, __assign({}, props)),
+                " ") :
+                createElement_1.ReactLike.createElement("span", null,
+                    "Line fields:",
+                    createElement_1.ReactLike.createElement("ul", { style: { display: 'inline' } }, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("li", null,
+                        f.name,
+                        " id: ",
+                        f.id,
+                        f.type ? ", type: " + f.type : '',
+                        f.isMandatory ? ", Mandatory: " + f.isMandatory : '',
+                        f.isReadonly ? ", Readonly: " + f.isReadonly : ''); }))))
                 : createElement_1.ReactLike.createElement("blockquote", null, "No sublist fields found"));
     };
-    // declare function formatDate(date: Date, format: 'YYYY-MM-DD'|'MM/DD/YYYY'): string
-    var FieldEditor = function (props) {
-        var f = props.field;
-        if ((f.type === 'text' || f.type === 'date') && typeof f.value !== 'boolean') {
-            return createElement_1.ReactLike.createElement("span", null,
-                createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-field-id" + f.id }, (f.type === 'date' && util_1.isDate(f.value)) ? createElement_1.ReactLike.createElement("input", { type: "date", value: dateUtil_1.formatDate(f.value, 'YYYY-MM-DD') }) : createElement_1.ReactLike.createElement("input", { value: f.value + '' })),
-                createElement_1.ReactLike.createElement(Bind_1.BindInputValueAndStoreData, { bindListenerId: "data-field-id" + f.id, data: {
-                        routeName: 'setFieldValue',
-                        params: {
-                            recordId: props.record.id,
-                            recordType: props.record.type,
-                            fieldType: f.type,
-                            fieldId: f.id,
-                            redirect: encodeURIComponent(props.currentUrl)
-                        }
-                    } },
-                    createElement_1.ReactLike.createElement("button", { onClick: function (e) {
-                            var data = getStoreData(e.currentTarget);
-                            // if(!data){
-                            //   return
-                            // }
-                            var fieldValue = getBindInputValue(e.currentTarget, { dateAsString: true });
-                            // if(data.params.fieldType==='date'){
-                            //   const val = getBindInputValue<string>(e.currentTarget, {dateAsString: true})
-                            //   // if(val){
-                            //   //   fieldValue = dateToInputValue(val, 'MM/DD/YYYY')
-                            //   // }
-                            // }
-                            // else {
-                            //   fieldValue = getBindInputValue<string>(e.currentTarget)||''
-                            // }
-                            // new Intl.DateTimeFormat('en-US').format(d)
-                            // const fieldValue = getBindInputValue(e.currentTarget)
-                            if (!data || fieldValue === undefined) {
-                                return;
-                            }
-                            data.params = __assign({}, data.params, { fieldValue: fieldValue });
-                            var url = buildRouteUrl(data);
-                            window.location.href = url;
-                        } }, "Change!")));
-        }
-        return createElement_1.ReactLike.createElement("span", null);
+    var SublistLinesEditor = function (props) {
+        return createElement_1.ReactLike.createElement("table", null,
+            createElement_1.ReactLike.createElement("thead", null,
+                createElement_1.ReactLike.createElement("tr", null, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("th", null, f.id); }))),
+            createElement_1.ReactLike.createElement("tbody", null, props.sublist.lines.map(function (line, index) { return createElement_1.ReactLike.createElement("tr", null, line.rows.map(function (row, i) {
+                return createElement_1.ReactLike.createElement("td", null, row.value);
+            })); })));
     };
-    function internalFilterPredicate(f) { return f.indexOf('_') !== 0 && f.indexOf('sys_') !== 0 && f.indexOf('nsapi') !== 0; }
     function buildRecordViewModel(r, seeValues, showAllFields) {
         var record = recordMetadata_1.getRecordTypeMetadata({
             record: r,
@@ -131,6 +108,9 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
         record.fields = record.fields
             .filter(function (f) { return f.id; })
             .map(function (f) {
+            if (!seeValues) {
+                return f;
+            }
             var value;
             try {
                 //@ts-ignore     
@@ -142,8 +122,28 @@ define(["require", "exports", "../../jsx/createElement", "../../introspection/re
             return __assign({}, f, { value: seeValues ? value : '' });
         })
             .sort(function (a, b) { return a.id.localeCompare(b.id); });
-        record.sublists = record.sublists.sort(function (a, b) { return a.id.localeCompare(b.id); });
+        record.sublists = record.sublists
+            .sort(function (a, b) { return a.id.localeCompare(b.id); })
+            .map(function (s) {
+            s.fields = s.fields.sort(function (a, b) { return a.id.localeCompare(b.id); });
+            s.lineCount = r.getLineCount({ sublistId: s.id });
+            s.lines = [];
+            var _loop_1 = function (line) {
+                s.lines[line] = { rows: [] };
+                s.fields.forEach(function (f) {
+                    var value = r.getSublistText({ sublistId: s.id, fieldId: f.id, line: line });
+                    s.lines[line].rows.push({ fieldId: f.id, value: value });
+                });
+            };
+            for (var line = 0; line < s.lineCount; line++) {
+                _loop_1(line);
+            }
+            return s;
+        });
         return record;
     }
     exports.buildRecordViewModel = buildRecordViewModel;
+    function internalFilterPredicate(f) {
+        return f.indexOf('_') !== 0 && f.indexOf('sys_') !== 0 && f.indexOf('nsapi') !== 0;
+    }
 });

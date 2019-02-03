@@ -1,6 +1,6 @@
 import { ReactLike } from "../../jsx/createElement";
 import { ReactLikeChild } from '../../jsx/jsx';
-import { RenderLinkOptions, RenderFragmentOptions } from '../app';
+import { RenderLinkOptions, RenderFragmentOptions } from "../browserCode";
 
 interface Class extends Partial<CSSStyleDeclaration> { }
 interface IClasses {

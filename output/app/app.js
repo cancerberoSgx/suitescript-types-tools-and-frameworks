@@ -9,19 +9,13 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirect"], function (require, exports, misc_1, createElement_1, redirect_1) {
+define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirect", "./browserCode"], function (require, exports, misc_1, createElement_1, redirect_1, browserCode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var f = misc_1.find; // install array.prototype.find
-    var ROUTEPARAMNAME_NOPREFIX = 'routeParamName';
-    var ROUTEPARAMPREFIX = '__app__';
-    var ROUTEPARAMNAME = ROUTEPARAMPREFIX + ROUTEPARAMNAME_NOPREFIX;
-    var SCRIPTLETURLPREFIX = '/app/site/hosting/scriptlet.nl';
     var App = /** @class */ (function () {
         function App() {
             this.routes = [];
-            this.paramPrefix = ROUTEPARAMPREFIX;
-            this.routeParamName = ROUTEPARAMNAME_NOPREFIX;
         }
         App.prototype.addRoute = function (r) {
             this.routes.push(r);
@@ -29,7 +23,7 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
         App.prototype.dispatch = function (d) {
             this.currentDispatchOptions = d;
             var params = this.getParamsWithoutPrefix(d.request);
-            var routeName = params["" + this.routeParamName];
+            var routeName = params["" + browserCode_1.ROUTEPARAMNAME_NOPREFIX];
             if (!routeName) {
                 return this.notFound(d, "no route name given in url");
             }
@@ -46,7 +40,7 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
                 d.response.write(JSON.stringify(result));
             }
             else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
-                d.response.write("<script>\n" + fetchAndRenderHtmlFragmentHandlerString() + "\n" + createElement_1.ReactLike.getClientCode().map(function (c) { return c.code; }).join('\n') + "\n</script>");
+                d.response.write("<script>\n" + browserCode_1.renderBrowserCode() + "\n" + createElement_1.ReactLike.getClientCode().map(function (c) { return c.code; }).join('\n') + "\n</script>");
                 d.response.write(result);
             }
             // else if not result we assume the route already write in the response.
@@ -56,93 +50,53 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
             console.log("App Error: " + msg);
         };
         App.prototype.redirect = function (config) {
-            redirect_1.redirect({ url: config.redirect + "&" + ROUTEPARAMPREFIX + "messageFromRedirect=" + (config.messageFromRedirect || ''), });
+            redirect_1.redirect({ url: config.redirect + "&" + browserCode_1.ROUTEPARAMPREFIX + "messageFromRedirect=" + (config.messageFromRedirect || ''), });
         };
         App.prototype.getCurrentRealUrlSearchFragment = function () {
             var params = this.currentDispatchOptions.request.parameters;
             var otherParams = this.getOtherParams();
             var otherParamsUrl = Object.keys(otherParams).map(function (p) { return p + "=" + otherParams[p]; }).join('&');
-            var routeNameUrl = Object.keys(params).filter(function (p) { return p === ROUTEPARAMNAME; }).map(function (p) { return p + "=" + params[p]; }).join('&');
-            var routeParamsUrl = Object.keys(params).filter(function (p) { return p !== ROUTEPARAMNAME && p.indexOf(ROUTEPARAMPREFIX) === 0; }).map(function (p) { return p + "=" + params[p]; }).join('&');
-            return SCRIPTLETURLPREFIX + "?" + otherParamsUrl + "&" + routeNameUrl + "&" + routeParamsUrl;
+            var routeNameUrl = Object.keys(params).filter(function (p) { return p === browserCode_1.ROUTEPARAMNAME; }).map(function (p) { return p + "=" + params[p]; }).join('&');
+            var routeParamsUrl = Object.keys(params).filter(function (p) { return p !== browserCode_1.ROUTEPARAMNAME && p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0; }).map(function (p) { return p + "=" + params[p]; }).join('&');
+            return browserCode_1.SCRIPTLETURLPREFIX + "?" + otherParamsUrl + "&" + routeNameUrl + "&" + routeParamsUrl;
         };
         App.prototype.renderLink = function (config) {
             var _a;
             var otherParams = this.getOtherParams();
             var otherParamsUrl = Object.keys(otherParams).map(function (p) { return p + "=" + otherParams[p]; }).join('&');
             var paramsUrl = this.getParamsUrl(config.params);
-            var routeParamsUrl = this.getParamsUrl((_a = {}, _a[this.routeParamName] = config.routeName, _a));
+            var routeParamsUrl = this.getParamsUrl((_a = {}, _a[browserCode_1.ROUTEPARAMNAME_NOPREFIX] = config.routeName, _a));
             var currentUrlSearchFragment = "?" + otherParamsUrl + "&" + routeParamsUrl + "&" + paramsUrl;
-            return buildUrl(__assign({}, config, { params: this.getParamsWithPrefix(config.params), 
-                // routeParamName: `${this.paramPrefix}${this.routeParamName}`,
-                currentUrlSearchFragment: currentUrlSearchFragment }));
+            return browserCode_1.buildUrl(__assign({}, config, { params: this.getParamsWithPrefix(config.params), currentUrlSearchFragment: currentUrlSearchFragment }));
         };
         App.prototype.getParamsWithoutPrefix = function (request) {
-            var _this = this;
             var params = {};
-            Object.keys(request.parameters).filter(function (p) { return p.indexOf(_this.paramPrefix) === 0; }).forEach(function (p) {
-                params[p.substring(_this.paramPrefix.length, p.length)] = request.parameters[p];
+            Object.keys(request.parameters).filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0; }).forEach(function (p) {
+                params[p.substring(browserCode_1.ROUTEPARAMPREFIX.length, p.length)] = request.parameters[p];
             });
             return params;
         };
         App.prototype.getOtherParams = function () {
             var _this = this;
             var otherParams = {};
-            Object.keys(this.currentDispatchOptions.request.parameters).filter(function (p) { return p.indexOf(_this.paramPrefix) !== 0; }).forEach(function (p) {
+            Object.keys(this.currentDispatchOptions.request.parameters).filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) !== 0; }).forEach(function (p) {
                 otherParams[p] = _this.currentDispatchOptions.request.parameters[p];
             });
             return otherParams;
         };
         App.prototype.getParamsUrl = function (params, except) {
-            var _this = this;
             if (except === void 0) { except = []; }
-            return "" + Object.keys(params).filter(function (p) { return except.indexOf(p) === -1; }).map(function (p) { return "" + _this.paramPrefix + p + "=" + params[p]; }).join('&');
+            return "" + Object.keys(params).filter(function (p) { return except.indexOf(p) === -1; }).map(function (p) { return "" + browserCode_1.ROUTEPARAMPREFIX + p + "=" + params[p]; }).join('&');
         };
         App.prototype.getParamsWithPrefix = function (params, except) {
-            var _this = this;
             if (except === void 0) { except = []; }
             var params_ = {};
             Object.keys(params).filter(function (p) { return except.indexOf(p) === -1; }).forEach(function (p) {
-                params_[_this.paramPrefix + p] = params[p];
+                params_[browserCode_1.ROUTEPARAMPREFIX + p] = params[p];
             });
             return params_;
         };
         return App;
     }());
     exports.App = App;
-    /** this function is meant to be evaluated in the browser and also in the server! */
-    function buildUrl(config) {
-        var clean = "" + SCRIPTLETURLPREFIX + config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf("&" + ROUTEPARAMNAME + "=")) + "&" + ROUTEPARAMNAME + "=" + config.routeName;
-        var newParams = clean + "&" + Object.keys(config.params).map(function (p) { return p + "=" + config.params[p]; }).join('&');
-        return newParams;
-    }
-    /** this function is meant to be evaluated in the browser! */
-    function fetchAndRenderHtmlFragment(config) {
-        var url = buildRouteUrl(config);
-        fetch(url)
-            .then(function (response) {
-            return response.text();
-        })
-            .then(function (html) {
-            var parent = document.querySelector(config.selector);
-            if (parent) {
-                parent.innerHTML = html;
-            }
-        });
-    }
-    function buildRouteUrl(config) {
-        var params = {};
-        Object.keys(config.params).map(function (p) { params["" + ROUTEPARAMPREFIX + p] = config.params[p]; });
-        var url = buildUrl(__assign({}, config, { currentUrlSearchFragment: location.search, params: params }));
-        return url;
-    }
-    function fetchAndRenderHtmlFragmentHandlerString() {
-        // @ts-ignore
-        var assign = __assign.toString();
-        var s = "\nvar ROUTEPARAMNAME = \"" + ROUTEPARAMNAME + "\";\nvar ROUTEPARAMPREFIX = \"" + ROUTEPARAMPREFIX + "\";\nvar SCRIPTLETURLPREFIX = \"" + SCRIPTLETURLPREFIX + "\"; \nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\nvar a = 1\n  ";
-        return s;
-        // console.log(`<textarea>${s}</textarea>`);
-        // return ()=>{}
-        // return eval(`(${s})`)
-    }
 });

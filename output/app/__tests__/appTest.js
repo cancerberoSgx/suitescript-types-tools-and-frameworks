@@ -48,6 +48,7 @@ define(["require", "exports", "../../search/typedSearch/typedSearchOperations", 
                 var _a = o.params, id = _a.id, type = _a.type, messageFromRedirect = _a.messageFromRedirect;
                 var seeValues = !!o.params.seeValues;
                 var showAllFields = !!o.params.showAllFields;
+                var showSublistLines = !!o.params.showSublistLines;
                 if (!id || !type) {
                     return 'Cannot open record view without an id or type, given id, type: ' + (id + ", " + type);
                 }
@@ -55,9 +56,10 @@ define(["require", "exports", "../../search/typedSearch/typedSearchOperations", 
                 if (!record) {
                     return 'Record id, type: ' + (id + ", " + type + " not be found");
                 }
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: recordView_1.buildRecordViewModel(record, seeValues, showAllFields), seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect }));
+                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: recordView_1.buildRecordViewModel(record, seeValues, showAllFields), seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines }));
             }
         });
+        // a service that will call setValue on a record and redirect the user according to redirect param
         app.addRoute({
             name: 'setFieldValue',
             handler: function (o) {
@@ -76,7 +78,7 @@ define(["require", "exports", "../../search/typedSearch/typedSearchOperations", 
                 try {
                     record.setValue({ fieldId: fieldId, value: fieldValue });
                     record.save();
-                    var messageFromRedirect = "record (" + recordType + ", " + recordId + ") field \"" + fieldId + "\" value changed to \"" + fieldValue + "\" (" + fieldType + ") successfully";
+                    var messageFromRedirect = "record (" + recordType + ", " + recordId + ") field \"" + fieldId + "\" value changed to \"" + fieldValue + "\" (" + fieldType + ") successfully ";
                     if (redirect) {
                         return app.redirect({ redirect: redirect, messageFromRedirect: messageFromRedirect });
                     }

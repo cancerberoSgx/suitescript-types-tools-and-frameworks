@@ -70,9 +70,11 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                 else if (Array.isArray(child)) {
                     child.forEach(function (c) {
                         if (!elementImpl_1.isNode(c)) {
-                            throw new Error('Child is not a node: ' + c + ', tag: ' + tag + ', originalAttrs: ' + originalAttrs);
+                            // throw new Error('Child is not a node: ' + c + ', tag: ' + tag + ', originalAttrs: ' + originalAttrs);
                         }
-                        element.appendChild(c);
+                        else {
+                            element.appendChild(c);
+                        }
                     });
                 }
                 else {

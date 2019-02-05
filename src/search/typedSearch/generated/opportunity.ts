@@ -18,23 +18,23 @@ export interface opportunitySearchColumn {
   /** Class (no hierarchy) (classnohierarchy: select) */
       classnohierarchy?: string;
   /** Actual Close (closedate: date) */
-      closedate?: Date;
+      closedate?: string;
   /** Competitor (competitor: select) */
       competitor?: string;
   /** Contribution % (contribution: percent) */
-      contribution?: number;
+      contribution?: string;
   /** Primary Sales Rep Contribution % (contributionprimary: percent) */
-      contributionprimary?: number;
+      contributionprimary?: string;
   /** Currency (currency: select) */
       currency?: string;
   /** Customer Category (custtype: text) */
       custtype?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Days Open (daysopen: integer) */
-      daysopen?: number;
+      daysopen?: string;
   /** Days To Close (daystoclose: integer) */
-      daystoclose?: number;
+      daystoclose?: string;
   /** Decision Maker (decisionmaker: select) */
       decisionmaker?: string;
   /** Department (department: select) */
@@ -48,41 +48,41 @@ export interface opportunitySearchColumn {
   /** Opportunity Status (entitystatus: select) */
       entitystatus?: string;
   /** Estimated Budget (estimatedbudget: currency) */
-      estimatedbudget?: number;
+      estimatedbudget?: string;
   /** Expected Close (expectedclosedate: date) */
-      expectedclosedate?: Date;
+      expectedclosedate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Forecast Type (forecasttype: select) */
       forecasttype?: string;
   /** Projected Total (Foreign Currency) (foreignprojectedamount: currency) */
-      foreignprojectedamount?: number;
+      foreignprojectedamount?: string;
   /** Range - High (Foreign Currency) (foreignrangehigh: currency) */
-      foreignrangehigh?: number;
+      foreignrangehigh?: string;
   /** Range - Low (Foreign Currency) (foreignrangelow: currency) */
-      foreignrangelow?: number;
+      foreignrangelow?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Est. Extended Cost (Transaction) (Foreign Currency) (fxtrancostestimate: currency) */
-      fxtrancostestimate?: number;
+      fxtrancostestimate?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Budget Approved (isbudgetapproved: checkbox) */
       isbudgetapproved?: boolean;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Lead Source (leadsource: select) */
       leadsource?: string;
   /** Location (location: select) */
@@ -94,7 +94,7 @@ export interface opportunitySearchColumn {
   /** Partner (partner: select) */
       partner?: string;
   /** Partner Contribution % (partnercontribution: percent) */
-      partnercontribution?: number;
+      partnercontribution?: string;
   /** Partner Role (partnerrole: select) */
       partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
@@ -102,19 +102,19 @@ export interface opportunitySearchColumn {
   /** Period (period: text) */
       period?: string;
   /** Probability (probability: percent) */
-      probability?: number;
+      probability?: string;
   /** Projected Alt.Sales Total (projaltsalesamt: currency) */
-      projaltsalesamt?: number;
+      projaltsalesamt?: string;
   /** Projected Total (projectedtotal: currency) */
-      projectedtotal?: number;
+      projectedtotal?: string;
   /** Range - High (rangehigh: currency) */
-      rangehigh?: number;
+      rangehigh?: string;
   /** Alt.Sales Range - High (rangehighalt: currency) */
-      rangehighalt?: number;
+      rangehighalt?: string;
   /** Range - Low (rangelow: currency) */
-      rangelow?: number;
+      rangelow?: string;
   /** Alt.Sales Range - Low (rangelowalt: currency) */
-      rangelowalt?: number;
+      rangelowalt?: string;
   /** Sales Readiness (salesreadiness: text) */
       salesreadiness?: string;
   /** Sales Rep (salesrep: select) */
@@ -132,21 +132,21 @@ export interface opportunitySearchColumn {
   /** Title (title: text) */
       title?: string;
   /** Item Amount (total: currency) */
-      total?: number;
+      total?: string;
   /** Est. Extended Cost (Transaction) (trancostestimate: currency) */
-      trancostestimate?: number;
+      trancostestimate?: string;
   /** Date (trandate: date) */
-      trandate?: Date;
+      trandate?: string;
   /** Est. Gross Profit (Transaction) (tranestgrossprofit: currency) */
-      tranestgrossprofit?: number;
+      tranestgrossprofit?: string;
   /** Est. Gross Profit Percent (Transaction) (tranestgrossprofitpct: percent) */
-      tranestgrossprofitpct?: number;
+      tranestgrossprofitpct?: string;
   /** Est. Gross Profit (Transaction) (Foreign Currency) (tranfxestgrossprofit: currency) */
-      tranfxestgrossprofit?: number;
+      tranfxestgrossprofit?: string;
   /** Number (tranid: text) */
       tranid?: string;
   /** Weighted Total (weightedtotal: currency) */
-      weightedtotal?: number;
+      weightedtotal?: string;
   /** Win/Loss Reason (winlossreason: select) */
       winlossreason?: string;
   /** Won By (wonby: select) */
@@ -159,7 +159,7 @@ export interface opportunitySearchColumn {
 /** Opportunity (opportunity) Search Filters definition */
 export interface opportunitySearchFilter {
 /** Item Amount (amount: currency) */
-  amount?: number;
+  amount?: string;
   /** Always Available Offline (availableoffline: checkbox) */
   availableoffline?: boolean;
   /** Buying Reason (buyingreason: select) */
@@ -169,21 +169,21 @@ export interface opportunitySearchFilter {
   /** Class (class: select) */
   class?: string;
   /** Actual Close (closedate: date) */
-  closedate?: Date;
+  closedate?: string;
   /** Competitor (competitor: select) */
   competitor?: string;
   /** Contribution % (contribution: integer) */
-  contribution?: number;
+  contribution?: string;
   /** Currency (currency: select) */
   currency?: string;
   /** Customer Category (custtype: select) */
   custtype?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Days Open (daysopen: integer) */
-  daysopen?: number;
+  daysopen?: string;
   /** Days To Close (daystoclose: integer) */
-  daystoclose?: number;
+  daystoclose?: string;
   /** Department (department: select) */
   department?: string;
   /** Prospect/Customer (entity: select) */
@@ -191,9 +191,9 @@ export interface opportunitySearchFilter {
   /** Opportunity Status (entitystatus: select) */
   entitystatus?: string;
   /** Estimated Budget (estimatedbudget: currency) */
-  estimatedbudget?: number;
+  estimatedbudget?: string;
   /** Expected Close Date (expectedclosedate: date) */
-  expectedclosedate?: Date;
+  expectedclosedate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -201,29 +201,29 @@ export interface opportunitySearchFilter {
   /** Forecast Type (forecasttype: select) */
   forecasttype?: string;
   /** Projected Total (Foreign Currency) (foreignprojectedamount: currency) */
-  foreignprojectedamount?: number;
+  foreignprojectedamount?: string;
   /** Range - High (Foreign Currency) (foreignrangehigh: currency) */
-  foreignrangehigh?: number;
+  foreignrangehigh?: string;
   /** Range - Low (Foreign Currency) (foreignrangelow: currency) */
-  foreignrangelow?: number;
+  foreignrangelow?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Est. Extended Cost (Transaction) (Foreign Currency) (fxtrancostestimate: currency) */
-  fxtrancostestimate?: number;
+  fxtrancostestimate?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Budget Approved (isbudgetapproved: checkbox) */
   isbudgetapproved?: boolean;
   /** Item (item: multiselect) */
-  item?: number;
+  item?: string;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Lead Source (leadsource: select) */
   leadsource?: string;
   /** Location (location: select) */
@@ -231,31 +231,31 @@ export interface opportunitySearchFilter {
   /** Memo (memo: text) */
   memo?: string;
   /** Number (number: integer) */
-  number?: number;
+  number?: string;
   /** Partner (partner: select) */
   partner?: string;
   /** Partner Contribution % (partnercontribution: integer) */
-  partnercontribution?: number;
+  partnercontribution?: string;
   /** Partner Role (partnerrole: select) */
   partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
   partnerteammember?: string;
   /** Period (postingperiod: period) */
-  postingperiod?: Date;
+  postingperiod?: string;
   /** Probability (probability: integer) */
-  probability?: number;
+  probability?: string;
   /** Projected Alt.Sales Amount (projaltsalesamt: currency) */
-  projaltsalesamt?: number;
+  projaltsalesamt?: string;
   /** Projected Amount (projectedtotal: currency) */
-  projectedtotal?: number;
+  projectedtotal?: string;
   /** Range - High (rangehigh: currency) */
-  rangehigh?: number;
+  rangehigh?: string;
   /** Alt.Sales Range - High (rangehighalt: currency) */
-  rangehighalt?: number;
+  rangehighalt?: string;
   /** Range - Low (rangelow: currency) */
-  rangelow?: number;
+  rangelow?: string;
   /** Alt.Sales Range - Low (rangelowalt: currency) */
-  rangelowalt?: number;
+  rangelowalt?: string;
   /** Sales Readiness (salesreadiness: select) */
   salesreadiness?: string;
   /** Sales Rep (salesrep: select) */
@@ -269,19 +269,19 @@ export interface opportunitySearchFilter {
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
   /** Tax Period (taxperiod: period) */
-  taxperiod?: Date;
+  taxperiod?: string;
   /** Title (title: text) */
   title?: string;
   /** Est. Extended Cost (Transaction) (trancostestimate: currency) */
-  trancostestimate?: number;
+  trancostestimate?: string;
   /** Date (trandate: date) */
-  trandate?: Date;
+  trandate?: string;
   /** Est. Gross Profit (Transaction) (tranestgrossprofit: currency) */
-  tranestgrossprofit?: number;
+  tranestgrossprofit?: string;
   /** Est. Gross Profit Percent (Transaction) (tranestgrossprofitpct: percent) */
-  tranestgrossprofitpct?: number;
+  tranestgrossprofitpct?: string;
   /** Est. Gross Profit (Transaction) (Foreign Currency) (tranfxestgrossprofit: currency) */
-  tranfxestgrossprofit?: number;
+  tranfxestgrossprofit?: string;
   /** Number/ID (tranid: text) */
   tranid?: string;
   /** Win/Loss Reason (winlossreason: select) */

@@ -8,21 +8,21 @@ export interface itemdemandplanSearchColumn {
   /** Last Alternate Source Item (alternatesourceitem: select) */
       alternatesourceitem?: string;
   /** Last Historical Analysis Duration (analysisduration: integer) */
-      analysisduration?: number;
+      analysisduration?: string;
   /** Demand Date (demanddate: date) */
-      demanddate?: Date;
+      demanddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -30,23 +30,23 @@ export interface itemdemandplanSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Last Plan Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Location (location: select) */
       location?: string;
   /** Memo (memo: text) */
       memo?: string;
   /** Last Projection Duration (projectionduration: integer) */
-      projectionduration?: number;
+      projectionduration?: string;
   /** Last Projection Interval (projectioninterval: text) */
       projectioninterval?: string;
   /** Last Projection Method (projectionmethod: text) */
       projectionmethod?: string;
   /** Last Projection Start Date (projectionstartdate: date) */
-      projectionstartdate?: Date;
+      projectionstartdate?: string;
   /** Quantity (quantity: float) */
-      quantity?: number;
+      quantity?: string;
   /** Quantity in Demand Plan Units (quantityuom: float) */
-      quantityuom?: number;
+      quantityuom?: string;
   /** Subsidiary (subsidiary: select) */
       subsidiary?: string;
   /** Units (units: select) */
@@ -61,41 +61,41 @@ export interface itemdemandplanSearchFilter {
 /** Last Alternate Source Item (alternatesourceitem: select) */
   alternatesourceitem?: string;
   /** Last Historical Analysis Duration (analysisduration: integer) */
-  analysisduration?: number;
+  analysisduration?: string;
   /** Demand Date (demanddate: date) */
-  demanddate?: Date;
+  demanddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Last Plan Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Location (location: select) */
   location?: string;
   /** Memo (memo: text) */
   memo?: string;
   /** Last Projection Duration (projectionduration: integer) */
-  projectionduration?: number;
+  projectionduration?: string;
   /** Last Projection Interval (projectioninterval: select) */
   projectioninterval?: string;
   /** Last Projection Method (projectionmethod: select) */
   projectionmethod?: string;
   /** Last Projection Start Date (projectionstartdate: date) */
-  projectionstartdate?: Date;
+  projectionstartdate?: string;
   /** Quantity (quantity: float) */
-  quantity?: number;
+  quantity?: string;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
   /** Units (units: select) */

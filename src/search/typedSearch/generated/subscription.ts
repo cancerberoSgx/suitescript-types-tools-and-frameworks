@@ -6,7 +6,7 @@
 /** Subscription (subscription) Search Columns definition */
 export interface subscriptionSearchColumn {
   /** Advance Renewal Period (advancerenewalperiodnumber: integer) */
-      advancerenewalperiodnumber?: number;
+      advancerenewalperiodnumber?: string;
   /** Advance Renewal Period Unit (advancerenewalperiodunit: select) */
       advancerenewalperiodunit?: string;
   /** Automatically Initiate Renewal Process (autorenewal: checkbox) */
@@ -16,7 +16,7 @@ export interface subscriptionSearchColumn {
   /** Customer (customer: select) */
       customer?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Default Renewal Method (defaultrenewalmethod: select) */
       defaultrenewalmethod?: string;
   /** Default Renewal Term (defaultrenewalterm: select) */
@@ -24,9 +24,9 @@ export interface subscriptionSearchColumn {
   /** Default Transaction Type (defaultrenewaltrantype: select) */
       defaultrenewaltrantype?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Estimated Revenue Recognition End Date (estimatedrevrecenddate: date) */
-      estimatedrevrecenddate?: Date;
+      estimatedrevrecenddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Initial Term (initialterm: select) */
@@ -36,11 +36,11 @@ export interface subscriptionSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Next Renewal Start Date (nextrenewalstartdate: date) */
-      nextrenewalstartdate?: Date;
+      nextrenewalstartdate?: string;
   /** Original Sales Transaction (originalsalestransaction: text) */
       originalsalestransaction?: string;
   /** Renewal Sequence (renewalnumber: integer) */
-      renewalnumber?: number;
+      renewalnumber?: string;
   /** Renewal Subscription Name (renewalsubscriptionname: text) */
       renewalsubscriptionname?: string;
   /** Renewal Transaction (renewaltransaction: select) */
@@ -48,7 +48,7 @@ export interface subscriptionSearchColumn {
   /** Sales Order (salesorder: select) */
       salesorder?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Status (status: select) */
       status?: string;
   /** Subscription Plan (subscriptionplan: select) */
@@ -61,7 +61,7 @@ export interface subscriptionSearchColumn {
 /** Subscription (subscription) Search Filters definition */
 export interface subscriptionSearchFilter {
 /** Advance Renewal Period (advancerenewalperiodnumber: integer) */
-  advancerenewalperiodnumber?: number;
+  advancerenewalperiodnumber?: string;
   /** Advance Renewal Period Unit (advancerenewalperiodunit: select) */
   advancerenewalperiodunit?: string;
   /** Automatically Initiate Renewal Process (autorenewal: checkbox) */
@@ -71,7 +71,7 @@ export interface subscriptionSearchFilter {
   /** Customer (customer: select) */
   customer?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Default Renewal Method (defaultrenewalmethod: select) */
   defaultrenewalmethod?: string;
   /** Default Renewal Term (defaultrenewalterm: select) */
@@ -79,9 +79,9 @@ export interface subscriptionSearchFilter {
   /** Default Transaction Type (defaultrenewaltrantype: select) */
   defaultrenewaltrantype?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Estimated Revenue Recognition End Date (estimatedrevrecenddate: date) */
-  estimatedrevrecenddate?: Date;
+  estimatedrevrecenddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -91,25 +91,25 @@ export interface subscriptionSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Name (name: text) */
   name?: string;
   /** Next Renewal Start Date (nextrenewalstartdate: date) */
-  nextrenewalstartdate?: Date;
+  nextrenewalstartdate?: string;
   /** Original Sales Transaction (originalsalestransaction: select) */
   originalsalestransaction?: string;
   /** Parent Subscription ID (parentsubscriptionid: integer) */
-  parentsubscriptionid?: number;
+  parentsubscriptionid?: string;
   /** Renewal Subscription Name (renewalsubscriptionname: select) */
   renewalsubscriptionname?: string;
   /** Renewal Transaction (renewaltransaction: select) */
   renewaltransaction?: string;
   /** Root Subscription ID (rootsubscriptionid: integer) */
-  rootsubscriptionid?: number;
+  rootsubscriptionid?: string;
   /** Sales Order (salesorder: select) */
   salesorder?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Subscription Plan (subscriptionplan: select) */

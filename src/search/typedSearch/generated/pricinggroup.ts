@@ -27,7 +27,7 @@ export interface pricinggroupSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Name (name: text) */

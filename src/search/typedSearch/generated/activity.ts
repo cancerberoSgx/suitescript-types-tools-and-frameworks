@@ -10,29 +10,29 @@ export interface activitySearchColumn {
   /** Company (company: text) */
       company?: string;
   /** Date Completed (completeddate: date) */
-      completeddate?: Date;
+      completeddate?: string;
   /** Contact (contact: select) */
       contact?: string;
   /** Date Created (createddate: date) */
-      createddate?: Date;
+      createddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Last Modified (lastmodifieddate: date) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Mark (markdone: text) */
       markdone?: string;
   /** Notes (message: textarea) */
@@ -42,7 +42,7 @@ export interface activitySearchColumn {
   /** Priority (priority: select) */
       priority?: string;
   /** Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Time (starttime: timeofday) */
       starttime?: string;
   /** Status (status: text) */
@@ -65,25 +65,25 @@ export interface activitySearchFilter {
   /** Company (company: select) */
   company?: string;
   /** Date Completed (completeddate: date) */
-  completeddate?: Date;
+  completeddate?: string;
   /** Contact (contact: select) */
   contact?: string;
   /** Date (date: date) */
-  date?: Date;
+  date?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Notes (memo: textarea) */
   memo?: string;
   /** Created By (owner: select) */

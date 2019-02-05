@@ -14,15 +14,15 @@ export interface taxgroupSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -34,7 +34,7 @@ export interface taxgroupSearchColumn {
   /** Piggy Back (piggyback: checkbox) */
       piggyback?: boolean;
   /** Rate (rate: currency) */
-      rate?: number;
+      rate?: string;
   /** State (state: text) */
       state?: string;
   /** State Display Name (statedisplayname: select) */
@@ -50,9 +50,9 @@ export interface taxgroupSearchColumn {
   /** Tax Type (taxtype: select) */
       taxtype?: string;
   /** GST/HST Rate (unitprice1: percent) */
-      unitprice1?: number;
+      unitprice1?: string;
   /** PST Rate (unitprice2: percent) */
-      unitprice2?: number;
+      unitprice2?: string;
   /** Zip (zip: textarea) */
       zip?: string;
 }
@@ -73,15 +73,15 @@ export interface taxgroupSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Name (itemid: text) */
@@ -89,7 +89,7 @@ export interface taxgroupSearchFilter {
   /** Piggy Back (piggyback: checkbox) */
   piggyback?: boolean;
   /** Rate (rate: percent) */
-  rate?: number;
+  rate?: string;
   /** State (state: select) */
   state?: string;
   /** Subsidiary (subsidiary: select) */
@@ -101,9 +101,9 @@ export interface taxgroupSearchFilter {
   /** Tax Type (taxtype: select) */
   taxtype?: string;
   /** GST/HST Rate (unitprice1: percent) */
-  unitprice1?: number;
+  unitprice1?: string;
   /** PST Rate (unitprice2: percent) */
-  unitprice2?: number;
+  unitprice2?: string;
   /** Zip (zip: textarea) */
   zip?: string;
 }

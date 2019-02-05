@@ -34,7 +34,7 @@ export interface subsidiarySearchColumn {
   /** Currency (currency: select) */
       currency?: string;
   /** Effective From (effectivefrom: date) */
-      effectivefrom?: Date;
+      effectivefrom?: string;
   /** Email (email: email) */
       email?: string;
   /** Employee Notification Template - Case Update (employeecaseupdatetemplate: text) */
@@ -44,15 +44,15 @@ export interface subsidiarySearchColumn {
   /** Fax (fax: phone) */
       fax?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -76,17 +76,17 @@ export interface subsidiarySearchColumn {
   /** Phone (phone: phone) */
       phone?: string;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-      purchaseorderamount?: number;
+      purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-      purchaseorderquantity?: number;
+      purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-      purchaseorderquantitydiff?: number;
+      purchaseorderquantitydiff?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-      receiptamount?: number;
+      receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-      receiptquantity?: number;
+      receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-      receiptquantitydiff?: number;
+      receiptquantitydiff?: string;
   /** State/Province (state: select) */
       state?: string;
   /** Tax Engine (taxengine: select) */
@@ -100,7 +100,7 @@ export interface subsidiarySearchColumn {
   /** Web Site (url: url) */
       url?: string;
   /** Valid Until (validuntil: date) */
-      validuntil?: Date;
+      validuntil?: string;
   /** Zip (zip: text) */
       zip?: string;
 }
@@ -123,7 +123,7 @@ export interface subsidiarySearchFilter {
   /** Currency (currency: select) */
   currency?: string;
   /** Effective From (effectivefrom: date) */
-  effectivefrom?: Date;
+  effectivefrom?: string;
   /** Email (email: email) */
   email?: string;
   /** External ID (externalid: select) */
@@ -133,15 +133,15 @@ export interface subsidiarySearchFilter {
   /** Fax (fax: phone) */
   fax?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Elimination (iselimination: checkbox) */
   iselimination?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -157,17 +157,17 @@ export interface subsidiarySearchFilter {
   /** Phone (phone: phone) */
   phone?: string;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-  purchaseorderamount?: number;
+  purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-  purchaseorderquantity?: number;
+  purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-  purchaseorderquantitydiff?: number;
+  purchaseorderquantitydiff?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-  receiptamount?: number;
+  receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-  receiptquantity?: number;
+  receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-  receiptquantitydiff?: number;
+  receiptquantitydiff?: string;
   /** State/Province (state: select) */
   state?: string;
   /** Tax Engine (taxengine: select) */
@@ -181,7 +181,7 @@ export interface subsidiarySearchFilter {
   /** Web Site (url: url) */
   url?: string;
   /** Valid Until (validuntil: date) */
-  validuntil?: Date;
+  validuntil?: string;
   /** Zip (zip: text) */
   zip?: string;
 }

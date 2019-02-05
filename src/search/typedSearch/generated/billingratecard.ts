@@ -22,7 +22,7 @@ export interface billingratecardSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Price (price: currency) */
-      price?: number;
+      price?: string;
   /** Sale Unit (saleunit: text) */
       saleunit?: string;
   /** Time-Based Charge Rule (timebasedchargerule: text) */
@@ -49,7 +49,7 @@ export interface billingratecardSearchFilter {
   /** Internal ID (id: select) */
   id?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Labor Based Project Revenue Rule (laborbasedprojectrevenuerule: select) */
@@ -57,7 +57,7 @@ export interface billingratecardSearchFilter {
   /** Name (name: text) */
   name?: string;
   /** Price (price: currency) */
-  price?: number;
+  price?: string;
   /** Sale Unit (saleunit: select) */
   saleunit?: string;
   /** Time-Based Charge Rule (timebasedchargerule: select) */

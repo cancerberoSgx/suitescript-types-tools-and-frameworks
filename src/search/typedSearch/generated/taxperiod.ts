@@ -16,19 +16,19 @@ export interface taxperiodSearchColumn {
   /** Closed (closed: checkbox) */
       closed?: boolean;
   /** Date Closed On (closedondate: date) */
-      closedondate?: Date;
+      closedondate?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -48,7 +48,7 @@ export interface taxperiodSearchColumn {
   /** Name (periodname: text) */
       periodname?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
 }
 
 
@@ -67,19 +67,19 @@ export interface taxperiodSearchFilter {
   /** Closed (closed: checkbox) */
   closed?: boolean;
   /** Date Closed On (closedondate: date) */
-  closedondate?: Date;
+  closedondate?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Adjust (isadjust: checkbox) */
   isadjust?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -95,7 +95,7 @@ export interface taxperiodSearchFilter {
   /** Period Name (periodname: text) */
   periodname?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
 }
 
 

@@ -6,27 +6,27 @@
 /** Item Location Configuration (itemlocationconfiguration) Search Columns definition */
 export interface itemlocationconfigurationSearchColumn {
   /** ATP Lead Time (atpleadtime: integer) */
-      atpleadtime?: number;
+      atpleadtime?: string;
   /** Backward Consumption Days (backwardconsumptiondays: integer) */
-      backwardconsumptiondays?: number;
+      backwardconsumptiondays?: string;
   /** Work Order Lead Time (buildtime: float) */
-      buildtime?: number;
+      buildtime?: string;
   /** Standard Cost (cost: currency2) */
-      cost?: number;
+      cost?: string;
   /** Costing Lot Size (costinglotsize: float) */
-      costinglotsize?: number;
+      costinglotsize?: string;
   /** Default Return Cost (defaultreturncost: currency2) */
-      defaultreturncost?: number;
+      defaultreturncost?: string;
   /** Demand Source (demandsource: text) */
       demandsource?: string;
   /** Demand Time Fence (demandtimefence: integer) */
-      demandtimefence?: number;
+      demandtimefence?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Fixed Lot Size (fixedlotsize: float) */
-      fixedlotsize?: number;
+      fixedlotsize?: string;
   /** Forward Consumption Days (forwardconsumptiondays: integer) */
-      forwardconsumptiondays?: number;
+      forwardconsumptiondays?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Inventory Cost Template (inventorycosttemplate: text) */
@@ -34,7 +34,7 @@ export interface itemlocationconfigurationSearchColumn {
   /** Inventory Classification (invtclassification: text) */
       invtclassification?: string;
   /** Inventory Count Interval (invtcountinterval: integer) */
-      invtcountinterval?: number;
+      invtcountinterval?: string;
   /** Auto Loc. Assignment Allowed (isautolocassignmentallowed: checkbox) */
       isautolocassignmentallowed?: boolean;
   /** Auto Loc. Assignment Suspended (isautolocassignmentsuspended: checkbox) */
@@ -44,41 +44,41 @@ export interface itemlocationconfigurationSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Lead Time (leadtime: integer) */
-      leadtime?: number;
+      leadtime?: string;
   /** Location (location: select) */
       location?: string;
   /** Allow Store Pickup (locationallowstorepickup: checkbox) */
       locationallowstorepickup?: boolean;
   /** Buffer Stock (locationstorepickupbufferstock: integer) */
-      locationstorepickupbufferstock?: number;
+      locationstorepickupbufferstock?: string;
   /** Memo (memo: text) */
       memo?: string;
   /** Name (name: text) */
       name?: string;
   /** Next Inventory Count Date (nextinvtcountdate: date) */
-      nextinvtcountdate?: Date;
+      nextinvtcountdate?: string;
   /** Periods of Supply Increment (periodiclotsizedays: integer) */
-      periodiclotsizedays?: number;
+      periodiclotsizedays?: string;
   /** Periods of Supply Type (periodiclotsizetype: text) */
       periodiclotsizetype?: string;
   /** PO Receipt Cost (poreceiptcost: currency2) */
-      poreceiptcost?: number;
+      poreceiptcost?: string;
   /** Preferred Stock Level (preferredstocklevel: float) */
-      preferredstocklevel?: number;
+      preferredstocklevel?: string;
   /** Reorder Point (reorderpoint: float) */
-      reorderpoint?: number;
+      reorderpoint?: string;
   /** Reschedule In Days (rescheduleindays: integer) */
-      rescheduleindays?: number;
+      rescheduleindays?: string;
   /** Reschedule Out Days (rescheduleoutdays: integer) */
-      rescheduleoutdays?: number;
+      rescheduleoutdays?: string;
   /** Safety Stock Level (safetystocklevel: float) */
-      safetystocklevel?: number;
+      safetystocklevel?: string;
   /** Subsidiary (subsidiary: select) */
       subsidiary?: string;
   /** Lot Sizing Method (supplylotsizingmethod: text) */
       supplylotsizingmethod?: string;
   /** Planning Time Fence (supplytimefence: integer) */
-      supplytimefence?: number;
+      supplytimefence?: string;
   /** Supply Type (supplytype: text) */
       supplytype?: string;
 }
@@ -89,39 +89,39 @@ export interface itemlocationconfigurationSearchColumn {
 /** Item Location Configuration (itemlocationconfiguration) Search Filters definition */
 export interface itemlocationconfigurationSearchFilter {
 /** ATP Lead Time (atpleadtime: integer) */
-  atpleadtime?: number;
+  atpleadtime?: string;
   /** Backward Consumption Days (backwardconsumptiondays: integer) */
-  backwardconsumptiondays?: number;
+  backwardconsumptiondays?: string;
   /** Work Order Lead Time (buildtime: float) */
-  buildtime?: number;
+  buildtime?: string;
   /** Standard Cost (cost: currency2) */
-  cost?: number;
+  cost?: string;
   /** Costing Lot Size (costinglotsize: float) */
-  costinglotsize?: number;
+  costinglotsize?: string;
   /** Default Return Cost (defaultreturncost: currency2) */
-  defaultreturncost?: number;
+  defaultreturncost?: string;
   /** Demand Source (demandsource: select) */
   demandsource?: string;
   /** Demand Time Fence (demandtimefence: integer) */
-  demandtimefence?: number;
+  demandtimefence?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Fixed Lot Size (fixedlotsize: float) */
-  fixedlotsize?: number;
+  fixedlotsize?: string;
   /** Forward Consumption Days (forwardconsumptiondays: integer) */
-  forwardconsumptiondays?: number;
+  forwardconsumptiondays?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inventory Cost Template (inventorycosttemplate: select) */
   inventorycosttemplate?: string;
   /** Inventory Classification (invtclassification: select) */
   invtclassification?: string;
   /** Count Interval (invtcountinterval: integer) */
-  invtcountinterval?: number;
+  invtcountinterval?: string;
   /** Auto Loc. Assignment Allowed (isautolocassignmentallowed: checkbox) */
   isautolocassignmentallowed?: boolean;
   /** Auto Loc. Assignment Suspended (isautolocassignmentsuspended: checkbox) */
@@ -131,41 +131,41 @@ export interface itemlocationconfigurationSearchFilter {
   /** Item (item: select) */
   item?: string;
   /** Lead Time (leadtime: integer) */
-  leadtime?: number;
+  leadtime?: string;
   /** Location (location: select) */
   location?: string;
   /** Allow Store Pickup (locationallowstorepickup: checkbox) */
   locationallowstorepickup?: boolean;
   /** Buffer Stock (locationstorepickupbufferstock: integer) */
-  locationstorepickupbufferstock?: number;
+  locationstorepickupbufferstock?: string;
   /** Memo (memo: text) */
   memo?: string;
   /** Name (name: text) */
   name?: string;
   /** Next Count Date (nextinvtcountdate: date) */
-  nextinvtcountdate?: Date;
+  nextinvtcountdate?: string;
   /** Periods of Supply Increment (periodiclotsizedays: integer) */
-  periodiclotsizedays?: number;
+  periodiclotsizedays?: string;
   /** Periods of Supply Type (periodiclotsizetype: select) */
   periodiclotsizetype?: string;
   /** PO Receipt Cost (poreceiptcost: currency2) */
-  poreceiptcost?: number;
+  poreceiptcost?: string;
   /** Preferred Stock Level (preferredstocklevel: float) */
-  preferredstocklevel?: number;
+  preferredstocklevel?: string;
   /** Reorder Point (reorderpoint: float) */
-  reorderpoint?: number;
+  reorderpoint?: string;
   /** Reschedule In Days (rescheduleindays: integer) */
-  rescheduleindays?: number;
+  rescheduleindays?: string;
   /** Reschedule Out Days (rescheduleoutdays: integer) */
-  rescheduleoutdays?: number;
+  rescheduleoutdays?: string;
   /** Safety Stock Level (safetystocklevel: float) */
-  safetystocklevel?: number;
+  safetystocklevel?: string;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
   /** Lot Sizing Method (supplylotsizingmethod: select) */
   supplylotsizingmethod?: string;
   /** Planning Time Fence (supplytimefence: integer) */
-  supplytimefence?: number;
+  supplytimefence?: string;
   /** Supply Type (supplytype: select) */
   supplytype?: string;
 }

@@ -22,23 +22,23 @@ export interface shipitemSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Free Shipping Total Treshold (freeiftotaloveramount: float) */
-      freeiftotaloveramount?: number;
+      freeiftotaloveramount?: string;
   /** Handling Flat Rate (handlingflatrate: float) */
-      handlingflatrate?: number;
+      handlingflatrate?: string;
   /** Handling Rate Type (handlingfunctiontype: text) */
       handlingfunctiontype?: string;
   /** Handling Rate As Percent of Total (handlingrateaspercentoftotal: float) */
-      handlingrateaspercentoftotal?: number;
+      handlingrateaspercentoftotal?: string;
   /** Handling Rate By Item (handlingratebyitem: float) */
-      handlingratebyitem?: number;
+      handlingratebyitem?: string;
   /** Handling Rate By Weight (handlingratebyweight: float) */
-      handlingratebyweight?: number;
+      handlingratebyweight?: string;
   /** Handling Rate By Weight Whole Increments (handlingratebyweightbracketed: checkbox) */
       handlingratebyweightbracketed?: boolean;
   /** Handling Rate By Weight Per (handlingratebyweightper: float) */
-      handlingratebyweightper?: number;
+      handlingratebyweightper?: string;
   /** Handling Rate By Weight Unit (handlingratebyweightunit: float) */
-      handlingratebyweightunit?: number;
+      handlingratebyweightunit?: string;
   /** Handling Rate Table Type (handlingratetabletype: text) */
       handlingratetabletype?: string;
   /** Has Maximum Shipping Cost (hasmaxshippingcost: checkbox) */
@@ -68,19 +68,19 @@ export interface shipitemSearchColumn {
   /** Label Service Id (labelserviceid: text) */
       labelserviceid?: string;
   /** Limited To Countries (limitedtocountries: multiselect) */
-      limitedtocountries?: number;
+      limitedtocountries?: string;
   /** Limited To Sites (limitedtosites: multiselect) */
-      limitedtosites?: number;
+      limitedtosites?: string;
   /** Limited To States (limitedtostates: multiselect) */
-      limitedtostates?: number;
+      limitedtostates?: string;
   /** Web Site Visibility Limited by Total (limitwebsitevisibilitybytotal: checkbox) */
       limitwebsitevisibilitybytotal?: boolean;
   /** Web Site Visibility Limited by Weight (limitwebsitevisibilitybyweight: checkbox) */
       limitwebsitevisibilitybyweight?: boolean;
   /** Maximum Shipping Cost (maxshippingcost: float) */
-      maxshippingcost?: number;
+      maxshippingcost?: string;
   /** Minimum Shipping Cost (minshippingcost: float) */
-      minshippingcost?: number;
+      minshippingcost?: string;
   /** Rating Plugin Id (ratingpluginid: text) */
       ratingpluginid?: string;
   /** Rating Registration (ratingregistration: text) */
@@ -98,23 +98,23 @@ export interface shipitemSearchColumn {
   /** Return Shipping Service (returnshippingservice: text) */
       returnshippingservice?: string;
   /** Shipping Rate Discount (shippingdiscountrate: float) */
-      shippingdiscountrate?: number;
+      shippingdiscountrate?: string;
   /** Shipping Flat Rate (shippingflatrate: float) */
-      shippingflatrate?: number;
+      shippingflatrate?: string;
   /** Shipping Rate Type (shippingfunctiontype: text) */
       shippingfunctiontype?: string;
   /** Shipping Rate As Percent of Total (shippingrateaspercentoftotal: float) */
-      shippingrateaspercentoftotal?: number;
+      shippingrateaspercentoftotal?: string;
   /** Shipping Rate By Item (shippingratebyitem: float) */
-      shippingratebyitem?: number;
+      shippingratebyitem?: string;
   /** Shipping Rate By Weight (shippingratebyweight: float) */
-      shippingratebyweight?: number;
+      shippingratebyweight?: string;
   /** Shipping Rate By Weight Whole Increments (shippingratebyweightbracketed: checkbox) */
       shippingratebyweightbracketed?: boolean;
   /** Shipping Rate By Weight Per (shippingratebyweightper: float) */
-      shippingratebyweightper?: number;
+      shippingratebyweightper?: string;
   /** Shipping Rate By Weight Unit (shippingratebyweightunit: float) */
-      shippingratebyweightunit?: number;
+      shippingratebyweightunit?: string;
   /** Shipping Rate Table Type (shippingratetabletype: text) */
       shippingratetabletype?: string;
   /** Shipping Service (shippingservice: text) */
@@ -126,9 +126,9 @@ export interface shipitemSearchColumn {
   /** Web Site Visibility By Weight Type (websitevisibilitybyweighttype: text) */
       websitevisibilitybyweighttype?: string;
   /** Web Site Visibility By Total Limit (websitevisibilitytotallimit: float) */
-      websitevisibilitytotallimit?: number;
+      websitevisibilitytotallimit?: string;
   /** Web Site Visibility By Weight Limit (websitevisibilityweightlimit: float) */
-      websitevisibilityweightlimit?: number;
+      websitevisibilityweightlimit?: string;
   /** Web Site Visibility By Weight Unit (websitevisibilityweightunit: text) */
       websitevisibilityweightunit?: string;
 }
@@ -157,21 +157,21 @@ export interface shipitemSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Free If Total Over Amount (freeiftotaloveramount: float) */
-  freeiftotaloveramount?: number;
+  freeiftotaloveramount?: string;
   /** Handling Flat Rate (handlingflatrate: float) */
-  handlingflatrate?: number;
+  handlingflatrate?: string;
   /** Handling Rate Type (handlingfunctiontype: select) */
   handlingfunctiontype?: string;
   /** Handling Rate As Percent of Total (handlingrateaspercentoftotal: float) */
-  handlingrateaspercentoftotal?: number;
+  handlingrateaspercentoftotal?: string;
   /** Handling Rate By Item (handlingratebyitem: float) */
-  handlingratebyitem?: number;
+  handlingratebyitem?: string;
   /** Handling Rate By Weight (handlingratebyweight: float) */
-  handlingratebyweight?: number;
+  handlingratebyweight?: string;
   /** Handling Rate By Weight Bracketed (handlingratebyweightbracketed: checkbox) */
   handlingratebyweightbracketed?: boolean;
   /** Handling Rate By Weight Per (handlingratebyweightper: float) */
-  handlingratebyweightper?: number;
+  handlingratebyweightper?: string;
   /** Handling Rate By Weight Unit (handlingratebyweightunit: select) */
   handlingratebyweightunit?: string;
   /** Handling Rate Table Type (handlingratetabletype: select) */
@@ -183,7 +183,7 @@ export interface shipitemSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is Free If Total Over (isfreeiftotalover: checkbox) */
   isfreeiftotalover?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -205,19 +205,19 @@ export interface shipitemSearchFilter {
   /** Label Service Id (labelserviceid: select) */
   labelserviceid?: string;
   /** Limited To Countries (limitedtocountries: multiselect) */
-  limitedtocountries?: number;
+  limitedtocountries?: string;
   /** Limited To Sites (limitedtosites: multiselect) */
-  limitedtosites?: number;
+  limitedtosites?: string;
   /** Limited To States (limitedtostates: multiselect) */
-  limitedtostates?: number;
+  limitedtostates?: string;
   /** Web Site Visibility Limited by Total (limitwebsitevisibilitybytotal: checkbox) */
   limitwebsitevisibilitybytotal?: boolean;
   /** Web Site Visibility Limited by Weight (limitwebsitevisibilitybyweight: checkbox) */
   limitwebsitevisibilitybyweight?: boolean;
   /** Maximum Shipping Cost (maxshippingcost: float) */
-  maxshippingcost?: number;
+  maxshippingcost?: string;
   /** Minimum Shipping Cost (minshippingcost: float) */
-  minshippingcost?: number;
+  minshippingcost?: string;
   /** Rating Plugin Id (ratingpluginid: select) */
   ratingpluginid?: string;
   /** Rating Registration (ratingregistration: select) */
@@ -235,21 +235,21 @@ export interface shipitemSearchFilter {
   /** Return Shipping Service (returnshippingservice: select) */
   returnshippingservice?: string;
   /** Shipping Rate Discount (shippingdiscountrate: float) */
-  shippingdiscountrate?: number;
+  shippingdiscountrate?: string;
   /** Shipping Flat Rate (shippingflatrate: float) */
-  shippingflatrate?: number;
+  shippingflatrate?: string;
   /** Shipping Rate Type (shippingfunctiontype: select) */
   shippingfunctiontype?: string;
   /** Shipping Rate As Percent of Total (shippingrateaspercentoftotal: float) */
-  shippingrateaspercentoftotal?: number;
+  shippingrateaspercentoftotal?: string;
   /** Shipping Rate By Item (shippingratebyitem: float) */
-  shippingratebyitem?: number;
+  shippingratebyitem?: string;
   /** Shipping Rate By Weight (shippingratebyweight: float) */
-  shippingratebyweight?: number;
+  shippingratebyweight?: string;
   /** Shipping Rate By Weight Bracketed (shippingratebyweightbracketed: checkbox) */
   shippingratebyweightbracketed?: boolean;
   /** Shipping Rate By Weight Per (shippingratebyweightper: float) */
-  shippingratebyweightper?: number;
+  shippingratebyweightper?: string;
   /** Shipping Rate By Weight Unit (shippingratebyweightunit: select) */
   shippingratebyweightunit?: string;
   /** Shipping Rate Table Type (shippingratetabletype: select) */
@@ -263,9 +263,9 @@ export interface shipitemSearchFilter {
   /** Web Site Visibility By Weight Type (websitevisibilitybyweighttype: select) */
   websitevisibilitybyweighttype?: string;
   /** Web Site Visibility By Total Limit (websitevisibilitytotallimit: float) */
-  websitevisibilitytotallimit?: number;
+  websitevisibilitytotallimit?: string;
   /** Web Site Visibility By Weight Limit (websitevisibilityweightlimit: float) */
-  websitevisibilityweightlimit?: number;
+  websitevisibilityweightlimit?: string;
   /** Web Site Visibility By Weight Unit (websitevisibilityweightunit: select) */
   websitevisibilityweightunit?: string;
 }

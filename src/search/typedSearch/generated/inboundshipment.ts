@@ -6,23 +6,23 @@
 /** Inbound Shipment (inboundshipment) Search Columns definition */
 export interface inboundshipmentSearchColumn {
   /** Actual Delivery Date (actualdeliverydate: date) */
-      actualdeliverydate?: Date;
+      actualdeliverydate?: string;
   /** Actual Shipping Date (actualshippingdate: date) */
-      actualshippingdate?: Date;
+      actualshippingdate?: string;
   /** Bill Of Lading (billoflading: text) */
       billoflading?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** Currency (currency: text) */
       currency?: string;
   /** Description (description: text) */
       description?: string;
   /** Expected Delivery Date (expecteddeliverydate: date) */
-      expecteddeliverydate?: Date;
+      expecteddeliverydate?: string;
   /** Expected Rate (expectedrate: currency) */
-      expectedrate?: number;
+      expectedrate?: string;
   /** Expected Shipping Date (expectedshippingdate: date) */
-      expectedshippingdate?: Date;
+      expectedshippingdate?: string;
   /** External Document Number (externaldocumentnumber: text) */
       externaldocumentnumber?: string;
   /** External ID (externalid: select) */
@@ -30,27 +30,27 @@ export interface inboundshipmentSearchColumn {
   /** Incoterm (incoterm: text) */
       incoterm?: string;
   /** Internal Id (internalid: integer) */
-      internalid?: number;
+      internalid?: string;
   /** Internal Id Number (internalidnumber: integer) */
-      internalidnumber?: number;
+      internalidnumber?: string;
   /** Item (item: text) */
       item?: string;
   /** Memo (memo: text) */
       memo?: string;
   /** Amount (poamount: currency) */
-      poamount?: number;
+      poamount?: string;
   /** PO Rate (porate: currency) */
-      porate?: number;
+      porate?: string;
   /** PO (purchaseorder: text) */
       purchaseorder?: string;
   /** Quantity Billed (quantitybilled: float) */
-      quantitybilled?: number;
+      quantitybilled?: string;
   /** Quantity Expected (quantityexpected: float) */
-      quantityexpected?: number;
+      quantityexpected?: string;
   /** Quantity Received (quantityreceived: float) */
-      quantityreceived?: number;
+      quantityreceived?: string;
   /** Quantity Remaining (quantityremaining: float) */
-      quantityremaining?: number;
+      quantityremaining?: string;
   /** Receiving Location (receivinglocation: text) */
       receivinglocation?: string;
   /** Shipment Number (shipmentnumber: text) */
@@ -71,23 +71,23 @@ export interface inboundshipmentSearchColumn {
 /** Inbound Shipment (inboundshipment) Search Filters definition */
 export interface inboundshipmentSearchFilter {
 /** Actual Delivery Date (actualdeliverydate: date) */
-  actualdeliverydate?: Date;
+  actualdeliverydate?: string;
   /** Actual Shipping Date (actualshippingdate: date) */
-  actualshippingdate?: Date;
+  actualshippingdate?: string;
   /** Bill Of Lading (billoflading: text) */
   billoflading?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** Currency (currency: select) */
   currency?: string;
   /** Description (description: text) */
   description?: string;
   /** Expected Delivery Date (expecteddeliverydate: date) */
-  expecteddeliverydate?: Date;
+  expecteddeliverydate?: string;
   /** Expected Rate (expectedrate: currency) */
-  expectedrate?: number;
+  expectedrate?: string;
   /** Expected Shipping Date (expectedshippingdate: date) */
-  expectedshippingdate?: Date;
+  expectedshippingdate?: string;
   /** External Document Number (externaldocumentnumber: select) */
   externaldocumentnumber?: string;
   /** External ID (externalid: select) */
@@ -99,23 +99,23 @@ export interface inboundshipmentSearchFilter {
   /** Internal Id (internalid: select) */
   internalid?: string;
   /** Internal Id Number (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Memo (memo: text) */
   memo?: string;
   /** Amount (poamount: currency) */
-  poamount?: number;
+  poamount?: string;
   /** PO Rate (porate: currency) */
-  porate?: number;
+  porate?: string;
   /** PO (purchaseorder: select) */
   purchaseorder?: string;
   /** Quantity Expected (quantityexpected: float) */
-  quantityexpected?: number;
+  quantityexpected?: string;
   /** Quantity Received (quantityreceived: float) */
-  quantityreceived?: number;
+  quantityreceived?: string;
   /** Quantity Remaining (quantityremaining: float) */
-  quantityremaining?: number;
+  quantityremaining?: string;
   /** Receiving Location (receivinglocation: select) */
   receivinglocation?: string;
   /** Shipment Number (shipmentnumber: select) */

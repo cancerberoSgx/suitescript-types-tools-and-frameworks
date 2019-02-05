@@ -8,7 +8,7 @@ export interface merchandisehierarchyversionSearchColumn {
   /** Description (description: text) */
       description?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Hierarchy Level (hierarchylevel: text) */
@@ -18,7 +18,7 @@ export interface merchandisehierarchyversionSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
 }
 
 
@@ -29,7 +29,7 @@ export interface merchandisehierarchyversionSearchFilter {
 /** Description (description: text) */
   description?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -39,11 +39,11 @@ export interface merchandisehierarchyversionSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Name (name: text) */
   name?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
 }
 
 

@@ -10,17 +10,17 @@ export interface taxdetailSearchColumn {
   /** Details (details: textarea) */
       details?: string;
   /** Line Number (linenumber: integer) */
-      linenumber?: number;
+      linenumber?: string;
   /** Tax Amount (taxamount: currency) */
-      taxamount?: number;
+      taxamount?: string;
   /** Tax Basis (Foreign Currency) (taxbasis: currency) */
-      taxbasis?: number;
+      taxbasis?: string;
   /** Tax Code (taxcode: select) */
       taxcode?: string;
   /** Tax Amount (Foreign Currency) (taxfxamount: currency) */
-      taxfxamount?: number;
+      taxfxamount?: string;
   /** Tax Rate (taxrate: percent) */
-      taxrate?: number;
+      taxrate?: string;
   /** Tax Type (taxtype: select) */
       taxtype?: string;
 }
@@ -33,15 +33,15 @@ export interface taxdetailSearchFilter {
 /** Account (account: select) */
   account?: string;
   /** Line Number (linenumber: integer) */
-  linenumber?: number;
+  linenumber?: string;
   /** Tax Amount (taxamount: currency) */
-  taxamount?: number;
+  taxamount?: string;
   /** Tax Basis (Foreign Currency) (taxbasis: currency) */
-  taxbasis?: number;
+  taxbasis?: string;
   /** Tax Code (taxcode: select) */
   taxcode?: string;
   /** Tax Rate (taxrate: percent) */
-  taxrate?: number;
+  taxrate?: string;
   /** Tax Type (taxtype: select) */
   taxtype?: string;
 }

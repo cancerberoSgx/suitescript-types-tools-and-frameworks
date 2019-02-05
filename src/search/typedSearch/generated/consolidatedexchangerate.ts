@@ -24,11 +24,11 @@ export interface consolidatedexchangerateSearchColumn {
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Period End Date (periodenddate: date) */
-      periodenddate?: Date;
+      periodenddate?: string;
   /** Period (periodname: text) */
       periodname?: string;
   /** Period Start Date (periodstartdate: date) */
-      periodstartdate?: Date;
+      periodstartdate?: string;
   /** To Currency (tocurrency: text) */
       tocurrency?: string;
   /** To Subsidiary (tosubsidiary: text) */
@@ -51,13 +51,13 @@ export interface consolidatedexchangerateSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is Derived Rate (isderivedrate: checkbox) */
   isderivedrate?: boolean;
   /** Period (period: select) */
   period?: string;
   /** Period Start Date (periodstartdate: date) */
-  periodstartdate?: Date;
+  periodstartdate?: string;
   /** To Subsidiary (tosubsidiary: select) */
   tosubsidiary?: string;
 }

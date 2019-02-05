@@ -6,15 +6,15 @@
 /** Shopping Cart (shoppingcart) Search Columns definition */
 export interface shoppingcartSearchColumn {
   /** Cart ID (cartid: integer) */
-      cartid?: number;
+      cartid?: string;
   /** Customer ID (customerid: integer) */
-      customerid?: number;
+      customerid?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Date Last Item Added (datemodified: datetime) */
-      datemodified?: Date;
+      datemodified?: string;
   /** Days old (daysold: integer) */
-      daysold?: number;
+      daysold?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Items in Cart (item: select) */
@@ -22,15 +22,15 @@ export interface shoppingcartSearchColumn {
   /** Item ID (itemid: select) */
       itemid?: string;
   /** Item Price (itemprice: currency) */
-      itemprice?: number;
+      itemprice?: string;
   /** Item Quantity (itemqty: integer) */
-      itemqty?: number;
+      itemqty?: string;
   /** Sub-Total Amount (subtotal: currency) */
-      subtotal?: number;
+      subtotal?: string;
   /** Website (website: select) */
       website?: string;
   /** Website ID (websiteid: integer) */
-      websiteid?: number;
+      websiteid?: string;
 }
 
 
@@ -41,29 +41,29 @@ export interface shoppingcartSearchFilter {
 /** Cart ID (cartid: select) */
   cartid?: string;
   /** Cart ID (Number) (cartidnumber: integer) */
-  cartidnumber?: number;
+  cartidnumber?: string;
   /** Customer ID (customerid: select) */
   customerid?: string;
   /** Customer ID (Number) (customeridnumber: integer) */
-  customeridnumber?: number;
+  customeridnumber?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Date Last Item Added (datemodified: datetime) */
-  datemodified?: Date;
+  datemodified?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Item ID (itemid: select) */
   itemid?: string;
   /** Item ID (Number) (itemidnumber: integer) */
-  itemidnumber?: number;
+  itemidnumber?: string;
   /** Item Price (itemprice: currency) */
-  itemprice?: number;
+  itemprice?: string;
   /** SubTotal (subtotal: currency) */
-  subtotal?: number;
+  subtotal?: string;
   /** Website (website: select) */
   website?: string;
   /** Website ID (websiteid: select) */

@@ -22,15 +22,15 @@ export interface roleSearchColumn {
   /** Employee Restrictions (employeerestriction: select) */
       employeerestriction?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** From Bundle (frombundle: text) */
@@ -58,7 +58,7 @@ export interface roleSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Permission Change Date (permchangedate: datetime) */
-      permchangedate?: Date;
+      permchangedate?: string;
   /** Permission Change Level (permchangelevel: text) */
       permchangelevel?: string;
   /** Permission (permission: select) */
@@ -97,15 +97,15 @@ export interface roleSearchFilter {
   /** Employee Restrictions (employeerestriction: select) */
   employeerestriction?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Custom (iscustom: checkbox) */
   iscustom?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -129,7 +129,7 @@ export interface roleSearchFilter {
   /** Name (name: text) */
   name?: string;
   /** Permission Change Date (permchangedate: datetime) */
-  permchangedate?: Date;
+  permchangedate?: string;
   /** Permission (permission: select) */
   permission?: string;
   /** Permission Change (permissionchange: select) */

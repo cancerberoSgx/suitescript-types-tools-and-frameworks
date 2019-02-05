@@ -16,7 +16,7 @@ export interface timeentrySearchColumn {
   /** Case/Task/Event (casetaskevent: select) */
       casetaskevent?: string;
   /** Charge Billing Run ID (chargebillingrunid: integer) */
-      chargebillingrunid?: number;
+      chargebillingrunid?: string;
   /** Class (class: select) */
       class?: string;
   /** Class (no hierarchy) (classnohierarchy: select) */
@@ -24,15 +24,15 @@ export interface timeentrySearchColumn {
   /** Customer:Job (customer: select) */
       customer?: string;
   /** Date (date: date) */
-      date?: Date;
+      date?: string;
   /** Date Created (datecreated: date) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Department (department: select) */
       department?: string;
   /** Department (no hierarchy) (departmentnohierarchy: select) */
       departmentnohierarchy?: string;
   /** Duration (Decimal) (durationdecimal: float) */
-      durationdecimal?: number;
+      durationdecimal?: string;
   /** Employee (employee: select) */
       employee?: string;
   /** End Time (endtime: timeofday) */
@@ -40,21 +40,21 @@ export interface timeentrySearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Duration (hours: text) */
       hours?: string;
   /** Internal ID (internalid: integer) */
-      internalid?: number;
+      internalid?: string;
   /** Billable (isbillable: checkbox) */
       isbillable?: boolean;
   /** Exempt (isexempt: checkbox) */
@@ -66,7 +66,7 @@ export interface timeentrySearchColumn {
   /** Item (item: text) */
       item?: string;
   /** Last Modified (lastmodified: date) */
-      lastmodified?: Date;
+      lastmodified?: string;
   /** Location (location: select) */
       location?: string;
   /** Location (no hierarchy) (locationnohierarchy: select) */
@@ -80,9 +80,9 @@ export interface timeentrySearchColumn {
   /** Payroll Item (payitem: select) */
       payitem?: string;
   /** Payroll Date (payrolldate: date) */
-      payrolldate?: Date;
+      payrolldate?: string;
   /** Rate (rate: currency) */
-      rate?: number;
+      rate?: string;
   /** Start Time (starttime: timeofday) */
       starttime?: string;
   /** Subsidiary (subsidiary: text) */
@@ -113,13 +113,13 @@ export interface timeentrySearchFilter {
   /** Customer:Job (customer: select) */
   customer?: string;
   /** Date (date: date) */
-  date?: Date;
+  date?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Department (department: select) */
   department?: string;
   /** Duration (duration: float) */
-  duration?: number;
+  duration?: string;
   /** Employee (employee: select) */
   employee?: string;
   /** Exempt (exempt: checkbox) */
@@ -129,21 +129,21 @@ export interface timeentrySearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Charged (ischarged: checkbox) */
   ischarged?: boolean;
   /** Item (item: select) */
   item?: string;
   /** Last Modified (lastmodified: datetime) */
-  lastmodified?: Date;
+  lastmodified?: string;
   /** Location (location: select) */
   location?: string;
   /** Memo (memo: text) */

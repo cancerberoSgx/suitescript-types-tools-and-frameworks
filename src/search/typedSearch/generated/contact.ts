@@ -48,13 +48,13 @@ export interface contactSearchColumn {
   /** Country Code (countrycode: text) */
       countrycode?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Email (email: email) */
       email?: string;
   /** Name (entityid: text) */
       entityid?: string;
   /** Number (entitynumber: integer) */
-      entitynumber?: number;
+      entitynumber?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Fax (fax: text) */
@@ -62,15 +62,15 @@ export interface contactSearchColumn {
   /** First Name (firstname: text) */
       firstname?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Login Access (giveaccess: checkbox) */
@@ -94,11 +94,11 @@ export interface contactSearchColumn {
   /** Language (language: select) */
       language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Name (lastname: text) */
       lastname?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Level (level: select) */
       level?: string;
   /** Middle Name (middlename: text) */
@@ -132,7 +132,7 @@ export interface contactSearchColumn {
   /** Subscription (subscription: select) */
       subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-      subscriptiondate?: Date;
+      subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
       subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -187,7 +187,7 @@ export interface contactSearchFilter {
   /** County/State (county: text) */
   county?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Email (email: text) */
   email?: string;
   /** Employer (employer: text) */
@@ -203,9 +203,9 @@ export interface contactSearchFilter {
   /** First Name (firstname: text) */
   firstname?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Login Access (giveaccess: checkbox) */
@@ -213,7 +213,7 @@ export interface contactSearchFilter {
   /** Global Subscription Status (globalsubscriptionstatus: select) */
   globalsubscriptionstatus?: string;
   /** Group (group: multiselect) */
-  group?: number;
+  group?: string;
   /** Duplicate (hasduplicates: checkbox) */
   hasduplicates?: boolean;
   /** Image (image: image) */
@@ -221,7 +221,7 @@ export interface contactSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Default Billing Address (isdefaultbilling: checkbox) */
   isdefaultbilling?: boolean;
   /** Default Shipping Address (isdefaultshipping: checkbox) */
@@ -233,7 +233,7 @@ export interface contactSearchFilter {
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Last Name (lastname: text) */
   lastname?: string;
   /** Level (level: select) */
@@ -241,7 +241,7 @@ export interface contactSearchFilter {
   /** Middle Name (middlename: text) */
   middlename?: string;
   /** Online Form History - Form Date (onlineformdate: date) */
-  onlineformdate?: Date;
+  onlineformdate?: string;
   /** Online Form History - Lead Source (onlineformleadsource: select) */
   onlineformleadsource?: string;
   /** Online Form History - Form Name (onlineformname: select) */

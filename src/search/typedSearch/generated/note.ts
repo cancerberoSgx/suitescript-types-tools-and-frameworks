@@ -12,15 +12,15 @@ export interface noteSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -28,7 +28,7 @@ export interface noteSearchColumn {
   /** Memo (note: text) */
       note?: string;
   /** Date (notedate: datetime) */
-      notedate?: Date;
+      notedate?: string;
   /** Type (notetype: text) */
       notetype?: string;
   /** Title (title: text) */
@@ -49,19 +49,19 @@ export interface noteSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Memo (note: text) */
   note?: string;
   /** Date (notedate: datetime) */
-  notedate?: Date;
+  notedate?: string;
   /** Type (notetype: select) */
   notetype?: string;
   /** Title (title: text) */

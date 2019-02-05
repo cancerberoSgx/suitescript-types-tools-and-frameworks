@@ -6,45 +6,45 @@
 /** Manufacturing Operation Task (manufacturingoperationtask) Search Columns definition */
 export interface manufacturingoperationtaskSearchColumn {
   /** Actual Run Time (actualruntime: float) */
-      actualruntime?: number;
+      actualruntime?: string;
   /** Actual Setup Time (actualsetuptime: float) */
-      actualsetuptime?: number;
+      actualsetuptime?: string;
   /** Completed Quantity (completedquantity: float) */
-      completedquantity?: number;
+      completedquantity?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Estimated Work (estimatedwork: float) */
-      estimatedwork?: number;
+      estimatedwork?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** ID (id: integer) */
-      id?: number;
+      id?: string;
   /** Input Quantity (inputquantity: float) */
-      inputquantity?: number;
+      inputquantity?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Labor Resources (laborresources: integer) */
-      laborresources?: number;
+      laborresources?: string;
   /** Lag Amount (lagamount: float) */
-      lagamount?: number;
+      lagamount?: string;
   /** Lag Type (lagtype: text) */
       lagtype?: string;
   /** Lag Units (lagunits: text) */
       lagunits?: string;
   /** Machine Resources (machineresources: integer) */
-      machineresources?: number;
+      machineresources?: string;
   /** Manufacturing Cost Template (manufacturingcosttemplate: select) */
       manufacturingcosttemplate?: string;
   /** Manufacturing Work Center (manufacturingworkcenter: select) */
@@ -54,23 +54,23 @@ export interface manufacturingoperationtaskSearchColumn {
   /** Operation Name (name: text) */
       name?: string;
   /** Order (order: float) */
-      order?: number;
+      order?: string;
   /** Predecessor (predecessor: select) */
       predecessor?: string;
   /** Predecessor Type (predecessortype: text) */
       predecessortype?: string;
   /** Remaining Quantity (remainingquantity: float) */
-      remainingquantity?: number;
+      remainingquantity?: string;
   /** Run Rate (Min/Unit) (runrate: float) */
-      runrate?: number;
+      runrate?: string;
   /** Run Time (runtime: float) */
-      runtime?: number;
+      runtime?: string;
   /** Operation Sequence (sequence: integer) */
-      sequence?: number;
+      sequence?: string;
   /** Setup Time (Min) (setuptime: float) */
-      setuptime?: number;
+      setuptime?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Status (status: select) */
       status?: string;
   /** Work Order (workorder: text) */
@@ -83,43 +83,43 @@ export interface manufacturingoperationtaskSearchColumn {
 /** Manufacturing Operation Task (manufacturingoperationtask) Search Filters definition */
 export interface manufacturingoperationtaskSearchFilter {
 /** Actual Run Time (actualruntime: float) */
-  actualruntime?: number;
+  actualruntime?: string;
   /** Actual Setup Time (actualsetuptime: float) */
-  actualsetuptime?: number;
+  actualsetuptime?: string;
   /** Completed Quantity (completedquantity: float) */
-  completedquantity?: number;
+  completedquantity?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Estimated Work (estimatedwork: float) */
-  estimatedwork?: number;
+  estimatedwork?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** ID (id: integer) */
-  id?: number;
+  id?: string;
   /** Input Quantity (inputquantity: float) */
-  inputquantity?: number;
+  inputquantity?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Labor Resources (laborresources: integer) */
-  laborresources?: number;
+  laborresources?: string;
   /** Lag Amount (lagamount: float) */
-  lagamount?: number;
+  lagamount?: string;
   /** Lag Type (lagtype: select) */
   lagtype?: string;
   /** Lag Units (lagunits: text) */
   lagunits?: string;
   /** Machine Resources (machineresources: integer) */
-  machineresources?: number;
+  machineresources?: string;
   /** Manufacturing Cost Template (manufacturingcosttemplate: select) */
   manufacturingcosttemplate?: string;
   /** Manufacturing Work Center (manufacturingworkcenter: select) */
@@ -127,21 +127,21 @@ export interface manufacturingoperationtaskSearchFilter {
   /** Operation Name (name: text) */
   name?: string;
   /** Order (order: float) */
-  order?: number;
+  order?: string;
   /** Predecessor (predecessor: select) */
   predecessor?: string;
   /** Remaining Quantity (remainingquantity: float) */
-  remainingquantity?: number;
+  remainingquantity?: string;
   /** Run Rate (Min/Unit) (runrate: float) */
-  runrate?: number;
+  runrate?: string;
   /** Run Time (Min) (runtime: float) */
-  runtime?: number;
+  runtime?: string;
   /** Operation Sequence (sequence: integer) */
-  sequence?: number;
+  sequence?: string;
   /** Setup Time (Min) (setuptime: float) */
-  setuptime?: number;
+  setuptime?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Work Order (workorder: select) */

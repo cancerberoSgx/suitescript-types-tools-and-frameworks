@@ -6,7 +6,7 @@
 /** Charge (charge) Search Columns definition */
 export interface chargeSearchColumn {
   /** Amount (amount: currency) */
-      amount?: number;
+      amount?: string;
   /** Billing Account (billingaccount: select) */
       billingaccount?: string;
   /** Billing Item (billingitem: select) */
@@ -14,13 +14,13 @@ export interface chargeSearchColumn {
   /** Customer:Project (billto: select) */
       billto?: string;
   /** Date (chargedate: date) */
-      chargedate?: Date;
+      chargedate?: string;
   /** Charge Type (chargetype: text) */
       chargetype?: string;
   /** Class (class: select) */
       class?: string;
   /** Date Created (createddate: date) */
-      createddate?: Date;
+      createddate?: string;
   /** Currency (currency: select) */
       currency?: string;
   /** Department (department: select) */
@@ -30,23 +30,23 @@ export interface chargeSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Charge ID (id: integer) */
-      id?: number;
+      id?: string;
   /** Location (location: select) */
       location?: string;
   /** Date Modified (modifieddate: date) */
-      modifieddate?: Date;
+      modifieddate?: string;
   /** Quantity (quantity: text) */
       quantity?: string;
   /** Rate (rate: text) */
@@ -71,7 +71,7 @@ export interface chargeSearchColumn {
 /** Charge (charge) Search Filters definition */
 export interface chargeSearchFilter {
 /** Amount (amount: currency) */
-  amount?: number;
+  amount?: string;
   /** Billing Account (billingaccount: select) */
   billingaccount?: string;
   /** Billing Item (billingitem: select) */
@@ -79,13 +79,13 @@ export interface chargeSearchFilter {
   /** Customer:Project (billto: select) */
   billto?: string;
   /** Date (chargedate: date) */
-  chargedate?: Date;
+  chargedate?: string;
   /** Charge Type (chargetype: select) */
   chargetype?: string;
   /** Class (class: select) */
   class?: string;
   /** Date Created (createddate: date) */
-  createddate?: Date;
+  createddate?: string;
   /** Currency (currency: select) */
   currency?: string;
   /** Department (department: select) */
@@ -95,27 +95,27 @@ export interface chargeSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Charge ID (id: integer) */
-  id?: number;
+  id?: string;
   /** Location (location: select) */
   location?: string;
   /** Date Modified (modifieddate: date) */
-  modifieddate?: Date;
+  modifieddate?: string;
   /** Quantity (quantity: float) */
-  quantity?: number;
+  quantity?: string;
   /** Rate (rate: currency) */
-  rate?: number;
+  rate?: string;
   /** Charge Rule (rule: select) */
   rule?: string;
   /** Charge Run ID (runid: text) */
   runid?: string;
   /** Sales Order (salesorder: integer) */
-  salesorder?: number;
+  salesorder?: string;
   /** Stage (stage: select) */
   stage?: string;
   /** Subscription Line (subscriptionline: select) */

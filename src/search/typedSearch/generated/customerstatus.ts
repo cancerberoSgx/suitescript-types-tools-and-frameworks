@@ -37,13 +37,13 @@ export interface customerstatusSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Name (name: text) */
   name?: string;
   /** Probability (probability: percent) */
-  probability?: number;
+  probability?: string;
 }
 
 

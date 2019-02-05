@@ -14,7 +14,7 @@ export interface merchandisehierarchylevelSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Rank (rank: integer) */
-      rank?: number;
+      rank?: string;
 }
 
 
@@ -31,11 +31,11 @@ export interface merchandisehierarchylevelSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Name (name: text) */
   name?: string;
   /** Rank (rank: integer) */
-  rank?: number;
+  rank?: string;
 }
 
 

@@ -1,6 +1,6 @@
 import { generateProject, ProjectConfig } from './generateProject';
 import { generateFile } from './search/generateFile';
-import { generateAfter } from './search/generateProject';
+import { generateAfter, generateFinal } from './search/generateProject';
 
 export function generateSearchMetadata(){
 
@@ -14,6 +14,7 @@ export function generateSearchMetadata(){
     cleanOutput: true,
     generateAfter,
     generateFile, 
+    generateFinal,
     throwOnError: true
   })
   

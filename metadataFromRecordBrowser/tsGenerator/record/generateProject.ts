@@ -16,7 +16,7 @@ export function generateAfter(config: ProjectConfig&{recordIds: string[], genera
 function generateRecordConstructor(config: { recordIds: string[], typedRecordImportBase: string,  generateAccessorsApi?: boolean }) {
   return `
 import { ${(config.generateAccessorsApi ? config.recordIds.map(id => `${id}RecordImpl' : ''}`) : []).concat(config.recordIds.map(id => `${id}Fields`)).concat(config.recordIds.map(id => `${id}Sublists`)).join(', ')} } from './index';
-import { StringKeyOf } from '${config.typedRecordImportBase}../../misc/misc';
+import { StringKeyOf } from '${config.typedRecordImportBase}../../misc/typesUtil';
 import * as record from 'N/record';
 
 ${config.generateAccessorsApi ? `

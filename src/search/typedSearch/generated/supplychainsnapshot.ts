@@ -6,25 +6,25 @@
 /** Supply Chain Snapshot (supplychainsnapshot) Search Columns definition */
 export interface supplychainsnapshotSearchColumn {
   /** Date Run (daterun: datetime) */
-      daterun?: Date;
+      daterun?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Future Horizon (futurehorizon: integer) */
-      futurehorizon?: number;
+      futurehorizon?: string;
   /** Future Horizon Date (futurehorizondate: date) */
-      futurehorizondate?: Date;
+      futurehorizondate?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Item (item: select) */
@@ -32,9 +32,9 @@ export interface supplychainsnapshotSearchColumn {
   /** Memo (memo: text) */
       memo?: string;
   /** Past Horizon (pasthorizon: integer) */
-      pasthorizon?: number;
+      pasthorizon?: string;
   /** Past Horizon Date (pasthorizondate: date) */
-      pasthorizondate?: Date;
+      pasthorizondate?: string;
   /** Replenishment Method (replenishmentmethod: text) */
       replenishmentmethod?: string;
   /** Stock Unit (stockunit: text) */
@@ -47,33 +47,33 @@ export interface supplychainsnapshotSearchColumn {
 /** Supply Chain Snapshot (supplychainsnapshot) Search Filters definition */
 export interface supplychainsnapshotSearchFilter {
 /** Date Run (daterun: datetime) */
-  daterun?: Date;
+  daterun?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Future Horizon (futurehorizon: integer) */
-  futurehorizon?: number;
+  futurehorizon?: string;
   /** Future Horizon Date (futurehorizondate: date) */
-  futurehorizondate?: Date;
+  futurehorizondate?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Memo (memo: text) */
   memo?: string;
   /** Past Horizon (pasthorizon: integer) */
-  pasthorizon?: number;
+  pasthorizon?: string;
   /** Past Horizon Date (pasthorizondate: date) */
-  pasthorizondate?: Date;
+  pasthorizondate?: string;
   /** Replenishment Method (replenishmentmethod: select) */
   replenishmentmethod?: string;
   /** Stock Unit (stockunit: select) */

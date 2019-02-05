@@ -6,13 +6,13 @@
 /** Revenue Recognition Event (billingrevenueevent) Search Columns definition */
 export interface billingrevenueeventSearchColumn {
   /** Amount (Foreign Currency) (amount: currency) */
-      amount?: number;
+      amount?: string;
   /** Cumulative Percent Complete (cumulativepercentcomplete: percent) */
-      cumulativepercentcomplete?: number;
+      cumulativepercentcomplete?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Event Date (eventdate: date) */
-      eventdate?: Date;
+      eventdate?: string;
   /** Event Purpose (eventpurpose: select) */
       eventpurpose?: string;
   /** External ID (externalid: select) */
@@ -20,13 +20,13 @@ export interface billingrevenueeventSearchColumn {
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Quantity (quantity: float) */
-      quantity?: number;
+      quantity?: string;
   /** Custom Record (record: select) */
       record?: string;
   /** Custom Record Type (recordtype: select) */
       recordtype?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
 }
 
 
@@ -35,13 +35,13 @@ export interface billingrevenueeventSearchColumn {
 /** Revenue Recognition Event (billingrevenueevent) Search Filters definition */
 export interface billingrevenueeventSearchFilter {
 /** Amount (Foreign Currency) (amount: currency) */
-  amount?: number;
+  amount?: string;
   /** Cumulative Percent Complete (cumulativepercentcomplete: percent) */
-  cumulativepercentcomplete?: number;
+  cumulativepercentcomplete?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Event Date (eventdate: date) */
-  eventdate?: Date;
+  eventdate?: string;
   /** Event Purpose (eventpurpose: select) */
   eventpurpose?: string;
   /** Event Type (eventtype: select) */
@@ -53,15 +53,15 @@ export interface billingrevenueeventSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Quantity (quantity: float) */
-  quantity?: number;
+  quantity?: string;
   /** Custom Record (record: select) */
   record?: string;
   /** Custom Record Type (recordtype: select) */
   recordtype?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
 }
 
 

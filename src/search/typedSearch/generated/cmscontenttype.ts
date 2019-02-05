@@ -6,7 +6,7 @@
 /** CMS Content Type (cmscontenttype) Search Columns definition */
 export interface cmscontenttypeSearchColumn {
   /** Custom Record Id (customrecordid: integer) */
-      customrecordid?: number;
+      customrecordid?: string;
   /** Custom Record Script Id (customrecordscriptid: richtext) */
       customrecordscriptid?: string;
   /** Description (description: textarea) */
@@ -16,9 +16,9 @@ export interface cmscontenttypeSearchColumn {
   /** Icon Image Path (iconimagepath: richtext) */
       iconimagepath?: string;
   /** Internal ID (id: integer) */
-      id?: number;
+      id?: string;
   /** Internal ID (internalid: integer) */
-      internalid?: number;
+      internalid?: string;
   /** Label (label: richtext) */
       label?: string;
   /** Name (name: richtext) */
@@ -31,7 +31,7 @@ export interface cmscontenttypeSearchColumn {
 /** CMS Content Type (cmscontenttype) Search Filters definition */
 export interface cmscontenttypeSearchFilter {
 /** Custom Record Id (customrecordid: integer) */
-  customrecordid?: number;
+  customrecordid?: string;
   /** Custom Record Script Id (customrecordscriptid: richtext) */
   customrecordscriptid?: string;
   /** Description (description: textarea) */
@@ -43,11 +43,11 @@ export interface cmscontenttypeSearchFilter {
   /** Icon Image Path (iconimagepath: richtext) */
   iconimagepath?: string;
   /** Internal ID (id: integer) */
-  id?: number;
+  id?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Label (label: richtext) */
   label?: string;
   /** Name (name: richtext) */

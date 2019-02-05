@@ -12,77 +12,77 @@ export interface accountingtransactionSearchColumn {
   /** Account Type (accounttype: text) */
       accounttype?: string;
   /** Amount (Alt.Sales) (altsalesamount: currency) */
-      altsalesamount?: number;
+      altsalesamount?: string;
   /** Amount (Alt.Sales Net) (altsalesnetamount: currency) */
-      altsalesnetamount?: number;
+      altsalesnetamount?: string;
   /** Amount (amount: currency) */
-      amount?: number;
+      amount?: string;
   /** Base Currency (basecurrency: text) */
       basecurrency?: string;
   /** Catch Up Period (catchupperiod: text) */
       catchupperiod?: string;
   /** Amount (Credit) (creditamount: currency) */
-      creditamount?: number;
+      creditamount?: string;
   /** Custom GL (customgl: checkbox) */
       customgl?: boolean;
   /** Custom Script (customscript: text) */
       customscript?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Amount (Debit) (debitamount: currency) */
-      debitamount?: number;
+      debitamount?: string;
   /** Hold Revenue Recognition (deferrevrec: checkbox) */
       deferrevrec?: boolean;
   /** Exchange Rate (exchangerate: currency2) */
-      exchangerate?: number;
+      exchangerate?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Amount (Foreign Currency) (fxamount: currency) */
-      fxamount?: number;
+      fxamount?: string;
   /** Amount (Gross) (grossamount: currency) */
-      grossamount?: number;
+      grossamount?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Intercompany (multisubsidiary: checkbox) */
       multisubsidiary?: boolean;
   /** Amount (Net) (netamount: currency) */
-      netamount?: number;
+      netamount?: string;
   /** Posting (posting: checkbox) */
       posting?: boolean;
   /** Quantity Rev. Committed (quantityrevcommitted: float) */
-      quantityrevcommitted?: number;
+      quantityrevcommitted?: string;
   /** Amount (Recognized) (recognizedrevenue: currency) */
-      recognizedrevenue?: number;
+      recognizedrevenue?: string;
   /** Rev. Commit. Status (revcommitstatus: text) */
       revcommitstatus?: string;
   /** Revenue Status (revenuestatus: text) */
       revenuestatus?: string;
   /** Rev. Rec. End Date (revrecenddate: date) */
-      revrecenddate?: Date;
+      revrecenddate?: string;
   /** Rev. Rec. On Rev. Committment (revreconrevcommitment: checkbox) */
       revreconrevcommitment?: boolean;
   /** Rev. Rec. Start Date (revrecstartdate: date) */
-      revrecstartdate?: Date;
+      revrecstartdate?: string;
   /** Subsidiary (subsidiary: select) */
       subsidiary?: string;
   /** Transaction Is VSOE Bundle (tranisvsoebundle: checkbox) */
       tranisvsoebundle?: boolean;
   /** VSOE Allocation (vsoeallocation: currency) */
-      vsoeallocation?: number;
+      vsoeallocation?: string;
 }
 
 
@@ -97,59 +97,59 @@ export interface accountingtransactionSearchFilter {
   /** Account Type (accounttype: select) */
   accounttype?: string;
   /** Amount (Alt.Sales) (altsalesamount: currency) */
-  altsalesamount?: number;
+  altsalesamount?: string;
   /** Amount (Alt.Sales Net) (altsalesnetamount: currency) */
-  altsalesnetamount?: number;
+  altsalesnetamount?: string;
   /** Amount (amount: currency) */
-  amount?: number;
+  amount?: string;
   /** Book Specific Transaction (bookspecifictransaction: checkbox) */
   bookspecifictransaction?: boolean;
   /** Catch Up Period (catchupperiod: select) */
   catchupperiod?: string;
   /** Amount (Credit) (creditamount: currency) */
-  creditamount?: number;
+  creditamount?: string;
   /** Custom GL (customgl: checkbox) */
   customgl?: boolean;
   /** Custom Script (customscript: select) */
   customscript?: string;
   /** Amount (Debit) (debitamount: currency) */
-  debitamount?: number;
+  debitamount?: string;
   /** Hold Revenue Recognition (deferrevrec: checkbox) */
   deferrevrec?: boolean;
   /** Exchange Rate (exchangerate: currency) */
-  exchangerate?: number;
+  exchangerate?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Amount (Gross) (grossamount: currency) */
-  grossamount?: number;
+  grossamount?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Intercompany (multisubsidiary: checkbox) */
   multisubsidiary?: boolean;
   /** Amount (Net) (netamount: currency) */
-  netamount?: number;
+  netamount?: string;
   /** Posting (posting: checkbox) */
   posting?: boolean;
   /** Quantity Rev. Committed (quantityrevcommitted: float) */
-  quantityrevcommitted?: number;
+  quantityrevcommitted?: string;
   /** Amount (Recognized) (recognizedrevenue: currency) */
-  recognizedrevenue?: number;
+  recognizedrevenue?: string;
   /** Rev. Commit. Status (revcommitstatus: select) */
   revcommitstatus?: string;
   /** Revenue Status (revenuestatus: select) */
   revenuestatus?: string;
   /** Rev. Rec. End Date (revrecenddate: date) */
-  revrecenddate?: Date;
+  revrecenddate?: string;
   /** Rev. Rec. On Rev. Committment (revreconrevcommitment: checkbox) */
   revreconrevcommitment?: boolean;
   /** Rev. Rec. Start Date (revrecstartdate: date) */
-  revrecstartdate?: Date;
+  revrecstartdate?: string;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
   /** Transaction Is VSOE Bundle (tranisvsoebundle: checkbox) */
@@ -157,7 +157,7 @@ export interface accountingtransactionSearchFilter {
   /** Type (type: select) */
   type?: string;
   /** VSOE Allocation (vsoeallocation: currency) */
-  vsoeallocation?: number;
+  vsoeallocation?: string;
 }
 
 

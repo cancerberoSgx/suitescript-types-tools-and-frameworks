@@ -12,33 +12,33 @@ export interface phonecallSearchColumn {
   /** Company (company: select) */
       company?: string;
   /** Date Completed (completeddate: date) */
-      completeddate?: Date;
+      completeddate?: string;
   /** Contact (contact: select) */
       contact?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Mark (markdone: text) */
       markdone?: string;
   /** Comment (message: text) */
@@ -50,7 +50,7 @@ export interface phonecallSearchColumn {
   /** Priority (priority: select) */
       priority?: string;
   /** Phone Call Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Start Time (starttime: timeofday) */
       starttime?: string;
   /** Status (status: select) */
@@ -71,31 +71,31 @@ export interface phonecallSearchFilter {
   /** Company (company: select) */
   company?: string;
   /** Date Completed (completeddate: date) */
-  completeddate?: Date;
+  completeddate?: string;
   /** Contact (contact: select) */
   contact?: string;
   /** Created By (createdby: select) */
   createdby?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is Private (isprivate: checkbox) */
   isprivate?: boolean;
   /** Last Modified Date (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Owner (owner: checkbox) */
   owner?: boolean;
   /** Phone Number (phone: phone) */
@@ -103,7 +103,7 @@ export interface phonecallSearchFilter {
   /** Priority (priority: select) */
   priority?: string;
   /** Phone Call Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Subject (title: text) */

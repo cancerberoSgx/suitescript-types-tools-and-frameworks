@@ -8,13 +8,13 @@ export interface fileSearchColumn {
   /** Available Without Login (availablewithoutlogin: checkbox) */
       availablewithoutlogin?: boolean;
   /** Date Created (created: datetime) */
-      created?: Date;
+      created?: string;
   /** Date Viewed (dateviewed: datetime) */
-      dateviewed?: Date;
+      dateviewed?: string;
   /** Description (description: text) */
       description?: string;
   /** Size (KB) (documentsize: integer) */
-      documentsize?: number;
+      documentsize?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Type (filetype: select) */
@@ -22,7 +22,7 @@ export interface fileSearchColumn {
   /** Folder (folder: select) */
       folder?: string;
   /** # Times Viewed (hits: integer) */
-      hits?: number;
+      hits?: string;
   /** Hosted Path (hostedpath: text) */
       hostedpath?: string;
   /** Internal ID (internalid: select) */
@@ -30,9 +30,9 @@ export interface fileSearchColumn {
   /** Available (isavailable: checkbox) */
       isavailable?: boolean;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Last Modified (modified: datetime) */
-      modified?: Date;
+      modified?: string;
   /** Name (name: text) */
       name?: string;
   /** Owner (owner: select) */
@@ -51,13 +51,13 @@ export interface fileSearchFilter {
   /** Available Without Login (availablewithoutlogin: checkbox) */
   availablewithoutlogin?: boolean;
   /** Date Created (created: datetime) */
-  created?: Date;
+  created?: string;
   /** Date Viewed (dateviewed: datetime) */
-  dateviewed?: Date;
+  dateviewed?: string;
   /** Description (description: text) */
   description?: string;
   /** Size (KB) (documentsize: integer) */
-  documentsize?: number;
+  documentsize?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -69,13 +69,13 @@ export interface fileSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Available (isavailable: checkbox) */
   isavailable?: boolean;
   /** External URL (islink: checkbox) */
   islink?: boolean;
   /** Last Modified (modified: datetime) */
-  modified?: Date;
+  modified?: string;
   /** Name (name: text) */
   name?: string;
   /** Owner (owner: select) */

@@ -8,7 +8,7 @@ export interface jobSearchColumn {
   /** Account (accountnumber: text) */
       accountnumber?: string;
   /** Actual Work (actualtime: float) */
-      actualtime?: number;
+      actualtime?: string;
   /** Address (address: text) */
       address?: string;
   /** Addressee (addressee: text) */
@@ -46,9 +46,9 @@ export interface jobSearchColumn {
   /** Billing Zip (billzipcode: text) */
       billzipcode?: string;
   /** Calculated End Date (calculatedenddate: date) */
-      calculatedenddate?: Date;
+      calculatedenddate?: string;
   /** Calculated End Date Baseline (calculatedenddatebaseline: date) */
-      calculatedenddatebaseline?: Date;
+      calculatedenddatebaseline?: string;
   /** Category (category: select) */
       category?: string;
   /** Calculate Labor Budgets from Resource Allocations (cbudgetlaborbudgetfromalloc: checkbox) */
@@ -70,51 +70,51 @@ export interface jobSearchColumn {
   /** Customer (customer: select) */
       customer?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Email (email: email) */
       email?: string;
   /** Actual End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Name (entityid: text) */
       entityid?: string;
   /** Number (entitynumber: integer) */
-      entitynumber?: number;
+      entitynumber?: string;
   /** Status (entitystatus: select) */
       entitystatus?: string;
   /** Estimated Cost (estimatedcost: currency) */
-      estimatedcost?: number;
+      estimatedcost?: string;
   /** Estimated Gross Profit (estimatedgrossprofit: currency) */
-      estimatedgrossprofit?: number;
+      estimatedgrossprofit?: string;
   /** Estimated Gross Profit % (estimatedgrossprofitpercent: percent) */
-      estimatedgrossprofitpercent?: number;
+      estimatedgrossprofitpercent?: string;
   /** Estimated Labor Cost (estimatedlaborcost: currency) */
-      estimatedlaborcost?: number;
+      estimatedlaborcost?: string;
   /** Estimated Labor Cost Baseline (estimatedlaborcostbaseline: currency) */
-      estimatedlaborcostbaseline?: number;
+      estimatedlaborcostbaseline?: string;
   /** Estimated Labor Revenue (estimatedlaborrevenue: currency) */
-      estimatedlaborrevenue?: number;
+      estimatedlaborrevenue?: string;
   /** Estimated Revenue (estimatedrevenue: currency) */
-      estimatedrevenue?: number;
+      estimatedrevenue?: string;
   /** Initial Time Budget (estimatedtime: float) */
-      estimatedtime?: number;
+      estimatedtime?: string;
   /** Estimated Work (estimatedtimeoverride: float) */
-      estimatedtimeoverride?: number;
+      estimatedtimeoverride?: string;
   /** Estimated Work Baseline (estimatedtimeoverridebaseline: float) */
-      estimatedtimeoverridebaseline?: number;
+      estimatedtimeoverridebaseline?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Fax (fax: text) */
       fax?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
@@ -142,7 +142,7 @@ export interface jobSearchColumn {
   /** Billing Item (jobitem: select) */
       jobitem?: string;
   /** Job Price (jobprice: currency) */
-      jobprice?: number;
+      jobprice?: string;
   /** Job Resource (jobresource: select) */
       jobresource?: string;
   /** Job Resource Role (jobresourcerole: select) */
@@ -152,11 +152,11 @@ export interface jobSearchColumn {
   /** Language (language: select) */
       language?: string;
   /** Last Baseline Date (lastbaselinedate: date) */
-      lastbaselinedate?: Date;
+      lastbaselinedate?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Level (level: select) */
       level?: string;
   /** Limit Time and Expenses to Resources (limittimetoassignees: checkbox) */
@@ -164,9 +164,9 @@ export interface jobSearchColumn {
   /** Create Planned Time Entries (materializetime: checkbox) */
       materializetime?: boolean;
   /** Percent Complete (percentcomplete: percent) */
-      percentcomplete?: number;
+      percentcomplete?: string;
   /** Percent Time Complete (percenttimecomplete: percent) */
-      percenttimecomplete?: number;
+      percenttimecomplete?: string;
   /** Permission (permission: select) */
       permission?: string;
   /** Phone (phone: phone) */
@@ -174,17 +174,17 @@ export interface jobSearchColumn {
   /** Phonetic Name (phoneticname: text) */
       phoneticname?: string;
   /** Projected End Date (projectedenddate: date) */
-      projectedenddate?: Date;
+      projectedenddate?: string;
   /** Projected End Date Baseline (projectedenddatebaseline: date) */
-      projectedenddatebaseline?: Date;
+      projectedenddatebaseline?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
       representingsubsidiary?: string;
   /** Shipping Country Code (shipcountrycode: text) */
       shipcountrycode?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Start Date Baseline (startdatebaseline: date) */
-      startdatebaseline?: Date;
+      startdatebaseline?: string;
   /** State/Province (state: select) */
       state?: string;
   /** State/Province Display Name (statedisplayname: select) */
@@ -192,7 +192,7 @@ export interface jobSearchColumn {
   /** Subscription (subscription: select) */
       subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-      subscriptiondate?: Date;
+      subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
       subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -202,7 +202,7 @@ export interface jobSearchColumn {
   /** Time Approval (timeapproval: select) */
       timeapproval?: string;
   /** Remaining Work (timeremaining: float) */
-      timeremaining?: number;
+      timeremaining?: string;
   /** Type (type: select) */
       type?: string;
   /** Zip Code (zipcode: text) */
@@ -217,7 +217,7 @@ export interface jobSearchFilter {
 /** Account (accountnumber: text) */
   accountnumber?: string;
   /** Actual Work (actualtime: float) */
-  actualtime?: number;
+  actualtime?: string;
   /** Address (address: textarea) */
   address?: string;
   /** Addressee (addressee: text) */
@@ -241,9 +241,9 @@ export interface jobSearchFilter {
   /** Billing Schedule (billingschedule: select) */
   billingschedule?: string;
   /** Calculated End Date (calculatedenddate: date) */
-  calculatedenddate?: Date;
+  calculatedenddate?: string;
   /** Calculated End Date Baseline (calculatedenddatebaseline: date) */
-  calculatedenddatebaseline?: Date;
+  calculatedenddatebaseline?: string;
   /** Category (category: select) */
   category?: string;
   /** City (city: text) */
@@ -259,35 +259,35 @@ export interface jobSearchFilter {
   /** Customer (customer: select) */
   customer?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Email (email: text) */
   email?: string;
   /** Actual End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Name/ID (entityid: text) */
   entityid?: string;
   /** Estimated Cost (estcost: currency) */
-  estcost?: number;
+  estcost?: string;
   /** Projected End Date (estenddate: date) */
-  estenddate?: Date;
+  estenddate?: string;
   /** Estimated Gross Profit (estimatedgrossprofit: currency) */
-  estimatedgrossprofit?: number;
+  estimatedgrossprofit?: string;
   /** Estimated Gross Profit % (estimatedgrossprofitpercent: percent) */
-  estimatedgrossprofitpercent?: number;
+  estimatedgrossprofitpercent?: string;
   /** Estimated Labor Cost (estimatedlaborcost: currency) */
-  estimatedlaborcost?: number;
+  estimatedlaborcost?: string;
   /** Estimated Labor Cost Baseline (estimatedlaborcostbaseline: currency) */
-  estimatedlaborcostbaseline?: number;
+  estimatedlaborcostbaseline?: string;
   /** Estimated Labor Revenue (estimatedlaborrevenue: currency) */
-  estimatedlaborrevenue?: number;
+  estimatedlaborrevenue?: string;
   /** Initial Time Budget (estimatedtime: float) */
-  estimatedtime?: number;
+  estimatedtime?: string;
   /** Estimated Work (estimatedtimeoverride: float) */
-  estimatedtimeoverride?: number;
+  estimatedtimeoverride?: string;
   /** Estimated Work Baseline (estimatedtimeoverridebaseline: float) */
-  estimatedtimeoverridebaseline?: number;
+  estimatedtimeoverridebaseline?: string;
   /** Estimated Revenue (estrevenue: currency) */
-  estrevenue?: number;
+  estrevenue?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -295,9 +295,9 @@ export interface jobSearchFilter {
   /** Fax (fax: phone) */
   fax?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Login Access (giveaccess: checkbox) */
@@ -311,7 +311,7 @@ export interface jobSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Default Billing Address (isdefaultbilling: checkbox) */
   isdefaultbilling?: boolean;
   /** Default Shipping Address (isdefaultshipping: checkbox) */
@@ -329,7 +329,7 @@ export interface jobSearchFilter {
   /** Billing Item (jobitem: select) */
   jobitem?: string;
   /** Job Price (jobprice: currency) */
-  jobprice?: number;
+  jobprice?: string;
   /** Job Resource (jobresource: select) */
   jobresource?: string;
   /** Job Resource Role (jobresourcerole: select) */
@@ -339,9 +339,9 @@ export interface jobSearchFilter {
   /** Language (language: select) */
   language?: string;
   /** Last Baseline Date (lastbaselinedate: date) */
-  lastbaselinedate?: Date;
+  lastbaselinedate?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Level (level: select) */
   level?: string;
   /** Limit Time and Expenses To Resources (limittimetoassignees: checkbox) */
@@ -351,9 +351,9 @@ export interface jobSearchFilter {
   /** Sub of (parent: select) */
   parent?: string;
   /** Percent Complete (pctcomplete: integer) */
-  pctcomplete?: number;
+  pctcomplete?: string;
   /** Percent Time Complete (percenttimecomplete: integer) */
-  percenttimecomplete?: number;
+  percenttimecomplete?: string;
   /** Permission (permission: select) */
   permission?: string;
   /** Phone (phone: phone) */
@@ -361,13 +361,13 @@ export interface jobSearchFilter {
   /** Phonetic Name (phoneticname: text) */
   phoneticname?: string;
   /** Projected End Date Baseline (projectedenddatebaseline: date) */
-  projectedenddatebaseline?: Date;
+  projectedenddatebaseline?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
   representingsubsidiary?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Start Date Baseline (startdatebaseline: date) */
-  startdatebaseline?: Date;
+  startdatebaseline?: string;
   /** State/Province (state: select) */
   state?: string;
   /** Status (status: select) */
@@ -377,7 +377,7 @@ export interface jobSearchFilter {
   /** Time Approval (timeapproval: select) */
   timeapproval?: string;
   /** Remaining Work (timeremaining: float) */
-  timeremaining?: number;
+  timeremaining?: string;
   /** Zip (zipcode: text) */
   zipcode?: string;
 }

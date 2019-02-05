@@ -10,7 +10,7 @@ export interface commercecategorySearchColumn {
   /** Catalog (catalog: select) */
       catalog?: string;
   /** Creation Date/Time (created: date) */
-      created?: Date;
+      created?: string;
   /** Description (description: textarea) */
       description?: string;
   /** Display in Web Site (displayinsite: checkbox) */
@@ -30,11 +30,11 @@ export interface commercecategorySearchColumn {
   /** Item Description (itemdescription: textarea) */
       itemdescription?: string;
   /** Item ID (itemid: integer) */
-      itemid?: number;
+      itemid?: string;
   /** Item Sequence Number (itemsequencenumber: integer) */
-      itemsequencenumber?: number;
+      itemsequencenumber?: string;
   /** Last Modified (lastmodified: date) */
-      lastmodified?: Date;
+      lastmodified?: string;
   /** Modified By (lastmodifiedby: select) */
       lastmodifiedby?: string;
   /** Meta Description (metadescription: text) */
@@ -44,7 +44,7 @@ export interface commercecategorySearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Nest Level (nestlevel: integer) */
-      nestlevel?: number;
+      nestlevel?: string;
   /** Category Page Banner (pagebanner: image) */
       pagebanner?: string;
   /** Category Page Banner URL (pagebannerurl: text) */
@@ -58,9 +58,9 @@ export interface commercecategorySearchColumn {
   /** Primary Parent (primaryparent: select) */
       primaryparent?: string;
   /** Sequence Number (sequencenumber: integer) */
-      sequencenumber?: number;
+      sequencenumber?: string;
   /** Sitemap Priority (sitemappriority: float) */
-      sitemappriority?: number;
+      sitemappriority?: string;
   /** Subcategory Add to Head Override (subcataddtoheadoverride: text) */
       subcataddtoheadoverride?: string;
   /** Subcategory Description Override (subcatdescoverride: text) */
@@ -68,7 +68,7 @@ export interface commercecategorySearchColumn {
   /** Subcategory Display In Site Override (subcatdisplayinsiteoverride: checkbox) */
       subcatdisplayinsiteoverride?: boolean;
   /** Subcategory ID (subcatid: integer) */
-      subcatid?: number;
+      subcatid?: string;
   /** Subcategory Meta Description Override (subcatmetadescoverride: text) */
       subcatmetadescoverride?: string;
   /** Subcategory Meta Keywords Override (subcatmetakeywordsoverride: text) */
@@ -84,9 +84,9 @@ export interface commercecategorySearchColumn {
   /** Subcategory Page Title Override (subcatpagetitleoverride: text) */
       subcatpagetitleoverride?: string;
   /** Subcategory Parent ID (subcatparent: integer) */
-      subcatparent?: number;
+      subcatparent?: string;
   /** Subcategory Sequence Number (subcatsequencenumber: integer) */
-      subcatsequencenumber?: number;
+      subcatsequencenumber?: string;
   /** Subcategory Thumbnail Override (subcatthumbnailoverride: select) */
       subcatthumbnailoverride?: string;
   /** Subcategory Thumbnail URL Override (subcatthumbnailurloverride: text) */
@@ -98,13 +98,13 @@ export interface commercecategorySearchColumn {
   /** Category Thumbnail URL (thumbnailurl: text) */
       thumbnailurl?: string;
   /** URL Category (urlcommcat: integer) */
-      urlcommcat?: number;
+      urlcommcat?: string;
   /** URL Category Association (urlcommcatassoc: integer) */
-      urlcommcatassoc?: number;
+      urlcommcatassoc?: string;
   /** URL (urlfragment: text) */
       urlfragment?: string;
   /** Version (version: integer) */
-      version?: number;
+      version?: string;
 }
 
 
@@ -117,7 +117,7 @@ export interface commercecategorySearchFilter {
   /** Catalog (catalog: select) */
   catalog?: string;
   /** Creation Date/Time (created: date) */
-  created?: Date;
+  created?: string;
   /** Description (description: textarea) */
   description?: string;
   /** Display in Web Site (displayinsite: checkbox) */
@@ -133,7 +133,7 @@ export interface commercecategorySearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Is Primary URL (isprimaryurl: checkbox) */
@@ -145,7 +145,7 @@ export interface commercecategorySearchFilter {
   /** Item Description (itemdescription: textarea) */
   itemdescription?: string;
   /** Last Modified (lastmodified: date) */
-  lastmodified?: Date;
+  lastmodified?: string;
   /** Modified By (lastmodifiedby: select) */
   lastmodifiedby?: string;
   /** Meta Description (metadescription: text) */
@@ -155,7 +155,7 @@ export interface commercecategorySearchFilter {
   /** Name (name: text) */
   name?: string;
   /** Nest Level (nestlevel: integer) */
-  nestlevel?: number;
+  nestlevel?: string;
   /** Page Heading (pageheading: text) */
   pageheading?: string;
   /** Page Title (pagetitle: text) */
@@ -165,11 +165,11 @@ export interface commercecategorySearchFilter {
   /** Primary Parent (primaryparent: select) */
   primaryparent?: string;
   /** Sequence Number (sequencenumber: integer) */
-  sequencenumber?: number;
+  sequencenumber?: string;
   /** Site (site: select) */
   site?: string;
   /** Sitemap Priority (sitemappriority: float) */
-  sitemappriority?: number;
+  sitemappriority?: string;
   /** Subcategory Display In Site Override (subcatdisplayinsiteoverride: checkbox) */
   subcatdisplayinsiteoverride?: boolean;
   /** Subcategory ID (subcatid: select) */
@@ -179,7 +179,7 @@ export interface commercecategorySearchFilter {
   /** URL (urlfragment: text) */
   urlfragment?: string;
   /** Version (version: integer) */
-  version?: number;
+  version?: string;
 }
 
 

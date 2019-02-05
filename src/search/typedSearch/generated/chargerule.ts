@@ -6,11 +6,11 @@
 /** Charge Rule (chargerule) Search Columns definition */
 export interface chargeruleSearchColumn {
   /** Amount (amount: currency) */
-      amount?: number;
+      amount?: string;
   /** Billing Item (billingitem: select) */
       billingitem?: string;
   /** Charge Date (chargedate: date) */
-      chargedate?: Date;
+      chargedate?: string;
   /** Type (chargeruletype: text) */
       chargeruletype?: string;
   /** Project (company: select) */
@@ -18,21 +18,21 @@ export interface chargeruleSearchColumn {
   /** Description (description: text) */
       description?: string;
   /** End By (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Discount / Mark-up (expamtmultiplier: float) */
-      expamtmultiplier?: number;
+      expamtmultiplier?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Frequency (frequency: text) */
@@ -44,17 +44,17 @@ export interface chargeruleSearchColumn {
   /** Task / Milestone (projecttask: select) */
       projecttask?: string;
   /** Completion Date (projecttaskcompletiondate: date) */
-      projecttaskcompletiondate?: Date;
+      projecttaskcompletiondate?: string;
   /** Status (projecttaskstatus: text) */
       projecttaskstatus?: string;
   /** Rate Multiplier (ratemultiplier: float) */
-      ratemultiplier?: number;
+      ratemultiplier?: string;
   /** Rate Rounding (rateroundingtype: text) */
       rateroundingtype?: string;
   /** Rate Basis (ratesourcetype: text) */
       ratesourcetype?: string;
   /** Rule Order (ruleorder: integer) */
-      ruleorder?: number;
+      ruleorder?: string;
   /** Sale Units (saleunit: select) */
       saleunit?: string;
   /** Initial Charge Stage (stage: text) */
@@ -71,23 +71,23 @@ export interface chargeruleSearchFilter {
 /** Billing Item (billingitem: select) */
   billingitem?: string;
   /** Charge Date (chargedate: date) */
-  chargedate?: Date;
+  chargedate?: string;
   /** Type (chargeruletype: select) */
   chargeruletype?: string;
   /** Description (description: text) */
   description?: string;
   /** End By (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Expense Amount Multiplier (expamtmultiplier: float) */
-  expamtmultiplier?: number;
+  expamtmultiplier?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Frequency (frequency: text) */
@@ -95,7 +95,7 @@ export interface chargeruleSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Name (name: text) */
   name?: string;
   /** Project (project: select) */
@@ -103,17 +103,17 @@ export interface chargeruleSearchFilter {
   /** Task / Milestone (projecttask: text) */
   projecttask?: string;
   /** Completion Date (projecttaskcompletiondate: date) */
-  projecttaskcompletiondate?: Date;
+  projecttaskcompletiondate?: string;
   /** Status (projecttaskstatus: select) */
   projecttaskstatus?: string;
   /** Rate Multiplier (ratemultiplier: float) */
-  ratemultiplier?: number;
+  ratemultiplier?: string;
   /** Rate Rounding (rateroundingtype: select) */
   rateroundingtype?: string;
   /** Rate Basis (ratesourcetype: select) */
   ratesourcetype?: string;
   /** Rule Order (ruleorder: integer) */
-  ruleorder?: number;
+  ruleorder?: string;
   /** Sale Units (saleunit: select) */
   saleunit?: string;
   /** Initial Charge Stage (stage: select) */

@@ -12,15 +12,15 @@ export interface manufacturingroutingSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -32,7 +32,7 @@ export interface manufacturingroutingSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Lag Amount (lagamount: float) */
-      lagamount?: number;
+      lagamount?: string;
   /** Lag Type (lagtype: text) */
       lagtype?: string;
   /** Lag Units (lagunits: text) */
@@ -50,13 +50,13 @@ export interface manufacturingroutingSearchColumn {
   /** Operation Name (operationname: text) */
       operationname?: string;
   /** Operation Yield (operationyield: percent) */
-      operationyield?: number;
+      operationyield?: string;
   /** Run Rate (runrate: float) */
-      runrate?: number;
+      runrate?: string;
   /** Operation Sequence (sequence: integer) */
-      sequence?: number;
+      sequence?: string;
   /** Setup Time (setuptime: float) */
-      setuptime?: number;
+      setuptime?: string;
 }
 
 
@@ -73,15 +73,15 @@ export interface manufacturingroutingSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Default (isdefault: checkbox) */
   isdefault?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -89,7 +89,7 @@ export interface manufacturingroutingSearchFilter {
   /** Item (item: select) */
   item?: string;
   /** Lag Amount (lagamount: float) */
-  lagamount?: number;
+  lagamount?: string;
   /** Lag Type (lagtype: select) */
   lagtype?: string;
   /** Lag Units (lagunits: text) */
@@ -107,13 +107,13 @@ export interface manufacturingroutingSearchFilter {
   /** Operation Name (operationname: text) */
   operationname?: string;
   /** Operation Yield (operationyield: percent) */
-  operationyield?: number;
+  operationyield?: string;
   /** Run Rate (runrate: float) */
-  runrate?: number;
+  runrate?: string;
   /** Operation Sequence (sequence: integer) */
-  sequence?: number;
+  sequence?: string;
   /** Setup Time (setuptime: float) */
-  setuptime?: number;
+  setuptime?: string;
 }
 
 

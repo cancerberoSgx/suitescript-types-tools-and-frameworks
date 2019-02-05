@@ -6,19 +6,19 @@
 /** Item Revision (itemrevision) Search Columns definition */
 export interface itemrevisionSearchColumn {
   /** Effective Date (effectivedate: date) */
-      effectivedate?: Date;
+      effectivedate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -32,7 +32,7 @@ export interface itemrevisionSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Obsolete Date (obsoletedate: date) */
-      obsoletedate?: Date;
+      obsoletedate?: string;
 }
 
 
@@ -41,27 +41,27 @@ export interface itemrevisionSearchColumn {
 /** Item Revision (itemrevision) Search Filters definition */
 export interface itemrevisionSearchFilter {
 /** Effective Date (effectivedate: date) */
-  effectivedate?: Date;
+  effectivedate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Name (name: text) */
   name?: string;
   /** Obsolete Date (obsoletedate: date) */
-  obsoletedate?: Date;
+  obsoletedate?: string;
 }
 
 

@@ -6,7 +6,7 @@
 /** Issue (issue) Search Columns definition */
 export interface issueSearchColumn {
   /** Age in Months (ageinmonths: integer) */
-      ageinmonths?: number;
+      ageinmonths?: string;
   /** Assigned To (assigned: select) */
       assigned?: string;
   /** Broken In Build (buildbroken: select) */
@@ -16,15 +16,15 @@ export interface issueSearchColumn {
   /** Target Build (buildtarget: select) */
       buildtarget?: string;
   /** Case Count (casecount: integer) */
-      casecount?: number;
+      casecount?: string;
   /** Case Number (casenumber: text) */
       casenumber?: string;
   /** Date Closed (closeddate: datetime) */
-      closeddate?: Date;
+      closeddate?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** Date Released (datereleased: date) */
-      datereleased?: Date;
+      datereleased?: string;
   /** Duplicate Of (duplicateof: select) */
       duplicateof?: string;
   /** Employee/Team (employeeorteam: select) */
@@ -42,19 +42,19 @@ export interface issueSearchColumn {
   /** External Status (externalstatus: select) */
       externalstatus?: string;
   /** Date Fixed (fixed: datetime) */
-      fixed?: Date;
+      fixed?: string;
   /** Fixed By (fixedby: select) */
       fixedby?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -72,9 +72,9 @@ export interface issueSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Module (module: text) */
       module?: string;
   /** Number (number: text) */
@@ -92,7 +92,7 @@ export interface issueSearchColumn {
   /** Reproduced (reproduce: select) */
       reproduce?: string;
   /** Date Resolved (resolved: datetime) */
-      resolved?: Date;
+      resolved?: string;
   /** Resolved By (resolvedby: select) */
       resolvedby?: string;
   /** Reviewed By (reviewer: select) */
@@ -102,7 +102,7 @@ export interface issueSearchColumn {
   /** Source (source: select) */
       source?: string;
   /** Tags (tags: multiselect) */
-      tags?: number;
+      tags?: string;
   /** Type (type: text) */
       type?: string;
   /** User Type (usertype: select) */
@@ -121,7 +121,7 @@ export interface issueSearchColumn {
 /** Issue (issue) Search Filters definition */
 export interface issueSearchFilter {
 /** Age in Months (ageinmonths: integer) */
-  ageinmonths?: number;
+  ageinmonths?: string;
   /** Assigned To (assigned: select) */
   assigned?: string;
   /** Broken In Build (buildbroken: select) */
@@ -137,15 +137,15 @@ export interface issueSearchFilter {
   /** Target Build (Name) (buildtargetname: text) */
   buildtargetname?: string;
   /** Case Count (casecount: integer) */
-  casecount?: number;
+  casecount?: string;
   /** Case Number (casenumber: text) */
   casenumber?: string;
   /** Date Closed (closeddate: datetime) */
-  closeddate?: Date;
+  closeddate?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** Date Released (datereleased: date) */
-  datereleased?: Date;
+  datereleased?: string;
   /** Details (details: text) */
   details?: string;
   /** Duplicate Of (duplicateof: select) */
@@ -169,19 +169,19 @@ export interface issueSearchFilter {
   /** External Status (externalstatus: select) */
   externalstatus?: string;
   /** Date Fixed (fixed: datetime) */
-  fixed?: Date;
+  fixed?: string;
   /** Fixed By (fixedby: select) */
   fixedby?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** I Own This Issue (isowner: checkbox) */
   isowner?: boolean;
   /** Reviewed (isreviewed: checkbox) */
@@ -195,11 +195,11 @@ export interface issueSearchFilter {
   /** Item (item: select) */
   item?: string;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Module (module: select) */
   module?: string;
   /** Number (number: integer) */
-  number?: number;
+  number?: string;
   /** Last Version Fixed (pre-11) (originalfixedin: text) */
   originalfixedin?: string;
   /** Priority (priority: select) */
@@ -213,7 +213,7 @@ export interface issueSearchFilter {
   /** Reproduced (reproduce: select) */
   reproduce?: string;
   /** Date Resolved (resolved: datetime) */
-  resolved?: Date;
+  resolved?: string;
   /** Resolved By (resolvedby: select) */
   resolvedby?: string;
   /** Reviewer (reviewer: select) */
@@ -225,7 +225,7 @@ export interface issueSearchFilter {
   /** Status (status: select) */
   status?: string;
   /** Tags (tags: multiselect) */
-  tags?: number;
+  tags?: string;
   /** Tracking (tracking: checkbox) */
   tracking?: boolean;
   /** Type (type: select) */

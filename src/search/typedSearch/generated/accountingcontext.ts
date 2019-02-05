@@ -25,7 +25,7 @@ export interface accountingcontextSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Name (name: text) */
   name?: string;
 }

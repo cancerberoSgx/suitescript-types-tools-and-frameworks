@@ -8,25 +8,25 @@ export interface billingscheduleSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Recurring Frequency (frequency: select) */
       frequency?: string;
   /** BillingSchedule ID (id: integer) */
-      id?: number;
+      id?: string;
   /** In Arrears (inarrears: checkbox) */
       inarrears?: boolean;
   /** Initial Amount (initialamount: currency) */
-      initialamount?: number;
+      initialamount?: string;
   /** Initial Payment Terms (initialterms: text) */
       initialterms?: string;
   /** Internal ID (internalid: select) */
@@ -38,13 +38,13 @@ export interface billingscheduleSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Recurrence Count (recurrencecount: integer) */
-      recurrencecount?: number;
+      recurrencecount?: string;
   /** Recurrence Pattern (recurrencepattern: select) */
       recurrencepattern?: string;
   /** Recurrence Payment Terms (recurrenceterms: text) */
       recurrenceterms?: string;
   /** Repeat Every (repeatevery: integer) */
-      repeatevery?: number;
+      repeatevery?: string;
   /** Type (type: select) */
       type?: string;
 }
@@ -59,25 +59,25 @@ export interface billingscheduleSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Recurring Frequency (frequency: select) */
   frequency?: string;
   /** Billing Schedule ID (id: integer) */
-  id?: number;
+  id?: string;
   /** In Arrears (inarrears: checkbox) */
   inarrears?: boolean;
   /** Initial Amount (initialamount: currency) */
-  initialamount?: number;
+  initialamount?: string;
   /** Initial Payment Terms (initialterms: select) */
   initialterms?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Public (ispublic: checkbox) */
@@ -85,11 +85,11 @@ export interface billingscheduleSearchFilter {
   /** Name (name: text) */
   name?: string;
   /** Recurrence Count (recurrencecount: integer) */
-  recurrencecount?: number;
+  recurrencecount?: string;
   /** Recurrence Payment Terms (recurrenceterms: select) */
   recurrenceterms?: string;
   /** Repeat Every (repeatevery: integer) */
-  repeatevery?: number;
+  repeatevery?: string;
   /** Type (type: select) */
   type?: string;
 }

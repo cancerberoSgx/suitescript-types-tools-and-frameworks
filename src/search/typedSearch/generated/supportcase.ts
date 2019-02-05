@@ -18,27 +18,27 @@ export interface supportcaseSearchColumn {
   /** Contact (contact: select) */
       contact?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** Customer Stage (customerstage: select) */
       customerstage?: string;
   /** Email (email: email) */
       email?: string;
   /** Date Closed (enddate: datetime) */
-      enddate?: Date;
+      enddate?: string;
   /** Escalated To (escalatee: select) */
       escalatee?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Grab (grabref: text) */
@@ -58,13 +58,13 @@ export interface supportcaseSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Last Msg. Date (lastmessagedate: datetime) */
-      lastmessagedate?: Date;
+      lastmessagedate?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Reopened (lastreopeneddate: datetime) */
-      lastreopeneddate?: Date;
+      lastreopeneddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Locked (locked: checkbox) */
       locked?: boolean;
   /** Module (module: select) */
@@ -82,7 +82,7 @@ export interface supportcaseSearchColumn {
   /** Stage (stage: select) */
       stage?: string;
   /** Incident Date (startdate: datetime) */
-      startdate?: Date;
+      startdate?: string;
   /** Status (status: select) */
       status?: string;
   /** Subsidiary (subsidiary: select) */
@@ -105,13 +105,13 @@ export interface supportcaseSearchFilter {
   /** Type (category: select) */
   category?: string;
   /** Date Closed (closeddate: date) */
-  closeddate?: Date;
+  closeddate?: string;
   /** Company (company: text) */
   company?: string;
   /** Contact (contact: text) */
   contact?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** Email (email: text) */
   email?: string;
   /** Escalated To (escalateto: select) */
@@ -121,9 +121,9 @@ export interface supportcaseSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Help Desk (helpdesk: checkbox) */
@@ -133,7 +133,7 @@ export interface supportcaseSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Issue (issue: select) */
@@ -151,9 +151,9 @@ export interface supportcaseSearchFilter {
   /** Most Recent Message (lastmessage: checkbox) */
   lastmessage?: boolean;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Date Last Reopened (lastreopeneddate: datetime) */
-  lastreopeneddate?: Date;
+  lastreopeneddate?: string;
   /** Locked (locked: checkbox) */
   locked?: boolean;
   /** Message Text (message: clobtext) */
@@ -161,13 +161,13 @@ export interface supportcaseSearchFilter {
   /** Message Author (messageauthor: select) */
   messageauthor?: string;
   /** Message Date (messagedate: date) */
-  messagedate?: Date;
+  messagedate?: string;
   /** Message Type (messagetype: checkbox) */
   messagetype?: boolean;
   /** Module (module: select) */
   module?: string;
   /** Number (number: integer) */
-  number?: number;
+  number?: string;
   /** Origin (origin: select) */
   origin?: string;
   /** Priority (priority: select) */
@@ -181,7 +181,7 @@ export interface supportcaseSearchFilter {
   /** Stage (stage: select) */
   stage?: string;
   /** Incident Date (startdate: datetime) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Subsidiary (subsidiary: select) */

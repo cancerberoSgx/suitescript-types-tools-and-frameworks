@@ -12,31 +12,31 @@ export interface amortizationscheduleSearchColumn {
   /** Template Name (amortemplate: select) */
       amortemplate?: string;
   /** Total Amortized (amortizedamount: currency) */
-      amortizedamount?: number;
+      amortizedamount?: string;
   /** Type (amortype: text) */
       amortype?: string;
   /** Amount (Schedule Total) (amount: currency) */
-      amount?: number;
+      amount?: string;
   /** Schedule Currency (currency: select) */
       currency?: string;
   /** Remaining Deferred Balance (deferredamount: currency) */
-      deferredamount?: number;
+      deferredamount?: string;
   /** Destination Account (destacct: select) */
       destacct?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Initial Amount (initialamt: currency) */
-      initialamt?: number;
+      initialamt?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Is Recognized? (isrecognized: checkbox) */
@@ -44,19 +44,19 @@ export interface amortizationscheduleSearchColumn {
   /** Schedule Name (name: text) */
       name?: string;
   /** % Complete (pctcomplete: percent) */
-      pctcomplete?: number;
+      pctcomplete?: string;
   /** % Recog. (pctrecognition: percent) */
-      pctrecognition?: number;
+      pctrecognition?: string;
   /** Period Offset (periodoffset: integer) */
-      periodoffset?: number;
+      periodoffset?: string;
   /** Amount (recuramount: currency) */
-      recuramount?: number;
+      recuramount?: string;
   /** Amount (Foreign Currency) (recurfxamount: currency) */
-      recurfxamount?: number;
+      recurfxamount?: string;
   /** Residual (residual: currency) */
-      residual?: number;
+      residual?: string;
   /** Date (scheddate: date) */
-      scheddate?: Date;
+      scheddate?: string;
   /** Number (schedulenumber: text) */
       schedulenumber?: string;
   /** Source Account (sourceacct: select) */
@@ -66,7 +66,7 @@ export interface amortizationscheduleSearchColumn {
   /** Posting Period (srctranpostperiod: select) */
       srctranpostperiod?: string;
   /** Start Offset (startoffset: integer) */
-      startoffset?: number;
+      startoffset?: string;
   /** Use Transaction Currency (useforeignamounts: checkbox) */
       useforeignamounts?: boolean;
 }
@@ -81,47 +81,47 @@ export interface amortizationscheduleSearchFilter {
   /** Status (amorstatus: select) */
   amorstatus?: string;
   /** Total Amortized (amortizedamount: currency) */
-  amortizedamount?: number;
+  amortizedamount?: string;
   /** Type (amortype: select) */
   amortype?: string;
   /** Amount (amount: currency) */
-  amount?: number;
+  amount?: string;
   /** Schedule Currency (currencyname: select) */
   currencyname?: string;
   /** Remaining Deferred Balance (deferredamount: currency) */
-  deferredamount?: number;
+  deferredamount?: string;
   /** Destination Account (destacct: select) */
   destacct?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Initial Amount (initialamt: currency) */
-  initialamt?: number;
+  initialamt?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is Recognized? (isrecognized: checkbox) */
   isrecognized?: boolean;
   /** Schedule Name (name: text) */
   name?: string;
   /** % Complete (pctcomplete: float) */
-  pctcomplete?: number;
+  pctcomplete?: string;
   /** % Recog. (pctrecognition: float) */
-  pctrecognition?: number;
+  pctrecognition?: string;
   /** Period Offset (periodoffset: integer) */
-  periodoffset?: number;
+  periodoffset?: string;
   /** Posting Period (postperiod: select) */
   postperiod?: string;
   /** Residual (residual: currency) */
-  residual?: number;
+  residual?: string;
   /** Date (scheddate: date) */
-  scheddate?: Date;
+  scheddate?: string;
   /** Number (schedulenumber: integer) */
-  schedulenumber?: number;
+  schedulenumber?: string;
   /** Number/ID (schedulenumbertext: text) */
   schedulenumbertext?: string;
   /** Source Account (sourceacct: select) */
@@ -131,7 +131,7 @@ export interface amortizationscheduleSearchFilter {
   /** Transaction Type (srctrantype: select) */
   srctrantype?: string;
   /** Start Offset (startoffset: integer) */
-  startoffset?: number;
+  startoffset?: string;
   /** Template Name (templatename: text) */
   templatename?: string;
   /** Use Transaction Currency (useforeignamounts: checkbox) */

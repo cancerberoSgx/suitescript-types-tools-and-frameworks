@@ -28,7 +28,7 @@ export interface vendorSearchColumn {
   /** Attention (attention: text) */
       attention?: string;
   /** Balance (balance: currency) */
-      balance?: number;
+      balance?: string;
   /** Billing Country Code (billcountrycode: text) */
       billcountrycode?: string;
   /** Billing Zip (billzipcode: text) */
@@ -48,13 +48,13 @@ export interface vendorSearchColumn {
   /** Country Code (countrycode: text) */
       countrycode?: string;
   /** Credit Limit (creditlimit: currency) */
-      creditlimit?: number;
+      creditlimit?: string;
   /** Currency (currency: select) */
       currency?: string;
   /** Current Currency Exchange Rate (currentexchangerate: float) */
-      currentexchangerate?: number;
+      currentexchangerate?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Eligible for Commission (eligibleforcommission: checkbox) */
       eligibleforcommission?: boolean;
   /** Email (email: email) */
@@ -66,7 +66,7 @@ export interface vendorSearchColumn {
   /** Name (entityid: text) */
       entityid?: string;
   /** Number (entitynumber: integer) */
-      entitynumber?: number;
+      entitynumber?: string;
   /** Default Expense Account (expenseaccount: select) */
       expenseaccount?: string;
   /** External ID (externalid: select) */
@@ -78,21 +78,21 @@ export interface vendorSearchColumn {
   /** First Name (firstname: text) */
       firstname?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Balance (Foreign Currency) (fxbalance: currency) */
-      fxbalance?: number;
+      fxbalance?: string;
   /** Unbilled Orders (Foreign Currency) (fxunbilledorders: currency) */
-      fxunbilledorders?: number;
+      fxunbilledorders?: string;
   /** Login Access (giveaccess: checkbox) */
       giveaccess?: boolean;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
@@ -120,15 +120,15 @@ export interface vendorSearchColumn {
   /** Is Individual (isperson: checkbox) */
       isperson?: boolean;
   /** Labor Cost (laborcost: currency) */
-      laborcost?: number;
+      laborcost?: string;
   /** Language (language: select) */
       language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Name (lastname: text) */
       lastname?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Level (level: select) */
       level?: string;
   /** Middle Name (middlename: text) */
@@ -150,17 +150,17 @@ export interface vendorSearchColumn {
   /** Print Transactions (printtransactions: checkbox) */
       printtransactions?: boolean;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-      purchaseorderamount?: number;
+      purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-      purchaseorderquantity?: number;
+      purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-      purchaseorderquantitydiff?: number;
+      purchaseorderquantitydiff?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-      receiptamount?: number;
+      receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-      receiptquantity?: number;
+      receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-      receiptquantitydiff?: number;
+      receiptquantitydiff?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
       representingsubsidiary?: string;
   /** Mr./Mrs... (salutation: text) */
@@ -174,7 +174,7 @@ export interface vendorSearchColumn {
   /** Subscription (subscription: select) */
       subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-      subscriptiondate?: Date;
+      subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
       subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -190,7 +190,7 @@ export interface vendorSearchColumn {
   /** Type (type: select) */
       type?: string;
   /** Unbilled Orders (unbilledorders: currency) */
-      unbilledorders?: number;
+      unbilledorders?: string;
   /** Web Address (url: text) */
       url?: string;
   /** Tax Number (vatregnumber: text) */
@@ -219,7 +219,7 @@ export interface vendorSearchFilter {
   /** Attention (attention: text) */
   attention?: string;
   /** Balance (balance: currency) */
-  balance?: number;
+  balance?: string;
   /** Category (category: select) */
   category?: string;
   /** City (city: text) */
@@ -233,13 +233,13 @@ export interface vendorSearchFilter {
   /** County/State (county: text) */
   county?: string;
   /** Credit Limit (creditlimit: currency) */
-  creditlimit?: number;
+  creditlimit?: string;
   /** Currency (currency: select) */
   currency?: string;
   /** Current Currency Exchange Rate (currentexchangerate: currency) */
-  currentexchangerate?: number;
+  currentexchangerate?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Eligible For Commission (eligibleforcommission: checkbox) */
   eligibleforcommission?: boolean;
   /** Email (email: text) */
@@ -263,21 +263,21 @@ export interface vendorSearchFilter {
   /** First Name (firstname: text) */
   firstname?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Balance (Foreign Currency) (fxbalance: currency) */
-  fxbalance?: number;
+  fxbalance?: string;
   /** Unbilled Orders (Foreign Currency) (fxunbilledorders: currency) */
-  fxunbilledorders?: number;
+  fxunbilledorders?: string;
   /** Login Access (giveaccess: checkbox) */
   giveaccess?: boolean;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
   globalsubscriptionstatus?: string;
   /** Group (group: multiselect) */
-  group?: number;
+  group?: string;
   /** Duplicate (hasduplicates: checkbox) */
   hasduplicates?: boolean;
   /** Image (image: image) */
@@ -287,7 +287,7 @@ export interface vendorSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** 1099 Eligible (is1099eligible: checkbox) */
   is1099eligible?: boolean;
   /** Default Billing Address (isdefaultbilling: checkbox) */
@@ -301,11 +301,11 @@ export interface vendorSearchFilter {
   /** Is Individual (isperson: checkbox) */
   isperson?: boolean;
   /** Labor Cost (laborcost: currency) */
-  laborcost?: number;
+  laborcost?: string;
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Last Name (lastname: text) */
   lastname?: string;
   /** Level (level: select) */
@@ -313,7 +313,7 @@ export interface vendorSearchFilter {
   /** Middle Name (middlename: text) */
   middlename?: string;
   /** Other Relationships (otherrelationships: multiselect) */
-  otherrelationships?: number;
+  otherrelationships?: string;
   /** Default Payables Account (payablesaccount: select) */
   payablesaccount?: string;
   /** PEC (pec: text) */
@@ -327,17 +327,17 @@ export interface vendorSearchFilter {
   /** Print Transactions (printtransactions: checkbox) */
   printtransactions?: boolean;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-  purchaseorderamount?: number;
+  purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-  purchaseorderquantity?: number;
+  purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-  purchaseorderquantitydiff?: number;
+  purchaseorderquantitydiff?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-  receiptamount?: number;
+  receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-  receiptquantity?: number;
+  receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-  receiptquantitydiff?: number;
+  receiptquantitydiff?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
   representingsubsidiary?: string;
   /** Mr./Mrs... (salutation: text) */
@@ -353,7 +353,7 @@ export interface vendorSearchFilter {
   /** Entity Type (type: select) */
   type?: string;
   /** Unbilled Orders (unbilledorders: currency) */
-  unbilledorders?: number;
+  unbilledorders?: string;
   /** Web Address (url: url) */
   url?: string;
   /** Tax Number (vatregnumber: text) */

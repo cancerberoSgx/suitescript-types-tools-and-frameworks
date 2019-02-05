@@ -16,15 +16,15 @@ export interface timebillSearchColumn {
   /** Customer:Job (customer: select) */
       customer?: string;
   /** Date (date: date) */
-      date?: Date;
+      date?: string;
   /** Date Created (datecreated: date) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Department (department: select) */
       department?: string;
   /** Department (no hierarchy) (departmentnohierarchy: select) */
       departmentnohierarchy?: string;
   /** Duration (Decimal) (durationdecimal: float) */
-      durationdecimal?: number;
+      durationdecimal?: string;
   /** Employee (employee: select) */
       employee?: string;
   /** End Time (endtime: timeofday) */
@@ -32,15 +32,15 @@ export interface timebillSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Duration (hours: text) */
@@ -58,7 +58,7 @@ export interface timebillSearchColumn {
   /** Item (item: text) */
       item?: string;
   /** Last Modified (lastmodified: date) */
-      lastmodified?: Date;
+      lastmodified?: string;
   /** Location (location: select) */
       location?: string;
   /** Location (no hierarchy) (locationnohierarchy: select) */
@@ -70,9 +70,9 @@ export interface timebillSearchColumn {
   /** Payroll Item (payitem: select) */
       payitem?: string;
   /** Payroll Date (payrolldate: date) */
-      payrolldate?: Date;
+      payrolldate?: string;
   /** Rate (rate: currency) */
-      rate?: number;
+      rate?: string;
   /** Rejection Note (rejectionnote: text) */
       rejectionnote?: string;
   /** Start Time (starttime: timeofday) */
@@ -111,13 +111,13 @@ export interface timebillSearchFilter {
   /** Customer:Job (customer: select) */
   customer?: string;
   /** Date (date: date) */
-  date?: Date;
+  date?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Department (department: select) */
   department?: string;
   /** Duration (duration: float) */
-  duration?: number;
+  duration?: string;
   /** Employee (employee: select) */
   employee?: string;
   /** Exempt (exempt: checkbox) */
@@ -127,19 +127,19 @@ export interface timebillSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Last Modified (lastmodified: datetime) */
-  lastmodified?: Date;
+  lastmodified?: string;
   /** Location (location: select) */
   location?: string;
   /** Memo (memo: text) */

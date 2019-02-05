@@ -6,7 +6,7 @@
 /** Project Task (projecttask) Search Columns definition */
 export interface projecttaskSearchColumn {
   /** Actual Work (actualwork: float) */
-      actualwork?: number;
+      actualwork?: string;
   /** Use Calculated Values for all Labor Billing Budgets (bbudgetusecalculatedvalues: checkbox) */
       bbudgetusecalculatedvalues?: boolean;
   /** Use Calculated Values for all Labor Cost Budgets (cbudgetusecalculatedvalues: checkbox) */
@@ -18,53 +18,53 @@ export interface projecttaskSearchColumn {
   /** Contact (contact: select) */
       contact?: string;
   /** Estimated Cost (cost: currency) */
-      cost?: number;
+      cost?: string;
   /** Estimated Cost (Base Currency) (costbase: currency) */
-      costbase?: number;
+      costbase?: string;
   /** Estimated Cost Baseline (Base Currency) (costbasebaseline: currency) */
-      costbasebaseline?: number;
+      costbasebaseline?: string;
   /** Estimated Cost Baseline (costbaseline: currency) */
-      costbaseline?: number;
+      costbaseline?: string;
   /** Estimated Cost Variance (Base Currency) (costbasevariance: currency) */
-      costbasevariance?: number;
+      costbasevariance?: string;
   /** Estimated Cost Variance (costvariance: currency) */
-      costvariance?: number;
+      costvariance?: string;
   /** Estimated Cost Variance Percent (costvariancepercent: float) */
-      costvariancepercent?: number;
+      costvariancepercent?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** End Date Baseline (enddatebaseline: date) */
-      enddatebaseline?: Date;
+      enddatebaseline?: string;
   /** End Date Variance (enddatevariance: float) */
-      enddatevariance?: number;
+      enddatevariance?: string;
   /** Estimated Work (estimatedwork: float) */
-      estimatedwork?: number;
+      estimatedwork?: string;
   /** Estimated Work Baseline (estimatedworkbaseline: float) */
-      estimatedworkbaseline?: number;
+      estimatedworkbaseline?: string;
   /** Estimated Work Variance (estimatedworkvariance: float) */
-      estimatedworkvariance?: number;
+      estimatedworkvariance?: string;
   /** Estimated Work Variance Percent (estimatedworkvariancepercent: float) */
-      estimatedworkvariancepercent?: number;
+      estimatedworkvariancepercent?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Finish No Later Than Date (finishbydate: date) */
-      finishbydate?: Date;
+      finishbydate?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** ID (id: integer) */
-      id?: number;
+      id?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Milestone (ismilestone: checkbox) */
@@ -72,7 +72,7 @@ export interface projecttaskSearchColumn {
   /** Is Summary Task (issummarytask: checkbox) */
       issummarytask?: boolean;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Notes (message: text) */
       message?: string;
   /** Non-billable (nonbillabletask: checkbox) */
@@ -82,7 +82,7 @@ export interface projecttaskSearchColumn {
   /** Parent Task (parent: select) */
       parent?: string;
   /** Percent Work Complete (percentworkcomplete: percent) */
-      percentworkcomplete?: number;
+      percentworkcomplete?: string;
   /** Predecessor (predecessor: select) */
       predecessor?: string;
   /** Predecessors (predecessors: text) */
@@ -92,13 +92,13 @@ export interface projecttaskSearchColumn {
   /** Priority (priority: select) */
       priority?: string;
   /** Remaining Work (remainingwork: float) */
-      remainingwork?: number;
+      remainingwork?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Start Date Baseline (startdatebaseline: date) */
-      startdatebaseline?: Date;
+      startdatebaseline?: string;
   /** Start Date Variance (startdatevariance: float) */
-      startdatevariance?: number;
+      startdatevariance?: string;
   /** Status (status: select) */
       status?: string;
   /** Successor (successor: select) */
@@ -115,7 +115,7 @@ export interface projecttaskSearchColumn {
 /** Project Task (projecttask) Search Filters definition */
 export interface projecttaskSearchFilter {
 /** Actual Work (actualwork: float) */
-  actualwork?: number;
+  actualwork?: string;
   /** Assignee (assignee: select) */
   assignee?: string;
   /** Project/Project Template (company: select) */
@@ -125,59 +125,59 @@ export interface projecttaskSearchFilter {
   /** Contact (contact: select) */
   contact?: string;
   /** Estimated Cost (cost: currency) */
-  cost?: number;
+  cost?: string;
   /** Estimated Cost (Base Currency) (costbase: currency) */
-  costbase?: number;
+  costbase?: string;
   /** Estimated Cost Baseline (Base Currency) (costbasebaseline: currency) */
-  costbasebaseline?: number;
+  costbasebaseline?: string;
   /** Estimated Cost Baseline (costbaseline: currency) */
-  costbaseline?: number;
+  costbaseline?: string;
   /** Estimated Cost Variance (Base Currency) (costbasevariance: currency) */
-  costbasevariance?: number;
+  costbasevariance?: string;
   /** Estimated Cost Variance (costvariance: currency) */
-  costvariance?: number;
+  costvariance?: string;
   /** Estimated Cost Variance Percent (costvariancepercent: float) */
-  costvariancepercent?: number;
+  costvariancepercent?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** End Date Baseline (enddatebaseline: date) */
-  enddatebaseline?: Date;
+  enddatebaseline?: string;
   /** End Date Variance (enddatevariance: float) */
-  enddatevariance?: number;
+  enddatevariance?: string;
   /** Estimated Work (estimatedwork: float) */
-  estimatedwork?: number;
+  estimatedwork?: string;
   /** Estimated Work Baseline (estimatedworkbaseline: float) */
-  estimatedworkbaseline?: number;
+  estimatedworkbaseline?: string;
   /** Estimated Work Variance (estimatedworkvariance: float) */
-  estimatedworkvariance?: number;
+  estimatedworkvariance?: string;
   /** Estimated Work Variance Percent (estimatedworkvariancepercent: float) */
-  estimatedworkvariancepercent?: number;
+  estimatedworkvariancepercent?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Finish No Later Than Date (finishbydate: date) */
-  finishbydate?: Date;
+  finishbydate?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** ID (id: integer) */
-  id?: number;
+  id?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Milestone (ismilestone: checkbox) */
   ismilestone?: boolean;
   /** Is Job Summary Task (issummarytask: checkbox) */
   issummarytask?: boolean;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Non-billable (nonbillabletask: checkbox) */
   nonbillabletask?: boolean;
   /** Created By (owner: select) */
@@ -185,7 +185,7 @@ export interface projecttaskSearchFilter {
   /** Parent Task (parent: select) */
   parent?: string;
   /** Percent Work Complete (percentworkcomplete: percent) */
-  percentworkcomplete?: number;
+  percentworkcomplete?: string;
   /** Predecessor (predecessor: select) */
   predecessor?: string;
   /** Predecessors (predecessors: text) */
@@ -193,13 +193,13 @@ export interface projecttaskSearchFilter {
   /** Priority (priority: select) */
   priority?: string;
   /** Remaining Work (remainingwork: float) */
-  remainingwork?: number;
+  remainingwork?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Start Date Baseline (startdatebaseline: date) */
-  startdatebaseline?: Date;
+  startdatebaseline?: string;
   /** Start Date Variance (startdatevariance: float) */
-  startdatevariance?: number;
+  startdatevariance?: string;
   /** Status (status: select) */
   status?: string;
   /** Successor (successor: select) */

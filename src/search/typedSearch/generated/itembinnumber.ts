@@ -10,9 +10,9 @@ export interface itembinnumberSearchColumn {
   /** Location (location: select) */
       location?: string;
   /** Available (quantityavailable: float) */
-      quantityavailable?: number;
+      quantityavailable?: string;
   /** On Hand (quantityonhand: float) */
-      quantityonhand?: number;
+      quantityonhand?: string;
 }
 
 
@@ -25,9 +25,9 @@ export interface itembinnumberSearchFilter {
   /** Location (location: select) */
   location?: string;
   /** Availabile (quantityavailable: float) */
-  quantityavailable?: number;
+  quantityavailable?: string;
   /** On Hand (quantityonhand: float) */
-  quantityonhand?: number;
+  quantityonhand?: string;
 }
 
 

@@ -16,15 +16,15 @@ export interface messageSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Files (hasattachment: checkbox) */
@@ -40,7 +40,7 @@ export interface messageSearchColumn {
   /** Message (message: clobtext) */
       message?: string;
   /** Date (messagedate: datetime) */
-      messagedate?: Date;
+      messagedate?: string;
   /** Type (messagetype: select) */
       messagetype?: string;
   /** Recipient (recipient: select) */
@@ -71,9 +71,9 @@ export interface messageSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Has Attachment (hasattachment: checkbox) */
@@ -81,7 +81,7 @@ export interface messageSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Internal Only (internalonly: checkbox) */
   internalonly?: boolean;
   /** Is Incoming (isincoming: checkbox) */
@@ -89,7 +89,7 @@ export interface messageSearchFilter {
   /** Message (message: clobtext) */
   message?: string;
   /** Date (messagedate: datetime) */
-  messagedate?: Date;
+  messagedate?: string;
   /** Type (messagetype: select) */
   messagetype?: string;
   /** Recipient (recipient: select) */

@@ -8,15 +8,15 @@ export interface itemsupplyplanSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -24,7 +24,7 @@ export interface itemsupplyplanSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Last Plan Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Location (location: select) */
       location?: string;
   /** Memo (memo: text) */
@@ -32,15 +32,15 @@ export interface itemsupplyplanSearchColumn {
   /** Order Created (ordercreated: checkbox) */
       ordercreated?: boolean;
   /** Order Date (orderdate: date) */
-      orderdate?: Date;
+      orderdate?: string;
   /** Order Type (ordertype: select) */
       ordertype?: string;
   /** Quantity (quantity: float) */
-      quantity?: number;
+      quantity?: string;
   /** Quantity in Supply Plan Units (quantityuom: float) */
-      quantityuom?: number;
+      quantityuom?: string;
   /** Receipt Date (receiptdate: date) */
-      receiptdate?: Date;
+      receiptdate?: string;
   /** Subsidiary (subsidiary: select) */
       subsidiary?: string;
   /** Units (units: select) */
@@ -57,19 +57,19 @@ export interface itemsupplyplanSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Last Plan Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Location (location: select) */
   location?: string;
   /** Memo (memo: text) */
@@ -77,13 +77,13 @@ export interface itemsupplyplanSearchFilter {
   /** Order Created (ordercreated: checkbox) */
   ordercreated?: boolean;
   /** Order Date (orderdate: date) */
-  orderdate?: Date;
+  orderdate?: string;
   /** Order Type (ordertype: select) */
   ordertype?: string;
   /** Quantity (quantity: float) */
-  quantity?: number;
+  quantity?: string;
   /** Receipt Date (receiptdate: date) */
-  receiptdate?: Date;
+  receiptdate?: string;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
   /** Units (units: select) */

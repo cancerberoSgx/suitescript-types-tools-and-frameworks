@@ -6,25 +6,25 @@
 /** Gift Certificate (giftcertificate) Search Columns definition */
 export interface giftcertificateSearchColumn {
   /** Amount Available (amountremaining: currency) */
-      amountremaining?: number;
+      amountremaining?: string;
   /** Amount Available (Billed) (amtavailbilled: currency) */
-      amtavailbilled?: number;
+      amtavailbilled?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** To (Email) (email: text) */
       email?: string;
   /** Expiration Date (expirationdate: date) */
-      expirationdate?: Date;
+      expirationdate?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Active (gcactive: checkbox) */
@@ -44,9 +44,9 @@ export interface giftcertificateSearchColumn {
   /** To (Name) (name: text) */
       name?: string;
   /** Amount (originalamount: currency) */
-      originalamount?: number;
+      originalamount?: string;
   /** Purchase Date (purchasedate: date) */
-      purchasedate?: Date;
+      purchasedate?: string;
   /** From (Name) (sender: text) */
       sender?: string;
 }
@@ -57,19 +57,19 @@ export interface giftcertificateSearchColumn {
 /** Gift Certificate (giftcertificate) Search Filters definition */
 export interface giftcertificateSearchFilter {
 /** Amount Remaining (Billed) (amountavailablebilled: currency) */
-  amountavailablebilled?: number;
+  amountavailablebilled?: string;
   /** Amount Remaining (amountremaining: currency) */
-  amountremaining?: number;
+  amountremaining?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** To (Email) (email: text) */
   email?: string;
   /** Expiration Date (expirationdate: date) */
-  expirationdate?: Date;
+  expirationdate?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Gift Certificate Code (giftcertcode: text) */
@@ -79,7 +79,7 @@ export interface giftcertificateSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Active (isactive: checkbox) */
   isactive?: boolean;
   /** Item (item: select) */
@@ -91,9 +91,9 @@ export interface giftcertificateSearchFilter {
   /** To (Name) (name: text) */
   name?: string;
   /** Gift Certificate Amount (originalamount: currency) */
-  originalamount?: number;
+  originalamount?: string;
   /** Purchase Date (purchasedate: date) */
-  purchasedate?: Date;
+  purchasedate?: string;
   /** From (Name) (sender: text) */
   sender?: string;
 }

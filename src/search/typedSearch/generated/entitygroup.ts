@@ -10,15 +10,15 @@ export interface entitygroupSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Name (groupname: text) */
@@ -36,17 +36,17 @@ export interface entitygroupSearchColumn {
   /** Private (isprivate: checkbox) */
       isprivate?: boolean;
   /** Labor Resources (laborresources: integer) */
-      laborresources?: number;
+      laborresources?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Machine Resources (machineresources: integer) */
-      machineresources?: number;
+      machineresources?: string;
   /** Owner (owner: select) */
       owner?: string;
   /** Saved Search (savedsearch: text) */
       savedsearch?: string;
   /** Size (size: integer) */
-      size?: number;
+      size?: string;
   /** Subsidiary (subsidiary: select) */
       subsidiary?: string;
   /** Work Calendar (workcalendar: select) */
@@ -65,9 +65,9 @@ export interface entitygroupSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Name (groupname: text) */
@@ -79,7 +79,7 @@ export interface entitygroupSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Dynamic (isdynamic: checkbox) */
   isdynamic?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -89,11 +89,11 @@ export interface entitygroupSearchFilter {
   /** Private (isprivate: checkbox) */
   isprivate?: boolean;
   /** Labor Resources (laborresources: integer) */
-  laborresources?: number;
+  laborresources?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Machine Resources (machineresources: integer) */
-  machineresources?: number;
+  machineresources?: string;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
   /** Work Calendar (workcalendar: select) */

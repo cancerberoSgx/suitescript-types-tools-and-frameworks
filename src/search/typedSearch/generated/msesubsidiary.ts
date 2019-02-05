@@ -46,7 +46,7 @@ export interface msesubsidiarySearchColumn {
   /** Default Case Profile (defaultcaseprofile: text) */
       defaultcaseprofile?: string;
   /** Effective From (effectivefrom: date) */
-      effectivefrom?: Date;
+      effectivefrom?: string;
   /** Email (email: email) */
       email?: string;
   /** Employee Notification Template - Case Update (employeecaseupdatetemplate: text) */
@@ -80,23 +80,23 @@ export interface msesubsidiarySearchColumn {
   /** Nexus (nexus: select) */
       nexus?: string;
   /** Parent Subsidiary (parent: integer) */
-      parent?: number;
+      parent?: string;
   /** Phone (phone: phone) */
       phone?: string;
   /** Primary (Y/N) (primary: checkbox) */
       primary?: boolean;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-      purchaseorderamount?: number;
+      purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-      purchaseorderquantity?: number;
+      purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-      purchaseorderquantitydiff?: number;
+      purchaseorderquantitydiff?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-      receiptamount?: number;
+      receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-      receiptquantity?: number;
+      receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-      receiptquantitydiff?: number;
+      receiptquantitydiff?: string;
   /** Service Item for Forecast Reports (serviceitemforforecastreports: text) */
       serviceitemforforecastreports?: string;
   /** State/Province (state: select) */
@@ -116,7 +116,7 @@ export interface msesubsidiarySearchColumn {
   /** Web Site (url: url) */
       url?: string;
   /** Valid Until (validuntil: date) */
-      validuntil?: Date;
+      validuntil?: string;
   /** Zip (zip: text) */
       zip?: string;
 }
@@ -141,7 +141,7 @@ export interface msesubsidiarySearchFilter {
   /** Currency (currency: select) */
   currency?: string;
   /** Effective From (effectivefrom: date) */
-  effectivefrom?: Date;
+  effectivefrom?: string;
   /** Email (email: email) */
   email?: string;
   /** External ID (externalid: select) */
@@ -157,7 +157,7 @@ export interface msesubsidiarySearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Elimination (iselimination: checkbox) */
   iselimination?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -173,23 +173,23 @@ export interface msesubsidiarySearchFilter {
   /** Nexus (nexus: select) */
   nexus?: string;
   /** Parent Subsidiary (parent: integer) */
-  parent?: number;
+  parent?: string;
   /** Phone (phone: phone) */
   phone?: string;
   /** Primary (Y/N) (primary: checkbox) */
   primary?: boolean;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-  purchaseorderamount?: number;
+  purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-  purchaseorderquantity?: number;
+  purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-  purchaseorderquantitydiff?: number;
+  purchaseorderquantitydiff?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-  receiptamount?: number;
+  receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-  receiptquantity?: number;
+  receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-  receiptquantitydiff?: number;
+  receiptquantitydiff?: string;
   /** Service Item for Forecast Reports (serviceitemforforecastreports: select) */
   serviceitemforforecastreports?: string;
   /** State/Province (state: select) */
@@ -211,7 +211,7 @@ export interface msesubsidiarySearchFilter {
   /** Web Site (url: url) */
   url?: string;
   /** Valid Until (validuntil: date) */
-  validuntil?: Date;
+  validuntil?: string;
   /** Zip (zip: text) */
   zip?: string;
 }

@@ -10,27 +10,27 @@ export interface locationSearchColumn {
   /** Auto-Assigning This Location (autoassignmentregionsetting: text) */
       autoassignmentregionsetting?: string;
   /** Buffer Stock (bufferstock: integer) */
-      bufferstock?: number;
+      bufferstock?: string;
   /** City (city: text) */
       city?: string;
   /** Country (country: text) */
       country?: string;
   /** Daily Shipping Capacity (dailyshippingcapacity: integer) */
-      dailyshippingcapacity?: number;
+      dailyshippingcapacity?: string;
   /** End Time (endtime: timeofday) */
       endtime?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Geolocation Method (geolocationmethod: select) */
@@ -66,7 +66,7 @@ export interface locationSearchColumn {
   /** Name (no hierarchy) (namenohierarchy: text) */
       namenohierarchy?: string;
   /** Next Pickup Cut-Off Time (nextpickupcutofftime: datetime) */
-      nextpickupcutofftime?: Date;
+      nextpickupcutofftime?: string;
   /** Phone (phone: phone) */
       phone?: string;
   /** Same Day Pickup Cut-Off Time (samedaypickupcutofftime: timeofday) */
@@ -76,11 +76,11 @@ export interface locationSearchColumn {
   /** State/Province (state: text) */
       state?: string;
   /** Store Pickup Buffer Stock (storepickupbufferstock: float) */
-      storepickupbufferstock?: number;
+      storepickupbufferstock?: string;
   /** Subsidiary (subsidiary: multiselect) */
-      subsidiary?: number;
+      subsidiary?: string;
   /** Total Shipping Capacity (totalshippingcapacity: integer) */
-      totalshippingcapacity?: number;
+      totalshippingcapacity?: string;
   /** Transaction Prefix (tranprefix: text) */
       tranprefix?: string;
   /** Use Bins (usesbins: checkbox) */
@@ -101,7 +101,7 @@ export interface locationSearchFilter {
   /** Auto-Assigning This Location (autoassignmentregionsetting: select) */
   autoassignmentregionsetting?: string;
   /** Buffer Stock (bufferstock: integer) */
-  bufferstock?: number;
+  bufferstock?: string;
   /** City (city: text) */
   city?: string;
   /** Country (country: select) */
@@ -109,7 +109,7 @@ export interface locationSearchFilter {
   /** County/State (county: text) */
   county?: string;
   /** Daily Shipping Capacity (dailyshippingcapacity: integer) */
-  dailyshippingcapacity?: number;
+  dailyshippingcapacity?: string;
   /** End Time (endtime: timeofday) */
   endtime?: string;
   /** External ID (externalid: select) */
@@ -117,9 +117,9 @@ export interface locationSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Geolocation Method (geolocationmethod: select) */
@@ -127,7 +127,7 @@ export interface locationSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Friday (isfriday: checkbox) */
   isfriday?: boolean;
   /** Inactive (isinactive: checkbox) */
@@ -155,7 +155,7 @@ export interface locationSearchFilter {
   /** Name (name: text) */
   name?: string;
   /** Next Pickup Cut-Off Time (nextpickupcutofftime: datetime) */
-  nextpickupcutofftime?: Date;
+  nextpickupcutofftime?: string;
   /** Phone (phone: phone) */
   phone?: string;
   /** Same Day Pickup Cut-Off Time (samedaypickupcutofftime: timeofday) */
@@ -165,11 +165,11 @@ export interface locationSearchFilter {
   /** State/Province (state: select) */
   state?: string;
   /** Store Pickup Buffer Stock (storepickupbufferstock: float) */
-  storepickupbufferstock?: number;
+  storepickupbufferstock?: string;
   /** Subsidiary (subsidiary: multiselect) */
-  subsidiary?: number;
+  subsidiary?: string;
   /** Total Shipping Capacity (totalshippingcapacity: integer) */
-  totalshippingcapacity?: number;
+  totalshippingcapacity?: string;
   /** Transaction Prefix (tranprefix: text) */
   tranprefix?: string;
   /** Uses Bins (usesbins: checkbox) */

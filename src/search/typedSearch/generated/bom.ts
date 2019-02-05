@@ -10,25 +10,25 @@ export interface bomSearchColumn {
   /** Available For All Locations (availableforalllocations: checkbox) */
       availableforalllocations?: boolean;
   /** Created Date (createddate: date) */
-      createddate?: Date;
+      createddate?: string;
   /** ExternalId (externalid: text) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Include Children (includechildren: checkbox) */
       includechildren?: boolean;
   /** Internal ID (internalid: integer) */
-      internalid?: number;
+      internalid?: string;
   /** Inactive (isinactive: checkbox) */
       isinactive?: boolean;
   /** Memo (memo: text) */
@@ -36,9 +36,9 @@ export interface bomSearchColumn {
   /** Name (name: text) */
       name?: string;
   /** Restrict To Assemblies (restricttoassemblies: multiselect) */
-      restricttoassemblies?: number;
+      restricttoassemblies?: string;
   /** Restrict To Locations (restricttolocations: multiselect) */
-      restricttolocations?: number;
+      restricttolocations?: string;
   /** Revision : Name (revisionname: text) */
       revisionname?: string;
   /** Subsidiary (subsidiary: select) */
@@ -61,13 +61,13 @@ export interface bomSearchFilter {
   /** Available For All Locations (availableforalllocations: checkbox) */
   availableforalllocations?: boolean;
   /** Created Date (createddate: date) */
-  createddate?: Date;
+  createddate?: string;
   /** ExternalId (externalid: text) */
   externalid?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Include Children (includechildren: checkbox) */
@@ -75,7 +75,7 @@ export interface bomSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Memo (memo: text) */
@@ -83,11 +83,11 @@ export interface bomSearchFilter {
   /** Name (name: text) */
   name?: string;
   /** Restrict To Assemblies (restricttoassemblies: multiselect) */
-  restricttoassemblies?: number;
+  restricttoassemblies?: string;
   /** Restrict To Locations (restricttolocations: multiselect) */
-  restricttolocations?: number;
+  restricttolocations?: string;
   /** Subsidiary (subsidiary: multiselect) */
-  subsidiary?: number;
+  subsidiary?: string;
   /** Use Component Yield (usecomponentyield: checkbox) */
   usecomponentyield?: boolean;
   /** Used on Assembly (usedonassembly: checkbox) */

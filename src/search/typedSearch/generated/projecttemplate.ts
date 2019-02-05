@@ -10,7 +10,7 @@ export interface projecttemplateSearchColumn {
   /** Addressee (addressee: text) */
       addressee?: string;
   /** Address Internal ID (addressinternalid: integer) */
-      addressinternalid?: number;
+      addressinternalid?: string;
   /** Address Label (addresslabel: text) */
       addresslabel?: string;
   /** Address Phone (addressphone: text) */
@@ -56,45 +56,45 @@ export interface projecttemplateSearchColumn {
   /** Country Code (countrycode: text) */
       countrycode?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Email (email: email) */
       email?: string;
   /** Name (entityid: text) */
       entityid?: string;
   /** Number (entitynumber: integer) */
-      entitynumber?: number;
+      entitynumber?: string;
   /** Estimated Cost (estimatedcost: currency) */
-      estimatedcost?: number;
+      estimatedcost?: string;
   /** Estimated Gross Profit (estimatedgrossprofit: currency) */
-      estimatedgrossprofit?: number;
+      estimatedgrossprofit?: string;
   /** Estimated Gross Profit % (estimatedgrossprofitpercent: percent) */
-      estimatedgrossprofitpercent?: number;
+      estimatedgrossprofitpercent?: string;
   /** Estimated Labor Cost (estimatedlaborcost: currency) */
-      estimatedlaborcost?: number;
+      estimatedlaborcost?: string;
   /** Estimated Labor Revenue (estimatedlaborrevenue: currency) */
-      estimatedlaborrevenue?: number;
+      estimatedlaborrevenue?: string;
   /** Estimated Revenue (estimatedrevenue: currency) */
-      estimatedrevenue?: number;
+      estimatedrevenue?: string;
   /** Initial Time Budget (estimatedtime: float) */
-      estimatedtime?: number;
+      estimatedtime?: string;
   /** Estimated Work (estimatedtimeoverride: float) */
-      estimatedtimeoverride?: number;
+      estimatedtimeoverride?: string;
   /** Estimated Work Baseline (estimatedtimeoverridebaseline: float) */
-      estimatedtimeoverridebaseline?: number;
+      estimatedtimeoverridebaseline?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Fax (fax: text) */
       fax?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
@@ -122,13 +122,13 @@ export interface projecttemplateSearchColumn {
   /** Billing Item (jobitem: select) */
       jobitem?: string;
   /** Job Price (jobprice: currency) */
-      jobprice?: number;
+      jobprice?: string;
   /** Language (language: select) */
       language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Level (level: select) */
       level?: string;
   /** Limit Time and Expenses to Resources (limittimetoassignees: checkbox) */
@@ -146,7 +146,7 @@ export interface projecttemplateSearchColumn {
   /** Shipping Country Code (shipcountrycode: text) */
       shipcountrycode?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** State/Province (state: select) */
       state?: string;
   /** State/Province Display Name (statedisplayname: select) */
@@ -154,7 +154,7 @@ export interface projecttemplateSearchColumn {
   /** Subscription (subscription: select) */
       subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-      subscriptiondate?: Date;
+      subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
       subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -205,21 +205,21 @@ export interface projecttemplateSearchFilter {
   /** County/State (county: text) */
   county?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Email (email: text) */
   email?: string;
   /** Name/ID (entityid: text) */
   entityid?: string;
   /** Estimated Cost (estcost: currency) */
-  estcost?: number;
+  estcost?: string;
   /** Projected End Date (estenddate: date) */
-  estenddate?: Date;
+  estenddate?: string;
   /** Estimated Gross Profit (estimatedgrossprofit: currency) */
-  estimatedgrossprofit?: number;
+  estimatedgrossprofit?: string;
   /** Estimated Gross Profit % (estimatedgrossprofitpercent: percent) */
-  estimatedgrossprofitpercent?: number;
+  estimatedgrossprofitpercent?: string;
   /** Estimated Labor Cost (estimatedlaborcost: currency) */
-  estimatedlaborcost?: number;
+  estimatedlaborcost?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -227,9 +227,9 @@ export interface projecttemplateSearchFilter {
   /** Fax (fax: phone) */
   fax?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Login Access (giveaccess: checkbox) */
@@ -241,7 +241,7 @@ export interface projecttemplateSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Default Billing Address (isdefaultbilling: checkbox) */
   isdefaultbilling?: boolean;
   /** Default Shipping Address (isdefaultshipping: checkbox) */
@@ -263,7 +263,7 @@ export interface projecttemplateSearchFilter {
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Level (level: select) */
   level?: string;
   /** Limit Time and Expenses To Resources (limittimetoassignees: checkbox) */
@@ -279,13 +279,13 @@ export interface projecttemplateSearchFilter {
   /** Represents Subsidiary (representingsubsidiary: select) */
   representingsubsidiary?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** State/Province (Deprecated) (state: select) */
   state?: string;
   /** Subscription (subscription: select) */
   subscription?: string;
   /** Subscription Date (subscriptiondate: date) */
-  subscriptiondate?: Date;
+  subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
   subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */

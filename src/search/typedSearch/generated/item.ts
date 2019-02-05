@@ -22,7 +22,7 @@ export interface itemSearchColumn {
   /** Asset Account (assetaccount: select) */
       assetaccount?: string;
   /** ATP Lead Time (atpleadtime: float) */
-      atpleadtime?: number;
+      atpleadtime?: string;
   /** Default ATP Method (atpmethod: text) */
       atpmethod?: string;
   /** Auto Lead Time (autoleadtime: checkbox) */
@@ -34,11 +34,11 @@ export interface itemSearchColumn {
   /** Available to Partners (availabletopartners: checkbox) */
       availabletopartners?: boolean;
   /** Average Cost (averagecost: currency2) */
-      averagecost?: number;
+      averagecost?: string;
   /** Backward Consumption Days (backwardconsumptiondays: integer) */
-      backwardconsumptiondays?: number;
+      backwardconsumptiondays?: string;
   /** Base Price (baseprice: currency2) */
-      baseprice?: number;
+      baseprice?: string;
   /** Bill Exchange Rate Variance Account (billexchratevarianceacct: select) */
       billexchratevarianceacct?: string;
   /** Bill Price Variance Account (billpricevarianceacct: select) */
@@ -48,17 +48,17 @@ export interface itemSearchColumn {
   /** Bin Number (binnumber: text) */
       binnumber?: string;
   /** Bin On Hand Available (binonhandavail: float) */
-      binonhandavail?: number;
+      binonhandavail?: string;
   /** Bin On Hand Count (binonhandcount: float) */
-      binonhandcount?: number;
+      binonhandcount?: string;
   /** BOM Quantity (bomquantity: float) */
-      bomquantity?: number;
+      bomquantity?: string;
   /** Build Sub-Assemblies (buildentireassembly: checkbox) */
       buildentireassembly?: boolean;
   /** Work Order Lead Time (buildtime: float) */
-      buildtime?: number;
+      buildtime?: string;
   /** eBay Buy It Now Price (buyitnowprice: currency) */
-      buyitnowprice?: number;
+      buyitnowprice?: string;
   /** Category (category: text) */
       category?: string;
   /** Category (no hierarchy) (categorynohierarchy: text) */
@@ -70,7 +70,7 @@ export interface itemSearchColumn {
   /** Class (no hierarchy) (classnohierarchy: select) */
       classnohierarchy?: string;
   /** Component Yield (componentyield: float) */
-      componentyield?: number;
+      componentyield?: string;
   /** Eligible for Contingent Revenue Handling (contingentrevenuehandling: checkbox) */
       contingentrevenuehandling?: boolean;
   /** Copy SO Descr. (copydescription: checkbox) */
@@ -78,21 +78,21 @@ export interface itemSearchColumn {
   /** Correlated Item (correlateditem: select) */
       correlateditem?: string;
   /** Correlated Item Correlation (correlateditemcorrelation: float) */
-      correlateditemcorrelation?: number;
+      correlateditemcorrelation?: string;
   /** Correlated Item Count (correlateditemcount: integer) */
-      correlateditemcount?: number;
+      correlateditemcount?: string;
   /** Correlated Item Lift (correlateditemlift: float) */
-      correlateditemlift?: number;
+      correlateditemlift?: string;
   /** Correlated Item Purchase Rate (correlateditempurchaserate: float) */
-      correlateditempurchaserate?: number;
+      correlateditempurchaserate?: string;
   /** Purchase Price (cost: currency2) */
-      cost?: number;
+      cost?: string;
   /** Cost Accounting Status (costaccountingstatus: text) */
       costaccountingstatus?: string;
   /** Cost Category (costcategory: text) */
       costcategory?: string;
   /** Item Defined Cost (costestimate: currency2) */
-      costestimate?: number;
+      costestimate?: string;
   /** Cost Estimate Type (costestimatetype: text) */
       costestimatetype?: string;
   /** Costing Method (costingmethod: select) */
@@ -100,23 +100,23 @@ export interface itemSearchColumn {
   /** Manufacturer Country (countryofmanufacture: text) */
       countryofmanufacture?: string;
   /** Date Created (created: datetime) */
-      created?: Date;
+      created?: string;
   /** Create Job (createjob: checkbox) */
       createjob?: boolean;
   /** Create Revenue Plans On (createrevenueplanson: select) */
       createrevenueplanson?: string;
   /** Current Standard Cost (currentstandardcost: currency2) */
-      currentstandardcost?: number;
+      currentstandardcost?: string;
   /** Current Standard Cost Effective Date (currentstdcosteffectivedate: date) */
-      currentstdcosteffectivedate?: Date;
+      currentstdcosteffectivedate?: string;
   /** Customer Return Variance Account (custreturnvarianceaccount: select) */
       custreturnvarianceaccount?: string;
   /** Date Viewed (dateviewed: datetime) */
-      dateviewed?: Date;
+      dateviewed?: string;
   /** Days Before Expiration (daysbeforeexpiration: text) */
       daysbeforeexpiration?: string;
   /** Default Return Cost (defaultreturncost: currency2) */
-      defaultreturncost?: number;
+      defaultreturncost?: string;
   /** Deferred Expense Account (deferredexpenseaccount: select) */
       deferredexpenseaccount?: string;
   /** Deferred Revenue Account (deferredrevenueaccount: select) */
@@ -124,7 +124,7 @@ export interface itemSearchColumn {
   /** Hold Revenue Recognition (deferrevrec: checkbox) */
       deferrevrec?: boolean;
   /** Expected Demand Change (demandmodifier: percent) */
-      demandmodifier?: number;
+      demandmodifier?: string;
   /** Demand Source (demandsource: text) */
       demandsource?: string;
   /** Department (department: select) */
@@ -154,7 +154,7 @@ export interface itemSearchColumn {
   /** Effective BOM Control (effectivebomcontrol: text) */
       effectivebomcontrol?: string;
   /** Effective Date (effectivedate: date) */
-      effectivedate?: Date;
+      effectivedate?: string;
   /** Effective Revision (effectiverevision: select) */
       effectiverevision?: string;
   /** eBay End Auctions When Out of Stock (endauctionswhenoutofstock: checkbox) */
@@ -172,27 +172,27 @@ export interface itemSearchColumn {
   /** Feed Name (feedname: text) */
       feedname?: string;
   /** Fixed Lot Size (fixedlotsize: float) */
-      fixedlotsize?: number;
+      fixedlotsize?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Forward Consumption Days (forwardconsumptiondays: integer) */
-      forwardconsumptiondays?: number;
+      forwardconsumptiondays?: string;
   /** Fraud Risk (fraudrisk: select) */
       fraudrisk?: string;
   /** Google Base Product Feed (froogleproductfeed: checkbox) */
       froogleproductfeed?: boolean;
   /** Purchase Price (Foreign Currency) (fxcost: currency2) */
-      fxcost?: number;
+      fxcost?: string;
   /** Gain/Loss Account (gainlossaccount: select) */
       gainlossaccount?: string;
   /** Generate Accruals (generateaccruals: checkbox) */
@@ -212,7 +212,7 @@ export interface itemSearchColumn {
   /** Gift Certificate To (Name) (giftcertrecipient: text) */
       giftcertrecipient?: string;
   /** # Times Viewed (hits: integer) */
-      hits?: number;
+      hits?: string;
   /** Image URL (imageurl: text) */
       imageurl?: string;
   /** Income Account (incomeaccount: select) */
@@ -230,7 +230,7 @@ export interface itemSearchColumn {
   /** Inventory Classification (invtclassification: text) */
       invtclassification?: string;
   /** Inventory Count Interval (invtcountinterval: integer) */
-      invtcountinterval?: number;
+      invtcountinterval?: string;
   /** Is Available? (isavailable: checkbox) */
       isavailable?: boolean;
   /** Drop Ship Item (isdropshipitem: checkbox) */
@@ -266,15 +266,15 @@ export interface itemSearchColumn {
   /** Item URL (itemurl: text) */
       itemurl?: string;
   /** Last Inventory Count Date (lastinvtcountdate: date) */
-      lastinvtcountdate?: Date;
+      lastinvtcountdate?: string;
   /** Last Purchase Price (lastpurchaseprice: currency) */
-      lastpurchaseprice?: number;
+      lastpurchaseprice?: string;
   /** Last Quantity Available Change (lastquantityavailablechange: datetime) */
-      lastquantityavailablechange?: Date;
+      lastquantityavailablechange?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Lead Time (leadtime: integer) */
-      leadtime?: number;
+      leadtime?: string;
   /** Liability Account (liabilityaccount: select) */
       liabilityaccount?: string;
   /** eBay Duration (listingduration: text) */
@@ -284,63 +284,63 @@ export interface itemSearchColumn {
   /** Location Allow Store Pickup (locationallowstorepickup: checkbox) */
       locationallowstorepickup?: boolean;
   /** Location ATP Lead Time (locationatpleadtime: float) */
-      locationatpleadtime?: number;
+      locationatpleadtime?: string;
   /** Location Average Cost (locationaveragecost: currency2) */
-      locationaveragecost?: number;
+      locationaveragecost?: string;
   /** Location Bin Available (locationbinquantityavailable: float) */
-      locationbinquantityavailable?: number;
+      locationbinquantityavailable?: string;
   /** Location Work Order Lead Time (locationbuildtime: float) */
-      locationbuildtime?: number;
+      locationbuildtime?: string;
   /** Location Standard Cost (locationcost: currency) */
-      locationcost?: number;
+      locationcost?: string;
   /** Location Cost Accounting Status (locationcostaccountingstatus: text) */
       locationcostaccountingstatus?: string;
   /** Location Default Return Cost (locationdefaultreturncost: currency2) */
-      locationdefaultreturncost?: number;
+      locationdefaultreturncost?: string;
   /** Location Demand Source (locationdemandsource: text) */
       locationdemandsource?: string;
   /** Location Fixed Lot Size (locationfixedlotsize: float) */
-      locationfixedlotsize?: number;
+      locationfixedlotsize?: string;
   /** Location Inventory Classification (locationinvtclassification: text) */
       locationinvtclassification?: string;
   /** Location Inventory Count Interval (locationinvtcountinterval: integer) */
-      locationinvtcountinterval?: number;
+      locationinvtcountinterval?: string;
   /** Location Last Inventory Count Date (locationlastinvtcountdate: date) */
-      locationlastinvtcountdate?: Date;
+      locationlastinvtcountdate?: string;
   /** Location Lead Time (locationleadtime: integer) */
-      locationleadtime?: number;
+      locationleadtime?: string;
   /** Location Next Inventory Count Date (locationnextinvtcountdate: date) */
-      locationnextinvtcountdate?: Date;
+      locationnextinvtcountdate?: string;
   /** Location (no hierarchy) (locationnohierarchy: select) */
       locationnohierarchy?: string;
   /** Location Preferred Stock Level (locationpreferredstocklevel: float) */
-      locationpreferredstocklevel?: number;
+      locationpreferredstocklevel?: string;
   /** Location Available for Store Pickup (locationqtyavailforstorepickup: float) */
-      locationqtyavailforstorepickup?: number;
+      locationqtyavailforstorepickup?: string;
   /** Location Available (locationquantityavailable: float) */
-      locationquantityavailable?: number;
+      locationquantityavailable?: string;
   /** Location Back Ordered (locationquantitybackordered: float) */
-      locationquantitybackordered?: number;
+      locationquantitybackordered?: string;
   /** Location Committed (locationquantitycommitted: float) */
-      locationquantitycommitted?: number;
+      locationquantitycommitted?: string;
   /** Location In Transit (locationquantityintransit: float) */
-      locationquantityintransit?: number;
+      locationquantityintransit?: string;
   /** Location On Hand (locationquantityonhand: float) */
-      locationquantityonhand?: number;
+      locationquantityonhand?: string;
   /** Location On Order (locationquantityonorder: float) */
-      locationquantityonorder?: number;
+      locationquantityonorder?: string;
   /** Location Reorder Point (locationreorderpoint: float) */
-      locationreorderpoint?: number;
+      locationreorderpoint?: string;
   /** Location Safety Stock Level (locationsafetystocklevel: float) */
-      locationsafetystocklevel?: number;
+      locationsafetystocklevel?: string;
   /** Location Store Pickup Buffer Stock (locationstorepickupbufferstock: float) */
-      locationstorepickupbufferstock?: number;
+      locationstorepickupbufferstock?: string;
   /** Location Supply Lot Sizing Method (locationsupplylotsizingmethod: text) */
       locationsupplylotsizingmethod?: string;
   /** Location Supply Type (locationsupplytype: text) */
       locationsupplytype?: string;
   /** Location Total Value (locationtotalvalue: currency2) */
-      locationtotalvalue?: number;
+      locationtotalvalue?: string;
   /** Manufacturer (manufacturer: text) */
       manufacturer?: string;
   /** Manufacturer Address (manufactureraddr1: text) */
@@ -362,13 +362,13 @@ export interface itemSearchColumn {
   /** Member Item (memberitem: select) */
       memberitem?: string;
   /** Member Quantity (memberquantity: float) */
-      memberquantity?: number;
+      memberquantity?: string;
   /** Meta Tag Html (metataghtml: clobtext) */
       metataghtml?: string;
   /** Minimum Quantity (minimumquantity: text) */
       minimumquantity?: string;
   /** Last Modified (modified: datetime) */
-      modified?: Date;
+      modified?: string;
   /** MOSS Applies (mossapplies: checkbox) */
       mossapplies?: boolean;
   /** MPN (mpn: text) */
@@ -380,29 +380,29 @@ export interface itemSearchColumn {
   /** NexTag Product Feed (nextagproductfeed: checkbox) */
       nextagproductfeed?: boolean;
   /** Next Inventory Count Date (nextinvtcountdate: date) */
-      nextinvtcountdate?: Date;
+      nextinvtcountdate?: string;
   /** No Price Message (nopricemessage: text) */
       nopricemessage?: string;
   /** eBay Active Listings (numactivelistings: integer) */
-      numactivelistings?: number;
+      numactivelistings?: string;
   /** Number of Allowed Downloads (numberalloweddownloads: text) */
       numberalloweddownloads?: string;
   /** eBay Quantity Currently Listed (numcurrentlylisted: integer) */
-      numcurrentlylisted?: number;
+      numcurrentlylisted?: string;
   /** Obsolete Date (obsoletedate: date) */
-      obsoletedate?: Date;
+      obsoletedate?: string;
   /** Obsolete Revision (obsoleterevision: select) */
       obsoleterevision?: string;
   /** Offer Support (offersupport: checkbox) */
       offersupport?: boolean;
   /** Online Customer Price (onlinecustomerprice: currency) */
-      onlinecustomerprice?: number;
+      onlinecustomerprice?: string;
   /** Online Price (onlineprice: currency) */
-      onlineprice?: number;
+      onlineprice?: string;
   /** On Special (onspecial: checkbox) */
       onspecial?: boolean;
   /** Other Prices (otherprices: currency) */
-      otherprices?: number;
+      otherprices?: string;
   /** Vendor (othervendor: select) */
       othervendor?: string;
   /** Out Of Stock Behavior (outofstockbehavior: text) */
@@ -422,9 +422,9 @@ export interface itemSearchColumn {
   /** Preferred Location (preferredlocation: select) */
       preferredlocation?: string;
   /** Preferred Stock Level (preferredstocklevel: float) */
-      preferredstocklevel?: number;
+      preferredstocklevel?: string;
   /** Days Supply (preferredstockleveldays: integer) */
-      preferredstockleveldays?: number;
+      preferredstockleveldays?: string;
   /** Prices Include Tax (pricesincludetax: checkbox) */
       pricesincludetax?: boolean;
   /** Pricing Group (pricinggroup: select) */
@@ -438,39 +438,39 @@ export interface itemSearchColumn {
   /** Purchase Description (purchasedescription: text) */
       purchasedescription?: string;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-      purchaseorderamount?: number;
+      purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-      purchaseorderquantity?: number;
+      purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-      purchaseorderquantitydiff?: number;
+      purchaseorderquantitydiff?: string;
   /** Purchase Price Variance Account (purchasepricevarianceacct: select) */
       purchasepricevarianceacct?: string;
   /** Purchase Unit (purchaseunit: select) */
       purchaseunit?: string;
   /** Available (quantityavailable: float) */
-      quantityavailable?: number;
+      quantityavailable?: string;
   /** Back Ordered (quantitybackordered: float) */
-      quantitybackordered?: number;
+      quantitybackordered?: string;
   /** Committed (quantitycommitted: float) */
-      quantitycommitted?: number;
+      quantitycommitted?: string;
   /** On Hand (quantityonhand: float) */
-      quantityonhand?: number;
+      quantityonhand?: string;
   /** On Order (quantityonorder: float) */
-      quantityonorder?: number;
+      quantityonorder?: string;
   /** Quantity Pricing Schedule (quantitypricingschedule: select) */
       quantitypricingschedule?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-      receiptamount?: number;
+      receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-      receiptquantity?: number;
+      receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-      receiptquantitydiff?: number;
+      receiptquantitydiff?: string;
   /** Reorder Multiple (reordermultiple: integer) */
-      reordermultiple?: number;
+      reordermultiple?: string;
   /** Reorder Point (reorderpoint: float) */
-      reorderpoint?: number;
+      reorderpoint?: string;
   /** eBay Reserve Price (reserveprice: currency) */
-      reserveprice?: number;
+      reserveprice?: string;
   /** Rev Rec Forecast Rule (revrecforecastrule: select) */
       revrecforecastrule?: string;
   /** Foreign Currency Adjustment Account (revreclassfxaccount: select) */
@@ -480,9 +480,9 @@ export interface itemSearchColumn {
   /** Round Up Quantity as Component (roundupascomponent: checkbox) */
       roundupascomponent?: boolean;
   /** Safety Stock Level (safetystocklevel: float) */
-      safetystocklevel?: number;
+      safetystocklevel?: string;
   /** Safety Stock Days (safetystockleveldays: integer) */
-      safetystockleveldays?: number;
+      safetystockleveldays?: string;
   /** Description (salesdescription: text) */
       salesdescription?: string;
   /** Tax Code (salestaxcode: select) */
@@ -516,21 +516,21 @@ export interface itemSearchColumn {
   /** Shipping Package (shippackage: select) */
       shippackage?: string;
   /** Shipping Rate (shippingrate: currency) */
-      shippingrate?: number;
+      shippingrate?: string;
   /** Shopping.com Category (shoppingdotcomcategory: text) */
       shoppingdotcomcategory?: string;
   /** Shopping.com Product Feed (shoppingproductfeed: checkbox) */
       shoppingproductfeed?: boolean;
   /** Shopzilla Category Id (shopzillacategoryid: integer) */
-      shopzillacategoryid?: number;
+      shopzillacategoryid?: string;
   /** Shopzilla Product Feed (shopzillaproductfeed: checkbox) */
       shopzillaproductfeed?: boolean;
   /** Sitemap Priority (sitemappriority: float) */
-      sitemappriority?: number;
+      sitemappriority?: string;
   /** Soft Descriptor (softdescriptor: select) */
       softdescriptor?: string;
   /** eBay Starting Price (startingprice: currency) */
-      startingprice?: number;
+      startingprice?: string;
   /** Stock Description (stockdescription: text) */
       stockdescription?: string;
   /** Stock Unit (stockunit: select) */
@@ -562,11 +562,11 @@ export interface itemSearchColumn {
   /** Thumbnail URL (thumbnailurl: text) */
       thumbnailurl?: string;
   /** Total Value (totalvalue: currency2) */
-      totalvalue?: number;
+      totalvalue?: string;
   /** Track Landed Cost (tracklandedcost: checkbox) */
       tracklandedcost?: boolean;
   /** Transfer Price (transferprice: currency2) */
-      transferprice?: number;
+      transferprice?: string;
   /** Type (type: select) */
       type?: string;
   /** Unbuild Variance Account (unbuildvarianceaccount: select) */
@@ -588,9 +588,9 @@ export interface itemSearchColumn {
   /** Vendor Code (vendorcode: text) */
       vendorcode?: string;
   /** Vendor Price (vendorcost: currency) */
-      vendorcost?: number;
+      vendorcost?: string;
   /** Vendor Price (Entered) (vendorcostentered: currency) */
-      vendorcostentered?: number;
+      vendorcostentered?: string;
   /** Vendor Name (vendorname: text) */
       vendorname?: string;
   /** Vendor Price Currency (vendorpricecurrency: text) */
@@ -606,13 +606,13 @@ export interface itemSearchColumn {
   /** Permit Discount (vsoepermitdiscount: select) */
       vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: currency2) */
-      vsoeprice?: number;
+      vsoeprice?: string;
   /** Allocation Type (vsoesopgroup: checkbox) */
       vsoesopgroup?: boolean;
   /** Web Site (website: select) */
       website?: string;
   /** Weight (weight: float) */
-      weight?: number;
+      weight?: string;
   /** Weight Units (weightunit: select) */
       weightunit?: string;
   /** WIP Account (wipacct: select) */
@@ -645,7 +645,7 @@ export interface itemSearchFilter {
   /** Alternate Source Item (alternatedemandsourceitem: select) */
   alternatedemandsourceitem?: string;
   /** ATP Lead Time (atpleadtime: float) */
-  atpleadtime?: number;
+  atpleadtime?: string;
   /** Default ATP Method (atpmethod: select) */
   atpmethod?: string;
   /** Auto-Calculate Lead Time (autoleadtime: checkbox) */
@@ -657,27 +657,27 @@ export interface itemSearchFilter {
   /** Available to Partners (availabletopartners: checkbox) */
   availabletopartners?: boolean;
   /** Average Cost (averagecost: currency) */
-  averagecost?: number;
+  averagecost?: string;
   /** Backward Consumption Days (backwardconsumptiondays: integer) */
-  backwardconsumptiondays?: number;
+  backwardconsumptiondays?: string;
   /** Bin Number (binnumber: text) */
   binnumber?: string;
   /** Bin On Hand Available (binonhandavail: float) */
-  binonhandavail?: number;
+  binonhandavail?: string;
   /** Bin On Hand Count (binonhandcount: float) */
-  binonhandcount?: number;
+  binonhandcount?: string;
   /** BOM Quantity (bomquantity: float) */
-  bomquantity?: number;
+  bomquantity?: string;
   /** Build Sub-Assemblies (buildentireassembly: checkbox) */
   buildentireassembly?: boolean;
   /** Work Order Lead Time (buildtime: float) */
-  buildtime?: number;
+  buildtime?: string;
   /** eBay Buy It Now Price (buyitnowprice: currency) */
-  buyitnowprice?: number;
+  buyitnowprice?: string;
   /** Store Display Name (caption: text) */
   caption?: string;
   /** Category (category: multiselect) */
-  category?: number;
+  category?: string;
   /** Class (class: select) */
   class?: string;
   /** Component Item (component: select) */
@@ -685,7 +685,7 @@ export interface itemSearchFilter {
   /** Component Of (componentof: select) */
   componentof?: string;
   /** Component Yield (componentyield: float) */
-  componentyield?: number;
+  componentyield?: string;
   /** Eligible For Contingent Revenue Handling (contingentrevenuehandling: checkbox) */
   contingentrevenuehandling?: boolean;
   /** Copy SO Descr. (copydescription: checkbox) */
@@ -693,21 +693,21 @@ export interface itemSearchFilter {
   /** Correlated Item (correlateditem: select) */
   correlateditem?: string;
   /** Correlated Item Correlation (correlateditemcorrelation: float) */
-  correlateditemcorrelation?: number;
+  correlateditemcorrelation?: string;
   /** Correlated Item Count (correlateditemcount: integer) */
-  correlateditemcount?: number;
+  correlateditemcount?: string;
   /** Correlated Item Lift (correlateditemlift: float) */
-  correlateditemlift?: number;
+  correlateditemlift?: string;
   /** Correlated Item PurchaseRate (correlateditempurchaserate: float) */
-  correlateditempurchaserate?: number;
+  correlateditempurchaserate?: string;
   /** Purchase Price (cost: currency) */
-  cost?: number;
+  cost?: string;
   /** Cost Accounting Status (costaccountingstatus: select) */
   costaccountingstatus?: string;
   /** Cost Category (costcategory: select) */
   costcategory?: string;
   /** Item Defined Cost (costestimate: float) */
-  costestimate?: number;
+  costestimate?: string;
   /** Cost Estimate Type (costestimatetype: select) */
   costestimatetype?: string;
   /** Costing Method (costingmethod: select) */
@@ -715,25 +715,25 @@ export interface itemSearchFilter {
   /** Manufacturer Country (countryofmanufacture: select) */
   countryofmanufacture?: string;
   /** Date Created (created: datetime) */
-  created?: Date;
+  created?: string;
   /** Create Job (createjob: checkbox) */
   createjob?: boolean;
   /** Create Revenue Plans On (createrevenueplanson: select) */
   createrevenueplanson?: string;
   /** Current Standard Cost (currentstandardcost: currency) */
-  currentstandardcost?: number;
+  currentstandardcost?: string;
   /** Current Standard Cost Effective Date (currentstdcosteffectivedate: date) */
-  currentstdcosteffectivedate?: Date;
+  currentstdcosteffectivedate?: string;
   /** Date Viewed (dateviewed: datetime) */
-  dateviewed?: Date;
+  dateviewed?: string;
   /** Days Before Expiration (daysbeforeexpiration: float) */
-  daysbeforeexpiration?: number;
+  daysbeforeexpiration?: string;
   /** Default Return Cost (defaultreturncost: currency) */
-  defaultreturncost?: number;
+  defaultreturncost?: string;
   /** Hold Revenue Recognition (deferrevrec: checkbox) */
   deferrevrec?: boolean;
   /** Estimated Demand Change (demandmodifier: percent) */
-  demandmodifier?: number;
+  demandmodifier?: string;
   /** Demand Source (demandsource: select) */
   demandsource?: string;
   /** Department (department: select) */
@@ -761,7 +761,7 @@ export interface itemSearchFilter {
   /** Effective BOM Control (effectivebomcontrol: select) */
   effectivebomcontrol?: string;
   /** Effective Date (effectivedate: date) */
-  effectivedate?: Date;
+  effectivedate?: string;
   /** Effective Revision (effectiverevision: select) */
   effectiverevision?: string;
   /** eBay End Auctions When Out of Stock (endauctionswhenoutofstock: checkbox) */
@@ -779,21 +779,21 @@ export interface itemSearchFilter {
   /** Feed Name (feedname: text) */
   feedname?: string;
   /** Fixed Lot Size (fixedlotsize: float) */
-  fixedlotsize?: number;
+  fixedlotsize?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Forward Consumption Days (forwardconsumptiondays: integer) */
-  forwardconsumptiondays?: number;
+  forwardconsumptiondays?: string;
   /** Fraud Risk (fraudrisk: select) */
   fraudrisk?: string;
   /** Google Base Product Feed (froogleproductfeed: checkbox) */
   froogleproductfeed?: boolean;
   /** Purchase Price (Foreign Currency) (fxcost: currency) */
-  fxcost?: number;
+  fxcost?: string;
   /** Generate Accruals (generateaccruals: checkbox) */
   generateaccruals?: boolean;
   /** Gift Certificate Code (giftcertauthcode: text) */
@@ -801,7 +801,7 @@ export interface itemSearchFilter {
   /** Gift Certificate To (Email) (giftcertemail: text) */
   giftcertemail?: string;
   /** Gift Certificate Expiration Date (giftcertexpdate: date) */
-  giftcertexpdate?: Date;
+  giftcertexpdate?: string;
   /** Gift Certificate From (Name) (giftcertfrom: text) */
   giftcertfrom?: string;
   /** Gift Certificate Message (giftcertmsg: text) */
@@ -815,13 +815,13 @@ export interface itemSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inventory Location (inventorylocation: select) */
   inventorylocation?: string;
   /** Inventory Classification (invtclassification: select) */
   invtclassification?: string;
   /** Inventory Count Interval (invtcountinterval: integer) */
-  invtcountinterval?: number;
+  invtcountinterval?: string;
   /** Is Available? (isavailable: checkbox) */
   isavailable?: boolean;
   /** Drop Ship Item (isdropshipitem: checkbox) */
@@ -859,15 +859,15 @@ export interface itemSearchFilter {
   /** Item URL (itemurl: text) */
   itemurl?: string;
   /** Last Inventory Count Date (lastinvtcountdate: date) */
-  lastinvtcountdate?: Date;
+  lastinvtcountdate?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Last Purchase Price (lastpurchaseprice: currency) */
-  lastpurchaseprice?: number;
+  lastpurchaseprice?: string;
   /** Last Quantity Available Change (lastquantityavailablechange: datetime) */
-  lastquantityavailablechange?: Date;
+  lastquantityavailablechange?: string;
   /** Lead Time (leadtime: integer) */
-  leadtime?: number;
+  leadtime?: string;
   /** eBay Duration (listingduration: select) */
   listingduration?: string;
   /** Location (location: select) */
@@ -875,59 +875,59 @@ export interface itemSearchFilter {
   /** Location Allow Store Pickup (locationallowstorepickup: checkbox) */
   locationallowstorepickup?: boolean;
   /** Location ATP Lead Time (locationatpleadtime: float) */
-  locationatpleadtime?: number;
+  locationatpleadtime?: string;
   /** Location Average Cost (locationaveragecost: currency) */
-  locationaveragecost?: number;
+  locationaveragecost?: string;
   /** Location Work Order Lead Time (locationbuildtime: float) */
-  locationbuildtime?: number;
+  locationbuildtime?: string;
   /** Location Standard Cost (locationcost: currency) */
-  locationcost?: number;
+  locationcost?: string;
   /** Location Cost Accounting Status (locationcostaccountingstatus: select) */
   locationcostaccountingstatus?: string;
   /** Location Default Return Cost (locationdefaultreturncost: currency) */
-  locationdefaultreturncost?: number;
+  locationdefaultreturncost?: string;
   /** Location Demand Source (locationdemandsource: select) */
   locationdemandsource?: string;
   /** Location Fixed Lot Size (locationfixedlotsize: float) */
-  locationfixedlotsize?: number;
+  locationfixedlotsize?: string;
   /** Location Inventory Classification (locationinvtclassification: select) */
   locationinvtclassification?: string;
   /** Location Inventory Count Interval (locationinvtcountinterval: integer) */
-  locationinvtcountinterval?: number;
+  locationinvtcountinterval?: string;
   /** Location Last Inventory Count Date (locationlastinvtcountdate: date) */
-  locationlastinvtcountdate?: Date;
+  locationlastinvtcountdate?: string;
   /** Location Lead Time (locationleadtime: integer) */
-  locationleadtime?: number;
+  locationleadtime?: string;
   /** Location Next Inventory Count Date (locationnextinvtcountdate: date) */
-  locationnextinvtcountdate?: Date;
+  locationnextinvtcountdate?: string;
   /** Location Preferred Stock Level (locationpreferredstocklevel: float) */
-  locationpreferredstocklevel?: number;
+  locationpreferredstocklevel?: string;
   /** Location Available for Store Pickup (locationqtyavailforstorepickup: float) */
-  locationqtyavailforstorepickup?: number;
+  locationqtyavailforstorepickup?: string;
   /** Location Available (locationquantityavailable: float) */
-  locationquantityavailable?: number;
+  locationquantityavailable?: string;
   /** Location Back Ordered (locationquantitybackordered: float) */
-  locationquantitybackordered?: number;
+  locationquantitybackordered?: string;
   /** Location Committed (locationquantitycommitted: float) */
-  locationquantitycommitted?: number;
+  locationquantitycommitted?: string;
   /** Location In Transit (locationquantityintransit: float) */
-  locationquantityintransit?: number;
+  locationquantityintransit?: string;
   /** Location On Hand (locationquantityonhand: float) */
-  locationquantityonhand?: number;
+  locationquantityonhand?: string;
   /** Location On Order (locationquantityonorder: float) */
-  locationquantityonorder?: number;
+  locationquantityonorder?: string;
   /** Location Reorder Point (locationreorderpoint: float) */
-  locationreorderpoint?: number;
+  locationreorderpoint?: string;
   /** Location Safety Stock Level (locationsafetystocklevel: float) */
-  locationsafetystocklevel?: number;
+  locationsafetystocklevel?: string;
   /** Location Store Pickup Buffer Stock (locationstorepickupbufferstock: float) */
-  locationstorepickupbufferstock?: number;
+  locationstorepickupbufferstock?: string;
   /** Location Supply Lot Sizing Method (locationsupplylotsizingmethod: select) */
   locationsupplylotsizingmethod?: string;
   /** Location Supply Type (locationsupplytype: select) */
   locationsupplytype?: string;
   /** Location Total Value (locationtotalvalue: currency) */
-  locationtotalvalue?: number;
+  locationtotalvalue?: string;
   /** Manufacturer (manufacturer: text) */
   manufacturer?: string;
   /** Manufacturer Address (manufactureraddr1: text) */
@@ -949,11 +949,11 @@ export interface itemSearchFilter {
   /** Matrix Child Item (matrixchild: checkbox) */
   matrixchild?: boolean;
   /** Maximum Quantity (maximumquantity: integer) */
-  maximumquantity?: number;
+  maximumquantity?: string;
   /** Meta Tag Html (metataghtml: clobtext) */
   metataghtml?: string;
   /** Minimum Quantity (minimumquantity: integer) */
-  minimumquantity?: number;
+  minimumquantity?: string;
   /** MOSS Applies (mossapplies: checkbox) */
   mossapplies?: boolean;
   /** MPN (mpn: text) */
@@ -965,21 +965,21 @@ export interface itemSearchFilter {
   /** NexTag Product Feed (nextagproductfeed: checkbox) */
   nextagproductfeed?: boolean;
   /** Next Inventory Count Date (nextinvtcountdate: date) */
-  nextinvtcountdate?: Date;
+  nextinvtcountdate?: string;
   /** eBay Active Listings (numactivelistings: integer) */
-  numactivelistings?: number;
+  numactivelistings?: string;
   /** Number of Allowed Downloads (numberalloweddownloads: float) */
-  numberalloweddownloads?: number;
+  numberalloweddownloads?: string;
   /** eBay Quantity Currently Listed (numcurrentlylisted: integer) */
-  numcurrentlylisted?: number;
+  numcurrentlylisted?: string;
   /** Obsolete Date (obsoletedate: date) */
-  obsoletedate?: Date;
+  obsoletedate?: string;
   /** Obsolete Revision (obsoleterevision: select) */
   obsoleterevision?: string;
   /** Offer Support (offersupport: checkbox) */
   offersupport?: boolean;
   /** Online Customer Price (onlinecustomerprice: currency) */
-  onlinecustomerprice?: number;
+  onlinecustomerprice?: string;
   /** On Special (onspecial: checkbox) */
   onspecial?: boolean;
   /** Vendor (othervendor: select) */
@@ -999,57 +999,57 @@ export interface itemSearchFilter {
   /** Preferred Location (preferredlocation: select) */
   preferredlocation?: string;
   /** Preferred Stock Level (preferredstocklevel: float) */
-  preferredstocklevel?: number;
+  preferredstocklevel?: string;
   /** Preferred Stock Level Days (preferredstockleveldays: integer) */
-  preferredstockleveldays?: number;
+  preferredstockleveldays?: string;
   /** Sales Price (price: currency) */
-  price?: number;
+  price?: string;
   /** Prices Include Tax (pricesincludetax: checkbox) */
   pricesincludetax?: boolean;
   /** Pricing Group (pricinggroup: select) */
   pricinggroup?: string;
   /** eBay Category Id (primarycategory: integer) */
-  primarycategory?: number;
+  primarycategory?: string;
   /** Vendor Bill - Purchase Order Amount Tolerance (purchaseorderamount: float) */
-  purchaseorderamount?: number;
+  purchaseorderamount?: string;
   /** Vendor Bill - Purchase Order Quantity Tolerance (purchaseorderquantity: float) */
-  purchaseorderquantity?: number;
+  purchaseorderquantity?: string;
   /** Vendor Bill - Purchase Order Quantity Difference (purchaseorderquantitydiff: float) */
-  purchaseorderquantitydiff?: number;
+  purchaseorderquantitydiff?: string;
   /** Purchase Unit (purchaseunit: select) */
   purchaseunit?: string;
   /** Available (quantityavailable: float) */
-  quantityavailable?: number;
+  quantityavailable?: string;
   /** Back Ordered (quantitybackordered: float) */
-  quantitybackordered?: number;
+  quantitybackordered?: string;
   /** Committed (quantitycommitted: float) */
-  quantitycommitted?: number;
+  quantitycommitted?: string;
   /** On Hand (quantityonhand: float) */
-  quantityonhand?: number;
+  quantityonhand?: string;
   /** On Order (quantityonorder: float) */
-  quantityonorder?: number;
+  quantityonorder?: string;
   /** Qty. Pricing Schedule (quantitypricingschedule: select) */
   quantitypricingschedule?: string;
   /** Vendor Bill - Item Receipt Amount Tolerance (receiptamount: float) */
-  receiptamount?: number;
+  receiptamount?: string;
   /** Vendor Bill - Item Receipt Quantity Tolerance (receiptquantity: float) */
-  receiptquantity?: number;
+  receiptquantity?: string;
   /** Vendor Bill - Item Receipt Quantity Difference (receiptquantitydiff: float) */
-  receiptquantitydiff?: number;
+  receiptquantitydiff?: string;
   /** Reorder Multiple (reordermultiple: integer) */
-  reordermultiple?: number;
+  reordermultiple?: string;
   /** Reorder Point (reorderpoint: float) */
-  reorderpoint?: number;
+  reorderpoint?: string;
   /** eBay Reserve Price (reserveprice: currency) */
-  reserveprice?: number;
+  reserveprice?: string;
   /** Rev Rec Forecast Rule (revrecforecastrule: select) */
   revrecforecastrule?: string;
   /** Rev. Rec. Schedule (revrecschedule: select) */
   revrecschedule?: string;
   /** Safety Stock Level (safetystocklevel: float) */
-  safetystocklevel?: number;
+  safetystocklevel?: string;
   /** Safety Stock Level Days (safetystockleveldays: integer) */
-  safetystockleveldays?: number;
+  safetystockleveldays?: string;
   /** Description (salesdescription: text) */
   salesdescription?: string;
   /** Sale Unit (saleunit: select) */
@@ -1079,21 +1079,21 @@ export interface itemSearchFilter {
   /** Shipping Package (shippackage: select) */
   shippackage?: string;
   /** Shipping Rate (shippingrate: currency) */
-  shippingrate?: number;
+  shippingrate?: string;
   /** Shopping Category (shoppingdotcomcategory: text) */
   shoppingdotcomcategory?: string;
   /** Shopping Product Feed (shoppingproductfeed: checkbox) */
   shoppingproductfeed?: boolean;
   /** Shopzilla Category Id (shopzillacategoryid: integer) */
-  shopzillacategoryid?: number;
+  shopzillacategoryid?: string;
   /** Shopzilla Product Feed (shopzillaproductfeed: checkbox) */
   shopzillaproductfeed?: boolean;
   /** Sitemap Priority (sitemappriority: float) */
-  sitemappriority?: number;
+  sitemappriority?: string;
   /** Soft Descriptor (softdescriptor: select) */
   softdescriptor?: string;
   /** eBay Starting Price (startingprice: currency) */
-  startingprice?: number;
+  startingprice?: string;
   /** Stock Description (stockdescription: text) */
   stockdescription?: string;
   /** Stock Unit (stockunit: select) */
@@ -1117,11 +1117,11 @@ export interface itemSearchFilter {
   /** Thumbnail URL (thumbnailurl: text) */
   thumbnailurl?: string;
   /** Total Value (totalvalue: currency) */
-  totalvalue?: number;
+  totalvalue?: string;
   /** Track Landed Cost (tracklandedcost: checkbox) */
   tracklandedcost?: boolean;
   /** Transfer Price (transferprice: float) */
-  transferprice?: number;
+  transferprice?: string;
   /** Type (type: select) */
   type?: string;
   /** Units Type (unitstype: select) */
@@ -1141,9 +1141,9 @@ export interface itemSearchFilter {
   /** Vendor Code (vendorcode: text) */
   vendorcode?: string;
   /** Vendor Price (vendorcost: currency) */
-  vendorcost?: number;
+  vendorcost?: string;
   /** Vendor Price (Entered) (vendorcostentered: currency) */
-  vendorcostentered?: number;
+  vendorcostentered?: string;
   /** Vendor Name (vendorname: text) */
   vendorname?: string;
   /** Vendor Price Currency (vendorpricecurrency: select) */
@@ -1155,13 +1155,13 @@ export interface itemSearchFilter {
   /** Permit Discount (vsoepermitdiscount: select) */
   vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: float) */
-  vsoeprice?: number;
+  vsoeprice?: string;
   /** Allocation Type (vsoesopgroup: select) */
   vsoesopgroup?: string;
   /** Web Site (website: select) */
   website?: string;
   /** Weight (weight: float) */
-  weight?: number;
+  weight?: string;
   /** Yahoo Shopping Product Feed (yahooproductfeed: checkbox) */
   yahooproductfeed?: boolean;
 }

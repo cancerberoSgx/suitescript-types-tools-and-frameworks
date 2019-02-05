@@ -1,6 +1,5 @@
 /** Field Search Operator Support type definitions,. */
-export interface SearchTypesOperatorsSupport {
-  text?: 'contains' | 'doesNotContain' | 'doesNotStartWith' | 'empty' | 'hasKeywords' | 'is' | 'isNot' | 'notEmpty' | 'startsWith';
+export interface SearchTypesOperatorsSupport {text?: 'contains' | 'doesNotContain' | 'doesNotStartWith' | 'empty' | 'hasKeywords' | 'is' | 'isNot' | 'notEmpty' | 'startsWith';
   integer?: 'between' | 'empty' | 'equalTo' | 'greaterThan' | 'greaterThanOrEqualTo' | 'lessThan' | 'lessThanOrEqualTo' | 'notBetween' | 'notEmpty' | 'notEqualTo' | 'notGreaterThan' | 'notGreaterThanOrEqualTo' | 'notLessThan' | 'notLessThanOrEqualTo';
   checkbox?: 'equalTo' | 'is';
   date?: 'after' | 'before' | 'isEmpty' | 'isNotEmpty' | 'notAfter' | 'notBefore' | 'notOnOrAfter' | 'notOnOrBefore' | 'notWithin' | 'on' | 'onOrAfter' | 'onOrBefore' | 'within';
@@ -15,6 +14,4 @@ export interface SearchTypesOperatorsSupport {
   percent?: 'between' | 'empty' | 'equalTo' | 'greaterThan' | 'greaterThanOrEqualTo' | 'lessThan' | 'lessThanOrEqualTo' | 'notBetween' | 'notEmpty' | 'notEqualTo' | 'notGreaterThan' | 'notGreaterThanOrEqualTo' | 'notLessThan' | 'notLessThanOrEqualTo';
   currency2?: 'between' | 'empty' | 'equalTo' | 'greaterThan' | 'greaterThanOrEqualTo' | 'lessThan' | 'lessThanOrEqualTo' | 'notBetween' | 'notEmpty' | 'notEqualTo' | 'notGreaterThan' | 'notGreaterThanOrEqualTo' | 'notLessThan' | 'notLessThanOrEqualTo';
   multiselect?: 'allOf' | 'anyOf' | 'noneOf' | 'notAllOf';
-  
-  clobtext: 'contains' | 'doesNotContain' | 'doesNotStartWith' | 'empty' | 'hasKeywords' | 'is' | 'isNot' | 'notEmpty' | 'startsWith';
 }

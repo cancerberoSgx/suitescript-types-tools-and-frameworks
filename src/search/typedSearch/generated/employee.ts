@@ -12,7 +12,7 @@ export interface employeeSearchColumn {
   /** Addressee (addressee: text) */
       addressee?: string;
   /** Address Internal ID (addressinternalid: integer) */
-      addressinternalid?: number;
+      addressinternalid?: string;
   /** Address Label (addresslabel: text) */
       addresslabel?: string;
   /** Address Phone (addressphone: text) */
@@ -20,7 +20,7 @@ export interface employeeSearchColumn {
   /** Alien # (aliennumber: text) */
       aliennumber?: string;
   /** Allocated Position FTE (allocation: float) */
-      allocation?: number;
+      allocation?: string;
   /** Alt. Email (altemail: email) */
       altemail?: string;
   /** Name (altname: text) */
@@ -28,15 +28,15 @@ export interface employeeSearchColumn {
   /** Office Phone (altphone: phone) */
       altphone?: string;
   /** Expense Approval Limit (approvallimit: currency) */
-      approvallimit?: number;
+      approvallimit?: string;
   /** Expense Approver (approver: select) */
       approver?: string;
   /** Attention (attention: text) */
       attention?: string;
   /** Authorized to work until date (authworkdate: date) */
-      authworkdate?: Date;
+      authworkdate?: string;
   /** Base Wage (basewage: currency) */
-      basewage?: number;
+      basewage?: string;
   /** Base Wage Type (basewagetype: select) */
       basewagetype?: string;
   /** Billing Country Code (billcountrycode: text) */
@@ -46,9 +46,9 @@ export interface employeeSearchColumn {
   /** Billing Zip (billzipcode: text) */
       billzipcode?: string;
   /** Birth Date (birthdate: date) */
-      birthdate?: Date;
+      birthdate?: string;
   /** Birth Day (birthday: date) */
-      birthday?: Date;
+      birthday?: string;
   /** City (city: text) */
       city?: string;
   /** Class (class: select) */
@@ -66,7 +66,7 @@ export interface employeeSearchColumn {
   /** Country Code (countrycode: text) */
       countrycode?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Department (department: select) */
       department?: string;
   /** Department (no hierarchy) (departmentnohierarchy: select) */
@@ -82,11 +82,11 @@ export interface employeeSearchColumn {
   /** Name (entityid: text) */
       entityid?: string;
   /** Number (entitynumber: integer) */
-      entitynumber?: number;
+      entitynumber?: string;
   /** Ethnicity (ethnicity: select) */
       ethnicity?: string;
   /** Expense Limit (expenselimit: currency) */
-      expenselimit?: number;
+      expenselimit?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Fax (fax: text) */
@@ -94,15 +94,15 @@ export interface employeeSearchColumn {
   /** First Name (firstname: text) */
       firstname?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Gender (gender: select) */
@@ -112,7 +112,7 @@ export interface employeeSearchColumn {
   /** Global Subscription Status (globalsubscriptionstatus: select) */
       globalsubscriptionstatus?: string;
   /** Hire Date (hiredate: date) */
-      hiredate?: Date;
+      hiredate?: string;
   /** Home Phone (homephone: phone) */
       homephone?: string;
   /** I9 Verified (i9verified: checkbox) */
@@ -138,19 +138,19 @@ export interface employeeSearchColumn {
   /** Job (job: select) */
       job?: string;
   /** Labor Cost (laborcost: currency) */
-      laborcost?: number;
+      laborcost?: string;
   /** Language (language: select) */
       language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Name (lastname: text) */
       lastname?: string;
   /** Last Paid Date (lastpaiddate: date) */
-      lastpaiddate?: Date;
+      lastpaiddate?: string;
   /** Last Review (lastreviewdate: date) */
-      lastreviewdate?: Date;
+      lastreviewdate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Level (level: select) */
       level?: string;
   /** Location (location: select) */
@@ -164,13 +164,13 @@ export interface employeeSearchColumn {
   /** Mobile Phone (mobilephone: phone) */
       mobilephone?: string;
   /** Next Review (nextreviewdate: date) */
-      nextreviewdate?: Date;
+      nextreviewdate?: string;
   /** Offline Access (offlineaccess: checkbox) */
       offlineaccess?: boolean;
   /** Pay Frequency (payfrequency: select) */
       payfrequency?: string;
   /** Permission Change Date (permchangedate: datetime) */
-      permchangedate?: Date;
+      permchangedate?: string;
   /** Permission Change Level (permchangelevel: text) */
       permchangelevel?: string;
   /** Permission (permission: select) */
@@ -184,19 +184,19 @@ export interface employeeSearchColumn {
   /** Position Title (positiontitle: text) */
       positiontitle?: string;
   /** Primary Earning Amount (primaryearningamount: currency) */
-      primaryearningamount?: number;
+      primaryearningamount?: string;
   /** Primary Earning Item (primaryearningitem: text) */
       primaryearningitem?: string;
   /** Primary Earning Type (primaryearningtype: text) */
       primaryearningtype?: string;
   /** Purchase Approval Limit (purchaseorderapprovallimit: currency) */
-      purchaseorderapprovallimit?: number;
+      purchaseorderapprovallimit?: string;
   /** Purchase Approver (purchaseorderapprover: select) */
       purchaseorderapprover?: string;
   /** Purchase Limit (purchaseorderlimit: currency) */
-      purchaseorderlimit?: number;
+      purchaseorderlimit?: string;
   /** Release Date (releasedate: date) */
-      releasedate?: Date;
+      releasedate?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
       representingsubsidiary?: string;
   /** Resident Status (residentstatus: select) */
@@ -208,7 +208,7 @@ export interface employeeSearchColumn {
   /** Role Change Action (rolechangeaction: text) */
       rolechangeaction?: string;
   /** Role Change Date (rolechangedate: datetime) */
-      rolechangedate?: Date;
+      rolechangedate?: string;
   /** Sales Role (salesrole: select) */
       salesrole?: string;
   /** Mr./Mrs... (salutation: text) */
@@ -218,7 +218,7 @@ export interface employeeSearchColumn {
   /** Social Security # (socialsecuritynumber: ssnumber) */
       socialsecuritynumber?: string;
   /** Start Date for Time-Off Calculations (startdatetimeoffcalc: date) */
-      startdatetimeoffcalc?: Date;
+      startdatetimeoffcalc?: string;
   /** State/Province (state: select) */
       state?: string;
   /** State/Province Display Name (statedisplayname: select) */
@@ -226,7 +226,7 @@ export interface employeeSearchColumn {
   /** Subscription (subscription: select) */
       subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-      subscriptiondate?: Date;
+      subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
       subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -254,7 +254,7 @@ export interface employeeSearchColumn {
   /** Use Time Data (usetimedata: checkbox) */
       usetimedata?: boolean;
   /** Visa Expiration Date (visaexpdate: date) */
-      visaexpdate?: Date;
+      visaexpdate?: string;
   /** Visa Type (visatype: select) */
       visatype?: string;
   /** Work Calendar (workcalendar: select) */
@@ -281,27 +281,27 @@ export interface employeeSearchFilter {
   /** Alien Number (aliennumber: text) */
   aliennumber?: string;
   /** Allocation (allocation: percent) */
-  allocation?: number;
+  allocation?: string;
   /** Anniversary (anniversary: date) */
-  anniversary?: Date;
+  anniversary?: string;
   /** Expense Approval Limit (approvallimit: currency) */
-  approvallimit?: number;
+  approvallimit?: string;
   /** Expense Approver (approver: select) */
   approver?: string;
   /** Attention (attention: text) */
   attention?: string;
   /** Authorized to work until date (authworkdate: date) */
-  authworkdate?: Date;
+  authworkdate?: string;
   /** Base Wage (basewage: currency) */
-  basewage?: number;
+  basewage?: string;
   /** Base Wage Type (basewagetype: select) */
   basewagetype?: string;
   /** Billing Class (billingclass: select) */
   billingclass?: string;
   /** Birth Date (birthdate: date) */
-  birthdate?: Date;
+  birthdate?: string;
   /** Birthday (birthday: date) */
-  birthday?: Date;
+  birthday?: string;
   /** Company Contribution (ccontribution: select) */
   ccontribution?: string;
   /** City (city: text) */
@@ -321,7 +321,7 @@ export interface employeeSearchFilter {
   /** County/State (county: text) */
   county?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Deduction (deduction: select) */
   deduction?: string;
   /** Department (department: select) */
@@ -345,7 +345,7 @@ export interface employeeSearchFilter {
   /** Ethnicity (ethnicity: select) */
   ethnicity?: string;
   /** Expense Limit (expenselimit: currency) */
-  expenselimit?: number;
+  expenselimit?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -355,9 +355,9 @@ export interface employeeSearchFilter {
   /** First Name (firstname: text) */
   firstname?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Gender (gender: checkbox) */
@@ -367,9 +367,9 @@ export interface employeeSearchFilter {
   /** Global Subscription Status (globalsubscriptionstatus: select) */
   globalsubscriptionstatus?: string;
   /** Group (group: multiselect) */
-  group?: number;
+  group?: string;
   /** Hire Date (hiredate: date) */
-  hiredate?: Date;
+  hiredate?: string;
   /** I9 Verified (i9verified: checkbox) */
   i9verified?: boolean;
   /** Image (image: image) */
@@ -377,7 +377,7 @@ export interface employeeSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Default Billing Address (isdefaultbilling: checkbox) */
   isdefaultbilling?: boolean;
   /** Default Shipping Address (isdefaultshipping: checkbox) */
@@ -393,17 +393,17 @@ export interface employeeSearchFilter {
   /** Job Description (jobdescription: text) */
   jobdescription?: string;
   /** Labor Cost (laborcost: currency) */
-  laborcost?: number;
+  laborcost?: string;
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Last Name (lastname: text) */
   lastname?: string;
   /** Last Paid Date (lastpaiddate: date) */
-  lastpaiddate?: Date;
+  lastpaiddate?: string;
   /** Last Review Date (lastreviewdate: date) */
-  lastreviewdate?: Date;
+  lastreviewdate?: string;
   /** Level (level: select) */
   level?: string;
   /** Location (location: select) */
@@ -413,13 +413,13 @@ export interface employeeSearchFilter {
   /** Middle Name (middlename: text) */
   middlename?: string;
   /** Next Review Date (nextreviewdate: date) */
-  nextreviewdate?: Date;
+  nextreviewdate?: string;
   /** Offline Access (offlineaccess: checkbox) */
   offlineaccess?: boolean;
   /** Pay Frequency (payfrequency: select) */
   payfrequency?: string;
   /** Permission Change Date (permchangedate: datetime) */
-  permchangedate?: Date;
+  permchangedate?: string;
   /** Permission (permission: select) */
   permission?: string;
   /** Permission Change (permissionchange: select) */
@@ -431,19 +431,19 @@ export interface employeeSearchFilter {
   /** Position Title (positiontitle: select) */
   positiontitle?: string;
   /** Primary Earning Amount (primaryearningamount: currency) */
-  primaryearningamount?: number;
+  primaryearningamount?: string;
   /** Primary Earning Item (primaryearningitem: text) */
   primaryearningitem?: string;
   /** Primary Earning Type (primaryearningtype: text) */
   primaryearningtype?: string;
   /** Purchase Approval Limit (purchaseorderapprovallimit: currency) */
-  purchaseorderapprovallimit?: number;
+  purchaseorderapprovallimit?: string;
   /** Purchase Approver (purchaseorderapprover: select) */
   purchaseorderapprover?: string;
   /** Purchase Limit (purchaseorderlimit: currency) */
-  purchaseorderlimit?: number;
+  purchaseorderlimit?: string;
   /** Release Date (releasedate: date) */
-  releasedate?: Date;
+  releasedate?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
   representingsubsidiary?: string;
   /** Resident Status (residentstatus: select) */
@@ -453,7 +453,7 @@ export interface employeeSearchFilter {
   /** Role Change (rolechange: select) */
   rolechange?: string;
   /** Role Change Date (rolechangedate: datetime) */
-  rolechangedate?: Date;
+  rolechangedate?: string;
   /** Is Sales Rep (salesrep: checkbox) */
   salesrep?: boolean;
   /** Sales Role (salesrole: select) */
@@ -463,7 +463,7 @@ export interface employeeSearchFilter {
   /** Social Security Number (socialsecuritynumber: ssnumber) */
   socialsecuritynumber?: string;
   /** Start Date for Time-Off Calculations (startdatetimeoffcalc: date) */
-  startdatetimeoffcalc?: Date;
+  startdatetimeoffcalc?: string;
   /** State/Province (state: select) */
   state?: string;
   /** Subsidiary (subsidiary: select) */
@@ -491,7 +491,7 @@ export interface employeeSearchFilter {
   /** Use Time Data (usetimedata: checkbox) */
   usetimedata?: boolean;
   /** Visa Expiration Date (visaexpdate: date) */
-  visaexpdate?: Date;
+  visaexpdate?: string;
   /** Visa Type (visatype: select) */
   visatype?: string;
   /** Withholding (withholding: select) */

@@ -12,37 +12,37 @@ export interface calendareventSearchColumn {
   /** Company (company: select) */
       company?: string;
   /** Date Completed (completeddate: date) */
-      completeddate?: Date;
+      completeddate?: string;
   /** Contact (contact: select) */
       contact?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** End Time (endtime: timeofday) */
       endtime?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Instance End (instanceend: datetime) */
-      instanceend?: Date;
+      instanceend?: string;
   /** Instance Start (instancestart: datetime) */
-      instancestart?: Date;
+      instancestart?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Location (location: text) */
       location?: string;
   /** Mark (markdone: text) */
@@ -60,7 +60,7 @@ export interface calendareventSearchColumn {
   /** Response (response: select) */
       response?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Start Time (starttime: timeofday) */
       starttime?: string;
   /** Status (status: select) */
@@ -83,29 +83,29 @@ export interface calendareventSearchFilter {
   /** Calendar (calendar: select) */
   calendar?: string;
   /** Date Completed (completeddate: date) */
-  completeddate?: Date;
+  completeddate?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Instance Start (instancestart: datetime) */
-  instancestart?: Date;
+  instancestart?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** When (isupcomingevent: checkbox) */
   isupcomingevent?: boolean;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Location (location: text) */
   location?: string;
   /** Message (message: textarea) */
@@ -117,7 +117,7 @@ export interface calendareventSearchFilter {
   /** Response (response: select) */
   response?: string;
   /** Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Title (title: text) */

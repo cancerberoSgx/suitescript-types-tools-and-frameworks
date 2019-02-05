@@ -67,7 +67,7 @@ export interface addressSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Override (override: checkbox) */
   override?: boolean;
   /** Address Phone (phone: text) */

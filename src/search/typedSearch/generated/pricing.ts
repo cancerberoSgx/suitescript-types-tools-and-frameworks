@@ -14,9 +14,9 @@ export interface pricingSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Maximum Quantity (maximumquantity: float) */
-      maximumquantity?: number;
+      maximumquantity?: string;
   /** Minimum Quantity (minimumquantity: float) */
-      minimumquantity?: number;
+      minimumquantity?: string;
   /** Price Level (pricelevel: select) */
       pricelevel?: string;
   /** Quantity Range (quantityrange: text) */
@@ -24,7 +24,7 @@ export interface pricingSearchColumn {
   /** Sale Unit (saleunit: select) */
       saleunit?: string;
   /** Unit Price (unitprice: currency2) */
-      unitprice?: number;
+      unitprice?: string;
 }
 
 
@@ -41,13 +41,13 @@ export interface pricingSearchFilter {
   /** Item (item: select) */
   item?: string;
   /** Maximum Quantity (maximumquantity: float) */
-  maximumquantity?: number;
+  maximumquantity?: string;
   /** Minimum Quantity (minimumquantity: float) */
-  minimumquantity?: number;
+  minimumquantity?: string;
   /** Price Level (pricelevel: select) */
   pricelevel?: string;
   /** Rate (rate: currency) */
-  rate?: number;
+  rate?: string;
 }
 
 

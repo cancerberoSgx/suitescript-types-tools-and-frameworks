@@ -8,11 +8,11 @@ export interface subscriptionlineSearchColumn {
   /** Billing Mode (billingmode: select) */
       billingmode?: string;
   /** Discount (discount: percent) */
-      discount?: number;
+      discount?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Estimated Revenue Recognition End Date (estimatedrevrecenddate: date) */
-      estimatedrevrecenddate?: Date;
+      estimatedrevrecenddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Include In Renewal Subscription (includeinrenewal: checkbox) */
@@ -22,19 +22,19 @@ export interface subscriptionlineSearchColumn {
   /** Item (item: select) */
       item?: string;
   /** Line Number (linenumber: integer) */
-      linenumber?: number;
+      linenumber?: string;
   /** Prorate End Date (prorateenddate: checkbox) */
       prorateenddate?: boolean;
   /** Prorate Start Date (proratestartdate: checkbox) */
       proratestartdate?: boolean;
   /** Quantity (quantity: float) */
-      quantity?: number;
+      quantity?: string;
   /** Recurrence Start Date (recurrencestartdate: date) */
-      recurrencestartdate?: Date;
+      recurrencestartdate?: string;
   /** Revenue Recognition Option (revrecoption: select) */
       revrecoption?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Status (status: select) */
       status?: string;
   /** Subscription (subscription: select) */
@@ -46,11 +46,11 @@ export interface subscriptionlineSearchColumn {
   /** Subscription Plan Line (subscriptionplanline: select) */
       subscriptionplanline?: string;
   /** Subscription Plan Line Id (subscriptionplanlineid: integer) */
-      subscriptionplanlineid?: number;
+      subscriptionplanlineid?: string;
   /** Termination Date (terminationdate: date) */
-      terminationdate?: Date;
+      terminationdate?: string;
   /** Total (total: currency) */
-      total?: number;
+      total?: string;
   /** Included Quantity Multiplier Line (usagemultiplierline: select) */
       usagemultiplierline?: string;
   /** View (view: text) */
@@ -65,11 +65,11 @@ export interface subscriptionlineSearchFilter {
 /** Billing Mode (billingmode: select) */
   billingmode?: string;
   /** Discount (discount: percent) */
-  discount?: number;
+  discount?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Estimated Revenue Recognition End Date (estimatedrevrecenddate: date) */
-  estimatedrevrecenddate?: Date;
+  estimatedrevrecenddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -79,23 +79,23 @@ export interface subscriptionlineSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item (item: select) */
   item?: string;
   /** Line Number (linenumber: integer) */
-  linenumber?: number;
+  linenumber?: string;
   /** Prorate End Date (prorateenddate: checkbox) */
   prorateenddate?: boolean;
   /** Prorate Start Date (proratestartdate: checkbox) */
   proratestartdate?: boolean;
   /** Quantity (quantity: float) */
-  quantity?: number;
+  quantity?: string;
   /** Recurrence Start Date (recurrencestartdate: date) */
-  recurrencestartdate?: Date;
+  recurrencestartdate?: string;
   /** Revenue Recognition Option (revrecoption: select) */
   revrecoption?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Subscription (subscription: select) */
@@ -107,9 +107,9 @@ export interface subscriptionlineSearchFilter {
   /** Subscription Plan Line (subscriptionplanline: select) */
   subscriptionplanline?: string;
   /** Termination Date (terminationdate: date) */
-  terminationdate?: Date;
+  terminationdate?: string;
   /** Total (total: currency) */
-  total?: number;
+  total?: string;
   /** Included Quantity Multiplier Line (usagemultiplierline: select) */
   usagemultiplierline?: string;
 }

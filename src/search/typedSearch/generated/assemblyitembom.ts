@@ -8,15 +8,15 @@ export interface assemblyitembomSearchColumn {
   /** Assembly (assembly: select) */
       assembly?: string;
   /** Assembly ID (assemblyid: integer) */
-      assemblyid?: number;
+      assemblyid?: string;
   /** Bill of Materials (billofmaterials: select) */
       billofmaterials?: string;
   /** Bill of Materials ID (billofmaterialsid: integer) */
-      billofmaterialsid?: number;
+      billofmaterialsid?: string;
   /** Default (default: checkbox) */
       default?: boolean;
   /** Locations (locations: multiselect) */
-      locations?: number;
+      locations?: string;
 }
 
 
@@ -31,7 +31,7 @@ export interface assemblyitembomSearchFilter {
   /** Default (default: checkbox) */
   default?: boolean;
   /** Locations (locations: multiselect) */
-  locations?: number;
+  locations?: string;
 }
 
 

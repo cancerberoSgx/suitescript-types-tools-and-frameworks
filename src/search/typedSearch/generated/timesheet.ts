@@ -10,27 +10,27 @@ export interface timesheetSearchColumn {
   /** Employee (employee: select) */
       employee?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** ID (id: integer) */
-      id?: number;
+      id?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Total Hours (totalhours: text) */
       totalhours?: string;
 }
@@ -49,21 +49,21 @@ export interface timesheetSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** ID (id: integer) */
-  id?: number;
+  id?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Timesheet Date (timesheetdate: date) */
-  timesheetdate?: Date;
+  timesheetdate?: string;
   /** Total Hours (totalhours: float) */
-  totalhours?: number;
+  totalhours?: string;
 }
 
 

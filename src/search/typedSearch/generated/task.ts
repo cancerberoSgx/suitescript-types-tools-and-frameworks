@@ -8,35 +8,35 @@ export interface taskSearchColumn {
   /** Private (accesslevel: text) */
       accesslevel?: string;
   /** Actual Work (actualtime: float) */
-      actualtime?: number;
+      actualtime?: string;
   /** Assigned To (assigned: select) */
       assigned?: string;
   /** Company (company: select) */
       company?: string;
   /** Date Completed (completeddate: date) */
-      completeddate?: Date;
+      completeddate?: string;
   /** Contact (contact: select) */
       contact?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** Due Date (duedate: date) */
-      duedate?: Date;
+      duedate?: string;
   /** Initial Time Budget (estimatedtime: float) */
-      estimatedtime?: number;
+      estimatedtime?: string;
   /** Current Time Budget (estimatedtimeoverride: float) */
-      estimatedtimeoverride?: number;
+      estimatedtimeoverride?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -46,9 +46,9 @@ export interface taskSearchColumn {
   /** Is Job Task (isjobtask: checkbox) */
       isjobtask?: boolean;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Mark (markdone: text) */
       markdone?: string;
   /** Comment (message: text) */
@@ -56,23 +56,23 @@ export interface taskSearchColumn {
   /** Milestone (milestone: select) */
       milestone?: string;
   /** Insert (order: integer) */
-      order?: number;
+      order?: string;
   /** Created By (owner: select) */
       owner?: string;
   /** Pct Complete (percentcomplete: percent) */
-      percentcomplete?: number;
+      percentcomplete?: string;
   /** Percent Time Complete (percenttimecomplete: percent) */
-      percenttimecomplete?: number;
+      percenttimecomplete?: string;
   /** Priority (priority: select) */
       priority?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Start Time (starttime: timeofday) */
       starttime?: string;
   /** Status (status: select) */
       status?: string;
   /** Remaining Work (timeremaining: float) */
-      timeremaining?: number;
+      timeremaining?: string;
   /** Task Title (title: text) */
       title?: string;
   /** Transaction (transaction: select) */
@@ -85,37 +85,37 @@ export interface taskSearchColumn {
 /** Task (task) Search Filters definition */
 export interface taskSearchFilter {
 /** Actual Work (actualtime: float) */
-  actualtime?: number;
+  actualtime?: string;
   /** Assigned To (assigned: select) */
   assigned?: string;
   /** Company (company: select) */
   company?: string;
   /** Date Completed (completeddate: date) */
-  completeddate?: Date;
+  completeddate?: string;
   /** Contact (contact: select) */
   contact?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** Due date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Initial Time Budget (estimatedtime: float) */
-  estimatedtime?: number;
+  estimatedtime?: string;
   /** Current Time Budget (estimatedtimeoverride: float) */
-  estimatedtimeoverride?: number;
+  estimatedtimeoverride?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is Job Summary Task (isjobsummarytask: checkbox) */
   isjobsummarytask?: boolean;
   /** Is Job Task (isjobtask: checkbox) */
@@ -123,23 +123,23 @@ export interface taskSearchFilter {
   /** Is Private (isprivate: checkbox) */
   isprivate?: boolean;
   /** Last Modified Date (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Milestone (milestone: integer) */
-  milestone?: number;
+  milestone?: string;
   /** Created By (owner: select) */
   owner?: string;
   /** Percent Complete (percentcomplete: integer) */
-  percentcomplete?: number;
+  percentcomplete?: string;
   /** Percent Time Complete (percenttimecomplete: integer) */
-  percenttimecomplete?: number;
+  percenttimecomplete?: string;
   /** Priority (priority: select) */
   priority?: string;
   /** Start date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Remaining Work (timeremaining: float) */
-  timeremaining?: number;
+  timeremaining?: string;
   /** Title (title: text) */
   title?: string;
 }

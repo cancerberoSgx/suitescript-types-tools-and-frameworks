@@ -8,15 +8,15 @@ export interface payrollbatchSearchColumn {
   /** Batch Number (batchnumber: text) */
       batchnumber?: string;
   /** Check Date (checkdate: date) */
-      checkdate?: Date;
+      checkdate?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Pay frequency (payfrequency: text) */
       payfrequency?: string;
   /** Period Ending Date (periodending: date) */
-      periodending?: Date;
+      periodending?: string;
   /** Status (status: text) */
       status?: string;
   /** Subsidiary (subsidiary: text) */
@@ -31,19 +31,19 @@ export interface payrollbatchSearchColumn {
 /** Payroll Batch (payrollbatch) Search Filters definition */
 export interface payrollbatchSearchFilter {
 /** Batch Number (batchnumber: integer) */
-  batchnumber?: number;
+  batchnumber?: string;
   /** Check Date (checkdate: date) */
-  checkdate?: Date;
+  checkdate?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Pay Frequency (payfrequency: text) */
   payfrequency?: string;
   /** Period Ending Date (periodending: date) */
-  periodending?: Date;
+  periodending?: string;
   /** Status (status: select) */
   status?: string;
   /** Subsidiary (subsidiary: select) */

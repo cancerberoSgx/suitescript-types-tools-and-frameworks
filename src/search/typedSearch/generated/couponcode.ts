@@ -8,21 +8,21 @@ export interface couponcodeSearchColumn {
   /** Code (code: text) */
       code?: string;
   /** Date Sent (datesent: date) */
-      datesent?: Date;
+      datesent?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** ID (id: integer) */
-      id?: number;
+      id?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Promotion (promotion: text) */
@@ -30,7 +30,7 @@ export interface couponcodeSearchColumn {
   /** Recipient (recipient: text) */
       recipient?: string;
   /** Use Count (usecount: integer) */
-      usecount?: number;
+      usecount?: string;
   /** Used (used: checkbox) */
       used?: boolean;
 }
@@ -43,25 +43,25 @@ export interface couponcodeSearchFilter {
 /** CODE (code: text) */
   code?: string;
   /** Date Sent (datesent: date) */
-  datesent?: Date;
+  datesent?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** ID (id: integer) */
-  id?: number;
+  id?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Promotion (promotion: select) */
   promotion?: string;
   /** Recipient (recipient: select) */
   recipient?: string;
   /** Use Count (usecount: integer) */
-  usecount?: number;
+  usecount?: string;
   /** Used (used: checkbox) */
   used?: boolean;
 }

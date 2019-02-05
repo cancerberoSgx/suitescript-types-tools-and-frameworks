@@ -35,7 +35,7 @@ export interface inventorystatusSearchFilter {
   /** Internal Id (internalid: select) */
   internalid?: string;
   /** Internal Id (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Make Inventory Available (inventoryavailable: checkbox) */
   inventoryavailable?: boolean;
   /** Inactive (isinactive: checkbox) */

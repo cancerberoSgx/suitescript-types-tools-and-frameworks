@@ -18,7 +18,7 @@ export interface originatingleadSearchColumn {
   /** Addressee (addressee: text) */
       addressee?: string;
   /** Address Internal ID (addressinternalid: integer) */
-      addressinternalid?: number;
+      addressinternalid?: string;
   /** Address Label (addresslabel: text) */
       addresslabel?: string;
   /** Address Phone (addressphone: text) */
@@ -36,7 +36,7 @@ export interface originatingleadSearchColumn {
   /** Always Available Offline (availableoffline: checkbox) */
       availableoffline?: boolean;
   /** Balance (balance: currency) */
-      balance?: number;
+      balance?: string;
   /** Billing Address (billaddress: text) */
       billaddress?: string;
   /** Billing Address 1 (billaddress1: text) */
@@ -94,7 +94,7 @@ export interface originatingleadSearchColumn {
   /** Credit Card State (ccstate: select) */
       ccstate?: string;
   /** Credit Card State From (ccstatefrom: date) */
-      ccstatefrom?: Date;
+      ccstatefrom?: string;
   /** Credit Card Type (cctype: select) */
       cctype?: string;
   /** City (city: text) */
@@ -104,23 +104,23 @@ export interface originatingleadSearchColumn {
   /** Company Name (companyname: text) */
       companyname?: string;
   /** Consolidated Balance (consolbalance: currency) */
-      consolbalance?: number;
+      consolbalance?: string;
   /** Consolidated Days Overdue (consoldaysoverdue: integer) */
-      consoldaysoverdue?: number;
+      consoldaysoverdue?: string;
   /** Consolidated Deposit Balance (consoldepositbalance: currency) */
-      consoldepositbalance?: number;
+      consoldepositbalance?: string;
   /** Consolidated Overdue Balance (consoloverduebalance: currency) */
-      consoloverduebalance?: number;
+      consoloverduebalance?: string;
   /** Consolidated Unbilled Orders (consolunbilledorders: currency) */
-      consolunbilledorders?: number;
+      consolunbilledorders?: string;
   /** Primary Contact (contact: select) */
       contact?: string;
   /** Contribution % (contribution: percent) */
-      contribution?: number;
+      contribution?: string;
   /** Primary Sales Rep Contribution % (contributionprimary: percent) */
-      contributionprimary?: number;
+      contributionprimary?: string;
   /** Conversion Date (conversiondate: date) */
-      conversiondate?: Date;
+      conversiondate?: string;
   /** Country (country: select) */
       country?: string;
   /** Country Code (countrycode: text) */
@@ -130,19 +130,19 @@ export interface originatingleadSearchColumn {
   /** Override Credit Hold Off (creditholdoverride: checkbox) */
       creditholdoverride?: boolean;
   /** Credit Limit (creditlimit: currency) */
-      creditlimit?: number;
+      creditlimit?: string;
   /** Primary Currency (currency: select) */
       currency?: string;
   /** Date Closed (dateclosed: datetime) */
-      dateclosed?: Date;
+      dateclosed?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Days Overdue (daysoverdue: integer) */
-      daysoverdue?: number;
+      daysoverdue?: string;
   /** Default Order Priority (defaultorderpriority: float) */
-      defaultorderpriority?: number;
+      defaultorderpriority?: string;
   /** Deposit Balance (depositbalance: currency) */
-      depositbalance?: number;
+      depositbalance?: string;
   /** Deferred Revenue Reclassification Account (draccount: text) */
       draccount?: string;
   /** Email (email: email) */
@@ -152,15 +152,15 @@ export interface originatingleadSearchColumn {
   /** Email Transactions (emailtransactions: checkbox) */
       emailtransactions?: boolean;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Name (entityid: text) */
       entityid?: string;
   /** Number (entitynumber: integer) */
-      entitynumber?: number;
+      entitynumber?: string;
   /** Status (entitystatus: select) */
       entitystatus?: string;
   /** Estimated Budget (estimatedbudget: currency) */
-      estimatedbudget?: number;
+      estimatedbudget?: string;
   /** Explicit Conversion (explicitconversion: checkbox) */
       explicitconversion?: boolean;
   /** External ID (externalid: select) */
@@ -172,19 +172,19 @@ export interface originatingleadSearchColumn {
   /** First Name (firstname: text) */
       firstname?: string;
   /** Date of First Order (firstorderdate: date) */
-      firstorderdate?: Date;
+      firstorderdate?: string;
   /** Date of First Sale (firstsaledate: date) */
-      firstsaledate?: Date;
+      firstsaledate?: string;
   /** Foreign Currency Adjustment Revenue Account (fxaccount: text) */
       fxaccount?: string;
   /** Balance (Foreign Currency) (fxbalance: currency) */
-      fxbalance?: number;
+      fxbalance?: string;
   /** Consolidated Balance (Foreign Currency) (fxconsolbalance: currency) */
-      fxconsolbalance?: number;
+      fxconsolbalance?: string;
   /** Consolidated Unbilled Orders (Foreign Currency) (fxconsolunbilledorders: currency) */
-      fxconsolunbilledorders?: number;
+      fxconsolunbilledorders?: string;
   /** Unbilled Orders (Foreign Currency) (fxunbilledorders: currency) */
-      fxunbilledorders?: number;
+      fxunbilledorders?: string;
   /** Login Access (giveaccess: checkbox) */
       giveaccess?: boolean;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
@@ -214,33 +214,33 @@ export interface originatingleadSearchColumn {
   /** Residential Address (isshipaddress: checkbox) */
       isshipaddress?: boolean;
   /** Upsell Item Correlation (itemcorrelation: percent) */
-      itemcorrelation?: number;
+      itemcorrelation?: string;
   /** Item Pricing Level (itempricinglevel: text) */
       itempricinglevel?: string;
   /** Item Pricing Unit Price (itempricingunitprice: currency) */
-      itempricingunitprice?: number;
+      itempricingunitprice?: string;
   /** Job Actual End (jobenddate: date) */
-      jobenddate?: Date;
+      jobenddate?: string;
   /** Job Projected End (jobprojectedend: date) */
-      jobprojectedend?: Date;
+      jobprojectedend?: string;
   /** Job Start (jobstartdate: date) */
-      jobstartdate?: Date;
+      jobstartdate?: string;
   /** Job Type (jobtype: select) */
       jobtype?: string;
   /** Language (language: select) */
       language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Name (lastname: text) */
       lastname?: string;
   /** Date of Last Order (lastorderdate: date) */
-      lastorderdate?: Date;
+      lastorderdate?: string;
   /** Date of Last Sale (lastsaledate: date) */
-      lastsaledate?: Date;
+      lastsaledate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Lead Date (leaddate: datetime) */
-      leaddate?: Date;
+      leaddate?: string;
   /** Lead Source (leadsource: select) */
       leadsource?: string;
   /** Level (level: select) */
@@ -262,19 +262,19 @@ export interface originatingleadSearchColumn {
   /** Online Form History - Campaign Event (onlineformcampaignevent: text) */
       onlineformcampaignevent?: string;
   /** Online Form History - Date (onlineformdate: date) */
-      onlineformdate?: Date;
+      onlineformdate?: string;
   /** Online Form History - Lead Source (onlineformleadsource: text) */
       onlineformleadsource?: string;
   /** Online Form History - Form Name (onlineformname: text) */
       onlineformname?: string;
   /** Overdue Balance (overduebalance: currency) */
-      overduebalance?: number;
+      overduebalance?: string;
   /** Top Level Parent (parent: select) */
       parent?: string;
   /** Partner (partner: select) */
       partner?: string;
   /** Partner Contribution % (partnercontribution: percent) */
-      partnercontribution?: number;
+      partnercontribution?: string;
   /** Partner Role (partnerrole: text) */
       partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
@@ -298,11 +298,11 @@ export interface originatingleadSearchColumn {
   /** Print Transactions (printtransactions: checkbox) */
       printtransactions?: boolean;
   /** Prospect Date (prospectdate: datetime) */
-      prospectdate?: Date;
+      prospectdate?: string;
   /** Default Receivables Account (receivablesaccount: text) */
       receivablesaccount?: string;
   /** Reminder Days (reminderdays: integer) */
-      reminderdays?: number;
+      reminderdays?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
       representingsubsidiary?: string;
   /** Resale Number (resalenumber: text) */
@@ -352,7 +352,7 @@ export interface originatingleadSearchColumn {
   /** Stage (stage: select) */
       stage?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** State/Province (state: select) */
       state?: string;
   /** State/Province Display Name (statedisplayname: select) */
@@ -360,7 +360,7 @@ export interface originatingleadSearchColumn {
   /** Subscription (subscription: select) */
       subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-      subscriptiondate?: Date;
+      subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
       subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -380,7 +380,7 @@ export interface originatingleadSearchColumn {
   /** Primary Type (Deprecated) (type: select) */
       type?: string;
   /** Unbilled Orders (unbilledorders: currency) */
-      unbilledorders?: number;
+      unbilledorders?: string;
   /** Web Address (url: text) */
       url?: string;
   /** Tax Number (vatregnumber: text) */
@@ -411,7 +411,7 @@ export interface originatingleadSearchFilter {
   /** Always Available Offline (availableoffline: checkbox) */
   availableoffline?: boolean;
   /** Balance (balance: currency) */
-  balance?: number;
+  balance?: string;
   /** Billing Address (billaddress: textarea) */
   billaddress?: string;
   /** Billing Rate Card (billingratecard: select) */
@@ -423,9 +423,9 @@ export interface originatingleadSearchFilter {
   /** Billing Transaction Type (billingtransactiontype: select) */
   billingtransactiontype?: string;
   /** Total Amount Purchased (boughtamount: currency) */
-  boughtamount?: number;
+  boughtamount?: string;
   /** Purchase Dates (boughtdate: date) */
-  boughtdate?: Date;
+  boughtdate?: string;
   /** Hard Bounced (bounced: checkbox) */
   bounced?: boolean;
   /** Buying Reason (buyingreason: select) */
@@ -441,7 +441,7 @@ export interface originatingleadSearchFilter {
   /** Default Credit Card (ccdefault: checkbox) */
   ccdefault?: boolean;
   /** CC Expire Date (ccexpdate: date) */
-  ccexpdate?: Date;
+  ccexpdate?: string;
   /** Credit Cardholder Name (ccholdername: text) */
   ccholdername?: string;
   /** Credit Card Number (ccnumber: checkbox) */
@@ -449,7 +449,7 @@ export interface originatingleadSearchFilter {
   /** Credit Card State (ccstate: select) */
   ccstate?: string;
   /** Credit Card State From (ccstatefrom: date) */
-  ccstatefrom?: Date;
+  ccstatefrom?: string;
   /** Credit Card Type (cctype: select) */
   cctype?: string;
   /** City (city: text) */
@@ -459,21 +459,21 @@ export interface originatingleadSearchFilter {
   /** Company Name (companyname: text) */
   companyname?: string;
   /** Consolidated Balance (consolbalance: currency) */
-  consolbalance?: number;
+  consolbalance?: string;
   /** Consolidated Days Overdue (consoldaysoverdue: integer) */
-  consoldaysoverdue?: number;
+  consoldaysoverdue?: string;
   /** Consolidated Deposit Balance (consoldepositbalance: currency) */
-  consoldepositbalance?: number;
+  consoldepositbalance?: string;
   /** Consolidated Overdue Balance (consoloverduebalance: currency) */
-  consoloverduebalance?: number;
+  consoloverduebalance?: string;
   /** Consolidated Unbilled Orders (consolunbilledorders: currency) */
-  consolunbilledorders?: number;
+  consolunbilledorders?: string;
   /** Contact (contact: text) */
   contact?: string;
   /** Contribution % (contribution: integer) */
-  contribution?: number;
+  contribution?: string;
   /** Conversion Date (conversiondate: date) */
-  conversiondate?: Date;
+  conversiondate?: string;
   /** Country (country: select) */
   country?: string;
   /** County/State (county: text) */
@@ -483,7 +483,7 @@ export interface originatingleadSearchFilter {
   /** Override Credit Hold Off (creditholdoverride: checkbox) */
   creditholdoverride?: boolean;
   /** Credit Limit (creditlimit: currency) */
-  creditlimit?: number;
+  creditlimit?: string;
   /** Primary Currency (currency: select) */
   currency?: string;
   /** Parent Stage (custstage: select) */
@@ -491,15 +491,15 @@ export interface originatingleadSearchFilter {
   /** Parent Status (custstatus: select) */
   custstatus?: string;
   /** Date Closed (dateclosed: datetime) */
-  dateclosed?: Date;
+  dateclosed?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Days Overdue (daysoverdue: integer) */
-  daysoverdue?: number;
+  daysoverdue?: string;
   /** Default Order Priority (defaultorderpriority: float) */
-  defaultorderpriority?: number;
+  defaultorderpriority?: string;
   /** Deposit Balance (depositbalance: currency) */
-  depositbalance?: number;
+  depositbalance?: string;
   /** Deferred Revenue Reclassification Account (draccount: select) */
   draccount?: string;
   /** Email (email: text) */
@@ -509,13 +509,13 @@ export interface originatingleadSearchFilter {
   /** Email Transactions (emailtransactions: checkbox) */
   emailtransactions?: boolean;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Name/ID (entityid: text) */
   entityid?: string;
   /** Status (entitystatus: select) */
   entitystatus?: string;
   /** Estimated Budget (estimatedbudget: currency) */
-  estimatedbudget?: number;
+  estimatedbudget?: string;
   /** Explicit Conversion (explicitconversion: checkbox) */
   explicitconversion?: boolean;
   /** External ID (externalid: select) */
@@ -529,25 +529,25 @@ export interface originatingleadSearchFilter {
   /** First Name (firstname: text) */
   firstname?: string;
   /** Date of First Order (firstorderdate: date) */
-  firstorderdate?: Date;
+  firstorderdate?: string;
   /** Date of First Sale (firstsaledate: date) */
-  firstsaledate?: Date;
+  firstsaledate?: string;
   /** Foreign Currency Adjustment Revenue Account (fxaccount: select) */
   fxaccount?: string;
   /** Balance (Foreign Currency) (fxbalance: currency) */
-  fxbalance?: number;
+  fxbalance?: string;
   /** Consolidated Balance (Foreign Currency) (fxconsolbalance: currency) */
-  fxconsolbalance?: number;
+  fxconsolbalance?: string;
   /** Consolidated Unbilled Orders (Foreign Currency) (fxconsolunbilledorders: currency) */
-  fxconsolunbilledorders?: number;
+  fxconsolunbilledorders?: string;
   /** Unbilled Orders (Foreign Currency) (fxunbilledorders: currency) */
-  fxunbilledorders?: number;
+  fxunbilledorders?: string;
   /** Login Access (giveaccess: checkbox) */
   giveaccess?: boolean;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
   globalsubscriptionstatus?: string;
   /** Group (group: multiselect) */
-  group?: number;
+  group?: string;
   /** Group Pricing Level (grouppricinglevel: select) */
   grouppricinglevel?: string;
   /** Duplicate (hasduplicates: checkbox) */
@@ -557,7 +557,7 @@ export interface originatingleadSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Budget Approved (isbudgetapproved: checkbox) */
   isbudgetapproved?: boolean;
   /** Default Billing Address (isdefaultbilling: checkbox) */
@@ -577,27 +577,27 @@ export interface originatingleadSearchFilter {
   /** Residential Address (isshipaddress: checkbox) */
   isshipaddress?: boolean;
   /** Upsell Item Correlation (itemcorrelation: percent) */
-  itemcorrelation?: number;
+  itemcorrelation?: string;
   /** Item Pricing Level (itempricinglevel: select) */
   itempricinglevel?: string;
   /** Item Pricing Unit Price (itempricingunitprice: currency) */
-  itempricingunitprice?: number;
+  itempricingunitprice?: string;
   /** Items Purchased (itemsbought: multiselect) */
-  itemsbought?: number;
+  itemsbought?: string;
   /** Items Ordered (itemsordered: multiselect) */
-  itemsordered?: number;
+  itemsordered?: string;
   /** Actual End Date (jobenddate: date) */
-  jobenddate?: Date;
+  jobenddate?: string;
   /** Estimated Cost (jobestcost: currency) */
-  jobestcost?: number;
+  jobestcost?: string;
   /** Projected End Date (jobestenddate: date) */
-  jobestenddate?: Date;
+  jobestenddate?: string;
   /** Estimated Revenue (jobestrevenue: currency) */
-  jobestrevenue?: number;
+  jobestrevenue?: string;
   /** Percent Complete (jobpctcomplete: integer) */
-  jobpctcomplete?: number;
+  jobpctcomplete?: string;
   /** Start Date (jobstartdate: date) */
-  jobstartdate?: Date;
+  jobstartdate?: string;
   /** Job Status (jobstatus: select) */
   jobstatus?: string;
   /** Job Type (jobtype: select) */
@@ -605,15 +605,15 @@ export interface originatingleadSearchFilter {
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Last Name (lastname: text) */
   lastname?: string;
   /** Date of Last Order (lastorderdate: date) */
-  lastorderdate?: Date;
+  lastorderdate?: string;
   /** Date of Last Sale (lastsaledate: date) */
-  lastsaledate?: Date;
+  lastsaledate?: string;
   /** Lead Date (leaddate: datetime) */
-  leaddate?: Date;
+  leaddate?: string;
   /** Lead Source (leadsource: select) */
   leadsource?: string;
   /** Level (level: select) */
@@ -635,29 +635,29 @@ export interface originatingleadSearchFilter {
   /** Online Form History - Campaign Event (onlineformcampaignevent: select) */
   onlineformcampaignevent?: string;
   /** Online Form History - Form Date (onlineformdate: date) */
-  onlineformdate?: Date;
+  onlineformdate?: string;
   /** Online Form History - Lead Source (onlineformleadsource: select) */
   onlineformleadsource?: string;
   /** Online Form History - Form Name (onlineformname: select) */
   onlineformname?: string;
   /** Total Amount Ordered (orderedamount: currency) */
-  orderedamount?: number;
+  orderedamount?: string;
   /** Order Dates (ordereddate: date) */
-  ordereddate?: Date;
+  ordereddate?: string;
   /** Other Relationships (otherrelationships: multiselect) */
-  otherrelationships?: number;
+  otherrelationships?: string;
   /** Overdue Balance (overduebalance: currency) */
-  overduebalance?: number;
+  overduebalance?: string;
   /** Sub of (parent: select) */
   parent?: string;
   /** Items or Sub-Items Purchased (parentitemsbought: multiselect) */
-  parentitemsbought?: number;
+  parentitemsbought?: string;
   /** Items or Sub-Items Ordered (parentitemsordered: multiselect) */
-  parentitemsordered?: number;
+  parentitemsordered?: string;
   /** Partner (partner: select) */
   partner?: string;
   /** Partner Contribution % (partnercontribution: integer) */
-  partnercontribution?: number;
+  partnercontribution?: string;
   /** Partner Role (partnerrole: select) */
   partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
@@ -679,13 +679,13 @@ export interface originatingleadSearchFilter {
   /** Print Transactions (printtransactions: checkbox) */
   printtransactions?: boolean;
   /** Prospect Date (prospectdate: datetime) */
-  prospectdate?: Date;
+  prospectdate?: string;
   /** PST Exempt (pstexempt: checkbox) */
   pstexempt?: boolean;
   /** Default Receivables Account (receivablesaccount: select) */
   receivablesaccount?: string;
   /** Renewal Reminder Date (reminderdate: date) */
-  reminderdate?: Date;
+  reminderdate?: string;
   /** Represents Subsidiary (representingsubsidiary: select) */
   representingsubsidiary?: string;
   /** Resale Number (resalenumber: text) */
@@ -713,13 +713,13 @@ export interface originatingleadSearchFilter {
   /** Stage (stage: select) */
   stage?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** State/Province (Deprecated) (state: select) */
   state?: string;
   /** Subscription (subscription: select) */
   subscription?: string;
   /** Subscription Date (subscriptiondate: date) */
-  subscriptiondate?: Date;
+  subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
   subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -735,7 +735,7 @@ export interface originatingleadSearchFilter {
   /** Primary Type (Deprecated) (type: select) */
   type?: string;
   /** Unbilled Orders (unbilledorders: currency) */
-  unbilledorders?: number;
+  unbilledorders?: string;
   /** Web Address (url: url) */
   url?: string;
   /** Tax Number (vatregnumber: text) */

@@ -37,7 +37,7 @@ export interface paymentmethodSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is Debit Card (isdebitcard: checkbox) */
   isdebitcard?: boolean;
   /** Inactive (isinactive: checkbox) */

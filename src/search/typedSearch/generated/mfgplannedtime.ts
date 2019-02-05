@@ -6,11 +6,11 @@
 /** Manufacturing Planned Time (mfgplannedtime) Search Columns definition */
 export interface mfgplannedtimeSearchColumn {
   /** Date (date: date) */
-      date?: Date;
+      date?: string;
   /** Duration (duration: text) */
       duration?: string;
   /** Duration (Decimal) (durationdecimal: float) */
-      durationdecimal?: number;
+      durationdecimal?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Manufacturing Work Center (manufacturingworkcenter: text) */
@@ -25,9 +25,9 @@ export interface mfgplannedtimeSearchColumn {
 /** Manufacturing Planned Time (mfgplannedtime) Search Filters definition */
 export interface mfgplannedtimeSearchFilter {
 /** Date (date: date) */
-  date?: Date;
+  date?: string;
   /** Duration (duration: float) */
-  duration?: number;
+  duration?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */

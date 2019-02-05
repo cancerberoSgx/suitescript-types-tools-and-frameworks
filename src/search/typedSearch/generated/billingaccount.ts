@@ -16,7 +16,7 @@ export interface billingaccountSearchColumn {
   /** Customer Default (customerdefault: checkbox) */
       customerdefault?: boolean;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Frequency (frequency: select) */
       frequency?: string;
   /** Account Number (idnumber: text) */
@@ -30,17 +30,17 @@ export interface billingaccountSearchColumn {
   /** Invoice Form (invoiceform: select) */
       invoiceform?: string;
   /** Last Bill Cycle Date (lastbillcycledate: date) */
-      lastbillcycledate?: Date;
+      lastbillcycledate?: string;
   /** Last Bill Date (lastbilldate: date) */
-      lastbilldate?: Date;
+      lastbilldate?: string;
   /** Account Description (memo: text) */
       memo?: string;
   /** Name (name: text) */
       name?: string;
   /** Next Bill Cycle Date (nextbillcycledate: date) */
-      nextbillcycledate?: Date;
+      nextbillcycledate?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Subsidiary (subsidiary: select) */
       subsidiary?: string;
 }
@@ -61,9 +61,9 @@ export interface billingaccountSearchFilter {
   /** Customer Default (customerdefault: checkbox) */
   customerdefault?: boolean;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Frequency (frequency: select) */
   frequency?: string;
   /** Account Number (idnumber: text) */
@@ -75,21 +75,21 @@ export interface billingaccountSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Invoice Form (invoiceform: select) */
   invoiceform?: string;
   /** Last Bill Cycle Date (lastbillcycledate: date) */
-  lastbillcycledate?: Date;
+  lastbillcycledate?: string;
   /** Last Bill Date (lastbilldate: date) */
-  lastbilldate?: Date;
+  lastbilldate?: string;
   /** Account Description (memo: text) */
   memo?: string;
   /** Name (name: text) */
   name?: string;
   /** Next Bill Cycle Date (nextbillcycledate: date) */
-  nextbillcycledate?: Date;
+  nextbillcycledate?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
 }

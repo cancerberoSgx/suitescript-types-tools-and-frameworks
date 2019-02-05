@@ -8,7 +8,7 @@ export interface subscriptionchangeorderSearchColumn {
   /** Action (action: select) */
       action?: string;
   /** Date Approved (approvaldate: datetime) */
-      approvaldate?: Date;
+      approvaldate?: string;
   /** Approval Status (approvalstatus: select) */
       approvalstatus?: string;
   /** Billing Account (billingaccount: select) */
@@ -16,9 +16,9 @@ export interface subscriptionchangeorderSearchColumn {
   /** Customer (customer: select) */
       customer?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Effective Date (effectivedate: date) */
-      effectivedate?: Date;
+      effectivedate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Number (idnumber: text) */
@@ -28,13 +28,13 @@ export interface subscriptionchangeorderSearchColumn {
   /** Memo (memo: text) */
       memo?: string;
   /** New End Date (newenddate: date) */
-      newenddate?: Date;
+      newenddate?: string;
   /** Renewal End Date (renewalenddate: date) */
-      renewalenddate?: Date;
+      renewalenddate?: string;
   /** Renewal Method (renewalmethod: select) */
       renewalmethod?: string;
   /** Renewal Start Date (renewalstartdate: date) */
-      renewalstartdate?: Date;
+      renewalstartdate?: string;
   /** Renewal Term (renewalterm: select) */
       renewalterm?: string;
   /** Renewal Transaction Type (renewaltrantype: select) */
@@ -61,7 +61,7 @@ export interface subscriptionchangeorderSearchFilter {
 /** Action (action: select) */
   action?: string;
   /** Date Approved (approvaldate: datetime) */
-  approvaldate?: Date;
+  approvaldate?: string;
   /** Approval Status (approvalstatus: select) */
   approvalstatus?: string;
   /** Billing Account (billingaccount: select) */
@@ -69,9 +69,9 @@ export interface subscriptionchangeorderSearchFilter {
   /** Customer (customer: select) */
   customer?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Effective Date (effectivedate: date) */
-  effectivedate?: Date;
+  effectivedate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -81,19 +81,19 @@ export interface subscriptionchangeorderSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Memo (memo: text) */
   memo?: string;
   /** New End Date (newenddate: date) */
-  newenddate?: Date;
+  newenddate?: string;
   /** Ordered Effective Date (orderedeffectivedate: date) */
-  orderedeffectivedate?: Date;
+  orderedeffectivedate?: string;
   /** Renewal End Date (renewalenddate: date) */
-  renewalenddate?: Date;
+  renewalenddate?: string;
   /** Renewal Method (renewalmethod: select) */
   renewalmethod?: string;
   /** Renewal Start Date (renewalstartdate: date) */
-  renewalstartdate?: Date;
+  renewalstartdate?: string;
   /** Renewal Term (renewalterm: select) */
   renewalterm?: string;
   /** Renewal Transaction Type (renewaltrantype: select) */

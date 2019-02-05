@@ -8,19 +8,19 @@ export interface fairvaluepriceSearchColumn {
   /** Currency (currency: select) */
       currency?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Base Fair Value (fairvalue: float) */
-      fairvalue?: number;
+      fairvalue?: string;
   /** Fair Value Formula (fairvalueformula: select) */
       fairvalueformula?: string;
   /** Fair Value Range Checking Policy (fairvaluerangepolicy: select) */
       fairvaluerangepolicy?: string;
   /** High Value (highvalue: float) */
-      highvalue?: number;
+      highvalue?: string;
   /** High Value Percent (highvaluepercent: percent) */
-      highvaluepercent?: number;
+      highvaluepercent?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Is VSOE? (isvsoeprice: checkbox) */
@@ -30,11 +30,11 @@ export interface fairvaluepriceSearchColumn {
   /** Item Revenue Category (itemrevenuecategory: select) */
       itemrevenuecategory?: string;
   /** Low Value (lowvalue: float) */
-      lowvalue?: number;
+      lowvalue?: string;
   /** Low Value Percent (lowvaluepercent: percent) */
-      lowvaluepercent?: number;
+      lowvaluepercent?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Units (units: select) */
       units?: string;
   /** Units Type (unitstype: select) */
@@ -49,25 +49,25 @@ export interface fairvaluepriceSearchFilter {
 /** Currency (currency: select) */
   currency?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Base Fair Value (fairvalue: float) */
-  fairvalue?: number;
+  fairvalue?: string;
   /** Fair Value Formula (fairvalueformula: select) */
   fairvalueformula?: string;
   /** Fair Value Range Checking Policy (fairvaluerangepolicy: select) */
   fairvaluerangepolicy?: string;
   /** High Value (highvalue: float) */
-  highvalue?: number;
+  highvalue?: string;
   /** High Value Percent (highvaluepercent: percent) */
-  highvaluepercent?: number;
+  highvaluepercent?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is VSOE? (isvsoeprice: checkbox) */
   isvsoeprice?: boolean;
   /** Item (item: select) */
@@ -75,11 +75,11 @@ export interface fairvaluepriceSearchFilter {
   /** Item Revenue Category (itemrevenuecategory: select) */
   itemrevenuecategory?: string;
   /** Low Value (lowvalue: float) */
-  lowvalue?: number;
+  lowvalue?: string;
   /** Low Value Percent (lowvaluepercent: percent) */
-  lowvaluepercent?: number;
+  lowvaluepercent?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Units Type (unitstype: select) */
   unitstype?: string;
 }

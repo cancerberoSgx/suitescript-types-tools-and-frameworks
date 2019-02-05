@@ -12,21 +12,21 @@ export interface promotioncodeSearchColumn {
   /** Discount (discount: text) */
       discount?: string;
   /** Discount Amount (discountamount: currency) */
-      discountamount?: number;
+      discountamount?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -36,11 +36,11 @@ export interface promotioncodeSearchColumn {
   /** Available to all Customers (ispublic: checkbox) */
       ispublic?: boolean;
   /** Locations (location: multiselect) */
-      location?: number;
+      location?: string;
   /** Name (name: text) */
       name?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
 }
 
 
@@ -57,17 +57,17 @@ export interface promotioncodeSearchFilter {
   /** Discount (discount: select) */
   discount?: string;
   /** Discount Amount (discountamount: currency) */
-  discountamount?: number;
+  discountamount?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Free Shipping Method (freeshipitem: select) */
@@ -75,7 +75,7 @@ export interface promotioncodeSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Public (ispublic: checkbox) */
@@ -89,7 +89,7 @@ export interface promotioncodeSearchFilter {
   /** Partner (partner: select) */
   partner?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
 }
 
 

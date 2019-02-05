@@ -6,29 +6,29 @@
 /** Project Task Assignment (projecttaskassignment) Search Columns definition */
 export interface projecttaskassignmentSearchColumn {
   /** Actual Work (actualwork: float) */
-      actualwork?: number;
+      actualwork?: string;
   /** Billing Class (billingclass: select) */
       billingclass?: string;
   /** Cost (cost: currency) */
-      cost?: number;
+      cost?: string;
   /** Cost (Base Currency) (costbase: currency) */
-      costbase?: number;
+      costbase?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Estimated Work (estimatedwork: float) */
-      estimatedwork?: number;
+      estimatedwork?: string;
   /** Estimated Work Baseline (estimatedworkbaseline: float) */
-      estimatedworkbaseline?: number;
+      estimatedworkbaseline?: string;
   /** Estimated Gross Profit (grossprofit: currency) */
-      grossprofit?: number;
+      grossprofit?: string;
   /** Estimated Gross Profit (Base Currency) (grossprofitbase: currency) */
-      grossprofitbase?: number;
+      grossprofitbase?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Estimated Revenue (price: currency) */
-      price?: number;
+      price?: string;
   /** Estimated Revenue (Base Currency) (pricebase: currency) */
-      pricebase?: number;
+      pricebase?: string;
   /** Resource (resource: select) */
       resource?: string;
   /** Resource Name (resourcename: select) */
@@ -38,17 +38,17 @@ export interface projecttaskassignmentSearchColumn {
   /** Description (serviceitemdesc: text) */
       serviceitemdesc?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Unit Cost (unitcost: currency) */
-      unitcost?: number;
+      unitcost?: string;
   /** Unit Cost (Base Currency) (unitcostbase: currency) */
-      unitcostbase?: number;
+      unitcostbase?: string;
   /** Unit Price (unitprice: currency) */
-      unitprice?: number;
+      unitprice?: string;
   /** Unit Price (Base Currency) (unitpricebase: currency) */
-      unitpricebase?: number;
+      unitpricebase?: string;
   /** Units (%) (units: percent) */
-      units?: number;
+      units?: string;
 }
 
 
@@ -57,31 +57,31 @@ export interface projecttaskassignmentSearchColumn {
 /** Project Task Assignment (projecttaskassignment) Search Filters definition */
 export interface projecttaskassignmentSearchFilter {
 /** Actual Work (actualwork: float) */
-  actualwork?: number;
+  actualwork?: string;
   /** Billing Class (billingclass: select) */
   billingclass?: string;
   /** Cost (cost: currency) */
-  cost?: number;
+  cost?: string;
   /** Cost (Base Currency) (costbase: currency) */
-  costbase?: number;
+  costbase?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Estimated Work (estimatedwork: float) */
-  estimatedwork?: number;
+  estimatedwork?: string;
   /** Estimated Work Baseline (estimatedworkbaseline: float) */
-  estimatedworkbaseline?: number;
+  estimatedworkbaseline?: string;
   /** Estimated Gross Profit (grossprofit: currency) */
-  grossprofit?: number;
+  grossprofit?: string;
   /** Estimated Gross Profit (Base Currency) (grossprofitbase: currency) */
-  grossprofitbase?: number;
+  grossprofitbase?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Estimated Revenue (price: currency) */
-  price?: number;
+  price?: string;
   /** Estimated Revenue (Base Currency) (pricebase: currency) */
-  pricebase?: number;
+  pricebase?: string;
   /** Resource (resource: select) */
   resource?: string;
   /** Resource Name (resourcename: text) */
@@ -91,17 +91,17 @@ export interface projecttaskassignmentSearchFilter {
   /** Description (serviceitemdesc: text) */
   serviceitemdesc?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Unit Cost (unitcost: currency) */
-  unitcost?: number;
+  unitcost?: string;
   /** Unit Cost (Base Currency) (unitcostbase: currency) */
-  unitcostbase?: number;
+  unitcostbase?: string;
   /** Unit Price (unitprice: currency) */
-  unitprice?: number;
+  unitprice?: string;
   /** Unit Price (Base Currency) (unitpricebase: currency) */
-  unitpricebase?: number;
+  unitpricebase?: string;
   /** Units (%) (units: percent) */
-  units?: number;
+  units?: string;
   /** Work Calendar (workcalendar: select) */
   workcalendar?: string;
 }

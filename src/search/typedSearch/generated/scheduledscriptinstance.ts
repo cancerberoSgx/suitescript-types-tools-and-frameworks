@@ -6,29 +6,29 @@
 /** Scheduled Script Instance (scheduledscriptinstance) Search Columns definition */
 export interface scheduledscriptinstanceSearchColumn {
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** End Date (enddate: datetime) */
-      enddate?: Date;
+      enddate?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Percent Complete (percentcomplete: percent) */
-      percentcomplete?: number;
+      percentcomplete?: string;
   /** Queue (queue: text) */
       queue?: string;
   /** Queue Position (queueposition: integer) */
-      queueposition?: number;
+      queueposition?: string;
   /** Start Date (startdate: datetime) */
-      startdate?: Date;
+      startdate?: string;
   /** Status (status: text) */
       status?: string;
 }
@@ -39,21 +39,21 @@ export interface scheduledscriptinstanceSearchColumn {
 /** Scheduled Script Instance (scheduledscriptinstance) Search Filters definition */
 export interface scheduledscriptinstanceSearchFilter {
 /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** End Date (enddate: datetime) */
-  enddate?: Date;
+  enddate?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Percent Complete (percentcomplete: percent) */
-  percentcomplete?: number;
+  percentcomplete?: string;
   /** Queue (queue: text) */
   queue?: string;
   /** Start Date (startdate: datetime) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
 }

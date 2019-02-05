@@ -16,21 +16,21 @@ export interface itemaccountmappingSearchColumn {
   /** Destination Account (destinationaccount: select) */
       destinationaccount?: string;
   /** Effective Date (effectivedate: date) */
-      effectivedate?: Date;
+      effectivedate?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -61,23 +61,23 @@ export interface itemaccountmappingSearchFilter {
   /** Destination Account (destinationaccount: select) */
   destinationaccount?: string;
   /** Effective Date (effectivedate: date) */
-  effectivedate?: Date;
+  effectivedate?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Item Account (itemaccount: select) */
   itemaccount?: string;
   /** Location (location: select) */

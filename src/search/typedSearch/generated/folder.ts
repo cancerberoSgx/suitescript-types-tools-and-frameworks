@@ -14,17 +14,17 @@ export interface folderSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Size (KB) (foldersize: integer) */
-      foldersize?: number;
+      foldersize?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Group (group: select) */
@@ -34,13 +34,13 @@ export interface folderSearchColumn {
   /** Inactive (isinactive: checkbox) */
       isinactive?: boolean;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Location (location: select) */
       location?: string;
   /** Name (name: text) */
       name?: string;
   /** # of Files (numfiles: integer) */
-      numfiles?: number;
+      numfiles?: string;
   /** Owner (owner: select) */
       owner?: string;
   /** Sub of (parent: select) */
@@ -65,9 +65,9 @@ export interface folderSearchFilter {
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Group (group: select) */
@@ -75,19 +75,19 @@ export interface folderSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Is Top Level (istoplevel: checkbox) */
   istoplevel?: boolean;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Location (location: select) */
   location?: string;
   /** Name (name: text) */
   name?: string;
   /** # of Files (numfiles: integer) */
-  numfiles?: number;
+  numfiles?: string;
   /** Owner (owner: select) */
   owner?: string;
   /** Sub of (parent: select) */
@@ -97,7 +97,7 @@ export interface folderSearchFilter {
   /** Is Private (private: checkbox) */
   private?: boolean;
   /** Size (KB) (size: integer) */
-  size?: number;
+  size?: string;
   /** Subsidiary (subsidiary: select) */
   subsidiary?: string;
 }

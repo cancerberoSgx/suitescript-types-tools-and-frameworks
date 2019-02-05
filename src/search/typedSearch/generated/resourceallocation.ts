@@ -16,23 +16,23 @@ export interface resourceallocationSearchColumn {
   /** Customer (customer: select) */
       customer?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** ID (id: integer) */
-      id?: number;
+      id?: string;
   /** Internal ID (internalid: select) */
       internalid?: string;
   /** Next Approver (nextapprover: select) */
@@ -40,15 +40,15 @@ export interface resourceallocationSearchColumn {
   /** Notes (notes: text) */
       notes?: string;
   /** Number of Hours (numberhours: float) */
-      numberhours?: number;
+      numberhours?: string;
   /** Percentage of Time (percentoftime: percent) */
-      percentoftime?: number;
+      percentoftime?: string;
   /** Requested By (requestedby: select) */
       requestedby?: string;
   /** Resource (resource: select) */
       resource?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
 }
 
 
@@ -65,29 +65,29 @@ export interface resourceallocationSearchFilter {
   /** Customer (customer: select) */
   customer?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Next Approver (nextapprover: select) */
   nextapprover?: string;
   /** Notes (notes: text) */
   notes?: string;
   /** Number of Hours (numberhours: float) */
-  numberhours?: number;
+  numberhours?: string;
   /** Percentage of Time (percentoftime: percent) */
-  percentoftime?: number;
+  percentoftime?: string;
   /** Project (project: select) */
   project?: string;
   /** Requested by (requestedby: select) */
@@ -95,7 +95,7 @@ export interface resourceallocationSearchFilter {
   /** Resource (resource: select) */
   resource?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
 }
 
 

@@ -1,9 +1,9 @@
 
 
-import { readFileSync, writeFileSync } from 'fs';
-import { RecordMetadata } from './metadataTypes';
-import { ls, mkdir, rm } from 'shelljs';
-import { join, resolve, basename } from 'path';
+import { readFileSync, writeFileSync } from 'fs'
+import { RecordMetadata } from './metadataTypes'
+import { ls, mkdir, rm } from 'shelljs'
+import { join, resolve, basename } from 'path'
 
 export interface ProjectConfig {
   inputFolder: string,
@@ -12,6 +12,7 @@ export interface ProjectConfig {
   cleanOutput?: boolean
   generateFile(config: FileConfig): { output: string }
   generateAfter(config: ProjectConfig & { recordIds: string[] }): void
+  generateFinal?(config: ProjectConfig & { recordIds: string[] }): void
   throwOnError?: boolean
   generateAccessorsApi?: boolean
 }
@@ -20,39 +21,39 @@ export interface FileConfig {
   data: RecordMetadata,
   typedRecordImportBase: string
   generateAccessorsApi?: boolean
+  outputFolder: string
 }
 
 export function generateProject(config: ProjectConfig) {
   if (config.cleanOutput) {
-    rm('-rf', config.outputFolder);
+    rm('-rf', config.outputFolder)
   }
-  const { inputFolder, outputFolder, typedRecordImportBase } = config;
-  const recordIds: string[] = [];
-  mkdir('-p', outputFolder);
+  const { inputFolder, outputFolder, typedRecordImportBase } = config
+  const recordIds: string[] = []
+  mkdir('-p', outputFolder)
   ls('-R', inputFolder).map(f => join(resolve(inputFolder), f))
     .filter(f => f.endsWith('.json')).forEach(f => {
       const data: RecordMetadata = readMetadata(f, config)
       recordIdFilePaths[data.id] = f
-      const { output } = config.generateFile({ data, typedRecordImportBase });
+      const { output } = config.generateFile({ data, typedRecordImportBase, outputFolder: config.outputFolder })
       const outputFile = join(outputFolder, basename(f, '.json') + '.ts')
-      writeFileSync(outputFile, output);
-      recordIds.push(data.id);
-
-      config.generateAfter({ ...config, recordIds });
-    });
-
+      writeFileSync(outputFile, output)
+      recordIds.push(data.id)
+      config.generateAfter({ ...config, recordIds })
+    })
+  config.generateFinal && config.generateFinal({ ...config, recordIds })
   writeFileSync(join(outputFolder, 'index.ts'), generateIndex({ ...config, recordIds }))
 }
 
-const recordIdFilePaths : {[s:string]:string}= {}
-export function getMetadataFilePathForRecord(id:string){
+const recordIdFilePaths: { [s: string]: string } = {}
+export function getMetadataFilePathForRecord(id: string) {
   return recordIdFilePaths[id]
 }
 
-function generateIndex(config: { recordIds: string[] }& ProjectConfig) {
+function generateIndex(config: { recordIds: string[] } & ProjectConfig) {
   return ls('-R', config.outputFolder)//.map(f => join(resolve(config.outputFolder), f))
     .filter(f => f.endsWith('.ts'))
-    .map(f=> `export * from './${basename(f, '.ts')}';`).join(`\n`)
+    .map(f => `export * from './${basename(f, '.ts')}'`).join(`\n`)
 }
 
 export function readMetadata(f: string, config?: ProjectConfig): RecordMetadata {
@@ -63,7 +64,7 @@ export function readMetadata(f: string, config?: ProjectConfig): RecordMetadata 
       ...JSON.parse(readFileSync(f).toString())
     }
   } catch (error) { // invalid json
-    console.log('ERROR in generateFile: ' + error);
+    console.log('ERROR in generateFile: ' + error)
     if (config && config.throwOnError) {
       throw error
     }

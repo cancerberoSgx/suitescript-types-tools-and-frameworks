@@ -8,15 +8,15 @@ export interface scriptdeploymentSearchColumn {
   /** Event Type (eventtype: select) */
       eventtype?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -49,21 +49,21 @@ export interface scriptdeploymentSearchFilter {
 /** Event Type (eventtype: select) */
   eventtype?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Is Deployed (isdeployed: checkbox) */
   isdeployed?: boolean;
   /** Log Level (loglevel: select) */
   loglevel?: string;
   /** Queue (queueid: integer) */
-  queueid?: number;
+  queueid?: string;
   /** Record Type (recordtype: select) */
   recordtype?: string;
   /** Script ID (script: select) */

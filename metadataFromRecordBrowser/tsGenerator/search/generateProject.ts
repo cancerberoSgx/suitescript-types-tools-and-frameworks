@@ -2,26 +2,33 @@ import { FileConfig, ProjectConfig, readMetadata, getMetadataFilePathForRecord }
 import { indent } from '../util';
 import { getType } from '../getType';
 import { fieldTypeOperatorMetadata } from "../sharedTypes";
-import { writeFileSync } from 'fs';
+import { writeFileSync, appendFileSync } from 'fs';
 import { join } from 'path';
 
 export function generateAfter(config: ProjectConfig & { recordIds: string[] }) {
-  const { inputFolder, outputFolder, typedRecordImportBase, recordIds } = config
-  writeFileSync(join(outputFolder, 'searchTypesOperatorsSupport.ts'),
-    generateSearchTypesOperatorsSupport({ ...config, recordIds }).output)
-  writeFileSync(join(outputFolder, 'TypedSearchFilterTypes.ts'),
-    generateTypedSearchFilterTypes({ ...config, recordIds }).output)
-  writeFileSync(join(outputFolder, 'TypedSearchColumnTypes.ts'),
-    generateTypedSearchColumnTypes({ ...config, recordIds }).output)
-  writeFileSync(join(outputFolder, 'TypedSearchColumnNames.ts'),
-    generateTypedSearchColumnNames({ ...config, recordIds }).output)
-  writeFileSync(join(outputFolder, 'TypedSearchFilterNames.ts'),
-    generateTypedSearchFilterNames({ ...config, recordIds }).output)
-  writeFileSync(join(outputFolder, 'TypedSearchFilterTypes.ts'),
-    generateTypedSearchFilterTypes({ ...config, recordIds }).output)
-  writeFileSync(join(outputFolder, 'TypedSearchJoinTypes.ts'),
-    generateTypedSearchJoinTypes({ ...config, recordIds }).output)
+  writeFileSync(join(config.outputFolder, 'searchTypesOperatorsSupport.ts'),
+    generateSearchTypesOperatorsSupport(config).output)
+  writeFileSync(join(config.outputFolder, 'TypedSearchFilterTypes.ts'),
+    generateTypedSearchFilterTypes(config).output)
+  writeFileSync(join(config.outputFolder, 'TypedSearchColumnTypes.ts'),
+    generateTypedSearchColumnTypes(config).output)
+  writeFileSync(join(config.outputFolder, 'TypedSearchColumnNames.ts'),
+    generateTypedSearchColumnNames(config).output)
+  writeFileSync(join(config.outputFolder, 'TypedSearchFilterNames.ts'),
+    generateTypedSearchFilterNames(config).output)
+  writeFileSync(join(config.outputFolder, 'TypedSearchFilterTypes.ts'),
+    generateTypedSearchFilterTypes(config).output)
+  writeFileSync(join(config.outputFolder, 'TypedSearchJoinTypes.ts'),
+    generateTypedSearchJoinTypes(config).output)
+}
 
+export function generateFinal(config: ProjectConfig & { recordIds: string[] }) {
+  appendFileSync(join(config.outputFolder, 'TypedSearchColumnValues.ts'),
+    generateTypedSearchColumnValues(config).output)
+  appendFileSync(join(config.outputFolder, 'TypedSearchFilterValues.ts'),
+    generateTypedSearchFilterValues(config).output)
+  appendFileSync(join(config.outputFolder, 'TypedSearchJoinValues.ts'),
+    generateTypedSearchJoinValues(config).output)
 }
 
 
@@ -105,39 +112,43 @@ ${indent()}${id}: Required<${id}SearchFilter>;
   return { output }
 }
 
-// export interface TypedSearchFilterTypes {
-//   item: itemSearchFilterTypes; // ETC
-// }
-  // export interface TypedSearchColumnTypes {
-  //   item: itemSearchColumnTypes; // ETC
-  // }
-// export interface TypedSearchColumnNames {
-//   item: Required<itemSearchColumn>; // ETC
-// }
-// export interface TypedSearchFilterNames {
-//   item: Required<itemSearchFilter>; // ETC
-// }
-// export interface TypedSearchJoinTypes {
-//   item: itemSearchJoin; // ETC
-// }
-// export interface TypedSearchJoinTypes {
-//   item: itemSearchJoin; // ETC
-// }
 
 
+function generateTypedSearchColumnValues(config: ProjectConfig & { recordIds: string[] }) {
+  const output = `
+/** Field Search Column values definitions so they can be consumed dynamically not only as types. */
+export const typedSearchColumnValues = {
+${config.recordIds.map(id => `
+${indent()}${id}: ${id}SearchColumnValues
+`.trim()
+  ).join(`,\n${indent()}`)}
+};
+`
+  return { output }
+}
 
-// export type GetSelectValueFilterOperator = ("contains" | "is" | "startsWith");
-// export type SearchDateFieldOperator = ("after" | "before" | "empty" | "notAfter" | "notBefore" | "notEmpty" | "notOn" | "notOnOrAfter" | "notOnOrBefore" | "notWithin" | "on" | "onOrAfter" | "onOrBefore" | "within");
+function generateTypedSearchFilterValues(config: ProjectConfig & { recordIds: string[] }) {
+  const output = `
+/** Field Search Filter values definitions so they can be consumed dynamically not only as types. */
+export const typedSearchFilterValues = {
+${config.recordIds.map(id => `
+${indent()}${id}: ${id}SearchFilterValues
+`.trim()
+  ).join(`,\n${indent()}`)}
+};
+`
+  return { output }
+}
 
-// export type SearchDoubleFieldOperator = ("between" | "empty" | "equalTo" | "greaterThan" | "greaterThanOrEqualTo" | "lessThan" | "lessThanOrEqualTo" | "notBetween" | "notEmpty" | "notEqualTo" | "notGreaterThan" | "notGreaterThanOrEqualTo" | "notLessThan" | "notLessThanOrEqualTo");
-
-// export type SearchEnumMultiSelectFieldOperator = ("anyOf" | "noneOf");
-
-// export type SearchLongFieldOperator = ("between" | "empty" | "equalTo" | "greaterThan" | "greaterThanOrEqualTo" | "lessThan" | "lessThanOrEqualTo" | "notBetween" | "notEmpty" | "notEqualTo" | "notGreaterThan" | "notGreaterThanOrEqualTo" | "notLessThan" | "notLessThanOrEqualTo");
-
-// export type SearchMultiSelectFieldOperator = ("anyOf" | "noneOf");
-
-// export type SearchStringFieldOperator = ("contains" | "doesNotContain" | "doesNotStartWith" | "empty" | "hasKeywords" | "is" | "isNot" | "notEmpty" | "startsWith");
-
-// export type SearchTextNumberFieldOperator = ("between" | "empty" | "equalTo" | "greaterThan" | "greaterThanOrEqualTo" | "lessThan" | "lessThanOrEqualTo" | "notBetween" | "notEmpty" | "notEqualTo" | "notGreaterThan" | "notGreaterThanOrEqualTo" | "notLessThan" | "notLessThanOrEqualTo");
-
+function generateTypedSearchJoinValues(config: ProjectConfig & { recordIds: string[] }) {
+  const output = `
+/** Field Search Join values definitions so they can be consumed dynamically not only as types. */
+export const typedSearchJoinValues = {
+${config.recordIds.map(id => `
+${indent()}${id}: ${id}SearchJoinValues
+`.trim()
+  ).join(`,\n${indent()}`)}
+};
+`
+  return { output }
+}

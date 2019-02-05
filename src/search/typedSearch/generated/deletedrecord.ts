@@ -10,7 +10,7 @@ export interface deletedrecordSearchColumn {
   /** Deleted By (deletedby: select) */
       deletedby?: string;
   /** Date Deleted (deleteddate: datetime) */
-      deleteddate?: Date;
+      deleteddate?: string;
   /** External Id (externalid: text) */
       externalid?: string;
   /** Name (name: text) */
@@ -27,7 +27,7 @@ export interface deletedrecordSearchFilter {
   /** Deleted by (deletedby: select) */
   deletedby?: string;
   /** Date Deleted (deleteddate: datetime) */
-  deleteddate?: Date;
+  deleteddate?: string;
   /** Name (name: text) */
   name?: string;
   /** Record Type (recordtype: select) */

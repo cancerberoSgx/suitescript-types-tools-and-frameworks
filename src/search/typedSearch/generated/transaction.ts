@@ -12,35 +12,35 @@ export interface transactionSearchColumn {
   /** Account Type (accounttype: text) */
       accounttype?: string;
   /** Actual Ship/Receipt Date (actualshipdate: date) */
-      actualshipdate?: Date;
+      actualshipdate?: string;
   /** Amount (Alt.Sales) (altsalesamount: currency) */
-      altsalesamount?: number;
+      altsalesamount?: string;
   /** Amount (Alt.Sales Net) (altsalesnetamount: currency) */
-      altsalesnetamount?: number;
+      altsalesnetamount?: string;
   /** Amount (amount: currency) */
-      amount?: number;
+      amount?: string;
   /** Amount Paid (amountpaid: currency) */
-      amountpaid?: number;
+      amountpaid?: string;
   /** Amount Remaining (amountremaining: currency) */
-      amountremaining?: number;
+      amountremaining?: string;
   /** Amount Unbilled (amountunbilled: currency) */
-      amountunbilled?: number;
+      amountunbilled?: string;
   /** Applied To Link Amount (Foreign Currency) (appliedtoforeignamount: currency) */
-      appliedtoforeignamount?: number;
+      appliedtoforeignamount?: string;
   /** Applied To Link Is FxVariance (appliedtoisfxvariance: checkbox) */
       appliedtoisfxvariance?: boolean;
   /** Applied To Link Amount (appliedtolinkamount: currency) */
-      appliedtolinkamount?: number;
+      appliedtolinkamount?: string;
   /** Applied To Link Type (appliedtolinktype: select) */
       appliedtolinktype?: string;
   /** Applied To Transaction (appliedtotransaction: select) */
       appliedtotransaction?: string;
   /** Applying Link Amount (Foreign Currency) (applyingforeignamount: currency) */
-      applyingforeignamount?: number;
+      applyingforeignamount?: string;
   /** Applying Link Is FxVariance (applyingisfxvariance: checkbox) */
       applyingisfxvariance?: boolean;
   /** Applying Link Amount (applyinglinkamount: currency) */
-      applyinglinkamount?: number;
+      applyinglinkamount?: string;
   /** Applying Link Type (applyinglinktype: select) */
       applyinglinktype?: string;
   /** Applying Transaction (applyingtransaction: select) */
@@ -60,9 +60,9 @@ export interface transactionSearchColumn {
   /** Billing Country Code (billcountrycode: text) */
       billcountrycode?: string;
   /** Date Billed (billeddate: date) */
-      billeddate?: Date;
+      billeddate?: string;
   /** Billing Amount (billingamount: currency2) */
-      billingamount?: number;
+      billingamount?: string;
   /** Billing Schedule (billingschedule: select) */
       billingschedule?: string;
   /** Billing Transaction (billingtransaction: select) */
@@ -72,13 +72,13 @@ export interface transactionSearchColumn {
   /** Transaction Bin Number (binnumber: text) */
       binnumber?: string;
   /** Transaction Bin Quantity (binnumberquantity: float) */
-      binnumberquantity?: number;
+      binnumberquantity?: string;
   /** Build Sub-Assemblies (buildentireassembly: checkbox) */
       buildentireassembly?: boolean;
   /** Build Variance (buildvariance: float) */
-      buildvariance?: number;
+      buildvariance?: string;
   /** Built (built: float) */
-      built?: number;
+      built?: string;
   /** Can have stackable promotions (canhavestackablepromotions: checkbox) */
       canhavestackablepromotions?: boolean;
   /** Catch Up Period (catchupperiod: text) */
@@ -104,33 +104,33 @@ export interface transactionSearchColumn {
   /** Closed (closed: checkbox) */
       closed?: boolean;
   /** Date Closed (closedate: date) */
-      closedate?: Date;
+      closedate?: string;
   /** COGS Amount (cogsamount: currency2) */
-      cogsamount?: number;
+      cogsamount?: string;
   /** Commission Effective Date (commissioneffectivedate: date) */
-      commissioneffectivedate?: Date;
+      commissioneffectivedate?: string;
   /** Commit (commit: select) */
       commit?: string;
   /** Confirmation Number (confirmationnumber: text) */
       confirmationnumber?: string;
   /** Contribution % (contribution: percent) */
-      contribution?: number;
+      contribution?: string;
   /** Primary Sales Rep Contribution % (contributionprimary: percent) */
-      contributionprimary?: number;
+      contributionprimary?: string;
   /** Cost Component Amount (costcomponentamount: currency) */
-      costcomponentamount?: number;
+      costcomponentamount?: string;
   /** Cost Component Category (costcomponentcategory: text) */
       costcomponentcategory?: string;
   /** Cost Component Item (costcomponentitem: text) */
       costcomponentitem?: string;
   /** Cost Component Quantity (costcomponentquantity: float) */
-      costcomponentquantity?: number;
+      costcomponentquantity?: string;
   /** Cost Component Standard Cost (costcomponentstandardcost: float) */
-      costcomponentstandardcost?: number;
+      costcomponentstandardcost?: string;
   /** Est. Extended Cost (Line) (costestimate: currency) */
-      costestimate?: number;
+      costestimate?: string;
   /** Est. Unit Cost (costestimaterate: currency) */
-      costestimaterate?: number;
+      costestimaterate?: string;
   /** Cost Estimate Type (costestimatetype: text) */
       costestimatetype?: string;
   /** Created By (createdby: select) */
@@ -138,7 +138,7 @@ export interface transactionSearchColumn {
   /** Created From (createdfrom: select) */
       createdfrom?: string;
   /** Amount (Credit) (creditamount: currency) */
-      creditamount?: number;
+      creditamount?: string;
   /** CSC Match (cscmatch: text) */
       cscmatch?: string;
   /** Currency (currency: select) */
@@ -150,15 +150,15 @@ export interface transactionSearchColumn {
   /** Customer Category (custtype: select) */
       custtype?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Days Open (daysopen: integer) */
-      daysopen?: number;
+      daysopen?: string;
   /** Days Overdue (daysoverdue: integer) */
-      daysoverdue?: number;
+      daysoverdue?: string;
   /** Amount (Debit) (debitamount: currency) */
-      debitamount?: number;
+      debitamount?: string;
   /** Amount (Deferred) (deferredrevenue: currency) */
-      deferredrevenue?: number;
+      deferredrevenue?: string;
   /** Delay Rev. Rec. (deferrevrec: checkbox) */
       deferrevrec?: boolean;
   /** Department (department: select) */
@@ -166,47 +166,47 @@ export interface transactionSearchColumn {
   /** Department (no hierarchy) (departmentnohierarchy: select) */
       departmentnohierarchy?: string;
   /** Date Deposited/Refunded (depositdate: date) */
-      depositdate?: Date;
+      depositdate?: string;
   /** Deposit/Refund Transaction (deposittransaction: select) */
       deposittransaction?: string;
   /** Amount Discount (discountamount: currency) */
-      discountamount?: number;
+      discountamount?: string;
   /** Transaction Units (docunit: text) */
       docunit?: string;
   /** Deferred Revenue Reclassification Account (draccount: text) */
       draccount?: string;
   /** Due Date/Receive By (duedate: date) */
-      duedate?: Date;
+      duedate?: string;
   /** Effective Rate (effectiverate: currency2) */
-      effectiverate?: number;
+      effectiverate?: string;
   /** Email (email: email) */
       email?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Name (entity: select) */
       entity?: string;
   /** Estimate/Opportunity Status (entitystatus: select) */
       entitystatus?: string;
   /** Est. Gross Profit (Line) (estgrossprofit: currency) */
-      estgrossprofit?: number;
+      estgrossprofit?: string;
   /** Est. Gross Profit Percent (Line) (estgrossprofitpct: percent) */
-      estgrossprofitpct?: number;
+      estgrossprofitpct?: string;
   /** Est. Gross Profit Percent (Transaction) (estgrossprofitpercent: percent) */
-      estgrossprofitpercent?: number;
+      estgrossprofitpercent?: string;
   /** Exchange Rate (exchangerate: currency2) */
-      exchangerate?: number;
+      exchangerate?: string;
   /** Exclude Commissions (excludecommission: checkbox) */
       excludecommission?: boolean;
   /** Exclude Item from Rate Request (excludefromraterequest: checkbox) */
       excludefromraterequest?: boolean;
   /** Expected Close (expectedclosedate: date) */
-      expectedclosedate?: Date;
+      expectedclosedate?: string;
   /** Expected Receipt Date (expectedreceiptdate: date) */
-      expectedreceiptdate?: Date;
+      expectedreceiptdate?: string;
   /** Expense Category (expensecategory: select) */
       expensecategory?: string;
   /** Expense Date (expensedate: date) */
-      expensedate?: Date;
+      expensedate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Firmed (firmed: checkbox) */
@@ -214,15 +214,15 @@ export interface transactionSearchColumn {
   /** Forecast Type (forecasttype: select) */
       forecasttype?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Fulfilling/Receiving Transaction (fulfillingtransaction: select) */
@@ -230,41 +230,41 @@ export interface transactionSearchColumn {
   /** Foreign Currency Adjustment Revenue Account (fxaccount: text) */
       fxaccount?: string;
   /** Amount (Foreign Currency) (fxamount: currency) */
-      fxamount?: number;
+      fxamount?: string;
   /** Est. Extended Cost (Line) (Foreign Currency) (fxcostestimate: currency) */
-      fxcostestimate?: number;
+      fxcostestimate?: string;
   /** Est. Unit Cost (Foreign Currency) (fxcostestimaterate: currency) */
-      fxcostestimaterate?: number;
+      fxcostestimaterate?: string;
   /** Est. Gross Profit (Line) (Foreign Currency) (fxestgrossprofit: currency) */
-      fxestgrossprofit?: number;
+      fxestgrossprofit?: string;
   /** Est. Extended Cost (Transaction) (Foreign Currency) (fxtrancostestimate: currency) */
-      fxtrancostestimate?: number;
+      fxtrancostestimate?: string;
   /** VSOE Allocation (Foreign Currency) (fxvsoeallocation: currency) */
-      fxvsoeallocation?: number;
+      fxvsoeallocation?: string;
   /** VSOE Amount (Foreign Currency) (fxvsoeamount: currency) */
-      fxvsoeamount?: number;
+      fxvsoeamount?: string;
   /** VSOE Price (Foreign Currency) (fxvsoeprice: currency2) */
-      fxvsoeprice?: number;
+      fxvsoeprice?: string;
   /** Funds Available to Process (gcoavailabeltocharge: currency) */
-      gcoavailabeltocharge?: number;
+      gcoavailabeltocharge?: string;
   /** Funds Available to Refund (gcoavailabletorefund: currency) */
-      gcoavailabletorefund?: number;
+      gcoavailabletorefund?: string;
   /** AVS Street Match (Google) (gcoavsstreetmatch: text) */
       gcoavsstreetmatch?: string;
   /** AVS Zip Match (Google) (gcoavszipmatch: text) */
       gcoavszipmatch?: string;
   /** Buyer Account Age (gcobuyeraccountage: integer) */
-      gcobuyeraccountage?: number;
+      gcobuyeraccountage?: string;
   /** Buyer IP Address (gcobuyerip: text) */
       gcobuyerip?: string;
   /** Pending Charges (gcochargeamount: currency) */
-      gcochargeamount?: number;
+      gcochargeamount?: string;
   /** Chargeback Amount (gcochargebackamount: currency) */
-      gcochargebackamount?: number;
+      gcochargebackamount?: string;
   /** Charge Amount Confirmed (gcoconfirmedchargedtotal: currency) */
-      gcoconfirmedchargedtotal?: number;
+      gcoconfirmedchargedtotal?: string;
   /** Confirmed Refund Amount (gcoconfirmedrefundedtotal: currency) */
-      gcoconfirmedrefundedtotal?: number;
+      gcoconfirmedrefundedtotal?: string;
   /** Credit Card (Google) (gcocreditcardnumber: text) */
       gcocreditcardnumber?: string;
   /** CSC Match (Google) (gcocscmatch: text) */
@@ -276,21 +276,21 @@ export interface transactionSearchColumn {
   /** Google Order ID (gcoorderid: text) */
       gcoorderid?: string;
   /** Google Order Total (gcoordertotal: currency) */
-      gcoordertotal?: number;
+      gcoordertotal?: string;
   /** Google Checkout Promotion Amount (gcopromotionamount: currency) */
-      gcopromotionamount?: number;
+      gcopromotionamount?: string;
   /** Google Checkout Promotion (gcopromotionname: text) */
       gcopromotionname?: string;
   /** Pending Refund Amount (gcorefundamount: currency) */
-      gcorefundamount?: number;
+      gcorefundamount?: string;
   /** Google Shipping Total (gcoshippingtotal: currency) */
-      gcoshippingtotal?: number;
+      gcoshippingtotal?: string;
   /** Reason for Cancellation (gcostatechangeddetail: text) */
       gcostatechangeddetail?: string;
   /** Gift Certificate (giftcert: text) */
       giftcert?: string;
   /** Amount (Gross) (grossamount: currency) */
-      grossamount?: number;
+      grossamount?: string;
   /** Include in Forecast (includeinforecast: checkbox) */
       includeinforecast?: boolean;
   /** Incoterm (incoterm: select) */
@@ -342,17 +342,17 @@ export interface transactionSearchColumn {
   /** Item Revision (itemrevision: select) */
       itemrevision?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Lead Source (leadsource: select) */
       leadsource?: string;
   /** Line ID (line: integer) */
-      line?: number;
+      line?: string;
   /** Line Sequence Number (linesequencenumber: integer) */
-      linesequencenumber?: number;
+      linesequencenumber?: string;
   /** Line Unique Key (lineuniquekey: integer) */
-      lineuniquekey?: number;
+      lineuniquekey?: string;
   /** Location (location: select) */
       location?: string;
   /** Location (no hierarchy) (locationnohierarchy: select) */
@@ -376,13 +376,13 @@ export interface transactionSearchColumn {
   /** Intercompany (multisubsidiary: checkbox) */
       multisubsidiary?: boolean;
   /** Amount (Net) (netamount: currency) */
-      netamount?: number;
+      netamount?: string;
   /** Amount (Net of Tax) (netamountnotax: currency) */
-      netamountnotax?: number;
+      netamountnotax?: string;
   /** Next Approver (nextapprover: select) */
       nextapprover?: string;
   /** Next Bill Date (nextbilldate: date) */
-      nextbilldate?: Date;
+      nextbilldate?: string;
   /** Non-reimbursable (nonreimbursable: checkbox) */
       nonreimbursable?: boolean;
   /** Opportunity (opportunity: select) */
@@ -394,25 +394,25 @@ export interface transactionSearchColumn {
   /** PO/Check Number (otherrefnum: text) */
       otherrefnum?: string;
   /** Package Count (packagecount: integer) */
-      packagecount?: number;
+      packagecount?: string;
   /** Paid Amount (paidamount: currency2) */
-      paidamount?: number;
+      paidamount?: string;
   /** Paid Transaction (paidtransaction: select) */
       paidtransaction?: string;
   /** Partner (partner: select) */
       partner?: string;
   /** Partner Contribution % (partnercontribution: percent) */
-      partnercontribution?: number;
+      partnercontribution?: string;
   /** Partner Role (partnerrole: select) */
       partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
       partnerteammember?: string;
   /** Paying Amount (payingamount: currency2) */
-      payingamount?: number;
+      payingamount?: string;
   /** Paying Transaction (payingtransaction: select) */
       payingtransaction?: string;
   /** Payment Event Date (paymenteventdate: datetime) */
-      paymenteventdate?: Date;
+      paymenteventdate?: string;
   /** Payment Event Hold Reason (paymenteventholdreason: text) */
       paymenteventholdreason?: string;
   /** Payment Event Purchase Card Used (paymenteventpurchasecardused: checkbox) */
@@ -438,7 +438,7 @@ export interface transactionSearchColumn {
   /** P/N Ref (pnrefnum: text) */
       pnrefnum?: string;
   /** PO Rate (porate: currency2) */
-      porate?: number;
+      porate?: string;
   /** Posting (posting: checkbox) */
       posting?: boolean;
   /** Period (postingperiod: select) */
@@ -448,9 +448,9 @@ export interface transactionSearchColumn {
   /** Print (print: text) */
       print?: string;
   /** Probability (probability: percent) */
-      probability?: number;
+      probability?: string;
   /** Projected Total (projectedamount: currency) */
-      projectedamount?: number;
+      projectedamount?: string;
   /** Project task (projecttask: select) */
       projecttask?: string;
   /** Promotion (promocode: select) */
@@ -458,27 +458,27 @@ export interface transactionSearchColumn {
   /** Purchase Order (purchaseorder: select) */
       purchaseorder?: string;
   /** Quantity (quantity: float) */
-      quantity?: number;
+      quantity?: string;
   /** Quantity Billed (quantitybilled: float) */
-      quantitybilled?: number;
+      quantitybilled?: string;
   /** Quantity Committed (quantitycommitted: float) */
-      quantitycommitted?: number;
+      quantitycommitted?: string;
   /** Quantity Packed (quantitypacked: float) */
-      quantitypacked?: number;
+      quantitypacked?: string;
   /** Quantity Picked (quantitypicked: float) */
-      quantitypicked?: number;
+      quantitypicked?: string;
   /** Quantity Rev. Committed (quantityrevcommitted: float) */
-      quantityrevcommitted?: number;
+      quantityrevcommitted?: string;
   /** Quantity Fulfilled/Received (quantityshiprecv: float) */
-      quantityshiprecv?: number;
+      quantityshiprecv?: string;
   /** Quantity in Transaction Units (quantityuom: float) */
-      quantityuom?: number;
+      quantityuom?: string;
   /** Item Rate (rate: currency2) */
-      rate?: number;
+      rate?: string;
   /** Realized Gain Posting Transaction (realizedgainpostingtransaction: select) */
       realizedgainpostingtransaction?: string;
   /** Amount (Recognized) (recognizedrevenue: currency) */
-      recognizedrevenue?: number;
+      recognizedrevenue?: string;
   /** Record Type (recordtype: text) */
       recordtype?: string;
   /** Rev. Commit. Status (revcommitstatus: text) */
@@ -488,21 +488,21 @@ export interface transactionSearchColumn {
   /** Revenue Status (revenuestatus: text) */
       revenuestatus?: string;
   /** Reversal Date (reversaldate: date) */
-      reversaldate?: Date;
+      reversaldate?: string;
   /** Reversal Number (reversalnumber: text) */
       reversalnumber?: string;
   /** Rev. Rec. End Date (revrecenddate: date) */
-      revrecenddate?: Date;
+      revrecenddate?: string;
   /** Rev. Rec. On Rev. Committment (revreconrevcommitment: checkbox) */
       revreconrevcommitment?: boolean;
   /** Rev. Rec. Start Date (revrecstartdate: date) */
-      revrecstartdate?: Date;
+      revrecstartdate?: string;
   /** Realized Gain Account (rgaccount: select) */
       rgaccount?: string;
   /** Realized Gain Amount (rgamount: currency) */
-      rgamount?: number;
+      rgamount?: string;
   /** Sales Effective Date (saleseffectivedate: date) */
-      saleseffectivedate?: Date;
+      saleseffectivedate?: string;
   /** Sales Order (salesorder: select) */
       salesorder?: string;
   /** Sales Rep (salesrep: select) */
@@ -516,11 +516,11 @@ export interface transactionSearchColumn {
   /** Transaction Serial/Lot Number (serialnumber: text) */
       serialnumber?: string;
   /** Transaction Serial/Lot Number Amount (serialnumbercost: currency) */
-      serialnumbercost?: number;
+      serialnumbercost?: string;
   /** Transaction Serial/Lot Number Cost Adjustment (serialnumbercostadjustment: currency) */
-      serialnumbercostadjustment?: number;
+      serialnumbercostadjustment?: string;
   /** Transaction Serial/Lot Number Quantity (serialnumberquantity: float) */
-      serialnumberquantity?: number;
+      serialnumberquantity?: string;
   /** Serial/Lot Numbers (serialnumbers: text) */
       serialnumbers?: string;
   /** Shipping Carrier (shipcarrier: select) */
@@ -530,23 +530,23 @@ export interface transactionSearchColumn {
   /** Shipping Country Code (shipcountrycode: text) */
       shipcountrycode?: string;
   /** Ship Date (shipdate: date) */
-      shipdate?: Date;
+      shipdate?: string;
   /** Ship Group (shipgroup: integer) */
-      shipgroup?: number;
+      shipgroup?: string;
   /** Ship Via (shipmethod: select) */
       shipmethod?: string;
   /** Amount (Shipping) (shippingamount: currency) */
-      shippingamount?: number;
+      shippingamount?: string;
   /** Fulfilled/Received (Line Level) (shiprecvstatusline: checkbox) */
       shiprecvstatusline?: boolean;
   /** Ship To (shipto: select) */
       shipto?: string;
   /** Amount (Signed) (signedamount: currency) */
-      signedamount?: number;
+      signedamount?: string;
   /** Source (source: select) */
       source?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Status (statusref: select) */
       statusref?: string;
   /** Subsidiary (subsidiary: select) */
@@ -554,7 +554,7 @@ export interface transactionSearchColumn {
   /** Subsidiary (no hierarchy) (subsidiarynohierarchy: select) */
       subsidiarynohierarchy?: string;
   /** Amount (Tax) (taxamount: currency) */
-      taxamount?: number;
+      taxamount?: string;
   /** Tax Item (taxcode: select) */
       taxcode?: string;
   /** Tax Line (taxline: checkbox) */
@@ -562,9 +562,9 @@ export interface transactionSearchColumn {
   /** Tax Period (taxperiod: select) */
       taxperiod?: string;
   /** Amount (Tax Total) (taxtotal: currency) */
-      taxtotal?: number;
+      taxtotal?: string;
   /** Rev. Rec. Term in Months (terminmonths: integer) */
-      terminmonths?: number;
+      terminmonths?: string;
   /** Terms (terms: select) */
       terms?: string;
   /** Terms Of Sale (termsofsale: text) */
@@ -580,17 +580,17 @@ export interface transactionSearchColumn {
   /** To Subsidiary (no hierarchy) (tosubsidiarynohierarchy: select) */
       tosubsidiarynohierarchy?: string;
   /** Amount (Transaction Total) (total: currency) */
-      total?: number;
+      total?: string;
   /** Est. Extended Cost (Transaction) (totalcostestimate: currency) */
-      totalcostestimate?: number;
+      totalcostestimate?: string;
   /** Tracking Numbers (trackingnumbers: text) */
       trackingnumbers?: string;
   /** Date (trandate: date) */
-      trandate?: Date;
+      trandate?: string;
   /** Est. Gross Profit (Transaction) (tranestgrossprofit: currency) */
-      tranestgrossprofit?: number;
+      tranestgrossprofit?: string;
   /** Est. Gross Profit (Transaction) (Foreign Currency) (tranfxestgrossprofit: currency) */
-      tranfxestgrossprofit?: number;
+      tranfxestgrossprofit?: string;
   /** Number (tranid: text) */
       tranid?: string;
   /** Transaction Is VSOE Bundle (tranisvsoebundle: checkbox) */
@@ -606,29 +606,29 @@ export interface transactionSearchColumn {
   /** Transfer Order Item Line Id (transferorderitemline: text) */
       transferorderitemline?: string;
   /** Transfer Order Quantity Committed (transferorderquantitycommitted: float) */
-      transferorderquantitycommitted?: number;
+      transferorderquantitycommitted?: string;
   /** Transfer Order Quantity Packed (transferorderquantitypacked: float) */
-      transferorderquantitypacked?: number;
+      transferorderquantitypacked?: string;
   /** Transfer Order Quantity Picked (transferorderquantitypicked: float) */
-      transferorderquantitypicked?: number;
+      transferorderquantitypicked?: string;
   /** Transfer Order Quantity Received (transferorderquantityreceived: float) */
-      transferorderquantityreceived?: number;
+      transferorderquantityreceived?: string;
   /** Transfer Order Quantity Shipped (transferorderquantityshipped: float) */
-      transferorderquantityshipped?: number;
+      transferorderquantityshipped?: string;
   /** Type (type: select) */
       type?: string;
   /** Units (unit: text) */
       unit?: string;
   /** Unit Cost Override (unitcostoverride: currency) */
-      unitcostoverride?: number;
+      unitcostoverride?: string;
   /** Vendor Category (vendtype: select) */
       vendtype?: string;
   /** Available In Customer Center (visibletocustomer: checkbox) */
       visibletocustomer?: boolean;
   /** VSOE Allocation (vsoeallocation: currency) */
-      vsoeallocation?: number;
+      vsoeallocation?: string;
   /** VSOE Amount (vsoeamount: currency) */
-      vsoeamount?: number;
+      vsoeamount?: string;
   /** Deferral (vsoedeferral: text) */
       vsoedeferral?: string;
   /** Delivered (vsoedelivered: checkbox) */
@@ -636,7 +636,7 @@ export interface transactionSearchColumn {
   /** Permit Discount (vsoepermitdiscount: text) */
       vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: currency2) */
-      vsoeprice?: number;
+      vsoeprice?: string;
   /** Web Site (website: text) */
       website?: string;
 }
@@ -651,37 +651,37 @@ export interface transactionSearchFilter {
   /** Account Type (accounttype: select) */
   accounttype?: string;
   /** Actual Ship/Receipt Date (actualshipdate: date) */
-  actualshipdate?: Date;
+  actualshipdate?: string;
   /** Amount (Alt.Sales) (altsalesamount: currency) */
-  altsalesamount?: number;
+  altsalesamount?: string;
   /** Amount (Alt.Sales Net) (altsalesnetamount: currency) */
-  altsalesnetamount?: number;
+  altsalesnetamount?: string;
   /** Amount (amount: currency) */
-  amount?: number;
+  amount?: string;
   /** Amount Paid (amountpaid: currency) */
-  amountpaid?: number;
+  amountpaid?: string;
   /** Amount Remaining (amountremaining: currency) */
-  amountremaining?: number;
+  amountremaining?: string;
   /** Amount Unbilled (amountunbilled: currency) */
-  amountunbilled?: number;
+  amountunbilled?: string;
   /** Item On Any Line (anylineitem: multiselect) */
-  anylineitem?: number;
+  anylineitem?: string;
   /** Applied To Link Amount (Foreign Currency) (appliedtoforeignamount: currency) */
-  appliedtoforeignamount?: number;
+  appliedtoforeignamount?: string;
   /** Applied To Is FxVariance (appliedtoisfxvariance: checkbox) */
   appliedtoisfxvariance?: boolean;
   /** Applied To Link Amount (appliedtolinkamount: currency) */
-  appliedtolinkamount?: number;
+  appliedtolinkamount?: string;
   /** Applied To Link Type (appliedtolinktype: select) */
   appliedtolinktype?: string;
   /** Applied To Transaction (appliedtotransaction: select) */
   appliedtotransaction?: string;
   /** Applying Link Amount (Foreign Currency) (applyingforeignamount: currency) */
-  applyingforeignamount?: number;
+  applyingforeignamount?: string;
   /** Applying Is FxVariance (applyingisfxvariance: checkbox) */
   applyingisfxvariance?: boolean;
   /** Applying Link Amount (applyinglinkamount: currency) */
-  applyinglinkamount?: number;
+  applyinglinkamount?: string;
   /** Applying Link Type (applyinglinktype: select) */
   applyinglinktype?: string;
   /** Applying Transaction (applyingtransaction: select) */
@@ -701,7 +701,7 @@ export interface transactionSearchFilter {
   /** Billing County/State (billcounty: text) */
   billcounty?: string;
   /** Date Billed (billeddate: date) */
-  billeddate?: Date;
+  billeddate?: string;
   /** Billing Schedule (billingschedule: select) */
   billingschedule?: string;
   /** Billing Status (billingstatus: checkbox) */
@@ -713,15 +713,15 @@ export interface transactionSearchFilter {
   /** Transaction Bin Number (binnumber: text) */
   binnumber?: string;
   /** Transaction Bin Quantity (binnumberquantity: float) */
-  binnumberquantity?: number;
+  binnumberquantity?: string;
   /** Book Specific Transaction (bookspecifictransaction: checkbox) */
   bookspecifictransaction?: boolean;
   /** Build Sub-Assemblies (buildentireassembly: checkbox) */
   buildentireassembly?: boolean;
   /** Build Variance (buildvariance: float) */
-  buildvariance?: number;
+  buildvariance?: string;
   /** Built (built: float) */
-  built?: number;
+  built?: string;
   /** Can have stackable promotions (canhavestackablepromotions: checkbox) */
   canhavestackablepromotions?: boolean;
   /** Catch Up Period (catchupperiod: select) */
@@ -729,7 +729,7 @@ export interface transactionSearchFilter {
   /** CC Customer Code (cccustomercode: text) */
   cccustomercode?: string;
   /** CC Expire Date (ccexpiredate: date) */
-  ccexpiredate?: Date;
+  ccexpiredate?: string;
   /** Credit Cardholder Name (ccname: text) */
   ccname?: string;
   /** Credit Card Number (ccnumber: ccnumber) */
@@ -743,31 +743,31 @@ export interface transactionSearchFilter {
   /** Closed (closed: checkbox) */
   closed?: boolean;
   /** Date Closed (closedate: date) */
-  closedate?: Date;
+  closedate?: string;
   /** COGS Line (cogs: checkbox) */
   cogs?: boolean;
   /** Commission Effective Date (commissioneffectivedate: date) */
-  commissioneffectivedate?: Date;
+  commissioneffectivedate?: string;
   /** Commit (commit: select) */
   commit?: string;
   /** Confirmation Number (confirmationnumber: text) */
   confirmationnumber?: string;
   /** Contribution % (contribution: integer) */
-  contribution?: number;
+  contribution?: string;
   /** Cost Component Amount (costcomponentamount: currency) */
-  costcomponentamount?: number;
+  costcomponentamount?: string;
   /** Cost Component Category (costcomponentcategory: select) */
   costcomponentcategory?: string;
   /** Cost Component Item (costcomponentitem: select) */
   costcomponentitem?: string;
   /** Cost Component Quantity (costcomponentquantity: float) */
-  costcomponentquantity?: number;
+  costcomponentquantity?: string;
   /** Cost Component Standard Cost (costcomponentstandardcost: float) */
-  costcomponentstandardcost?: number;
+  costcomponentstandardcost?: string;
   /** Est. Extended Cost (Line) (costestimate: currency) */
-  costestimate?: number;
+  costestimate?: string;
   /** Est. Unit Cost (costestimaterate: currency) */
-  costestimaterate?: number;
+  costestimaterate?: string;
   /** Cost Estimate Type (costestimatetype: select) */
   costestimatetype?: string;
   /** Created By (createdby: select) */
@@ -775,7 +775,7 @@ export interface transactionSearchFilter {
   /** Created From (createdfrom: select) */
   createdfrom?: string;
   /** Amount (Credit) (creditamount: currency) */
-  creditamount?: number;
+  creditamount?: string;
   /** CSC Match (cscmatch: select) */
   cscmatch?: string;
   /** Currency (currency: select) */
@@ -789,53 +789,53 @@ export interface transactionSearchFilter {
   /** Customer Category (custtype: select) */
   custtype?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Days Open (daysopen: integer) */
-  daysopen?: number;
+  daysopen?: string;
   /** Days Overdue (daysoverdue: integer) */
-  daysoverdue?: number;
+  daysoverdue?: string;
   /** Amount (Debit) (debitamount: currency) */
-  debitamount?: number;
+  debitamount?: string;
   /** Amount (Deferred) (deferredrevenue: currency) */
-  deferredrevenue?: number;
+  deferredrevenue?: string;
   /** Delay Rev. Rec. (deferrevrec: checkbox) */
   deferrevrec?: boolean;
   /** Department (department: select) */
   department?: string;
   /** Date Deposited/Refunded (depositdate: date) */
-  depositdate?: Date;
+  depositdate?: string;
   /** Deposit/Refund Transaction (deposittransaction: select) */
   deposittransaction?: string;
   /** Deferred Revenue Reclassification Account (draccount: select) */
   draccount?: string;
   /** Due Date/Receive By (duedate: date) */
-  duedate?: Date;
+  duedate?: string;
   /** Email (email: text) */
   email?: string;
   /** Employee (employee: select) */
   employee?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Name (entity: select) */
   entity?: string;
   /** Estimate/Opportunity Status (entitystatus: select) */
   entitystatus?: string;
   /** Est. Gross Profit (Line) (estgrossprofit: currency) */
-  estgrossprofit?: number;
+  estgrossprofit?: string;
   /** Est. Gross Profit Percent (Line) (estgrossprofitpct: percent) */
-  estgrossprofitpct?: number;
+  estgrossprofitpct?: string;
   /** Exchange Rate (exchangerate: currency) */
-  exchangerate?: number;
+  exchangerate?: string;
   /** Exclude Commissions (excludecommission: checkbox) */
   excludecommission?: boolean;
   /** Exclude Item from Rate Request (excludefromraterequest: checkbox) */
   excludefromraterequest?: boolean;
   /** Expected Close Date (expectedclosedate: date) */
-  expectedclosedate?: Date;
+  expectedclosedate?: string;
   /** Expected Receipt Date (expectedreceiptdate: date) */
-  expectedreceiptdate?: Date;
+  expectedreceiptdate?: string;
   /** Expense Date (expensedate: date) */
-  expensedate?: Date;
+  expensedate?: string;
   /** Expense Category (expreports: select) */
   expreports?: string;
   /** External ID (externalid: select) */
@@ -849,9 +849,9 @@ export interface transactionSearchFilter {
   /** Forecast Type (forecasttype: select) */
   forecasttype?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Fulfilling/Receiving Transaction (fulfillingtransaction: select) */
@@ -859,41 +859,41 @@ export interface transactionSearchFilter {
   /** Foreign Currency Adjustment Revenue Account (fxaccount: select) */
   fxaccount?: string;
   /** Amount (Foreign Currency) (fxamount: currency) */
-  fxamount?: number;
+  fxamount?: string;
   /** Est. Extended Cost (Line) (Foreign Currency) (fxcostestimate: currency) */
-  fxcostestimate?: number;
+  fxcostestimate?: string;
   /** Est. Unit Cost (Foreign Currency) (fxcostestimaterate: currency) */
-  fxcostestimaterate?: number;
+  fxcostestimaterate?: string;
   /** Est. Gross Profit (Line) (Foreign Currency) (fxestgrossprofit: currency) */
-  fxestgrossprofit?: number;
+  fxestgrossprofit?: string;
   /** Est. Extended Cost (Transaction) (Foreign Currency) (fxtrancostestimate: currency) */
-  fxtrancostestimate?: number;
+  fxtrancostestimate?: string;
   /** VSOE Allocation (Foreign Currency) (fxvsoeallocation: currency) */
-  fxvsoeallocation?: number;
+  fxvsoeallocation?: string;
   /** VSOE Amount (Foreign Currency) (fxvsoeamount: currency) */
-  fxvsoeamount?: number;
+  fxvsoeamount?: string;
   /** VSOE Price (Foreign Currency) (fxvsoeprice: currency) */
-  fxvsoeprice?: number;
+  fxvsoeprice?: string;
   /** Available to Charge (gcoavailabeltocharge: checkbox) */
   gcoavailabeltocharge?: boolean;
   /** Funds Available to Refund (gcoavailabletorefund: currency) */
-  gcoavailabletorefund?: number;
+  gcoavailabletorefund?: string;
   /** AVS Street Match (Google) (gcoavsstreetmatch: text) */
   gcoavsstreetmatch?: string;
   /** AVS Zip Match (Google) (gcoavszipmatch: text) */
   gcoavszipmatch?: string;
   /** Buyer Account Age (gcobuyeraccountage: integer) */
-  gcobuyeraccountage?: number;
+  gcobuyeraccountage?: string;
   /** Buyer IP Address (gcobuyerip: text) */
   gcobuyerip?: string;
   /** Requested Charge Amount (gcochargeamount: currency) */
-  gcochargeamount?: number;
+  gcochargeamount?: string;
   /** Chargeback Amount (gcochargebackamount: currency) */
-  gcochargebackamount?: number;
+  gcochargebackamount?: string;
   /** Charge Amount Confirmed (gcoconfirmedchargedtotal: currency) */
-  gcoconfirmedchargedtotal?: number;
+  gcoconfirmedchargedtotal?: string;
   /** Confirmed Refund Amount (gcoconfirmedrefundedtotal: currency) */
-  gcoconfirmedrefundedtotal?: number;
+  gcoconfirmedrefundedtotal?: string;
   /** Credit Card (Google) (gcocreditcardnumber: text) */
   gcocreditcardnumber?: string;
   /** CSC Match (Google) (gcocscmatch: text) */
@@ -905,21 +905,21 @@ export interface transactionSearchFilter {
   /** Google Order ID (gcoorderid: text) */
   gcoorderid?: string;
   /** Google Order Total (gcoordertotal: currency) */
-  gcoordertotal?: number;
+  gcoordertotal?: string;
   /** Google Checkout Promotion Amount (gcopromotionamount: currency) */
-  gcopromotionamount?: number;
+  gcopromotionamount?: string;
   /** Google Checkout Promotion (gcopromotionname: text) */
   gcopromotionname?: string;
   /** Requested Refund Amount (gcorefundamount: currency) */
-  gcorefundamount?: number;
+  gcorefundamount?: string;
   /** Google Shipping Total (gcoshippingtotal: currency) */
-  gcoshippingtotal?: number;
+  gcoshippingtotal?: string;
   /** Reason for Cancellation (gcostatechangeddetail: text) */
   gcostatechangeddetail?: string;
   /** Gift Certificate (giftcertificate: text) */
   giftcertificate?: string;
   /** Amount (Gross) (grossamount: currency) */
-  grossamount?: number;
+  grossamount?: string;
   /** Include in Forecast (includeinforecast: checkbox) */
   includeinforecast?: boolean;
   /** Incoterm (incoterm: select) */
@@ -931,7 +931,7 @@ export interface transactionSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** In VSOE Bundle (invsoebundle: checkbox) */
   invsoebundle?: boolean;
   /** Is Allocation (isallocation: checkbox) */
@@ -979,13 +979,13 @@ export interface transactionSearchFilter {
   /** Item Sub of (itemsubof: select) */
   itemsubof?: string;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Lead Source (leadsource: select) */
   leadsource?: string;
   /** Line (line: integer) */
-  line?: number;
+  line?: string;
   /** Line Unique Key (lineuniquekey: integer) */
-  lineuniquekey?: number;
+  lineuniquekey?: string;
   /** Location (location: select) */
   location?: string;
   /** Main Line (mainline: checkbox) */
@@ -1007,27 +1007,27 @@ export interface transactionSearchFilter {
   /** Intercompany (multisubsidiary: checkbox) */
   multisubsidiary?: boolean;
   /** Amount (Net) (netamount: currency) */
-  netamount?: number;
+  netamount?: string;
   /** Next Approver (nextapprover: select) */
   nextapprover?: string;
   /** Next Bill Date (nextbilldate: date) */
-  nextbilldate?: Date;
+  nextbilldate?: string;
   /** Non-reimbursable (nonreimbursable: checkbox) */
   nonreimbursable?: boolean;
   /** Number (number: integer) */
-  number?: number;
+  number?: string;
   /** Opportunity (opportunity: select) */
   opportunity?: string;
   /** PO/Check Number (otherrefnum: text) */
   otherrefnum?: string;
   /** Package Count (packagecount: integer) */
-  packagecount?: number;
+  packagecount?: string;
   /** Paid Transaction (paidtransaction: select) */
   paidtransaction?: string;
   /** Partner (partner: select) */
   partner?: string;
   /** Partner Contribution % (partnercontribution: integer) */
-  partnercontribution?: number;
+  partnercontribution?: string;
   /** Partner Role (partnerrole: select) */
   partnerrole?: string;
   /** Partner Team Member (partnerteammember: select) */
@@ -1035,7 +1035,7 @@ export interface transactionSearchFilter {
   /** Paying Transaction (payingtransaction: select) */
   payingtransaction?: string;
   /** Payment Event Date (paymenteventdate: datetime) */
-  paymenteventdate?: Date;
+  paymenteventdate?: string;
   /** Payment Event Hold Reason (paymenteventholdreason: select) */
   paymenteventholdreason?: string;
   /** Payment Event Purchase Card Used (paymenteventpurchasecardused: checkbox) */
@@ -1063,15 +1063,15 @@ export interface transactionSearchFilter {
   /** Posting (posting: checkbox) */
   posting?: boolean;
   /** Period (postingperiod: period) */
-  postingperiod?: Date;
+  postingperiod?: string;
   /** Price Level (pricelevel: select) */
   pricelevel?: string;
   /** Printed Picking Ticket (printedpickingticket: checkbox) */
   printedpickingticket?: boolean;
   /** Probability (probability: integer) */
-  probability?: number;
+  probability?: string;
   /** Projected Total (projectedamount: currency) */
-  projectedamount?: number;
+  projectedamount?: string;
   /** Project Task (projecttask: select) */
   projecttask?: string;
   /** Promotion (promocode: select) */
@@ -1079,21 +1079,21 @@ export interface transactionSearchFilter {
   /** Purchase Order (purchaseorder: select) */
   purchaseorder?: string;
   /** Quantity (quantity: float) */
-  quantity?: number;
+  quantity?: string;
   /** Quantity Billed (quantitybilled: float) */
-  quantitybilled?: number;
+  quantitybilled?: string;
   /** Quantity Committed (quantitycommitted: float) */
-  quantitycommitted?: number;
+  quantitycommitted?: string;
   /** Quantity Packed (quantitypacked: float) */
-  quantitypacked?: number;
+  quantitypacked?: string;
   /** Quantity Picked (quantitypicked: float) */
-  quantitypicked?: number;
+  quantitypicked?: string;
   /** Quantity Rev. Committed (quantityrevcommitted: float) */
-  quantityrevcommitted?: number;
+  quantityrevcommitted?: string;
   /** Quantity Shipped/Received (quantityshiprecv: float) */
-  quantityshiprecv?: number;
+  quantityshiprecv?: string;
   /** Amount (Recognized) (recognizedrevenue: currency) */
-  recognizedrevenue?: number;
+  recognizedrevenue?: string;
   /** Record Type (recordtype: text) */
   recordtype?: string;
   /** Rev. Commit. Status (revcommitstatus: select) */
@@ -1105,19 +1105,19 @@ export interface transactionSearchFilter {
   /** Revenue Status (revenuestatus: select) */
   revenuestatus?: string;
   /** Reversal Date (reversaldate: date) */
-  reversaldate?: Date;
+  reversaldate?: string;
   /** Reversal Number (reversalnumber: text) */
   reversalnumber?: string;
   /** Rev. Rec. End Date (revrecenddate: date) */
-  revrecenddate?: Date;
+  revrecenddate?: string;
   /** Rev. Rec. On Rev. Committment (revreconrevcommitment: checkbox) */
   revreconrevcommitment?: boolean;
   /** Rev. Rec. Start Date (revrecstartdate: date) */
-  revrecstartdate?: Date;
+  revrecstartdate?: string;
   /** Rev. Rec. Term in Months (revrecterminmonths: integer) */
-  revrecterminmonths?: number;
+  revrecterminmonths?: string;
   /** Sales Effective Date (saleseffectivedate: date) */
-  saleseffectivedate?: Date;
+  saleseffectivedate?: string;
   /** Sales Order (salesorder: select) */
   salesorder?: string;
   /** Sales Rep (salesrep: select) */
@@ -1131,11 +1131,11 @@ export interface transactionSearchFilter {
   /** Transaction Serial/Lot Number (serialnumber: text) */
   serialnumber?: string;
   /** Transaction Serial/Lot Amount (serialnumbercost: currency) */
-  serialnumbercost?: number;
+  serialnumbercost?: string;
   /** Transaction Serial/Lot Cost Adjustment (serialnumbercostadjustment: currency) */
-  serialnumbercostadjustment?: number;
+  serialnumbercostadjustment?: string;
   /** Transaction Serial/Lot Number Quantity (serialnumberquantity: float) */
-  serialnumberquantity?: number;
+  serialnumberquantity?: string;
   /** Shipping Carrier (shipcarrier: select) */
   shipcarrier?: string;
   /** Ship Complete (shipcomplete: checkbox) */
@@ -1143,9 +1143,9 @@ export interface transactionSearchFilter {
   /** Shipping County/State (shipcounty: text) */
   shipcounty?: string;
   /** Ship Date (shipdate: date) */
-  shipdate?: Date;
+  shipdate?: string;
   /** Ship Group (shipgroup: integer) */
-  shipgroup?: number;
+  shipgroup?: string;
   /** Ship Via (shipmethod: select) */
   shipmethod?: string;
   /** Shipping Line (shipping: checkbox) */
@@ -1159,7 +1159,7 @@ export interface transactionSearchFilter {
   /** Source (source: select) */
   source?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Subsidiary (subsidiary: select) */
@@ -1169,9 +1169,9 @@ export interface transactionSearchFilter {
   /** Tax Line (taxline: checkbox) */
   taxline?: boolean;
   /** Tax Period (taxperiod: period) */
-  taxperiod?: Date;
+  taxperiod?: string;
   /** Rate (taxrate: currency) */
-  taxrate?: number;
+  taxrate?: string;
   /** Terms (terms: select) */
   terms?: string;
   /** Terms Of Sale (termsofsale: select) */
@@ -1185,19 +1185,19 @@ export interface transactionSearchFilter {
   /** To Subsidiary (tosubsidiary: select) */
   tosubsidiary?: string;
   /** Amount (Transaction Total) (totalamount: currency) */
-  totalamount?: number;
+  totalamount?: string;
   /** Tracking Number (trackingnumbers: text) */
   trackingnumbers?: string;
   /** Est. Extended Cost (Transaction) (trancostestimate: currency) */
-  trancostestimate?: number;
+  trancostestimate?: string;
   /** Date (trandate: date) */
-  trandate?: Date;
+  trandate?: string;
   /** Est. Gross Profit (Transaction) (tranestgrossprofit: currency) */
-  tranestgrossprofit?: number;
+  tranestgrossprofit?: string;
   /** Est. Gross Profit Percent (Transaction) (tranestgrossprofitpct: percent) */
-  tranestgrossprofitpct?: number;
+  tranestgrossprofitpct?: string;
   /** Est. Gross Profit (Transaction) (Foreign Currency) (tranfxestgrossprofit: currency) */
-  tranfxestgrossprofit?: number;
+  tranfxestgrossprofit?: string;
   /** Number/ID (tranid: text) */
   tranid?: string;
   /** Transaction Is VSOE Bundle (tranisvsoebundle: checkbox) */
@@ -1211,21 +1211,21 @@ export interface transactionSearchFilter {
   /** To Location (transferlocation: select) */
   transferlocation?: string;
   /** Transfer Order Quantity Committed (transferorderquantitycommitted: float) */
-  transferorderquantitycommitted?: number;
+  transferorderquantitycommitted?: string;
   /** Transfer Order Quantity Packed (transferorderquantitypacked: float) */
-  transferorderquantitypacked?: number;
+  transferorderquantitypacked?: string;
   /** Transfer Order Quantity Picked (transferorderquantitypicked: float) */
-  transferorderquantitypicked?: number;
+  transferorderquantitypicked?: string;
   /** Transfer Order Quantity Received (transferorderquantityreceived: float) */
-  transferorderquantityreceived?: number;
+  transferorderquantityreceived?: string;
   /** Transfer Order Quantity Fulfilled (transferorderquantityshipped: float) */
-  transferorderquantityshipped?: number;
+  transferorderquantityshipped?: string;
   /** Type (type: select) */
   type?: string;
   /** Units (unit: select) */
   unit?: string;
   /** Unit Cost Override (unitcostoverride: currency) */
-  unitcostoverride?: number;
+  unitcostoverride?: string;
   /** Vendor Category (vendtype: select) */
   vendtype?: string;
   /** Available In Customer Center (visibletocustomer: checkbox) */
@@ -1233,9 +1233,9 @@ export interface transactionSearchFilter {
   /** Voided (voided: checkbox) */
   voided?: boolean;
   /** VSOE Allocation (vsoeallocation: currency) */
-  vsoeallocation?: number;
+  vsoeallocation?: string;
   /** VSOE Amount (vsoeamount: currency) */
-  vsoeamount?: number;
+  vsoeamount?: string;
   /** Deferral (vsoedeferral: select) */
   vsoedeferral?: string;
   /** Delivered (vsoedelivered: checkbox) */
@@ -1243,7 +1243,7 @@ export interface transactionSearchFilter {
   /** Permit Discount (vsoepermitdiscount: select) */
   vsoepermitdiscount?: string;
   /** VSOE Price (vsoeprice: currency) */
-  vsoeprice?: number;
+  vsoeprice?: string;
   /** Web Site (website: select) */
   website?: string;
 }

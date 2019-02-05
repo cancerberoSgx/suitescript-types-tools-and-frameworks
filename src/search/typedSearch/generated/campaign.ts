@@ -8,7 +8,7 @@ export interface campaignSearchColumn {
   /** Audience Description (audience: select) */
       audience?: string;
   /** Base Cost (basecost: currency) */
-      basecost?: number;
+      basecost?: string;
   /** Campaign ID (campaignid: text) */
       campaignid?: string;
   /** Category (category: select) */
@@ -16,31 +16,31 @@ export interface campaignSearchColumn {
   /** Channel (channel: select) */
       channel?: string;
   /** Total Cost (cost: currency) */
-      cost?: number;
+      cost?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** End Date (enddate: date) */
-      enddate?: Date;
+      enddate?: string;
   /** Event (event: text) */
       event?: string;
   /** Executed on (executeddate: datetime) */
-      executeddate?: Date;
+      executeddate?: string;
   /** Expected Revenue (expectedrevenue: currency) */
-      expectedrevenue?: number;
+      expectedrevenue?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Family (family: select) */
       family?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -54,9 +54,9 @@ export interface campaignSearchColumn {
   /** Keyword (keyword: text) */
       keyword?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Manager Role (managerrole: select) */
       managerrole?: string;
   /** Description (message: text) */
@@ -74,21 +74,21 @@ export interface campaignSearchColumn {
   /** Response (responsecategory: select) */
       responsecategory?: string;
   /** Response Code (responsecode: integer) */
-      responsecode?: number;
+      responsecode?: string;
   /** Response Date (responsedate: datetime) */
-      responsedate?: Date;
+      responsedate?: string;
   /** Response Notes (responsenotes: textarea) */
       responsenotes?: string;
   /** Revenue (revenue: currency) */
-      revenue?: number;
+      revenue?: string;
   /** ROI (roi: percent) */
-      roi?: number;
+      roi?: string;
   /** Scheduled on (scheduleddate: datetime) */
-      scheduleddate?: Date;
+      scheduleddate?: string;
   /** Search Engine (searchengine: select) */
       searchengine?: string;
   /** Start Date (startdate: date) */
-      startdate?: Date;
+      startdate?: string;
   /** Status (status: select) */
       status?: string;
   /** Subscription (subscription: select) */
@@ -109,7 +109,7 @@ export interface campaignSearchFilter {
 /** Audience Description (audience: select) */
   audience?: string;
   /** Cost (basecost: currency) */
-  basecost?: number;
+  basecost?: string;
   /** Campaign Event Type (campaigneventtype: select) */
   campaigneventtype?: string;
   /** Campaign ID (campaignid: text) */
@@ -119,15 +119,15 @@ export interface campaignSearchFilter {
   /** Channel (channel: select) */
   channel?: string;
   /** Total Cost (cost: currency) */
-  cost?: number;
+  cost?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** End Date (enddate: date) */
-  enddate?: Date;
+  enddate?: string;
   /** Campaign Event (event: text) */
   event?: string;
   /** Expected Revenue (expectedrevenue: currency) */
-  expectedrevenue?: number;
+  expectedrevenue?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
@@ -135,9 +135,9 @@ export interface campaignSearchFilter {
   /** Family (family: select) */
   family?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Group (group: select) */
@@ -145,7 +145,7 @@ export interface campaignSearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Is Sales Campaign (issalescampaign: checkbox) */
@@ -155,13 +155,13 @@ export interface campaignSearchFilter {
   /** Keyword (keyword: text) */
   keyword?: string;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Campaign Manager (manager: select) */
   manager?: string;
   /** Campaign Manager Role (managerrole: select) */
   managerrole?: string;
   /** Number (number: integer) */
-  number?: number;
+  number?: string;
   /** Offer (offer: select) */
   offer?: string;
   /** Promotion (promocode: select) */
@@ -173,17 +173,17 @@ export interface campaignSearchFilter {
   /** Response (responsecategory: select) */
   responsecategory?: string;
   /** Response Code (responsecode: integer) */
-  responsecode?: number;
+  responsecode?: string;
   /** Response Comments (responsecomments: text) */
   responsecomments?: string;
   /** Response Date (responsedate: date) */
-  responsedate?: Date;
+  responsedate?: string;
   /** Schedule Date (scheduledate: date) */
-  scheduledate?: Date;
+  scheduledate?: string;
   /** Search Engine (searchengine: select) */
   searchengine?: string;
   /** Start Date (startdate: date) */
-  startdate?: Date;
+  startdate?: string;
   /** Status (status: select) */
   status?: string;
   /** Subscription (subscription: select) */

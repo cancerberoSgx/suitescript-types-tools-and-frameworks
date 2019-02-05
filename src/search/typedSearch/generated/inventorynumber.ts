@@ -6,19 +6,19 @@
 /** Inventory Number (inventorynumber) Search Columns definition */
 export interface inventorynumberSearchColumn {
   /** Expiration Date (expirationdate: date) */
-      expirationdate?: Date;
+      expirationdate?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -34,13 +34,13 @@ export interface inventorynumberSearchColumn {
   /** Memo (memo: text) */
       memo?: string;
   /** Available (quantityavailable: float) */
-      quantityavailable?: number;
+      quantityavailable?: string;
   /** In Transit (quantityintransit: float) */
-      quantityintransit?: number;
+      quantityintransit?: string;
   /** On Hand (quantityonhand: float) */
-      quantityonhand?: number;
+      quantityonhand?: string;
   /** On Order (quantityonorder: float) */
-      quantityonorder?: number;
+      quantityonorder?: string;
 }
 
 
@@ -49,21 +49,21 @@ export interface inventorynumberSearchColumn {
 /** Inventory Number (inventorynumber) Search Filters definition */
 export interface inventorynumberSearchFilter {
 /** Expiration Date (expirationdate: date) */
-  expirationdate?: Date;
+  expirationdate?: string;
   /** External ID (externalid: select) */
   externalid?: string;
   /** External ID (Text) (externalidstring: text) */
   externalidstring?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Number (inventorynumber: text) */
   inventorynumber?: string;
   /** Is On Hand (isonhand: checkbox) */
@@ -75,13 +75,13 @@ export interface inventorynumberSearchFilter {
   /** Memo (memo: text) */
   memo?: string;
   /** Availabile (quantityavailable: float) */
-  quantityavailable?: number;
+  quantityavailable?: string;
   /** In Transit (quantityintransit: float) */
-  quantityintransit?: number;
+  quantityintransit?: string;
   /** On Hand (quantityonhand: float) */
-  quantityonhand?: number;
+  quantityonhand?: string;
   /** On Order (quantityonorder: float) */
-  quantityonorder?: number;
+  quantityonorder?: string;
 }
 
 

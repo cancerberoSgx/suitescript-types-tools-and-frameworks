@@ -36,27 +36,27 @@ export interface entitySearchColumn {
   /** Country Code (countrycode: text) */
       countrycode?: string;
   /** Date Created (datecreated: datetime) */
-      datecreated?: Date;
+      datecreated?: string;
   /** Email (email: email) */
       email?: string;
   /** Name (entityid: text) */
       entityid?: string;
   /** Number (entitynumber: integer) */
-      entitynumber?: number;
+      entitynumber?: string;
   /** External ID (externalid: select) */
       externalid?: string;
   /** Fax (fax: text) */
       fax?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Global Subscription Status (globalsubscriptionstatus: select) */
@@ -74,9 +74,9 @@ export interface entitySearchColumn {
   /** Language (language: select) */
       language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Last Viewed (lastviewed: datetime) */
-      lastviewed?: Date;
+      lastviewed?: string;
   /** Level (level: select) */
       level?: string;
   /** Permission (permission: select) */
@@ -96,7 +96,7 @@ export interface entitySearchColumn {
   /** Subscription (subscription: select) */
       subscription?: string;
   /** Subscription Date (subscriptiondate: datetime) */
-      subscriptiondate?: Date;
+      subscriptiondate?: string;
   /** Subscription Status (subscriptionstatus: checkbox) */
       subscriptionstatus?: boolean;
   /** Subsidiary (subsidiary: select) */
@@ -133,7 +133,7 @@ export interface entitySearchFilter {
   /** County/State (county: text) */
   county?: string;
   /** Date Created (datecreated: datetime) */
-  datecreated?: Date;
+  datecreated?: string;
   /** Email (email: text) */
   email?: string;
   /** Name/ID (entityid: text) */
@@ -145,9 +145,9 @@ export interface entitySearchFilter {
   /** Fax (fax: phone) */
   fax?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Login Access (giveaccess: checkbox) */
@@ -159,7 +159,7 @@ export interface entitySearchFilter {
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Default Billing Address (isdefaultbilling: checkbox) */
   isdefaultbilling?: boolean;
   /** Default Shipping Address (isdefaultshipping: checkbox) */
@@ -169,7 +169,7 @@ export interface entitySearchFilter {
   /** Language (language: select) */
   language?: string;
   /** Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Level (level: select) */
   level?: string;
   /** Permission (permission: select) */

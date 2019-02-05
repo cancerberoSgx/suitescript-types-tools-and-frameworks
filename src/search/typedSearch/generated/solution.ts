@@ -8,9 +8,9 @@ export interface solutionSearchColumn {
   /** Assigned To (assigned: select) */
       assigned?: string;
   /** Case Count (casecount: integer) */
-      casecount?: number;
+      casecount?: string;
   /** Date Created (createddate: datetime) */
-      createddate?: Date;
+      createddate?: string;
   /** Detailed Description (description: textarea) */
       description?: string;
   /** Display Online (displayonline: checkbox) */
@@ -18,15 +18,15 @@ export interface solutionSearchColumn {
   /** External ID (externalid: select) */
       externalid?: string;
   /** Formula (Currency) (formulacurrency: currency) */
-      formulacurrency?: number;
+      formulacurrency?: string;
   /** Formula (Date) (formuladate: date) */
-      formuladate?: Date;
+      formuladate?: string;
   /** Formula (Date/Time) (formuladatetime: datetime) */
-      formuladatetime?: Date;
+      formuladatetime?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-      formulanumeric?: number;
+      formulanumeric?: string;
   /** Formula (Percent) (formulapercent: percent) */
-      formulapercent?: number;
+      formulapercent?: string;
   /** Formula (Text) (formulatext: text) */
       formulatext?: string;
   /** Internal ID (internalid: select) */
@@ -34,7 +34,7 @@ export interface solutionSearchColumn {
   /** Inactive (isinactive: checkbox) */
       isinactive?: boolean;
   /** Last Modified (lastmodifieddate: datetime) */
-      lastmodifieddate?: Date;
+      lastmodifieddate?: string;
   /** Abstract (message: textarea) */
       message?: string;
   /** Preview (previewref: text) */
@@ -57,11 +57,11 @@ export interface solutionSearchFilter {
   /** Assigned To (assigned: select) */
   assigned?: string;
   /** Case Count (casecount: integer) */
-  casecount?: number;
+  casecount?: string;
   /** Code (code: text) */
   code?: string;
   /** Date Created (createddate: datetime) */
-  createddate?: Date;
+  createddate?: string;
   /** Detail (description: textarea) */
   description?: string;
   /** External ID (externalid: select) */
@@ -71,23 +71,23 @@ export interface solutionSearchFilter {
   /** Keyword (find: text) */
   find?: string;
   /** Formula (Date) (formuladate: date) */
-  formuladate?: Date;
+  formuladate?: string;
   /** Formula (Numeric) (formulanumeric: float) */
-  formulanumeric?: number;
+  formulanumeric?: string;
   /** Formula (Text) (formulatext: text) */
   formulatext?: string;
   /** Internal ID (internalid: select) */
   internalid?: string;
   /** Internal ID (Number) (internalidnumber: integer) */
-  internalidnumber?: number;
+  internalidnumber?: string;
   /** Inactive (isinactive: checkbox) */
   isinactive?: boolean;
   /** Display Online (isonline: checkbox) */
   isonline?: boolean;
   /** Date Last Modified (lastmodifieddate: datetime) */
-  lastmodifieddate?: Date;
+  lastmodifieddate?: string;
   /** Number (number: integer) */
-  number?: number;
+  number?: string;
   /** Status (status: select) */
   status?: string;
   /** Title (title: text) */

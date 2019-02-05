@@ -1,7 +1,6 @@
 import { StatelessComponent } from '../StatelessComponent';
 import { ReactLike } from '../createElement';
 import { formatDate } from '../../misc/dateUtil';
-// import { formatDate } from '../../misc/dateUtil';
 
 export interface BindInputValueProps {
   bindInputId?: string

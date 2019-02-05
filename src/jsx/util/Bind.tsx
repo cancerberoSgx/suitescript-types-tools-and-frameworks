@@ -1,10 +1,11 @@
+import { ReactLike } from '../createElement';
 import { StatelessComponent } from '../StatelessComponent';
-import { ReactLike, unEscapeHtmlAttribute, escapeHtmlAttribute } from '../createElement';
 import { BindInputValue, BindInputValueProps } from './BindInputValue';
 import { StoreData, StoreDataProps } from './StoreData';
 
 interface Props extends BindInputValueProps, StoreDataProps {
 }
+
 export class BindInputValueAndStoreData extends StatelessComponent<Props>{
   protected static registered=false;
   render(): JSX.Element {
@@ -16,8 +17,7 @@ export class BindInputValueAndStoreData extends StatelessComponent<Props>{
   public checkRegisteredCode(): any {
     if (!BindInputValueAndStoreData.registered) {
       StoreData.prototype.checkRegisteredCode.apply(this, [])
-      BindInputValue.prototype.checkRegisteredCode.apply(this, [])
-      
+      BindInputValue.prototype.checkRegisteredCode.apply(this, []) 
     }
   }
 }

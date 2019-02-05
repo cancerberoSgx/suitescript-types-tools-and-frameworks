@@ -1,4 +1,3 @@
-
 export * from './createElement'
 
 export type ReactLikeAttrs = {
@@ -52,6 +51,7 @@ export interface ReactLike {
   registerClientCode(f: ClientCode): void
   getClientCode(): ClientCode[]
 }
+
 export interface ClientCode {
   name?: string, 
   code: string,

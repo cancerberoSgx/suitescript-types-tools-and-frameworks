@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "../StatelessComponent", "../createElement", "./BindInputValue", "./StoreData"], function (require, exports, StatelessComponent_1, createElement_1, BindInputValue_1, StoreData_1) {
+define(["require", "exports", "../createElement", "../StatelessComponent", "./BindInputValue", "./StoreData"], function (require, exports, createElement_1, StatelessComponent_1, BindInputValue_1, StoreData_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var BindInputValueAndStoreData = /** @class */ (function (_super) {

@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../createElement", "../StatelessComponent", "../../misc/misc"], function (require, exports, createElement_1, StatelessComponent_1, misc_1) {
+define(["require", "exports", "../../misc/misc", "../createElement", "../StatelessComponent"], function (require, exports, misc_1, createElement_1, StatelessComponent_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function cssTest1() {

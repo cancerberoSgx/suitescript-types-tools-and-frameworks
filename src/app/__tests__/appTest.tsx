@@ -12,9 +12,7 @@ import { listRecordTypesRoute } from "../searchView/listRecordTypesRoute";
 
 export function appTest(request: ServerRequest, response: ServerResponse) {
 
-  // This app will have a home page at that renders a html app that will let user do ajax calls to another route 
   const app = new App()
-
 
   app.addRoute({
     name: 'mainPage',
@@ -23,10 +21,7 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
     }
   })
 
-
   app.addRoute(findRecordRoute(app))
-
-  // app.addRoute(listCategoriesRoute(app))
 
   app.addRoute(recordViewRoute(app))
 
@@ -37,26 +32,6 @@ export function appTest(request: ServerRequest, response: ServerResponse) {
 
   app.dispatch({ request, response })
 }
-
-
-
-
-// function listCategoriesRoute(app: App): Route {
-//   return {
-//     name: 'listCategories',
-//     handler(o) {
-//       const cats = list({
-//         type: 'commercecategory',
-//         columns: ['name', 'primaryparent', 'fullurl'],
-//       })
-//         .map(c => ({
-//           name: c.getValue('name'), id: c.id, parent: c.getValue('primaryparent'), url: c.getValue('fullurl')
-//         }));
-//       return ReactLike.render(<CategoryList cats={cats} renderLink={app.renderLink.bind(app)}></CategoryList>);
-//     }
-//   };
-// }
-
 
 
 

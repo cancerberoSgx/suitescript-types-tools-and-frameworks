@@ -2,7 +2,6 @@ define(["require", "exports", "../../jsx/createElement", "../app", "../recordVie
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function appTest(request, response) {
-        // This app will have a home page at that renders a html app that will let user do ajax calls to another route 
         var app = new app_1.App();
         app.addRoute({
             name: 'mainPage',
@@ -11,7 +10,6 @@ define(["require", "exports", "../../jsx/createElement", "../app", "../recordVie
             }
         });
         app.addRoute(findRecordRoute_1.findRecordRoute(app));
-        // app.addRoute(listCategoriesRoute(app))
         app.addRoute(recordViewRoute_1.recordViewRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesRoute(app));
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
@@ -19,18 +17,3 @@ define(["require", "exports", "../../jsx/createElement", "../app", "../recordVie
     }
     exports.appTest = appTest;
 });
-// function listCategoriesRoute(app: App): Route {
-//   return {
-//     name: 'listCategories',
-//     handler(o) {
-//       const cats = list({
-//         type: 'commercecategory',
-//         columns: ['name', 'primaryparent', 'fullurl'],
-//       })
-//         .map(c => ({
-//           name: c.getValue('name'), id: c.id, parent: c.getValue('primaryparent'), url: c.getValue('fullurl')
-//         }));
-//       return ReactLike.render(<CategoryList cats={cats} renderLink={app.renderLink.bind(app)}></CategoryList>);
-//     }
-//   };
-// }

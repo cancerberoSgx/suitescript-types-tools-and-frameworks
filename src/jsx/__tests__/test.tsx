@@ -1,9 +1,7 @@
-import { ReactLike, escapeHtmlAttribute } from "../createElement";
-import { StatelessComponent, StatelessComponentProps } from '../StatelessComponent';
-import { TextNodeLIke, ReactLikeChild, NodeLike } from '../jsx';
-import { StringKeyOf } from '../../misc/typesUtil';
 import { indent } from '../../misc/misc';
-import { isElementIke } from '../elementImpl';
+import { escapeHtmlAttribute, ReactLike } from "../createElement";
+import { ReactLikeChild } from '../jsx';
+import { StatelessComponent, StatelessComponentProps } from '../StatelessComponent';
 
 function cssTest1() {
   const Comp = () => <div className="apple" style={{ border: '1 px solid pink', background: 'blue' }}>i'm pink</div>

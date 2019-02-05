@@ -11,6 +11,7 @@ export type Params = { [name: string]: string }
 interface RouterHandlerOptions extends DispatchOptions {
   params: Params
 }
+
 interface DispatchOptions {
   request: ServerRequest
   response: ServerResponse
@@ -27,9 +28,6 @@ export interface Route {
   handler(handler: RouterHandlerOptions): any
   contentType?: 'json' | 'html'
 }
-
-
-
 
 
 export class App implements IApp {

@@ -3,3 +3,4 @@ spec/jasmine.*s
 dist
 auxiliary-projects
 .changed_hashes.json
+account-config

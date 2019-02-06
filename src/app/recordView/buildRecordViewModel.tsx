@@ -32,7 +32,7 @@ export function buildRecordViewModel(r: record.Record, seeValues: boolean = fals
     .sort((a, b) => a.id.localeCompare(b.id))
     .map(s => {
       s.fields = s.fields.sort((a, b) => a.id.localeCompare(b.id))
-      s.lineCount = r.getLineCount({ sublistId: s.id })
+      s.lineCount = r.getLineCount({ sublistId: s.id })||0
       s.lines = []
       for (let line = 0; line < s.lineCount; line++) {
         s.lines[line] = { rows: [] };

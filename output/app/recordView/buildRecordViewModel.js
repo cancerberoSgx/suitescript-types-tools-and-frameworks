@@ -44,7 +44,7 @@ define(["require", "exports", "../../introspection/recordMetadata", "../../misc/
             .sort(function (a, b) { return a.id.localeCompare(b.id); })
             .map(function (s) {
             s.fields = s.fields.sort(function (a, b) { return a.id.localeCompare(b.id); });
-            s.lineCount = r.getLineCount({ sublistId: s.id });
+            s.lineCount = r.getLineCount({ sublistId: s.id }) || 0;
             s.lines = [];
             var _loop_1 = function (line) {
                 s.lines[line] = { rows: [] };

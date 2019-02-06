@@ -24,10 +24,21 @@ define(["require", "exports", "../../jsx/createElement", "./fieldEditor", "./sub
         var showSublistLinesToggleLink = props.showSublistLines ?
             props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showSublistLines: '' }) }) :
             props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams, { showSublistLines: 'true' }) });
+        var fieldTable = {
+            selectorPostfix: ' td',
+            border: '1px solid #aaaaaa',
+            padding: '2px'
+        };
+        var sublistFieldTable = __assign({}, fieldTable, { fontSize: '0.95em', border: '1px solid #ededed' });
+        var messageFromRedirect = {
+            border: '2px solid green'
+        };
+        var _b = Style_1.Styles({ fieldTable: fieldTable, sublistFieldTable: sublistFieldTable, messageFromRedirect: messageFromRedirect }), styles = _b.styles, classes = _b.classes;
         return createElement_1.ReactLike.createElement("div", null,
             createElement_1.ReactLike.createElement(Style_1.Style, { classes: styles }),
             props.messageFromRedirect ? createElement_1.ReactLike.createElement("p", { className: classes.messageFromRedirect }, props.messageFromRedirect) : createElement_1.ReactLike.createElement("span", null),
             createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'mainPage', params: __assign({}, commonParams) }) }, "Go back to Main Page"),
+            createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'recordView', params: __assign({}, commonParams) }) }, "As JSON"),
             createElement_1.ReactLike.createElement("h1", null,
                 "Record ",
                 name,
@@ -74,14 +85,4 @@ define(["require", "exports", "../../jsx/createElement", "./fieldEditor", "./sub
                 createElement_1.ReactLike.createElement(sublistLineEditor_1.SublistLinesEditor, __assign({}, props)) :
                 createElement_1.ReactLike.createElement("span", null));
     };
-    var fieldTable = {
-        selectorPostfix: ' td',
-        border: '1px solid #aaaaaa',
-        padding: '2px'
-    };
-    var sublistFieldTable = __assign({}, fieldTable, { fontSize: '0.95em', border: '1px solid #ededed' });
-    var messageFromRedirect = {
-        border: '2px solid green'
-    };
-    var _a = Style_1.Styles({ fieldTable: fieldTable, sublistFieldTable: sublistFieldTable, messageFromRedirect: messageFromRedirect }), styles = _a.styles, classes = _a.classes;
 });

@@ -1,14 +1,44 @@
 import { ReactLike } from "../../jsx/createElement";
 import { ReactLikeChild } from '../../jsx/jsx';
-import { RenderLinkOptions, RenderFragmentOptions } from "../browserCode";
-import { StoreData } from '../../jsx/util/StoreData';
-import { App, Route } from '../app';
 import { Bind } from '../../jsx/util/Bind';
+import { App, Route, RouteHandlerParams } from '../app';
+import { RenderLinkOptions } from "../browserCode";
 
-interface MainPageProps {
+
+import { ServerRequest, ServerResponse } from 'N/http';
+import { getCurrentUser} from 'N/runtime';
+
+// example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
+export function miniNetsuiteApp(request: ServerRequest, response: ServerResponse) {
+
+  const app = new App()
+
+  app.addRoute({
+      name: 'mainPage',
+      handler(o) {
+        return ReactLike.render(<MainPage {...o.params} userName={getCurrentUser().name}></MainPage>);
+      }
+    })
+
+    const redirectToMainPage : Route = {
+        name: 'redirectToMainPage',
+        handler(o) {
+          app.redirect({ redirect: app.renderLink({ routeName: 'mainPage', params: {} }) });
+        }
+      }
+  // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
+  app.setNoRouteParamRoute(redirectToMainPage)
+  app.setNoRouteFoundRoute(redirectToMainPage)
+
+  // finally we call dispatch() so the framework calls the routes implementation that matches request's url
+  app.dispatch({ request, response })
+}
+
+
+
+interface MainPageProps extends RouteHandlerParams{
   userName: String
-  categories: { name: string, id: string }[]
-  renderLink(config: RenderLinkOptions): string
+  // renderLink(config: RenderLinkOptions): string
 }
 
 export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
@@ -66,14 +96,14 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
 
 
 
-export function mainPageRoute(app: App): Route {
-  return {
-    name: 'mainPage',
-    handler(o) {
-      return ReactLike.render(<MainPage userName={o.params.userName} categories={[]} renderLink={app.renderLink.bind(app)}></MainPage>);
-    }
-  };
-}
+// export function mainPage(app: App): Route {
+//   return {
+//     name: 'mainPage',
+//     handler(o) {
+//       return ReactLike.render(<MainPage userName={o.params.userName}></MainPage>);
+//     }
+//   };
+// }
 
 
 

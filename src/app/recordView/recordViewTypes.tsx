@@ -1,6 +1,6 @@
 import { Field, Record, Sublist } from '../../introspection/recordMetadata';
-import { RenderLinkOptions } from "../browserCode";
 import { StatelessComponentProps } from '../../jsx/StatelessComponent';
+import { RouteHandlerParams, Params } from '../app';
 
 export type Value = string | boolean | number | Date | null | number[] | string[] |undefined
 
@@ -32,11 +32,12 @@ export interface RecordV extends Record {
   sublists: ValuedSublist[];
 }
 
-export interface RecordViewProps extends StatelessComponentProps<RecordViewProps>{
+export interface RecordViewProps extends RouteHandlerParams, StatelessComponentProps<RouteHandlerParams&RecordViewProps >{
   record: RecordV;
   seeValues?: boolean;
-  renderLink(config: RenderLinkOptions): string;
+  renderLink: RouteHandlerParams['renderLink']
   currentUrl: string;
+  currentParams: Params
   showAllFields?: boolean;
   messageFromRedirect?: string;
   showSublistLines?: boolean;

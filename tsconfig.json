@@ -14,6 +14,7 @@
     "lib": [
       "es5", "dom"
     ],
+
     "removeComments": false,
     "paths": {
       "N": [
@@ -22,8 +23,11 @@
       "N/*": [
         "node_modules/@hitc/netsuite-types/N/*"
       ]
-    }
+    },
+    
   },
+  
+  
   "typeAcquisition": {"enable": false},
   "exclude": ["./spec", "./output", "dist", "./metadataFromRecordBrowser", "node_modules", "auxiliary-projects"]
 }

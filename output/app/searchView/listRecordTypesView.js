@@ -22,7 +22,7 @@ define(["require", "exports", "../../search/getSearchRecordTypes", "../../jsx/cr
                         window.location.href = buildRouteUrl({ routeName: 'listRecordTypes', params: { type: type } });
                     } }, "   Search")),
             createElement_1.ReactLike.createElement("span", { id: "listRecordTypesDynamicResults" }),
-            createElement_1.ReactLike.createElement("span", null, props.results ? createElement_1.ReactLike.createElement("div", null,
+            props.results && createElement_1.ReactLike.createElement("div", null,
                 "Results:",
                 createElement_1.ReactLike.createElement("ul", null, props.results.map(function (r) {
                     return createElement_1.ReactLike.createElement("li", null,
@@ -30,6 +30,6 @@ define(["require", "exports", "../../search/getSearchRecordTypes", "../../jsx/cr
                             r.recordType,
                             "  ",
                             r.id));
-                }))) : createElement_1.ReactLike.createElement("span", null)));
+                }))) || '');
     };
 });

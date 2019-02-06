@@ -6,10 +6,19 @@ import { redirect } from 'N/redirect';
 import { renderBrowserCode, RenderLinkOptions, buildUrl, ROUTEPARAMNAME_NOPREFIX, ROUTEPARAMNAME, ROUTEPARAMPREFIX, SCRIPTLETURLPREFIX, paramsToUrl } from './browserCode';
 var f = find// install array.prototype.find
 
-export type Params = { [name: string]: any }
+export type Params = {
+  [name: string]: any
+}
+
+export interface RouteHandlerParams extends Params {
+  renderLink: typeof App.prototype.renderLink
+  currentUrl: string
+  currentParams: Params
+  // renderLink(config: RenderLinkOptions & { forgetCurrentRouteParams?: boolean }): string
+}
 
 interface RouterHandlerOptions extends DispatchOptions {
-  params: Params
+  params: RouteHandlerParams
 }
 
 interface DispatchOptions {
@@ -42,7 +51,13 @@ export class App implements IApp {
 
   dispatch(d: DispatchOptions): void {
     this.currentDispatchOptions = d
-    const params = this.getParamsWithoutPrefix(d.request)
+    const params = {
+      ...this.getParamsWithoutPrefix(d.request),
+      renderLink: this.renderLink.bind(this),
+      currentUrl: this.getCurrentRealUrlSearchFragment(),
+    } as RouteHandlerParams
+    params.currentParams = { ...params, currentParams: undefined }
+
     const routeName = params[`${ROUTEPARAMNAME_NOPREFIX}`]
     let route: Route | undefined
     if (!routeName) {
@@ -96,10 +111,17 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
 
   /** default redirect implementation. Routes needing to redirect to other routes can call this method */
   redirect(config: { redirect: string, messageFromRedirect?: string }) {
-    redirect({ url: `${config.redirect}&${ROUTEPARAMPREFIX}messageFromRedirect=${config.messageFromRedirect || ''}`, })
+    const msgParam = `&${ROUTEPARAMPREFIX}messageFromRedirect=`
+    // we remove messageFromRedirectParam that we assume is the last one if any
+    const url = (config.redirect.indexOf(msgParam) === -1 || !config.messageFromRedirect) ? config.redirect :
+      config.redirect.substring(config.redirect.indexOf(msgParam), config.redirect.length) + msgParam + config.messageFromRedirect
+
+    console.log(url);
+
+    // redirect({ url })
   }
 
-  /** return location.search url serverside equivalent with parameters ordered, first netsuite's suitelet parameters, then routeName and then route specific params.  */
+  /** return location.search url server side equivalent with parameters ordered, first NetSuite's SuiteLet parameters, then routeName and then route specific params.  */
   getCurrentRealUrlSearchFragment(): string {
     const params = this.currentDispatchOptions!.request.parameters
     const otherParamsUrl = paramsToUrl(this.getOtherParams())
@@ -114,21 +136,22 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
     const paramsUrl = this.getParamsUrl(config.params)
     const routeParamsUrl = this.getParamsUrl({ [ROUTEPARAMNAME_NOPREFIX]: config.routeName })
     const currentRouteParamsToMaintain = config.forgetCurrentRouteParams ? {} : this.getCurrentRouteParams(config)
-    const currentUrlSearchFragment = `?${otherParamsUrl}&${routeParamsUrl}&${paramsUrl}`
     return buildUrl({
       ...config,
       params: { ...currentRouteParamsToMaintain, ...this.getParamsWithPrefix(config.params) },
-      currentUrlSearchFragment: currentUrlSearchFragment
+      currentUrlSearchFragment: `?${otherParamsUrl}&${routeParamsUrl}&${paramsUrl}`
     })
   }
 
-  /** return current route params without route name (useful to remember current route params to keep in new route url) */
-  protected getCurrentRouteParams(config: RenderLinkOptions): Params {
+  /**
+   * return current route params without route name (useful to remember current route params to keep in new route url) */
+  protected getCurrentRouteParams(config: RenderLinkOptions, dontCleanEmptyParams?: boolean): Params {
     const params: Params = {}
-    Object.keys(this.currentDispatchOptions!.request.parameters)
-      .filter(p => p.indexOf(ROUTEPARAMPREFIX) === 0 && p !== ROUTEPARAMNAME)
+    const currentParams = this.currentDispatchOptions!.request.parameters
+    Object.keys(currentParams)
+      .filter(p => p.indexOf(ROUTEPARAMPREFIX) === 0 && p !== ROUTEPARAMNAME && (dontCleanEmptyParams || currentParams[p] !== ''))
       .forEach(p => {
-        params[p] = this.currentDispatchOptions!.request.parameters[p]
+        params[p] = currentParams[p]
       })
     return params
   }
@@ -153,7 +176,7 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
     return otherParams
   }
 
- 
+
   protected getParamsUrl(params: Params, except: string[] = []) {
     return `${Object.keys(params).filter(p => except.indexOf(p) === -1).map(p => `${ROUTEPARAMPREFIX}${p}=${params[p]}`).join('&')}`
   }

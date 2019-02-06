@@ -6,7 +6,8 @@ define(["require", "exports", "../../misc/misc", "N/record"], function (require,
             name: 'setFieldValue',
             handler: function (o) {
                 var _a = o.params, recordId = _a.recordId, recordType = _a.recordType, fieldId = _a.fieldId, fieldType = _a.fieldType;
-                var fieldValue = fieldType === 'checkbox' ? o.params.fieldValue === 'true' : fieldType === 'multiselect' ? misc_1.tryTo(function () { return JSON.parse("" + o.params.fieldValue); }) || o.params.fieldValue : o.params.fieldValue;
+                var fieldValue = fieldType === 'checkbox' ? o.params.fieldValue === 'true' : fieldType === 'multiselect' ?
+                    (misc_1.tryTo(function () { return JSON.parse("" + o.params.fieldValue); }) || o.params.fieldValue) : o.params.fieldValue;
                 var redirect = decodeURIComponent(o.params.redirect);
                 if (!recordId || !recordType || !fieldId || typeof fieldValue === 'undefined') {
                     return 'Invalid call - !id|| !type || !fieldId || ! fieldValue must apply ' + (recordId + ", " + recordType + ", " + fieldId + "," + fieldValue);

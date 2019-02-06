@@ -83,7 +83,7 @@ export function jsxTests() {
         border: '2px solid pink',
         padding: '5px'
       }
-      // this class extends another:
+      // this rule extends another:
       const primaryButton: Class = {
         ...button,
         color: 'red',

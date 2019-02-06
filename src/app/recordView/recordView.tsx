@@ -22,6 +22,22 @@ export const RecordView = (props: RecordViewProps) => {
     props.renderLink({ routeName: 'recordView', params: { ...commonParams, showSublistLines: '' } }) :
     props.renderLink({ routeName: 'recordView', params: { ...commonParams, showSublistLines: 'true' } })
 
+
+  const fieldTable: ClassRule = {
+    selectorPostfix: ' td',
+    border: '1px solid #aaaaaa',
+    padding: '2px'
+  }
+  const sublistFieldTable: ClassRule = {
+    ...fieldTable,
+    fontSize: '0.95em',
+    border: '1px solid #ededed'
+  }
+  const messageFromRedirect: ClassRule = {
+    border: '2px solid green'
+  }
+  const { styles, classes } = Styles({ fieldTable, sublistFieldTable, messageFromRedirect })
+
   return <div>
 
     <Style classes={styles}></Style>
@@ -29,6 +45,7 @@ export const RecordView = (props: RecordViewProps) => {
     {props.messageFromRedirect ? <p className={classes.messageFromRedirect}>{props.messageFromRedirect}</p> : <span></span>}
 
     <a href={props.renderLink({ routeName: 'mainPage', params: { ...commonParams } })}>Go back to Main Page</a>
+    <a href={props.renderLink({ routeName: 'recordView', params: { ...commonParams } })}>As JSON</a>
 
     <h1>Record {name}, id: {id}</h1>
     <a href={showValuesToggleLink}>{props.seeValues ? 'Hide Field Values' : 'Show Field Values'}</a>
@@ -89,19 +106,3 @@ export const Sublist = (props: { sublist: ValuedSublist } & RecordViewProps) => 
 
 
 
-
-
-const fieldTable: ClassRule = {
-  selectorPostfix: ' td',
-  border: '1px solid #aaaaaa',
-  padding: '2px'
-}
-const sublistFieldTable: ClassRule = {
-  ...fieldTable,
-  fontSize: '0.95em',
-  border: '1px solid #ededed'
-}
-const messageFromRedirect: ClassRule = {
-  border: '2px solid green'
-}
-const { styles, classes } = Styles({ fieldTable, sublistFieldTable, messageFromRedirect})

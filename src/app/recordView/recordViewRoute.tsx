@@ -30,8 +30,9 @@ export function recordViewRoute(app: App): Route {
           record={metadata}
           seeValues={seeValues}
           showAllFields={showAllFields}
-          renderLink={app.renderLink.bind(app)}
-          currentUrl={app.getCurrentRealUrlSearchFragment()}
+          {...o.params}
+          // renderLink={app.renderLink.bind(app)}
+          // currentUrl={app.getCurrentRealUrlSearchFragment()}
           messageFromRedirect={messageFromRedirect}
           showSublistLines={showSublistLines}></RecordView>
       );

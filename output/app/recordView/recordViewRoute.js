@@ -1,3 +1,14 @@
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 define(["require", "exports", "../../jsx/createElement", "N/record", "./recordView", "./buildRecordViewModel"], function (require, exports, createElement_1, record_1, recordView_1, buildRecordViewModel_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -22,7 +33,10 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
                     this.contentType = 'json';
                     return metadata;
                 }
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: metadata, seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines }));
+                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, __assign({ record: metadata, seeValues: seeValues, showAllFields: showAllFields }, o.params, { 
+                    // renderLink={app.renderLink.bind(app)}
+                    // currentUrl={app.getCurrentRealUrlSearchFragment()}
+                    messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines })));
             }
         };
     }

@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirect", "./browserCode"], function (require, exports, misc_1, createElement_1, redirect_1, browserCode_1) {
+define(["require", "exports", "../misc/misc", "../jsx/createElement", "./browserCode"], function (require, exports, misc_1, createElement_1, browserCode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var f = misc_1.find; // install array.prototype.find
@@ -22,7 +22,8 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
         };
         App.prototype.dispatch = function (d) {
             this.currentDispatchOptions = d;
-            var params = this.getParamsWithoutPrefix(d.request);
+            var params = __assign({}, this.getParamsWithoutPrefix(d.request), { renderLink: this.renderLink.bind(this), currentUrl: this.getCurrentRealUrlSearchFragment() });
+            params.currentParams = __assign({}, params, { currentParams: undefined });
             var routeName = params["" + browserCode_1.ROUTEPARAMNAME_NOPREFIX];
             var route;
             if (!routeName) {
@@ -70,9 +71,14 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
         };
         /** default redirect implementation. Routes needing to redirect to other routes can call this method */
         App.prototype.redirect = function (config) {
-            redirect_1.redirect({ url: config.redirect + "&" + browserCode_1.ROUTEPARAMPREFIX + "messageFromRedirect=" + (config.messageFromRedirect || ''), });
+            var msgParam = "&" + browserCode_1.ROUTEPARAMPREFIX + "messageFromRedirect=";
+            // we remove messageFromRedirectParam that we assume is the last one if any
+            var url = (config.redirect.indexOf(msgParam) === -1 || !config.messageFromRedirect) ? config.redirect :
+                config.redirect.substring(config.redirect.indexOf(msgParam), config.redirect.length) + msgParam + config.messageFromRedirect;
+            console.log(url);
+            // redirect({ url })
         };
-        /** return location.search url serverside equivalent with parameters ordered, first netsuite's suitelet parameters, then routeName and then route specific params.  */
+        /** return location.search url server side equivalent with parameters ordered, first NetSuite's SuiteLet parameters, then routeName and then route specific params.  */
         App.prototype.getCurrentRealUrlSearchFragment = function () {
             var params = this.currentDispatchOptions.request.parameters;
             var otherParamsUrl = browserCode_1.paramsToUrl(this.getOtherParams());
@@ -87,17 +93,17 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
             var paramsUrl = this.getParamsUrl(config.params);
             var routeParamsUrl = this.getParamsUrl((_a = {}, _a[browserCode_1.ROUTEPARAMNAME_NOPREFIX] = config.routeName, _a));
             var currentRouteParamsToMaintain = config.forgetCurrentRouteParams ? {} : this.getCurrentRouteParams(config);
-            var currentUrlSearchFragment = "?" + otherParamsUrl + "&" + routeParamsUrl + "&" + paramsUrl;
-            return browserCode_1.buildUrl(__assign({}, config, { params: __assign({}, currentRouteParamsToMaintain, this.getParamsWithPrefix(config.params)), currentUrlSearchFragment: currentUrlSearchFragment }));
+            return browserCode_1.buildUrl(__assign({}, config, { params: __assign({}, currentRouteParamsToMaintain, this.getParamsWithPrefix(config.params)), currentUrlSearchFragment: "?" + otherParamsUrl + "&" + routeParamsUrl + "&" + paramsUrl }));
         };
-        /** return current route params without route name (useful to remember current route params to keep in new route url) */
-        App.prototype.getCurrentRouteParams = function (config) {
-            var _this = this;
+        /**
+         * return current route params without route name (useful to remember current route params to keep in new route url) */
+        App.prototype.getCurrentRouteParams = function (config, dontCleanEmptyParams) {
             var params = {};
-            Object.keys(this.currentDispatchOptions.request.parameters)
-                .filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0 && p !== browserCode_1.ROUTEPARAMNAME; })
+            var currentParams = this.currentDispatchOptions.request.parameters;
+            Object.keys(currentParams)
+                .filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0 && p !== browserCode_1.ROUTEPARAMNAME && (dontCleanEmptyParams || currentParams[p] !== ''); })
                 .forEach(function (p) {
-                params[p] = _this.currentDispatchOptions.request.parameters[p];
+                params[p] = currentParams[p];
             });
             return params;
         };

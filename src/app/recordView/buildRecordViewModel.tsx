@@ -35,6 +35,7 @@ export function buildRecordViewModel(r: record.Record, seeValues: boolean = fals
     });
   return record;
 }
+
 function internalFilterPredicate(f: string): boolean {
   return f.indexOf('_') !== 0 && f.indexOf('sys_') !== 0 && f.indexOf('nsapi') !== 0;
 }

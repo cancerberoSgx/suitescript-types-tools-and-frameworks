@@ -90,7 +90,7 @@ define(["require", "exports", "../../spec/index", "../createElement", "../Statel
                     border: '2px solid pink',
                     padding: '5px'
                 };
-                // this class extends another:
+                // this rule extends another:
                 var primaryButton = __assign({}, button, { color: 'red', fontWeight: 'bolder' });
                 var myStyles = {
                     button: button,

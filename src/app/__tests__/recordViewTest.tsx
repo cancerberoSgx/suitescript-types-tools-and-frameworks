@@ -15,6 +15,7 @@ export function recordViewTest1() {
       showAllFields={false}
       renderLink={() => ''}//app.renderLink.bind(app)}
       currentUrl={''}
+      currentParams={{}}
       messageFromRedirect={''}
       showSublistLines={true}></RecordView>
   )

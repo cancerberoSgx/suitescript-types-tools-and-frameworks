@@ -4,12 +4,13 @@ import { Result } from '../../search/typedSearch/typedSearch';
 import { RecordType } from '../../record/typedRecord/typedRecord';
 import { ReactLike } from "../../jsx/createElement";
 import { Bind } from '../../jsx/util/Bind';
+import { RouteHandlerParams } from '../app';
 
 
-interface Props {
+interface Props extends RouteHandlerParams{
   type?: string
   pageSize?: number
-  renderLink(config: RenderLinkOptions): string
+  // renderLink(config: RenderLinkOptions): string
   results?: Result<RecordType>[]
   dynamicResultsRender?: boolean
 }
@@ -45,15 +46,14 @@ export const ListRecordTypes = (props: Props) => {
 
     <span id="listRecordTypesDynamicResults"></span> 
 
-    <span>{props.results ? <div>
+    {props.results && <div>
       Results:
     <ul>{props.results.map(r =>
         <li>
           <a href={props.renderLink({ routeName: 'recordView', params: { id: r.id, type: r.recordType } })}>{r.recordType}  {r.id}</a>
         </li>)}
       </ul>
-    </div> : <span></span>}</span>
-
+    </div> ||''}
   </div>
 }
 

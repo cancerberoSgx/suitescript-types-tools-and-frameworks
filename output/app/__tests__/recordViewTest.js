@@ -5,7 +5,7 @@ define(["require", "exports", "../../jsx/createElement", "../recordView/recordVi
     Object.defineProperty(exports, "__esModule", { value: true });
     function recordViewTest1() {
         var model = require('../../../spec/fixtures/itemMetadata1.json');
-        var s = createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: model, seeValues: true, showAllFields: false, renderLink: function () { return ''; }, currentUrl: '', messageFromRedirect: '', showSublistLines: true }));
+        var s = createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: model, seeValues: true, showAllFields: false, renderLink: function () { return ''; }, currentUrl: '', currentParams: {}, messageFromRedirect: '', showSublistLines: true }));
         console.log(s);
     }
     exports.recordViewTest1 = recordViewTest1;

@@ -7,7 +7,8 @@ export function setFieldValueRoute(app: App): Route {
     name: 'setFieldValue',
     handler(o) {
       const { recordId, recordType, fieldId, fieldType } = o.params;
-      const fieldValue = fieldType==='checkbox' ? o.params.fieldValue === 'true' : fieldType==='multiselect' ? tryTo(()=>JSON.parse(`${o.params.fieldValue}`))||o.params.fieldValue : o.params.fieldValue
+      const fieldValue = fieldType==='checkbox' ? o.params.fieldValue === 'true' : fieldType==='multiselect' ? 
+      (tryTo(()=>JSON.parse(`${o.params.fieldValue}`))||o.params.fieldValue ): o.params.fieldValue
       const redirect = decodeURIComponent(o.params.redirect);
       if (!recordId || !recordType || !fieldId || typeof fieldValue ==='undefined') {
         return 'Invalid call - !id|| !type || !fieldId || ! fieldValue must apply ' + `${recordId}, ${recordType}, ${fieldId},${fieldValue}`;

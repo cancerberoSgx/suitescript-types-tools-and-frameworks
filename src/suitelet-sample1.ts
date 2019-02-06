@@ -8,7 +8,8 @@ import { setDefaultLogger } from "./log/log";
 import { ResponseLogger } from './log/responseLogger';
 import { runSpecs } from './__tests__';
 import { find } from './misc/misc';
-import { appTest } from './app/__tests__/appTest';
+import { miniNetsuiteApp } from './app/__tests__/miniNetsuiteApp';
+// import { appTest } from './app/__tests__/appTest';
 
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
@@ -17,11 +18,11 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
     // lsTest()
     // query1Test()
     // typedRecordTest()
-    // reactLikeTest( )   
-    
+    // reactLikeTest( )
+
     // runSpecs();
 
-    appTest(context.request, context.response )
+    miniNetsuiteApp(context.request, context.response )
 
-} 
+}
 

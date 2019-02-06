@@ -7,9 +7,11 @@ export function setSublistFieldValueRoute(app: App): Route {
     name: 'setSublistFieldValue',
     handler(o) {
       const { recordId, recordType, fieldId, fieldType, line, sublistId } = o.params;
-      const fieldValue = fieldType==='checkbox' ? o.params.fieldValue === 'true' : fieldType==='multiselect' ? tryTo(()=>JSON.parse(`${o.params.fieldValue}`))||o.params.fieldValue : o.params.fieldValue
+      const fieldValue = fieldType === 'checkbox' ? o.params.fieldValue === 'true' : fieldType === 'multiselect' ?
+      (tryTo(() => JSON.parse(`${o.params.fieldValue}`)) || o.params.fieldValue) :   o.params.fieldValue
+
       const redirect = decodeURIComponent(o.params.redirect);
-      if (!recordId || !recordType || !fieldId || typeof fieldValue ==='undefined'||typeof line==='undefined'||!sublistId) {
+      if (!recordId || !recordType || !fieldId || typeof fieldValue === 'undefined' || typeof line === 'undefined' || !sublistId) {
         return 'Invalid call - id&& !type && fieldId && fieldValue && line && sublistId must apply ' + `${recordId}, ${recordType}, ${fieldId},${fieldValue},${line},${sublistId}`;
       }
       const record = load({ id: recordId, type: recordType });

@@ -3,9 +3,9 @@ import { Bind } from '../../jsx/util/Bind';
 import { ReactLike } from "../../jsx/createElement";
 
 
-export const SublistLinesEditor = (props: {
+export const SublistLinesEditor = (props:RecordViewProps& {
   sublist: ValuedSublist;
-} & RecordViewProps) => {
+}) => {
   try {
     return <div>
       <table>

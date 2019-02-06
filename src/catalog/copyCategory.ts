@@ -4,13 +4,11 @@ import { copySublist } from '../record/copy/copySublist';
 import { RemoveCategoryConfig } from './removeCategory';
 import { RecordId } from '../record/recordRef';
 
-
 export interface CopyCategoryConfig extends RemoveCategoryConfig {
     /** use null to move the category to the root */
     newPrimaryParent: RecordId | null
     dontSave?: boolean
-} 
- 
+}  
  
 /**
  * Will clone given category (and all its descendants to given target parent (targetId))
@@ -45,17 +43,6 @@ export function copyCategory(config: CopyCategoryConfig): Record {
         dontSave: true
     })
     toRecord.save()
-    // const toRecord = copyRecord({
-    //     fromRecord,
-    //     toRecord: create({ type: 'commercecategory' }),
-    //     customFieldValues: { primaryparent: config.newPrimaryParent },
-    //     ignoreFields: ['lastmodifiedby', 'created']
-    // });
-    // const toRecord = record.load({ type: 'commercecategory', id: newRecordId });
-    // copySublists({
-    //     fromRecord,
-    //     toRecord
-    // });
     return toRecord;
 }
 

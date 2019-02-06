@@ -2,7 +2,6 @@ import { find as Find } from '../../misc/misc';
 import { App, Route } from '../app';
 import { load } from 'N/record';
 
-
 export function setFieldValueRoute(app: App): Route {
   return {
     name: 'setFieldValue',

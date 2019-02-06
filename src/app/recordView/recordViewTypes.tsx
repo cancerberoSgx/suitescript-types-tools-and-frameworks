@@ -9,22 +9,28 @@ interface Valued {
   value?: Value;
   text?: Text;
 }
+
 export interface ValuedField extends Field, Valued {
 }
+
 interface Row extends Valued {
   field: Field;
 }
+
 interface SublistLine extends Valued {
   rows: Row[];
 }
+
 export interface ValuedSublist extends Sublist {
   lines: SublistLine[];
   lineCount: number;
 }
+
 export interface RecordV extends Record {
   fields: ValuedField[];
   sublists: ValuedSublist[];
 }
+
 export interface Props {
   record: RecordV;
   seeValues?: boolean;

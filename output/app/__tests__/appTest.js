@@ -1,18 +1,24 @@
-define(["require", "exports", "../../jsx/createElement", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "./appTestUI", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute"], function (require, exports, createElement_1, app_1, recordViewRoute_1, setFieldValueRoute_1, appTestUI_1, findRecordRoute_1, listRecordTypesRoute_1) {
+define(["require", "exports", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute", "./appTestMainPage"], function (require, exports, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, appTestMainPage_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
     function appTest(request, response) {
         var app = new app_1.App();
-        app.addRoute({
-            name: 'mainPage',
-            handler: function (o) {
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(appTestUI_1.MainPage, { userName: o.params.userName, categories: [], renderLink: app.renderLink.bind(app) }));
-            }
-        });
+        app.addRoute(appTestMainPage_1.mainPageRoute(app));
         app.addRoute(findRecordRoute_1.findRecordRoute(app));
         app.addRoute(recordViewRoute_1.recordViewRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesRoute(app));
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
+        // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
+        var redirectToMainPage = {
+            name: 'redirectToMainPage',
+            handler: function (o) {
+                app.redirect({ redirect: app.renderLink({ routeName: 'mainPage', params: {} }) });
+            }
+        };
+        app.setNoRouteParamRoute(redirectToMainPage);
+        app.setNoRouteFoundRoute(redirectToMainPage);
+        // finally we call dispatch() so the framework calls the routes implementation that matches request's url
         app.dispatch({ request: request, response: response });
     }
     exports.appTest = appTest;

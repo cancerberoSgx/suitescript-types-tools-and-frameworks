@@ -62,6 +62,7 @@ will:
 
 # TODO
 
+ * move dependencies of devtools to its own package.json (gulp-watch, hasha, netsuite-uploader-util)
  * more unit test for existing APIs. 
  * UnitTest should be account agnostics using "preconditions"
  * memorize for test preconditions performance. 

@@ -6,7 +6,7 @@ import { redirect } from 'N/redirect';
 import { renderBrowserCode, RenderLinkOptions, buildUrl, ROUTEPARAMNAME_NOPREFIX, ROUTEPARAMNAME, ROUTEPARAMPREFIX, SCRIPTLETURLPREFIX } from './browserCode';
 var f = find// install array.prototype.find
 
-export type Params = { [name: string]: string }
+export type Params = { [name: string]: any }
 
 interface RouterHandlerOptions extends DispatchOptions {
   params: Params
@@ -33,6 +33,8 @@ export interface Route {
 export class App implements IApp {
   routes: Route[] = []
   currentDispatchOptions: DispatchOptions | undefined;
+  protected noRouteParamRoute: Route|undefined;
+  protected noRouteFoundRoute: Route|undefined
 
   addRoute(r: Route): void {
     this.routes.push(r)
@@ -42,12 +44,23 @@ export class App implements IApp {
     this.currentDispatchOptions = d
     const params = this.getParamsWithoutPrefix(d.request)
     const routeName = params[`${ROUTEPARAMNAME_NOPREFIX}`]
+    let route: Route|undefined
     if (!routeName) {
-      return this.notFound(d, `no route name given in url`)
+      if(this.noRouteParamRoute){
+        route = this.noRouteParamRoute
+      }
+      else {
+        return this.notFound(d, `no route name given in url`)
+      }
     }
-    const route = this.routes.find(r => r.name === routeName)
+    route = route || this.routes.find(r => r.name === routeName)
     if (!route) {
-      return this.notFound(d, `no route found with name ${routeName}`);
+      if(this.noRouteFoundRoute){
+        route = this.noRouteFoundRoute
+      }
+      else {
+        return this.notFound(d, `no route found with name ${routeName}`);
+      }
     }
     // TODO: if route params are mandatory , verify that they were provided in url or fail
     if (route.contentType === 'json') {
@@ -64,17 +77,29 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
 </script>`)
       d.response.write(result)
     }
-    // else if not result we assume the route already write in the response.
   }
 
+  /** set a default route in case url has no routeName param */
+  setNoRouteParamRoute(r: Route): any {
+    this.noRouteParamRoute = r
+  }
+  
+  /** set a default route in case no route is found with given routeName param */
+  setNoRouteFoundRoute(r: Route): any {
+    this.noRouteFoundRoute = r
+  }
+
+  /** default route not found handler - when noRouteParamRoute or no RouteFoundRoute is installed and no route installed matches the url */
   notFound(d: DispatchOptions, msg = 'Page not found'): any {
     console.log(`App Error: ${msg}`);
   }
 
+  /** default redirect implementation. Routes needing to redirect to other routes can call this method */
   redirect(config: { redirect: string, messageFromRedirect?: string }) {
     redirect({ url: `${config.redirect}&${ROUTEPARAMPREFIX}messageFromRedirect=${config.messageFromRedirect || ''}`, })
   }
 
+  /** return location.search url serverside equivalent with parameters ordered, first netsuite's suitelet parameters, then routeName and then route specific params.  */
   getCurrentRealUrlSearchFragment(): string {
     const params = this.currentDispatchOptions!.request.parameters
     const otherParams = this.getOtherParams()
@@ -84,6 +109,7 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
     return `${SCRIPTLETURLPREFIX}?${otherParamsUrl}&${routeNameUrl}&${routeParamsUrl}`
   }
 
+  /** will build a relative link to given route and params - useful to build links to other routes in pages UI / markup/ anchors. */
   renderLink(config: RenderLinkOptions): string {
     const otherParams = this.getOtherParams()
     const otherParamsUrl = Object.keys(otherParams).map(p => `${p}=${otherParams[p]}`).join('&')

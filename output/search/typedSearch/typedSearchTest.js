@@ -1,4 +1,4 @@
-define(["require", "exports", "./typedSearch", "N/search", "../results", "./typedSearchOperations"], function (require, exports, typedSearch_1, nsSearch, results_1, typedSearchOperations_1) {
+define(["require", "exports", "N/search", "../results", "./typedSearch", "./typedSearchOperations"], function (require, exports, nsSearch, results_1, typedSearch_1, typedSearchOperations_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function typedSearchTest() {

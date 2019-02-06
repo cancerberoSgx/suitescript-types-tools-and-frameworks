@@ -24,12 +24,23 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
             this.currentDispatchOptions = d;
             var params = this.getParamsWithoutPrefix(d.request);
             var routeName = params["" + browserCode_1.ROUTEPARAMNAME_NOPREFIX];
+            var route;
             if (!routeName) {
-                return this.notFound(d, "no route name given in url");
+                if (this.noRouteParamRoute) {
+                    route = this.noRouteParamRoute;
+                }
+                else {
+                    return this.notFound(d, "no route name given in url");
+                }
             }
-            var route = this.routes.find(function (r) { return r.name === routeName; });
+            route = route || this.routes.find(function (r) { return r.name === routeName; });
             if (!route) {
-                return this.notFound(d, "no route found with name " + routeName);
+                if (this.noRouteFoundRoute) {
+                    route = this.noRouteFoundRoute;
+                }
+                else {
+                    return this.notFound(d, "no route found with name " + routeName);
+                }
             }
             // TODO: if route params are mandatory , verify that they were provided in url or fail
             if (route.contentType === 'json') {
@@ -43,15 +54,25 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
                 d.response.write("<script>\n" + browserCode_1.renderBrowserCode() + "\n" + createElement_1.ReactLike.getClientCode().map(function (c) { return c.code; }).join('\n') + "\n</script>");
                 d.response.write(result);
             }
-            // else if not result we assume the route already write in the response.
         };
+        /** set a default route in case url has no routeName param */
+        App.prototype.setNoRouteParamRoute = function (r) {
+            this.noRouteParamRoute = r;
+        };
+        /** set a default route in case no route is found with given routeName param */
+        App.prototype.setNoRouteFoundRoute = function (r) {
+            this.noRouteFoundRoute = r;
+        };
+        /** default route not found handler - when noRouteParamRoute or no RouteFoundRoute is installed and no route installed matches the url */
         App.prototype.notFound = function (d, msg) {
             if (msg === void 0) { msg = 'Page not found'; }
             console.log("App Error: " + msg);
         };
+        /** default redirect implementation. Routes needing to redirect to other routes can call this method */
         App.prototype.redirect = function (config) {
             redirect_1.redirect({ url: config.redirect + "&" + browserCode_1.ROUTEPARAMPREFIX + "messageFromRedirect=" + (config.messageFromRedirect || ''), });
         };
+        /** return location.search url serverside equivalent with parameters ordered, first netsuite's suitelet parameters, then routeName and then route specific params.  */
         App.prototype.getCurrentRealUrlSearchFragment = function () {
             var params = this.currentDispatchOptions.request.parameters;
             var otherParams = this.getOtherParams();
@@ -60,6 +81,7 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
             var routeParamsUrl = Object.keys(params).filter(function (p) { return p !== browserCode_1.ROUTEPARAMNAME && p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0; }).map(function (p) { return p + "=" + params[p]; }).join('&');
             return browserCode_1.SCRIPTLETURLPREFIX + "?" + otherParamsUrl + "&" + routeNameUrl + "&" + routeParamsUrl;
         };
+        /** will build a relative link to given route and params - useful to build links to other routes in pages UI / markup/ anchors. */
         App.prototype.renderLink = function (config) {
             var _a;
             var otherParams = this.getOtherParams();

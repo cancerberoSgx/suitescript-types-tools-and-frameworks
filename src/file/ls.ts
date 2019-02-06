@@ -73,7 +73,7 @@ function buildMissingFolders(files: AbstractFile[], config: Config) {
   // console.log(`withNoParent ${withNoParent.length}`);
   // // return
   // // const missingParentIds = withNoParent.map(f => f.parent) as string[]
-  if (withNoParent.length>1) {
+  if (withNoParent.length > 1) {
     getFolders(withNoParent.map(f => f.parent) as string[]).forEach((p, i) => {
       if (!find(files, f => f.id === p.id)) {
         files.push(p)
@@ -90,9 +90,9 @@ function buildMissingFolders(files: AbstractFile[], config: Config) {
   //   })
   // }
   const missingCount = files.filter(f => f.parent && !find(files, p => p.id === f.parent)).length
-  if(missingCount>1&&cc<3){
-    console.log('buildMissingFolders '+missingCount);  
-    cc++  
+  if (missingCount > 1 && cc < 3) {
+    console.log('buildMissingFolders ' + missingCount);
+    cc++
     buildMissingFolders(files, config)
   }
   return
@@ -118,7 +118,7 @@ function getParentAbsoluteName(f: AbstractFile, allFiles: AbstractFile[], rootAb
   if (!parent.absoluteName) {
     return getParentAbsoluteName(parent, allFiles, rootAbsoluteName)
   }
-  return parent.absoluteName.indexOf(rootAbsoluteName)===0 ? parent.absoluteName : rootAbsoluteName+'/'+parent.absoluteName
+  return parent.absoluteName.indexOf(rootAbsoluteName) === 0 ? parent.absoluteName : rootAbsoluteName + '/' + parent.absoluteName
 }
 let counter = 0
 
@@ -132,6 +132,5 @@ export function lsTest() {
     .sort((a, b) => a.absoluteName.localeCompare(b.absoluteName))
     .forEach(f => {
       console.log(`${f.absoluteName} ${f.type} ${f.id} ${f.parent}`);
-
     })
 }

@@ -1,10 +1,10 @@
-import { RenderLinkOptions } from "../browserCode";
-import { BindInputValue } from '../../jsx/util/BindInputValue';
-import { BindInputValueAndStoreData } from '../../jsx/util/Bind';
 import { isDate } from 'N/util';
-import { formatDate } from '../../misc/dateUtil';
-import { ValuedField, Props } from "./recordViewTypes";
 import { ReactLike } from "../../jsx/createElement";
+import { BindInputValueAndStoreData } from '../../jsx/util/Bind';
+import { BindInputValue } from '../../jsx/util/BindInputValue';
+import { formatDate } from '../../misc/dateUtil';
+import { RenderLinkOptions } from "../browserCode";
+import { Props, ValuedField } from "./recordViewTypes";
 
 
 export const FieldEditor = (props: {

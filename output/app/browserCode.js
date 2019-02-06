@@ -12,11 +12,11 @@ var __assign = (this && this.__assign) || function () {
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // this rename/re-exports is neccesary since we are referencing this variables directly from js code eval in browser
     var ROUTEPARAMNAME_NOPREFIX_ = 'routeParamName';
     var ROUTEPARAMPREFIX_ = '__app__';
     var ROUTEPARAMNAME_ = ROUTEPARAMPREFIX_ + ROUTEPARAMNAME_NOPREFIX_;
     var SCRIPTLETURLPREFIX_ = '/app/site/hosting/scriptlet.nl';
-    // this rename/re-exports is neccesary since we are referencing this variables directly from js code eval in browser
     exports.ROUTEPARAMNAME_NOPREFIX = ROUTEPARAMNAME_NOPREFIX_;
     exports.ROUTEPARAMPREFIX = ROUTEPARAMPREFIX_;
     exports.ROUTEPARAMNAME = ROUTEPARAMNAME_;
@@ -51,7 +51,7 @@ define(["require", "exports"], function (require, exports) {
     function renderBrowserCode() {
         // @ts-ignore
         var assign = __assign.toString();
-        var s = "\nvar ROUTEPARAMNAME_ = \"" + ROUTEPARAMNAME_ + "\";\nvar ROUTEPARAMPREFIX_ = \"" + ROUTEPARAMPREFIX_ + "\";\nvar SCRIPTLETURLPREFIX_ = \"" + SCRIPTLETURLPREFIX_ + "\"; \nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\nvar a = 1\n  ";
+        var s = ("\nvar ROUTEPARAMNAME_ = \"" + ROUTEPARAMNAME_ + "\";\nvar ROUTEPARAMPREFIX_ = \"" + ROUTEPARAMPREFIX_ + "\";\nvar SCRIPTLETURLPREFIX_ = \"" + SCRIPTLETURLPREFIX_ + "\"; \nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\n").trim();
         return s;
     }
     exports.renderBrowserCode = renderBrowserCode;

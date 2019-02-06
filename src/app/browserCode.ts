@@ -1,12 +1,8 @@
-
-
-
+// this rename/re-exports is neccesary since we are referencing this variables directly from js code eval in browser
 const ROUTEPARAMNAME_NOPREFIX_ = 'routeParamName'
 const ROUTEPARAMPREFIX_ = '__app__'
 const ROUTEPARAMNAME_ = ROUTEPARAMPREFIX_ + ROUTEPARAMNAME_NOPREFIX_
 const SCRIPTLETURLPREFIX_ = '/app/site/hosting/scriptlet.nl'
-
-// this rename/re-exports is neccesary since we are referencing this variables directly from js code eval in browser
 export const ROUTEPARAMNAME_NOPREFIX = ROUTEPARAMNAME_NOPREFIX_
 export const ROUTEPARAMPREFIX = ROUTEPARAMPREFIX_
 export const ROUTEPARAMNAME = ROUTEPARAMNAME_
@@ -18,9 +14,11 @@ export interface RenderLinkOptions {
   routeName: string;
   params: Params;
 }
+
 export interface RenderFragmentOptions extends RenderLinkOptions {
   selector: string;
 }
+
 interface BuildUrlOptions extends RenderLinkOptions {
   /** the part of the current url with the search query with a routeParamName parameter present like `?script=293&deploy=1&compid=TSTDRV1844288&h=192074825c3ca8751438&routeParamName=mainPage&name=lau` */
   currentUrlSearchFragment: string;
@@ -47,6 +45,7 @@ function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
       }
     });
 }
+
 function buildRouteUrl(config: RenderLinkOptions): string {
   const params: Params = {};
   Object.keys(config.params).map(p => { params[`${ROUTEPARAMPREFIX_}${p}`] = config.params[p]; });
@@ -72,7 +71,6 @@ function fetchAndRenderHtml(config){
 function buildLink(config){
   return buildRouteUrl(config)
 }
-var a = 1
-  `;
+`.trim()
   return s
 }

@@ -21,7 +21,7 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
     
     // runSpecs();
 
-    appTest(context.request, context.response)
+    appTest(context.request, context.response )
 
 } 
 

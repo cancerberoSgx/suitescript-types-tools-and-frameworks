@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/util/BindInputValue", "../../jsx/util/Bind", "N/util", "../../misc/dateUtil", "../../jsx/createElement"], function (require, exports, BindInputValue_1, Bind_1, util_1, dateUtil_1, createElement_1) {
+define(["require", "exports", "N/util", "../../jsx/createElement", "../../jsx/util/Bind", "../../jsx/util/BindInputValue", "../../misc/dateUtil"], function (require, exports, util_1, createElement_1, Bind_1, BindInputValue_1, dateUtil_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.FieldEditor = function (props) {

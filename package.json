@@ -19,24 +19,32 @@
         "record browser",
         "search",
         "browser",
-        "jsx","tsx","types","typings",
+        "jsx",
+        "tsx",
+        "types",
+        "typings",
         "NetSuite",
-        "utilities","frameworks","application",
+        "utilities",
+        "frameworks",
+        "application",
         "high level API",
-        "API", "spec",
+        "API",
+        "spec",
         "testing",
         "TypeScript"
     ],
     "author": "Sebastián Gurin",
     "license": "MIT",
     "devDependencies": {
-        "@hitc/netsuite-types": "https://github.com/cancerberoSgx/typings-suitescript-2.0.git#record-sublist",
+        "@hitc/netsuite-types": "git+https://github.com/cancerberoSgx/typings-suitescript-2.0.git#record-sublist",
         "@types/shelljs": "^0.8.1",
+        "gulp-watch": "^5.0.1",
+        "hasha": "^3.0.0",
+        "netsuite-uploader-util": "^1.1.6",
         "p-queue": "^3.0.0",
         "shelljs": "^0.7.8",
         "ts-node": "^7.0.1",
         "typescript": "^3.3.1"
     },
-    "dependencies": {
-    }
+    "dependencies": {}
 }

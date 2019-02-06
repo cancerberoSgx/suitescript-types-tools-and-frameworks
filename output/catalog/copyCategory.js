@@ -34,17 +34,6 @@ define(["require", "exports", "N/record", "../record/copy/copyFields", "../recor
             dontSave: true
         });
         toRecord.save();
-        // const toRecord = copyRecord({
-        //     fromRecord,
-        //     toRecord: create({ type: 'commercecategory' }),
-        //     customFieldValues: { primaryparent: config.newPrimaryParent },
-        //     ignoreFields: ['lastmodifiedby', 'created']
-        // });
-        // const toRecord = record.load({ type: 'commercecategory', id: newRecordId });
-        // copySublists({
-        //     fromRecord,
-        //     toRecord
-        // });
         return toRecord;
     }
     exports.copyCategory = copyCategory;

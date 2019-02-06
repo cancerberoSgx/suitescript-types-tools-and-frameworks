@@ -3,6 +3,7 @@ import { ReactLikeChild } from '../../jsx/jsx';
 import { RenderLinkOptions, RenderFragmentOptions } from "../browserCode";
 import { BindInputValue } from '../../jsx/util/BindInputValue';
 import { StoreData } from '../../jsx/util/StoreData';
+import { App, Route } from '../app';
 
 interface MainPageProps {
   userName: String
@@ -12,45 +13,69 @@ interface MainPageProps {
 
 export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
   return <article>
+
     <MainPageInit></MainPageInit>
+    
     <h1>Welcome {props.userName}</h1>
 
-    This is an experiment of mine (Sebastián Gurin) using JSX & TypeScript technologies to render server side pages. Try to use the buttons and links below to see some pages:
+    This is an experiment of mine (Sebastián Gurin) using JSX &amp; TypeScript technologies to render server side pages. Try to use the buttons and links below to see some pages:
 
     <ul>
+
       <li>
         <a href={props.renderLink({
           routeName: 'recordView',
-          params: { id: '7', type: 'commercecategory' }
-        })}>record view link</a>
+          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true}
+        })}>record view link</a> 
+        
+        &nbsp; and &nbsp; 
 
-      </li>
-      <li>
         <button onClick={e => fetchAndRenderHtml({
           routeName: 'recordView',
-          params: { id: '7', type: 'commercecategory' },
+          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true },
           selector: '#mainView'
         })}>record view embedded</button>
       </li>
+
       <li>
+        <a  href={props.renderLink({
+          routeName: 'listRecordTypes',
+          params: { type: 'item' },
+        })}>listRecordTypes view link</a> 
+        
+        &nbsp; and &nbsp; 
+        
         <button onClick={e => fetchAndRenderHtml({
           routeName: 'listRecordTypes',
           params: { dynamicResultsRender: true, type: 'item' },
           selector: '#mainView'
-        })}>listRecordTypes item embedded</button>
+        })}>listRecordTypes view embedded</button>
       </li>
-
+      
     </ul>
+    
     <div id="mainView"></div>
 
   </article>
 }
 
 /** we call custom tags so they get initialized and their scripts are embedded in the main html - if not they won't be present when complex pages are rendered inside dynamically using fetchAndRenderHtml */
-const MainPageInit = () => <span>
+ const MainPageInit = () => <span>
   <BindInputValue></BindInputValue>
   <StoreData data={{}}></StoreData>
 </span>
+
+
+
+export function mainPageRoute(app: App): Route {
+  return {
+    name: 'mainPage',
+    handler(o) {
+      return ReactLike.render(<MainPage userName={o.params.userName} categories={[]} renderLink={app.renderLink.bind(app)}></MainPage>);
+    }
+  };
+}
+
 
 
 

@@ -1,9 +1,10 @@
-define(["require", "exports"], function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    function mkdirp(config) {
-        // file.load({})
-        // const s = create({type: 'folder', columns: ['name'], filters: [{name: 'parent', operator: 'n'}]})
-    }
-    exports.mkdirp = mkdirp;
-});
+"use strict";
+// import * as file from 'N/file'
+// import {create} from '../search/typedSearch/typedSearch'
+// interface Config {
+//   path: string
+// }
+// export function mkdirp(config: Config){
+// // file.load({})
+// // const s = create({type: 'folder', columns: ['name'], filters: [{name: 'parent', operator: 'n'}]})
+// }

@@ -1,9 +1,9 @@
-import { create } from './typedSearch';
-import * as nsSearch from 'N/search'
-import { find } from '../results';
-import { Result, ResultSet } from 'N/search';
+import * as nsSearch from 'N/search';
+import { ResultSet } from 'N/search';
 import { RecordId } from '../../record/recordRef';
-import { list, find as tfind } from './typedSearchOperations';
+import { find as resultFind } from '../results';
+import { create } from './typedSearch';
+import { find, list } from './typedSearchOperations';
 
 export function typedSearchTest() {
 
@@ -27,7 +27,7 @@ function findFileNamedTest(){
   if(found){console.log(`found ${found.getValue('name')}`)}
 }
 function findFileNamed(parentId: RecordId|undefined, predicate: (name:string)=>boolean) {
-  return tfind({
+  return find({
     type: 'file',
     columns: ['name'],
     filters: [
@@ -61,7 +61,7 @@ function ls(parent?: RecordId) {
 
 function findRootFolder() {
   const name = 'SuiteScripts'
-  const found = find(create({
+  const found = resultFind(create({
     type: 'folder',
     columns: ['name'],
     filters: [

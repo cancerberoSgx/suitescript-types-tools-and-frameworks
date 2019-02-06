@@ -9,108 +9,119 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "N/runtime"], function (require, exports, createElement_1, Bind_1, app_1, runtime_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "N/runtime", "../../jsx/Style", "../../misc/misc", "./miniDebuggerSampleCode"], function (require, exports, createElement_1, Bind_1, app_1, runtime_1, Style_1, misc_1, miniDebuggerSampleCode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
-    function miniNetsuiteApp(request, response) {
+    function miniNetSuiteApp(request, response) {
         var app = new app_1.App();
-        app.addRoute({
-            name: 'mainPage',
+        app.addRoute(debuggerRoute(app));
+        var redirectToDebugger = {
+            name: 'redirectToDebugger',
             handler: function (o) {
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(exports.MainPage, __assign({}, o.params, { userName: runtime_1.getCurrentUser().name })));
-            }
-        });
-        var redirectToMainPage = {
-            name: 'redirectToMainPage',
-            handler: function (o) {
-                app.redirect({ redirect: app.renderLink({ routeName: 'mainPage', params: {} }) });
+                app.redirect({ redirect: app.renderLink({ routeName: 'debugger', params: {} }) });
             }
         };
-        // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
-        app.setNoRouteParamRoute(redirectToMainPage);
-        app.setNoRouteFoundRoute(redirectToMainPage);
-        // finally we call dispatch() so the framework calls the routes implementation that matches request's url
+        app.setNoRouteParamRoute(redirectToDebugger);
+        app.setNoRouteFoundRoute(redirectToDebugger);
         app.dispatch({ request: request, response: response });
     }
-    exports.miniNetsuiteApp = miniNetsuiteApp;
-    exports.MainPage = function (props, children) {
-        return createElement_1.ReactLike.createElement("article", null,
-            createElement_1.ReactLike.createElement(MainPageInit, null),
-            createElement_1.ReactLike.createElement("h1", null,
-                "Welcome ",
-                props.userName),
-            "This is an experiment of mine (Sebasti\u00E1n Gurin) using JSX & TypeScript technologies to render server side pages. Try to use the buttons and links below to see some pages:",
-            createElement_1.ReactLike.createElement("ul", null,
-                createElement_1.ReactLike.createElement("li", null,
-                    createElement_1.ReactLike.createElement("a", { href: props.renderLink({
-                            routeName: 'recordView',
-                            params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
-                        }) }, "record view link"),
-                    "\u00A0 and \u00A0",
-                    createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
-                            routeName: 'recordView',
-                            params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false },
-                            selector: '#mainView'
-                        }); } }, "record view embedded")),
-                createElement_1.ReactLike.createElement("li", null,
-                    createElement_1.ReactLike.createElement("a", { href: props.renderLink({
-                            routeName: 'listRecordTypes',
-                            params: { type: 'item' },
-                        }) }, "listRecordTypes view link"),
-                    "\u00A0 and \u00A0",
-                    createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
-                            routeName: 'listRecordTypes',
-                            params: { dynamicResultsRender: true, type: 'item' },
-                            selector: '#mainView'
-                        }); } }, "listRecordTypes view embedded"))),
-            createElement_1.ReactLike.createElement("div", { id: "mainView" }));
+    exports.miniNetSuiteApp = miniNetSuiteApp;
+    var editor = {
+        border: '1px solid #aaaaaa',
+        width: '100%',
+        height: '500px'
     };
-    /** we call custom tags so they get initialized and their scripts are embedded in the main html - if not they won't be present when complex pages are rendered inside dynamically using fetchAndRenderHtml */
-    var MainPageInit = function () { return createElement_1.ReactLike.createElement("span", null,
-        createElement_1.ReactLike.createElement(Bind_1.Bind, null)); };
+    var _a = Style_1.Styles({ editor: editor }), styles = _a.styles, classes = _a.classes;
+    exports.Debugger = function (props, children) {
+        return createElement_1.ReactLike.createElement("article", null,
+            createElement_1.ReactLike.createElement(Style_1.Style, { classes: styles }),
+            createElement_1.ReactLike.createElement("h1", null, "Poor man's SuiteScript debugger "),
+            createElement_1.ReactLike.createElement("p", null,
+                "Hello dear ",
+                props.userName,
+                "! Welcome to my poor man's SuiteScript debugger."),
+            createElement_1.ReactLike.createElement("p", null, "This is an experiment of mine (Sebasti\u00E1n Gurin) using JSX & TypeScript and a sall server side pages application framework."),
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "debugger-editor" },
+                createElement_1.ReactLike.createElement("textarea", { className: classes.editor }, props.code)),
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "debugger-editor", data: { currentParams: props.currentParams } },
+                createElement_1.ReactLike.createElement("button", { id: "dataKnower", onClick: function (e) {
+                        var code = getBindInputValue(e.currentTarget) || '';
+                        var currentParams = getBindDataOrThrow(e.currentTarget);
+                        var params = __assign({}, currentParams, { code: encodeURIComponent(code) });
+                        if (params.refreshOnExecute) {
+                            location.href = buildRouteUrl({
+                                routeName: 'debugger',
+                                params: __assign({}, params, { refreshOnExecute: true })
+                            });
+                        }
+                        else {
+                            fetchAndRenderHtml({
+                                routeName: 'debugger',
+                                params: __assign({}, params, { refreshOnExecute: false }),
+                                selector: '#debuggerExecutionResults'
+                            });
+                        }
+                    } }, "Execute")),
+            createElement_1.ReactLike.createElement("button", null, "Reset code"),
+            createElement_1.ReactLike.createElement("input", { type: "checkbox", checked: !props.refreshOnExecute, onChange: function (e) {
+                    var currentParams = getBindDataOrThrow(document.querySelector('#dataKnower'));
+                    location.href = buildRouteUrl({
+                        routeName: 'debugger',
+                        params: __assign({}, currentParams, { refreshOnExecute: e.currentTarget.checked })
+                    });
+                } }, "Refresh page on execute?"),
+            createElement_1.ReactLike.createElement(DebuggerExecutionResults, __assign({}, props)));
+    };
+    var DebuggerExecutionResults = function (props) { return createElement_1.ReactLike.createElement("div", { id: "debuggerExecutionResults" },
+        createElement_1.ReactLike.createElement("table", null,
+            createElement_1.ReactLike.createElement("tr", null,
+                createElement_1.ReactLike.createElement("td", null,
+                    "Logs: ",
+                    createElement_1.ReactLike.createElement("ul", null, props.logs && props.logs.map(function (l) { return createElement_1.ReactLike.createElement("li", null, l); }))),
+                createElement_1.ReactLike.createElement("td", null,
+                    "Errors: ",
+                    createElement_1.ReactLike.createElement("ul", null, props.errors && props.errors.map(function (l) { return createElement_1.ReactLike.createElement("li", null, l); })))))); };
+    var _logs = [];
+    var _errors = [];
+    function _print(s) {
+        return (typeof s === 'undefined') ? 'undefined' :
+            ['number', 'boolean', 'string'].indexOf(typeof s) !== -1 ? s :
+                Array.isArray(s) ? "[" + s.map(_print).join(', ') + "]" :
+                    (Object.getPrototypeOf(s) === Object.prototype) ? "{" + Object.keys(s).map(function (k) { return k + ":" + _print(s[k]); }).join(', ') + "}" :
+                        //@ts-ignore
+                        (s.name || toString(s) || (s + ''));
+    }
+    function LOG() {
+        var args = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            args[_i] = arguments[_i];
+        }
+        _logs.push(args.map(_print).join(', '));
+    }
+    function LOG_getLogs() {
+        return _logs;
+    }
+    function debuggerRoute(app) {
+        return {
+            name: 'debugger',
+            handler: function (o) {
+                var code = o.params.code ? decodeURIComponent(o.params.code) : miniDebuggerSampleCode_1.sampleCode.trim();
+                var refreshOnExecute = typeof o.params.refreshOnExecute === 'undefined' ? true : false;
+                try {
+                    eval(code);
+                }
+                catch (error) {
+                    _errors.push(misc_1.printNativeError(error));
+                }
+                var commonProps = __assign({}, o.params, { logs: LOG_getLogs(), errors: _errors, code: code, username: o.params.userName || (runtime_1.getCurrentUser().name + ' (' + runtime_1.getCurrentUser().email + ')') });
+                if (refreshOnExecute) {
+                    return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(exports.Debugger, __assign({}, commonProps)));
+                }
+                else {
+                    return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(DebuggerExecutionResults, __assign({}, commonProps)));
+                }
+            }
+        };
+    }
+    exports.debuggerRoute = debuggerRoute;
 });
-// export function mainPage(app: App): Route {
-//   return {
-//     name: 'mainPage',
-//     handler(o) {
-//       return ReactLike.render(<MainPage userName={o.params.userName}></MainPage>);
-//     }
-//   };
-// }
-// interface Class extends Partial<CSSStyleDeclaration> { }
-// interface IClasses {
-//   [k: string]: Class
-//   button: Class,
-//   primaryButton: Class
-// }
-// function getStyles() {
-//   const button: Class = {
-//     border: '2px solid pink',
-//     padding: '5px'
-//   };
-//   // this class extends another:
-//   const primaryButton: Class = {
-//     ...button,
-//     color: 'red',
-//     fontWeight: 'bolder'
-//   };
-//   const styles: IClasses = {
-//     button,
-//     primaryButton
-//   };
-//   return styles;
-// }
-// interface Category {
-//   name?: string, parent?: string, url?: string, id?: string
-// }
-// interface CategoryList {
-//   renderLink(config: RenderLinkOptions): string
-//   cats: Category[]
-// }
-// export const CategoryList = (props: CategoryList) => <ul>
-//   {props.cats.map(c => <li>
-//     {c.name} {c.url} parent: {c.parent} id: {c.id}
-//     <a href={props.renderLink({ routeName: 'recordView', params: { id: c.id + '', type: 'commercecategory' } })}>link</a>
-//   </li>)}
-// </ul>

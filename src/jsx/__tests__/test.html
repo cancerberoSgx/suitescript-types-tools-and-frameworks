@@ -1,0 +1,217 @@
+
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <script>__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
+__BindData = typeof __BindData === 'undefined' ? {} : __BindData;
+var BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id';
+function getBindData(key) {
+    // if (typeof listenerElOrKey === 'string') {
+    return __BindData[key];
+    // }
+    // const s = listenerElOrKey.getAttribute('data-bind-data-id')
+    // if (s) {
+    // return __BindData[s]
+    // }
+};
+function getBindDataOrThrow(key) {
+    return misc_1.checkThrow(getBindData(key), 'Store data not found for key ' + key);
+};
+function unEscapeHtmlAttribute(code) {
+    return code.replace(/\&quot\;/gmi, '"');
+};
+function escapeHtmlAttribute(code) {
+    return code.replace(/\"/gmi, '&quot;');
+};
+var createElement_1 = {unEscapeHtmlAttribute: unEscapeHtmlAttribute, escapeHtmlAttribute: escapeHtmlAttribute}; 
+function formatDate(date, format) {
+    if (typeof date === 'string') { // happens when serializing dates to json for testing
+        date = new Date(date);
+    }
+    var dd = date.getDay();
+    var mm = date.getMonth() + 1; //January is 0!
+    var yyyy = date.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    if (format === 'YYYY-MM-DD') {
+        return yyyy + '-' + mm + '-' + dd;
+    }
+    else {
+        return mm + "/" + dd + "/" + yyyy;
+    }
+}; var dateUtil_1 = {formatDate: formatDate};
+function getBindInputValue(listenerElementOrInputElementOrKeyOrInputElementSelector, config) {
+    if (config === void 0) { config = {}; }
+    var el = null;
+    if (typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
+        // Can be a name:
+        var id = __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector];
+        var sel = id && "[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + id + "\"]";
+        el = sel && document.querySelector(sel) ||
+            // can be an input element selector
+            document.querySelector(listenerElementOrInputElementOrKeyOrInputElementSelector);
+    }
+    else {
+        // can be a listener element
+        var key = listenerElementOrInputElementOrKeyOrInputElementSelector.getAttribute("" + BIND_VALUE_ATTRIBUTE_NAME);
+        if (key) {
+            el = document.querySelector("[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + key + "\"]");
+        }
+        if (!el) {
+            // can be a input element
+            el = listenerElementOrInputElementOrKeyOrInputElementSelector;
+        }
+    }
+    // const elAsInput = 
+    // const el = typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string' ? (document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${listenerElementOrInputElementOrKeyOrInputElementSelector}"]`)||document.querySelector<HTMLInputElement>(`${listenerElementOrInputElementOrKeyOrInputElementSelector}`)) 
+    // listenerElementOrInputElementOrKeyOrInputElementSelector
+    // .getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`)
+    // const el = document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`)
+    if (el) {
+        if (el.type === 'date') {
+            return (config.asString && el.valueAsDate) ? formatDate_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
+        }
+        else if (el.type === 'number') {
+            return config.asString ? (el.valueAsNumber + '') : el.valueAsNumber;
+        }
+        else if (el.type === 'checkbox') {
+            return config.asString ? (el.checked ? 'T' : 'F') : !!el.checked;
+        }
+        else if (el.tagName.toLowerCase() === 'select') {
+            var selectedOptions_1 = el.selectedOptions;
+            if (selectedOptions_1 && !el.getAttribute('multiple')) {
+                return config.asString ? (selectedOptions_1.item(0).value + '') : selectedOptions_1.item(0).value;
+            }
+            else if ((selectedOptions_1 && el.getAttribute('multiple')) || !selectedOptions_1.length) {
+                var a = misc_1.array(selectedOptions_1.length).map(function (i) { return selectedOptions_1.item(i).value; });
+                return config.asString ? JSON.stringify(a) : a;
+            }
+            else {
+                //TODO debug msg
+            }
+        }
+        else {
+            //TODO debug msg
+        }
+        return config.asString ? (el.value + '') : el.value;
+    }
+};
+function array(n, sample) {
+    var a = [];
+    for (var i = 0; i < n; i++) {
+        a.push(typeof sample === 'undefined' ? i : sample);
+    }
+    return a;
+}; 
+function checkThrow(r, msg) {
+    if (msg === void 0) { msg = 'Throwing on undefined value'; }
+    if (!r) {
+        throw new Error(msg);
+    }
+    return r;
+}; 
+var misc_1 = {array: array, checkThrow: checkThrow};
+function getBindInputValue(listenerElementOrInputElementOrKeyOrInputElementSelector, config) {
+    if (config === void 0) { config = {}; }
+    var el = null;
+    if (typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
+        // Can be a name:
+        var id = __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector];
+        var sel = id && "[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + id + "\"]";
+        el = sel && document.querySelector(sel) ||
+            // can be an input element selector
+            document.querySelector(listenerElementOrInputElementOrKeyOrInputElementSelector);
+    }
+    else {
+        // can be a listener element
+        var key = listenerElementOrInputElementOrKeyOrInputElementSelector.getAttribute("" + BIND_VALUE_ATTRIBUTE_NAME);
+        if (key) {
+            el = document.querySelector("[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + key + "\"]");
+        }
+        if (!el) {
+            // can be a input element
+            el = listenerElementOrInputElementOrKeyOrInputElementSelector;
+        }
+    }
+    // const elAsInput = 
+    // const el = typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string' ? (document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${listenerElementOrInputElementOrKeyOrInputElementSelector}"]`)||document.querySelector<HTMLInputElement>(`${listenerElementOrInputElementOrKeyOrInputElementSelector}`)) 
+    // listenerElementOrInputElementOrKeyOrInputElementSelector
+    // .getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`)
+    // const el = document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`)
+    if (el) {
+        if (el.type === 'date') {
+            return (config.asString && el.valueAsDate) ? formatDate_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
+        }
+        else if (el.type === 'number') {
+            return config.asString ? (el.valueAsNumber + '') : el.valueAsNumber;
+        }
+        else if (el.type === 'checkbox') {
+            return config.asString ? (el.checked ? 'T' : 'F') : !!el.checked;
+        }
+        else if (el.tagName.toLowerCase() === 'select') {
+            var selectedOptions_1 = el.selectedOptions;
+            if (selectedOptions_1 && !el.getAttribute('multiple')) {
+                return config.asString ? (selectedOptions_1.item(0).value + '') : selectedOptions_1.item(0).value;
+            }
+            else if ((selectedOptions_1 && el.getAttribute('multiple')) || !selectedOptions_1.length) {
+                var a = misc_1.array(selectedOptions_1.length).map(function (i) { return selectedOptions_1.item(i).value; });
+                return config.asString ? JSON.stringify(a) : a;
+            }
+            else {
+                //TODO debug msg
+            }
+        }
+        else {
+            //TODO debug msg
+        }
+        return config.asString ? (el.value + '') : el.value;
+    }
+};
+function array(n, sample) {
+    var a = [];
+    for (var i = 0; i < n; i++) {
+        a.push(typeof sample === 'undefined' ? i : sample);
+    }
+    return a;
+}; 
+function checkThrow(r, msg) {
+    if (msg === void 0) { msg = 'Throwing on undefined value'; }
+    if (!r) {
+        throw new Error(msg);
+    }
+    return r;
+}; 
+var misc_1 = {array: array, checkThrow: checkThrow};</script>
+<div>
+    <span>
+      <script>
+        __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
+__BindData['1'] = {"foo":1234,"bar":[1,2,3,4]};
+      </script>
+    </span><button onClick="(function (e) {
+                var d = getBindDataOrThrow('1');
+                var v = getBindInputValue('i1');
+                alert(d.foo + &quot; - &quot; + v);
+            }).apply(this, arguments)">
+      click
+    </button><span>
+      <script>
+        __BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
+__BindInputValues['i1'] = 'bind-input-value-element-0';
+      </script><input data-bind-input-value-id="bind-input-value-element-0">
+        
+      </input>
+    </span>
+  </div>
+</body>
+</html>

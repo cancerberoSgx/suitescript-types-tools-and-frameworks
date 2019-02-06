@@ -25,9 +25,9 @@ define(["require", "exports", "../../jsx/util/Bind", "../../jsx/createElement"],
                             "            ",
                             row.text,
                             row.value == row.text ? " " + row.value : '',
-                            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindInputId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id },
+                            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id },
                                 createElement_1.ReactLike.createElement("input", { value: row.value + '' })),
-                            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindListenerId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id, data: {
+                            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id, data: {
                                     routeName: 'setSublistFieldValue',
                                     params: {
                                         recordId: props.record.id,
@@ -40,7 +40,7 @@ define(["require", "exports", "../../jsx/util/Bind", "../../jsx/createElement"],
                                     }
                                 } },
                                 createElement_1.ReactLike.createElement("button", { onClick: function (e) {
-                                        var data = getStoreData(e.currentTarget);
+                                        var data = getBindData(e.currentTarget);
                                         var fieldValue = getBindInputValue(e.currentTarget, { asString: true });
                                         if (!data || typeof fieldValue === 'undefined') {
                                             return;

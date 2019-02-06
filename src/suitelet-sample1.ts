@@ -8,7 +8,7 @@ import { setDefaultLogger } from "./log/log";
 import { ResponseLogger } from './log/responseLogger';
 import { runSpecs } from './__tests__';
 import { find } from './misc/misc';
-import { miniNetsuiteApp } from './app/__tests__/miniNetsuiteApp';
+import { miniNetSuiteApp as miniNetSuiteApp } from './app/__tests__/miniNetsuiteApp';
 // import { appTest } from './app/__tests__/appTest';
 
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
@@ -22,7 +22,7 @@ export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
     // runSpecs();
 
-    miniNetsuiteApp(context.request, context.response )
+    miniNetSuiteApp(context.request, context.response )
 
 }
 

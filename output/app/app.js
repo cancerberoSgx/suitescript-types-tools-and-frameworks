@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../misc/misc", "../jsx/createElement", "./browserCode"], function (require, exports, misc_1, createElement_1, browserCode_1) {
+define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirect", "./browserCode"], function (require, exports, misc_1, createElement_1, redirect_1, browserCode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var f = misc_1.find; // install array.prototype.find
@@ -73,10 +73,10 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "./browser
         App.prototype.redirect = function (config) {
             var msgParam = "&" + browserCode_1.ROUTEPARAMPREFIX + "messageFromRedirect=";
             // we remove messageFromRedirectParam that we assume is the last one if any
-            var url = (config.redirect.indexOf(msgParam) === -1 || !config.messageFromRedirect) ? config.redirect :
-                config.redirect.substring(config.redirect.indexOf(msgParam), config.redirect.length) + msgParam + config.messageFromRedirect;
-            console.log(url);
-            // redirect({ url })
+            // const url = (config.redirect.indexOf(msgParam) === -1 || !config.messageFromRedirect) ? config.redirect :
+            // config.redirect.substring(config.redirect.indexOf(msgParam), config.redirect.length) + msgParam + config.messageFromRedirect
+            // console.log(url+1)
+            redirect_1.redirect({ url: config.redirect + "&" + browserCode_1.ROUTEPARAMPREFIX + "messageFromRedirect=" + config.messageFromRedirect });
         };
         /** return location.search url server side equivalent with parameters ordered, first NetSuite's SuiteLet parameters, then routeName and then route specific params.  */
         App.prototype.getCurrentRealUrlSearchFragment = function () {

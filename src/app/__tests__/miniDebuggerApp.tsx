@@ -1,150 +1,156 @@
-import { ReactLike } from "../../jsx/createElement";
-import { ReactLikeChild } from '../../jsx/jsx';
-import { Bind } from '../../jsx/util/Bind';
-import { App, Route, RouteHandlerParams } from '../app';
-import { RenderLinkOptions } from "../browserCode";
+import { ReactLike } from "../../jsx/createElement"
+import { ReactLikeChild } from '../../jsx/jsx'
+import { Bind } from '../../jsx/util/Bind'
+import { App, Route, RouteHandlerParams } from '../app'
+import { RenderLinkOptions } from "../browserCode"
 
 
-import { ServerRequest, ServerResponse } from 'N/http';
-import { getCurrentUser} from 'N/runtime';
+import { ServerRequest, ServerResponse } from 'N/http'
+import { getCurrentUser } from 'N/runtime'
+import { ClassRule, Styles, Style } from '../../jsx/Style'
+import { printNativeError } from '../../misc/misc'
+import { sampleCode } from './miniDebuggerSampleCode'
 
-// example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
-export function miniNetsuiteApp(request: ServerRequest, response: ServerResponse) {
+export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse) {
 
   const app = new App()
 
-  app.addRoute({
-      name: 'mainPage',
-      handler(o) {
-        return ReactLike.render(<MainPage {...o.params} userName={getCurrentUser().name}></MainPage>);
-      }
-    })
+  app.addRoute(debuggerRoute(app))
+  const redirectToDebugger: Route = {
+    name: 'redirectToDebugger',
+    handler(o) {
+      app.redirect({ redirect: app.renderLink({ routeName: 'debugger', params: {} }) });
+    }
+  }
+  app.setNoRouteParamRoute(redirectToDebugger)
+  app.setNoRouteFoundRoute(redirectToDebugger)
 
-    const redirectToMainPage : Route = {
-        name: 'redirectToMainPage',
-        handler(o) {
-          app.redirect({ redirect: app.renderLink({ routeName: 'mainPage', params: {} }) });
-        }
-      }
-  // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
-  app.setNoRouteParamRoute(redirectToMainPage)
-  app.setNoRouteFoundRoute(redirectToMainPage)
-
-  // finally we call dispatch() so the framework calls the routes implementation that matches request's url
   app.dispatch({ request, response })
 }
 
 
 
-interface MainPageProps extends RouteHandlerParams{
-  userName: String
-  // renderLink(config: RenderLinkOptions): string
+
+const editor: ClassRule = {
+  border: '1px solid #aaaaaa',
+  width: '100%',
+  height: '500px'
+}
+const { styles, classes } = Styles({ editor })
+
+
+
+
+interface DebuggerProps extends RouteHandlerParams {
+  userName?: string
+  logs?: string[]
+  errors?: string[]
+  code: string
+  refreshOnExecute?: boolean
+  // refreshOnExecute?: boolean
 }
 
-export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
+export const Debugger = (props: DebuggerProps, children: ReactLikeChild[]) => {
   return <article>
 
-    <MainPageInit></MainPageInit>
-    
-    <h1>Welcome {props.userName}</h1>
+    <Style classes={styles}></Style>
 
-    This is an experiment of mine (Sebastián Gurin) using JSX &amp; TypeScript technologies to render server side pages. Try to use the buttons and links below to see some pages:
+    <h1>Poor man's SuiteScript debugger </h1>
+    <p>Hello dear {props.userName}! Welcome to my poor man's SuiteScript debugger.</p>
+    <p>
+      This is an experiment of mine (Sebastián Gurin) using JSX &amp; TypeScript and a sall server side pages application framework.
+    </p>
 
-    <ul>
+    <Bind name="debugger-editor">
+      <textarea className={classes.editor}>{props.code}</textarea>
+    </Bind>
 
-      <li>
-        <a href={props.renderLink({
-          routeName: 'recordView',
-          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true, showAllFields: false}
-        })}>record view link</a> 
-        
-        &nbsp; and &nbsp; 
+    <Bind name="debugger-editor" data={{ currentParams: props.currentParams }}>
+      <button id="dataKnower" onClick={e => {
+        const code = getBindInputValue(e.currentTarget) || ''
+        const currentParams = getBindDataOrThrow<DebuggerProps>(e.currentTarget)
+        const params = { ...currentParams, code: encodeURIComponent(code) }
 
-        <button onClick={e => fetchAndRenderHtml({
-          routeName: 'recordView',
-          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true , showAllFields: false},
-          selector: '#mainView'
-        })}>record view embedded</button>
-      </li>
+        if (params.refreshOnExecute) {
+          location.href = buildRouteUrl({
+            routeName: 'debugger',
+            params: { ...params, refreshOnExecute: true }
+          })
+        }
+        else {
+          fetchAndRenderHtml({
+            routeName: 'debugger',
+            params: { ...params, refreshOnExecute: false },
+            selector: '#debuggerExecutionResults'
+          })
+        }
+      }}>Execute</button>
+    </Bind>
 
-      <li>
-        <a  href={props.renderLink({
-          routeName: 'listRecordTypes',
-          params: { type: 'item' },
-        })}>listRecordTypes view link</a> 
-        
-        &nbsp; and &nbsp; 
-        
-        <button onClick={e => fetchAndRenderHtml({
-          routeName: 'listRecordTypes',
-          params: { dynamicResultsRender: true, type: 'item' },
-          selector: '#mainView'
-        })}>listRecordTypes view embedded</button>
-      </li>
-      
-    </ul>
-    
-    <div id="mainView"></div>
+    <button>Reset code</button>
+
+    <input type="checkbox" checked={!props.refreshOnExecute} onChange={e => {
+      const currentParams = getBindDataOrThrow<DebuggerProps>(document.querySelector<HTMLElement>('#dataKnower')!)
+      location.href = buildRouteUrl({
+        routeName: 'debugger',
+        params: { ...currentParams, refreshOnExecute: e.currentTarget.checked }
+      })
+    }}>Refresh page on execute?</input>
+
+    <DebuggerExecutionResults {...props}></DebuggerExecutionResults>
 
   </article>
 }
 
-/** we call custom tags so they get initialized and their scripts are embedded in the main html - if not they won't be present when complex pages are rendered inside dynamically using fetchAndRenderHtml */
- const MainPageInit = () => <span>
-  <Bind></Bind>
-</span>
+const DebuggerExecutionResults = (props: DebuggerProps) => <div id="debuggerExecutionResults">
+  <table>
+    <tr><td>Logs: <ul>{props.logs && props.logs.map(l => <li>{l}</li>)}
+    </ul></td>
+      <td>Errors: <ul>{props.errors && props.errors.map(l => <li>{l}</li>)}
+      </ul></td></tr>
+  </table>
+</div>
 
 
-
-// export function mainPage(app: App): Route {
-//   return {
-//     name: 'mainPage',
-//     handler(o) {
-//       return ReactLike.render(<MainPage userName={o.params.userName}></MainPage>);
-//     }
-//   };
-// }
-
-
-
-
-
-
-// interface Class extends Partial<CSSStyleDeclaration> { }
-// interface IClasses {
-//   [k: string]: Class
-//   button: Class,
-//   primaryButton: Class
-// }
-// function getStyles() {
-//   const button: Class = {
-//     border: '2px solid pink',
-//     padding: '5px'
-//   };
-//   // this class extends another:
-//   const primaryButton: Class = {
-//     ...button,
-//     color: 'red',
-//     fontWeight: 'bolder'
-//   };
-//   const styles: IClasses = {
-//     button,
-//     primaryButton
-//   };
-//   return styles;
-// }
+var _logs: string[] = []
+var _errors: string[] = []
+function _print(s: any): string {
+  return (typeof s === 'undefined') ? 'undefined' :
+    ['number', 'boolean', 'string'].indexOf(typeof s) !== -1 ? s :
+      Array.isArray(s) ? `[${s.map(_print).join(', ')}]` :
+        (Object.getPrototypeOf(s) === Object.prototype) ? `{${Object.keys(s).map(k => `${k}:${_print(s[k])}`).join(', ')}}` :
+          //@ts-ignore
+          (s.name || toString(s) || (s + ''))
+}
+function LOG(...args: any[]): void {
+  _logs.push(args.map(_print).join(', '))
+}
+function LOG_getLogs() {
+  return _logs
+}
 
 
-// interface Category {
-//   name?: string, parent?: string, url?: string, id?: string
-// }
-// interface CategoryList {
-//   renderLink(config: RenderLinkOptions): string
-//   cats: Category[]
-// }
-// export const CategoryList = (props: CategoryList) => <ul>
-//   {props.cats.map(c => <li>
-//     {c.name} {c.url} parent: {c.parent} id: {c.id}
-//     <a href={props.renderLink({ routeName: 'recordView', params: { id: c.id + '', type: 'commercecategory' } })}>link</a>
-//   </li>)}
-// </ul>
+export function debuggerRoute(app: App): Route {
+  return {
+    name: 'debugger',
+    handler(o) {
+      const code = o.params.code ? decodeURIComponent(o.params.code) : sampleCode.trim()
+      const refreshOnExecute = typeof o.params.refreshOnExecute === 'undefined' ? true : false
+      try {
+        eval(code)
+      } catch (error) {
+        _errors.push(printNativeError(error))
+      }
+      const commonProps = {
+        ...o.params, logs: LOG_getLogs(), errors: _errors, code,
+        username: o.params.userName || (getCurrentUser().name + ' (' + getCurrentUser().email + ')')
+      }
+      if (refreshOnExecute) {
+        return ReactLike.render(<Debugger {...commonProps}></Debugger>)
+      }
+      else {
+        return ReactLike.render(<DebuggerExecutionResults {...commonProps}></DebuggerExecutionResults>)
+      }
+    }
+  }
+}

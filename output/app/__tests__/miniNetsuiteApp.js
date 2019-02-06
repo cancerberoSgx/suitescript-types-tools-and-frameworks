@@ -9,11 +9,11 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
-    function miniNetsuiteApp(request, response) {
+    function miniNetSuiteApp(request, response) {
         var app = new app_1.App();
         app.addRoute(mainPageRoute(app));
         app.addRoute(findRecordRoute_1.findRecordRoute(app));
@@ -21,6 +21,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         app.addRoute(listRecordTypesRoute_1.listRecordTypesRoute(app));
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
         app.addRoute(setSublistFieldValueRoute_1.setSublistFieldValueRoute(app));
+        app.addRoute(miniDebuggerApp_1.debuggerRoute(app));
         // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
         var defaultRoute = {
             name: 'redirectToMainPage',
@@ -33,10 +34,10 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         // finally we call dispatch() so the framework calls the routes implementation that matches request's url
         app.dispatch({ request: request, response: response });
     }
-    exports.miniNetsuiteApp = miniNetsuiteApp;
+    exports.miniNetSuiteApp = miniNetSuiteApp;
     exports.MainPage = function (props, children) {
         return createElement_1.ReactLike.createElement("article", null,
-            createElement_1.ReactLike.createElement(MainPageInit, null),
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "dummy123" }),
             createElement_1.ReactLike.createElement("h1", null,
                 "Welcome ",
                 props.userName),
@@ -63,12 +64,20 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                             routeName: 'listRecordTypes',
                             params: { dynamicResultsRender: true, type: 'item' },
                             selector: '#mainView'
-                        }); } }, "listRecordTypes view embedded"))),
+                        }); } }, "listRecordTypes view embedded")),
+                createElement_1.ReactLike.createElement("li", null,
+                    createElement_1.ReactLike.createElement("a", { href: props.renderLink({
+                            routeName: 'debugger',
+                            params: {},
+                        }) }, "debugger"),
+                    "\u00A0 and \u00A0",
+                    createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
+                            routeName: 'debugger',
+                            params: { dynamicResultsRender: true },
+                            selector: '#mainView'
+                        }); } }, "debugger embedded"))),
             createElement_1.ReactLike.createElement("div", { id: "mainView" }));
     };
-    /** we call custom tags so they get initialized and their scripts are embedded in the main html - if not they won't be present when complex pages are rendered inside dynamically using fetchAndRenderHtml */
-    var MainPageInit = function () { return createElement_1.ReactLike.createElement("span", null,
-        createElement_1.ReactLike.createElement(Bind_1.Bind, null)); };
     function mainPageRoute(app) {
         return {
             name: 'mainPage',

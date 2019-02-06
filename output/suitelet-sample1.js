@@ -14,6 +14,6 @@ define(["require", "exports", "./log/log", "./log/responseLogger", "./app/__test
         // typedRecordTest()
         // reactLikeTest( )
         // runSpecs();
-        miniNetsuiteApp_1.miniNetsuiteApp(context.request, context.response);
+        miniNetsuiteApp_1.miniNetSuiteApp(context.request, context.response);
     };
 });

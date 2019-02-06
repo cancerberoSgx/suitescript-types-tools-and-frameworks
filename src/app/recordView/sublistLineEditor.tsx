@@ -14,11 +14,11 @@ export const SublistLinesEditor = (props:RecordViewProps& {
           {props.sublist.lines.map(line => <tr>
             {line.rows.map(row => {
               const input = (<span>            {row.text}{row.value == row.text ? ` ${row.value}` : ''}
-                <Bind bindInputId={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`}>
+                <Bind name={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`}>
                   <input value={row.value + ''}></input>
                 </Bind>
 
-                <Bind bindListenerId={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`} data={{
+                <Bind name={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`} data={{
                   routeName: 'setSublistFieldValue',
                   params: {
                     recordId: props.record.id,
@@ -31,7 +31,7 @@ export const SublistLinesEditor = (props:RecordViewProps& {
                   }
                 }}>
                   <button onClick={e => {
-                    const data = getStoreData<RenderLinkOptions>(e.currentTarget);
+                    const data = getBindData<RenderLinkOptions>(e.currentTarget);
                     let fieldValue = getBindInputValue<string>(e.currentTarget, { asString: true });
                     if (!data || typeof fieldValue === 'undefined') {
                       return;
@@ -84,7 +84,7 @@ declare function getBindInputValue<T extends string | number | Date = string>(li
   asString?: boolean
 }): T | undefined;
 
-declare function getStoreData<T>(listenerEl: HTMLElement): T | undefined;
+declare function getBindData<T>(listenerEl: HTMLElement): T | undefined;
 
 
 declare function fetchAndRenderHtml(config: RenderFragmentOptions): void

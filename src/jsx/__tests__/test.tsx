@@ -2,6 +2,8 @@ import { indent } from '../../misc/misc';
 import { escapeHtmlAttribute, ReactLike } from "../createElement";
 import { ReactLikeChild } from '../jsx';
 import { StatelessComponent, StatelessComponentProps } from '../StatelessComponent';
+import { writeFileSync } from 'fs';
+import { Bind } from '../util/Bind';
 
 function cssTest1() {
   const Comp = () => <div className="apple" style={{ border: '1 px solid pink', background: 'blue' }}>i'm pink</div>
@@ -60,11 +62,28 @@ export function functionAttributes() {
     <button onClick={e => { alert('foo') }}>click me</button>
     <button onClick={e => { alert("foo\nhello") }}>click me22</button>
   </div>
-  const s = ReactLike.render(main, { indent: true })
-  console.log(s);
+  // const s = ReactLike.render(main, { indent: true })
+  writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument(main))
+  // console.log(s);
 }
-// functionAttributes()
+functionAttributes()
 
+export function renderInHTMLDocument(e: JSX.Element): string {
+  return `
+  <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  ${ReactLike.render(e, { indent: true, indentLevel: 1 , renderClientCode: true})}
+</body>
+</html>
+`
+}
 
 export function moreOnCss() {
   interface Class extends Partial<CSSStyleDeclaration> { }
@@ -152,20 +171,82 @@ export function customComponentAffectChild() {
         ReactLike.registerClientCode({
           name: 'BindInputValue',
           code: getBindInputValue.toString(),
-          description : `Gets the current input value declared with wrapper <BindInputValue><input...`
+          description: `Gets the current input value declared with wrapper <BindInputValue><input...`
         })
-        BindInputValue.registered=true
+        BindInputValue.registered = true
       }
     }
     private static registered = false
   }
-  
+
   const test = <BindInputValue bindId="id1"><input></input></BindInputValue>
-const s = ReactLike.render(test, { indent: true })
-  console.log(s, ReactLike.getClientCode().map(c=>c.code).join('\n'));
-  
+  const s = ReactLike.render(test, { indent: true })
+  console.log(s, ReactLike.getClientCode().map(c => c.code).join('\n'));
+
+
+  // writeFileSync('src/jsx/__tests__/test.html',renderInHTMLDocument(test))
 
 }
-customComponentAffectChild()
+// customComponentAffectChild()
 
 
+
+
+
+declare function getBindInputValue<T extends InputValue, InputValue extends string | number | Date | boolean | string[] | number[]=  string | number | Date | boolean | string[] | number[], ElType extends HTMLInputElement & HTMLSelectElement = HTMLInputElement & HTMLSelectElement>(listenerElementOrInputElementOrKeyOrInputElementSelector: ElType | string, config?: {
+  asString?: boolean,
+}): T | undefined
+declare function getBindData<T>(key: string): T | undefined
+declare function getBindDataOrThrow<T>(key: string): T
+
+export function testBind() {
+
+
+
+
+  // interface Props {onBindEvent: (e:any)=>any}
+  // class Custom<State extends {}={}> extends StatelessComponent<Props>{
+
+  //   stateGet(s:string):Raro
+  //   constructor(props: Props, protected state: State){
+  //     super(props) 
+  //   }
+  //   render(): JSX.Element {      
+  //     return <p>{this.stateGet('value')}</p>
+  //   }
+  // }
+
+
+
+  const obj = { foo: 1234, bar: [1, 2, 3, 4] }
+  const m = <div>
+    <Bind name="1" data={obj}></Bind>
+    <button onClick={e => {
+      const d = getBindDataOrThrow<typeof obj>('1')
+      const v = getBindInputValue<string>('i1')
+      alert(`${d.foo} - ${v}`)
+    }}>click</button>
+
+
+<Bind name="i1" ><input></input></Bind>  
+<Bind name="2"><input></input></Bind>
+
+{/* <Bind emit="2"><Custom onBindEvent={e=>{this.setState({...this.getState(), value: e.inputValue})}}></Custom></Bind> */}
+idea!
+
+{/* <input></input> */}
+
+  </div>
+  writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument(m))
+
+
+  // writeFileSync('src/jsx/__tests__/test.html',renderInHTMLDocument(test))
+
+// customComponentAffectChild()
+
+
+
+
+}
+
+testBind()

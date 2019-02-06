@@ -69,11 +69,11 @@ export const FieldEditor = (props: {
 
   return <span>
 
-    <Bind bindInputId={`data-field-id${f.id}`}>
+    <Bind name={`data-field-id${f.id}`}>
       {input}
     </Bind>
     <br></br>
-    <Bind bindListenerId={`data-field-id${f.id}`} data={{
+    <Bind name={`data-field-id${f.id}`} data={{
       routeName: 'setFieldValue',
       params: {
         recordId: props.record.id,
@@ -84,7 +84,7 @@ export const FieldEditor = (props: {
       }
     }}>
       <button onClick={e => {
-        const data = getStoreData<RenderLinkOptions>(e.currentTarget);
+        const data = getBindData<RenderLinkOptions>(e.currentTarget);
         let fieldValue = getBindInputValue<string>(e.currentTarget, { asString: true });
         if (!data || typeof fieldValue === 'undefined') {
           return;
@@ -120,7 +120,7 @@ declare function getBindInputValue<T extends string | number | Date = string>(li
   asString?: boolean
 }): T | undefined;
 
-declare function getStoreData<T>(listenerEl: HTMLElement): T | undefined;
+declare function getBindData<T>(listenerEl: HTMLElement): T | undefined;
 
 
 declare function fetchAndRenderHtml(config: RenderFragmentOptions): void

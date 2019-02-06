@@ -100,13 +100,17 @@ const Module: ReactLikeType = {
     return element
   },
 
-  render(el: JSX.Element, config?: RenderConfig): string {
-    return (el as any as NodeLike).render(config)
+  render(el: JSX.Element, config: RenderConfig = {}): string {
+    return `
+${config.renderClientCode ? `<script>${Module.getClientCode().map(c => c.code).join('\n')}</script>` : ``}
+${(el as any as NodeLike).render(config)}
+`.trim()
   },
 
   registerClientCode(f: ClientCode) {
     clientCode.push(f)
   },
+
   getClientCode(): ClientCode[] {
     return clientCode
   },

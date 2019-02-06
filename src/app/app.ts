@@ -111,14 +111,14 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
 
   /** default redirect implementation. Routes needing to redirect to other routes can call this method */
   redirect(config: { redirect: string, messageFromRedirect?: string }) {
-    const msgParam = `&${ROUTEPARAMPREFIX}messageFromRedirect=`
+    // const msgParam = `&${ROUTEPARAMPREFIX}messageFromRedirect=`
     // we remove messageFromRedirectParam that we assume is the last one if any
-    const url = (config.redirect.indexOf(msgParam) === -1 || !config.messageFromRedirect) ? config.redirect :
-      config.redirect.substring(config.redirect.indexOf(msgParam), config.redirect.length) + msgParam + config.messageFromRedirect
+    // const url = (config.redirect.indexOf(msgParam) === -1 || !config.messageFromRedirect) ? config.redirect :
+      // config.redirect.substring(config.redirect.indexOf(msgParam), config.redirect.length) + msgParam + config.messageFromRedirect
 
-    console.log(url);
+    // console.log(url+1)
 
-    // redirect({ url })
+    redirect({ url: `${config.redirect}&${ROUTEPARAMPREFIX}messageFromRedirect=${config.messageFromRedirect}` })
   }
 
   /** return location.search url server side equivalent with parameters ordered, first NetSuite's SuiteLet parameters, then routeName and then route specific params.  */

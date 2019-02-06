@@ -45,9 +45,9 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
             input = createElement_1.ReactLike.createElement("input", { disabled: f.isReadonly, type: inputType, value: inputValue, checked: f.type === 'checkbox' && !!f.value });
         }
         return createElement_1.ReactLike.createElement("span", null,
-            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindInputId: "data-field-id" + f.id }, input),
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "data-field-id" + f.id }, input),
             createElement_1.ReactLike.createElement("br", null),
-            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindListenerId: "data-field-id" + f.id, data: {
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "data-field-id" + f.id, data: {
                     routeName: 'setFieldValue',
                     params: {
                         recordId: props.record.id,
@@ -58,7 +58,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                     }
                 } },
                 createElement_1.ReactLike.createElement("button", { onClick: function (e) {
-                        var data = getStoreData(e.currentTarget);
+                        var data = getBindData(e.currentTarget);
                         var fieldValue = getBindInputValue(e.currentTarget, { asString: true });
                         if (!data || typeof fieldValue === 'undefined') {
                             return;

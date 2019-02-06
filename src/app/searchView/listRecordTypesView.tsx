@@ -20,7 +20,7 @@ const bindInputValueId = `data-list-record-types`
 export const ListRecordTypes = (props: Props) => {
   return <div>
     Record type: {props.type} {props.results && props.results.length}
-    <Bind bindInputId={bindInputValueId}>
+    <Bind name={bindInputValueId}>
       <select id="ListRecordTypesSelect">
         {getSearchRecordTypes().map(r =>
           <option selected={props.type == r} value={r}>{r}</option>
@@ -28,7 +28,7 @@ export const ListRecordTypes = (props: Props) => {
       </select>
     </Bind>
 
-    <Bind bindListenerId={bindInputValueId}    >
+    <Bind name={bindInputValueId}  >
     {props.dynamicResultsRender ? 
       <button 
       onClick={e => {

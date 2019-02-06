@@ -34,7 +34,7 @@ export interface TextNodeLIke extends NodeLike {
 
 export interface ElementLike extends NodeLike {
   tag: string
-  attrs: { [name: string]: string }
+  attrs: { [name: string]: any }
   children: NodeLike[]
   setAttribute(name: string, value: string): void
   dangerouslySetInnerHTML(s: string):void
@@ -45,6 +45,8 @@ export interface RenderConfig {
   indent?: boolean
   indentLevel?: number
   indentTabSize?: number
+  /** render also the required utilities ClientCode registered by custom utilities. It will be rendered once, before the given root element */
+  renderClientCode?: boolean
 }
 
 export interface ReactLike {
@@ -55,7 +57,7 @@ export interface ReactLike {
 }
 
 export interface ClientCode {
-  name?: string, 
+  name?: string,
   code: string,
   description?: string
 }

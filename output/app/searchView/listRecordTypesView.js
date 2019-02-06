@@ -8,11 +8,11 @@ define(["require", "exports", "../../search/getSearchRecordTypes", "../../jsx/cr
             props.type,
             " ",
             props.results && props.results.length,
-            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindInputId: bindInputValueId },
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: bindInputValueId },
                 createElement_1.ReactLike.createElement("select", { id: "ListRecordTypesSelect" }, getSearchRecordTypes_1.getSearchRecordTypes().map(function (r) {
                     return createElement_1.ReactLike.createElement("option", { selected: props.type == r, value: r }, r);
                 }))),
-            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindListenerId: bindInputValueId }, props.dynamicResultsRender ?
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { name: bindInputValueId }, props.dynamicResultsRender ?
                 createElement_1.ReactLike.createElement("button", { onClick: function (e) {
                         var type = getBindInputValue(e.currentTarget);
                         fetchAndRenderHtml({ routeName: 'listRecordTypes', params: { type: type }, selector: '#listRecordTypesDynamicResults' });

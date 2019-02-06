@@ -1,20 +1,24 @@
+// better idea - probably this can be obsoleted by just using data-attributes, example:  instead of `<Bind name="foo"><input></input></Bind>` use `<input data-bind-name="foo"></input>`
+
 import { formatDate } from '../../misc/formatDate';
-import { array } from '../../misc/misc';
+import { array, checkThrow } from '../../misc/misc';
 import { escapeHtmlAttribute, ReactLike, unEscapeHtmlAttribute } from '../createElement';
 import { StatelessComponent } from '../StatelessComponent';
 
 interface Data { [k: string]: any }
-interface Props  {
+interface Props {
   data?: Data
-  bindInputId?: string
-  bindListenerId?: string
+  name: string
+  inputValue?: HTMLElement
 }
-type InputValue = string | number | Date | boolean | string[] | number[]
 
+const BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id'
 /** 
  * Helper to bind data to the DOM and input element values so it can be easily retrieved from a function attribute like a click handler from the browser. This is necessary because in the browser's function attribute we don't have access to the server code scope. 
  * 
- * Use `<Bind data={{my: 'foo'}}>` and later `getStoreData()` passing the listener element (the one that triggered the handler) to retrieve it in the browser, or `bindInput` `bindListener` to get other element input value easily with `getBindInputValue`, again passing the listener element.
+ *  * `<Bind data={{my: 'foo'}}>` or  `<Bind data={{my: 'foo'}} name="unique-key-123">` and `getBindData("unique-key-123")` : if no name is provided, then the data is associated with the first direct child and the element itself can be used to extract it with getBindData instead of using a key.
+ * 
+ *  * `<Bind inputValue="anElementOrUndefined" name="unique-key-333">` to declare an input element which value can be retrieved by name at any time from the browser (like a event handler function attribute)to bind. If no `inputValue` is given the first direct child found will be used to bind its value. It supports elements like <input> (type text, date, checkbox, number), <textarea>, <select>. Then the value of this element can be easily retrieved frmo a event handler function attribute by calling the global `getBindInputValue("unique-key-333")` 
  * 
  * Example:
 
@@ -25,7 +29,7 @@ type InputValue = string | number | Date | boolean | string[] | number[]
 </Bind>
 <Bind bindListener="foo-field-{f.id}""} data={Props}>
   <button onClick={e => {
-    const {endpoint} = getStoreData<Props>(e.currentTarget);
+    const {endpoint} = getBindData<Props>(e.currentTarget);
     let value = getBindInputValue<string>(e.currentTarget);
     fetch(`${endpoint}&value=${value}`)
       .then(r=>r.jsonResponse)
@@ -35,73 +39,149 @@ type InputValue = string | number | Date | boolean | string[] | number[]
 </Bind>
 ```
  */
+
 export class Bind extends StatelessComponent<Props>{
+  
+  protected static counter = 0
 
   render(): JSX.Element {
-    const c = this.firstChildElement()
-    if (c && this.props.bindInputId) {
-      c.attrs['data-bind-value-id'] = this.props.bindInputId
+    if (!this.props.data && this.props.name) {
+      const id = `bind-input-value-element-${Bind.counter++}`
+      if (typeof this.props.inputValue === 'undefined') {
+        const c = this.firstChildElement()
+        if (c) {
+          c.attrs[BIND_VALUE_ATTRIBUTE_NAME] = id
+        }
+        else {
+          // TODO: error debug
+          return <span></span>
+        }
+      }
+      else {
+        this.props.inputValue.setAttribute(BIND_VALUE_ATTRIBUTE_NAME, id)
+      }
+      // TODO: add this statements in a single global <script> tag - could be a static el attribute
+      return <span>
+  <script>{`
+__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
+__BindInputValues['${this.props.name}'] = '${id}';
+`.trim()}
+  </script>
+</span>
+
     }
-    if (c && this.props.bindListenerId) {
-      c.attrs['data-bind-value-id'] = this.props.bindListenerId
+    
+    else if (this.props.data && this.props.name) {
+
+      // TODO: add this statements in a single global <script> tag - could be a static el attribute
+      return <span>
+  <script>{`
+__BindData = typeof __BindData === 'undefined' ? {} : __BindData;
+__BindData['${this.props.name}'] = ${JSON.stringify(this.props.data)};
+`.trim()}
+  </script>
+</span>
     }
-    if (c && this.props.data) {
-      c.attrs['data-store-data'] = escapeHtmlAttribute(JSON.stringify(this.props.data))
+
+    else {
+      // TODO: error debug
+      return <span></span>
     }
-    return <span></span>
   }
 
   public checkRegisteredCode() {
     if (!Bind.registered) {
+
       ReactLike.registerClientCode({
-      name: 'StoreData',
-      code: `${getStoreData.toString()}
-${unEscapeHtmlAttribute.toString()}
-${escapeHtmlAttribute.toString()}
-var createElement_1 = {unEscapeHtmlAttribute: unEscapeHtmlAttribute, escapeHtmlAttribute: escapeHtmlAttribute}; `,
-      description: `Gets data stored in the element declared ed with wrapper <StoreData><button...`
-    })
+        name: 'getBindData',
+        code: `
+__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
+__BindData = typeof __BindData === 'undefined' ? {} : __BindData;
+var BIND_VALUE_ATTRIBUTE_NAME = '${BIND_VALUE_ATTRIBUTE_NAME}';
+${getBindData.toString()};
+${getBindDataOrThrow.toString()};
+${unEscapeHtmlAttribute.toString()};
+${escapeHtmlAttribute.toString()};
+var createElement_1 = {unEscapeHtmlAttribute: unEscapeHtmlAttribute, escapeHtmlAttribute: escapeHtmlAttribute}; 
+${formatDate.toString()}; var dateUtil_1 = {formatDate: formatDate}; 
+`.trim(),
+        description: `Gets data stored in the element declared ed with wrapper <StoreData><button...`
+      })
     }
+
     ReactLike.registerClientCode({
       name: 'getBindInputValue',
-      code: getBindInputValue.toString(),
+      code: `
+${getBindInputValue.toString()};
+${array.toString()}; 
+${checkThrow.toString()}; 
+var misc_1 = {array: array, checkThrow: checkThrow}; 
+`.trim(),
       description: `Gets the current input value declared with wrapper <BindInputValue><input...`
     })
-    ReactLike.registerClientCode({
-      name: 'formatDate', 
-      code: `${formatDate.toString()}; var dateUtil_1 = {formatDate: formatDate}; `,
-      description: `Gets the current input value declared with wrapper <BindInputValue><input...`
-    })
-    ReactLike.registerClientCode({
-      name: 'array', 
-      code: `${array.toString()}; var misc_1 = {array: array}; `,
-      description: ``
-    })
+
     Bind.registered = true
   }
 
   protected static registered = false;
 }
 
-function getStoreData<T>(listenerEl: HTMLElement): T|undefined {
-  const s = listenerEl.getAttribute('data-store-data')
-  if (s) {
-    const unescaped = unEscapeHtmlAttribute(s)
-    try {
-      return JSON.parse(unescaped)
-    } catch (error) {
-    }
-  }
+// TODO: perhaps is safer to put all js objects in a global variable instead of embedding them in the DOM element
+function getBindData<T>(key: string): T | undefined {
+  // if (typeof listenerElOrKey === 'string') {
+  return __BindData[key]
+  // }
+  // const s = listenerElOrKey.getAttribute('data-bind-data-id')
+  // if (s) {
+  // return __BindData[s]
+  // }
 }
 
-function getBindInputValue<T extends InputValue= string>(listenerEl: HTMLElement, config: {
+function getBindDataOrThrow<T>(key: string): T {
+  return checkThrow(getBindData(key), 'Store data not found for key ' + key)
+}
+
+declare let __BindInputValues: { [k: string]: any }
+
+declare let __BindData: { [k: string]: any }
+
+
+
+// type ElType = HTMLInputElement&HTMLSelectElement
+
+function getBindInputValue<T extends InputValue, InputValue extends string | number | Date | boolean | string[] | number[] =  string | number | Date | boolean | string[] | number[], ElType extends HTMLInputElement&HTMLSelectElement = HTMLInputElement&HTMLSelectElement>(listenerElementOrInputElementOrKeyOrInputElementSelector: ElType|string, config: {
   asString?: boolean,
 } = {}): T | undefined {
-  const id = listenerEl.getAttribute('data-bind-value-id')
-  const el = document.querySelector<HTMLInputElement>(`[data-bind-value-id="${id}"]`)
+
+  let el: ElType|null=null
+  if(typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
+    // Can be a name:
+    const id  =  __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector]
+    const sel = id && `[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`;
+    el = sel && document.querySelector<ElType>(sel) ||
+    // can be an input element selector
+    document.querySelector<ElType>(listenerElementOrInputElementOrKeyOrInputElementSelector )
+  }
+  else {
+    // can be a listener element
+    const key = listenerElementOrInputElementOrKeyOrInputElementSelector.getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`) 
+    if(key){
+      el = document.querySelector<ElType>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${key}"]`)
+    }
+    if(!el){
+      // can be a input element
+      el = listenerElementOrInputElementOrKeyOrInputElementSelector
+    }
+  }
+  // const elAsInput = 
+  // const el = typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string' ? (document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${listenerElementOrInputElementOrKeyOrInputElementSelector}"]`)||document.querySelector<HTMLInputElement>(`${listenerElementOrInputElementOrKeyOrInputElementSelector}`)) 
+  // listenerElementOrInputElementOrKeyOrInputElementSelector
+  
+  // .getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`)
+  // const el = document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`)
   if (el) {
     if (el.type === 'date') {
-      return config.asString ? formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate
+      return (config.asString && el.valueAsDate) ? formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate
     }
     else if (el.type === 'number') {
       return config.asString ? (el.valueAsNumber + '') : el.valueAsNumber as any
@@ -119,11 +199,11 @@ function getBindInputValue<T extends InputValue= string>(listenerEl: HTMLElement
         return config.asString ? JSON.stringify(a) : a as any
       }
       else {
-        //TODO
+        //TODO debug msg
       }
-    } 
+    }
     else {
-      //TODO
+      //TODO debug msg
     }
     return config.asString ? (el.value + '') : el.value as any
   }

@@ -1,4 +1,4 @@
-define(["require", "exports", "../../search/getSearchRecordTypes", "../../jsx/util/BindInputValue", "../../jsx/createElement"], function (require, exports, getSearchRecordTypes_1, BindInputValue_1, createElement_1) {
+define(["require", "exports", "../../search/getSearchRecordTypes", "../../jsx/createElement", "../../jsx/util/Bind"], function (require, exports, getSearchRecordTypes_1, createElement_1, Bind_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var bindInputValueId = "data-list-record-types";
@@ -8,11 +8,11 @@ define(["require", "exports", "../../search/getSearchRecordTypes", "../../jsx/ut
             props.type,
             " ",
             props.results && props.results.length,
-            createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: bindInputValueId },
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindInputId: bindInputValueId },
                 createElement_1.ReactLike.createElement("select", { id: "ListRecordTypesSelect" }, getSearchRecordTypes_1.getSearchRecordTypes().map(function (r) {
                     return createElement_1.ReactLike.createElement("option", { selected: props.type == r, value: r }, r);
                 }))),
-            createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindListenerId: bindInputValueId }, props.dynamicResultsRender ?
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindListenerId: bindInputValueId }, props.dynamicResultsRender ?
                 createElement_1.ReactLike.createElement("button", { onClick: function (e) {
                         var type = getBindInputValue(e.currentTarget);
                         fetchAndRenderHtml({ routeName: 'listRecordTypes', params: { type: type }, selector: '#listRecordTypesDynamicResults' });

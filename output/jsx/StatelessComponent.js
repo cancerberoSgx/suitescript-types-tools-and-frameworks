@@ -21,7 +21,7 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
             return (Array.isArray(this.props.children) ? this.props.children : [this.props.children]);
         };
         StatelessComponent.prototype.childrenElementsAsArray = function () {
-            return this.childrenAsArray().filter(function (c) { return elementImpl_1.isElementIke(c); });
+            return this.childrenAsArray().filter(function (c) { return elementImpl_1.isElementLike(c); });
         };
         StatelessComponent.prototype.firstChildElement = function () {
             return this.childrenAsArray().find(function (e) { return true; });

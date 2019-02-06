@@ -1,6 +1,5 @@
 import { RecordViewProps, ValuedSublist } from './recordViewTypes';
-import { BindInputValue } from '../../jsx/util/BindInputValue';
-import { BindInputValueAndStoreData } from '../../jsx/util/Bind';
+import { Bind } from '../../jsx/util/Bind';
 import { ReactLike } from "../../jsx/createElement";
 
 
@@ -15,11 +14,11 @@ export const SublistLinesEditor = (props: {
           {props.sublist.lines.map(line => <tr>
             {line.rows.map(row => {
               const input = (<span>            {row.text}{row.value == row.text ? ` ${row.value}` : ''}
-                <BindInputValue bindInputId={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`}>
+                <Bind bindInputId={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`}>
                   <input value={row.value + ''}></input>
-                </BindInputValue>
+                </Bind>
 
-                <BindInputValueAndStoreData bindListenerId={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`} data={{
+                <Bind bindListenerId={`data-sublist-field-${props.sublist.id}-${line}-${row.field.id}`} data={{
                   routeName: 'setSublistFieldValue',
                   params: {
                     recordId: props.record.id,
@@ -41,9 +40,8 @@ export const SublistLinesEditor = (props: {
                     window.location.href = buildRouteUrl(data);
                   }}>
                     Change!</button>
-                </BindInputValueAndStoreData>
+                </Bind>
               </span>);
-              // const input = <FieldEditor {...props} field={{...row.field, isReadonly: false, isDisplay: false, isMandatory: false, isVisible: false}}></FieldEditor>
               return (<td>
                 {input}
                 {row.field.type === 'select' ?
@@ -57,7 +55,7 @@ export const SublistLinesEditor = (props: {
       <span>
         Line fields:
   <ul style={{ display: 'inline' }}>{props.sublist.fields.map(f => <li>{f.name} id: {f.id}{f.type ? `, type: ${f.type}` : ''}{f.isMandatory ? `, Mandatory: ${f.isMandatory}` : ''}{f.isReadonly ? `, Readonly: ${f.isReadonly}` : ''}
-        </li>)}</ul>
+        </li>)} </ul>
       </span>}
     </div>
   }
@@ -66,3 +64,27 @@ export const SublistLinesEditor = (props: {
     return <span>error {error}</span>;
   }
 };
+
+
+
+
+// declarations needed only for testing in node:
+interface RenderLinkOptions{
+  routeName: string;
+  params: {[k:string]:any};
+}
+
+interface RenderFragmentOptions extends RenderLinkOptions {
+  selector: string;
+}
+
+declare function buildRouteUrl(config: RenderLinkOptions): string;
+
+declare function getBindInputValue<T extends string | number | Date = string>(listenerEl: HTMLElement, config?: {
+  asString?: boolean
+}): T | undefined;
+
+declare function getStoreData<T>(listenerEl: HTMLElement): T | undefined;
+
+
+declare function fetchAndRenderHtml(config: RenderFragmentOptions): void

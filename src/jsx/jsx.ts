@@ -1,7 +1,8 @@
 export * from './createElement'
 
-export type ReactLikeAttrs = {
+export type ReactLikeAttrs<ClassName extends string = string> = {
   [k: string]: any
+  className?: ClassName|ClassName[]
 }
 
 export type ReactLikeChild = ReactLikeElement | string;

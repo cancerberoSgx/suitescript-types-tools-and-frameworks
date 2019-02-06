@@ -1,10 +1,12 @@
+///@reference path="../browserDeclarations.ts"
+
 import { ReactLike } from "../../jsx/createElement";
-import { BindInputValueAndStoreData } from '../../jsx/util/Bind';
-import { BindInputValue } from '../../jsx/util/BindInputValue';
-import { formatDate } from '../../misc/dateUtil';
+import { Bind } from '../../jsx/util/Bind';
+import { formatDate } from "../../misc/formatDate";
 import { tryTo } from '../../misc/misc';
-import { RenderLinkOptions } from "../browserCode";
+// import { RenderLinkOptions } from "../browserCode";
 import { RecordViewProps, ValuedField } from "./recordViewTypes";
+
 
 
 export const FieldEditor = (props: {
@@ -67,11 +69,11 @@ export const FieldEditor = (props: {
 
   return <span>
 
-    <BindInputValue bindInputId={`data-field-id${f.id}`}>
+    <Bind bindInputId={`data-field-id${f.id}`}>
       {input}
-    </BindInputValue>
-
-    <BindInputValueAndStoreData bindListenerId={`data-field-id${f.id}`} data={{
+    </Bind>
+    <br></br>
+    <Bind bindListenerId={`data-field-id${f.id}`} data={{
       routeName: 'setFieldValue',
       params: {
         recordId: props.record.id,
@@ -89,11 +91,36 @@ export const FieldEditor = (props: {
         }
         data.params = { ...data.params, fieldValue };
         window.location.href = buildRouteUrl(data);
-      }}>
-        Change!</button>
-    </BindInputValueAndStoreData>
+      }}>Change</button>
+    </Bind>
 
   </span>
 
 
 };
+
+
+
+
+
+// declarations needed only for testing in node
+
+interface RenderLinkOptions {
+  routeName: string;
+  params: { [k: string]: any };
+}
+
+interface RenderFragmentOptions extends RenderLinkOptions {
+  selector: string;
+}
+
+declare function buildRouteUrl(config: RenderLinkOptions): string;
+
+declare function getBindInputValue<T extends string | number | Date = string>(listenerEl: HTMLElement, config?: {
+  asString?: boolean
+}): T | undefined;
+
+declare function getStoreData<T>(listenerEl: HTMLElement): T | undefined;
+
+
+declare function fetchAndRenderHtml(config: RenderFragmentOptions): void

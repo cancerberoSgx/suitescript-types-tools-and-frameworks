@@ -4,8 +4,9 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
     function recordViewRoute(app) {
         return {
             name: 'recordView',
+            // contentType: 'json',
             handler: function (o) {
-                var _a = o.params, id = _a.id, type = _a.type, messageFromRedirect = _a.messageFromRedirect;
+                var _a = o.params, id = _a.id, type = _a.type, messageFromRedirect = _a.messageFromRedirect, jsonMetadataOutput = _a.jsonMetadataOutput;
                 var seeValues = !!o.params.seeValues;
                 var showAllFields = !!o.params.showAllFields;
                 var showSublistLines = !!o.params.showSublistLines;
@@ -16,7 +17,12 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
                 if (!record) {
                     return 'Record id, type: ' + (id + ", " + type + " not be found");
                 }
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: buildRecordViewModel_1.buildRecordViewModel(record, seeValues, showAllFields), seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines }));
+                var metadata = buildRecordViewModel_1.buildRecordViewModel(record, seeValues, showAllFields);
+                if (jsonMetadataOutput) {
+                    this.contentType = 'json';
+                    return metadata;
+                }
+                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: metadata, seeValues: seeValues, showAllFields: showAllFields, renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: messageFromRedirect, showSublistLines: showSublistLines }));
             }
         };
     }

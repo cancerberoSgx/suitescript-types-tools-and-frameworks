@@ -1,4 +1,4 @@
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/BindInputValue", "../../jsx/util/StoreData"], function (require, exports, createElement_1, BindInputValue_1, StoreData_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind"], function (require, exports, createElement_1, Bind_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.MainPage = function (props, children) {
@@ -35,8 +35,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/BindInp
     };
     /** we call custom tags so they get initialized and their scripts are embedded in the main html - if not they won't be present when complex pages are rendered inside dynamically using fetchAndRenderHtml */
     var MainPageInit = function () { return createElement_1.ReactLike.createElement("span", null,
-        createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, null),
-        createElement_1.ReactLike.createElement(StoreData_1.StoreData, { data: {} })); };
+        createElement_1.ReactLike.createElement(Bind_1.Bind, null)); };
     function mainPageRoute(app) {
         return {
             name: 'mainPage',

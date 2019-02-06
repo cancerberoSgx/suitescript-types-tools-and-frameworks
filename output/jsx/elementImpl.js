@@ -17,17 +17,17 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
     }
     exports.isReactLikeComponent = isReactLikeComponent;
     function isNode(n) {
-        return n && n.render;
+        return isTextNodeLike(n) || isElementLike(n);
     }
     exports.isNode = isNode;
-    function isElementIke(n) {
+    function isElementLike(n) {
         return n && n.setAttribute;
     }
-    exports.isElementIke = isElementIke;
-    function isTextNodeLIke(n) {
-        return n && !n.setAttribute && n.content;
+    exports.isElementLike = isElementLike;
+    function isTextNodeLike(n) {
+        return n && n.content && !isElementLike(n);
     }
-    exports.isTextNodeLIke = isTextNodeLIke;
+    exports.isTextNodeLike = isTextNodeLike;
     var TextNodeLikeImpl = /** @class */ (function () {
         function TextNodeLikeImpl(content) {
             this.content = content;

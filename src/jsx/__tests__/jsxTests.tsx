@@ -3,9 +3,9 @@ import { ReactLike, escapeHtmlAttribute } from '../createElement'
 import { StatelessComponent } from '../StatelessComponent';
 import { ReactLikeChild, NodeLike } from '../jsx';
 import { StringKeyOf } from '../../misc/typesUtil';
-import { Style } from '../Style';
 import { expectCodeToContain } from '../../spec/expectExtras';
-import { isElementIke } from '../elementImpl';
+import { isElementLike } from '../elementImpl';
+import { Style } from '../Style';
 
 export function jsxTests() {
 
@@ -119,7 +119,7 @@ export function jsxTests() {
           if(!this.props.children){return <span></span>}
           const children = (Array.isArray(this.props.children) ? this.props.children : [this.props.children]) as NodeLike[]
           children.forEach(c=>{
-            if(!isElementIke(c)){return }
+            if(!isElementLike(c)){return }
             c.attrs = {...(c.attrs||{}), 'data-data': escapeHtmlAttribute(JSON.stringify(this.props.data))}
           })
           return <span></span>

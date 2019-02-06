@@ -12,6 +12,15 @@ var __assign = (this && this.__assign) || function () {
 define(["require", "exports", "./elementImpl"], function (require, exports, elementImpl_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    var throwOnUnrecognized = false;
+    function debug(err) {
+        if (throwOnUnrecognized) {
+            throw err;
+        }
+        else {
+            console.error(err);
+        }
+    }
     var Module = {
         createElement: function (tag, attrs) {
             if (attrs === void 0) { attrs = {}; }
@@ -19,7 +28,6 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
             for (var _i = 2; _i < arguments.length; _i++) {
                 children[_i - 2] = arguments[_i];
             }
-            var originalAttrs = attrs;
             var element;
             if (typeof tag === 'string') {
                 element = new elementImpl_1.ElementLikeImpl(tag);
@@ -36,19 +44,31 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
             for (var name_1 in attrs) {
                 if (name_1 && attrs.hasOwnProperty(name_1)) {
                     var value = attrs[name_1];
-                    if (value === true) {
-                        element.setAttribute(name_1, name_1);
+                    if (typeof value === 'boolean') {
+                        if (value === true) {
+                            element.setAttribute(name_1, name_1);
+                        }
                     }
                     else if (typeof value === 'function') {
                         var code = "(" + value.toString() + ").apply(this, arguments)";
                         var escaped = escapeHtmlAttribute(code);
                         element.setAttribute(name_1, escaped);
                     }
-                    else if (value !== false && value != null && typeof value !== 'object') {
+                    else if (value !== false && value != null) {
                         if (name_1 === 'className') {
-                            name_1 = 'class';
+                            if (typeof value === 'string') {
+                                element.setAttribute('class', value);
+                            }
+                            else if (Array.isArray(value) && value.length && typeof value[0] === 'string') {
+                                element.setAttribute('class', value.join(' '));
+                            }
+                            else {
+                                debug("unrecognized className value " + typeof value + " " + value);
+                            }
                         }
-                        element.setAttribute(name_1, value.toString());
+                        else {
+                            element.setAttribute(name_1, value.toString());
+                        }
                     }
                     else if (typeof value === 'object') {
                         if (name_1 === 'style') {
@@ -58,16 +78,11 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                             element.dangerouslySetInnerHTML(value.__html);
                         }
                         else {
-                            throw "unrecognized object attribute \"" + name_1 + "\" - the only object attribute supported is \"style\"";
-                        }
-                    }
-                    else if (typeof value === 'boolean') {
-                        if (value) {
-                            element.setAttribute(name_1, name_1);
+                            debug("unrecognized object attribute \"" + name_1 + "\" - the only object attribute supported is \"style\"");
                         }
                     }
                     else {
-                        throw "unrecognized attribute \"" + name_1 + "\" with type " + typeof value;
+                        debug("unrecognized attribute \"" + name_1 + "\" with type " + typeof value);
                     }
                 }
             }
@@ -77,11 +92,14 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                 }
                 else if (Array.isArray(child)) {
                     child.forEach(function (c) {
-                        if (!elementImpl_1.isNode(c)) {
-                            // throw new Error('Child is not a node: ' + c + ', tag: ' + tag + ', originalAttrs: ' + originalAttrs);
+                        if (typeof c === 'string') {
+                            element.appendChild(new elementImpl_1.TextNodeLikeImpl(c));
+                        }
+                        else if (elementImpl_1.isNode(c)) {
+                            element.appendChild(c);
                         }
                         else {
-                            element.appendChild(c);
+                            debug("Child is not a node or string: " + c + " , tag: " + tag);
                         }
                     });
                 }
@@ -99,7 +117,7 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
         },
         getClientCode: function () {
             return clientCode;
-        }
+        },
     };
     var clientCode = [];
     exports.ReactLike = Module;

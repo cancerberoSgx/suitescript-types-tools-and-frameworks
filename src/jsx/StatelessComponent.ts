@@ -1,5 +1,5 @@
 import { NodeLike, ElementLike } from './jsx';
-import { isElementIke } from './elementImpl';
+import { isElementLike } from './elementImpl';
 
 export type StatelessComponentProps<P> = (Readonly<{ children?: JSX.Element }> & Readonly<P>)
 
@@ -16,20 +16,24 @@ export interface IStatelessComponent<P={}> {
  */
 
 export class StatelessComponent<P={}> implements IStatelessComponent<P> {
+  
   constructor(public readonly props: StatelessComponentProps<P>) {
     this.props = props
     this.checkRegisteredCode()
   }
+
   render(): JSX.Element {
     throw new Error('Not Implemented')
   }
 
   public checkRegisteredCode(){}
+
   protected childrenAsArray(): NodeLike[] {
     return (Array.isArray(this.props.children) ? this.props.children : [this.props.children]) as NodeLike[];
   }
+  
   protected childrenElementsAsArray(): ElementLike[] {
-    return this.childrenAsArray().filter(c => isElementIke(c)) as ElementLike[]
+    return this.childrenAsArray().filter(c => isElementLike(c)) as ElementLike[]
   }
 
   protected firstChildElement(): ElementLike | undefined {

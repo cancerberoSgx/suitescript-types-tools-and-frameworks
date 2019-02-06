@@ -14,24 +14,25 @@ var __extends = (this && this.__extends) || (function () {
 define(["require", "exports", "../createElement", "../StatelessComponent", "./BindInputValue", "./StoreData"], function (require, exports, createElement_1, StatelessComponent_1, BindInputValue_1, StoreData_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var BindInputValueAndStoreData = /** @class */ (function (_super) {
-        __extends(BindInputValueAndStoreData, _super);
-        function BindInputValueAndStoreData() {
+    var Bind = /** @class */ (function (_super) {
+        __extends(Bind, _super);
+        function Bind() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
-        BindInputValueAndStoreData.prototype.render = function () {
+        Bind.prototype.render = function () {
             StoreData_1.StoreData.prototype.render.apply(this, []);
             BindInputValue_1.BindInputValue.prototype.render.apply(this, []);
             return createElement_1.ReactLike.createElement("span", null);
         };
-        BindInputValueAndStoreData.prototype.checkRegisteredCode = function () {
-            if (!BindInputValueAndStoreData.registered) {
+        Bind.prototype.checkRegisteredCode = function () {
+            if (!Bind.registered) {
                 StoreData_1.StoreData.prototype.checkRegisteredCode.apply(this, []);
                 BindInputValue_1.BindInputValue.prototype.checkRegisteredCode.apply(this, []);
+                Bind.registered = true;
             }
         };
-        BindInputValueAndStoreData.registered = false;
-        return BindInputValueAndStoreData;
+        Bind.registered = false;
+        return Bind;
     }(StatelessComponent_1.StatelessComponent));
-    exports.BindInputValueAndStoreData = BindInputValueAndStoreData;
+    exports.Bind = Bind;
 });

@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../spec/index", "../createElement", "../StatelessComponent", "../Style", "../../spec/expectExtras", "../elementImpl"], function (require, exports, index_1, createElement_1, StatelessComponent_1, Style_1, expectExtras_1, elementImpl_1) {
+define(["require", "exports", "../../spec/index", "../createElement", "../StatelessComponent", "../../spec/expectExtras", "../elementImpl", "../Style"], function (require, exports, index_1, createElement_1, StatelessComponent_1, expectExtras_1, elementImpl_1, Style_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function jsxTests() {
@@ -121,7 +121,7 @@ define(["require", "exports", "../../spec/index", "../createElement", "../Statel
                         }
                         var children = (Array.isArray(this.props.children) ? this.props.children : [this.props.children]);
                         children.forEach(function (c) {
-                            if (!elementImpl_1.isElementIke(c)) {
+                            if (!elementImpl_1.isElementLike(c)) {
                                 return;
                             }
                             c.attrs = __assign({}, (c.attrs || {}), { 'data-data': createElement_1.escapeHtmlAttribute(JSON.stringify(_this.props.data)) });

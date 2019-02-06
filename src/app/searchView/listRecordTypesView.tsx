@@ -2,8 +2,8 @@ import { RenderLinkOptions } from '../browserCode';
 import { getSearchRecordTypes } from '../../search/getSearchRecordTypes';
 import { Result } from '../../search/typedSearch/typedSearch';
 import { RecordType } from '../../record/typedRecord/typedRecord';
-import { BindInputValue } from '../../jsx/util/BindInputValue';
 import { ReactLike } from "../../jsx/createElement";
+import { Bind } from '../../jsx/util/Bind';
 
 
 interface Props {
@@ -19,15 +19,15 @@ const bindInputValueId = `data-list-record-types`
 export const ListRecordTypes = (props: Props) => {
   return <div>
     Record type: {props.type} {props.results && props.results.length}
-    <BindInputValue bindInputId={bindInputValueId}>
+    <Bind bindInputId={bindInputValueId}>
       <select id="ListRecordTypesSelect">
         {getSearchRecordTypes().map(r =>
           <option selected={props.type == r} value={r}>{r}</option>
         )}
       </select>
-    </BindInputValue>
+    </Bind>
 
-    <BindInputValue bindListenerId={bindInputValueId}    >
+    <Bind bindListenerId={bindInputValueId}    >
     {props.dynamicResultsRender ? 
       <button 
       onClick={e => {
@@ -41,7 +41,7 @@ export const ListRecordTypes = (props: Props) => {
       }}
       >   Search</button>
     }
-    </BindInputValue>
+    </Bind>
 
     <span id="listRecordTypesDynamicResults"></span> 
 

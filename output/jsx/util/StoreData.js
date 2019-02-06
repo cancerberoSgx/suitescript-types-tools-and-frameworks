@@ -22,7 +22,7 @@ define(["require", "exports", "../StatelessComponent", "../createElement"], func
         StoreData.prototype.render = function () {
             var c = this.firstChildElement();
             if (c) {
-                c.attrs['data-store-data'] = escapeHtmlAttribute(JSON.stringify(this.props.data));
+                c.attrs['data-store-data'] = createElement_1.escapeHtmlAttribute(JSON.stringify(this.props.data || {}));
             }
             return createElement_1.ReactLike.createElement("span", null);
         };
@@ -30,7 +30,7 @@ define(["require", "exports", "../StatelessComponent", "../createElement"], func
             if (!StoreData.registered) {
                 createElement_1.ReactLike.registerClientCode({
                     name: 'StoreData',
-                    code: getStoreData.toString() + "\n" + unEscapeHtmlAttribute.toString() + "\n" + unEscapeHtmlAttribute.toString(),
+                    code: getStoreData.toString() + "\n" + createElement_1.unEscapeHtmlAttribute.toString() + "\n" + createElement_1.escapeHtmlAttribute.toString() + "\nvar createElement_1 = {unEscapeHtmlAttribute: unEscapeHtmlAttribute, escapeHtmlAttribute: escapeHtmlAttribute}; ",
                     description: "Gets data stored in the element declared ed with wrapper <StoreData><button..."
                 });
                 StoreData.registered = true;
@@ -40,16 +40,16 @@ define(["require", "exports", "../StatelessComponent", "../createElement"], func
         return StoreData;
     }(StatelessComponent_1.StatelessComponent));
     exports.StoreData = StoreData;
-    function escapeHtmlAttribute(code) {
-        return code.replace(/\"/gmi, '&quot;');
-    }
-    function unEscapeHtmlAttribute(code) {
-        return code.replace(/\&quot\;/gmi, '"');
-    }
+    // function escapeHtmlAttribute(code: string) {
+    //   return code.replace(/\"/gmi, '&quot;');
+    // }
+    // function unEscapeHtmlAttribute(code: string) {
+    //   return code.replace(/\&quot\;/gmi, '"');
+    // }
     function getStoreData(listenerEl) {
         var s = listenerEl.getAttribute('data-store-data');
         if (s) {
-            var unescaped = unEscapeHtmlAttribute(s);
+            var unescaped = createElement_1.unEscapeHtmlAttribute(s);
             try {
                 return JSON.parse(unescaped);
             }

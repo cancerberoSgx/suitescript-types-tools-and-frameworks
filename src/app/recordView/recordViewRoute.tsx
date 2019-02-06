@@ -6,8 +6,9 @@ import { buildRecordViewModel } from "./buildRecordViewModel";
 export function recordViewRoute(app: App): Route {
   return {
     name: 'recordView',
+    // contentType: 'json',
     handler(o) {
-      const { id, type, messageFromRedirect } = o.params;
+      const { id, type, messageFromRedirect, jsonMetadataOutput } = o.params;
       const seeValues = !!o.params.seeValues;
       const showAllFields = !!o.params.showAllFields;
       const showSublistLines = !!o.params.showSublistLines;
@@ -18,9 +19,15 @@ export function recordViewRoute(app: App): Route {
       if (!record) {
         return 'Record id, type: ' + `${id}, ${type} not be found`;
       }
+
+      const metadata = buildRecordViewModel(record, seeValues, showAllFields)
+      if (jsonMetadataOutput) {
+        this.contentType = 'json'
+        return metadata
+      }
       return ReactLike.render(
         <RecordView
-          record={buildRecordViewModel(record, seeValues, showAllFields)}
+          record={metadata}
           seeValues={seeValues}
           showAllFields={showAllFields}
           renderLink={app.renderLink.bind(app)}

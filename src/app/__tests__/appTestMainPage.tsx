@@ -1,9 +1,9 @@
 import { ReactLike } from "../../jsx/createElement";
 import { ReactLikeChild } from '../../jsx/jsx';
 import { RenderLinkOptions, RenderFragmentOptions } from "../browserCode";
-import { BindInputValue } from '../../jsx/util/BindInputValue';
 import { StoreData } from '../../jsx/util/StoreData';
 import { App, Route } from '../app';
+import { Bind } from '../../jsx/util/Bind';
 
 interface MainPageProps {
   userName: String
@@ -61,8 +61,7 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
 
 /** we call custom tags so they get initialized and their scripts are embedded in the main html - if not they won't be present when complex pages are rendered inside dynamically using fetchAndRenderHtml */
  const MainPageInit = () => <span>
-  <BindInputValue></BindInputValue>
-  <StoreData data={{}}></StoreData>
+  <Bind></Bind>
 </span>
 
 

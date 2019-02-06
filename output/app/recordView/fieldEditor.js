@@ -1,3 +1,4 @@
+///@reference path="../browserDeclarations.ts"
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../../jsx/util/BindInputValue", "../../misc/dateUtil", "../../misc/misc"], function (require, exports, createElement_1, Bind_1, BindInputValue_1, dateUtil_1, misc_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../../misc/formatDate", "../../misc/misc"], function (require, exports, createElement_1, Bind_1, formatDate_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.FieldEditor = function (props) {
@@ -40,12 +41,13 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         }
         else {
             var inputType = f.type === 'date' ? 'date' : f.type === 'datetime' ? 'datetime-local' : ['float', 'integer'].indexOf(f.type) !== -1 ? 'number' : f.type === 'checkbox' ? 'checkbox' : 'text';
-            var inputValue = f.type === 'date' ? dateUtil_1.formatDate(f.value, 'YYYY-MM-DD') : (f.value + '');
+            var inputValue = f.type === 'date' ? formatDate_1.formatDate(f.value, 'YYYY-MM-DD') : (f.value + '');
             input = createElement_1.ReactLike.createElement("input", { disabled: f.isReadonly, type: inputType, value: inputValue, checked: f.type === 'checkbox' && !!f.value });
         }
         return createElement_1.ReactLike.createElement("span", null,
-            createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-field-id" + f.id }, input),
-            createElement_1.ReactLike.createElement(Bind_1.BindInputValueAndStoreData, { bindListenerId: "data-field-id" + f.id, data: {
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindInputId: "data-field-id" + f.id }, input),
+            createElement_1.ReactLike.createElement("br", null),
+            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindListenerId: "data-field-id" + f.id, data: {
                     routeName: 'setFieldValue',
                     params: {
                         recordId: props.record.id,
@@ -63,6 +65,6 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                         }
                         data.params = __assign({}, data.params, { fieldValue: fieldValue });
                         window.location.href = buildRouteUrl(data);
-                    } }, "Change!")));
+                    } }, "Change")));
     };
 });

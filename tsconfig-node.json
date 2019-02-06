@@ -10,23 +10,27 @@
     "newLine": "LF",
     "experimentalDecorators": true,
     "strict": true,
-    "outDir": "output",
+    "outDir": "dist",
     "baseUrl": ".",
     "jsx": "react",
     "jsxFactory": "ReactLike.createElement",
     "lib": [
       "es5", "dom"
     ],
+    "declaration": true,
+    
     "removeComments": false,
-    "paths": {
-      "N": [
-        "node_modules/@hitc/netsuite-types/N"
-      ],
-      "N/*": [
-        "node_modules/@hitc/netsuite-types/N/*"
-      ]
-    }
+    // "paths": {
+    //   "N": [
+    //     "node_modules/@hitc/netsuite-types/N"
+    //   ],
+    //   "N/*": [
+    //     "node_modules/@hitc/netsuite-types/N/*"
+    //   ]
+    // }
+    "typeRoots": ["node_modules/@types", "./dist/**/*"]
+    // "types": ["src/app/browserDeclarations.d.ts"]
   },
   "typeAcquisition": {"enable": false},
-  "exclude": ["./spec", "./output", "./metadataFromRecordBrowser", "node_modules", "auxiliary-projects"]
+  "exclude": ["./spec", "./output", "dist", "./metadataFromRecordBrowser", "node_modules", "auxiliary-projects"]
 }

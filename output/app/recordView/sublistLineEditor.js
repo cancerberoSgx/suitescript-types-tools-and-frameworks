@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/util/BindInputValue", "../../jsx/util/Bind", "../../jsx/createElement"], function (require, exports, BindInputValue_1, Bind_1, createElement_1) {
+define(["require", "exports", "../../jsx/util/Bind", "../../jsx/createElement"], function (require, exports, Bind_1, createElement_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.SublistLinesEditor = function (props) {
@@ -25,9 +25,9 @@ define(["require", "exports", "../../jsx/util/BindInputValue", "../../jsx/util/B
                             "            ",
                             row.text,
                             row.value == row.text ? " " + row.value : '',
-                            createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id },
+                            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindInputId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id },
                                 createElement_1.ReactLike.createElement("input", { value: row.value + '' })),
-                            createElement_1.ReactLike.createElement(Bind_1.BindInputValueAndStoreData, { bindListenerId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id, data: {
+                            createElement_1.ReactLike.createElement(Bind_1.Bind, { bindListenerId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id, data: {
                                     routeName: 'setSublistFieldValue',
                                     params: {
                                         recordId: props.record.id,
@@ -48,7 +48,6 @@ define(["require", "exports", "../../jsx/util/BindInputValue", "../../jsx/util/B
                                         data.params = __assign({}, data.params, { fieldValue: fieldValue });
                                         window.location.href = buildRouteUrl(data);
                                     } }, "Change!"))));
-                        // const input = <FieldEditor {...props} field={{...row.field, isReadonly: false, isDisplay: false, isMandatory: false, isVisible: false}}></FieldEditor>
                         return (createElement_1.ReactLike.createElement("td", null,
                             input,
                             row.field.type === 'select' ?
@@ -56,13 +55,15 @@ define(["require", "exports", "../../jsx/util/BindInputValue", "../../jsx/util/B
                     })); }))),
                 createElement_1.ReactLike.createElement("span", null,
                     "Line fields:",
-                    createElement_1.ReactLike.createElement("ul", { style: { display: 'inline' } }, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("li", null,
-                        f.name,
-                        " id: ",
-                        f.id,
-                        f.type ? ", type: " + f.type : '',
-                        f.isMandatory ? ", Mandatory: " + f.isMandatory : '',
-                        f.isReadonly ? ", Readonly: " + f.isReadonly : ''); }))),
+                    createElement_1.ReactLike.createElement("ul", { style: { display: 'inline' } },
+                        props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("li", null,
+                            f.name,
+                            " id: ",
+                            f.id,
+                            f.type ? ", type: " + f.type : '',
+                            f.isMandatory ? ", Mandatory: " + f.isMandatory : '',
+                            f.isReadonly ? ", Readonly: " + f.isReadonly : ''); }),
+                        " ")),
                 "}");
         }
         catch (error) {

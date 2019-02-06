@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "../StatelessComponent", "../createElement", "../../misc/dateUtil", "../../misc/misc"], function (require, exports, StatelessComponent_1, createElement_1, dateUtil_1, misc_1) {
+define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../createElement", "../StatelessComponent"], function (require, exports, formatDate_1, misc_1, createElement_1, StatelessComponent_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var BindInputValue = /** @class */ (function (_super) {
@@ -38,12 +38,12 @@ define(["require", "exports", "../StatelessComponent", "../createElement", "../.
                 });
                 createElement_1.ReactLike.registerClientCode({
                     name: 'formatDate',
-                    code: dateUtil_1.formatDate.toString() + "; dateUtil_1 = {formatDate: formatDate}; ",
+                    code: formatDate_1.formatDate.toString() + "; var dateUtil_1 = {formatDate: formatDate}; ",
                     description: "Gets the current input value declared with wrapper <BindInputValue><input..."
                 });
                 createElement_1.ReactLike.registerClientCode({
                     name: 'array',
-                    code: misc_1.array.toString() + "; misc_1 = {array: array}; ",
+                    code: misc_1.array.toString() + "; var misc_1 = {array: array}; ",
                     description: ""
                 });
                 BindInputValue.registered = true;
@@ -59,13 +59,13 @@ define(["require", "exports", "../StatelessComponent", "../createElement", "../.
         var el = document.querySelector("[data-bind-value-id=\"" + id + "\"]");
         if (el) {
             if (el.type === 'date') {
-                return config.asString ? dateUtil_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
+                return config.asString ? formatDate_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
             }
             else if (el.type === 'number') {
                 return config.asString ? (el.valueAsNumber + '') : el.valueAsNumber;
             }
             else if (el.type === 'checkbox') {
-                return config.asString ? (el.checked ? 'T' : 'F') : !!el.checked; // ? 'T' : 'F' as any //? true.valueAsNumber as any
+                return config.asString ? (el.checked ? 'T' : 'F') : !!el.checked;
             }
             else if (el.tagName.toLowerCase() === 'select') {
                 var selectedOptions_1 = el.selectedOptions;

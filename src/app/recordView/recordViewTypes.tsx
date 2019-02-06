@@ -1,5 +1,6 @@
 import { Field, Record, Sublist } from '../../introspection/recordMetadata';
 import { RenderLinkOptions } from "../browserCode";
+import { StatelessComponentProps } from '../../jsx/StatelessComponent';
 
 export type Value = string | boolean | number | Date | null | number[] | string[] |undefined
 
@@ -31,7 +32,7 @@ export interface RecordV extends Record {
   sublists: ValuedSublist[];
 }
 
-export interface Props {
+export interface RecordViewProps extends StatelessComponentProps<RecordViewProps>{
   record: RecordV;
   seeValues?: boolean;
   renderLink(config: RenderLinkOptions): string;

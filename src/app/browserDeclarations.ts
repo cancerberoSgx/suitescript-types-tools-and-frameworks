@@ -10,7 +10,7 @@ interface RenderFragmentOptions extends RenderLinkOptions {
 declare function buildRouteUrl(config: RenderLinkOptions): string;
 
 declare function getBindInputValue<T extends string | number | Date = string>(listenerEl: HTMLElement, config?: {
-  dateAsString?: boolean
+  asString?: boolean
 }): T | undefined;
 
 declare function getStoreData<T>(listenerEl: HTMLElement): T | undefined;

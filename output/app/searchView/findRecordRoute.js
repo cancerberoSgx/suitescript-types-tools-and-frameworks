@@ -1,4 +1,4 @@
-define(["require", "exports", "../../jsx/createElement", "../../search/typedSearch/typedSearchOperations", "N/record", "../recordView/recordView", "../recordView/buildRecordViewModel"], function (require, exports, createElement_1, typedSearchOperations_1, record_1, recordView_1, buildRecordViewModel_1) {
+define(["require", "exports", "../../jsx/createElement", "../../search/typedSearch/typedSearchOperations"], function (require, exports, createElement_1, typedSearchOperations_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function findRecordRoute(app) {
@@ -15,8 +15,9 @@ define(["require", "exports", "../../jsx/createElement", "../../search/typedSear
                     filters: [{ name: 'internalid', values: id, operator: 'anyOf' }]
                 }, function (r) { return true; });
                 if (result) {
-                    var record = record_1.load({ id: id, type: result.recordType });
-                    return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(recordView_1.RecordView, { record: buildRecordViewModel_1.buildRecordViewModel(record), renderLink: app.renderLink.bind(app), currentUrl: app.getCurrentRealUrlSearchFragment(), messageFromRedirect: "Record " + id + " " + result.recordType + " found" }));
+                    app.redirect({ redirect: app.renderLink({ routeName: 'recordView', params: { id: id, type: result.recordType } }), messageFromRedirect: "Record " + id + " " + result.recordType + " found" });
+                    // const record = load({ id, type: result.recordType });
+                    // return ReactLike.render(<RecordView record={buildRecordViewModel(record)} renderLink={app.renderLink.bind(app)} currentUrl={app.getCurrentRealUrlSearchFragment()} messageFromRedirect={`Record ${id} ${result.recordType} found`}></RecordView>);
                 }
                 else {
                     return createElement_1.ReactLike.createElement("div", null,

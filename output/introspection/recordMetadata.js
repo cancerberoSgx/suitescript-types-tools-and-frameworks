@@ -1,4 +1,4 @@
-define(["require", "exports", "../log/log"], function (require, exports, log_1) {
+define(["require", "exports", "../log/log", "../misc/misc"], function (require, exports, log_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var RecordBuilder = /** @class */ (function () {
@@ -34,7 +34,18 @@ define(["require", "exports", "../log/log"], function (require, exports, log_1) 
             }
             var field = r.getField({ fieldId: fieldId });
             if (field) {
-                return { id: field.id + '', name: field.label + '', isReadonly: !!field.isReadOnly, isMandatory: !!field.isMandatory, type: field.type + '', };
+                return {
+                    id: field.id + '',
+                    name: field.label + '',
+                    isReadonly: !!field.isReadOnly,
+                    isMandatory: !!field.isMandatory,
+                    type: field.type + '',
+                    selectOptions: misc_1.tryTo(function () { return field.getSelectOptions(); }),
+                    isVisible: !!field.isVisible,
+                    isDisplay: !!field.isDisplay,
+                    asString: misc_1.tryTo(function () { return field.toString(); }),
+                    asJSON: misc_1.tryTo(function () { return field.toJSON(); })
+                };
             }
             else {
                 this.log('Cannot get record field (getField) with id ' + fieldId);

@@ -53,6 +53,10 @@ function buildRouteUrl(config: RenderLinkOptions): string {
   return url;
 }
 
+export function paramsToUrl(params: Params, filter: (p:string)=>boolean=s=>true):string{
+  return Object.keys(params).filter(filter).map(p=>`${p}=${params[p]}`).join('&')
+}
+
 
 export function renderBrowserCode() {
   // @ts-ignore

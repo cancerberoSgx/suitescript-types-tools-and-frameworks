@@ -12,7 +12,7 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
                 if (!id || !type) {
                     return 'Cannot open record view without an id or type, given id, type: ' + (id + ", " + type);
                 }
-                var record = record_1.load({ id: id, type: type });
+                var record = record_1.load({ id: id, type: type, isDynamic: true });
                 if (!record) {
                     return 'Record id, type: ' + (id + ", " + type + " not be found");
                 }

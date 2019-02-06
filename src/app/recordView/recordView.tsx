@@ -1,8 +1,8 @@
 import { ReactLike } from "../../jsx/createElement";
 import { FieldEditor } from './fieldEditor';
-import { Props, ValuedField, ValuedSublist } from './recordViewTypes';
+import { RecordViewProps, ValuedField, ValuedSublist } from './recordViewTypes';
 
-export const RecordView = (props: Props) => {
+export const RecordView = (props: RecordViewProps) => {
   const { fields, sublists, id, name } = props.record
 
   const commonParams = { id: props.record.id, type: props.record.type, }
@@ -28,7 +28,7 @@ export const RecordView = (props: Props) => {
     <h1>Record {name}, id: {id}</h1>
     <a href={showValuesToggleLink}>{props.seeValues ? 'Hide Field Values' : 'Show Field Values'}</a>
     <br></br>
-    <a href={showAllFieldsToggleLink}>{props.showAllFields ? 'Hide Internal Fields' : 'Show All Fields'}</a>
+    <a href={showAllFieldsToggleLink}>{props.showAllFields ? 'Hide Internal Fields' : 'Show All Fields '}</a>
     <br></br>
     <a href={showSublistLinesToggleLink}>{props.showSublistLines ? 'Hide Sublists lines' : 'Show Sublists lines'}</a>
 
@@ -47,18 +47,14 @@ export const RecordView = (props: Props) => {
   </div>
 }
 
-export const Field = (props: { field: ValuedField } & Props) => {
+export const Field = (props: { field: ValuedField } & RecordViewProps) => {
   return <span>
-    <strong>{props.field.id}</strong> {props.field.type ? `, type: ${props.field.type}` : ''} {props.field.name ? `, name: ${props.field.name}` : ''}{props.field.isReadonly ? `, Readonly` : ''}{props.field.isMandatory ? `, Mandatory` : ''}
-    {props.seeValues ? <span>. Value ({typeof props.field.value}) :
-      {!props.field.isReadonly ?
-        <FieldEditor {...props}></FieldEditor> :
-        <span>${props.field.value + ''} (read only)</span>}</span> :
-      <span></span>}
+    <strong>{props.field.name ? `${props.field.name}` : ''}</strong> - <em>{props.field.id}</em>{props.field.type ? `(${props.field.type})` : ''}{props.field.isReadonly ? ` - readonly` : ''}{props.field.isMandatory ? ` - mandatory` : ''}{props.seeValues ? <span>: <FieldEditor {...props}></FieldEditor></span> : <span></span>
+  }
   </span>
 }
 
-export const Sublist = (props: { sublist: ValuedSublist } & Props) => {
+export const Sublist = (props: { sublist: ValuedSublist } & RecordViewProps) => {
   return <span>
     {props.sublist.id} {props.sublist.name ? `, name: ${props.sublist.name}` : ''}
     , lines: #{props.sublist.lineCount}
@@ -77,7 +73,7 @@ export const Sublist = (props: { sublist: ValuedSublist } & Props) => {
 }
 
 
-const SublistLinesEditor = (props: { sublist: ValuedSublist } & Props) => {
+const SublistLinesEditor = (props: { sublist: ValuedSublist } & RecordViewProps) => {
   return <table>
     <thead><tr>{props.sublist.fields.map(f => <th>{f.id}{f.type ? ` (${f.type})` : ''}</th>)}</tr></thead>
     <tbody>

@@ -48,6 +48,11 @@ define(["require", "exports"], function (require, exports) {
         var url = buildUrl(__assign({}, config, { currentUrlSearchFragment: location.search, params: params }));
         return url;
     }
+    function paramsToUrl(params, filter) {
+        if (filter === void 0) { filter = function (s) { return true; }; }
+        return Object.keys(params).filter(filter).map(function (p) { return p + "=" + params[p]; }).join('&');
+    }
+    exports.paramsToUrl = paramsToUrl;
     function renderBrowserCode() {
         // @ts-ignore
         var assign = __assign.toString();

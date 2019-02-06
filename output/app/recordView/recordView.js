@@ -34,7 +34,7 @@ define(["require", "exports", "../../jsx/createElement", "./fieldEditor"], funct
                 id),
             createElement_1.ReactLike.createElement("a", { href: showValuesToggleLink }, props.seeValues ? 'Hide Field Values' : 'Show Field Values'),
             createElement_1.ReactLike.createElement("br", null),
-            createElement_1.ReactLike.createElement("a", { href: showAllFieldsToggleLink }, props.showAllFields ? 'Hide Internal Fields' : 'Show All Fields'),
+            createElement_1.ReactLike.createElement("a", { href: showAllFieldsToggleLink }, props.showAllFields ? 'Hide Internal Fields' : 'Show All Fields '),
             createElement_1.ReactLike.createElement("br", null),
             createElement_1.ReactLike.createElement("a", { href: showSublistLinesToggleLink }, props.showSublistLines ? 'Hide Sublists lines' : 'Show Sublists lines'),
             createElement_1.ReactLike.createElement("div", null,
@@ -48,24 +48,15 @@ define(["require", "exports", "../../jsx/createElement", "./fieldEditor"], funct
     };
     exports.Field = function (props) {
         return createElement_1.ReactLike.createElement("span", null,
-            createElement_1.ReactLike.createElement("strong", null, props.field.id),
-            " ",
-            props.field.type ? ", type: " + props.field.type : '',
-            " ",
-            props.field.name ? ", name: " + props.field.name : '',
-            props.field.isReadonly ? ", Readonly" : '',
-            props.field.isMandatory ? ", Mandatory" : '',
+            createElement_1.ReactLike.createElement("strong", null, props.field.name ? "" + props.field.name : ''),
+            " - ",
+            createElement_1.ReactLike.createElement("em", null, props.field.id),
+            props.field.type ? "(" + props.field.type + ")" : '',
+            props.field.isReadonly ? " - readonly" : '',
+            props.field.isMandatory ? " - mandatory" : '',
             props.seeValues ? createElement_1.ReactLike.createElement("span", null,
-                ". Value (",
-                typeof props.field.value,
-                ") :",
-                !props.field.isReadonly ?
-                    createElement_1.ReactLike.createElement(fieldEditor_1.FieldEditor, __assign({}, props)) :
-                    createElement_1.ReactLike.createElement("span", null,
-                        "$",
-                        props.field.value + '',
-                        " (read only)")) :
-                createElement_1.ReactLike.createElement("span", null));
+                ": ",
+                createElement_1.ReactLike.createElement(fieldEditor_1.FieldEditor, __assign({}, props))) : createElement_1.ReactLike.createElement("span", null));
     };
     exports.Sublist = function (props) {
         return createElement_1.ReactLike.createElement("span", null,

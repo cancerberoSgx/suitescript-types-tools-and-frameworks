@@ -2,7 +2,8 @@ import { RecordOrRef, asRecord, asRecordOrThrow } from '../record/recordRef';
 import * as record from 'N/record'
 import { TODO } from "../misc/typesUtil";
 import { log } from "../log/log";
-import { getObjectKeys } from './objectExplorer';
+import { getObjectKeys, getObjectKeysTypesAndValues } from './objectExplorer';
+import { tryTo } from '../misc/misc';
 
 // untyped record  - i.e basically the info that is in xml=T without the values
 export interface Record extends Base {
@@ -22,6 +23,11 @@ export interface Field extends Base {
   isReadonly: boolean,
   isMandatory: boolean
   type: string
+  selectOptions?: { value: string, text: string }[]
+  isVisible?: boolean
+  isDisplay?: boolean
+  asString?: string
+  asJSON?: any
 }
 export interface Sublist extends Base {
   fields: Field[]
@@ -69,7 +75,18 @@ class RecordBuilder {
     }
     const field = r.getField({ fieldId })
     if (field) {
-      return { id: field.id + '', name: field.label + '', isReadonly: !!field.isReadOnly, isMandatory: !!field.isMandatory, type: field.type + '', }
+      return {
+        id: field.id + '',
+        name: field.label + '',
+        isReadonly: !!field.isReadOnly,
+        isMandatory: !!field.isMandatory,
+        type: field.type + '',
+        selectOptions: tryTo(() => field.getSelectOptions()),
+        isVisible: !!field.isVisible,
+        isDisplay: !!field.isDisplay,
+        asString: tryTo(() => field.toString()),
+        asJSON: tryTo(() => field.toJSON())
+      }
     }
     else {
       this.log('Cannot get record field (getField) with id ' + fieldId)
@@ -119,13 +136,13 @@ class RecordBuilder {
   }
 
   extractSublistField(config: ExtractConfig, sublistId: string, fieldId: string): any {
-    let type: string|undefined
+    let type: string | undefined
     if (config.callGetSublistField) {
       try {
         const lineCount = config.record.getLineCount({ sublistId })
         if (lineCount > 0) {
           const f = config.record.getSublistField({ sublistId, fieldId, line: 0 })
-          type=f.type
+          type = f.type
         }
       } catch (error) {
         this.log('recordMetadata, extractSublistField, Exception when r.getSublistField({ sublistId }) for sublistId==' + sublistId)

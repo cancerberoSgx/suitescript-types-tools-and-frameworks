@@ -1,3 +1,34 @@
+field select options in suitescript 1 : 
+
+var c = nlapiLoadRecord('inventoryitem', 493)
+var f = c.getField('custitem_phone_color')
+var options = f.getSelectOptions().map(function(o){return {id: o.getId(), text: o.getText()}})
+var optsS = JSON.stringify(options)
+var fv =  c.getFieldValue('custitem_phone_color')
+var ft = c.getFieldText('custitem_phone_color')
+
+var a = 1
+
+
+ss2 
+
+
+$ c.getValue('custitem_phone_color').join(', ')
+> 1, 2, 3, 4, 6
+$ c.getValue('custitem_phone_color')
+> [Ljava.lang.String;@5e51900b
+$ Object.keys(f).join(',')
+> id,label,type,getSelectOptions,insertSelectOption,removeSelectOption,isMandatory,toJSON,toString
+$ JSON.stringify(f.getSelectOptions())
+> [{"value":"1","text":"Black"},{"value":"2","text":"Jet Black"},{"value":"3","text":"Silver"},{"value":"4","text":"Gold"},{"value":"5","text":"Red"},{"value":"6","text":"Rose Gold"},{"value":"7","text":"Space Grey"},{"value":"8","text":"Black Onyx"},{"value":"9","text":"Gold Platinum"},{"value":"10","text":"White Pearl"},{"value":"11","text":"Grey"},{"value":"12","text":"White"},{"value":"13","text":"Blue"},{"value":"14","text":"Green"},{"value":"15","text":"Brown"},{"value":"16","text":"Pink"},{"value":"17","text":"Yellow"}]
+
+
+
+.map(function(o){return {id: o.getId(), text: o.getText()}})
+
+
+
+
 types can be obtained from wsdl - cxsd http://127.0.0.1:8080/list.accounting.xsd https://system.netsuite.com/download/WSDL_v2017_2_0.zip
 
 

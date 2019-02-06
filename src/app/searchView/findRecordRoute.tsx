@@ -19,8 +19,9 @@ export function findRecordRoute(app: App): Route {
         filters: [{ name: 'internalid', values: id, operator: 'anyOf' }]
       }, r => true);
       if (result) {
-        const record = load({ id, type: result.recordType });
-        return ReactLike.render(<RecordView record={buildRecordViewModel(record)} renderLink={app.renderLink.bind(app)} currentUrl={app.getCurrentRealUrlSearchFragment()} messageFromRedirect={`Record ${id} ${result.recordType} found`}></RecordView>);
+        app.redirect({redirect: app.renderLink({routeName: 'recordView', params: {id, type: result.recordType}}), messageFromRedirect: `Record ${id} ${result.recordType} found`})
+        // const record = load({ id, type: result.recordType });
+        // return ReactLike.render(<RecordView record={buildRecordViewModel(record)} renderLink={app.renderLink.bind(app)} currentUrl={app.getCurrentRealUrlSearchFragment()} messageFromRedirect={`Record ${id} ${result.recordType} found`}></RecordView>);
       }
       else {
         return <div>Record {id} {type} not found</div>;

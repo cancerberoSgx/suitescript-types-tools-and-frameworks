@@ -75,25 +75,37 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
         /** return location.search url serverside equivalent with parameters ordered, first netsuite's suitelet parameters, then routeName and then route specific params.  */
         App.prototype.getCurrentRealUrlSearchFragment = function () {
             var params = this.currentDispatchOptions.request.parameters;
-            var otherParams = this.getOtherParams();
-            var otherParamsUrl = Object.keys(otherParams).map(function (p) { return p + "=" + otherParams[p]; }).join('&');
-            var routeNameUrl = Object.keys(params).filter(function (p) { return p === browserCode_1.ROUTEPARAMNAME; }).map(function (p) { return p + "=" + params[p]; }).join('&');
-            var routeParamsUrl = Object.keys(params).filter(function (p) { return p !== browserCode_1.ROUTEPARAMNAME && p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0; }).map(function (p) { return p + "=" + params[p]; }).join('&');
+            var otherParamsUrl = browserCode_1.paramsToUrl(this.getOtherParams());
+            var routeNameUrl = browserCode_1.paramsToUrl(params, function (p) { return p === browserCode_1.ROUTEPARAMNAME; });
+            var routeParamsUrl = browserCode_1.paramsToUrl(params, function (p) { return p !== browserCode_1.ROUTEPARAMNAME && p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0; });
             return browserCode_1.SCRIPTLETURLPREFIX + "?" + otherParamsUrl + "&" + routeNameUrl + "&" + routeParamsUrl;
         };
         /** will build a relative link to given route and params - useful to build links to other routes in pages UI / markup/ anchors. */
         App.prototype.renderLink = function (config) {
             var _a;
-            var otherParams = this.getOtherParams();
-            var otherParamsUrl = Object.keys(otherParams).map(function (p) { return p + "=" + otherParams[p]; }).join('&');
+            var otherParamsUrl = browserCode_1.paramsToUrl(this.getOtherParams());
             var paramsUrl = this.getParamsUrl(config.params);
             var routeParamsUrl = this.getParamsUrl((_a = {}, _a[browserCode_1.ROUTEPARAMNAME_NOPREFIX] = config.routeName, _a));
+            var currentRouteParamsToMaintain = config.forgetCurrentRouteParams ? {} : this.getCurrentRouteParams(config);
             var currentUrlSearchFragment = "?" + otherParamsUrl + "&" + routeParamsUrl + "&" + paramsUrl;
-            return browserCode_1.buildUrl(__assign({}, config, { params: this.getParamsWithPrefix(config.params), currentUrlSearchFragment: currentUrlSearchFragment }));
+            return browserCode_1.buildUrl(__assign({}, config, { params: __assign({}, currentRouteParamsToMaintain, this.getParamsWithPrefix(config.params)), currentUrlSearchFragment: currentUrlSearchFragment }));
+        };
+        /** return current route params without route name (useful to remember current route params to keep in new route url) */
+        App.prototype.getCurrentRouteParams = function (config) {
+            var _this = this;
+            var params = {};
+            Object.keys(this.currentDispatchOptions.request.parameters)
+                .filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0 && p !== browserCode_1.ROUTEPARAMNAME; })
+                .forEach(function (p) {
+                params[p] = _this.currentDispatchOptions.request.parameters[p];
+            });
+            return params;
         };
         App.prototype.getParamsWithoutPrefix = function (request) {
             var params = {};
-            Object.keys(request.parameters).filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0; }).forEach(function (p) {
+            Object.keys(request.parameters)
+                .filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) === 0; })
+                .forEach(function (p) {
                 params[p.substring(browserCode_1.ROUTEPARAMPREFIX.length, p.length)] = request.parameters[p];
             });
             return params;
@@ -101,7 +113,9 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
         App.prototype.getOtherParams = function () {
             var _this = this;
             var otherParams = {};
-            Object.keys(this.currentDispatchOptions.request.parameters).filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) !== 0; }).forEach(function (p) {
+            Object.keys(this.currentDispatchOptions.request.parameters)
+                .filter(function (p) { return p.indexOf(browserCode_1.ROUTEPARAMPREFIX) !== 0; })
+                .forEach(function (p) {
                 otherParams[p] = _this.currentDispatchOptions.request.parameters[p];
             });
             return otherParams;
@@ -113,7 +127,9 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
         App.prototype.getParamsWithPrefix = function (params, except) {
             if (except === void 0) { except = []; }
             var params_ = {};
-            Object.keys(params).filter(function (p) { return except.indexOf(p) === -1; }).forEach(function (p) {
+            Object.keys(params)
+                .filter(function (p) { return except.indexOf(p) === -1; })
+                .forEach(function (p) {
                 params_[browserCode_1.ROUTEPARAMPREFIX + p] = params[p];
             });
             return params_;

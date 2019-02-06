@@ -15,15 +15,18 @@ export function buildRecordViewModel(r: record.Record, seeValues: boolean = fals
   }
   record.fields = record.fields
     .filter(f => f.id)
-    .map(f => {
-      if (!seeValues) {
-        return f;
-      }
-      let value: Value, text: Text
-      value = tryTo(() => r.getValue(f.id))
-      text = tryTo(() => r.getText(f.id))
-      return { ...f, value, text }
-    })
+    .map(f => 
+      // {
+      // if (!seeValues) {
+        // return f;
+      // }
+      // let value: Value, text: Text
+      // value = tryTo(() => r.getValue(f.id))
+      // text = tryTo(() => r.getText(f.id))
+      // return 
+      seeValues ? { ...f, value:  tryTo(() => r.getValue(f.id)), text: tryTo(() => r.getText(f.id))} : f
+    // }
+    )
     .sort((a, b) => a.id.localeCompare(b.id))
   record.sublists = record.sublists
     .sort((a, b) => a.id.localeCompare(b.id))

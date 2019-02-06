@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "../StatelessComponent", "../createElement", "../../misc/dateUtil"], function (require, exports, StatelessComponent_1, createElement_1, dateUtil_1) {
+define(["require", "exports", "../StatelessComponent", "../createElement", "../../misc/dateUtil", "../../misc/misc"], function (require, exports, StatelessComponent_1, createElement_1, dateUtil_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var BindInputValue = /** @class */ (function (_super) {
@@ -41,6 +41,11 @@ define(["require", "exports", "../StatelessComponent", "../createElement", "../.
                     code: dateUtil_1.formatDate.toString() + "; dateUtil_1 = {formatDate: formatDate}; ",
                     description: "Gets the current input value declared with wrapper <BindInputValue><input..."
                 });
+                createElement_1.ReactLike.registerClientCode({
+                    name: 'array',
+                    code: misc_1.array.toString() + "; misc_1 = {array: array}; ",
+                    description: ""
+                });
                 BindInputValue.registered = true;
             }
         };
@@ -48,29 +53,31 @@ define(["require", "exports", "../StatelessComponent", "../createElement", "../.
         return BindInputValue;
     }(StatelessComponent_1.StatelessComponent));
     exports.BindInputValue = BindInputValue;
-    // declare function formatDate(date: Date, format: 'YYYY-MM-DD'|'MM/DD/YYYY'): string
     function getBindInputValue(listenerEl, config) {
         if (config === void 0) { config = {}; }
         var id = listenerEl.getAttribute('data-bind-value-id');
         var el = document.querySelector("[data-bind-value-id=\"" + id + "\"]");
         if (el) {
             if (el.type === 'date') {
-                return config.dateAsString ? dateUtil_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
+                return config.asString ? dateUtil_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
             }
             else if (el.type === 'number') {
-                return el.valueAsNumber;
+                return config.asString ? (el.valueAsNumber + '') : el.valueAsNumber;
             }
-            if (el.tagName.toLowerCase() === 'select') {
-                // ListRecordTypesSelect
-                var selectedOptions = el.selectedOptions;
-                if (selectedOptions && selectedOptions.length) {
-                    return selectedOptions.item(0).value;
-                    // return option ? option.value : undefined as any
+            else if (el.type === 'checkbox') {
+                return config.asString ? (el.checked ? 'T' : 'F') : !!el.checked; // ? 'T' : 'F' as any //? true.valueAsNumber as any
+            }
+            else if (el.tagName.toLowerCase() === 'select') {
+                var selectedOptions_1 = el.selectedOptions;
+                if (selectedOptions_1 && !el.getAttribute('multiple')) {
+                    return config.asString ? (selectedOptions_1.item(0).value + '') : selectedOptions_1.item(0).value;
+                }
+                else if ((selectedOptions_1 && el.getAttribute('multiple')) || !selectedOptions_1.length) {
+                    var a = misc_1.array(selectedOptions_1.length).map(function (i) { return selectedOptions_1.item(i).value; });
+                    return config.asString ? JSON.stringify(a) : a;
                 }
             }
-            else {
-                return el.value;
-            }
+            return config.asString ? (el.value + '') : el.value;
         }
     }
 });

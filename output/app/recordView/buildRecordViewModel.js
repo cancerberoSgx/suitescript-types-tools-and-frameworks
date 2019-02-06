@@ -27,14 +27,18 @@ define(["require", "exports", "../../introspection/recordMetadata", "../../misc/
         record.fields = record.fields
             .filter(function (f) { return f.id; })
             .map(function (f) {
-            if (!seeValues) {
-                return f;
-            }
-            var value, text;
-            value = misc_1.tryTo(function () { return r.getValue(f.id); });
-            text = misc_1.tryTo(function () { return r.getText(f.id); });
-            return __assign({}, f, { value: value, text: text });
-        })
+            // {
+            // if (!seeValues) {
+            // return f;
+            // }
+            // let value: Value, text: Text
+            // value = tryTo(() => r.getValue(f.id))
+            // text = tryTo(() => r.getText(f.id))
+            // return 
+            return seeValues ? __assign({}, f, { value: misc_1.tryTo(function () { return r.getValue(f.id); }), text: misc_1.tryTo(function () { return r.getText(f.id); }) }) : f;
+        }
+        // }
+        )
             .sort(function (a, b) { return a.id.localeCompare(b.id); });
         record.sublists = record.sublists
             .sort(function (a, b) { return a.id.localeCompare(b.id); })

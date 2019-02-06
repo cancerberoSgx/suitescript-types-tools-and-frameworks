@@ -3,7 +3,7 @@ import { ServerRequest, ServerResponse } from 'N/http';
 import { find } from '../misc/misc';
 import { ReactLike } from '../jsx/createElement';
 import { redirect } from 'N/redirect';
-import { renderBrowserCode, RenderLinkOptions, buildUrl, ROUTEPARAMNAME_NOPREFIX, ROUTEPARAMNAME, ROUTEPARAMPREFIX, SCRIPTLETURLPREFIX } from './browserCode';
+import { renderBrowserCode, RenderLinkOptions, buildUrl, ROUTEPARAMNAME_NOPREFIX, ROUTEPARAMNAME, ROUTEPARAMPREFIX, SCRIPTLETURLPREFIX, paramsToUrl } from './browserCode';
 var f = find// install array.prototype.find
 
 export type Params = { [name: string]: any }
@@ -33,8 +33,8 @@ export interface Route {
 export class App implements IApp {
   routes: Route[] = []
   currentDispatchOptions: DispatchOptions | undefined;
-  protected noRouteParamRoute: Route|undefined;
-  protected noRouteFoundRoute: Route|undefined
+  protected noRouteParamRoute: Route | undefined;
+  protected noRouteFoundRoute: Route | undefined
 
   addRoute(r: Route): void {
     this.routes.push(r)
@@ -44,9 +44,9 @@ export class App implements IApp {
     this.currentDispatchOptions = d
     const params = this.getParamsWithoutPrefix(d.request)
     const routeName = params[`${ROUTEPARAMNAME_NOPREFIX}`]
-    let route: Route|undefined
+    let route: Route | undefined
     if (!routeName) {
-      if(this.noRouteParamRoute){
+      if (this.noRouteParamRoute) {
         route = this.noRouteParamRoute
       }
       else {
@@ -55,7 +55,7 @@ export class App implements IApp {
     }
     route = route || this.routes.find(r => r.name === routeName)
     if (!route) {
-      if(this.noRouteFoundRoute){
+      if (this.noRouteFoundRoute) {
         route = this.noRouteFoundRoute
       }
       else {
@@ -83,7 +83,7 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
   setNoRouteParamRoute(r: Route): any {
     this.noRouteParamRoute = r
   }
-  
+
   /** set a default route in case no route is found with given routeName param */
   setNoRouteFoundRoute(r: Route): any {
     this.noRouteFoundRoute = r
@@ -102,52 +102,69 @@ ${ReactLike.getClientCode().map(c => c.code).join('\n')}
   /** return location.search url serverside equivalent with parameters ordered, first netsuite's suitelet parameters, then routeName and then route specific params.  */
   getCurrentRealUrlSearchFragment(): string {
     const params = this.currentDispatchOptions!.request.parameters
-    const otherParams = this.getOtherParams()
-    const otherParamsUrl = Object.keys(otherParams).map(p => `${p}=${otherParams[p]}`).join('&')
-    const routeNameUrl = Object.keys(params).filter(p => p === ROUTEPARAMNAME).map(p => `${p}=${params[p]}`).join('&')
-    const routeParamsUrl = Object.keys(params).filter(p => p !== ROUTEPARAMNAME && p.indexOf(ROUTEPARAMPREFIX) === 0).map(p => `${p}=${params[p]}`).join('&')
+    const otherParamsUrl = paramsToUrl(this.getOtherParams())
+    const routeNameUrl = paramsToUrl(params, p => p === ROUTEPARAMNAME)
+    const routeParamsUrl = paramsToUrl(params, p => p !== ROUTEPARAMNAME && p.indexOf(ROUTEPARAMPREFIX) === 0)
     return `${SCRIPTLETURLPREFIX}?${otherParamsUrl}&${routeNameUrl}&${routeParamsUrl}`
   }
 
   /** will build a relative link to given route and params - useful to build links to other routes in pages UI / markup/ anchors. */
-  renderLink(config: RenderLinkOptions): string {
-    const otherParams = this.getOtherParams()
-    const otherParamsUrl = Object.keys(otherParams).map(p => `${p}=${otherParams[p]}`).join('&')
+  renderLink(config: RenderLinkOptions & { forgetCurrentRouteParams?: boolean }): string {
+    const otherParamsUrl = paramsToUrl(this.getOtherParams())
     const paramsUrl = this.getParamsUrl(config.params)
     const routeParamsUrl = this.getParamsUrl({ [ROUTEPARAMNAME_NOPREFIX]: config.routeName })
+    const currentRouteParamsToMaintain = config.forgetCurrentRouteParams ? {} : this.getCurrentRouteParams(config)
     const currentUrlSearchFragment = `?${otherParamsUrl}&${routeParamsUrl}&${paramsUrl}`
     return buildUrl({
       ...config,
-      params: this.getParamsWithPrefix(config.params),
+      params: { ...currentRouteParamsToMaintain, ...this.getParamsWithPrefix(config.params) },
       currentUrlSearchFragment: currentUrlSearchFragment
     })
   }
 
+  /** return current route params without route name (useful to remember current route params to keep in new route url) */
+  protected getCurrentRouteParams(config: RenderLinkOptions): Params {
+    const params: Params = {}
+    Object.keys(this.currentDispatchOptions!.request.parameters)
+      .filter(p => p.indexOf(ROUTEPARAMPREFIX) === 0 && p !== ROUTEPARAMNAME)
+      .forEach(p => {
+        params[p] = this.currentDispatchOptions!.request.parameters[p]
+      })
+    return params
+  }
+
   protected getParamsWithoutPrefix(request: ServerRequest): Params {
     const params: Params = {}
-    Object.keys(request.parameters).filter(p => p.indexOf(ROUTEPARAMPREFIX) === 0).forEach(p => {
-      params[p.substring(ROUTEPARAMPREFIX.length, p.length)] = request.parameters[p]
-    })
+    Object.keys(request.parameters)
+      .filter(p => p.indexOf(ROUTEPARAMPREFIX) === 0)
+      .forEach(p => {
+        params[p.substring(ROUTEPARAMPREFIX.length, p.length)] = request.parameters[p]
+      })
     return params
   }
 
   protected getOtherParams(): Params {
     const otherParams: Params = {}
-    Object.keys(this.currentDispatchOptions!.request.parameters).filter(p => p.indexOf(ROUTEPARAMPREFIX) !== 0).forEach(p => {
-      otherParams[p] = this.currentDispatchOptions!.request.parameters[p]
-    })
+    Object.keys(this.currentDispatchOptions!.request.parameters)
+      .filter(p => p.indexOf(ROUTEPARAMPREFIX) !== 0)
+      .forEach(p => {
+        otherParams[p] = this.currentDispatchOptions!.request.parameters[p]
+      })
     return otherParams
   }
 
+ 
   protected getParamsUrl(params: Params, except: string[] = []) {
     return `${Object.keys(params).filter(p => except.indexOf(p) === -1).map(p => `${ROUTEPARAMPREFIX}${p}=${params[p]}`).join('&')}`
   }
 
   protected getParamsWithPrefix(params: Params, except: string[] = []): Params {
     var params_: Params = {}
-    Object.keys(params).filter(p => except.indexOf(p) === -1).forEach(p => {
-      params_[ROUTEPARAMPREFIX + p] = params[p]
-    })
+    Object.keys(params)
+      .filter(p => except.indexOf(p) === -1)
+      .forEach(p => {
+        params_[ROUTEPARAMPREFIX + p] = params[p]
+      })
     return params_
   }
 

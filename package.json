@@ -1,7 +1,7 @@
 {
-    "name": "sgurin-suitescript-utils",
+    "name": "suitescript-types-tools-and-frameworks",
     "version": "0.0.2",
-    "description": " Miscellaneous SuiteScript 2.0 high level utilities and APIs (mostly oriented to Commerce)",
+    "description": " Miscellaneous SuiteScript 2.0 high level TypeScript types, tools, high level APIs and frameworks",
     "main": "src/index.js",
     "private": true,
     "scripts": {
@@ -16,18 +16,21 @@
     "keywords": [
         "SuiteScript",
         "SuiteScript 2.0",
+        "record browser",
+        "search",
+        "browser",
+        "jsx","tsx","types","typings",
         "NetSuite",
-        "utilities",
-        "high level APIs",
-        "API",
+        "utilities","frameworks","application",
+        "high level API",
+        "API", "spec",
         "testing",
-        "Commerce",
         "TypeScript"
     ],
     "author": "Sebastián Gurin",
     "license": "MIT",
     "devDependencies": {
-        "@hitc/netsuite-types": "file:../../git/typings-suitescript-2.0",
+        "@hitc/netsuite-types": "https://github.com/cancerberoSgx/typings-suitescript-2.0.git#record-sublist",
         "@types/shelljs": "^0.8.1",
         "p-queue": "^3.0.0",
         "shelljs": "^0.7.8",

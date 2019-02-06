@@ -25,14 +25,14 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
       <li>
         <a href={props.renderLink({
           routeName: 'recordView',
-          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true}
+          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true, showAllFields: false}
         })}>record view link</a> 
         
         &nbsp; and &nbsp; 
 
         <button onClick={e => fetchAndRenderHtml({
           routeName: 'recordView',
-          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true },
+          params: { id: '7', type: 'commercecategory' , showSublistLines: true, seeValues: true , showAllFields: false},
           selector: '#mainView'
         })}>record view embedded</button>
       </li>

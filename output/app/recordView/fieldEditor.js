@@ -19,7 +19,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
             return createElement_1.ReactLike.createElement("span", null, "UNDEFINED FIELD ERROR ");
         }
         else if ((f.type === 'select') && f.selectOptions && f.selectOptions.length) {
-            input = createElement_1.ReactLike.createElement("select", { disabled: f.isReadonly },
+            input = createElement_1.ReactLike.createElement("select", { multiple: false, disabled: f.isReadonly },
                 (typeof f.value === 'undefined' || f.value === null) ? createElement_1.ReactLike.createElement("option", null, "Not Defined") : '',
                 f.selectOptions.map(function (o) {
                     return createElement_1.ReactLike.createElement("option", { selected: Array.isArray(f.value) ? f.value.indexOf(o.value) !== -1 : f.value === o.value, value: o.value }, o.text || (o.value && misc_1.tryTo(function () { return o.value.toString(); })));
@@ -32,10 +32,16 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                     return createElement_1.ReactLike.createElement("option", { selected: f.value.indexOf(o.value) !== -1, value: o.value }, Array.isArray(o.text) ? o.text.join(', ') : o.text || (o.value && misc_1.tryTo(function () { return o.value.toString(); })));
                 }));
         }
+        else if (f.type === 'textarea') {
+            input = createElement_1.ReactLike.createElement("textarea", { disabled: f.isReadonly, defaultValue: f.value + '' });
+        }
+        else if (f.type === 'richtext') {
+            input = createElement_1.ReactLike.createElement("span", { contentEditable: !f.isReadonly, style: { border: '3px solid blue', width: '100%', height: '200px', display: 'block', overflow: 'scroll' }, dangerouslySetInnerHTML: { __html: f.value + '' } });
+        }
         else {
             var inputType = f.type === 'date' ? 'date' : f.type === 'datetime' ? 'datetime-local' : ['float', 'integer'].indexOf(f.type) !== -1 ? 'number' : f.type === 'checkbox' ? 'checkbox' : 'text';
             var inputValue = f.type === 'date' ? dateUtil_1.formatDate(f.value, 'YYYY-MM-DD') : (f.value + '');
-            input = createElement_1.ReactLike.createElement("input", { multiple: false, disabled: f.isReadonly, type: inputType, value: inputValue, checked: f.type === 'checkbox' && !!f.value });
+            input = createElement_1.ReactLike.createElement("input", { disabled: f.isReadonly, type: inputType, value: inputValue, checked: f.type === 'checkbox' && !!f.value });
         }
         return createElement_1.ReactLike.createElement("span", null,
             createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-field-id" + f.id }, input),
@@ -55,7 +61,6 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                         if (!data || typeof fieldValue === 'undefined') {
                             return;
                         }
-                        // alert(`fieldValue ${fieldValue} ${JSON.stringify(fieldValue)}`);
                         data.params = __assign({}, data.params, { fieldValue: fieldValue });
                         window.location.href = buildRouteUrl(data);
                     } }, "Change!")));

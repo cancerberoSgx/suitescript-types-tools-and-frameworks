@@ -12,12 +12,12 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/BindInp
                 createElement_1.ReactLike.createElement("li", null,
                     createElement_1.ReactLike.createElement("a", { href: props.renderLink({
                             routeName: 'recordView',
-                            params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true }
+                            params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
                         }) }, "record view link"),
                     "\u00A0 and \u00A0",
                     createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
                             routeName: 'recordView',
-                            params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true },
+                            params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false },
                             selector: '#mainView'
                         }); } }, "record view embedded")),
                 createElement_1.ReactLike.createElement("li", null,

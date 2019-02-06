@@ -36,6 +36,7 @@ export interface ElementLike extends NodeLike {
   attrs: { [name: string]: string }
   children: NodeLike[]
   setAttribute(name: string, value: string): void
+  dangerouslySetInnerHTML(s: string):void
   appendChild(c: NodeLike): void
 }
 

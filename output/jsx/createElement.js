@@ -54,6 +54,9 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                         if (name_1 === 'style') {
                             element.setAttribute('style', "" + Object.keys(value).map(function (p) { return p + ": " + value[p]; }).join('; '));
                         }
+                        else if (name_1 === 'dangerouslySetInnerHTML' && value && typeof value.__html === 'string') {
+                            element.dangerouslySetInnerHTML(value.__html);
+                        }
                         else {
                             throw "unrecognized object attribute \"" + name_1 + "\" - the only object attribute supported is \"style\"";
                         }

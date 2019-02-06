@@ -21,6 +21,7 @@ export class TextNodeLikeImpl implements TextNodeLIke {
   }
 }
 export class ElementLikeImpl implements ElementLike {
+  private innerHtml: string|undefined;
   attrs: {
     [name: string]: string;
   };
@@ -37,7 +38,13 @@ export class ElementLikeImpl implements ElementLike {
   }
   render(config: RenderConfig = defaultRenderConfig): string {
     const newLine = config.indent ? `\n` : ``;
-    return `<${this.tag}${Object.keys(this.attrs).map(a => ` ${a}="${this.attrs[a]}"`).join('')}>${newLine}${indent({ ...config, indentLevel: (config.indentLevel || 0) + 1 })}${this.children.map(c => `${c.render({ ...config, indentLevel: (config.indentLevel || 0) + 1 })}`).join('')}${newLine}${indent(config)}</${this.tag}>`;
+    const content = this.innerHtml || `${newLine}${indent({ ...config, indentLevel: (config.indentLevel || 0) + 1 })}${this.children
+      .map(c => `${c.render({ ...config, indentLevel: (config.indentLevel || 0) + 1 })}`).
+      join('')}${newLine}${indent(config)}`
+    return `<${this.tag}${Object.keys(this.attrs).map(a => ` ${a}="${this.attrs[a]}"`).join('')}>${content}</${this.tag}>`;
+  }
+  dangerouslySetInnerHTML(s: string): void {
+    this.innerHtml = s
   }
 }
 const defaultRenderConfig = { indentLevel: 0, indentTabSize: 2 };

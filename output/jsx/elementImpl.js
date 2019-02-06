@@ -55,7 +55,13 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
             var _this = this;
             if (config === void 0) { config = defaultRenderConfig; }
             var newLine = config.indent ? "\n" : "";
-            return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + newLine + indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children.map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); }).join('') + newLine + indent(config) + "</" + this.tag + ">";
+            var content = this.innerHtml || "" + newLine + indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children
+                .map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); }).
+                join('') + newLine + indent(config);
+            return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + content + "</" + this.tag + ">";
+        };
+        ElementLikeImpl.prototype.dangerouslySetInnerHTML = function (s) {
+            this.innerHtml = s;
         };
         return ElementLikeImpl;
     }());

@@ -1,6 +1,5 @@
-import { ElementLikeImpl, isReactLikeComponent, isNode, TextNodeLikeImpl } from './elementImpl';
-import { ReactLikeTag, ReactLike as ReactLikeType, ReactLikeAttrs, ReactLikeChild, ElementLike, RenderConfig, NodeLike, ClientCode } from './jsx';
-import * as decls from './declarations/domElementDeclarations' // this needs to be here!
+import { ElementLikeImpl, isNode, isReactLikeComponent, TextNodeLikeImpl } from './elementImpl';
+import { ClientCode, ElementLike, NodeLike, ReactLike as ReactLikeType, ReactLikeAttrs, ReactLikeChild, ReactLikeTag, RenderConfig } from './jsx';
 
 const Module: ReactLikeType = {
   createElement(tag: ReactLikeTag, attrs: ReactLikeAttrs = {}, ...children: ReactLikeChild[]): ElementLike {
@@ -38,6 +37,9 @@ const Module: ReactLikeType = {
         else if(typeof value ==='object'){
           if(name === 'style'){
             element.setAttribute('style', `${Object.keys(value).map(p=>`${p}: ${value[p]}`).join('; ')}`)
+          }
+          else if(name==='dangerouslySetInnerHTML' && value &&  typeof value.__html==='string') {
+            element.dangerouslySetInnerHTML(value.__html)
           }
           else {
             throw `unrecognized object attribute "${name}" - the only object attribute supported is "style"`

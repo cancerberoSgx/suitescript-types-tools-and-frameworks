@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "./fieldEditor"], function (require, exports, createElement_1, fieldEditor_1) {
+define(["require", "exports", "../../jsx/createElement", "./fieldEditor", "../../jsx/util/BindInputValue", "../../jsx/util/Bind"], function (require, exports, createElement_1, fieldEditor_1, BindInputValue_1, Bind_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.RecordView = function (props) {
@@ -85,14 +85,38 @@ define(["require", "exports", "../../jsx/createElement", "./fieldEditor"], funct
                 createElement_1.ReactLike.createElement("tr", null, props.sublist.fields.map(function (f) { return createElement_1.ReactLike.createElement("th", null,
                     f.id,
                     f.type ? " (" + f.type + ")" : ''); }))),
-            createElement_1.ReactLike.createElement("tbody", null, props.sublist.lines.map(function (line) { return createElement_1.ReactLike.createElement("tr", null, line.rows.map(function (row, i) {
-                return createElement_1.ReactLike.createElement("td", null,
+            createElement_1.ReactLike.createElement("tbody", null, props.sublist.lines.map(function (line) { return createElement_1.ReactLike.createElement("tr", null, line.rows.map(function (row) {
+                var input = createElement_1.ReactLike.createElement("span", null,
+                    "            ",
                     row.text,
-                    " ",
-                    row.value,
-                    " ",
+                    row.value == row.text ? " " + row.value : '',
+                    createElement_1.ReactLike.createElement(BindInputValue_1.BindInputValue, { bindInputId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id },
+                        createElement_1.ReactLike.createElement("input", { value: row.value + '' })),
+                    createElement_1.ReactLike.createElement(Bind_1.BindInputValueAndStoreData, { bindListenerId: "data-sublist-field-" + props.sublist.id + "-" + line + "-" + row.field.id, data: {
+                            routeName: 'setSublistFieldValue',
+                            params: {
+                                recordId: props.record.id,
+                                recordType: props.record.type,
+                                fieldType: row.field.type,
+                                fieldId: row.field.id,
+                                sublistId: props.sublist.id,
+                                line: line,
+                                redirect: encodeURIComponent(props.currentUrl)
+                            }
+                        } },
+                        createElement_1.ReactLike.createElement("button", { onClick: function (e) {
+                                var data = getStoreData(e.currentTarget);
+                                var fieldValue = getBindInputValue(e.currentTarget, { asString: true });
+                                if (!data || typeof fieldValue === 'undefined') {
+                                    return;
+                                }
+                                data.params = __assign({}, data.params, { fieldValue: fieldValue });
+                                window.location.href = buildRouteUrl(data);
+                            } }, "Change!")));
+                return (createElement_1.ReactLike.createElement("td", null,
+                    input,
                     row.field.type === 'select' ?
-                        createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'findRecord', params: { id: row.value, type: row.field.id } }) }, "find") : '');
+                        createElement_1.ReactLike.createElement("a", { href: props.renderLink({ routeName: 'findRecord', params: { id: row.value, type: row.field.id } }) }, "\u00A0(find)") : ''));
             })); })));
     };
 });

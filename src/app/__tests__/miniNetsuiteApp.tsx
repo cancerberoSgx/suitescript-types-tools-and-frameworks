@@ -30,8 +30,7 @@ export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse
 
   app.addRoute(setSublistFieldValueRoute(app))
 
-
-  app.addRoute(searchViewRoute(app))
+  app.addRoute(searchViewRoute(app)) 
   
   addMiniDebuggerRoutes(app)
 

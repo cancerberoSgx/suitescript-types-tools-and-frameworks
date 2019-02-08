@@ -17,25 +17,30 @@ define(["require", "exports", "../../jsx/renderInHTMLDocument", "../../search/ty
             name: 'searchView',
             handler: function (o) {
                 var type = o.params.type;
-                var pageSize = parseInt(o.params.pageSize || '10');
-                var currentPage = parseInt(o.params.currentPage || '1');
-                var columns = (type ? (TypedSearchColumnValues_1.typedSearchColumnValues[type] || []) : []).map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); }).sort(function (a, b) { return a.name.localeCompare(b.name); });
-                var filters = (type ? (TypedSearchFilterValues_1.typedSearchFilterValues[type] || []) : []).map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); }).sort(function (a, b) { return a.name.localeCompare(b.name); });
-                var userColumns = (o.params.userColumns || '').trim().split(',').filter(function (f) { return !!f; });
-                var finalColumns = userColumns.map(function (name) { return ({ name: name }); });
-                if (type && finalColumns.length) {
-                    try {
-                        var resultSet = search_1.create({ type: type, columns: finalColumns }).runPaged({ pageSize: pageSize });
+                var pageSize = parseInt(o.params.pageSize || '10') || 0;
+                var currentPage = parseInt(o.params.currentPage || '1') || 1;
+                try {
+                    var columns_1 = (type ? (TypedSearchColumnValues_1.typedSearchColumnValues[type] || []) : []).map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); }).sort(function (a, b) { return a.name.localeCompare(b.name); });
+                    var filters_1 = (type ? (TypedSearchFilterValues_1.typedSearchFilterValues[type] || []) : []).map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); }).sort(function (a, b) { return a.name.localeCompare(b.name); });
+                    var userColumns_1 = (o.params.userColumns || '').trim().split(',')
+                        .map(function (f) { return (f === '__new__' && columns_1.length) ? columns_1[0].id : f; }).filter(function (f) { return !!f; }).map(function (name) { return ({ name: name }); });
+                    var userFilters = (o.params.userFilters || '').trim().split(',')
+                        .map(function (f) { return (f === '__new__' && filters_1.length) ? filters_1[0].id : f; }).filter(function (f) { return !!f; }).map(function (name) { return ({ name: name, operator: '', value: '' }); });
+                    if (type) {
+                        var resultSet = search_1.create({ type: type, columns: userColumns_1 }).runPaged({ pageSize: pageSize });
                         var resultSetData = resultSet.fetch({ index: currentPage }).data;
                         var results = resultSetData.map(function (r) { return ({
                             id: r.id + '',
-                            columns: finalColumns.map(function (c) { return r.getValue(c) + ''; })
+                            columns: userColumns_1.map(function (c) { return r.getValue(c) + ''; })
                         }); });
-                        return renderInHTMLDocument_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(searchView_1.SearchView, __assign({}, o.params, { columns: columns, filters: filters, userColumns: userColumns, results: results, pageSize: pageSize, pageRanges: resultSet.pageRanges, currentPage: currentPage, pageCount: resultSet.pageRanges.length })));
+                        return renderInHTMLDocument_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(searchView_1.SearchView, __assign({}, o.params, { columns: columns_1, filters: filters_1, userColumns: userColumns_1.map(function (c) { return c.name; }), results: results, pageSize: pageSize, pageRanges: resultSet.pageRanges, currentPage: currentPage, pageCount: resultSet.pageRanges.length })));
                     }
-                    catch (error) {
-                        return "" + misc_1.printNativeError(error).replace(/\n/gmi, '<br/>');
+                    else {
+                        return renderInHTMLDocument_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(searchView_1.SearchView, __assign({}, o.params, { columns: columns_1, filters: filters_1 })));
                     }
+                }
+                catch (error) {
+                    return "" + misc_1.printNativeError(error).replace(/\n/gmi, '<br/>');
                 }
             }
         };

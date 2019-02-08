@@ -13,29 +13,43 @@ export function searchViewRoute(app: App): Route {
     name: 'searchView',
     handler(o) {
       const { type } = o.params;
-      const pageSize = parseInt(o.params.pageSize || '10');
-      const currentPage = parseInt(o.params.currentPage || '1');
-      const columns = ((type ? ((typedSearchColumnValues as any)[type] || []) : []) as ColumnValue[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name));
-      const filters = ((type ? ((typedSearchFilterValues as any)[type] || []) : []) as FilterValue[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name));
-      const userColumns = ((o.params.userColumns || '').trim().split(',') as string[]).filter(f => !!f);
-      let finalColumns: CreateSearchColumnOptions[] = userColumns.map(name => ({ name }));
-      if (type && finalColumns.length) {
-        try {
-          const resultSet = create({ type, columns: finalColumns }).runPaged({ pageSize });
+      const pageSize = parseInt(o.params.pageSize || '10') || 0;
+      const currentPage = parseInt(o.params.currentPage || '1') || 1;
+      try {
+
+        const columns = ((type ? ((typedSearchColumnValues as any)[type] || []) : []) as ColumnValue[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name));
+        const filters = ((type ? ((typedSearchFilterValues as any)[type] || []) : []) as FilterValue[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name));
+
+        const userColumns: CreateSearchColumnOptions[] = ((o.params.userColumns || '').trim().split(',') as string[])
+          .map(f => (f === '__new__' && columns.length) ? columns[0].id : f).filter(f => !!f).map(name => ({ name }))
+
+        const userFilters: {name: string, value: string, operator:string}[] =((o.params.userFilters || '').trim().split(',') as string[])
+        .map(f => (f === '__new__' && filters.length) ? filters[0].id : f).filter(f => !!f).map(name => ({ name, operator: '', value: '' }))
+
+        if (type) {
+
+          const resultSet = create({ type, columns: userColumns}).runPaged({ pageSize });
           const resultSetData = resultSet.fetch({ index: currentPage }).data;
           const results = resultSetData.map(r => ({
             id: r.id + '',
-            columns: finalColumns.map(c => r.getValue(c) + '')
+            columns: userColumns.map(c => r.getValue(c) + '')
           }));
+
           return renderInHTMLDocument(
             <SearchView {...o.params} columns={columns} filters={filters}
-              userColumns={userColumns} results={results} pageSize={pageSize}
+              userColumns={userColumns.map(c=>c.name)} results={results} pageSize={pageSize}
               pageRanges={resultSet.pageRanges} currentPage={currentPage} pageCount={resultSet.pageRanges.length}></SearchView>
           );
         }
-        catch (error) {
-          return `${printNativeError(error).replace(/\n/gmi, '<br/>')}`;
+        else {
+          return renderInHTMLDocument(
+            <SearchView {...o.params} columns={columns} filters={filters}></SearchView>
+          );
         }
+
+      }
+      catch (error) {
+        return `${printNativeError(error).replace(/\n/gmi, '<br/>')}`;
       }
     }
   };

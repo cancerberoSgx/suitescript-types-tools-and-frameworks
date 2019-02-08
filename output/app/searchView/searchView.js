@@ -47,7 +47,9 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/StatelessCom
                 createElement_1.ReactLike.createElement("script", null,
                     getUserColumns.toString(),
                     ";",
-                    search.toString()),
+                    search.toString(),
+                    "; ",
+                    getUserFilters.toString()),
                 createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "SearchView", data: __assign({}, this.props, { columns: [], filters: [], results: [] }) }),
                 createElement_1.ReactLike.createElement("div", null,
                     "Search Type: ",
@@ -58,41 +60,43 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/StatelessCom
                             var props = getBindDataOrThrow('SearchView');
                             window.location.href = buildRouteUrl({ routeName: 'searchView', params: __assign({}, props.currentParams, { type: type }) });
                         } })),
-                "Columns:",
-                createElement_1.ReactLike.createElement("ul", null, (this.props.userColumns || []).map(function (c, i) {
-                    return createElement_1.ReactLike.createElement("li", null,
-                        createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-column': i + '' }, selected: c, options: _this.props.columns, firstOption: "Select " + _this.props.type + " Column" }));
-                })),
-                createElement_1.ReactLike.createElement("button", { onClick: function (e) {
-                        var selects = document.querySelectorAll('[data-user-column]');
-                        if (selects.length === 0) {
-                            return;
-                        }
-                        var select = selects.item(selects.length - 1);
-                        var li = select.parentElement;
-                        li.parentElement.appendChild(li.cloneNode(true));
-                    } }, "Add Column"),
-                "Filters:",
-                createElement_1.ReactLike.createElement("ul", null, (this.props.userFilters || []).map(function (c, i) {
-                    return createElement_1.ReactLike.createElement("li", null,
-                        createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter': i + '' }, selected: c, options: _this.props.filters, firstOption: "Select " + _this.props.type + " filter" }));
-                })),
-                createElement_1.ReactLike.createElement("button", { onClick: function (e) {
-                        var selects = document.querySelectorAll('[data-user-filter]');
-                        if (selects.length === 0) {
-                            return;
-                        }
-                        var select = selects.item(selects.length - 1);
-                        var li = select.parentElement;
-                        li.parentElement.appendChild(li.cloneNode(true));
-                    } }, "Add Filter"),
                 createElement_1.ReactLike.createElement("div", null,
-                    createElement_1.ReactLike.createElement("button", { onClick: search }, "Search")),
+                    "Columns:",
+                    createElement_1.ReactLike.createElement("ul", null, (this.props.userColumns || []).map(function (c, i) {
+                        return createElement_1.ReactLike.createElement("li", null,
+                            createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-column': i + '' }, selected: c, options: _this.props.columns, firstOption: "Select " + _this.props.type + " Column" }));
+                    })),
+                    createElement_1.ReactLike.createElement("button", { onClick: function (e) {
+                            var selects = document.querySelectorAll('[data-user-column]');
+                            if (selects.length === 0) {
+                                return search(true);
+                            }
+                            var select = selects.item(selects.length - 1);
+                            var li = select.parentElement;
+                            li.parentElement.appendChild(li.cloneNode(true));
+                        } }, "Add Column")),
+                createElement_1.ReactLike.createElement("div", null,
+                    "Filters:",
+                    createElement_1.ReactLike.createElement("ul", null, (this.props.userFilters || []).map(function (c, i) {
+                        return createElement_1.ReactLike.createElement("li", null,
+                            createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter': i + '' }, selected: c, options: _this.props.filters, firstOption: "Select " + _this.props.type + " filter" }));
+                    })),
+                    createElement_1.ReactLike.createElement("button", { onClick: function (e) {
+                            var selects = document.querySelectorAll('[data-user-filter]');
+                            if (selects.length === 0) {
+                                return search(false, true);
+                            }
+                            var select = selects.item(selects.length - 1);
+                            var li = select.parentElement;
+                            li.parentElement.appendChild(li.cloneNode(true));
+                        } }, "Add Filter")),
+                createElement_1.ReactLike.createElement("div", null,
+                    createElement_1.ReactLike.createElement("button", { onClick: function (e) { return search(); } }, "Search")),
                 createElement_1.ReactLike.createElement("div", { className: classes.pagination },
                     createElement_1.ReactLike.createElement("label", null,
                         "Page Size: ",
                         createElement_1.ReactLike.createElement("input", { type: "number", id: "searchViewPageSize", value: this.props.pageSize || 10 })),
-                    createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-current-page': "" }, selected: this.props.currentPage + '', options: misc_1.array(this.props.pageCount || 0).map(function (i) { return ({ id: i + '', name: "Page " + i + " of " + (_this.props.pageCount || 0) }); }), onChange: search, firstOption: "Current Page" })),
+                    createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-current-page': "" }, selected: this.props.currentPage + '', options: misc_1.array(this.props.pageCount || 0).map(function (i) { return ({ id: i + '', name: "Page " + i + " of " + (_this.props.pageCount || 0) }); }), onChange: function (e) { return search(); }, firstOption: "Current Page" })),
                 this.props.results ? createElement_1.ReactLike.createElement("div", null,
                     "Results",
                     createElement_1.ReactLike.createElement("table", { className: classes.results + " " + classes.resultColumns },
@@ -108,8 +112,11 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/StatelessCom
         return SearchView;
     }(StatelessComponent_1.StatelessComponent));
     exports.SearchView = SearchView;
-    function search() {
-        var userColumns = getUserColumns();
+    function search(newColumn, newFilter) {
+        if (newColumn === void 0) { newColumn = false; }
+        if (newFilter === void 0) { newFilter = false; }
+        var userColumns = newColumn ? ['__new__'] : getUserColumns();
+        var userFilters = newColumn ? ['__new__'] : getUserFilters();
         var pageSize = document.querySelector("#searchViewPageSize").value;
         var currentPageS = document.querySelector('[data-current-page]');
         var currentPage = currentPageS.selectedOptions.length ? currentPageS.selectedOptions[0].value : '0';
@@ -117,8 +124,18 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/StatelessCom
         window.location.href = buildRouteUrl({
             routeName: 'searchView', params: __assign({}, getBindDataOrThrow('SearchView').currentParams, { userColumns: userColumns,
                 pageSize: pageSize,
-                currentPage: currentPage })
+                currentPage: currentPage,
+                userFilters: userFilters })
         });
+    }
+    function getUserFilters() {
+        var userFilters = [];
+        document.querySelectorAll('[data-user-filter]').forEach(function (e) {
+            if (e.selectedOptions && e.selectedOptions.length) {
+                userFilters.push(e.selectedOptions[0].value);
+            }
+        });
+        return userFilters;
     }
     function getUserColumns() {
         var userColumns = [];

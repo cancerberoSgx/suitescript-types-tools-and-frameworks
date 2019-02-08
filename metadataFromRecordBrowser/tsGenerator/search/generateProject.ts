@@ -35,12 +35,18 @@ export function generateFinal(config: ProjectConfig & { recordIds: string[] }) {
 function generateSearchTypesOperatorsSupport(config: ProjectConfig & { recordIds: string[] }) {
   const output = `
 /** Field Search Operator Support type definitions,. */
-export interface SearchTypesOperatorsSupport {${fieldTypeOperatorMetadata.map(id => {
-    return `
+export interface SearchTypesOperatorsSupport {${fieldTypeOperatorMetadata.map(id => `
 ${indent()}${id.fieldType}?: ${id.operators.map(o => `'${o}'`).join(' | ')};
 `.trim()
-  }).join(`\n${indent()}`)}
-}`.trim()
+  ).join(`\n${indent()}`)}
+}
+
+export const SearchTypesOperatorSupportValues = {${fieldTypeOperatorMetadata.map(id => `
+${indent()}${id.fieldType}: [${id.operators.map(o => `'${o}'`).join(', ')}
+`.trim()
+  ).join(`\n${indent()}`)}
+};
+`.trim()
   return { output }
 }
 

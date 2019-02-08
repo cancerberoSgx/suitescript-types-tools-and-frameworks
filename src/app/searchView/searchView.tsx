@@ -55,7 +55,7 @@ export class SearchView extends StatelessComponent<Props> {
 
       <Style classes={styles}></Style>
 
-      <script>{getUserColumns.toString()};{search.toString()}</script>
+      <script>{getUserColumns.toString()};{search.toString()}; {getUserFilters.toString()}</script>
 
       <Bind name="SearchView" data={{ ...this.props, columns: [], filters: [], results: [] }}></Bind>
 
@@ -66,54 +66,49 @@ export class SearchView extends StatelessComponent<Props> {
           window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...props.currentParams, type } });
         }}></Select>
       </div>
-      {/* <div>
-        Columns: <Select selected={this.props.column} options={this.props.columns} firstOption={`Select ${this.props.type} Column`} onChange={column => {
-          if (!column) { return }
-          window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...getBindDataOrThrow<Props>('SearchView').currentParams, column } });
-        }}></Select>
+
+      <div>
+        Columns:
+          <ul>
+          {(this.props.userColumns || []).map((c, i) =>
+            <li>
+              <Select select-attrs={{ 'data-user-column': i + '' }} selected={c} options={this.props.columns} firstOption={`Select ${this.props.type} Column`}></Select>
+            </li>)}
+        </ul>
+        <button onClick={e => {
+          const selects = document.querySelectorAll<HTMLSelectElement>('[data-user-column]')
+          if (selects.length === 0) { 
+            return search(true)
+          }
+          const select = selects.item(selects.length - 1)
+          const li = select.parentElement!
+          li.parentElement!.appendChild(li.cloneNode(true))
+        }}>Add Column</button>
       </div>
-      <div>
-        Filters: <Select selected={this.props.filter} options={this.props.filters} firstOption={`Select ${this.props.type} Filter`} onChange={filter => {
-          if (!filter) { return }
-          window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...getBindDataOrThrow<Props>('SearchView').currentParams, filter } });
-        }}></Select>
-      </div> */}
-
-
-      Columns:
-        <ul>
-        {(this.props.userColumns || []).map((c, i) =>
-          <li>
-            <Select select-attrs={{ 'data-user-column': i + '' }} selected={c} options={this.props.columns} firstOption={`Select ${this.props.type} Column`}></Select>
-          </li>)}
-      </ul>
-      <button onClick={e => {
-        const selects = document.querySelectorAll<HTMLSelectElement>('[data-user-column]')
-        if (selects.length === 0) { return }
-        const select = selects.item(selects.length - 1)
-        const li = select.parentElement!
-        li.parentElement!.appendChild(li.cloneNode(true))
-      }}>Add Column</button>
-
-
-      Filters:
-        <ul>
-        {(this.props.userFilters || []).map((c, i) =>
-          <li>
-            <Select select-attrs={{ 'data-user-filter': i + '' }} selected={c} options={this.props.filters} firstOption={`Select ${this.props.type} filter`}></Select>
-          </li>)}
-      </ul>
-      <button onClick={e => {
-        const selects = document.querySelectorAll<HTMLSelectElement>('[data-user-filter]')
-        if (selects.length === 0) { return }
-        const select = selects.item(selects.length - 1)
-        const li = select.parentElement!
-        li.parentElement!.appendChild(li.cloneNode(true))
-      }}>Add Filter</button>
 
 
       <div>
-        <button onClick={search}>Search</button>
+        Filters:
+          <ul>
+          {(this.props.userFilters || []).map((c, i) =>
+            <li>
+              <Select select-attrs={{ 'data-user-filter': i + '' }} selected={c} options={this.props.filters} firstOption={`Select ${this.props.type} filter`}></Select>
+            </li>)}
+        </ul>
+        <button onClick={e => {
+          const selects = document.querySelectorAll<HTMLSelectElement>('[data-user-filter]')
+          if (selects.length === 0) { 
+            return search(false, true)
+          }
+          const select = selects.item(selects.length - 1)
+          const li = select.parentElement!
+          li.parentElement!.appendChild(li.cloneNode(true))
+        }}>Add Filter</button>
+      </div>
+
+
+      <div>
+        <button onClick={e=>search()}>Search</button>
       </div>
 
       <div className={classes.pagination}>
@@ -121,7 +116,7 @@ export class SearchView extends StatelessComponent<Props> {
 
         {/* Page count: {this.props.pageCount||0} */}
 
-        <Select select-attrs={{ 'data-current-page': "" }} selected={this.props.currentPage + ''} options={array(this.props.pageCount || 0).map(i => ({ id: i + '', name: `Page ${i} of ${this.props.pageCount||0}` }))} onChange={search} firstOption="Current Page"></Select>
+        <Select select-attrs={{ 'data-current-page': "" }} selected={this.props.currentPage + ''} options={array(this.props.pageCount || 0).map(i => ({ id: i + '', name: `Page ${i} of ${this.props.pageCount || 0}` }))} onChange={e=>search()} firstOption="Current Page"></Select>
       </div>
 
 
@@ -135,17 +130,17 @@ export class SearchView extends StatelessComponent<Props> {
           </tr>)}</tbody>
         </table>
       </div>
-      : ''}
+        : ''}
 
     </div>
 
   }
 }
 
-function search() {
-  const userColumns: string[] = getUserColumns()
+function search(newColumn=false, newFilter=false) {
+  const userColumns: string[] = newColumn ? ['__new__'] : getUserColumns()
+  const userFilters: string[] = newColumn ? ['__new__'] : getUserFilters()
   const pageSize = document.querySelector<HTMLInputElement>(`#searchViewPageSize`)!.value
-
   const currentPageS = document.querySelector<HTMLSelectElement>('[data-current-page]')!
   const currentPage = currentPageS.selectedOptions.length ? currentPageS.selectedOptions[0].value : '0'
   document.querySelectorAll<HTMLSelectElement>('[data-user-column]')
@@ -155,8 +150,18 @@ function search() {
       userColumns,
       pageSize,
       currentPage,
+      userFilters,
     }
   });
+}
+function getUserFilters() {
+  const userFilters: string[] = [];
+  document.querySelectorAll<HTMLSelectElement>('[data-user-filter]').forEach(e => {
+    if (e.selectedOptions && e.selectedOptions.length) {
+      userFilters.push(e.selectedOptions[0].value);
+    }
+  });
+  return userFilters
 }
 function getUserColumns() {
   const userColumns: string[] = [];

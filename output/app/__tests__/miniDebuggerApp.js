@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../app", "N/runtime", "./miniDebuggerSampleCode", "./miniDebuggerUI", "./miniDebuggerEvalCode", "./miniDebuggerAvailableObjects", "../../jsx/renderInHTMLDocument"], function (require, exports, createElement_1, app_1, runtime_1, miniDebuggerSampleCode_1, miniDebuggerUI_1, miniDebuggerEvalCode_1, miniDebuggerAvailableObjects_1, renderInHTMLDocument_1) {
+define(["require", "exports", "../../jsx/createElement", "../app", "N/runtime", "./miniDebuggerSampleCode", "./miniDebuggerUI", "./miniDebuggerEvalCode", "./miniDebuggerAvailableObjects", "../../jsx/renderInHtml"], function (require, exports, createElement_1, app_1, runtime_1, miniDebuggerSampleCode_1, miniDebuggerUI_1, miniDebuggerEvalCode_1, miniDebuggerAvailableObjects_1, renderInHtml_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function miniNetSuiteApp(request, response) {
@@ -41,7 +41,7 @@ define(["require", "exports", "../../jsx/createElement", "../app", "N/runtime", 
                 var _a = miniDebuggerEvalCode_1.evalCode(code), logs = _a.logs, errors = _a.errors, evaluatedCode = _a.evaluatedCode;
                 var commonProps = __assign({}, o.params, { logs: logs, errors: errors, code: code, evaluatedCode: evaluatedCode, username: o.params.userName || (runtime_1.getCurrentUser().name + ' (' + runtime_1.getCurrentUser().email + ')'), exampleName: example ? example.name : undefined, exampleDescription: example ? example.description : undefined });
                 if (refreshOnExecute) {
-                    return renderInHTMLDocument_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(miniDebuggerUI_1.Debugger, __assign({}, commonProps)));
+                    return renderInHtml_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(miniDebuggerUI_1.Debugger, __assign({}, commonProps)));
                 }
                 else {
                     return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(miniDebuggerUI_1.DebuggerExecutionResults, __assign({}, commonProps)));

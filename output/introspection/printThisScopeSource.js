@@ -37,6 +37,7 @@ define(["require", "exports", "./objectExplorer", "../misc/misc"], function (req
     exports.printSource = printSource;
     function printNamespace(v, name) {
         return "\nvar " + name + " = (function(){\n  " + objectExplorer_1.getObjectKeys(v).map(function (k) { return "var " + k + " = " + printSource(v[k], true); }).join(';\n  ') + "\n  return {\n    " + objectExplorer_1.getObjectKeys(v).map(function (k) { return k + ": " + k; }).join(',\n    ') + "\n  };\n})();\n";
+        //.replace(/\<\/script/gmi, `</`)
     }
     exports.printNamespace = printNamespace;
     function printObjectAndScope(value, printFunctionPrototypes, printGlobals) {

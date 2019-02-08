@@ -112,7 +112,7 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
         _renderConfig: undefined,
         render: function (el, config) {
             if (config === void 0) { config = {}; }
-            return ("\n" + (config.renderClientCode ? "<script>" + Module.getClientCode().map(function (c) { return c.code; }).join('\n') + "</script>" : "") + "\n" + el.render(config) + "\n").trim();
+            return ("\n" + (config.renderClientCode ? "<sc" + '' + "ript>" + Module.getClientCode().map(function (c) { return c.code; }).join('\n') + "<" + '' + "/" + "script>" : "") + "\n" + el.render(config) + "\n").trim();
         },
         registerClientCode: function (f) {
             clientCode.push(f);

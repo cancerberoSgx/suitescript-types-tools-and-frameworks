@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-define(["require", "exports", "fs", "../../jsx/createElement", "../../jsx/StatelessComponent", "../../jsx/util/Select", "../renderInHTMLDocument", "../../misc/arrayPrototypeFind"], function (require, exports, fs_1, createElement_1, StatelessComponent_1, Select_1, renderInHTMLDocument_1, arrayPrototypeFind_1) {
+define(["require", "exports", "fs", "../../jsx/createElement", "../../jsx/StatelessComponent", "../../jsx/util/Select", "../renderInHtml", "../../misc/arrayPrototypeFind"], function (require, exports, fs_1, createElement_1, StatelessComponent_1, Select_1, renderInHtml_1, arrayPrototypeFind_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     arrayPrototypeFind_1.installArrayPrototypeFind();
@@ -28,5 +28,5 @@ define(["require", "exports", "fs", "../../jsx/createElement", "../../jsx/Statel
         };
         return SelectTest;
     }(StatelessComponent_1.StatelessComponent));
-    fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(SelectTest, null)));
+    fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHtml_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(SelectTest, null)));
 });

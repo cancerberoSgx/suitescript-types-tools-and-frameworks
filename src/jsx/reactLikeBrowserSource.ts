@@ -17,7 +17,8 @@ export function reactLikeBrowserSource() {
 ${assignCode}
 ${printNamespace(elementImpl, 'elementImpl_1')}
 ${printNamespace(ReactLike, 'createElement_1')}
-var ReactLike = createElement_1.ReactLike
+ReactLike = createElement_1.ReactLike
+createElement_1 = {ReactLike: ReactLike}
   `
   return code.trim()
 }

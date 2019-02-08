@@ -61,16 +61,12 @@ export class Bind<P extends BindProps = BindProps> extends StatelessComponent<P>
           return <span></span>
         }
       }
-      // else if(typeof this.props.inputValue==='string'){
-      //   this.
-      // }
       else {
         this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id)
       }
       // TODO: add this statements in a single global <script> tag - could be a static el attribute
       return <span>
   <script>{`
-__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
 __BindInputValues['${this.props.name}'] = {id: '${id}'};
 `.trim()}
   </script>
@@ -79,17 +75,9 @@ __BindInputValues['${this.props.name}'] = {id: '${id}'};
     }
     
     else if (this.props.data && this.props.name) {
-
-//       return <span dangerouslySetInnerHTML={{__html: `<script>
-//       __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
-//       __BindData['${this.props.name}'] = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
-//         </script>`}}>
-// </span>
-
       // TODO: add this statements in a single global <script> tag - could be a static el attribute
       return <span>
   <script>{`
-__BindData = typeof __BindData === 'undefined' ? {} : __BindData;
 __BindData['${this.props.name}'] = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
 `.trim()}
   </script>
@@ -180,12 +168,6 @@ function getBindInputValue<T extends InputValue, InputValue extends string | num
       el = listenerElementOrInputElementOrKeyOrInputElementSelector
     }
   }
-  // const elAsInput = 
-  // const el = typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string' ? (document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${listenerElementOrInputElementOrKeyOrInputElementSelector}"]`)||document.querySelector<HTMLInputElement>(`${listenerElementOrInputElementOrKeyOrInputElementSelector}`)) 
-  // listenerElementOrInputElementOrKeyOrInputElementSelector
-  
-  // .getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`)
-  // const el = document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`)
   if (el) {
     if (el.type === 'date') {
       return (config.asString && el.valueAsDate) ? formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate

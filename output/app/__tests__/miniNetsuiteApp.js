@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../routes/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp", "../../jsx/renderInHTMLDocument", "../searchView/searchViewRoute"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1, renderInHTMLDocument_1, searchViewRoute_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../routes/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp", "../../jsx/renderInHtml", "../searchView/searchViewRoute"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1, renderInHtml_1, searchViewRoute_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
@@ -89,7 +89,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         return {
             name: 'mainPage',
             handler: function (o) {
-                return renderInHTMLDocument_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(exports.MainPage, __assign({}, o.params, { userName: o.params.userName })));
+                return renderInHtml_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(exports.MainPage, __assign({}, o.params, { userName: o.params.userName })));
             }
         };
     }

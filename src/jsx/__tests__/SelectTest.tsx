@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs';
 import { ReactLike } from "../../jsx/createElement";
 import { StatelessComponent } from '../../jsx/StatelessComponent';
 import { Select } from '../../jsx/util/Select';
-import { renderInHTMLDocument } from '../renderInHTMLDocument';
+import { renderInHTMLDocument } from '../renderInHtml';
 import { installArrayPrototypeFind } from '../../misc/arrayPrototypeFind';
 
 installArrayPrototypeFind()

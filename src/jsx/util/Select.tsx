@@ -1,13 +1,11 @@
-import { StatelessComponent } from '../StatelessComponent';
-import { ChangeEvent } from '../declarations/domElementDeclarations';
 import { ReactLike } from "../createElement";
+import { StatelessComponent } from '../StatelessComponent';
 import { Bind } from './Bind';
 
-
-declare function getBindDataOrThrow<T>(key: string): T
+declare function getBindData<T>(key: string): T|undefined
 
 interface SelectProps {
-  options: string[] | Option[];
+  options: (string|Option)[]
   selected?: string
   onChange?: (value?: string) => void;
   firstOption?: string;

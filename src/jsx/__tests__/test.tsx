@@ -8,7 +8,7 @@ import { ChangeEvent, InputHTMLAttributes, MouseEvent } from '../declarations/do
 import { getObjectValueTypes, getObjectKeys } from '../../introspection/objectExplorer';
 import { type } from 'os';
 import { printObjectAndScope, printSource } from '../../introspection/printThisScopeSource';
-import { renderInHTMLDocument } from '../renderInHTMLDocument';
+import { renderInHTMLDocument, setInnerHTML } from '../renderInHtml';
 
 function cssTest1() {
   const Comp = () => <div className="apple" style={{ border: '1 px solid pink', background: 'blue' }}>i'm pink</div>
@@ -225,7 +225,7 @@ export function testBind() {
     setState(state: State) {
       this.state = state
       if (this._rootEl) {
-        this._rootEl.innerHTML = ReactLike.render(this as any, this._renderConfig || {})
+        setInnerHTML( this._rootEl, ReactLike.render(this as any, this._renderConfig || {}))
       }
     }
     getState(): State {
@@ -246,7 +246,6 @@ export function testBind() {
       if (!this.props.data && this.props.name && this.props.onChange) {
         const c = this.firstChildElement()
         if (c) {
-          debugger
           const id = `bind-input-value-element-${Bind.counter++}`
           //     // if (typeof this.props.inputValue === 'undefined') {
           //       // const c = this.firstChildElement()

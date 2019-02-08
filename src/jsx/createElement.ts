@@ -105,7 +105,7 @@ const Module = {
 
   render(el: JSX.Element, config: RenderConfig = {}): string {
     return `
-${config.renderClientCode ? `<script>${Module.getClientCode().map(c => c.code).join('\n')}</script>` : ``}
+${config.renderClientCode ? `<sc${''}ript>${Module.getClientCode().map(c => c.code).join('\n')}<${''}/`+`script>` : ``}
 ${(el as any as NodeLike).render(config)}
 `.trim()
   },

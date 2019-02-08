@@ -17,7 +17,7 @@ define(["require", "exports", "../introspection/printThisScopeSource", "./create
         // ${printObjectAndScope(elementImpl.isElementLike, true)}
         // var createElement__ = ${printObjectAndScope(ReactLike, false)};
         // var ReactLike = createElement__.ReactLike
-        var code = "\n" + assignCode + "\n" + printThisScopeSource_1.printNamespace(elementImpl, 'elementImpl_1') + "\n" + printThisScopeSource_1.printNamespace(ReactLike, 'createElement_1') + "\nvar ReactLike = createElement_1.ReactLike\n  ";
+        var code = "\n" + assignCode + "\n" + printThisScopeSource_1.printNamespace(elementImpl, 'elementImpl_1') + "\n" + printThisScopeSource_1.printNamespace(ReactLike, 'createElement_1') + "\nReactLike = createElement_1.ReactLike\ncreateElement_1 = {ReactLike: ReactLike}\n  ";
         return code.trim();
     }
     exports.reactLikeBrowserSource = reactLikeBrowserSource;

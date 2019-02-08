@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../misc/misc", "../createElement", "../StatelessComponent", "fs", "../util/Bind", "../renderInHTMLDocument"], function (require, exports, misc_1, createElement_1, StatelessComponent_1, fs_1, Bind_1, renderInHTMLDocument_1) {
+define(["require", "exports", "../../misc/misc", "../createElement", "../StatelessComponent", "fs", "../util/Bind", "../renderInHtml"], function (require, exports, misc_1, createElement_1, StatelessComponent_1, fs_1, Bind_1, renderInHtml_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function cssTest1() {
@@ -81,7 +81,7 @@ define(["require", "exports", "../../misc/misc", "../createElement", "../Statele
             persons.map(function (p) { return createElement_1.ReactLike.createElement(Person, { name: p.name, friends: p.friends }); }),
             createElement_1.ReactLike.createElement("button", { onClick: function (e) {
                 } }, "click me"));
-        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument_1.renderInHTMLDocument(main));
+        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHtml_1.renderInHTMLDocument(main));
         // console.log(ReactLike.render(main, { indent: true }));
     }
     exports.statelessComponentTest = statelessComponentTest;
@@ -92,7 +92,7 @@ define(["require", "exports", "../../misc/misc", "../createElement", "../Statele
             createElement_1.ReactLike.createElement("button", { onClick: function (e) { alert('foo'); } }, "click me"),
             createElement_1.ReactLike.createElement("button", { onClick: function (e) { alert("foo\nhello"); } }, "click me22"));
         // const s = ReactLike.render(main, { indent: true })
-        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument_1.renderInHTMLDocument(main));
+        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHtml_1.renderInHTMLDocument(main));
         // console.log(s);
     }
     exports.functionAttributes = functionAttributes;
@@ -195,7 +195,7 @@ define(["require", "exports", "../../misc/misc", "../createElement", "../Statele
             Custom.prototype.setState = function (state) {
                 this.state = state;
                 if (this._rootEl) {
-                    this._rootEl.innerHTML = createElement_1.ReactLike.render(this, this._renderConfig || {});
+                    renderInHtml_1.setInnerHTML(this._rootEl, createElement_1.ReactLike.render(this, this._renderConfig || {}));
                 }
             };
             Custom.prototype.getState = function () {
@@ -216,7 +216,6 @@ define(["require", "exports", "../../misc/misc", "../createElement", "../Statele
                 if (!this.props.data && this.props.name && this.props.onChange) {
                     var c = this.firstChildElement();
                     if (c) {
-                        debugger;
                         var id = "bind-input-value-element-" + Bind_1.Bind.counter++;
                         //     // if (typeof this.props.inputValue === 'undefined') {
                         //       // const c = this.firstChildElement()

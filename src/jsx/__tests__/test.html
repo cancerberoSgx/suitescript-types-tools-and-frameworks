@@ -1,14 +1,1146 @@
+<script>
 
-  <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  <script>__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
+/**
+ * @license almond 0.3.3 Copyright jQuery Foundation and other contributors.
+ * Released under MIT license, http://github.com/requirejs/almond/LICENSE
+ */
+//Going sloppy to avoid 'use strict' string cost, but strict practices should
+//be followed.
+/*global setTimeout: false */
+
+var requirejs, require, define;
+(function (undef) {
+    var main, req, makeMap, handlers,
+        defined = {},
+        waiting = {},
+        config = {},
+        defining = {},
+        hasOwn = Object.prototype.hasOwnProperty,
+        aps = [].slice,
+        jsSuffixRegExp = /.js$/;
+
+    function hasProp(obj, prop) {
+        return hasOwn.call(obj, prop);
+    }
+
+    /**
+     * Given a relative module name, like ./something, normalize it to
+     * a real name that can be mapped to a path.
+     * @param {String} name the relative name
+     * @param {String} baseName a real name that the name arg is relative
+     * to.
+     * @returns {String} normalized name
+     */
+    function normalize(name, baseName) {
+        var nameParts, nameSegment, mapValue, foundMap, lastIndex,
+            foundI, foundStarMap, starI, i, j, part, normalizedBaseParts,
+            baseParts = baseName && baseName.split("/"),
+            map = config.map,
+            starMap = (map && map['*']) || {};
+
+        //Adjust any relative paths.
+        if (name) {
+            name = name.split('/');
+            lastIndex = name.length - 1;
+
+            // If wanting node ID compatibility, strip .js from end
+            // of IDs. Have to do this here, and not in nameToUrl
+            // because node allows either .js or non .js to map
+            // to same file.
+            if (config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
+                name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
+            }
+
+            // Starts with a '.' so need the baseName
+            if (name[0].charAt(0) === '.' && baseParts) {
+                //Convert baseName to array, and lop off the last part,
+                //so that . matches that 'directory' and not name of the baseName's
+                //module. For instance, baseName of 'one/two/three', maps to
+                //'one/two/three.js', but we want the directory, 'one/two' for
+                //this normalization.
+                normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
+                name = normalizedBaseParts.concat(name);
+            }
+
+            //start trimDots
+            for (i = 0; i < name.length; i++) {
+                part = name[i];
+                if (part === '.') {
+                    name.splice(i, 1);
+                    i -= 1;
+                } else if (part === '..') {
+                    // If at the start, or previous value is still ..,
+                    // keep them so that when converted to a path it may
+                    // still work when converted to a path, even though
+                    // as an ID it is less than ideal. In larger point
+                    // releases, may be better to just kick out an error.
+                    if (i === 0 || (i === 1 && name[2] === '..') || name[i - 1] === '..') {
+                        continue;
+                    } else if (i > 0) {
+                        name.splice(i - 1, 2);
+                        i -= 2;
+                    }
+                }
+            }
+            //end trimDots
+
+            name = name.join('/');
+        }
+
+        //Apply map config if available.
+        if ((baseParts || starMap) && map) {
+            nameParts = name.split('/');
+
+            for (i = nameParts.length; i > 0; i -= 1) {
+                nameSegment = nameParts.slice(0, i).join("/");
+
+                if (baseParts) {
+                    //Find the longest baseName segment match in the config.
+                    //So, do joins on the biggest to smallest lengths of baseParts.
+                    for (j = baseParts.length; j > 0; j -= 1) {
+                        mapValue = map[baseParts.slice(0, j).join('/')];
+
+                        //baseName segment has  config, find if it has one for
+                        //this name.
+                        if (mapValue) {
+                            mapValue = mapValue[nameSegment];
+                            if (mapValue) {
+                                //Match, update name to the new value.
+                                foundMap = mapValue;
+                                foundI = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                if (foundMap) {
+                    break;
+                }
+
+                //Check for a star map match, but just hold on to it,
+                //if there is a shorter segment match later in a matching
+                //config, then favor over this star map.
+                if (!foundStarMap && starMap && starMap[nameSegment]) {
+                    foundStarMap = starMap[nameSegment];
+                    starI = i;
+                }
+            }
+
+            if (!foundMap && foundStarMap) {
+                foundMap = foundStarMap;
+                foundI = starI;
+            }
+
+            if (foundMap) {
+                nameParts.splice(0, foundI, foundMap);
+                name = nameParts.join('/');
+            }
+        }
+
+        return name;
+    }
+
+    function makeRequire(relName, forceSync) {
+        return function () {
+            //A version of a require function that passes a moduleName
+            //value for items that may need to
+            //look up paths relative to the moduleName
+            var args = aps.call(arguments, 0);
+
+            //If first arg is not require('string'), and there is only
+            //one arg, it is the array form without a callback. Insert
+            //a null so that the following concat is correct.
+            if (typeof args[0] !== 'string' && args.length === 1) {
+                args.push(null);
+            }
+            return req.apply(undef, args.concat([relName, forceSync]));
+        };
+    }
+
+    function makeNormalize(relName) {
+        return function (name) {
+            return normalize(name, relName);
+        };
+    }
+
+    function makeLoad(depName) {
+        return function (value) {
+            defined[depName] = value;
+        };
+    }
+
+    function callDep(name) {
+        if (hasProp(waiting, name)) {
+            var args = waiting[name];
+            delete waiting[name];
+            defining[name] = true;
+            main.apply(undef, args);
+        }
+
+        if (!hasProp(defined, name) && !hasProp(defining, name)) {
+            throw new Error('No ' + name);
+        }
+        return defined[name];
+    }
+
+    //Turns a plugin!resource to [plugin, resource]
+    //with the plugin being undefined if the name
+    //did not have a plugin prefix.
+    function splitPrefix(name) {
+        var prefix,
+            index = name ? name.indexOf('!') : -1;
+        if (index > -1) {
+            prefix = name.substring(0, index);
+            name = name.substring(index + 1, name.length);
+        }
+        return [prefix, name];
+    }
+
+    //Creates a parts array for a relName where first part is plugin ID,
+    //second part is resource ID. Assumes relName has already been normalized.
+    function makeRelParts(relName) {
+        return relName ? splitPrefix(relName) : [];
+    }
+
+    /**
+     * Makes a name map, normalizing the name, and using a plugin
+     * for normalization if necessary. Grabs a ref to plugin
+     * too, as an optimization.
+     */
+    makeMap = function (name, relParts) {
+        var plugin,
+            parts = splitPrefix(name),
+            prefix = parts[0],
+            relResourceName = relParts[1];
+
+        name = parts[1];
+
+        if (prefix) {
+            prefix = normalize(prefix, relResourceName);
+            plugin = callDep(prefix);
+        }
+
+        //Normalize according
+        if (prefix) {
+            if (plugin && plugin.normalize) {
+                name = plugin.normalize(name, makeNormalize(relResourceName));
+            } else {
+                name = normalize(name, relResourceName);
+            }
+        } else {
+            name = normalize(name, relResourceName);
+            parts = splitPrefix(name);
+            prefix = parts[0];
+            name = parts[1];
+            if (prefix) {
+                plugin = callDep(prefix);
+            }
+        }
+
+        //Using ridiculous property names for space reasons
+        return {
+            f: prefix ? prefix + '!' + name : name, //fullName
+            n: name,
+            pr: prefix,
+            p: plugin
+        };
+    };
+
+    function makeConfig(name) {
+        return function () {
+            return (config && config.config && config.config[name]) || {};
+        };
+    }
+
+    handlers = {
+        require: function (name) {
+            return makeRequire(name);
+        },
+        exports: function (name) {
+            var e = defined[name];
+            if (typeof e !== 'undefined') {
+                return e;
+            } else {
+                return (defined[name] = {});
+            }
+        },
+        module: function (name) {
+            return {
+                id: name,
+                uri: '',
+                exports: defined[name],
+                config: makeConfig(name)
+            };
+        }
+    };
+
+    main = function (name, deps, callback, relName) {
+        var cjsModule, depName, ret, map, i, relParts,
+            args = [],
+            callbackType = typeof callback,
+            usingExports;
+
+        //Use name if no relName
+        relName = relName || name;
+        relParts = makeRelParts(relName);
+
+        //Call the callback to define the module, if necessary.
+        if (callbackType === 'undefined' || callbackType === 'function') {
+            //Pull out the defined dependencies and pass the ordered
+            //values to the callback.
+            //Default to [require, exports, module] if no deps
+            deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
+            for (i = 0; i < deps.length; i += 1) {
+                map = makeMap(deps[i], relParts);
+                depName = map.f;
+
+                //Fast path CommonJS standard dependencies.
+                if (depName === "require") {
+                    args[i] = handlers.require(name);
+                } else if (depName === "exports") {
+                    //CommonJS module spec 1.1
+                    args[i] = handlers.exports(name);
+                    usingExports = true;
+                } else if (depName === "module") {
+                    //CommonJS module spec 1.1
+                    cjsModule = args[i] = handlers.module(name);
+                } else if (hasProp(defined, depName) ||
+                           hasProp(waiting, depName) ||
+                           hasProp(defining, depName)) {
+                    args[i] = callDep(depName);
+                } else if (map.p) {
+                    map.p.load(map.n, makeRequire(relName, true), makeLoad(depName), {});
+                    args[i] = defined[depName];
+                } else {
+                    throw new Error(name + ' missing ' + depName);
+                }
+            }
+
+            ret = callback ? callback.apply(defined[name], args) : undefined;
+
+            if (name) {
+                //If setting exports via "module" is in play,
+                //favor that over return value and exports. After that,
+                //favor a non-undefined return value over exports use.
+                if (cjsModule && cjsModule.exports !== undef &&
+                        cjsModule.exports !== defined[name]) {
+                    defined[name] = cjsModule.exports;
+                } else if (ret !== undef || !usingExports) {
+                    //Use the return value from the function.
+                    defined[name] = ret;
+                }
+            }
+        } else if (name) {
+            //May just be an object definition for the module. Only
+            //worry about defining if have a module name.
+            defined[name] = callback;
+        }
+    };
+
+    requirejs = require = req = function (deps, callback, relName, forceSync, alt) {
+        if (typeof deps === "string") {
+            if (handlers[deps]) {
+                //callback in this case is really relName
+                return handlers[deps](callback);
+            }
+            //Just return the module wanted. In this scenario, the
+            //deps arg is the module name, and second arg (if passed)
+            //is just the relName.
+            //Normalize module name, if it contains . or ..
+            return callDep(makeMap(deps, makeRelParts(callback)).f);
+        } else if (!deps.splice) {
+            //deps is a config object, not an array.
+            config = deps;
+            if (config.deps) {
+                req(config.deps, config.callback);
+            }
+            if (!callback) {
+                return;
+            }
+
+            if (callback.splice) {
+                //callback is an array, which means it is a dependency list.
+                //Adjust args if there are dependencies
+                deps = callback;
+                callback = relName;
+                relName = null;
+            } else {
+                deps = undef;
+            }
+        }
+
+        //Support require(['a'])
+        callback = callback || function () {};
+
+        //If relName is a function, it is an errback handler,
+        //so remove it.
+        if (typeof relName === 'function') {
+            relName = forceSync;
+            forceSync = alt;
+        }
+
+        //Simulate async callback;
+        if (forceSync) {
+            main(undef, deps, callback, relName);
+        } else {
+            //Using a non-zero value because of concern for what old browsers
+            //do, and latest browsers "upgrade" to 4 if lower value is used:
+            //http://www.whatwg.org/specs/web-apps/current-work/multipage/timers.html#dom-windowtimers-settimeout:
+            //If want a value immediately, use require('id') instead -- something
+            //that works in almond on the global level, but not guaranteed and
+            //unlikely to work in other AMD implementations.
+            setTimeout(function () {
+                main(undef, deps, callback, relName);
+            }, 4);
+        }
+
+        return req;
+    };
+
+    /**
+     * Just drops the config on the floor, but returns req in case
+     * the config return value is used.
+     */
+    req.config = function (cfg) {
+        return req(cfg);
+    };
+
+    /**
+     * Expose module registry for debugging and tooling
+     */
+    requirejs._defined = defined;
+
+    define = function (name, deps, callback) {
+        if (typeof name !== 'string') {
+            throw new Error('See almond README: incorrect module build, no module name');
+        }
+
+        //This module may not have dependencies
+        if (!deps.splice) {
+            //deps is not an array, so probably means
+            //an object literal or factory function for
+            //the value. Adjust args.
+            callback = deps;
+            deps = [];
+        }
+
+        if (!hasProp(defined, name) && !hasProp(waiting, name)) {
+            waiting[name] = [name, deps, callback];
+        }
+    };
+
+    define.amd = {
+        jQuery: true
+    };
+}());
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+define("createElement", ["require", "exports", "elementImpl"], function (require, exports, elementImpl_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var throwOnUnrecognized = false;
+    function debug(err) {
+        if (throwOnUnrecognized) {
+            throw err;
+        }
+        else {
+            console.error(err);
+        }
+    }
+    var Module = {
+        createElement: function (tag, attrs) {
+            if (attrs === void 0) { attrs = {}; }
+            var children = [];
+            for (var _i = 2; _i < arguments.length; _i++) {
+                children[_i - 2] = arguments[_i];
+            }
+            var element;
+            if (typeof tag === 'string') {
+                element = new elementImpl_1.ElementLikeImpl(tag);
+            }
+            else {
+                if (elementImpl_1.isReactLikeComponent(tag)) {
+                    element = new tag(__assign({}, attrs, { children: children })).render();
+                }
+                else {
+                    element = tag(__assign({}, attrs, { children: children }));
+                }
+                attrs = {};
+            }
+            for (var name_1 in attrs) {
+                if (name_1 && attrs.hasOwnProperty(name_1)) {
+                    var value = attrs[name_1];
+                    if (typeof value === 'boolean') {
+                        if (value === true) {
+                            element.setAttribute(name_1, name_1);
+                        }
+                    }
+                    else if (typeof value === 'function') {
+                        var code = "(" + value.toString() + ").apply(this, arguments)";
+                        var escaped = code.replace(/\"/gmi, '&quot;');
+                        element.setAttribute(name_1, escaped);
+                    }
+                    else if (value !== false && value != null) {
+                        if (name_1 === 'className') {
+                            if (typeof value === 'string') {
+                                element.setAttribute('class', value);
+                            }
+                            else if (Array.isArray(value) && value.length && typeof value[0] === 'string') {
+                                element.setAttribute('class', value.join(' '));
+                            }
+                            else {
+                                debug("unrecognized className value " + typeof value + " " + value);
+                            }
+                        }
+                        else {
+                            element.setAttribute(name_1, value.toString());
+                        }
+                    }
+                    else if (typeof value === 'object') {
+                        if (name_1 === 'style') {
+                            element.setAttribute('style', "" + Object.keys(value).map(function (p) { return p + ": " + value[p]; }).join('; '));
+                        }
+                        else if (name_1 === 'dangerouslySetInnerHTML' && value && typeof value.__html === 'string') {
+                            element.dangerouslySetInnerHTML(value.__html);
+                        }
+                        else {
+                            debug("unrecognized object attribute \"" + name_1 + "\" - the only object attribute supported is \"style\"");
+                        }
+                    }
+                    else {
+                        debug("unrecognized attribute \"" + name_1 + "\" with type " + typeof value);
+                    }
+                }
+            }
+            children.filter(function (c) { return c; }).forEach(function (child) {
+                if (elementImpl_1.isNode(child)) {
+                    element.appendChild(child);
+                }
+                else if (Array.isArray(child)) {
+                    child.forEach(function (c) {
+                        if (typeof c === 'string') {
+                            element.appendChild(new elementImpl_1.TextNodeLikeImpl(c));
+                        }
+                        else if (elementImpl_1.isNode(c)) {
+                            element.appendChild(c);
+                        }
+                        else {
+                            debug("Child is not a node or string: " + c + " , tag: " + tag);
+                        }
+                    });
+                }
+                else {
+                    element.appendChild(new elementImpl_1.TextNodeLikeImpl(child));
+                }
+            });
+            return element;
+        },
+        _renderConfig: undefined,
+        render: function (el, config) {
+            if (config === void 0) { config = {}; }
+            return ("\n" + (config.renderClientCode ? "<sc" + '' + "ript>" + Module.getClientCode().map(function (c) { return c.code; }).join('\n') + "<" + '' + "/" + "script>" : "") + "\n" + el.render(config) + "\n").trim();
+        },
+        registerClientCode: function (f) {
+            clientCode.push(f);
+        },
+        getClientCode: function () {
+            return clientCode;
+        },
+    };
+    var clientCode = [];
+    exports.ReactLike = Module;
+    //@ts-ignore
+    exports.ReactLike = Module; // creates a global variable needed so emitted .js calls work. See tsconfig.json `"jsxFactory": "ReactLike.createElement",`
+});
+;
+require(["createElement"], function(thisName){
+    createElement_1 = thisName;
+    createElement_2 = thisName;
+});
+;
+
+// heads up - we want this file to be independent, that's why we didn't use misc utilities!
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+define("elementImpl", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    // import * as RL from './createElement'
+    function isReactLikeComponent(c) {
+        return c.prototype && c.prototype.render;
+    }
+    exports.isReactLikeComponent = isReactLikeComponent;
+    function isNode(n) {
+        return isTextNodeLike(n) || isElementLike(n);
+    }
+    exports.isNode = isNode;
+    function isElementLike(n) {
+        return n && n.setAttribute;
+    }
+    exports.isElementLike = isElementLike;
+    function isTextNodeLike(n) {
+        return n && n.content && !isElementLike(n);
+    }
+    exports.isTextNodeLike = isTextNodeLike;
+    var TextNodeLikeImpl = /** @class */ (function () {
+        function TextNodeLikeImpl(content) {
+            this.content = content;
+        }
+        TextNodeLikeImpl.prototype.render = function (config) {
+            if (config === void 0) { config = defaultRenderConfig; }
+            return "" + this.content;
+        };
+        return TextNodeLikeImpl;
+    }());
+    exports.TextNodeLikeImpl = TextNodeLikeImpl;
+    // declare var ReactLike: ReactLike&{indent: any}
+    var ElementLikeImpl = /** @class */ (function () {
+        function ElementLikeImpl(tag) {
+            this.tag = tag;
+            this.attrs = {};
+            this.children = [];
+        }
+        ElementLikeImpl.prototype.render = function (config) {
+            var _this = this;
+            if (config === void 0) { config = defaultRenderConfig; }
+            var newLine = config.indent ? "\n" : "";
+            var content = this.innerHtml ||
+                "" + newLine + this.indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children
+                    .map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); })
+                    .join('') + newLine + this.indent(config);
+            return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + content + "</" + this.tag + ">";
+        };
+        ElementLikeImpl.prototype.indent = function (config) {
+            // return config.indent ? _indent(config.indentLevel || 0, config.indentTabSize || 2) : ''
+            // const tabSize = config.indentTabSize || 2
+            var L = (config.indentLevel || 0) * (config.indentTabSize || 2);
+            var a = [];
+            for (var i = 0; i < L; i++) {
+                a.push(' ');
+            }
+            return a.join('');
+        };
+        ElementLikeImpl.prototype.setAttribute = function (name, value) {
+            this.attrs[name] = value;
+        };
+        ElementLikeImpl.prototype.appendChild = function (c) {
+            this.children.push(c);
+            if (isElementLike(c)) {
+                c.parentElement = this;
+                // this.children.push(c)
+            }
+        };
+        ElementLikeImpl.prototype.dangerouslySetInnerHTML = function (s) {
+            this.innerHtml = s;
+        };
+        ElementLikeImpl.prototype.findDescendant = function (p) {
+            var found;
+            this.children.some(function (c) {
+                if (isElementLike(c)) {
+                    if (p(c)) {
+                        found = c;
+                    }
+                    else {
+                        found = c.findDescendant(p);
+                    }
+                }
+                return !!found;
+            });
+            return found;
+        };
+        ElementLikeImpl.prototype.findAscendant = function (p) {
+            if (this.parentElement) {
+                if (p(this.parentElement)) {
+                    return this.parentElement;
+                }
+                return this.parentElement.findAscendant(p);
+            }
+        };
+        ElementLikeImpl.prototype.getAscendants = function () {
+            return this.parentElement ? this.parentElement.getAscendants().concat([this.parentElement]) : [];
+        };
+        ElementLikeImpl.prototype.getRootAscendant = function () {
+            var r = this.parentElement ? this.findAscendant(function (n) { return !n.parentElement; }) : this;
+            return checkThrow(r, 'No root ascendant found in element like tree!');
+        };
+        ElementLikeImpl.prototype.getSiblings = function () {
+            var _this = this;
+            if (this.parentElement) {
+                return this.parentElement.children.filter(function (c) { return c !== _this; });
+            }
+            return [];
+        };
+        ElementLikeImpl.prototype.findSibling = function (p) {
+            return this.getSiblings().find(p);
+        };
+        ElementLikeImpl.prototype.find = function (p) {
+            // TODO: this should start searching in the near children, sibling and parents, and only after that look on far nodes
+            return this.getRootAscendant().findDescendant(p);
+        };
+        return ElementLikeImpl;
+    }());
+    exports.ElementLikeImpl = ElementLikeImpl;
+    var defaultRenderConfig = { indentLevel: 0, indentTabSize: 2 };
+    // heads up - we want this file to be independent, that's why we did't use misc utilities!
+    // heads up - we want this file to be independent, that's why we did't use misc utilities!
+    function checkThrow(r, msg) {
+        if (msg === void 0) { msg = 'Throwing on undefined value'; }
+        if (!r) {
+            throw new Error(msg);
+        }
+        return r;
+    }
+});
+// function _indent(i: number = 1, tabSize = 2): string {
+//   const a=[]
+//   for (let i = 0; i < i*tabSize; i++) {
+//     a.push(' ')
+//   }
+//   return a.join('')
+// }
+;
+require(["elementImpl"], function(thisName){
+    elementImpl_1 = thisName;
+    elementImpl_2 = thisName;
+});
+;
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+define("Select", ["require", "exports", "createElement", "StatelessComponent", "Bind"], function (require, exports, createElement_1, StatelessComponent_1, Bind_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var Select = /** @class */ (function (_super) {
+        __extends(Select, _super);
+        function Select() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        Select.prototype.render = function () {
+            var _this = this;
+            var options = (this.props.options.length && typeof this.props.options[0] === 'string') ? this.props.options.map(function (o) { return ({ id: o, name: o }); }) : this.props.options;
+            var id = Select.counter++;
+            return createElement_1.ReactLike.createElement("span", null,
+                this.props.onChange ? createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "Select-" + id, data: this.props.onChange }) : '',
+                createElement_1.ReactLike.createElement("select", __assign({}, this.props['select-attrs'] || {}, { "data-select-id": id, onChange: function (e) {
+                        var value = e.currentTarget.selectedOptions[0].value;
+                        var id = e.currentTarget.getAttribute('data-select-id');
+                        var f = getBindData("Select-" + id);
+                        f && f(value);
+                    } }),
+                    this.props.firstOption ? createElement_1.ReactLike.createElement("option", null, this.props.firstOption) : '',
+                    options.map(function (o) { return createElement_1.ReactLike.createElement("option", { selected: _this.props.selected == o.id, value: o.id }, o.name); })));
+        };
+        Select.counter = 0;
+        return Select;
+    }(StatelessComponent_1.StatelessComponent));
+    exports.Select = Select;
+});
+;
+require(["Select"], function(thisName){
+    Select_1 = thisName;
+    Select_2 = thisName;
+});
+;
+
+define("StatelessComponent", ["require", "exports", "elementImpl"], function (require, exports, elementImpl_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    /**
+     * Let declare custom tag components with classes instead of just functions or variables.
+     *
+     * Notice that differently than React's, it doesn't make any sense to support component's state in SuiteScript
+     * back end's scripts (suitelet, restlet, etc) so it's no included. TODO: what about client scripts ?
+     */
+    var StatelessComponent = /** @class */ (function () {
+        function StatelessComponent(props) {
+            this.props = props;
+            this.props = props;
+            this.checkRegisteredCode();
+        }
+        StatelessComponent.prototype.render = function () {
+            throw new Error('Not Implemented');
+        };
+        StatelessComponent.prototype.checkRegisteredCode = function () { };
+        StatelessComponent.prototype.childrenAsArray = function () {
+            return (Array.isArray(this.props.children) ? this.props.children : [this.props.children]);
+        };
+        StatelessComponent.prototype.childrenElementsAsArray = function () {
+            return this.childrenAsArray().filter(function (c) { return elementImpl_1.isElementLike(c); });
+        };
+        StatelessComponent.prototype.firstChildElement = function () {
+            return this.childrenAsArray().find(function (e) { return true; });
+        };
+        return StatelessComponent;
+    }());
+    exports.StatelessComponent = StatelessComponent;
+});
+;
+require(["StatelessComponent"], function(thisName){
+    StatelessComponent_1 = thisName;
+    StatelessComponent_2 = thisName;
+});
+;
+
+// better idea - probably this can be obsoleted by just using data-attributes, example:  instead of `<Bind name="foo"><input></input></Bind>` use `<input data-bind-name="foo"></input>`
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+define("Bind", ["require", "exports", "formatDate", "misc", "createElement", "StatelessComponent"], function (require, exports, formatDate_1, misc_1, createElement_1, StatelessComponent_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id';
+    /**
+     * Helper to bind data to the DOM and input element values so it can be easily retrieved from a function attribute like a click handler from the browser. This is necessary because in the browser's function attribute we don't have access to the server code scope.
+     *
+     *  * `<Bind data={{my: 'foo'}}>` or  `<Bind data={{my: 'foo'}} name="unique-key-123">` and `getBindData("unique-key-123")` : if no name is provided, then the data is associated with the first direct child and the element itself can be used to extract it with getBindData instead of using a key.
+     *
+     *  * `<Bind inputValue="anElementOrUndefined" name="unique-key-333">` to declare an input element which value can be retrieved by name at any time from the browser (like a event handler function attribute)to bind. If no `inputValue` is given the first direct child found will be used to bind its value. It supports elements like <input> (type text, date, checkbox, number), <textarea>, <select>. Then the value of this element can be easily retrieved frmo a event handler function attribute by calling the global `getBindInputValue("unique-key-333")`
+     *
+     * Example:
+    
+    ```
+    {props.fields.map(f=><div>
+    <Bind bindInput={`foo-field-${f.id}`}>
+      <input type="date" value={props.created}></input>
+    </Bind>
+    <Bind bindListener="foo-field-{f.id}""} data={Props}>
+      <button onClick={e => {
+        const {endpoint} = getBindData<Props>(e.currentTarget);
+        let value = getBindInputValue<string>(e.currentTarget);
+        fetch(`${endpoint}&value=${value}`)
+          .then(r=>r.jsonResponse)
+          .then(status=>alert(`Saved ${status}`))
+      }}>
+      Save</button>
+    </Bind>
+    ```
+     */
+    var Bind = /** @class */ (function (_super) {
+        __extends(Bind, _super);
+        function Bind() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        Bind.prototype.render = function () {
+            if (!this.props.data && this.props.name) {
+                var id = "bind-input-value-element-" + Bind.counter++;
+                if (typeof this.props.inputValue === 'undefined') {
+                    var c = this.firstChildElement();
+                    if (c) {
+                        c.attrs[Bind.BIND_VALUE_ATTRIBUTE_NAME] = id;
+                    }
+                    else {
+                        // TODO: error debug
+                        return createElement_1.ReactLike.createElement("span", null);
+                    }
+                }
+                else {
+                    this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id);
+                }
+                // TODO: add this statements in a single global <script> tag - could be a static el attribute
+                return createElement_1.ReactLike.createElement("span", null,
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues['" + this.props.name + "'] = {id: '" + id + "'};\n").trim()));
+            }
+            else if (this.props.data && this.props.name) {
+                // TODO: add this statements in a single global <script> tag - could be a static el attribute
+                return createElement_1.ReactLike.createElement("span", null,
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindData['" + this.props.name + "'] = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n").trim()));
+            }
+            else {
+                // TODO: error debug
+                return createElement_1.ReactLike.createElement("span", null);
+            }
+        };
+        Bind.prototype.checkRegisteredCode = function () {
+            if (!Bind.registered) {
+                createElement_1.ReactLike.registerClientCode({
+                    name: 'getBindData',
+                    code: ("\n__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;\n__BindData = typeof __BindData === 'undefined' ? {} : __BindData;\nvar BIND_VALUE_ATTRIBUTE_NAME = '" + Bind.BIND_VALUE_ATTRIBUTE_NAME + "';\n" + getBindData.toString() + ";\n" + getBindDataOrThrow.toString() + ";\n" + misc_1.unEscapeHtmlAttribute.toString() + ";\n" + misc_1.escapeHtmlAttribute.toString() + ";\nvar createElement_1 = {unEscapeHtmlAttribute: unEscapeHtmlAttribute, escapeHtmlAttribute: escapeHtmlAttribute}; \n" + formatDate_1.formatDate.toString() + "; var dateUtil_1 = {formatDate: formatDate}; \n").trim(),
+                    description: "Gets data stored in the element declared ed with wrapper <StoreData><button..."
+                });
+            }
+            createElement_1.ReactLike.registerClientCode({
+                name: 'getBindInputValue',
+                code: ("\n" + getBindInputValue.toString() + ";\n" + misc_1.array.toString() + "; \n" + misc_1.checkThrow.toString() + "; \nvar misc_1 = {array: array, checkThrow: checkThrow}; \n").trim(),
+                description: "Gets the current input value declared with wrapper <BindInputValue><input..."
+            });
+            Bind.registered = true;
+        };
+        Bind.counter = 0;
+        Bind.BIND_VALUE_ATTRIBUTE_NAME = BIND_VALUE_ATTRIBUTE_NAME;
+        Bind.registered = false;
+        return Bind;
+    }(StatelessComponent_1.StatelessComponent));
+    exports.Bind = Bind;
+    // TODO: perhaps is safer to put all js objects in a global variable instead of embedding them in the DOM element
+    function getBindData(key) {
+        return __BindData[key];
+    }
+    function getBindDataOrThrow(key) {
+        return misc_1.checkThrow(getBindData(key), 'Store data not found for key ' + key);
+    }
+    1;
+    // type ElType = HTMLInputElement&HTMLSelectElement
+    function getBindInputValue(listenerElementOrInputElementOrKeyOrInputElementSelector, config) {
+        if (config === void 0) { config = {}; }
+        var el = null;
+        if (typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
+            // Can be a name:
+            var id = __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector];
+            var sel = id && id.id && "[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + id.id + "\"]";
+            el = sel && document.querySelector(sel) ||
+                // can be an input element selector
+                document.querySelector(listenerElementOrInputElementOrKeyOrInputElementSelector);
+        }
+        else {
+            // can be a listener element
+            var key = listenerElementOrInputElementOrKeyOrInputElementSelector.getAttribute("" + BIND_VALUE_ATTRIBUTE_NAME);
+            if (key) {
+                el = document.querySelector("[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + key + "\"]");
+            }
+            if (!el) {
+                // can be a input element
+                el = listenerElementOrInputElementOrKeyOrInputElementSelector;
+            }
+        }
+        if (el) {
+            if (el.type === 'date') {
+                return (config.asString && el.valueAsDate) ? formatDate_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
+            }
+            else if (el.type === 'number') {
+                return config.asString ? (el.valueAsNumber + '') : el.valueAsNumber;
+            }
+            else if (el.type === 'checkbox') {
+                return config.asString ? (el.checked ? 'T' : 'F') : !!el.checked;
+            }
+            else if (el.tagName.toLowerCase() === 'select') {
+                var selectedOptions_1 = el.selectedOptions;
+                if (selectedOptions_1 && !el.getAttribute('multiple')) {
+                    return config.asString ? (selectedOptions_1.item(0).value + '') : selectedOptions_1.item(0).value;
+                }
+                else if ((selectedOptions_1 && el.getAttribute('multiple')) || !selectedOptions_1.length) {
+                    var a = misc_1.array(selectedOptions_1.length).map(function (i) { return selectedOptions_1.item(i).value; });
+                    return config.asString ? JSON.stringify(a) : a;
+                }
+                else {
+                    //TODO debug msg
+                }
+            }
+            else {
+                //TODO debug msg
+            }
+            return config.asString ? (el.value + '') : el.value;
+        }
+    }
+});
+;
+require(["Bind"], function(thisName){
+    Bind_1 = thisName;
+    Bind_2 = thisName;
+});
+;
+
+define("formatDate", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function formatDate(date, format) {
+        if (typeof date === 'string') { // happens when serializing dates to json for testing
+            date = new Date(date);
+        }
+        var dd = date.getDay();
+        var mm = date.getMonth() + 1; //January is 0!
+        var yyyy = date.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd;
+        }
+        if (mm < 10) {
+            mm = '0' + mm;
+        }
+        if (format === 'YYYY-MM-DD') {
+            return yyyy + '-' + mm + '-' + dd;
+        }
+        else {
+            return mm + "/" + dd + "/" + yyyy;
+        }
+    }
+    exports.formatDate = formatDate;
+});
+;
+require(["formatDate"], function(thisName){
+    formatDate_1 = thisName;
+    formatDate_2 = thisName;
+});
+;
+
+define("misc", ["require", "exports"], function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    // collections
+    function array(n, sample) {
+        var a = [];
+        for (var i = 0; i < n; i++) {
+            a.push(typeof sample === 'undefined' ? i : sample);
+        }
+        return a;
+    }
+    exports.array = array;
+    function repeat(n, s) {
+        return array(n, s).join('');
+    }
+    exports.repeat = repeat;
+    function indent(i, tabSize) {
+        if (i === void 0) { i = 1; }
+        if (tabSize === void 0) { tabSize = 2; }
+        return repeat(i * tabSize, ' ');
+    }
+    exports.indent = indent;
+    function objectKeys(o) {
+        return Object.keys(o);
+    }
+    exports.objectKeys = objectKeys;
+    function checkThrow(r, msg) {
+        if (msg === void 0) { msg = 'Throwing on undefined value'; }
+        if (!r) {
+            throw new Error(msg);
+        }
+        return r;
+    }
+    exports.checkThrow = checkThrow;
+    function tryTo(f) {
+        try {
+            return f();
+        }
+        catch (error) {
+        }
+    }
+    exports.tryTo = tryTo;
+    var TypedMapImpl = /** @class */ (function () {
+        function TypedMapImpl(props) {
+            this.props = props;
+        }
+        TypedMapImpl.prototype.get = function (name) {
+            return this.props[name];
+        };
+        TypedMapImpl.prototype.set = function (name, value) {
+            this.props[name] = value;
+        };
+        return TypedMapImpl;
+    }());
+    exports.TypedMapImpl = TypedMapImpl;
+    function printNativeError(error) {
+        return (error && error.type) + ", " + (error && error.name) + "\nCause: " + (error && error.message) + "\nStack Trace:\n" + ((error.stack && Array.isArray(error.stack)) ? error.stack.map(function (s) { return repeat(2, ' ') + s; }).join('\n') : error.stack);
+    }
+    exports.printNativeError = printNativeError;
+    // strings
+    function escapeHtmlAttribute(code) {
+        return code.replace(/\"/gmi, '&quot;');
+    }
+    exports.escapeHtmlAttribute = escapeHtmlAttribute;
+    function unEscapeHtmlAttribute(code) {
+        return code.replace(/\&quot\;/gmi, '"');
+    }
+    exports.unEscapeHtmlAttribute = unEscapeHtmlAttribute;
+});
+;
+require(["misc"], function(thisName){
+    misc_1 = thisName;
+    misc_2 = thisName;
+});
+;
+
+define("renderInHtml", ["require", "exports", "createElement"], function (require, exports, createElement_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    function renderInHTMLDocument(e) {
+        return "\n  <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\" />\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <title>title</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n</head>\n<body>\n  " + createElement_1.ReactLike.render(e, { indent: true, indentLevel: 1, renderClientCode: true }) + "\n</body>\n</html>\n";
+    }
+    exports.renderInHTMLDocument = renderInHTMLDocument;
+    /** sets innerHTML and calls children scripts if any */
+    function setInnerHTML(elm, html) {
+        elm.innerHTML = html;
+        elm.querySelectorAll("script").forEach(function (el) {
+            var newEl = document.createElement("script");
+            el.getAttributeNames().forEach(function (attrName) {
+                newEl.setAttribute(attrName, el.getAttribute(attrName));
+            });
+            newEl.appendChild(document.createTextNode(el.innerHTML));
+            el.parentNode.replaceChild(newEl, el);
+        });
+    }
+    exports.setInnerHTML = setInnerHTML;
+    function renderInDOM(e, el, config) {
+        if (typeof el === 'string') {
+            var ell = document.querySelector(el);
+            if (!ell) {
+                throw 'Element not found ' + el;
+            }
+            setInnerHTML(ell, createElement_1.ReactLike.render(e, config));
+        }
+        else {
+            setInnerHTML(el, createElement_1.ReactLike.render(e, config));
+        }
+    }
+    exports.renderInDOM = renderInDOM;
+});
+;
+require(["renderInHtml"], function(thisName){
+    renderInHtml_1 = thisName;
+    renderInHtml_2 = thisName;
+});
+
+</script>
+<script>__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
 __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
 var BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id';
 function getBindData(key) {
@@ -66,11 +1198,6 @@ function getBindInputValue(listenerElementOrInputElementOrKeyOrInputElementSelec
             el = listenerElementOrInputElementOrKeyOrInputElementSelector;
         }
     }
-    // const elAsInput = 
-    // const el = typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string' ? (document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${listenerElementOrInputElementOrKeyOrInputElementSelector}"]`)||document.querySelector<HTMLInputElement>(`${listenerElementOrInputElementOrKeyOrInputElementSelector}`)) 
-    // listenerElementOrInputElementOrKeyOrInputElementSelector
-    // .getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`)
-    // const el = document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`)
     if (el) {
         if (el.type === 'date') {
             return (config.asString && el.valueAsDate) ? formatDate_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
@@ -115,30 +1242,9 @@ function checkThrow(r, msg) {
     return r;
 }; 
 var misc_1 = {array: array, checkThrow: checkThrow};</script>
-<div>
-    <span>
-      <span>
-        <script>
-          __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
-__BindData['Select1'] = function (value) {
-                    console.log('Select', value);
-                };
-        </script>
-      </span><select onChange="(function (e) {
-                    var value = e.currentTarget.selectedOptions[0].value;
-                    var f = getBindDataOrThrow('Select1');
-                    // debugger
-                    f(value);
-                }).apply(this, arguments)">
-        <option value="s">
-          s
-        </option><option value="2">
-          2
-        </option><option value="d">
-          d
-        </option>
-      </select>
-    </span>
-  </div>
-</body>
-</html>
+<div>  <span>    <script>      __BindData['needed'] = {"n":1};    </script>  </span><button onClick="(function (e) {
+                renderInHtml_1.renderInDOM(createElement_1.ReactLike.createElement(&quot;div&quot;, null, &quot;hello&quot;), '#id1');
+                renderInHtml_1.renderInDOM(createElement_1.ReactLike.createElement(Select_1.Select, { options: ['s', 'd'], onChange: function (e) {
+                        renderInHtml_1.renderInDOM(createElement_1.ReactLike.createElement(Select_1.Select, { options: ['1s', 'd2', e] }), '#id1');
+                    } }), '#id2');
+            }).apply(this, arguments)">    click  </button><div id="id1">      </div><div id="id2">      </div></div>

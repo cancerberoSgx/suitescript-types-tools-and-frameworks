@@ -7,6 +7,7 @@ import { Bind } from '../../jsx/util/Bind';
 import { PageRange } from 'N/search'
 import { array } from '../../misc/misc';
 import { ClassRule, Styles, Style } from '../../jsx/Style';
+import { SearchFilterEditor } from './searchFilterEditor';
 
 interface Props extends RouteHandlerParams {
   type?: string
@@ -15,19 +16,27 @@ interface Props extends RouteHandlerParams {
   filters: Filter[]
   filter?: string
   userColumns?: string[]
-  userFilters?: string[]
+  userFilters?: Filter[]
   results?: Result[]
   pageSize?: number
   pageRanges?: PageRange[]
   currentPage?: number
   pageCount?: number
 }
-interface Column extends ColumnValue {
+interface Column extends ColumnValue{
+  // id: string, 
+  // type: string,
+  // label?: string
   name: string
 }
-interface Filter extends FilterValue {
+export interface Filter extends FilterValue {
   name: string
+  // id: string
+  // label?: string
+  value?: string
+  operator?: string
 }
+
 interface Result { id: string, columns: string[] }
 export interface ColumnValue { id: string, type: string, label: string }
 export interface FilterValue { id: string, type: string, label: string }
@@ -55,7 +64,7 @@ export class SearchView extends StatelessComponent<Props> {
 
       <Style classes={styles}></Style>
 
-      <script>{getUserColumns.toString()};{search.toString()}; {getUserFilters.toString()}</script>
+      <script>{getUserColumns.toString()};{search.toString()}; {getUserFilters.toString()};</script>
 
       <Bind name="SearchView" data={{ ...this.props, columns: [], filters: [], results: [] }}></Bind>
 
@@ -90,10 +99,16 @@ export class SearchView extends StatelessComponent<Props> {
       <div>
         Filters:
           <ul>
-          {(this.props.userFilters || []).map((c, i) =>
-            <li>
-              <Select select-attrs={{ 'data-user-filter': i + '' }} selected={c} options={this.props.filters} firstOption={`Select ${this.props.type} filter`}></Select>
-            </li>)}
+          {(this.props.userFilters || []).map((c, i) =>{
+
+            // const operators = (SearchTypesOperatorSupportValues as any)[c.] || [] as string[]
+            // const types = 
+            return             <li>
+              
+             {/* <SearchFilterEditor filter={c}></SearchFilterEditor> */}
+              
+            </li>})
+            }
         </ul>
         <button onClick={e => {
           const selects = document.querySelectorAll<HTMLSelectElement>('[data-user-filter]')
@@ -139,7 +154,7 @@ export class SearchView extends StatelessComponent<Props> {
 
 function search(newColumn=false, newFilter=false) {
   const userColumns: string[] = newColumn ? ['__new__'] : getUserColumns()
-  const userFilters: string[] = newColumn ? ['__new__'] : getUserFilters()
+  const userFilters: Filter[] = []//(newColumn ? ['__new__'] : getUserFilters()).map()
   const pageSize = document.querySelector<HTMLInputElement>(`#searchViewPageSize`)!.value
   const currentPageS = document.querySelector<HTMLSelectElement>('[data-current-page]')!
   const currentPage = currentPageS.selectedOptions.length ? currentPageS.selectedOptions[0].value : '0'
@@ -172,7 +187,4 @@ function getUserColumns() {
   });
   return userColumns;
 }
-
-
-
 

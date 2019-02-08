@@ -48,6 +48,7 @@ var ${name} = (function(){
   };
 })();
 `
+//.replace(/\<\/script/gmi, `</`)
 }
 
 

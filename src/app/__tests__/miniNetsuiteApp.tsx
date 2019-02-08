@@ -9,7 +9,7 @@ import { findRecordRoute } from '../routes/findRecordRoute';
 import { listRecordTypesRoute, listRecordTypesResultRoute } from "../searchView/listRecordTypesRoute";
 import { setSublistFieldValueRoute } from '../routes/setSublistFieldValueRoute';
 import { debuggerRoute, addMiniDebuggerRoutes } from './miniDebuggerApp';
-import { renderInHTMLDocument } from '../../jsx/renderInHTMLDocument';
+import { renderInHTMLDocument } from '../../jsx/renderInHtml';
 import { searchViewRoute } from "../searchView/searchViewRoute";
 
 // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)

@@ -7,7 +7,7 @@ import { Debugger, DebuggerExecutionResults, DebuggerAvailableObject } from './m
 import { printSource } from '../../introspection/printThisScopeSource';
 import { evalCode } from './miniDebuggerEvalCode';
 import { availableObjects } from './miniDebuggerAvailableObjects';
-import { renderInHTMLDocument } from '../../jsx/renderInHTMLDocument';
+import { renderInHTMLDocument } from '../../jsx/renderInHtml';
 
 export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse) {
 

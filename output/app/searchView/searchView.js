@@ -49,7 +49,8 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/StatelessCom
                     ";",
                     search.toString(),
                     "; ",
-                    getUserFilters.toString()),
+                    getUserFilters.toString(),
+                    ";"),
                 createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "SearchView", data: __assign({}, this.props, { columns: [], filters: [], results: [] }) }),
                 createElement_1.ReactLike.createElement("div", null,
                     "Search Type: ",
@@ -78,8 +79,9 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/StatelessCom
                 createElement_1.ReactLike.createElement("div", null,
                     "Filters:",
                     createElement_1.ReactLike.createElement("ul", null, (this.props.userFilters || []).map(function (c, i) {
-                        return createElement_1.ReactLike.createElement("li", null,
-                            createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter': i + '' }, selected: c, options: _this.props.filters, firstOption: "Select " + _this.props.type + " filter" }));
+                        // const operators = (SearchTypesOperatorSupportValues as any)[c.] || [] as string[]
+                        // const types = 
+                        return createElement_1.ReactLike.createElement("li", null);
                     })),
                     createElement_1.ReactLike.createElement("button", { onClick: function (e) {
                             var selects = document.querySelectorAll('[data-user-filter]');
@@ -116,7 +118,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/StatelessCom
         if (newColumn === void 0) { newColumn = false; }
         if (newFilter === void 0) { newFilter = false; }
         var userColumns = newColumn ? ['__new__'] : getUserColumns();
-        var userFilters = newColumn ? ['__new__'] : getUserFilters();
+        var userFilters = []; //(newColumn ? ['__new__'] : getUserFilters()).map()
         var pageSize = document.querySelector("#searchViewPageSize").value;
         var currentPageS = document.querySelector('[data-current-page]');
         var currentPage = currentPageS.selectedOptions.length ? currentPageS.selectedOptions[0].value : '0';

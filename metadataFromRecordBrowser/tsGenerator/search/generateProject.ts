@@ -42,9 +42,9 @@ ${indent()}${id.fieldType}?: ${id.operators.map(o => `'${o}'`).join(' | ')};
 }
 
 export const SearchTypesOperatorSupportValues = {${fieldTypeOperatorMetadata.map(id => `
-${indent()}${id.fieldType}: [${id.operators.map(o => `'${o}'`).join(', ')}
+${indent()}${id.fieldType}: [${id.operators.map(o => `'${o}'`).join(', ')}]
 `.trim()
-  ).join(`\n${indent()}`)}
+  ).join(`,\n${indent()}`)}
 };
 `.trim()
   return { output }

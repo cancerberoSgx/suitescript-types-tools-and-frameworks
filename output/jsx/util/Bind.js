@@ -60,25 +60,17 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
                         return createElement_1.ReactLike.createElement("span", null);
                     }
                 }
-                // else if(typeof this.props.inputValue==='string'){
-                //   this.
-                // }
                 else {
                     this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id);
                 }
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
                 return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;\n__BindInputValues['" + this.props.name + "'] = {id: '" + id + "'};\n").trim()));
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues['" + this.props.name + "'] = {id: '" + id + "'};\n").trim()));
             }
             else if (this.props.data && this.props.name) {
-                //       return <span dangerouslySetInnerHTML={{__html: `<script>
-                //       __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
-                //       __BindData['${this.props.name}'] = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
-                //         </script>`}}>
-                // </span>
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
                 return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindData = typeof __BindData === 'undefined' ? {} : __BindData;\n__BindData['" + this.props.name + "'] = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n").trim()));
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindData['" + this.props.name + "'] = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n").trim()));
             }
             else {
                 // TODO: error debug
@@ -137,11 +129,6 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
                 el = listenerElementOrInputElementOrKeyOrInputElementSelector;
             }
         }
-        // const elAsInput = 
-        // const el = typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string' ? (document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${listenerElementOrInputElementOrKeyOrInputElementSelector}"]`)||document.querySelector<HTMLInputElement>(`${listenerElementOrInputElementOrKeyOrInputElementSelector}`)) 
-        // listenerElementOrInputElementOrKeyOrInputElementSelector
-        // .getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`)
-        // const el = document.querySelector<HTMLInputElement>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`)
         if (el) {
             if (el.type === 'date') {
                 return (config.asString && el.valueAsDate) ? formatDate_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;

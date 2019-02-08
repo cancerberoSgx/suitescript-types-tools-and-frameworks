@@ -1,42 +1,42 @@
-// the idea is to build tools to explore JS live objects 
+// the idea is to build tools to explore JS live objects
 
 // basic object exploration utilities
 
-var __c = typeof(1 as any)
+var __c = typeof (1 as any)
 /** something like "string" | "number" | "bigint" | "boolean" | "symbol" | "undefined" | "object" | "function" */
-export type TypeOf = typeof __c  
-export const TypeOfValues = ["string" , "number" , "bigint" , "boolean" , "symbol" , "undefined" , "object" , "function"]
+export type TypeOf = typeof __c
+export const TypeOfValues = ["string", "number", "bigint", "boolean", "symbol", "undefined", "object", "function"]
 
 // simple tools
-export function getObjectKeys(o : any): string[]{
+export function getObjectKeys(o: any): string[] {
   const a = []
-  for(let k in o) {
+  for (let k in o) {
     a.push(k)
   }
-  return a  
+  return a
 }
-export function getType(o: any): Type{
-return typeof o
+export function getType(o: any): Type {
+  return typeof o
 }
-export function getObjectValueTypes(o : any): NamedTyped[]{
-  return getObjectKeys(o).map(name=>({name: name+'', type: getType(o[name])}))
+export function getObjectValueTypes(o: any): NamedTyped[] {
+  return getObjectKeys(o).map(name => ({ name: name + '', type: getType(o[name]) }))
 }
-export function printObjectValueTypes(o : any): string{
+export function printObjectValueTypes(o: any): string {
   return printNamedTypedArray(getObjectValueTypes(o))
-  }
-export function getObjectKeysTypesAndValues(o : any): NamedTypedValued[]{
-  return getObjectKeys(o).map(name=>({name: name+'', type: getType(o[name]), value: o[name]}))
+}
+export function getObjectKeysTypesAndValues(o: any): NamedTypedValued[] {
+  return getObjectKeys(o).map(name => ({ name: name + '', type: getType(o[name]), value: o[name] }))
 }
 
 
-export function printTyped(o: Typed){
+export function printTyped(o: Typed) {
   return `${o.type}`
 }
-export function printNamedTyped(o: NamedTyped){
+export function printNamedTyped(o: NamedTyped) {
   return ` * ${o.name}: ${printTyped(o)}`
 }
-export function printNamedTypedArray(arr: NamedTyped[]){
-  return arr.map(o=>printNamedTyped(o)).join('\n')
+export function printNamedTypedArray(arr: NamedTyped[]) {
+  return arr.map(o => printNamedTyped(o)).join('\n')
 }
 
 // export function printNamedTypedValued(arr: NamedTypedValued[]){
@@ -55,10 +55,10 @@ interface Typed<T extends Type = Type> {
   otherValue?: string
   jsonStringify?: string
 }
-interface Named  {
+interface Named {
   name: string
 }
-interface NamedTyped extends Typed , Named  {
+interface NamedTyped extends Typed, Named {
   // name: string
 }
 interface NamedOptional {
@@ -71,14 +71,14 @@ interface Value extends Typed {
 interface Valued {
   value: Value
 }
-interface NamedTypedValued extends NamedTyped, Valued  {
+interface NamedTypedValued extends NamedTyped, Valued {
   // name: string
 }
 interface Member extends Typed, NamedOptional {
   isReadOnly?: boolean
 }
 
-interface NamedMember extends NamedTyped{
+interface NamedMember extends NamedTyped {
 }
 
 interface Keyed extends NamedTyped {
@@ -86,10 +86,10 @@ interface Keyed extends NamedTyped {
 }
 
 interface Attribute extends NamedMember {
-  
+
 }
 
-interface Function extends Typed, NamedOptional{
+interface Function extends Typed, NamedOptional {
   parameters: NamedTyped[]
 }
 
@@ -103,14 +103,14 @@ interface ClassLike extends NamedTyped {
   constructors: Constructor[]
 }
 
-interface Constructor  extends Member, Function {
+interface Constructor extends Member, Function {
   name: never
   returnValue: ClassLike
-  }
-  
+}
 
 
-type Type = TypeOf| 'other'
+
+type Type = TypeOf | 'other'
 const TypeValues = TypeOfValues.concat('other')
 
 

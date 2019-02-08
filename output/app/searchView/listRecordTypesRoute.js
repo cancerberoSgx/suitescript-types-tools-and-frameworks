@@ -18,18 +18,38 @@ define(["require", "exports", "../../jsx/createElement", "../../search/typedSear
             handler: function (o) {
                 var type = o.params.type;
                 var pageSize = parseInt(o.params.pageSize || '20', 10);
-                var dynamicResultsRender = !!o.params.dynamicResultsRender;
-                if (!type) {
-                    return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(listRecordTypesView_1.ListRecordTypes, __assign({ pageSize: pageSize }, o.params)));
-                }
+                // const dynamicResultsRender = !!o.params.dynamicResultsRender
+                // if (!type) {
+                //   return ReactLike.render(<ListRecordTypes pageSize={pageSize} {...o.params}></ListRecordTypes>)
+                // }
                 var counter = 0;
-                var results = typedSearchOperations_1.filter({
+                var results = type ? typedSearchOperations_1.filter({
                     type: type,
                     columns: []
-                }, function (r) { return (((counter++) > pageSize) || !r) ? false : true; });
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(listRecordTypesView_1.ListRecordTypes, __assign({ pageSize: pageSize }, o.params, { type: type, results: results, dynamicResultsRender: dynamicResultsRender })));
+                }, function (r) { return (((counter++) > pageSize) || !r) ? false : true; }) : [];
+                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(listRecordTypesView_1.ListRecordTypes, __assign({ pageSize: pageSize }, o.params, { type: type, results: results })));
             }
         };
     }
     exports.listRecordTypesRoute = listRecordTypesRoute;
+    function listRecordTypesResultRoute(app) {
+        return {
+            name: 'listRecordTypesResult',
+            handler: function (o) {
+                var type = o.params.type;
+                var pageSize = parseInt(o.params.pageSize || '20', 10);
+                // const dynamicResultsRender = !!o.params.dynamicResultsRender
+                // if (!type) {
+                //   return ReactLike.render(<ListRecordTypes pageSize={pageSize} {...o.params}></ListRecordTypes>)
+                // }
+                var counter = 0;
+                var results = type ? typedSearchOperations_1.filter({
+                    type: type,
+                    columns: []
+                }, function (r) { return (((counter++) > pageSize) || !r) ? false : true; }) : [];
+                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(listRecordTypesView_1.ListRecordTypesResult, __assign({ pageSize: pageSize }, o.params, { type: type, results: results })));
+            }
+        };
+    }
+    exports.listRecordTypesResultRoute = listRecordTypesResultRoute;
 });

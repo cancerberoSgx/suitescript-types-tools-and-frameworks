@@ -1,7 +1,7 @@
 // heads up - we want this file to be independent, that's why we didn't use misc utilities!
 
 import { ReactLikeComponent, NodeLike, ElementLike, TextNodeLIke, RenderConfig, Predicate, ReactLike } from './jsx'
-
+// import * as RL from './createElement'
 
 export function isReactLikeComponent(c: any): c is ReactLikeComponent {
   return c.prototype && c.prototype.render
@@ -25,7 +25,7 @@ export class TextNodeLikeImpl implements TextNodeLIke {
     return `${this.content}`
   }
 }
-declare var ReactLike: ReactLike&{indent: any}
+// declare var ReactLike: ReactLike&{indent: any}
 
 export class ElementLikeImpl implements ElementLike {
   private innerHtml: string | undefined
@@ -41,11 +41,22 @@ export class ElementLikeImpl implements ElementLike {
   render(config: RenderConfig = defaultRenderConfig): string {
     const newLine = config.indent ? `\n` : ``
     const content = this.innerHtml ||
-      `${newLine}${ReactLike.indent({ ...config, indentLevel: (config.indentLevel || 0) + 1 })}${
+      `${newLine}${this.indent({ ...config, indentLevel: (config.indentLevel || 0) + 1 })}${
         this.children
         .map(c => `${c.render({ ...config, indentLevel: (config.indentLevel || 0) + 1 })}`)
-        .join('')}${newLine}${ReactLike.indent(config)}`
+        .join('')}${newLine}${this.indent(config)}`
     return `<${this.tag}${Object.keys(this.attrs).map(a => ` ${a}="${this.attrs[a]}"`).join('')}>${content}</${this.tag}>`
+  }
+
+  protected indent(config:{indentLevel?: number, indentTabSize? : number}) {
+    // return config.indent ? _indent(config.indentLevel || 0, config.indentTabSize || 2) : ''
+    // const tabSize = config.indentTabSize || 2
+    const L = (config.indentLevel || 0) * (config.indentTabSize || 2)
+    const a=[]
+    for (let i = 0; i < L; i++) {
+      a.push(' ')
+    }
+    return a.join('')
   }
   setAttribute(name: string, value: string): void {
     this.attrs[name] = value
@@ -79,7 +90,9 @@ export class ElementLikeImpl implements ElementLike {
 
   findAscendant(p: Predicate<ElementLike>): ElementLike | undefined {
     if (this.parentElement) {
-      if (p(this.parentElement)) { return this.parentElement }
+      if (p(this.parentElement)) {
+        return this.parentElement
+      }
       return this.parentElement.findAscendant(p)
     }
   }

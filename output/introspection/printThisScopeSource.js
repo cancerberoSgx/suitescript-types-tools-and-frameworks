@@ -36,9 +36,7 @@ define(["require", "exports", "./objectExplorer", "../misc/misc"], function (req
     }
     exports.printSource = printSource;
     function printNamespace(v, name) {
-        // const body = getObjectKeys(v).map(k=>`var ${k} = ${printSource(v[k], true)}`).join(';\n')
-        // const result =
-        return "\n" + objectExplorer_1.getObjectKeys(v).map(function (k) { return "var " + k + " = " + printSource(v[k], true); }).join(';\n') + "\n\n" + (name ? "var " + name + " = " : '') + "{\n  " + objectExplorer_1.getObjectKeys(v).map(function (k) { return k + ": " + k; }).join(',\n    ') + "\n}\n";
+        return "\nvar " + name + " = (function(){\n  " + objectExplorer_1.getObjectKeys(v).map(function (k) { return "var " + k + " = " + printSource(v[k], true); }).join(';\n  ') + "\n  return {\n    " + objectExplorer_1.getObjectKeys(v).map(function (k) { return k + ": " + k; }).join(',\n    ') + "\n  };\n})();\n";
     }
     exports.printNamespace = printNamespace;
     function printObjectAndScope(value, printFunctionPrototypes, printGlobals) {
@@ -59,5 +57,4 @@ define(["require", "exports", "./objectExplorer", "../misc/misc"], function (req
         }
         return output;
     }
-    exports.matchGlobalRegex = matchGlobalRegex;
 });

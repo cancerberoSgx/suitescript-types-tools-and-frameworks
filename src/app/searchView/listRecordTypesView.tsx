@@ -1,60 +1,61 @@
-import { RenderLinkOptions } from '../browserCode';
 import { getSearchRecordTypes } from '../../search/getSearchRecordTypes';
 import { Result } from '../../search/typedSearch/typedSearch';
 import { RecordType } from '../../record/typedRecord/typedRecord';
 import { ReactLike } from "../../jsx/createElement";
 import { Bind } from '../../jsx/util/Bind';
 import { RouteHandlerParams } from '../app';
+import { StatelessComponent } from '../../jsx/StatelessComponent';
 
-
-interface Props extends RouteHandlerParams{
+interface Props extends RouteHandlerParams {
   type?: string
   pageSize?: number
-  // renderLink(config: RenderLinkOptions): string
   results?: Result<RecordType>[]
-  dynamicResultsRender?: boolean
+  // dynamicResultsRender?: boolean
 }
 
-// const bindInputValueId = `data-list-record-types`
-
 export const ListRecordTypes = (props: Props) => {
-  return <div>
+
+return <div>
+    <p>
+      <a href={props.renderLink({ routeName: 'mainPage', params: { ...props.currentParams } })}>Go back to Main Page</a>
+    </p>
     Record type: {props.type} {props.results && props.results.length}
-    <Bind name={`data-list-record-types`}>
-      <select id="ListRecordTypesSelect">
-        {getSearchRecordTypes().map(r =>
-          <option selected={props.type == r} value={r}>{r}</option>
-        )}
-      </select>
-    </Bind>
+    <select id="ListRecordTypesSelect" onChange={e => {
+      let type = e.currentTarget.value
+      fetchAndRenderHtml({
+        routeName: 'listRecordTypesResult',
+        params: { type },
+        selector: '#listRecordTypesDynamicResults'
+      })
+    }}>
+      {getSearchRecordTypes().map(r =>
+        <option selected={props.type == r} value={r}>{r}</option>
+      )}
+    </select>
 
-    {/* <Bind> */}
-    {props.dynamicResultsRender ? 
-      <button 
-      onClick={e => {
-        let type = getBindInputValue<string>(`data-list-record-types`);
-        fetchAndRenderHtml({ routeName: 'listRecordTypes', params: { type }, selector: '#listRecordTypesDynamicResults' })
-      }}>Search</button> : 
-      <button 
-      onClick={e => {
-        let type = getBindInputValue<string>(`data-list-record-types`);
-        window.location.href = buildRouteUrl({ routeName: 'listRecordTypes', params: { type } });
-      }}
-      >   Search</button>
+    <span id="listRecordTypesDynamicResults">
+      <ListRecordTypesResult {...props}></ListRecordTypesResult>
+    </span>
+
+  </div>
+}
+
+
+export class ListRecordTypesResult extends StatelessComponent<Props> {
+  render() {
+    if (!this.props.results) {
+      return <span></span>
     }
-    {/* </Bind> */}
-
-    <span id="listRecordTypesDynamicResults"></span> 
-
-    {props.results && <div>
+    return <div>
       Results:
-    <ul>{props.results.map(r =>
+    <ul>{this.props.results.map(r =>
         <li>
-          <a href={props.renderLink({ routeName: 'recordView', params: { id: r.id, type: r.recordType } })}>{r.recordType}  {r.id}</a>
+          <a href={this.props.renderLink({ routeName: 'recordView', params: { id: r.id, type: r.recordType } })}>{r.recordType}  {r.id}</a>
         </li>)}
       </ul>
-    </div> ||''}
-  </div>
+    </div>
+
+  }
 }
 
 

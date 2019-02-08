@@ -2,13 +2,18 @@ import { printNativeError } from '../../misc/misc';
 import { reactLikeBrowserSource } from '../../jsx/reactLikeBrowserSource';
 import { installArrayPrototypeFind } from '../../misc/arrayPrototypeFind';
 
+import * as objectExplorer from '../../introspection/objectExplorer';
+import * as results from '../../search/results';
+import * as recordMetadata from '../../introspection/recordMetadata';
+import { printNamespace } from '../../introspection/printThisScopeSource';
+import { getRecordTypeMetadata } from '../../introspection/recordMetadata';
 
-export function evalCode(code: string): {
+export function evalCode(code: string, extraCode: string[] = []): {
   logs: string[];
   errors: string[];
   evaluatedCode: string;
 } {
-  const evaluatedCode = buildCodeToEval(code);
+  const evaluatedCode = buildCodeToEval(code, extraCode);
   try {
     eval(evaluatedCode);
   }
@@ -32,7 +37,8 @@ function printValueForLog(s: any): string {
 function LOG(...args: any[]): void {
   _logs.push(args.map(printValueForLog).join(', '));
 }
-export function buildCodeToEval(code: string) {
+
+export function buildCodeToEval(code: string, extraCode: string[] = []) {
   const evaluatedCode = `
 
 ${printValueForLog.toString()}
@@ -43,8 +49,16 @@ ${installArrayPrototypeFind.toString()}
 
 ${reactLikeBrowserSource()}
 
+${printNamespace(objectExplorer, 'objectExplorer')}
+
+${printNamespace(recordMetadata, 'recordMetadata')}
+${printNamespace(results, 'results')}
+
+${extraCode.join(';\n\n')}
+
 ${code}
 
 `;
   return evaluatedCode;
 }
+

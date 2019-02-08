@@ -39,13 +39,14 @@ export function printSource(v: any, printFunctionPrototypes = false): string | u
 }
 
 
-export function printNamespace(v: any, name?: string) {
+export function printNamespace(v: any, name: string) {
   return `
-${getObjectKeys(v).map(k => `var ${k} = ${printSource(v[k], true)}`).join(';\n')}
-
-${name ? `var ${name} = ` : ''}{
-  ${getObjectKeys(v).map(k => `${k}: ${k}`).join(',\n    ')}
-}
+var ${name} = (function(){
+  ${getObjectKeys(v).map(k => `var ${k} = ${printSource(v[k], true)}`).join(';\n  ')}
+  return {
+    ${getObjectKeys(v).map(k => `${k}: ${k}`).join(',\n    ')}
+  };
+})();
 `
 }
 
@@ -71,7 +72,7 @@ ${globalsCode};
     `.trim()
 }
 
-export function matchGlobalRegex(r: RegExp, s: string): string[] {
+function matchGlobalRegex(r: RegExp, s: string): string[] {
   var matches, output = [];
   while (matches = r.exec(s)) {
     output.push(matches[1]);

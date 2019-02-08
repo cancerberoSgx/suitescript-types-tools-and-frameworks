@@ -1,8 +1,9 @@
-define(["require", "exports", "../../misc/misc", "../../jsx/createElement", "../../jsx/reactLikeBrowserSource"], function (require, exports, misc_1, ReactLike, reactLikeBrowserSource_1) {
+define(["require", "exports", "../../misc/misc", "../../jsx/reactLikeBrowserSource", "../../misc/arrayPrototypeFind", "../../introspection/objectExplorer", "../../search/results", "../../introspection/recordMetadata", "../../introspection/printThisScopeSource"], function (require, exports, misc_1, reactLikeBrowserSource_1, arrayPrototypeFind_1, objectExplorer, results, recordMetadata, printThisScopeSource_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function evalCode(code) {
-        var evaluatedCode = buildCodeToEval(code);
+    function evalCode(code, extraCode) {
+        if (extraCode === void 0) { extraCode = []; }
+        var evaluatedCode = buildCodeToEval(code, extraCode);
         try {
             eval(evaluatedCode);
         }
@@ -29,16 +30,10 @@ define(["require", "exports", "../../misc/misc", "../../jsx/createElement", "../
         }
         _logs.push(args.map(printValueForLog).join(', '));
     }
-    function buildCodeToEval(code) {
-        // var createElement_1 = { ReactLike: ReactLike };
-        // ${printSource.toString()};
-        // ${printRecordFields.toString()}
-        var evaluatedCode = "\n" + printValueForLog.toString() + "\n" + LOG.toString() + "\n\n" + reactLikeBrowserSource_1.reactLikeBrowserSource() + "\n\n" + testFFF.toString() + "\n" + code + "\n  ";
+    function buildCodeToEval(code, extraCode) {
+        if (extraCode === void 0) { extraCode = []; }
+        var evaluatedCode = "\n\n" + printValueForLog.toString() + "\n\n" + LOG.toString() + "\n\n" + arrayPrototypeFind_1.installArrayPrototypeFind.toString() + "\n\n" + reactLikeBrowserSource_1.reactLikeBrowserSource() + "\n\n" + printThisScopeSource_1.printNamespace(objectExplorer, 'objectExplorer') + "\n\n" + printThisScopeSource_1.printNamespace(recordMetadata, 'recordMetadata') + "\n" + printThisScopeSource_1.printNamespace(results, 'results') + "\n\n" + extraCode.join(';\n\n') + "\n\n" + code + "\n\n";
         return evaluatedCode;
     }
     exports.buildCodeToEval = buildCodeToEval;
-    // render
-    // ReactLike.ReactLike.render()
-    function testFFF() { return ReactLike.createElement("div", null, "helloaosd"); }
-    exports.testFFF = testFFF;
 });

@@ -1,7 +1,7 @@
 import { NodeLike, ElementLike } from './jsx';
 import { isElementLike } from './elementImpl';
 
-export type StatelessComponentProps<P> = { children?: JSX.Element }&P  //(Readonly<{ children?: JSX.Element }> & Readonly<P>)
+export type StatelessComponentProps<P> = (Readonly<{ children?: JSX.Element }> & Readonly<P>)
 
 export interface IStatelessComponent<P={}> {
   props: StatelessComponentProps<P>
@@ -17,7 +17,7 @@ export interface IStatelessComponent<P={}> {
 
 export class StatelessComponent<P={}> implements IStatelessComponent<P> {
 
-  constructor(public props: StatelessComponentProps<P>) {
+  constructor(public readonly props: StatelessComponentProps<P>) {
     this.props = props
     this.checkRegisteredCode()
   }

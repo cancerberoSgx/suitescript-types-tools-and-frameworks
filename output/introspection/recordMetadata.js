@@ -113,6 +113,7 @@ define(["require", "exports", "../log/log", "../misc/misc"], function (require, 
         };
         return RecordBuilder;
     }());
+    exports.RecordBuilder = RecordBuilder;
     function getRecordTypeMetadata(config) {
         var builder = new RecordBuilder();
         return builder.extractRecord(config);

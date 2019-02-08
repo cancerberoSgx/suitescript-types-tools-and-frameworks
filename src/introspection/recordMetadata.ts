@@ -12,7 +12,7 @@ export interface Record extends Base {
   type: string
 }
 
-// enum FieldType { 'string', 'boolean', }// TODO - is there a record for extracting this ? 
+// enum FieldType { 'string', 'boolean', }// TODO - is there a record for extracting this ?
 // interface Sublists { [sublistId: string]: Sublist }
 
 interface Base {
@@ -41,7 +41,7 @@ interface ExtractConfig {
   /** perform record.getSublistField() to try getting sublist fields information like type ? */
   callGetSublistField?: boolean
 }
-class RecordBuilder {
+export class RecordBuilder {
   config: ExtractConfig | undefined;
 
   extractRecord(config: ExtractConfig): Record {

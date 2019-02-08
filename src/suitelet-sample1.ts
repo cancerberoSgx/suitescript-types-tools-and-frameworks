@@ -11,6 +11,8 @@ import { find } from "./misc/arrayPrototypeFind";
 import { miniNetSuiteApp as miniNetSuiteApp } from './app/__tests__/miniNetsuiteApp';
 // import { appTest } from './app/__tests__/appTest';
 
+//@ts-ignore
+// GLOBAL=this
 export let onRequest: EntryPoints.Suitelet.onRequest = context => {
 
     setDefaultLogger(new ResponseLogger(context.response))

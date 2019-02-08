@@ -114,12 +114,4 @@ define(["require", "exports", "../search/typedSearch/typedSearchOperations", "..
         return parent.absoluteName.indexOf(rootAbsoluteName) === 0 ? parent.absoluteName : rootAbsoluteName + '/' + parent.absoluteName;
     }
     var counter = 0;
-    function lsTest() {
-        ls({ root: '5226', rootAbsoluteName: '/SuiteScripts/DeployExtensions/AwaLabs' })
-            .sort(function (a, b) { return a.absoluteName.localeCompare(b.absoluteName); })
-            .forEach(function (f) {
-            console.log(f.absoluteName + " " + f.type + " " + f.id + " " + f.parent);
-        });
-    }
-    exports.lsTest = lsTest;
 });

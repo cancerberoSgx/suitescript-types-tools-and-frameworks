@@ -31,10 +31,10 @@ export function find(results: ResultSet, predicate: FindPredicate): Result|undef
         return true
     })
     return found
-}  
+}
 export type FindPredicate =(r: Result, index?: number) => boolean
 
-/** array.filter() like function. it won't convert the whole results into an array but iterate throug the result set to be more performant */
+/** array.filter() like function. it won't convert the whole results into an array but iterate through the result set to be more performant */
 export function filter(results: ResultSet, predicate: FindPredicate): Result[] {
     const found : Result[]= [] = []
     let index = 0
@@ -46,4 +46,4 @@ export function filter(results: ResultSet, predicate: FindPredicate): Result[] {
         return true
     })
     return found
-} 
+}

@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp", "../../jsx/renderInHTMLDocument"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1, renderInHTMLDocument_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
@@ -19,9 +19,10 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         app.addRoute(findRecordRoute_1.findRecordRoute(app));
         app.addRoute(recordViewRoute_1.recordViewRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesRoute(app));
+        app.addRoute(listRecordTypesRoute_1.listRecordTypesResultRoute(app));
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
         app.addRoute(setSublistFieldValueRoute_1.setSublistFieldValueRoute(app));
-        app.addRoute(miniDebuggerApp_1.debuggerRoute(app));
+        miniDebuggerApp_1.addMiniDebuggerRoutes(app);
         // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
         var defaultRoute = {
             name: 'redirectToMainPage',
@@ -82,7 +83,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         return {
             name: 'mainPage',
             handler: function (o) {
-                return createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(exports.MainPage, __assign({}, o.params, { userName: o.params.userName })));
+                return renderInHTMLDocument_1.renderInHTMLDocument(createElement_1.ReactLike.createElement(exports.MainPage, __assign({}, o.params, { userName: o.params.userName })));
             }
         };
     }

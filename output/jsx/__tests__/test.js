@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../misc/misc", "../createElement", "../StatelessComponent", "fs", "../util/Bind"], function (require, exports, misc_1, createElement_1, StatelessComponent_1, fs_1, Bind_1) {
+define(["require", "exports", "../../misc/misc", "../createElement", "../StatelessComponent", "fs", "../util/Bind", "../renderInHTMLDocument"], function (require, exports, misc_1, createElement_1, StatelessComponent_1, fs_1, Bind_1, renderInHTMLDocument_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function cssTest1() {
@@ -81,7 +81,7 @@ define(["require", "exports", "../../misc/misc", "../createElement", "../Statele
             persons.map(function (p) { return createElement_1.ReactLike.createElement(Person, { name: p.name, friends: p.friends }); }),
             createElement_1.ReactLike.createElement("button", { onClick: function (e) {
                 } }, "click me"));
-        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument(main));
+        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument_1.renderInHTMLDocument(main));
         // console.log(ReactLike.render(main, { indent: true }));
     }
     exports.statelessComponentTest = statelessComponentTest;
@@ -92,15 +92,10 @@ define(["require", "exports", "../../misc/misc", "../createElement", "../Statele
             createElement_1.ReactLike.createElement("button", { onClick: function (e) { alert('foo'); } }, "click me"),
             createElement_1.ReactLike.createElement("button", { onClick: function (e) { alert("foo\nhello"); } }, "click me22"));
         // const s = ReactLike.render(main, { indent: true })
-        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument(main));
+        fs_1.writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument_1.renderInHTMLDocument(main));
         // console.log(s);
     }
     exports.functionAttributes = functionAttributes;
-    // functionAttributes()
-    function renderInHTMLDocument(e) {
-        return "\n  <!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\" />\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <title>title</title>\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n</head>\n<body>\n  " + createElement_1.ReactLike.render(e, { indent: true, indentLevel: 1, renderClientCode: true }) + "\n</body>\n</html>\n";
-    }
-    exports.renderInHTMLDocument = renderInHTMLDocument;
     function moreOnCss() {
         var button = {
             border: '2px solid pink',

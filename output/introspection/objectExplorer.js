@@ -1,4 +1,4 @@
-// the idea is to build tools to explore JS live objects 
+// the idea is to build tools to explore JS live objects
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });

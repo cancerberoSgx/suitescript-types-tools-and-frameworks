@@ -6,6 +6,8 @@ define(["require", "exports", "./log/log", "./log/responseLogger", "./app/__test
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // import { appTest } from './app/__tests__/appTest';
+    //@ts-ignore
+    // GLOBAL=this
     exports.onRequest = function (context) {
         log_1.setDefaultLogger(new responseLogger_1.ResponseLogger(context.response));
         // typedSearchTest()

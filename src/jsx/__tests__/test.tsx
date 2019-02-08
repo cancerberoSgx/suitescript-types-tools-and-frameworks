@@ -8,6 +8,7 @@ import { ChangeEvent, InputHTMLAttributes, MouseEvent } from '../declarations/do
 import { getObjectValueTypes, getObjectKeys } from '../../introspection/objectExplorer';
 import { type } from 'os';
 import { printObjectAndScope, printSource } from '../../introspection/printThisScopeSource';
+import { renderInHTMLDocument } from '../renderInHTMLDocument';
 
 function cssTest1() {
   const Comp = () => <div className="apple" style={{ border: '1 px solid pink', background: 'blue' }}>i'm pink</div>
@@ -88,25 +89,6 @@ export function functionAttributes() {
   writeFileSync('src/jsx/__tests__/test.html', renderInHTMLDocument(main))
   // console.log(s);
 }
-// functionAttributes()
-
-export function renderInHTMLDocument(e: JSX.Element): string {
-  return `
-  <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>title</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-  ${ReactLike.render(e, { indent: true, indentLevel: 1, renderClientCode: true })}
-</body>
-</html>
-`
-}
-
 export function moreOnCss() {
   interface Class extends Partial<CSSStyleDeclaration> { }
   interface IClasses {

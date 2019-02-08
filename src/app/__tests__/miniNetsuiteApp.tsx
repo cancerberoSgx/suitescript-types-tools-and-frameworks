@@ -6,9 +6,10 @@ import { ServerRequest, ServerResponse } from 'N/http';
 import { recordViewRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
 import { findRecordRoute } from '../searchView/findRecordRoute';
-import { listRecordTypesRoute } from "../searchView/listRecordTypesRoute";
+import { listRecordTypesRoute, listRecordTypesResultRoute } from "../searchView/listRecordTypesRoute";
 import { setSublistFieldValueRoute } from '../routes/setSublistFieldValueRoute';
-import { debuggerRoute } from './miniDebuggerApp';
+import { debuggerRoute, addMiniDebuggerRoutes } from './miniDebuggerApp';
+import { renderInHTMLDocument } from '../../jsx/renderInHTMLDocument';
 
 // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
 export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse) {
@@ -22,12 +23,13 @@ export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse
   app.addRoute(recordViewRoute(app))
 
   app.addRoute(listRecordTypesRoute(app))
+  app.addRoute(listRecordTypesResultRoute(app))
 
   app.addRoute(setFieldValueRoute(app))
 
   app.addRoute(setSublistFieldValueRoute(app))
   
-  app.addRoute(debuggerRoute(app))
+  addMiniDebuggerRoutes(app)
 
   // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
   const defaultRoute: Route = {
@@ -119,7 +121,7 @@ export function mainPageRoute(app: App): Route {
   return {
     name: 'mainPage',
     handler(o) {
-      return ReactLike.render(<MainPage {...o.params} userName={o.params.userName}></MainPage>);
+      return renderInHTMLDocument(<MainPage {...o.params} userName={o.params.userName}></MainPage>);
     }
   };
 }

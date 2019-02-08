@@ -13,6 +13,7 @@ var __assign = (this && this.__assign) || function () {
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    // import * as RL from './createElement'
     function isReactLikeComponent(c) {
         return c.prototype && c.prototype.render;
     }
@@ -40,6 +41,7 @@ define(["require", "exports"], function (require, exports) {
         return TextNodeLikeImpl;
     }());
     exports.TextNodeLikeImpl = TextNodeLikeImpl;
+    // declare var ReactLike: ReactLike&{indent: any}
     var ElementLikeImpl = /** @class */ (function () {
         function ElementLikeImpl(tag) {
             this.tag = tag;
@@ -51,10 +53,20 @@ define(["require", "exports"], function (require, exports) {
             if (config === void 0) { config = defaultRenderConfig; }
             var newLine = config.indent ? "\n" : "";
             var content = this.innerHtml ||
-                "" + newLine + ReactLike.indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children
+                "" + newLine + this.indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children
                     .map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); })
-                    .join('') + newLine + ReactLike.indent(config);
+                    .join('') + newLine + this.indent(config);
             return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + content + "</" + this.tag + ">";
+        };
+        ElementLikeImpl.prototype.indent = function (config) {
+            // return config.indent ? _indent(config.indentLevel || 0, config.indentTabSize || 2) : ''
+            // const tabSize = config.indentTabSize || 2
+            var L = (config.indentLevel || 0) * (config.indentTabSize || 2);
+            var a = [];
+            for (var i = 0; i < L; i++) {
+                a.push(' ');
+            }
+            return a.join('');
         };
         ElementLikeImpl.prototype.setAttribute = function (name, value) {
             this.attrs[name] = value;

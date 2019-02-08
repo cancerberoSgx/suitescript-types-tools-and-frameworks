@@ -1,10 +1,10 @@
 import { ReactLike } from "../createElement";
-import { StatelessComponent } from '../StatelessComponent';
+import { StatelessComponent, StatelessComponentProps } from '../StatelessComponent';
 import { Bind } from './Bind';
 
 declare function getBindData<T>(key: string): T|undefined
 
-interface SelectProps {
+interface SelectProps extends StatelessComponentProps<SelectProps>{
   options: (string|Option)[]
   selected?: string
   onChange?: (value?: string) => void;
@@ -21,7 +21,7 @@ export class Select extends StatelessComponent<SelectProps> {
   render() {
     const options: Option[] = (this.props.options.length && typeof this.props.options[0] === 'string') ? (this.props.options as string[]).map(o => ({ id: o, name: o })) : this.props.options as Option[];
 
-    const id = Select.counter++
+    const id = (Select.counter++)+new Date().getTime()
     return <span>
       {this.props.onChange ? <Bind name={`Select-${id}`} data={this.props.onChange}></Bind> : ''}
       <select {...this.props['select-attrs']||{}} data-select-id={id} onChange={e=>{

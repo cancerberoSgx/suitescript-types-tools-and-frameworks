@@ -5719,7 +5719,7 @@ export const workplaceSearchColumnValues = [
 ];
 
 /** Field Search Column values definitions so they can be consumed dynamically not only as types. */
-export const typedSearchColumnValues = {
+export const typedSearchColumnValues:  {[name: string]:{id: string, type: string ,label: string}[]}= {
 account: accountSearchColumnValues,
   accountingbook: accountingbookSearchColumnValues,
   accountingcontext: accountingcontextSearchColumnValues,

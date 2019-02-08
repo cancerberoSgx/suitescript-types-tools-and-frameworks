@@ -1489,7 +1489,7 @@ export const workplaceSearchJoinValues = [
 ];
 
 /** Field Search Join values definitions so they can be consumed dynamically not only as types. */
-export const typedSearchJoinValues = {
+export const typedSearchJoinValues: {[name: string]:{id: string, description: string ,actualName: string}[]}  = {
 account: accountSearchJoinValues,
   accountingbook: accountingbookSearchJoinValues,
   accountingcontext: accountingcontextSearchJoinValues,

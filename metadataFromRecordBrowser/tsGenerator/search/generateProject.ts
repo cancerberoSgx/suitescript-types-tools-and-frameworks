@@ -41,7 +41,7 @@ ${indent()}${id.fieldType}?: ${id.operators.map(o => `'${o}'`).join(' | ')};
   ).join(`\n${indent()}`)}
 }
 
-export const SearchTypesOperatorSupportValues = {${fieldTypeOperatorMetadata.map(id => `
+export const SearchTypesOperatorSupportValues: {[name:string]: string[]} = {${fieldTypeOperatorMetadata.map(id => `
 ${indent()}${id.fieldType}: [${id.operators.map(o => `'${o}'`).join(', ')}]
 `.trim()
   ).join(`,\n${indent()}`)}
@@ -123,7 +123,7 @@ ${indent()}${id}: Required<${id}SearchFilter>;
 function generateTypedSearchColumnValues(config: ProjectConfig & { recordIds: string[] }) {
   const output = `
 /** Field Search Column values definitions so they can be consumed dynamically not only as types. */
-export const typedSearchColumnValues = {
+export const typedSearchColumnValues:  {[name: string]:{id: string, type: string ,label: string}[]}= {
 ${config.recordIds.map(id => `
 ${indent()}${id}: ${id}SearchColumnValues
 `.trim()
@@ -136,7 +136,7 @@ ${indent()}${id}: ${id}SearchColumnValues
 function generateTypedSearchFilterValues(config: ProjectConfig & { recordIds: string[] }) {
   const output = `
 /** Field Search Filter values definitions so they can be consumed dynamically not only as types. */
-export const typedSearchFilterValues = {
+export const typedSearchFilterValues:  {[name: string]:{id: string, type: string ,label: string}[]} = {
 ${config.recordIds.map(id => `
 ${indent()}${id}: ${id}SearchFilterValues
 `.trim()
@@ -149,7 +149,7 @@ ${indent()}${id}: ${id}SearchFilterValues
 function generateTypedSearchJoinValues(config: ProjectConfig & { recordIds: string[] }) {
   const output = `
 /** Field Search Join values definitions so they can be consumed dynamically not only as types. */
-export const typedSearchJoinValues = {
+export const typedSearchJoinValues: {[name: string]:{id: string, description: string ,actualName: string}[]}  = {
 ${config.recordIds.map(id => `
 ${indent()}${id}: ${id}SearchJoinValues
 `.trim()

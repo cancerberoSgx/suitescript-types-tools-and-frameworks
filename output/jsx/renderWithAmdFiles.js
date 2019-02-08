@@ -9,12 +9,15 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "./createElement", "./renderInHtml"], function (require, exports, createElement_1, renderInHtml_1) {
+define(["require", "exports", "./createElement", "./renderInHtml", "../misc/misc"], function (require, exports, createElement_1, renderInHtml_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /**
      * intelligent render of given element and .js files so their content (modified by fixDefine())
-     * get embedded in the output and also almond library for define() support. Example:
+     * get embedded in the output and also almond library for define() support.
+     *
+     * Note, if extraCode referenced function has a renderFileDependencies in its prototype it can declare it's own files by itself, so there's no need for the renderer to know about its dependencies.
+     * Example:
     ```
       const Comp1 = (props: { foo: string }) => <div>
         <button onClick={e => {
@@ -38,7 +41,14 @@ define(["require", "exports", "./createElement", "./renderInHtml"], function (re
     ```
     */
     function renderWithAmdFiles(e, config) {
-        var files = config.files.map(function (f) { return typeof f === 'string' ? { name: f.substring(f.lastIndexOf('/') + 1, f.lastIndexOf('.')), path: f } : f; });
+        var extraCodeFiles = [];
+        (config.extraCode || []).filter(function (e) { return typeof e === 'function' && typeof e.prototype.renderFileDependencies !== 'undefined'; })
+            .forEach(function (e) {
+            (e
+                .prototype.renderFileDependencies() || [])
+                .forEach(function (f) { return extraCodeFiles.push(f); });
+        });
+        var files = misc_1.dedup(extraCodeFiles.concat(config.files || []).map(function (f) { return typeof f === 'string' ? { name: f.substring(f.lastIndexOf('/') + 1, f.lastIndexOf('.')), path: f } : f; }), function (a, b) { return a.name === b.name; });
         var s = "\n<script>\n" + almond() + "\n" + files.map(function (f) { return fixDefine(readFile(f, config.basePath), files.map(function (f) { return f.name; }), f.name); }).join(';\n\n') + ";\n" + (config.extraCode || []).map(function (c) { return typeof c === 'function' ? c.toString() : c; }).join(';\n') + "\n</script>\n" + createElement_1.ReactLike.render(e, __assign({}, config, { renderClientCode: true }));
         return config.asHtmlDocument ? renderInHtml_1.wrapInHtml(s) : s;
     }

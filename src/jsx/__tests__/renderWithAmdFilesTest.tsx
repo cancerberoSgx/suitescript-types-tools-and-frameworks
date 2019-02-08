@@ -4,7 +4,8 @@ import { renderWithAmdFiles, fixDefine } from '../renderWithAmdFiles';
 import { renderWithAmdFilesTest1 } from './renderWithAmdFilesTest1';
 import { ReactLike } from '../createElement';
 import { renderInDOM } from '../renderInHtml';
-import { array } from '../../misc/misc';
+import { array, dedup } from '../../misc/misc';
+import { SearchFilterEditor } from '../../app/searchView/searchFilterEditor';
 
 function renderWithAmdFilesTest() {
   const html = renderWithAmdFiles(renderWithAmdFilesTest1(), {
@@ -79,7 +80,7 @@ function renderWithAmdFilesTest3() {
   writeFileSync('src/jsx/__tests__/test.html', html)
 }
 
-renderWithAmdFilesTest3();
+// renderWithAmdFilesTest3();
 
 
 
@@ -107,3 +108,18 @@ function renderWithAmdFilesTest4() {
   writeFileSync('src/jsx/__tests__/test.html', html)
 }
 // renderWithAmdFilesTest4();
+
+
+function renderWithAmdFilesTest5() {
+  // console.log(SearchFilterEditor.prototype.renderFileDependencies());
+  
+  const html = renderWithAmdFiles(<SearchFilterEditor type="commercecategory"></SearchFilterEditor>, {
+    asHtmlDocument: true,
+    basePath: 'output',
+    extraCode: [SearchFilterEditor]
+  });
+  writeFileSync('src/jsx/__tests__/test.html', html)
+}
+renderWithAmdFilesTest5();
+
+// console.log(dedup([{name: 1}, {name: 2}, {name: 1}], (a, b)=>a.name===b.name));

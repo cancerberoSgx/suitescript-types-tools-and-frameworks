@@ -5362,7 +5362,7 @@ export const workplaceSearchFilterValues = [
 ];
 
 /** Field Search Filter values definitions so they can be consumed dynamically not only as types. */
-export const typedSearchFilterValues = {
+export const typedSearchFilterValues:  {[name: string]:{id: string, type: string ,label: string}[]} = {
 account: accountSearchFilterValues,
   accountingbook: accountingbookSearchFilterValues,
   accountingcontext: accountingcontextSearchFilterValues,

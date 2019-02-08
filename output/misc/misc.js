@@ -1,6 +1,7 @@
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "./arrayPrototypeFind"], function (require, exports, arrayPrototypeFind_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    arrayPrototypeFind_1.installArrayPrototypeFind();
     // collections
     function array(n, sample) {
         var a = [];
@@ -20,10 +21,20 @@ define(["require", "exports"], function (require, exports) {
         return repeat(i * tabSize, ' ');
     }
     exports.indent = indent;
+    function dedup(a, p) {
+        return a.reduce(function (x, y) { return x.find(function (i) { return p(i, y); }) ? x : x.concat([y]); }, []);
+    }
+    exports.dedup = dedup;
     function objectKeys(o) {
         return Object.keys(o);
     }
     exports.objectKeys = objectKeys;
+    var uniqueCounter = 0;
+    function unique(s) {
+        if (s === void 0) { s = 'unique'; }
+        return s + uniqueCounter++;
+    }
+    exports.unique = unique;
     function checkThrow(r, msg) {
         if (msg === void 0) { msg = 'Throwing on undefined value'; }
         if (!r) {

@@ -1,7 +1,8 @@
 import { NativeError } from '../nstypes';
 import { StringKeyOf, ValueOfStringKey } from './typesUtil';
+import { installArrayPrototypeFind } from './arrayPrototypeFind';
 
-
+installArrayPrototypeFind()
 // collections
 
 export function array<T=number>(n: number, sample?: T): T[] {
@@ -17,12 +18,21 @@ export function repeat(n: number, s: string): string {
 export function indent(i: number = 1, tabSize = 2): string {
   return repeat(i * tabSize, ' ')
 }
+export function dedup<T>(a: T[], p: (a:T, b: T)=>boolean) :T[]{
+  return a.reduce((x, y) => x.find(i=>p(i, y))? x : [...x, y] as T[], [] as T[])
+}
 
 
 export function objectKeys<Field extends EmptyObject = EmptyObject>(o: Field): StringKeyOf<Field>[] {
   return Object.keys(o) as StringKeyOf<Field>[]
 }
 
+
+
+let uniqueCounter = 0
+export function unique(s='unique'){
+return s+uniqueCounter++
+}
 
 
 

@@ -1,4 +1,4 @@
-define(["require", "exports", "fs", "assert", "../renderWithAmdFiles", "./renderWithAmdFilesTest1", "../createElement", "../renderInHtml", "../../misc/misc"], function (require, exports, fs_1, assert_1, renderWithAmdFiles_1, renderWithAmdFilesTest1_1, createElement_1, renderInHtml_1, misc_1) {
+define(["require", "exports", "fs", "assert", "../renderWithAmdFiles", "./renderWithAmdFilesTest1", "../createElement", "../renderInHtml", "../../misc/misc", "../../app/searchView/searchFilterEditor"], function (require, exports, fs_1, assert_1, renderWithAmdFiles_1, renderWithAmdFilesTest1_1, createElement_1, renderInHtml_1, misc_1, searchFilterEditor_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function renderWithAmdFilesTest() {
@@ -66,7 +66,7 @@ define(["require", "exports", "fs", "assert", "../renderWithAmdFiles", "./render
         });
         fs_1.writeFileSync('src/jsx/__tests__/test.html', html);
     }
-    renderWithAmdFilesTest3();
+    // renderWithAmdFilesTest3();
     function renderWithAmdFilesTest4() {
         var Comp1 = function (props) { return createElement_1.ReactLike.createElement("div", null,
             createElement_1.ReactLike.createElement("button", { onClick: function (e) {
@@ -88,5 +88,16 @@ define(["require", "exports", "fs", "assert", "../renderWithAmdFiles", "./render
         });
         fs_1.writeFileSync('src/jsx/__tests__/test.html', html);
     }
+    // renderWithAmdFilesTest4();
+    function renderWithAmdFilesTest5() {
+        // console.log(SearchFilterEditor.prototype.renderFileDependencies());
+        var html = renderWithAmdFiles_1.renderWithAmdFiles(createElement_1.ReactLike.createElement(searchFilterEditor_1.SearchFilterEditor, { type: "commercecategory" }), {
+            asHtmlDocument: true,
+            basePath: 'output',
+            extraCode: [searchFilterEditor_1.SearchFilterEditor]
+        });
+        fs_1.writeFileSync('src/jsx/__tests__/test.html', html);
+    }
+    renderWithAmdFilesTest5();
 });
-// renderWithAmdFilesTest4();
+// console.log(dedup([{name: 1}, {name: 2}, {name: 1}], (a, b)=>a.name===b.name));

@@ -33,7 +33,7 @@ define(["require", "exports", "../createElement", "../StatelessComponent", "./Bi
         Select.prototype.render = function () {
             var _this = this;
             var options = (this.props.options.length && typeof this.props.options[0] === 'string') ? this.props.options.map(function (o) { return ({ id: o, name: o }); }) : this.props.options;
-            var id = Select.counter++;
+            var id = (Select.counter++) + new Date().getTime();
             return createElement_1.ReactLike.createElement("span", null,
                 this.props.onChange ? createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "Select-" + id, data: this.props.onChange }) : '',
                 createElement_1.ReactLike.createElement("select", __assign({}, this.props['select-attrs'] || {}, { "data-select-id": id, onChange: function (e) {

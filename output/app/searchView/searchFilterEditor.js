@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/StatelessComponent", "../../jsx/util/Select", "../../search/typedSearch/generated", "../../jsx/createElement", "../../misc/arrayPrototypeFind", "../../introspection/printThisScopeSource", "../../jsx/reactLikeBrowserSource", "../../jsx/util/Select"], function (require, exports, StatelessComponent_1, Select_1, generated_1, createElement_1, arrayPrototypeFind_1, printThisScopeSource_1, reactLikeBrowserSource_1, select) {
+define(["require", "exports", "../../jsx/renderInHtml", "../../jsx/StatelessComponent", "../../jsx/util/Select", "../../misc/arrayPrototypeFind", "../../search/typedSearch/generated/TypedSearchFilterValues", "../../jsx/createElement", "../../search/typedSearch/generated/searchTypesOperatorsSupport", "../../jsx/util/Bind", "../../misc/misc"], function (require, exports, renderInHtml_1, StatelessComponent_1, Select_1, arrayPrototypeFind_1, TypedSearchFilterValues_1, createElement_1, searchTypesOperatorsSupport_1, Bind_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     arrayPrototypeFind_1.installArrayPrototypeFind();
@@ -32,30 +32,42 @@ define(["require", "exports", "../../jsx/StatelessComponent", "../../jsx/util/Se
             return _super !== null && _super.apply(this, arguments) || this;
         }
         SearchFilterEditor.prototype.render = function () {
-            var script = "\nvar generated_1 = {SearchTypesOperatorSupportValues: " + JSON.stringify(generated_1.SearchTypesOperatorSupportValues) + ", \n    typedSearchFilterValues : " + JSON.stringify(generated_1.typedSearchFilterValues) + "\n  };\n  var Select_1  = {Select: " + Select_1.Select.toString() + "}\n  " + (' ' || printThisScopeSource_1.printNamespace(select, 'select_1')) + "\n    " + (' ' || reactLikeBrowserSource_1.reactLikeBrowserSource()) + ";\n    " + Test.toString() + ";\n    ";
-            var filterValues = generated_1.typedSearchFilterValues[this.props.type]
-                .map(function (f) { return (__assign({}, f, { name: f.id + " - " + f.label })); });
-            // const operators = (SearchTypesOperatorSupportValues as any as {[k:string]:string[]})[filterValues.type]
-            // const f = this.props.filter
-            return createElement_1.ReactLike.createElement("div", null,
-                createElement_1.ReactLike.createElement("script", null, script),
-                createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter': '' }, options: filterValues, firstOption: "Select " + this.props.type + " filter", onChange: function (selected) {
-                        if (!selected) {
+            var filterValues = TypedSearchFilterValues_1.typedSearchFilterValues[this.props.type]
+                .map(function (f) { return (__assign({}, f, { name: f.id + " - " + f.label + " " })); });
+            var editorId = misc_1.unique('searchFilterEditor');
+            return createElement_1.ReactLike.createElement("div", { "data-editor-id": editorId },
+                createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "SearchFilterEditorProps", data: __assign({}, this.props, { editorId: editorId }) }),
+                createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter': '' }, options: filterValues, firstOption: "Select " + this.props.type + " filter", onChange: function (selectedFilter) {
+                        if (!selectedFilter) {
                             return;
                         }
-                        var operators = generated_1.SearchTypesOperatorSupportValues[selected];
-                        var d = document.createElement('div');
-                        d.innerHTML = createElement_1.ReactLike.render(createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter-operator': '' }, options: operators, firstOption: "Select " + selected + " filter operator", onChange: function (operator) {
-                                debugger;
-                            } }));
-                        document.body.appendChild(d);
-                    } }));
+                        var props = getBindDataOrThrow('SearchFilterEditorProps');
+                        var filter = TypedSearchFilterValues_1.typedSearchFilterValues[props.type].find(function (f) { return f.id === selectedFilter; });
+                        var operators = searchTypesOperatorsSupport_1.SearchTypesOperatorSupportValues[filter.type];
+                        var ss = createElement_1.ReactLike.createElement(Select_1.Select, { options: operators, firstOption: "Select " + filter.id + " operator", onChange: function (e) {
+                                alert(e);
+                            } });
+                        renderInHtml_1.renderInDOM(ss, '#operatorsPlaceHolder');
+                    } }),
+                createElement_1.ReactLike.createElement("div", { id: "operatorsPlaceHolder" }),
+                createElement_1.ReactLike.createElement("input", { id: "filterValueInput", value: "the value" }));
+        };
+        SearchFilterEditor.prototype.renderFileDependencies = function () {
+            return [
+                'jsx/createElement.js',
+                'jsx/elementImpl.js',
+                'jsx/util/Select.js',
+                'jsx/StatelessComponent.js',
+                'jsx/util/Bind.js',
+                'misc/formatDate.js',
+                'misc/misc.js',
+                'misc/arrayPrototypeFind.js',
+                'jsx/renderInHtml.js',
+                'search/typedSearch/generated/TypedSearchFilterValues.js',
+                'search/typedSearch/generated/searchTypesOperatorsSupport.js'
+            ];
         };
         return SearchFilterEditor;
     }(StatelessComponent_1.StatelessComponent));
     exports.SearchFilterEditor = SearchFilterEditor;
-    function Test(props) {
-        return createElement_1.ReactLike.createElement("div", null, "ehhhh");
-    }
 });
-// writeFileSync('src/jsx/__tests__/test.html',renderInHTMLDocument(<SearchFilterEditor type="commercecategory"></SearchFilterEditor>))

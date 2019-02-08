@@ -16,7 +16,7 @@ export interface SearchTypesOperatorsSupport {text?: 'contains' | 'doesNotContai
   multiselect?: 'allOf' | 'anyOf' | 'noneOf' | 'notAllOf';
 }
 
-export const SearchTypesOperatorSupportValues = {text: ['contains', 'doesNotContain', 'doesNotStartWith', 'empty', 'hasKeywords', 'is', 'isNot', 'notEmpty', 'startsWith'],
+export const SearchTypesOperatorSupportValues: {[name:string]: string[]} = {text: ['contains', 'doesNotContain', 'doesNotStartWith', 'empty', 'hasKeywords', 'is', 'isNot', 'notEmpty', 'startsWith'],
   integer: ['between', 'empty', 'equalTo', 'greaterThan', 'greaterThanOrEqualTo', 'lessThan', 'lessThanOrEqualTo', 'notBetween', 'notEmpty', 'notEqualTo', 'notGreaterThan', 'notGreaterThanOrEqualTo', 'notLessThan', 'notLessThanOrEqualTo'],
   checkbox: ['equalTo', 'is'],
   date: ['after', 'before', 'isEmpty', 'isNotEmpty', 'notAfter', 'notBefore', 'notOnOrAfter', 'notOnOrBefore', 'notWithin', 'on', 'onOrAfter', 'onOrBefore', 'within'],

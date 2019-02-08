@@ -2,10 +2,14 @@ import { RenderConfig } from './jsx';
 // import { readFileSync } from 'fs';
 import { ReactLike } from './createElement'
 import { wrapInHtml } from './renderInHtml';
+import { dedup } from '../misc/misc';
 
 /** 
  * intelligent render of given element and .js files so their content (modified by fixDefine()) 
- * get embedded in the output and also almond library for define() support. Example: 
+ * get embedded in the output and also almond library for define() support. 
+ * 
+ * Note, if extraCode referenced function has a renderFileDependencies in its prototype it can declare it's own files by itself, so there's no need for the renderer to know about its dependencies. 
+ * Example: 
 ```
   const Comp1 = (props: { foo: string }) => <div>
     <button onClick={e => {
@@ -28,8 +32,21 @@ import { wrapInHtml } from './renderInHtml';
   });
 ```
 */
-export function renderWithAmdFiles(e: JSX.Element, config: RenderConfig & { asHtmlDocument?: boolean, files: (File | string)[], extraCode?: (string | Function)[], basePath?: string }): string {
-  const files: File[] = config.files.map(f => typeof f === 'string' ? { name: f.substring(f.lastIndexOf('/') + 1, f.lastIndexOf('.')), path: f } : f)
+export function renderWithAmdFiles(e: JSX.Element, config: RenderConfig & { asHtmlDocument?: boolean, files?: (RenderWithAmdFile | string)[], extraCode?: (string | Function)[], basePath?: string }): string {
+
+  const extraCodeFiles: (RenderWithAmdFile | string)[] = [];
+  (config.extraCode || []).filter(e => typeof e === 'function' && typeof e.prototype.renderFileDependencies !== 'undefined')
+    .forEach(e => {
+      ((e as { prototype: { renderFileDependencies: () => (RenderWithAmdFile | string)[] } })
+        .prototype.renderFileDependencies() || [])
+        .forEach(f => extraCodeFiles.push(f))
+    })
+
+  const files = dedup(
+    [...extraCodeFiles, ...config.files||[]]
+      .map(f => typeof f === 'string' ? { name: f.substring(f.lastIndexOf('/') + 1, f.lastIndexOf('.')), path: f } : f) as RenderWithAmdFile[],
+    (a, b) => a.name === b.name)
+
   const s = `
 <script>
 ${almond()}
@@ -37,12 +54,11 @@ ${files.map(f => fixDefine(readFile(f, config.basePath), files.map(f => f.name),
 ${(config.extraCode || []).map(c => typeof c === 'function' ? c.toString() : c).join(';\n')}
 </script>
 ${ReactLike.render(e, { ...config, renderClientCode: true })}`
-
   return config.asHtmlDocument ? wrapInHtml(s) : s
 }
 
-function readFile(f: File, basePath: string=''){
-  if(typeof process !=='undefined' && typeof process.exit !== 'undefined') {
+function readFile(f: RenderWithAmdFile, basePath: string = '') {
+  if (typeof process !== 'undefined' && typeof process.exit !== 'undefined') {
     return require('fs').readFileSync(`${basePath}/${f.path}`).toString()
   }
   else {
@@ -99,7 +115,7 @@ require(["${thisName}"], function(thisName){
 }
 
 
-interface File { name: string, path: string }
+export interface RenderWithAmdFile { name: string, path: string }
 
 
 function almond() {

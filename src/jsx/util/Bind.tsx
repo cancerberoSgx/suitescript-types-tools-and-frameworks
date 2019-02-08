@@ -50,6 +50,7 @@ export class Bind<P extends BindProps = BindProps> extends StatelessComponent<P>
   render(): JSX.Element {
     if (!this.props.data && this.props.name) {
       const id = `bind-input-value-element-${Bind.counter++}`
+
       if (typeof this.props.inputValue === 'undefined') {
         const c = this.firstChildElement()
         if (c) {
@@ -79,11 +80,17 @@ __BindInputValues['${this.props.name}'] = {id: '${id}'};
     
     else if (this.props.data && this.props.name) {
 
+//       return <span dangerouslySetInnerHTML={{__html: `<script>
+//       __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
+//       __BindData['${this.props.name}'] = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
+//         </script>`}}>
+// </span>
+
       // TODO: add this statements in a single global <script> tag - could be a static el attribute
       return <span>
   <script>{`
 __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
-__BindData['${this.props.name}'] = ${JSON.stringify(this.props.data)};
+__BindData['${this.props.name}'] = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
 `.trim()}
   </script>
 </span>

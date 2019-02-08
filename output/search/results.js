@@ -2,9 +2,11 @@ define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     /** convert a result set to an arrays. Warning, it will convert all the result set to an array which can not optimal on large result sets  */
-    function toArray(results) {
+    function toArray(results, limit) {
+        if (limit === void 0) { limit = 20; }
         var a = [];
-        results.each(function (r) { return !!a.push(r); });
+        var counter = 0;
+        results.each(function (r) { a.push(r); return counter++ < 20; });
         return a;
     }
     exports.toArray = toArray;

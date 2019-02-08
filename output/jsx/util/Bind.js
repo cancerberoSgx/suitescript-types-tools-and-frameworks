@@ -71,9 +71,14 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
                     createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;\n__BindInputValues['" + this.props.name + "'] = {id: '" + id + "'};\n").trim()));
             }
             else if (this.props.data && this.props.name) {
+                //       return <span dangerouslySetInnerHTML={{__html: `<script>
+                //       __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
+                //       __BindData['${this.props.name}'] = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
+                //         </script>`}}>
+                // </span>
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
                 return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindData = typeof __BindData === 'undefined' ? {} : __BindData;\n__BindData['" + this.props.name + "'] = " + JSON.stringify(this.props.data) + ";\n").trim()));
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindData = typeof __BindData === 'undefined' ? {} : __BindData;\n__BindData['" + this.props.name + "'] = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n").trim()));
             }
             else {
                 // TODO: error debug

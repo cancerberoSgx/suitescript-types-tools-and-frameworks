@@ -10,6 +10,7 @@ import { listRecordTypesRoute, listRecordTypesResultRoute } from "../searchView/
 import { setSublistFieldValueRoute } from '../routes/setSublistFieldValueRoute';
 import { debuggerRoute, addMiniDebuggerRoutes } from './miniDebuggerApp';
 import { renderInHTMLDocument } from '../../jsx/renderInHTMLDocument';
+import { searchViewRoute } from '../searchView/searchView';
 
 // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
 export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse) {
@@ -28,6 +29,9 @@ export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse
   app.addRoute(setFieldValueRoute(app))
 
   app.addRoute(setSublistFieldValueRoute(app))
+
+
+  app.addRoute(searchViewRoute(app))
   
   addMiniDebuggerRoutes(app)
 
@@ -107,7 +111,12 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
           selector: '#mainView'
         })}>debugger embedded</button>
       </li>
-
+      <li>
+        <a href={props.renderLink({
+          routeName: 'searchView',
+          params: {},
+        })}>searchView</a>
+        </li>
     </ul>
 
     <div id="mainView"></div>

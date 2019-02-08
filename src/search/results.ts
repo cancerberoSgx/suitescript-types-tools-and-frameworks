@@ -1,9 +1,10 @@
 import { ResultSet, Result, Search } from 'N/search';
 
 /** convert a result set to an arrays. Warning, it will convert all the result set to an array which can not optimal on large result sets  */
-export function toArray(results: ResultSet): Result[] {
+export function toArray(results: ResultSet, limit=20): Result[] {
     const a: Result[] = []
-    results.each(r => !!a.push(r))
+    let counter = 0
+    results.each(r => {a.push(r); return counter++<20})
     return a
 }
 

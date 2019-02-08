@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp", "../../jsx/renderInHTMLDocument"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1, renderInHTMLDocument_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../searchView/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp", "../../jsx/renderInHTMLDocument", "../searchView/searchView"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1, renderInHTMLDocument_1, searchView_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
@@ -22,6 +22,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         app.addRoute(listRecordTypesRoute_1.listRecordTypesResultRoute(app));
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
         app.addRoute(setSublistFieldValueRoute_1.setSublistFieldValueRoute(app));
+        app.addRoute(searchView_1.searchViewRoute(app));
         miniDebuggerApp_1.addMiniDebuggerRoutes(app);
         // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
         var defaultRoute = {
@@ -76,7 +77,12 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                             routeName: 'debugger',
                             params: { dynamicResultsRender: true },
                             selector: '#mainView'
-                        }); } }, "debugger embedded"))),
+                        }); } }, "debugger embedded")),
+                createElement_1.ReactLike.createElement("li", null,
+                    createElement_1.ReactLike.createElement("a", { href: props.renderLink({
+                            routeName: 'searchView',
+                            params: {},
+                        }) }, "searchView"))),
             createElement_1.ReactLike.createElement("div", { id: "mainView" }));
     };
     function mainPageRoute(app) {

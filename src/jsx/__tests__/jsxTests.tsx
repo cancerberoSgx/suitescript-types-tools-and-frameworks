@@ -1,11 +1,12 @@
 import { describe, expect, fail, it, skip } from "../../spec/index";
-import { ReactLike, escapeHtmlAttribute } from '../createElement'
+import { ReactLike } from '../createElement'
 import { StatelessComponent } from '../StatelessComponent';
 import { ReactLikeChild, NodeLike } from '../jsx';
 import { StringKeyOf } from '../../misc/typesUtil';
 import { expectCodeToContain } from '../../spec/expectExtras';
 import { isElementLike } from '../elementImpl';
 import { Style } from '../Style';
+import { escapeHtmlAttribute } from '../../misc/misc';
 
 export function jsxTests() {
 

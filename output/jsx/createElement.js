@@ -22,6 +22,7 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
         }
     }
     var Module = {
+        // _domIds: {} as { [k: string]: ElementLike },
         createElement: function (tag, attrs) {
             if (attrs === void 0) { attrs = {}; }
             var children = [];
@@ -50,8 +51,16 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                         }
                     }
                     else if (typeof value === 'function') {
+                        // let tlkKeyExtraCode = ''
+                        // if (!(Module._renderConfig&&Module._renderConfig.disableDomIdsAssociation)) { // TODO: users could add other properties to this besides this.props, for ex, this.state, or even methods.
+                        // const rlkey = element.attrs && element.attrs['data-rlk'] || `${Module._counter++}`
+                        // element.setAttribute('data-rlk', rlkey)
+                        // element.setAttribute('data-data', )
+                        // Module._domIds[rlkey] = element
+                        // tlkKeyExtraCode = `__ReactLike_Root_Ids['${rlkey}'] = {}`
+                        // }
                         var code = "(" + value.toString() + ").apply(this, arguments)";
-                        var escaped = escapeHtmlAttribute(code);
+                        var escaped = code.replace(/\"/gmi, '&quot;');
                         element.setAttribute(name_1, escaped);
                     }
                     else if (value !== false && value != null) {
@@ -109,8 +118,18 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
             });
             return element;
         },
+        _renderConfig: undefined,
         render: function (el, config) {
-            return el.render(config);
+            if (config === void 0) { config = {}; }
+            // if (!Module._renderConfig) {
+            //   ReactLike.registerClientCode({
+            //     name: 'ReactLike rendered element root ids',
+            //     code: `__ReactLike_Root_Ids={};`
+            //   })
+            // }
+            // Module._renderConfig = config || {}
+            // const renderedNode = `${(el as any as NodeLike).render(config)}`
+            return ("\n" + (config.renderClientCode ? "<script>" + Module.getClientCode().map(function (c) { return c.code; }).join('\n') + "</script>" : "") + "\n" + el.render(config) + "\n").trim();
         },
         registerClientCode: function (f) {
             clientCode.push(f);
@@ -118,17 +137,20 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
         getClientCode: function () {
             return clientCode;
         },
+        // _counter: 0
+        indent: function (config) {
+            // return config.indent ? _indent(config.indentLevel || 0, config.indentTabSize || 2) : ''
+            // const tabSize = config.indentTabSize || 2
+            var L = (config.indentLevel || 0) * (config.indentTabSize || 2);
+            var a = [];
+            for (var i = 0; i < L; i++) {
+                a.push(' ');
+            }
+            return a.join('');
+        },
     };
     var clientCode = [];
     exports.ReactLike = Module;
     //@ts-ignore
     exports.ReactLike = Module; // creates a global variable needed so emitted .js calls work. See tsconfig.json `"jsxFactory": "ReactLike.createElement",`
-    function escapeHtmlAttribute(code) {
-        return code.replace(/\"/gmi, '&quot;');
-    }
-    exports.escapeHtmlAttribute = escapeHtmlAttribute;
-    function unEscapeHtmlAttribute(code) {
-        return code.replace(/\&quot\;/gmi, '"');
-    }
-    exports.unEscapeHtmlAttribute = unEscapeHtmlAttribute;
 });

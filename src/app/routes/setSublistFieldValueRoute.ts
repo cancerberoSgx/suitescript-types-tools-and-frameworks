@@ -1,4 +1,5 @@
-import { find as Find, tryTo } from '../../misc/misc';
+import { tryTo } from '../../misc/misc';
+import { find as Find } from "../../misc/arrayPrototypeFind";
 import { App, Route } from '../app';
 import { load } from 'N/record';
 

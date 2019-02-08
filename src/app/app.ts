@@ -1,6 +1,6 @@
 import { ServerRequest, ServerResponse } from 'N/http';
 
-import { find } from '../misc/misc';
+import { find } from "../misc/arrayPrototypeFind";
 import { ReactLike } from '../jsx/createElement';
 import { redirect } from 'N/redirect';
 import { renderBrowserCode, RenderLinkOptions, buildUrl, ROUTEPARAMNAME_NOPREFIX, ROUTEPARAMNAME, ROUTEPARAMPREFIX, SCRIPTLETURLPREFIX, paramsToUrl } from './browserCode';

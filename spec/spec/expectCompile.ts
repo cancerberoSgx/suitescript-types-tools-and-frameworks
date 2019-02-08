@@ -1,4 +1,4 @@
-
+[].find()
 // // TODO: move this to misc-utils or separate project
 // export function expectCompile(config: ExpectCompileConfig){
 //   function test(){

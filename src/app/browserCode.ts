@@ -34,15 +34,17 @@ export function buildUrl(config: BuildUrlOptions) {
 /** this function is meant to be evaluated in the browser! */
 function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
   const url = buildRouteUrl(config);
+  const parent = document.querySelector(config.selector);
+  if(!parent){
+    return // TODO: log?
+  }
+  parent.innerHTML = `<div>Loading new content...</div>`
   fetch(url)
     .then(function (response) {
       return response.text();
     })
     .then(function (html) {
-      const parent = document.querySelector(config.selector);
-      if (parent) {
         parent.innerHTML = html;
-      }
     });
 }
 
@@ -64,7 +66,7 @@ export function renderBrowserCode() {
   const s = `
 var ROUTEPARAMNAME_ = "${ROUTEPARAMNAME_}";
 var ROUTEPARAMPREFIX_ = "${ROUTEPARAMPREFIX_}";
-var SCRIPTLETURLPREFIX_ = "${SCRIPTLETURLPREFIX_}"; 
+var SCRIPTLETURLPREFIX_ = "${SCRIPTLETURLPREFIX_}";
 var __assign = ${assign}
 ${buildRouteUrl.toString()}
 ${buildUrl.toString()}

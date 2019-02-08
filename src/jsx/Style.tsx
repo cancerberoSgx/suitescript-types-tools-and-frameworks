@@ -33,8 +33,7 @@ export const Style = (props: StyleProps) => {
     `${indent(1)}.${c}${(props.classes[c] && props.classes[c].selectorPostfix ? props.classes[c].selectorPostfix : '')} {${Object.keys(props.classes[c]).map(p =>`
 ${indent(2)}${p}: ${props.classes[c][p as any]};`
 ).join(``)}
-${indent(1)}
-}`).join(';\n')}
+}`).join('\n')}
   </style>
 }
 

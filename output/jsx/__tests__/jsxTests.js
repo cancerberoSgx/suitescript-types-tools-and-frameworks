@@ -22,7 +22,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../spec/index", "../createElement", "../StatelessComponent", "../../spec/expectExtras", "../elementImpl", "../Style"], function (require, exports, index_1, createElement_1, StatelessComponent_1, expectExtras_1, elementImpl_1, Style_1) {
+define(["require", "exports", "../../spec/index", "../createElement", "../StatelessComponent", "../../spec/expectExtras", "../elementImpl", "../Style", "../../misc/misc"], function (require, exports, index_1, createElement_1, StatelessComponent_1, expectExtras_1, elementImpl_1, Style_1, misc_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function jsxTests() {
@@ -124,7 +124,7 @@ define(["require", "exports", "../../spec/index", "../createElement", "../Statel
                             if (!elementImpl_1.isElementLike(c)) {
                                 return;
                             }
-                            c.attrs = __assign({}, (c.attrs || {}), { 'data-data': createElement_1.escapeHtmlAttribute(JSON.stringify(_this.props.data)) });
+                            c.attrs = __assign({}, (c.attrs || {}), { 'data-data': misc_1.escapeHtmlAttribute(JSON.stringify(_this.props.data)) });
                         });
                         return createElement_1.ReactLike.createElement("span", null);
                     };

@@ -20,16 +20,6 @@ define(["require", "exports"], function (require, exports) {
         return repeat(i * tabSize, ' ');
     }
     exports.indent = indent;
-    function find(a, predicate) {
-        for (var i = 0; i < a.length; i++) {
-            var v = a[i];
-            if (predicate(v, i, a)) {
-                return v;
-            }
-        }
-    }
-    exports.find = find;
-    Array.prototype.find = typeof Array.prototype.find === 'undefined' ? function (predicate) { return find(this, predicate); } : Array.prototype.find;
     function objectKeys(o) {
         return Object.keys(o);
     }
@@ -64,7 +54,16 @@ define(["require", "exports"], function (require, exports) {
     }());
     exports.TypedMapImpl = TypedMapImpl;
     function printNativeError(error) {
-        return (error && error.type) + ", " + (error && error.name) + "\nCause: " + (error && error.message) + "\nStack Trace: \n" + ((error.stack && Array.isArray(error.stack)) ? error.stack.map(function (s) { return repeat(2, ' ') + s; }).join('\n') : error.stack);
+        return (error && error.type) + ", " + (error && error.name) + "\nCause: " + (error && error.message) + "\nStack Trace:\n" + ((error.stack && Array.isArray(error.stack)) ? error.stack.map(function (s) { return repeat(2, ' ') + s; }).join('\n') : error.stack);
     }
     exports.printNativeError = printNativeError;
+    // strings
+    function escapeHtmlAttribute(code) {
+        return code.replace(/\"/gmi, '&quot;');
+    }
+    exports.escapeHtmlAttribute = escapeHtmlAttribute;
+    function unEscapeHtmlAttribute(code) {
+        return code.replace(/\&quot\;/gmi, '"');
+    }
+    exports.unEscapeHtmlAttribute = unEscapeHtmlAttribute;
 });

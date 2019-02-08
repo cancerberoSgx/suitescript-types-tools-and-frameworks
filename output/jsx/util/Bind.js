@@ -53,19 +53,22 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
                 if (typeof this.props.inputValue === 'undefined') {
                     var c = this.firstChildElement();
                     if (c) {
-                        c.attrs[BIND_VALUE_ATTRIBUTE_NAME] = id;
+                        c.attrs[Bind.BIND_VALUE_ATTRIBUTE_NAME] = id;
                     }
                     else {
                         // TODO: error debug
                         return createElement_1.ReactLike.createElement("span", null);
                     }
                 }
+                // else if(typeof this.props.inputValue==='string'){
+                //   this.
+                // }
                 else {
-                    this.props.inputValue.setAttribute(BIND_VALUE_ATTRIBUTE_NAME, id);
+                    this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id);
                 }
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
                 return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;\n__BindInputValues['" + this.props.name + "'] = '" + id + "';\n").trim()));
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;\n__BindInputValues['" + this.props.name + "'] = {id: '" + id + "'};\n").trim()));
             }
             else if (this.props.data && this.props.name) {
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
@@ -81,7 +84,7 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
             if (!Bind.registered) {
                 createElement_1.ReactLike.registerClientCode({
                     name: 'getBindData',
-                    code: ("\n__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;\n__BindData = typeof __BindData === 'undefined' ? {} : __BindData;\n" + getBindData.toString() + ";\n" + getBindDataOrThrow.toString() + ";\n" + createElement_1.unEscapeHtmlAttribute.toString() + ";\n" + createElement_1.escapeHtmlAttribute.toString() + ";\nvar createElement_1 = {unEscapeHtmlAttribute: unEscapeHtmlAttribute, escapeHtmlAttribute: escapeHtmlAttribute}; \n" + formatDate_1.formatDate.toString() + "; var dateUtil_1 = {formatDate: formatDate}; \n").trim(),
+                    code: ("\n__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;\n__BindData = typeof __BindData === 'undefined' ? {} : __BindData;\nvar BIND_VALUE_ATTRIBUTE_NAME = '" + Bind.BIND_VALUE_ATTRIBUTE_NAME + "';\n" + getBindData.toString() + ";\n" + getBindDataOrThrow.toString() + ";\n" + misc_1.unEscapeHtmlAttribute.toString() + ";\n" + misc_1.escapeHtmlAttribute.toString() + ";\nvar createElement_1 = {unEscapeHtmlAttribute: unEscapeHtmlAttribute, escapeHtmlAttribute: escapeHtmlAttribute}; \n" + formatDate_1.formatDate.toString() + "; var dateUtil_1 = {formatDate: formatDate}; \n").trim(),
                     description: "Gets data stored in the element declared ed with wrapper <StoreData><button..."
                 });
             }
@@ -93,30 +96,27 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
             Bind.registered = true;
         };
         Bind.counter = 0;
+        Bind.BIND_VALUE_ATTRIBUTE_NAME = BIND_VALUE_ATTRIBUTE_NAME;
         Bind.registered = false;
         return Bind;
     }(StatelessComponent_1.StatelessComponent));
     exports.Bind = Bind;
     // TODO: perhaps is safer to put all js objects in a global variable instead of embedding them in the DOM element
     function getBindData(key) {
-        // if (typeof listenerElOrKey === 'string') {
         return __BindData[key];
-        // }
-        // const s = listenerElOrKey.getAttribute('data-bind-data-id')
-        // if (s) {
-        // return __BindData[s]
-        // }
     }
     function getBindDataOrThrow(key) {
         return misc_1.checkThrow(getBindData(key), 'Store data not found for key ' + key);
     }
+    1;
+    // type ElType = HTMLInputElement&HTMLSelectElement
     function getBindInputValue(listenerElementOrInputElementOrKeyOrInputElementSelector, config) {
         if (config === void 0) { config = {}; }
         var el = null;
         if (typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
             // Can be a name:
             var id = __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector];
-            var sel = id && "[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + id + "\"]";
+            var sel = id && id.id && "[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + id.id + "\"]";
             el = sel && document.querySelector(sel) ||
                 // can be an input element selector
                 document.querySelector(listenerElementOrInputElementOrKeyOrInputElementSelector);

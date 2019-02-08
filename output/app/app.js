@@ -9,10 +9,10 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirect", "./browserCode"], function (require, exports, misc_1, createElement_1, redirect_1, browserCode_1) {
+define(["require", "exports", "../misc/arrayPrototypeFind", "../jsx/createElement", "N/redirect", "./browserCode"], function (require, exports, arrayPrototypeFind_1, createElement_1, redirect_1, browserCode_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var f = misc_1.find; // install array.prototype.find
+    var f = arrayPrototypeFind_1.find; // install array.prototype.find
     var App = /** @class */ (function () {
         function App() {
             this.routes = [];
@@ -71,7 +71,7 @@ define(["require", "exports", "../misc/misc", "../jsx/createElement", "N/redirec
         };
         /** default redirect implementation. Routes needing to redirect to other routes can call this method */
         App.prototype.redirect = function (config) {
-            var msgParam = "&" + browserCode_1.ROUTEPARAMPREFIX + "messageFromRedirect=";
+            // const msgParam = `&${ROUTEPARAMPREFIX}messageFromRedirect=`
             // we remove messageFromRedirectParam that we assume is the last one if any
             // const url = (config.redirect.indexOf(msgParam) === -1 || !config.messageFromRedirect) ? config.redirect :
             // config.redirect.substring(config.redirect.indexOf(msgParam), config.redirect.length) + msgParam + config.messageFromRedirect

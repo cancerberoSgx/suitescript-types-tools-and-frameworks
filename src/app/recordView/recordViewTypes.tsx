@@ -32,7 +32,7 @@ export interface RecordV extends Record {
   sublists: ValuedSublist[];
 }
 
-export interface RecordViewProps extends RouteHandlerParams, StatelessComponentProps<RouteHandlerParams&RecordViewProps >{
+export interface RecordViewProps extends RouteHandlerParams{
   record: RecordV;
   seeValues?: boolean;
   renderLink: RouteHandlerParams['renderLink']

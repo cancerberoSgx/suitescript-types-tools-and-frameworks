@@ -1,4 +1,4 @@
-define(["require", "exports", "../search/typedSearch/typedSearchOperations", "../misc/misc"], function (require, exports, typedSearchOperations_1, misc_1) {
+define(["require", "exports", "../search/typedSearch/typedSearchOperations", "../misc/arrayPrototypeFind"], function (require, exports, typedSearchOperations_1, arrayPrototypeFind_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function ls(config) {
@@ -64,13 +64,13 @@ define(["require", "exports", "../search/typedSearch/typedSearchOperations", "..
     }
     var cc = 0;
     function buildMissingFolders(files, config) {
-        var withNoParent = files.filter(function (f) { return f.parent && !misc_1.find(files, function (p) { return p.id === f.parent; }); }); //.map(f=>{id: f.idf.parent}).filter(i=>i!==undefined) as string[]
+        var withNoParent = files.filter(function (f) { return f.parent && !arrayPrototypeFind_1.find(files, function (p) { return p.id === f.parent; }); }); //.map(f=>{id: f.idf.parent}).filter(i=>i!==undefined) as string[]
         // console.log(`withNoParent ${withNoParent.length}`);
         // // return
         // // const missingParentIds = withNoParent.map(f => f.parent) as string[]
         if (withNoParent.length > 1) {
             getFolders(withNoParent.map(function (f) { return f.parent; })).forEach(function (p, i) {
-                if (!misc_1.find(files, function (f) { return f.id === p.id; })) {
+                if (!arrayPrototypeFind_1.find(files, function (f) { return f.id === p.id; })) {
                     files.push(p);
                 }
             });
@@ -84,7 +84,7 @@ define(["require", "exports", "../search/typedSearch/typedSearchOperations", "..
         //     }
         //   })
         // }
-        var missingCount = files.filter(function (f) { return f.parent && !misc_1.find(files, function (p) { return p.id === f.parent; }); }).length;
+        var missingCount = files.filter(function (f) { return f.parent && !arrayPrototypeFind_1.find(files, function (p) { return p.id === f.parent; }); }).length;
         if (missingCount > 1 && cc < 3) {
             console.log('buildMissingFolders ' + missingCount);
             cc++;
@@ -103,7 +103,7 @@ define(["require", "exports", "../search/typedSearch/typedSearchOperations", "..
         if (!f.parent) {
             return rootAbsoluteName;
         }
-        var parent = misc_1.find(allFiles, function (p) { return p.id === f.parent; });
+        var parent = arrayPrototypeFind_1.find(allFiles, function (p) { return p.id === f.parent; });
         if (!parent) {
             // console.log(`Warning, file parent not found: ${f.name} ${f.id}`)
             return rootAbsoluteName + '/unknown' + counter++;

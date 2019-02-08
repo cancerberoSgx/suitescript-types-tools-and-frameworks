@@ -1,18 +1,20 @@
 // better idea - probably this can be obsoleted by just using data-attributes, example:  instead of `<Bind name="foo"><input></input></Bind>` use `<input data-bind-name="foo"></input>`
 
 import { formatDate } from '../../misc/formatDate';
-import { array, checkThrow } from '../../misc/misc';
-import { escapeHtmlAttribute, ReactLike, unEscapeHtmlAttribute } from '../createElement';
+import { array, checkThrow, unEscapeHtmlAttribute, escapeHtmlAttribute } from '../../misc/misc';
+import {  ReactLike } from '../createElement';
 import { StatelessComponent } from '../StatelessComponent';
+import { InputHTMLAttributes } from '../declarations/domElementDeclarations';
 
 interface Data { [k: string]: any }
-interface Props {
+export interface BindProps {
   data?: Data
   name: string
   inputValue?: HTMLElement
 }
 
 const BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id'
+
 /** 
  * Helper to bind data to the DOM and input element values so it can be easily retrieved from a function attribute like a click handler from the browser. This is necessary because in the browser's function attribute we don't have access to the server code scope. 
  * 
@@ -40,9 +42,10 @@ const BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id'
 ```
  */
 
-export class Bind extends StatelessComponent<Props>{
+export class Bind<P extends BindProps = BindProps> extends StatelessComponent<P>{
   
   protected static counter = 0
+  protected static BIND_VALUE_ATTRIBUTE_NAME = BIND_VALUE_ATTRIBUTE_NAME
 
   render(): JSX.Element {
     if (!this.props.data && this.props.name) {
@@ -50,21 +53,24 @@ export class Bind extends StatelessComponent<Props>{
       if (typeof this.props.inputValue === 'undefined') {
         const c = this.firstChildElement()
         if (c) {
-          c.attrs[BIND_VALUE_ATTRIBUTE_NAME] = id
+          c.attrs[Bind.BIND_VALUE_ATTRIBUTE_NAME] = id
         }
         else {
           // TODO: error debug
           return <span></span>
         }
       }
+      // else if(typeof this.props.inputValue==='string'){
+      //   this.
+      // }
       else {
-        this.props.inputValue.setAttribute(BIND_VALUE_ATTRIBUTE_NAME, id)
+        this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id)
       }
       // TODO: add this statements in a single global <script> tag - could be a static el attribute
       return <span>
   <script>{`
 __BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
-__BindInputValues['${this.props.name}'] = '${id}';
+__BindInputValues['${this.props.name}'] = {id: '${id}'};
 `.trim()}
   </script>
 </span>
@@ -97,7 +103,7 @@ __BindData['${this.props.name}'] = ${JSON.stringify(this.props.data)};
         code: `
 __BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
 __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
-var BIND_VALUE_ATTRIBUTE_NAME = '${BIND_VALUE_ATTRIBUTE_NAME}';
+var BIND_VALUE_ATTRIBUTE_NAME = '${Bind.BIND_VALUE_ATTRIBUTE_NAME}';
 ${getBindData.toString()};
 ${getBindDataOrThrow.toString()};
 ${unEscapeHtmlAttribute.toString()};
@@ -128,21 +134,15 @@ var misc_1 = {array: array, checkThrow: checkThrow};
 
 // TODO: perhaps is safer to put all js objects in a global variable instead of embedding them in the DOM element
 function getBindData<T>(key: string): T | undefined {
-  // if (typeof listenerElOrKey === 'string') {
   return __BindData[key]
-  // }
-  // const s = listenerElOrKey.getAttribute('data-bind-data-id')
-  // if (s) {
-  // return __BindData[s]
-  // }
 }
 
 function getBindDataOrThrow<T>(key: string): T {
   return checkThrow(getBindData(key), 'Store data not found for key ' + key)
 }
 
-declare let __BindInputValues: { [k: string]: any }
-
+declare let __BindInputValues: { [k: string]: {id:string, onChange?: InputHTMLAttributes<HTMLInputElement>['onChange'] }}
+1
 declare let __BindData: { [k: string]: any }
 
 
@@ -157,7 +157,7 @@ function getBindInputValue<T extends InputValue, InputValue extends string | num
   if(typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
     // Can be a name:
     const id  =  __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector]
-    const sel = id && `[${BIND_VALUE_ATTRIBUTE_NAME}="${id}"]`;
+    const sel = id && id.id && `[${BIND_VALUE_ATTRIBUTE_NAME}="${id.id}"]`;
     el = sel && document.querySelector<ElType>(sel) ||
     // can be an input element selector
     document.querySelector<ElType>(listenerElementOrInputElementOrKeyOrInputElementSelector )

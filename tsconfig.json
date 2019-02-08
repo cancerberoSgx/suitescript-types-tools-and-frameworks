@@ -10,6 +10,7 @@
     "outDir": "output",
     "baseUrl": ".",
     "jsx": "react",
+    "strictFunctionTypes": true,
     "jsxFactory": "ReactLike.createElement",
     "lib": [
       "es5", "dom"

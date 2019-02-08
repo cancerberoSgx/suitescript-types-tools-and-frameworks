@@ -7,7 +7,7 @@ import { EntryPoints } from 'N/types';
 import { setDefaultLogger } from "./log/log";
 import { ResponseLogger } from './log/responseLogger';
 import { runSpecs } from './__tests__';
-import { find } from './misc/misc';
+import { find } from "./misc/arrayPrototypeFind";
 import { miniNetSuiteApp as miniNetSuiteApp } from './app/__tests__/miniNetsuiteApp';
 // import { appTest } from './app/__tests__/appTest';
 

@@ -1,6 +1,6 @@
 import { AbstractFile, FileType, AbstractConfig, FilePredicate, Folder } from './types';
 import { list } from '../search/typedSearch/typedSearchOperations';
-import { find } from '../misc/misc';
+import { find } from "../misc/arrayPrototypeFind";
 
 export function ls(config: Config): AbstractFile[] {
   const { root = '@NONE@', type, rootAbsoluteName = '/' } = config

@@ -15,12 +15,12 @@ interface Props extends RouteHandlerParams{
   dynamicResultsRender?: boolean
 }
 
-const bindInputValueId = `data-list-record-types`
+// const bindInputValueId = `data-list-record-types`
 
 export const ListRecordTypes = (props: Props) => {
   return <div>
     Record type: {props.type} {props.results && props.results.length}
-    <Bind name={bindInputValueId}>
+    <Bind name={`data-list-record-types`}>
       <select id="ListRecordTypesSelect">
         {getSearchRecordTypes().map(r =>
           <option selected={props.type == r} value={r}>{r}</option>
@@ -28,21 +28,21 @@ export const ListRecordTypes = (props: Props) => {
       </select>
     </Bind>
 
-    <Bind name={bindInputValueId}  >
+    {/* <Bind> */}
     {props.dynamicResultsRender ? 
       <button 
       onClick={e => {
-        let type = getBindInputValue<string>(e.currentTarget);
+        let type = getBindInputValue<string>(`data-list-record-types`);
         fetchAndRenderHtml({ routeName: 'listRecordTypes', params: { type }, selector: '#listRecordTypesDynamicResults' })
       }}>Search</button> : 
       <button 
       onClick={e => {
-        let type = getBindInputValue<string>(e.currentTarget);
+        let type = getBindInputValue<string>(`data-list-record-types`);
         window.location.href = buildRouteUrl({ routeName: 'listRecordTypes', params: { type } });
       }}
       >   Search</button>
     }
-    </Bind>
+    {/* </Bind> */}
 
     <span id="listRecordTypesDynamicResults"></span> 
 

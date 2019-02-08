@@ -1,4 +1,4 @@
-define(["require", "exports", "../misc/misc", "../misc/printMs"], function (require, exports, misc_1, printMs_1) {
+define(["require", "exports", "../misc/misc", "../misc/arrayPrototypeFind", "../misc/printMs"], function (require, exports, misc_1, arrayPrototypeFind_1, printMs_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     var TextReporter = /** @class */ (function () {
@@ -46,7 +46,7 @@ define(["require", "exports", "../misc/misc", "../misc/printMs"], function (requ
             //   return 'detailed format not implemented'
             // }
             // else {
-            var failIts = d.results.filter(function (i) { return _this.config.format === 'detailed' || misc_1.find(i.results, function (r) { return r.type === 'fail'; }); });
+            var failIts = d.results.filter(function (i) { return _this.config.format === 'detailed' || arrayPrototypeFind_1.find(i.results, function (r) { return r.type === 'fail'; }); });
             if (this.config.format === 'detailed' || failIts.length) {
                 return "\n" + this.indent(indentLevel) + d.name + ": " + failIts.map(function (i) { return _this.renderIt(i, indentLevel + 1); });
             }

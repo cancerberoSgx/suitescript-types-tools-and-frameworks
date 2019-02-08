@@ -1,3 +1,4 @@
+// heads up - we want this file to be independent, that's why we didn't use misc utilities!
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../misc/misc"], function (require, exports, misc_1) {
+define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function isReactLikeComponent(c) {
@@ -45,30 +46,91 @@ define(["require", "exports", "../misc/misc"], function (require, exports, misc_
             this.attrs = {};
             this.children = [];
         }
+        ElementLikeImpl.prototype.render = function (config) {
+            var _this = this;
+            if (config === void 0) { config = defaultRenderConfig; }
+            var newLine = config.indent ? "\n" : "";
+            var content = this.innerHtml ||
+                "" + newLine + ReactLike.indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children
+                    .map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); })
+                    .join('') + newLine + ReactLike.indent(config);
+            return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + content + "</" + this.tag + ">";
+        };
         ElementLikeImpl.prototype.setAttribute = function (name, value) {
             this.attrs[name] = value;
         };
         ElementLikeImpl.prototype.appendChild = function (c) {
             this.children.push(c);
-        };
-        ElementLikeImpl.prototype.render = function (config) {
-            var _this = this;
-            if (config === void 0) { config = defaultRenderConfig; }
-            var newLine = config.indent ? "\n" : "";
-            var content = this.innerHtml || "" + newLine + indent(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })) + this.children
-                .map(function (c) { return "" + c.render(__assign({}, config, { indentLevel: (config.indentLevel || 0) + 1 })); }).
-                join('') + newLine + indent(config);
-            return "<" + this.tag + Object.keys(this.attrs).map(function (a) { return " " + a + "=\"" + _this.attrs[a] + "\""; }).join('') + ">" + content + "</" + this.tag + ">";
+            if (isElementLike(c)) {
+                c.parentElement = this;
+                // this.children.push(c)
+            }
         };
         ElementLikeImpl.prototype.dangerouslySetInnerHTML = function (s) {
             this.innerHtml = s;
+        };
+        ElementLikeImpl.prototype.findDescendant = function (p) {
+            var found;
+            this.children.some(function (c) {
+                if (isElementLike(c)) {
+                    if (p(c)) {
+                        found = c;
+                    }
+                    else {
+                        found = c.findDescendant(p);
+                    }
+                }
+                return !!found;
+            });
+            return found;
+        };
+        ElementLikeImpl.prototype.findAscendant = function (p) {
+            if (this.parentElement) {
+                if (p(this.parentElement)) {
+                    return this.parentElement;
+                }
+                return this.parentElement.findAscendant(p);
+            }
+        };
+        ElementLikeImpl.prototype.getAscendants = function () {
+            return this.parentElement ? this.parentElement.getAscendants().concat([this.parentElement]) : [];
+        };
+        ElementLikeImpl.prototype.getRootAscendant = function () {
+            var r = this.parentElement ? this.findAscendant(function (n) { return !n.parentElement; }) : this;
+            return checkThrow(r, 'No root ascendant found in element like tree!');
+        };
+        ElementLikeImpl.prototype.getSiblings = function () {
+            var _this = this;
+            if (this.parentElement) {
+                return this.parentElement.children.filter(function (c) { return c !== _this; });
+            }
+            return [];
+        };
+        ElementLikeImpl.prototype.findSibling = function (p) {
+            return this.getSiblings().find(p);
+        };
+        ElementLikeImpl.prototype.find = function (p) {
+            // TODO: this should start searching in the near children, sibling and parents, and only after that look on far nodes
+            return this.getRootAscendant().findDescendant(p);
         };
         return ElementLikeImpl;
     }());
     exports.ElementLikeImpl = ElementLikeImpl;
     var defaultRenderConfig = { indentLevel: 0, indentTabSize: 2 };
-    function indent(config) {
-        if (config === void 0) { config = defaultRenderConfig; }
-        return config.indent ? misc_1.indent(config.indentLevel || 0, config.indentTabSize || 2) : '';
+    // heads up - we want this file to be independent, that's why we did't use misc utilities!
+    // heads up - we want this file to be independent, that's why we did't use misc utilities!
+    function checkThrow(r, msg) {
+        if (msg === void 0) { msg = 'Throwing on undefined value'; }
+        if (!r) {
+            throw new Error(msg);
+        }
+        return r;
     }
 });
+// function _indent(i: number = 1, tabSize = 2): string {
+//   const a=[]
+//   for (let i = 0; i < i*tabSize; i++) {
+//     a.push(' ')
+//   }
+//   return a.join('')
+// }

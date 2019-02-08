@@ -8,7 +8,7 @@
     "outDir": "dist",
     "rootDir": "..",
     "lib": [
-      "es2018",
+      "es6",
     ],
     "baseUrl": "./",
     "paths": {
@@ -20,6 +20,6 @@
       ]
     }
   },
-  "include": ["../src/spec", "./spec", "../src/record/typedRecord", "node_modules/@hitc"],
+  "include": ["../src/spec", "./spec", "../src/record/typedRecord","../src/app/__tests__/miniDebuggerEvalCode.ts", "node_modules/@hitc"],
   "exclude": ["dist", "output", "node_modules"]
 }

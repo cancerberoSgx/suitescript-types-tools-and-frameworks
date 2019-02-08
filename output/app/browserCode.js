@@ -31,15 +31,17 @@ define(["require", "exports"], function (require, exports) {
     /** this function is meant to be evaluated in the browser! */
     function fetchAndRenderHtmlFragment(config) {
         var url = buildRouteUrl(config);
+        var parent = document.querySelector(config.selector);
+        if (!parent) {
+            return; // TODO: log?
+        }
+        parent.innerHTML = "<div>Loading new content...</div>";
         fetch(url)
             .then(function (response) {
             return response.text();
         })
             .then(function (html) {
-            var parent = document.querySelector(config.selector);
-            if (parent) {
-                parent.innerHTML = html;
-            }
+            parent.innerHTML = html;
         });
     }
     function buildRouteUrl(config) {
@@ -56,7 +58,7 @@ define(["require", "exports"], function (require, exports) {
     function renderBrowserCode() {
         // @ts-ignore
         var assign = __assign.toString();
-        var s = ("\nvar ROUTEPARAMNAME_ = \"" + ROUTEPARAMNAME_ + "\";\nvar ROUTEPARAMPREFIX_ = \"" + ROUTEPARAMPREFIX_ + "\";\nvar SCRIPTLETURLPREFIX_ = \"" + SCRIPTLETURLPREFIX_ + "\"; \nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\n").trim();
+        var s = ("\nvar ROUTEPARAMNAME_ = \"" + ROUTEPARAMNAME_ + "\";\nvar ROUTEPARAMPREFIX_ = \"" + ROUTEPARAMPREFIX_ + "\";\nvar SCRIPTLETURLPREFIX_ = \"" + SCRIPTLETURLPREFIX_ + "\";\nvar __assign = " + assign + "\n" + buildRouteUrl.toString() + "\n" + buildUrl.toString() + "\n" + fetchAndRenderHtmlFragment.toString() + "\nfunction fetchAndRenderHtml(config){\n  return fetchAndRenderHtmlFragment(config)\n}\nfunction buildLink(config){\n  return buildRouteUrl(config)\n}\n").trim();
         return s;
     }
     exports.renderBrowserCode = renderBrowserCode;

@@ -39,7 +39,17 @@ export interface ElementLike extends NodeLike {
   setAttribute(name: string, value: string): void
   dangerouslySetInnerHTML(s: string):void
   appendChild(c: NodeLike): void
+  parentElement?: ElementLike
+  findDescendant(p: Predicate): ElementLike|undefined
+  findAscendant(p: Predicate<ElementLike>): ElementLike | undefined
+  getSiblings(): NodeLike[]
+  findSibling(p: Predicate): NodeLike | undefined
+  getRootAscendant(): ElementLike
+  getAscendants(): ElementLike[]
+  find(p: Predicate): NodeLike|undefined
 }
+
+export type Predicate<N extends NodeLike = NodeLike> = (e:N)=>boolean
 
 export interface RenderConfig {
   indent?: boolean
@@ -47,6 +57,9 @@ export interface RenderConfig {
   indentTabSize?: number
   /** render also the required utilities ClientCode registered by custom utilities. It will be rendered once, before the given root element */
   renderClientCode?: boolean
+
+  /** render() and createElement(), by default will set ids to DOM elements and build a association between ids and ElementLike nodes so function attributes (event handlers) can easily find the context node from the js code. This happens only on the client-side, should not have significant impact on performance or size but it can be disabled setting it to false. Event handlers won't have access to its Node, or Component instance.*/
+  disableDomIdsAssociation?: boolean
 }
 
 export interface ReactLike {

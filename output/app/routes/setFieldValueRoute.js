@@ -1,4 +1,4 @@
-define(["require", "exports", "../../misc/misc", "N/record"], function (require, exports, misc_1, record_1) {
+define(["require", "exports", "../../misc/misc", "../../misc/arrayPrototypeFind", "N/record"], function (require, exports, misc_1, arrayPrototypeFind_1, record_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function setFieldValueRoute(app) {
@@ -16,7 +16,7 @@ define(["require", "exports", "../../misc/misc", "N/record"], function (require,
                 if (!record) {
                     return 'Record id, type: ' + (recordId + ", " + recordType + " not found");
                 }
-                if (!misc_1.find(record.getFields(), function (f) { return f === fieldId; })) {
+                if (!arrayPrototypeFind_1.find(record.getFields(), function (f) { return f === fieldId; })) {
                     return 'Record id, type: ' + (recordId + ", " + recordType + " does not have fieldId " + fieldId);
                 }
                 try {

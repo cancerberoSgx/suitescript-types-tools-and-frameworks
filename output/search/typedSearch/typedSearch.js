@@ -1,4 +1,4 @@
-// TODO: 
+// TODO:
 // * filters: ['foo',... ] is wrong because it only allow to use filter names as string
 // * if I set install columns ['a', 'b'] then whe I call getValue() it should only let me reference those column names
 define(["require", "exports", "N/search"], function (require, exports, nsSearch) {
@@ -17,11 +17,11 @@ define(["require", "exports", "N/search"], function (require, exports, nsSearch)
 // }
 // // // unwrap up to one level
 // type Unarray<T> = T extends Array<infer U> ? U : T;
-// // ColumnNames extends ValueOfStringKey<Unarray<Columns>, 'name'> 
+// // ColumnNames extends ValueOfStringKey<Unarray<Columns>, 'name'>
 // export function search2<RecordType extends SearchRecordType
 // , Columns extends TypedColumn<RecordType>[]
 // // , ColumnNames extends ValueOfStringKey<Unarray<Columns>, 'name'>
-// >(options: SearchCreateOptions2<RecordType, Columns>): 
+// >(options: SearchCreateOptions2<RecordType, Columns>):
 // Search2<RecordType, Columns> {
 //   // return nsSearch.create(options as any) as any
 //   throw 1

@@ -49,11 +49,11 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
         }
         Bind.prototype.render = function () {
             if (!this.props.data && this.props.name) {
-                var id = "bind-input-value-element-" + Bind.counter++;
+                var id_1 = "bind-input-value-element-" + Bind.counter++;
                 if (typeof this.props.inputValue === 'undefined') {
                     var c = this.firstChildElement();
                     if (c) {
-                        c.attrs[Bind.BIND_VALUE_ATTRIBUTE_NAME] = id;
+                        c.attrs[Bind.BIND_VALUE_ATTRIBUTE_NAME] = id_1;
                     }
                     else {
                         // TODO: error debug
@@ -61,16 +61,17 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
                     }
                 }
                 else {
-                    this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id);
+                    this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id_1);
                 }
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
                 return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues['" + this.props.name + "'] = {id: '" + id + "'};\n").trim()));
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues['" + this.props.name + "'] = {id: '" + id_1 + "'};\n").trim()));
             }
             else if (this.props.data && this.props.name) {
+                var id = Bind.counter++;
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
-                return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindData['" + this.props.name + "'] = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n").trim()));
+                return createElement_1.ReactLike.createElement("span", { "data-bind-id": id },
+                    createElement_1.ReactLike.createElement("script", null, ("\n  var value = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n__BindData['" + this.props.name + "'] = value\n__BindData['" + this.props.name + "-" + id + "'] = value;\n").trim()));
             }
             else {
                 // TODO: error debug
@@ -99,11 +100,23 @@ define(["require", "exports", "../../misc/formatDate", "../../misc/misc", "../cr
     }(StatelessComponent_1.StatelessComponent));
     exports.Bind = Bind;
     // TODO: perhaps is safer to put all js objects in a global variable instead of embedding them in the DOM element
-    function getBindData(key) {
+    function getBindData(key, el) {
+        function findAncestor(el, p) {
+            return el && p(el) && findAncestor(el.parentElement, p);
+        }
+        if (el) {
+            var bindEl = findAncestor(el, function (a) {
+                var els = a.querySelectorAll('[data-bind-id]');
+                return els.length && els[0];
+            });
+            if (bindEl) {
+                return __BindData[key + '-' + bindEl.getAttribute('data-bind-id')] || __BindData[key];
+            }
+        }
         return __BindData[key];
     }
-    function getBindDataOrThrow(key) {
-        return misc_1.checkThrow(getBindData(key), 'Store data not found for key ' + key);
+    function getBindDataOrThrow(key, el) {
+        return misc_1.checkThrow(getBindData(key, el), 'Store data not found for key ' + key);
     }
     1;
     // type ElType = HTMLInputElement&HTMLSelectElement

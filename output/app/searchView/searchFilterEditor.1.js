@@ -32,32 +32,27 @@ define(["require", "exports", "../../jsx/renderInHtml", "../../jsx/StatelessComp
             return _super !== null && _super.apply(this, arguments) || this;
         }
         SearchFilterEditor.prototype.render = function () {
-            var _this = this;
             var filterValues = TypedSearchFilterValues_1.typedSearchFilterValues[this.props.type]
                 .map(function (f) { return (__assign({}, f, { name: f.id + " - " + f.label + " " })); });
             var editorId = misc_1.unique('searchFilterEditor');
             return createElement_1.ReactLike.createElement("div", { "data-editor-id": editorId },
                 createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "SearchFilterEditorProps", data: __assign({}, this.props, { editorId: editorId }) }),
                 createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter': '' }, options: filterValues, firstOption: "Select " + this.props.type + " filter", onChange: function (selectedFilter) {
-                        // debugger
                         if (!selectedFilter) {
                             return;
                         }
-                        var props = getBindDataOrThrow('SearchFilterEditorProps', _this);
+                        var props = getBindDataOrThrow('SearchFilterEditorProps');
                         var filter = TypedSearchFilterValues_1.typedSearchFilterValues[props.type].find(function (f) { return f.id === selectedFilter; });
                         var operators = searchTypesOperatorsSupport_1.SearchTypesOperatorSupportValues[filter.type];
                         var ss = createElement_1.ReactLike.createElement(Select_1.Select, { options: operators, firstOption: "Select " + filter.id + " operator", onChange: function (e) {
-                                // alert(e)
+                                alert(e);
                             } });
-                        renderInHtml_1.renderInDOM(ss, "#operatorsPlaceHolder" + props.editorId);
+                        renderInHtml_1.renderInDOM(ss, '#operatorsPlaceHolder');
                     } }),
-                createElement_1.ReactLike.createElement("div", { id: "operatorsPlaceHolder" + editorId }),
+                createElement_1.ReactLike.createElement("div", { id: "operatorsPlaceHolder" }),
                 createElement_1.ReactLike.createElement("input", { id: "filterValueInput", value: "the value" }));
         };
         SearchFilterEditor.prototype.renderFileDependencies = function () {
-            return SearchFilterEditor._renderFileDependencies();
-        };
-        SearchFilterEditor._renderFileDependencies = function () {
             return [
                 'jsx/createElement.js',
                 'jsx/elementImpl.js',

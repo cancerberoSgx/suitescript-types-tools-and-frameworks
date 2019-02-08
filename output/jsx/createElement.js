@@ -50,7 +50,7 @@ define(["require", "exports", "./elementImpl"], function (require, exports, elem
                         }
                     }
                     else if (typeof value === 'function') {
-                        var code = "(" + value.toString() + ").apply(this, arguments)";
+                        var code = "_this = __this__ = this; (" + value.toString() + ").apply(_this, arguments)";
                         var escaped = code.replace(/\"/gmi, '&quot;');
                         element.setAttribute(name_1, escaped);
                     }

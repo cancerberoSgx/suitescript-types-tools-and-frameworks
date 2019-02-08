@@ -4,3 +4,4 @@ dist
 auxiliary-projects
 .changed_hashes.json
 account-config
+react-redux-client-app

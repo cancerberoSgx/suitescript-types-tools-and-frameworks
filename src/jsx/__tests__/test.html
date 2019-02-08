@@ -66,7 +66,7 @@ define("createElement", ["require", "exports", "elementImpl"], function (require
                         }
                     }
                     else if (typeof value === 'function') {
-                        var code = "(" + value.toString() + ").apply(this, arguments)";
+                        var code = "_this = __this__ = this; (" + value.toString() + ").apply(_this, arguments)";
                         var escaped = code.replace(/\"/gmi, '&quot;');
                         element.setAttribute(name_1, escaped);
                     }
@@ -339,13 +339,13 @@ define("Select", ["require", "exports", "createElement", "StatelessComponent", "
         Select.prototype.render = function () {
             var _this = this;
             var options = (this.props.options.length && typeof this.props.options[0] === 'string') ? this.props.options.map(function (o) { return ({ id: o, name: o }); }) : this.props.options;
-            var id = (Select.counter++) + new Date().getTime();
+            var id = ''; //(Select.counter++)+new Date().getTime()
             return createElement_1.ReactLike.createElement("span", null,
                 this.props.onChange ? createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "Select-" + id, data: this.props.onChange }) : '',
                 createElement_1.ReactLike.createElement("select", __assign({}, this.props['select-attrs'] || {}, { "data-select-id": id, onChange: function (e) {
                         var value = e.currentTarget.selectedOptions[0].value;
                         var id = e.currentTarget.getAttribute('data-select-id');
-                        var f = getBindData("Select-" + id);
+                        var f = getBindData("Select-" + id, _this);
                         f && f(value);
                     } }),
                     this.props.firstOption ? createElement_1.ReactLike.createElement("option", null, this.props.firstOption) : '',
@@ -453,11 +453,11 @@ define("Bind", ["require", "exports", "formatDate", "misc", "createElement", "St
         }
         Bind.prototype.render = function () {
             if (!this.props.data && this.props.name) {
-                var id = "bind-input-value-element-" + Bind.counter++;
+                var id_1 = "bind-input-value-element-" + Bind.counter++;
                 if (typeof this.props.inputValue === 'undefined') {
                     var c = this.firstChildElement();
                     if (c) {
-                        c.attrs[Bind.BIND_VALUE_ATTRIBUTE_NAME] = id;
+                        c.attrs[Bind.BIND_VALUE_ATTRIBUTE_NAME] = id_1;
                     }
                     else {
                         // TODO: error debug
@@ -465,16 +465,17 @@ define("Bind", ["require", "exports", "formatDate", "misc", "createElement", "St
                     }
                 }
                 else {
-                    this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id);
+                    this.props.inputValue.setAttribute(Bind.BIND_VALUE_ATTRIBUTE_NAME, id_1);
                 }
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
                 return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues['" + this.props.name + "'] = {id: '" + id + "'};\n").trim()));
+                    createElement_1.ReactLike.createElement("script", null, ("\n__BindInputValues['" + this.props.name + "'] = {id: '" + id_1 + "'};\n").trim()));
             }
             else if (this.props.data && this.props.name) {
+                var id = Bind.counter++;
                 // TODO: add this statements in a single global <script> tag - could be a static el attribute
-                return createElement_1.ReactLike.createElement("span", null,
-                    createElement_1.ReactLike.createElement("script", null, ("\n__BindData['" + this.props.name + "'] = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n").trim()));
+                return createElement_1.ReactLike.createElement("span", { "data-bind-id": id },
+                    createElement_1.ReactLike.createElement("script", null, ("\n  var value = " + (typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)) + ";\n__BindData['" + this.props.name + "'] = value\n__BindData['" + this.props.name + "-" + id + "'] = value;\n").trim()));
             }
             else {
                 // TODO: error debug
@@ -503,11 +504,23 @@ define("Bind", ["require", "exports", "formatDate", "misc", "createElement", "St
     }(StatelessComponent_1.StatelessComponent));
     exports.Bind = Bind;
     // TODO: perhaps is safer to put all js objects in a global variable instead of embedding them in the DOM element
-    function getBindData(key) {
+    function getBindData(key, el) {
+        function findAncestor(el, p) {
+            return el && p(el) && findAncestor(el.parentElement, p);
+        }
+        if (el) {
+            var bindEl = findAncestor(el, function (a) {
+                var els = a.querySelectorAll('[data-bind-id]');
+                return els.length && els[0];
+            });
+            if (bindEl) {
+                return __BindData[key + '-' + bindEl.getAttribute('data-bind-id')] || __BindData[key];
+            }
+        }
         return __BindData[key];
     }
-    function getBindDataOrThrow(key) {
-        return misc_1.checkThrow(getBindData(key), 'Store data not found for key ' + key);
+    function getBindDataOrThrow(key, el) {
+        return misc_1.checkThrow(getBindData(key, el), 'Store data not found for key ' + key);
     }
     1;
     // type ElType = HTMLInputElement&HTMLSelectElement
@@ -5973,18 +5986,115 @@ require(["searchTypesOperatorsSupport"], function(thisName){
     searchTypesOperatorsSupport_2 = thisName;
 });
 ;
-function SearchFilterEditor() {
+
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+define("searchFilterEditor", ["require", "exports", "renderInHtml", "StatelessComponent", "Select", "arrayPrototypeFind", "TypedSearchFilterValues", "createElement", "searchTypesOperatorsSupport", "Bind", "misc"], function (require, exports, renderInHtml_1, StatelessComponent_1, Select_1, arrayPrototypeFind_1, TypedSearchFilterValues_1, createElement_1, searchTypesOperatorsSupport_1, Bind_1, misc_1) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    arrayPrototypeFind_1.installArrayPrototypeFind();
+    var SearchFilterEditor = /** @class */ (function (_super) {
+        __extends(SearchFilterEditor, _super);
+        function SearchFilterEditor() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        SearchFilterEditor.prototype.render = function () {
+            var _this = this;
+            var filterValues = TypedSearchFilterValues_1.typedSearchFilterValues[this.props.type]
+                .map(function (f) { return (__assign({}, f, { name: f.id + " - " + f.label + " " })); });
+            var editorId = misc_1.unique('searchFilterEditor');
+            return createElement_1.ReactLike.createElement("div", { "data-editor-id": editorId },
+                createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "SearchFilterEditorProps", data: __assign({}, this.props, { editorId: editorId }) }),
+                createElement_1.ReactLike.createElement(Select_1.Select, { "select-attrs": { 'data-user-filter': '' }, options: filterValues, firstOption: "Select " + this.props.type + " filter", onChange: function (selectedFilter) {
+                        // debugger
+                        if (!selectedFilter) {
+                            return;
+                        }
+                        var props = getBindDataOrThrow('SearchFilterEditorProps', _this);
+                        var filter = TypedSearchFilterValues_1.typedSearchFilterValues[props.type].find(function (f) { return f.id === selectedFilter; });
+                        var operators = searchTypesOperatorsSupport_1.SearchTypesOperatorSupportValues[filter.type];
+                        var ss = createElement_1.ReactLike.createElement(Select_1.Select, { options: operators, firstOption: "Select " + filter.id + " operator", onChange: function (e) {
+                                // alert(e)
+                            } });
+                        renderInHtml_1.renderInDOM(ss, "#operatorsPlaceHolder" + props.editorId);
+                    } }),
+                createElement_1.ReactLike.createElement("div", { id: "operatorsPlaceHolder" + editorId }),
+                createElement_1.ReactLike.createElement("input", { id: "filterValueInput", value: "the value" }));
+        };
+        SearchFilterEditor.prototype.renderFileDependencies = function () {
+            return SearchFilterEditor._renderFileDependencies();
+        };
+        SearchFilterEditor._renderFileDependencies = function () {
+            return [
+                'jsx/createElement.js',
+                'jsx/elementImpl.js',
+                'jsx/util/Select.js',
+                'jsx/StatelessComponent.js',
+                'jsx/util/Bind.js',
+                'misc/formatDate.js',
+                'misc/misc.js',
+                'misc/arrayPrototypeFind.js',
+                'jsx/renderInHtml.js',
+                'search/typedSearch/generated/TypedSearchFilterValues.js',
+                'search/typedSearch/generated/searchTypesOperatorsSupport.js'
+            ];
+        };
+        return SearchFilterEditor;
+    }(StatelessComponent_1.StatelessComponent));
+    exports.SearchFilterEditor = SearchFilterEditor;
+});
+;
+require(["searchFilterEditor"], function(thisName){
+    searchFilterEditor_1 = thisName;
+    searchFilterEditor_2 = thisName;
+});
+;
+function SearchFilterEditors() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
 </script>
 <script>__BindInputValues = typeof __BindInputValues === 'undefined' ? {} : __BindInputValues;
 __BindData = typeof __BindData === 'undefined' ? {} : __BindData;
 var BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id';
-function getBindData(key) {
+function getBindData(key, el) {
+    function findAncestor(el, p) {
+        return el && p(el) && findAncestor(el.parentElement, p);
+    }
+    if (el) {
+        var bindEl = findAncestor(el, function (a) {
+            var els = a.querySelectorAll('[data-bind-id]');
+            return els.length && els[0];
+        });
+        if (bindEl) {
+            return __BindData[key + '-' + bindEl.getAttribute('data-bind-id')] || __BindData[key];
+        }
+    }
     return __BindData[key];
 };
-function getBindDataOrThrow(key) {
-    return misc_1.checkThrow(getBindData(key), 'Store data not found for key ' + key);
+function getBindDataOrThrow(key, el) {
+    return misc_1.checkThrow(getBindData(key, el), 'Store data not found for key ' + key);
 };
 function unEscapeHtmlAttribute(code) {
     return code.replace(/\&quot\;/gmi, '"');
@@ -6078,89 +6188,19 @@ function checkThrow(r, msg) {
     }
     return r;
 }; 
-var misc_1 = {array: array, checkThrow: checkThrow};
-function getBindInputValue(listenerElementOrInputElementOrKeyOrInputElementSelector, config) {
-    if (config === void 0) { config = {}; }
-    var el = null;
-    if (typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
-        // Can be a name:
-        var id = __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector];
-        var sel = id && id.id && "[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + id.id + "\"]";
-        el = sel && document.querySelector(sel) ||
-            // can be an input element selector
-            document.querySelector(listenerElementOrInputElementOrKeyOrInputElementSelector);
-    }
-    else {
-        // can be a listener element
-        var key = listenerElementOrInputElementOrKeyOrInputElementSelector.getAttribute("" + BIND_VALUE_ATTRIBUTE_NAME);
-        if (key) {
-            el = document.querySelector("[" + BIND_VALUE_ATTRIBUTE_NAME + "=\"" + key + "\"]");
-        }
-        if (!el) {
-            // can be a input element
-            el = listenerElementOrInputElementOrKeyOrInputElementSelector;
-        }
-    }
-    if (el) {
-        if (el.type === 'date') {
-            return (config.asString && el.valueAsDate) ? formatDate_1.formatDate(el.valueAsDate, 'MM/DD/YYYY') : el.valueAsDate;
-        }
-        else if (el.type === 'number') {
-            return config.asString ? (el.valueAsNumber + '') : el.valueAsNumber;
-        }
-        else if (el.type === 'checkbox') {
-            return config.asString ? (el.checked ? 'T' : 'F') : !!el.checked;
-        }
-        else if (el.tagName.toLowerCase() === 'select') {
-            var selectedOptions_1 = el.selectedOptions;
-            if (selectedOptions_1 && !el.getAttribute('multiple')) {
-                return config.asString ? (selectedOptions_1.item(0).value + '') : selectedOptions_1.item(0).value;
-            }
-            else if ((selectedOptions_1 && el.getAttribute('multiple')) || !selectedOptions_1.length) {
-                var a = misc_1.array(selectedOptions_1.length).map(function (i) { return selectedOptions_1.item(i).value; });
-                return config.asString ? JSON.stringify(a) : a;
-            }
-            else {
-                //TODO debug msg
-            }
-        }
-        else {
-            //TODO debug msg
-        }
-        return config.asString ? (el.value + '') : el.value;
-    }
-};
-function array(n, sample) {
-    var a = [];
-    for (var i = 0; i < n; i++) {
-        a.push(typeof sample === 'undefined' ? i : sample);
-    }
-    return a;
-}; 
-function checkThrow(r, msg) {
-    if (msg === void 0) { msg = 'Throwing on undefined value'; }
-    if (!r) {
-        throw new Error(msg);
-    }
-    return r;
-}; 
 var misc_1 = {array: array, checkThrow: checkThrow};</script>
-<div data-editor-id="searchFilterEditor0">  <span>    <script>      __BindData['SearchFilterEditorProps'] = {"type":"commercecategory","children":[],"editorId":"searchFilterEditor0"};    </script>  </span><span>    <span>      <script>        __BindData['Select-1549650021053'] = function (selectedFilter) {
-                    if (!selectedFilter) {
-                        return;
-                    }
-                    var props = getBindDataOrThrow('SearchFilterEditorProps');
-                    var filter = TypedSearchFilterValues_1.typedSearchFilterValues[props.type].find(function (f) { return f.id === selectedFilter; });
-                    var operators = searchTypesOperatorsSupport_1.SearchTypesOperatorSupportValues[filter.type];
-                    var ss = createElement_1.ReactLike.createElement(Select_1.Select, { options: operators, firstOption: "Select " + filter.id + " operator", onChange: function (e) {
-                            alert(e);
-                        } });
-                    renderInHtml_1.renderInDOM(ss, '#operatorsPlaceHolder');
-                };      </script>    </span><select data-user-filter="" data-select-id="1549650021053" onChange="(function (e) {
-                    var value = e.currentTarget.selectedOptions[0].value;
-                    var id = e.currentTarget.getAttribute('data-select-id');
-                    var f = getBindData(&quot;Select-&quot; + id);
-                    f && f(value);
-                }).apply(this, arguments)">      <option>        Select commercecategory filter      </option><option value="addtohead">        addtohead - Add to Head       </option><option value="catalog">        catalog - Catalog       </option><option value="created">        created - Creation Date/Time       </option><option value="description">        description - Description       </option><option value="displayinsite">        displayinsite - Display in Web Site       </option><option value="externalid">        externalid - External ID       </option><option value="externalidstring">        externalidstring - External ID (Text)       </option><option value="fullurl">        fullurl - Full URL       </option><option value="idpath">        idpath - ID Path       </option><option value="internalid">        internalid - Internal ID       </option><option value="internalidnumber">        internalidnumber - Internal ID (Number)       </option><option value="isinactive">        isinactive - Inactive       </option><option value="isprimaryurl">        isprimaryurl - Is Primary URL       </option><option value="item">        item - Item       </option><option value="itemcategory">        itemcategory - Item Category ID       </option><option value="itemdescription">        itemdescription - Item Description       </option><option value="lastmodified">        lastmodified - Last Modified       </option><option value="lastmodifiedby">        lastmodifiedby - Modified By       </option><option value="metadescription">        metadescription - Meta Description       </option><option value="metakeywords">        metakeywords - Meta Keywords       </option><option value="name">        name - Name       </option><option value="nestlevel">        nestlevel - Nest Level       </option><option value="pageheading">        pageheading - Page Heading       </option><option value="pagetitle">        pagetitle - Page Title       </option><option value="primarycategory">        primarycategory - Primary Category of Item       </option><option value="primaryparent">        primaryparent - Primary Parent       </option><option value="sequencenumber">        sequencenumber - Sequence Number       </option><option value="site">        site - Site       </option><option value="sitemappriority">        sitemappriority - Sitemap Priority       </option><option value="subcatdisplayinsiteoverride">        subcatdisplayinsiteoverride - Subcategory Display In Site Override       </option><option value="subcatid">        subcatid - Subcategory ID       </option><option value="subcatparent">        subcatparent - Subcategory Parent ID       </option><option value="urlfragment">        urlfragment - URL       </option><option value="version">        version - Version       </option>    </select>  </span><div id="operatorsPlaceHolder">      </div><input id="filterValueInput" value="the value">      </input></div>
+<div>  <span data-bind-id="0">    <script>      var value = {"type":"commercecategory","children":[]};
+__BindData['SearchFilterEditorsProps'] = value
+__BindData['SearchFilterEditorsProps-0'] = value;    </script>  </span><div id="SearchFilterEditors">      </div><button onClick="_this = __this__ = this; (function (e) {
+                    // debugger
+                    var props = getBindDataOrThrow('SearchFilterEditorsProps', _this);
+                    // if (document.querySelectorAll('#SearchFilterEditors div').length === 0) {
+                    var el = document.createElement('div');
+                    document.getElementById('SearchFilterEditors').appendChild(el);
+                    renderInHtml_1.renderInDOM(createElement_1.ReactLike.createElement(searchFilterEditor_1.SearchFilterEditor, { type: props.type }), el);
+                    // }
+                    // else {
+                    // }
+                }).apply(_this, arguments)">    Add filter  </button></div>
 </body>
 </html>

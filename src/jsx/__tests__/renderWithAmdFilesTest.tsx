@@ -6,6 +6,7 @@ import { ReactLike } from '../createElement';
 import { renderInDOM } from '../renderInHtml';
 import { array, dedup } from '../../misc/misc';
 import { SearchFilterEditor } from '../../app/searchView/searchFilterEditor';
+import { SearchFilterEditors } from '../../app/searchView/searchFilterEditors';
 
 function renderWithAmdFilesTest() {
   const html = renderWithAmdFiles(renderWithAmdFilesTest1(), {
@@ -120,6 +121,21 @@ function renderWithAmdFilesTest5() {
   });
   writeFileSync('src/jsx/__tests__/test.html', html)
 }
-renderWithAmdFilesTest5();
+// renderWithAmdFilesTest5();
+
+
+
+function renderWithAmdFilesTest6() {
+  // console.log(SearchFilterEditor.prototype.renderFileDependencies());
+  
+  const html = renderWithAmdFiles(<SearchFilterEditors type="commercecategory"></SearchFilterEditors>, {
+    asHtmlDocument: true,
+    basePath: 'output',
+    extraCode: [SearchFilterEditors]
+  });
+  writeFileSync('src/jsx/__tests__/test.html', html)
+}
+renderWithAmdFilesTest6();
+
 
 // console.log(dedup([{name: 1}, {name: 2}, {name: 1}], (a, b)=>a.name===b.name));

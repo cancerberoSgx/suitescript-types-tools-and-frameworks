@@ -12,7 +12,7 @@ import { unique } from '../../misc/misc';
 
 installArrayPrototypeFind()
 
-declare function getBindDataOrThrow<T>(key: string): T
+declare function getBindDataOrThrow<T>(key: string, el?: HTMLElement): T 
 
 interface Props {
   type: string;
@@ -26,26 +26,31 @@ export class SearchFilterEditor extends StatelessComponent<Props> {
     })[this.props.type]
       .map(f => ({ ...f, name: `${f.id} - ${f.label} ` }))
 
-      const editorId = unique('searchFilterEditor')
+    const editorId = unique('searchFilterEditor')
     return <div data-editor-id={editorId}>
-      <Bind name="SearchFilterEditorProps" data={{...this.props, editorId}}></Bind>
+      <Bind name="SearchFilterEditorProps" data={{ ...this.props, editorId }}></Bind>
       <Select select-attrs={{ 'data-user-filter': '' }} options={filterValues} firstOption={`Select ${this.props.type} filter`} onChange={selectedFilter => {
+        // debugger
         if (!selectedFilter) { return }
-        const props = getBindDataOrThrow<Props>('SearchFilterEditorProps')
+        const props = getBindDataOrThrow<Props&{editorId:string}>('SearchFilterEditorProps', this as any)
         const filter = typedSearchFilterValues[props.type].find(f => f.id === selectedFilter)
         const operators = SearchTypesOperatorSupportValues[filter!.type]
         const ss = <Select options={operators} firstOption={`Select ${filter!.id} operator`} onChange={e => {
-          alert(e)
+          // alert(e)
         }}></Select>
-        renderInDOM(ss, '#operatorsPlaceHolder')
-
+        renderInDOM(ss, `#operatorsPlaceHolder${props.editorId}`)
       }}></Select>
-      <div id="operatorsPlaceHolder"></div>
+      <div id={`operatorsPlaceHolder${editorId}`}></div>
       <input id="filterValueInput" value="the value"></input>
     </div>;
   }
 
+
   renderFileDependencies(): (RenderWithAmdFile | string)[] {
+    return SearchFilterEditor._renderFileDependencies()
+  }
+
+  static _renderFileDependencies(): (RenderWithAmdFile | string)[] {
     return [
       'jsx/createElement.js',
       'jsx/elementImpl.js',
@@ -61,3 +66,5 @@ export class SearchFilterEditor extends StatelessComponent<Props> {
     ]
   }
 }
+
+

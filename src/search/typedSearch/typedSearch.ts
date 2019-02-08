@@ -1,4 +1,4 @@
-// TODO: 
+// TODO:
 // * filters: ['foo',... ] is wrong because it only allow to use filter names as string
 // * if I set install columns ['a', 'b'] then whe I call getValue() it should only let me reference those column names
 
@@ -30,7 +30,7 @@ type FilterValue = string | number | Date | string[] | number[] | Date[]
  * IMPORTANT: for some reason for this to work, IT MUST BE IN THIS FILE - IF MOVED TO ANOTHER FILE IT WON'T Auxiliary
  * type used to declare `filters` property so it validates that names exists for record type and also operator is
  * supported by the filter type. For example, if filter 'isfulfillable' of record 'item' is a boolean / checkbox then it
- * will validate that only the operators 'equalTo' and 'is' will be valid - other whise compile error 
+ * will validate that only the operators 'equalTo' and 'is' will be valid - other whise compile error
  */
 type TypedFilterOptions<R extends SearchRecordType,
   F extends FilterName<R> = FilterName<R>,
@@ -39,7 +39,7 @@ type TypedFilterOptions<R extends SearchRecordType,
 
 export interface SearchCreateOptions<RecordType extends SearchRecordType> {
   type: RecordType
-  filters?: TypedFilterOptions<RecordType>[] | (FilterValue[]|FilterValue[][]|FilterValue[][][])
+  filters?: TypedFilterOptions<RecordType>[] //| (FilterValue[]|FilterValue[][]|FilterValue[][][])
   columns?: TypedColumn<RecordType>[] | ColumnName<RecordType>[]
   title?: string;
   id?: string;
@@ -59,7 +59,7 @@ interface TypedColumn<
   name: Column
 }
 
-// type InferOperator< 
+// type InferOperator<
 // RecordType extends SearchRecordType,
 // Filter extends FilterName<RecordType>,
 // O extends FilterSupportedOperators<RecordType, Filter>> = Partial<FilterSupportedOperators<RecordType, Filter>> extends infer O ? O : never
@@ -69,7 +69,7 @@ export interface TypedFilter<
   RecordType extends SearchRecordType,
   Filter extends FilterName<RecordType> = FilterName<RecordType>,
   Join extends JoinName<RecordType> = JoinName<RecordType>,
-  Operator extends FilterSupportedOperators<RecordType, Filter> = FilterSupportedOperators<RecordType, Filter> 
+  Operator extends FilterSupportedOperators<RecordType, Filter> = FilterSupportedOperators<RecordType, Filter>
   > {
 
   /** Join ID for a search column as a string. */
@@ -110,7 +110,7 @@ export interface TypedFilter<
 
 
 
-// type ResultValue<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> = 
+// type ResultValue<RecordType extends SearchRecordType, Column extends ColumnName<RecordType>> =
 export interface Result<RecordType extends SearchRecordType> {
   getValue<C extends ColumnName<RecordType>>(column: TypedColumn<RecordType, C> | C): ColumnType<RecordType, C> // TODO: typed return value
   getText(options: TypedColumn<RecordType> | ColumnName<RecordType>): string;
@@ -178,12 +178,12 @@ interface SearchRunPagedFunction {
 
 
 
-// // ColumnNames extends ValueOfStringKey<Unarray<Columns>, 'name'> 
+// // ColumnNames extends ValueOfStringKey<Unarray<Columns>, 'name'>
 
 // export function search2<RecordType extends SearchRecordType
 // , Columns extends TypedColumn<RecordType>[]
 // // , ColumnNames extends ValueOfStringKey<Unarray<Columns>, 'name'>
-// >(options: SearchCreateOptions2<RecordType, Columns>): 
+// >(options: SearchCreateOptions2<RecordType, Columns>):
 // Search2<RecordType, Columns> {
 //   // return nsSearch.create(options as any) as any
 //   throw 1

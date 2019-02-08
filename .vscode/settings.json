@@ -1,10 +1,10 @@
 {
   "files.exclude": {
-    "metadataFromRecordBrowser/extractMetadataFromZip/extracted_18_1": true
   },
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
-    "output": true
+    "output": true,
+    "metadataFromRecordBrowser/extractMetadataFromZip/extracted_18_1": true
   }
 }

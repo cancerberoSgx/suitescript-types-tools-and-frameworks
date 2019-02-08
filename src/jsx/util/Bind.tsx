@@ -2,7 +2,7 @@
 
 import { formatDate } from '../../misc/formatDate';
 import { array, checkThrow, unEscapeHtmlAttribute, escapeHtmlAttribute } from '../../misc/misc';
-import {  ReactLike } from '../createElement';
+import { ReactLike } from '../createElement';
 import { StatelessComponent } from '../StatelessComponent';
 import { InputHTMLAttributes } from '../declarations/domElementDeclarations';
 
@@ -43,7 +43,7 @@ const BIND_VALUE_ATTRIBUTE_NAME = 'data-bind-input-value-id'
  */
 
 export class Bind<P extends BindProps = BindProps> extends StatelessComponent<P>{
-  
+
   protected static counter = 0
   protected static BIND_VALUE_ATTRIBUTE_NAME = BIND_VALUE_ATTRIBUTE_NAME
 
@@ -66,22 +66,25 @@ export class Bind<P extends BindProps = BindProps> extends StatelessComponent<P>
       }
       // TODO: add this statements in a single global <script> tag - could be a static el attribute
       return <span>
-  <script>{`
+        <script>{`
 __BindInputValues['${this.props.name}'] = {id: '${id}'};
 `.trim()}
-  </script>
-</span>
+        </script>
+      </span>
 
     }
-    
+
     else if (this.props.data && this.props.name) {
+      var id = Bind.counter++
       // TODO: add this statements in a single global <script> tag - could be a static el attribute
-      return <span>
-  <script>{`
-__BindData['${this.props.name}'] = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
+      return <span data-bind-id={id}>
+        <script>{`
+  var value = ${typeof this.props.data === 'function' ? this.props.data.toString() : JSON.stringify(this.props.data)};
+__BindData['${this.props.name}'] = value
+__BindData['${this.props.name}-${id}'] = value;
 `.trim()}
-  </script>
-</span>
+        </script>
+      </span>
     }
 
     else {
@@ -127,16 +130,30 @@ var misc_1 = {array: array, checkThrow: checkThrow};
   protected static registered = false;
 }
 
+
 // TODO: perhaps is safer to put all js objects in a global variable instead of embedding them in the DOM element
-function getBindData<T>(key: string): T | undefined {
+function getBindData<T>(key: string, el?: HTMLElement): T | undefined {
+  function findAncestor<T extends any = any>(el: HTMLElement, p: (a: HTMLElement) => T | undefined): T | undefined {
+    return el && p(el) && findAncestor(el.parentElement!, p)
+  }
+  if (el) {
+    const bindEl = findAncestor(el, a => {
+      const els = a.querySelectorAll('[data-bind-id]')
+      return els.length && els[0]
+    })
+    if (bindEl) {
+      return __BindData[key + '-' + bindEl.getAttribute('data-bind-id')] || __BindData[key]
+    }
+  }
   return __BindData[key]
 }
 
-function getBindDataOrThrow<T>(key: string): T {
-  return checkThrow(getBindData(key), 'Store data not found for key ' + key)
+
+function getBindDataOrThrow<T>(key: string, el?: HTMLElement): T {
+  return checkThrow(getBindData(key, el), 'Store data not found for key ' + key)
 }
 
-declare let __BindInputValues: { [k: string]: {id:string, onChange?: InputHTMLAttributes<HTMLInputElement>['onChange'] }}
+declare let __BindInputValues: { [k: string]: { id: string, onChange?: InputHTMLAttributes<HTMLInputElement>['onChange'] } }
 1
 declare let __BindData: { [k: string]: any }
 
@@ -144,26 +161,26 @@ declare let __BindData: { [k: string]: any }
 
 // type ElType = HTMLInputElement&HTMLSelectElement
 
-function getBindInputValue<T extends InputValue, InputValue extends string | number | Date | boolean | string[] | number[] =  string | number | Date | boolean | string[] | number[], ElType extends HTMLInputElement&HTMLSelectElement = HTMLInputElement&HTMLSelectElement>(listenerElementOrInputElementOrKeyOrInputElementSelector: ElType|string, config: {
+function getBindInputValue<T extends InputValue, InputValue extends string | number | Date | boolean | string[] | number[]=  string | number | Date | boolean | string[] | number[], ElType extends HTMLInputElement & HTMLSelectElement = HTMLInputElement & HTMLSelectElement>(listenerElementOrInputElementOrKeyOrInputElementSelector: ElType | string, config: {
   asString?: boolean,
 } = {}): T | undefined {
 
-  let el: ElType|null=null
-  if(typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
+  let el: ElType | null = null
+  if (typeof listenerElementOrInputElementOrKeyOrInputElementSelector === 'string') {
     // Can be a name:
-    const id  =  __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector]
+    const id = __BindInputValues[listenerElementOrInputElementOrKeyOrInputElementSelector]
     const sel = id && id.id && `[${BIND_VALUE_ATTRIBUTE_NAME}="${id.id}"]`;
     el = sel && document.querySelector<ElType>(sel) ||
-    // can be an input element selector
-    document.querySelector<ElType>(listenerElementOrInputElementOrKeyOrInputElementSelector )
+      // can be an input element selector
+      document.querySelector<ElType>(listenerElementOrInputElementOrKeyOrInputElementSelector)
   }
   else {
     // can be a listener element
-    const key = listenerElementOrInputElementOrKeyOrInputElementSelector.getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`) 
-    if(key){
+    const key = listenerElementOrInputElementOrKeyOrInputElementSelector.getAttribute(`${BIND_VALUE_ATTRIBUTE_NAME}`)
+    if (key) {
       el = document.querySelector<ElType>(`[${BIND_VALUE_ATTRIBUTE_NAME}="${key}"]`)
     }
-    if(!el){
+    if (!el) {
       // can be a input element
       el = listenerElementOrInputElementOrKeyOrInputElementSelector
     }

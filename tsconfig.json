@@ -30,5 +30,5 @@
   
   
   "typeAcquisition": {"enable": false},
-  "exclude": ["./spec", "./output", "dist", "./metadataFromRecordBrowser", "node_modules", "auxiliary-projects"]
+  "exclude": ["./spec", "react-redux-client-app","./output", "dist", "./metadataFromRecordBrowser", "node_modules", "auxiliary-projects"]
 }

@@ -1,4 +1,4 @@
-define(["require", "exports", "fs", "assert", "../renderWithAmdFiles", "./renderWithAmdFilesTest1", "../createElement", "../renderInHtml", "../../misc/misc", "../../app/searchView/searchFilterEditor"], function (require, exports, fs_1, assert_1, renderWithAmdFiles_1, renderWithAmdFilesTest1_1, createElement_1, renderInHtml_1, misc_1, searchFilterEditor_1) {
+define(["require", "exports", "fs", "assert", "../renderWithAmdFiles", "./renderWithAmdFilesTest1", "../createElement", "../renderInHtml", "../../misc/misc", "../../app/searchView/searchFilterEditor", "../../app/searchView/searchFilterEditors"], function (require, exports, fs_1, assert_1, renderWithAmdFiles_1, renderWithAmdFilesTest1_1, createElement_1, renderInHtml_1, misc_1, searchFilterEditor_1, searchFilterEditors_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function renderWithAmdFilesTest() {
@@ -98,6 +98,16 @@ define(["require", "exports", "fs", "assert", "../renderWithAmdFiles", "./render
         });
         fs_1.writeFileSync('src/jsx/__tests__/test.html', html);
     }
-    renderWithAmdFilesTest5();
+    // renderWithAmdFilesTest5();
+    function renderWithAmdFilesTest6() {
+        // console.log(SearchFilterEditor.prototype.renderFileDependencies());
+        var html = renderWithAmdFiles_1.renderWithAmdFiles(createElement_1.ReactLike.createElement(searchFilterEditors_1.SearchFilterEditors, { type: "commercecategory" }), {
+            asHtmlDocument: true,
+            basePath: 'output',
+            extraCode: [searchFilterEditors_1.SearchFilterEditors]
+        });
+        fs_1.writeFileSync('src/jsx/__tests__/test.html', html);
+    }
+    renderWithAmdFilesTest6();
 });
 // console.log(dedup([{name: 1}, {name: 2}, {name: 1}], (a, b)=>a.name===b.name));

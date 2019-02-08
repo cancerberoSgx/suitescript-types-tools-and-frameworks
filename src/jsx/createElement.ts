@@ -40,7 +40,7 @@ const Module = {
           }
         }
         else if (typeof value === 'function') {
-          const code = `(${value.toString()}).apply(this, arguments)`
+          const code = `_this = __this__ = this; (${value.toString()}).apply(_this, arguments)`
           const escaped = code.replace(/\"/gmi, '&quot;');
           element.setAttribute(name, escaped)
         }

@@ -11,6 +11,8 @@ import { setSublistFieldValueRoute } from '../routes/setSublistFieldValueRoute';
 import { debuggerRoute, addMiniDebuggerRoutes } from './miniDebuggerApp';
 import { renderInHTMLDocument } from '../../jsx/renderInHtml';
 import { searchViewRoute } from "../searchView/searchViewRoute";
+import { serveFileRoute } from '../routes/serveFileRoute';
+import { serveSPAIndexRoute } from '../routes/serveSPAIndexRoute';
 
 // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
 export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse) {
@@ -30,9 +32,13 @@ export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse
 
   app.addRoute(setSublistFieldValueRoute(app))
 
-  app.addRoute(searchViewRoute(app)) 
-  
+  app.addRoute(searchViewRoute(app))
+
   addMiniDebuggerRoutes(app)
+  app.addRoute(serveFileRoute(app))
+
+  app.addRoute(serveSPAIndexRoute(app))
+  
 
   // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
   const defaultRoute: Route = {
@@ -115,7 +121,49 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
           routeName: 'searchView',
           params: {},
         })}>searchView</a>
-        </li>
+      </li>
+
+
+      <li>
+        <a target="_blank" href={props.renderLink({
+          routeName: 'serveFile',
+          params: { fileId: 88491 },
+        })}>serveFile with id 88491</a><br></br>
+
+        <a target="_blank" href={props.renderLink({
+          routeName: 'serveFile',
+          params: { name: 'app.js', folderId: 28898 },
+        })}>serveFile named app.js in folder 28898</a><br></br>
+
+        <a target="_blank" href={props.renderLink({
+          routeName: 'serveFile',
+          params: { name: 'app.js', folderId: 28898, outputMode: 'url' },
+        })}>serveFile print url of file named app.js in folder 28898</a><br></br>
+
+        <a target="_blank" href={props.renderLink({
+          routeName: 'serveFile',
+          params: { name: 'app.js', folderId: 28898, outputMode: 'redirectToUrl' },
+        })}>serveFile redirect to url of file named app.js in folder 28898</a>
+      </li>
+
+      <li>
+        <a target="_blank" href={props.renderLink({
+          routeName: 'serveSPAIndex',
+          params: { 
+            cssFiles: encodeURIComponent(JSON.stringify([`https://172.20.10.7:8080/src.7ed060e2.css`])), 
+            jsFiles: encodeURIComponent(JSON.stringify([`https://127.0.0.1:8080/src.7ed060e2.js`])), 
+          },
+        })}>serve SPA dummy index.html passing <a href="https://127.0.0.1:8080/src.7ed060e2.js">.js</a> and <a href="https://172.20.10.7:8080/src.7ed060e2.css">.css</a> file urls as params</a><br></br>
+        
+        <a target="_blank" href={props.renderLink({
+          routeName: 'serveSPAIndex',
+          params: { 
+            cssFiles: encodeURIComponent(JSON.stringify([`http://172.20.10.7:8080/src.7ed060e2.css`])), 
+            jsFiles: encodeURIComponent(JSON.stringify([`http://127.0.0.1:8080/src.7ed060e2.js`])), 
+          },
+        })}>same as before but loading from unsecure <a href="http://127.0.0.1:8080/src.7ed060e2.js">.js</a> and <a href="http://172.20.10.7:8080/src.7ed060e2.css">.css</a> file urls as params</a>
+
+      </li>
     </ul>
 
     <div id="mainView"></div>

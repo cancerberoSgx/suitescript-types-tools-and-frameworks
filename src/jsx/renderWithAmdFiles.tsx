@@ -82,7 +82,13 @@ export function fixDefine(s: string, names: string[], thisName: string): string 
   s = s.split('\n').map(l => {
     names.forEach(name => {
       if (l.indexOf('define([') !== -1) {
-        const i = l.indexOf(name)
+        let i = l.indexOf(`${name}"`)
+        if(i===-1) {
+          i=l.indexOf(`${name}'`)
+        } 
+        if(i===-1) {
+          i=l.indexOf(`${name}`)
+        } 
         let previousQuoteIndex = i
         for (let j = i; j >= 0; j--) {
           if (l[j] === '"' || l[j] === '\'') {

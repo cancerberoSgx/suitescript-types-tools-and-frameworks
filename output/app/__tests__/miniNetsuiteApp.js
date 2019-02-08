@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../routes/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp", "../../jsx/renderInHtml", "../searchView/searchViewRoute"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1, renderInHtml_1, searchViewRoute_1) {
+define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", "../app", "../recordView/recordViewRoute", "../routes/setFieldValueRoute", "../routes/findRecordRoute", "../searchView/listRecordTypesRoute", "../routes/setSublistFieldValueRoute", "./miniDebuggerApp", "../../jsx/renderInHtml", "../searchView/searchViewRoute", "../routes/serveFileRoute", "../routes/serveSPAIndexRoute"], function (require, exports, createElement_1, Bind_1, app_1, recordViewRoute_1, setFieldValueRoute_1, findRecordRoute_1, listRecordTypesRoute_1, setSublistFieldValueRoute_1, miniDebuggerApp_1, renderInHtml_1, searchViewRoute_1, serveFileRoute_1, serveSPAIndexRoute_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
@@ -24,6 +24,8 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         app.addRoute(setSublistFieldValueRoute_1.setSublistFieldValueRoute(app));
         app.addRoute(searchViewRoute_1.searchViewRoute(app));
         miniDebuggerApp_1.addMiniDebuggerRoutes(app);
+        app.addRoute(serveFileRoute_1.serveFileRoute(app));
+        app.addRoute(serveSPAIndexRoute_1.serveSPAIndexRoute(app));
         // also we set a default route that redirects to main page in case the url doesn't have any route or unknown one (alternatively we could show 404 page)  
         var defaultRoute = {
             name: 'redirectToMainPage',
@@ -82,7 +84,53 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                     createElement_1.ReactLike.createElement("a", { href: props.renderLink({
                             routeName: 'searchView',
                             params: {},
-                        }) }, "searchView"))),
+                        }) }, "searchView")),
+                createElement_1.ReactLike.createElement("li", null,
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'serveFile',
+                            params: { fileId: 88491 },
+                        }) }, "serveFile with id 88491"),
+                    createElement_1.ReactLike.createElement("br", null),
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'serveFile',
+                            params: { name: 'app.js', folderId: 28898 },
+                        }) }, "serveFile named app.js in folder 28898"),
+                    createElement_1.ReactLike.createElement("br", null),
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'serveFile',
+                            params: { name: 'app.js', folderId: 28898, outputMode: 'url' },
+                        }) }, "serveFile print url of file named app.js in folder 28898"),
+                    createElement_1.ReactLike.createElement("br", null),
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'serveFile',
+                            params: { name: 'app.js', folderId: 28898, outputMode: 'redirectToUrl' },
+                        }) }, "serveFile redirect to url of file named app.js in folder 28898")),
+                createElement_1.ReactLike.createElement("li", null,
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'serveSPAIndex',
+                            params: {
+                                cssFiles: encodeURIComponent(JSON.stringify(["https://172.20.10.7:8080/src.7ed060e2.css"])),
+                                jsFiles: encodeURIComponent(JSON.stringify(["https://127.0.0.1:8080/src.7ed060e2.js"])),
+                            },
+                        }) },
+                        "serve SPA dummy index.html passing ",
+                        createElement_1.ReactLike.createElement("a", { href: "https://127.0.0.1:8080/src.7ed060e2.js" }, ".js"),
+                        " and ",
+                        createElement_1.ReactLike.createElement("a", { href: "https://172.20.10.7:8080/src.7ed060e2.css" }, ".css"),
+                        " file urls as params"),
+                    createElement_1.ReactLike.createElement("br", null),
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'serveSPAIndex',
+                            params: {
+                                cssFiles: encodeURIComponent(JSON.stringify(["http://172.20.10.7:8080/src.7ed060e2.css"])),
+                                jsFiles: encodeURIComponent(JSON.stringify(["http://127.0.0.1:8080/src.7ed060e2.js"])),
+                            },
+                        }) },
+                        "same as before but loading from unsecure ",
+                        createElement_1.ReactLike.createElement("a", { href: "http://127.0.0.1:8080/src.7ed060e2.js" }, ".js"),
+                        " and ",
+                        createElement_1.ReactLike.createElement("a", { href: "http://172.20.10.7:8080/src.7ed060e2.css" }, ".css"),
+                        " file urls as params"))),
             createElement_1.ReactLike.createElement("div", { id: "mainView" }));
     };
     function mainPageRoute(app) {

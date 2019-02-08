@@ -13,8 +13,8 @@ declare function getBindInputValue<T extends InputValue, InputValue extends stri
   asString?: boolean,
 }): T | undefined
 
-declare function getBindData<T>(key: string): T | undefined
+declare function getBindData<T>(key: string, el?: HTMLElement): T |undefined
 
-declare function getBindDataOrThrow<T>(key: string): T
+declare function getBindDataOrThrow<T>(key: string, el?: HTMLElement): T
 
 declare function fetchAndRenderHtml(config: RenderFragmentOptions): void

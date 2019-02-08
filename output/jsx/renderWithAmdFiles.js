@@ -78,7 +78,13 @@ define(["require", "exports", "./createElement", "./renderInHtml", "../misc/misc
         s = s.split('\n').map(function (l) {
             names.forEach(function (name) {
                 if (l.indexOf('define([') !== -1) {
-                    var i = l.indexOf(name);
+                    var i = l.indexOf(name + "\"");
+                    if (i === -1) {
+                        i = l.indexOf(name + "'");
+                    }
+                    if (i === -1) {
+                        i = l.indexOf("" + name);
+                    }
                     var previousQuoteIndex = i;
                     for (var j = i; j >= 0; j--) {
                         if (l[j] === '"' || l[j] === '\'') {

@@ -18,10 +18,6 @@ define(["require", "exports", "../../jsx/createElement", "../../search/typedSear
             handler: function (o) {
                 var type = o.params.type;
                 var pageSize = parseInt(o.params.pageSize || '20', 10);
-                // const dynamicResultsRender = !!o.params.dynamicResultsRender
-                // if (!type) {
-                //   return ReactLike.render(<ListRecordTypes pageSize={pageSize} {...o.params}></ListRecordTypes>)
-                // }
                 var counter = 0;
                 var results = type ? typedSearchOperations_1.filter({
                     type: type,
@@ -38,10 +34,6 @@ define(["require", "exports", "../../jsx/createElement", "../../search/typedSear
             handler: function (o) {
                 var type = o.params.type;
                 var pageSize = parseInt(o.params.pageSize || '20', 10);
-                // const dynamicResultsRender = !!o.params.dynamicResultsRender
-                // if (!type) {
-                //   return ReactLike.render(<ListRecordTypes pageSize={pageSize} {...o.params}></ListRecordTypes>)
-                // }
                 var counter = 0;
                 var results = type ? typedSearchOperations_1.filter({
                     type: type,

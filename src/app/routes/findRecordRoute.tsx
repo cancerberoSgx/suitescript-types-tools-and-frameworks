@@ -1,9 +1,6 @@
 import { ReactLike } from "../../jsx/createElement";
 import { find } from '../../search/typedSearch/typedSearchOperations';
 import { App, Route } from '../app';
-import { load } from 'N/record';
-import { RecordView } from '../recordView/recordView';
-import { buildRecordViewModel } from '../recordView/buildRecordViewModel';
 
 export function findRecordRoute(app: App): Route {
   return {
@@ -20,8 +17,6 @@ export function findRecordRoute(app: App): Route {
       }, r => true);
       if (result) {
         app.redirect({redirect: app.renderLink({routeName: 'recordView', params: {id, type: result.recordType}}), messageFromRedirect: `Record ${id} ${result.recordType} found`})
-        // const record = load({ id, type: result.recordType });
-        // return ReactLike.render(<RecordView record={buildRecordViewModel(record)} renderLink={app.renderLink.bind(app)} currentUrl={app.getCurrentRealUrlSearchFragment()} messageFromRedirect={`Record ${id} ${result.recordType} found`}></RecordView>);
       }
       else {
         return <div>Record {id} {type} not found</div>;

@@ -29,9 +29,16 @@ export const Style = (props: StyleProps) => {
   function indent(n: number): string {
     return props.renderConfig && props.renderConfig.indent ? indentImpl(n) : ''
   }
+  function fixProperty(s:string):string{
+    var t
+    while (t =  /([A-Z])/.exec(s)) {
+        s= s.substring(0, t.index)+'-'+t[1].toLowerCase()+s.substring(t.index+1, s.length)
+    }
+    return s;
+  }
   return <style>{Object.keys(props.classes).map(c =>
-    `${indent(1)}.${c}${(props.classes[c] && props.classes[c].selectorPostfix ? props.classes[c].selectorPostfix : '')} {${Object.keys(props.classes[c]).map(p =>`
-${indent(2)}${p}: ${props.classes[c][p as any]};`
+    `${indent(1)}.${c}${(props.classes[c] && props.classes[c].selectorPostfix ? props.classes[c].selectorPostfix : '')} {${Object.keys(props.classes[c]).filter(p=>p!=='selectorPostfix').map(p =>`
+${indent(2)}${fixProperty(p)}: ${props.classes[c][p as any]};`
 ).join(``)}
 }`).join('\n')}
   </style>

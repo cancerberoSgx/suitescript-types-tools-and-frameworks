@@ -26,8 +26,15 @@ define(["require", "exports", "./createElement", "../misc/misc"], function (requ
         function indent(n) {
             return props.renderConfig && props.renderConfig.indent ? misc_1.indent(n) : '';
         }
+        function fixProperty(s) {
+            var t;
+            while (t = /([A-Z])/.exec(s)) {
+                s = s.substring(0, t.index) + '-' + t[1].toLowerCase() + s.substring(t.index + 1, s.length);
+            }
+            return s;
+        }
         return createElement_1.ReactLike.createElement("style", null, Object.keys(props.classes).map(function (c) {
-            return indent(1) + "." + c + (props.classes[c] && props.classes[c].selectorPostfix ? props.classes[c].selectorPostfix : '') + " {" + Object.keys(props.classes[c]).map(function (p) { return "\n" + indent(2) + p + ": " + props.classes[c][p] + ";"; }).join("") + "\n}";
+            return indent(1) + "." + c + (props.classes[c] && props.classes[c].selectorPostfix ? props.classes[c].selectorPostfix : '') + " {" + Object.keys(props.classes[c]).filter(function (p) { return p !== 'selectorPostfix'; }).map(function (p) { return "\n" + indent(2) + fixProperty(p) + ": " + props.classes[c][p] + ";"; }).join("") + "\n}";
         }).join('\n'));
     };
     /** build a styles and classnames from a class styles mapped object so is easy to type-check classnames and use them . See `Style` for usage example */

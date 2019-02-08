@@ -10,7 +10,7 @@ export type Params = {
   [name: string]: any
 }
 
-export interface RouteHandlerParams extends Params {
+export interface RouteHandlerParams {
   renderLink: typeof App.prototype.renderLink
   currentUrl: string
   currentParams: Params
@@ -18,7 +18,7 @@ export interface RouteHandlerParams extends Params {
 }
 
 interface RouterHandlerOptions extends DispatchOptions {
-  params: RouteHandlerParams
+  params: RouteHandlerParams&Params
 }
 
 interface DispatchOptions {
@@ -54,8 +54,8 @@ export class App implements IApp {
     const params = {
       ...this.getParamsWithoutPrefix(d.request),
       renderLink: this.renderLink.bind(this),
-      currentUrl: this.getCurrentRealUrlSearchFragment(),
-    } as RouteHandlerParams
+      currentUrl: encodeURIComponent(this.getCurrentRealUrlSearchFragment()),
+    } as RouteHandlerParams&Params
     params.currentParams = { ...params, currentParams: undefined }
 
     const routeName = params[`${ROUTEPARAMNAME_NOPREFIX}`]

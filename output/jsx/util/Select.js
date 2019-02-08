@@ -35,15 +35,15 @@ define(["require", "exports", "../StatelessComponent", "../createElement", "./Bi
             var options = (this.props.options.length && typeof this.props.options[0] === 'string') ? this.props.options.map(function (o) { return ({ id: o, name: o }); }) : this.props.options;
             var id = Select.counter++;
             return createElement_1.ReactLike.createElement("span", null,
-                createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "Select-" + id, data: this.props.onChange }),
+                this.props.onChange ? createElement_1.ReactLike.createElement(Bind_1.Bind, { name: "Select-" + id, data: this.props.onChange }) : '',
                 createElement_1.ReactLike.createElement("select", __assign({}, this.props['select-attrs'] || {}, { "data-select-id": id, onChange: function (e) {
                         var value = e.currentTarget.selectedOptions[0].value;
                         var id = e.currentTarget.getAttribute('data-select-id');
-                        var f = getBindDataOrThrow("Select-" + id);
-                        f(value);
+                        var f = getBindData("Select-" + id);
+                        f && f(value);
                     } }),
                     this.props.firstOption ? createElement_1.ReactLike.createElement("option", null, this.props.firstOption) : '',
-                    options.map(function (o) { return createElement_1.ReactLike.createElement("option", { selected: _this.props.selected === o.id, value: o.id }, o.name); })));
+                    options.map(function (o) { return createElement_1.ReactLike.createElement("option", { selected: _this.props.selected == o.id, value: o.id }, o.name); })));
         };
         Select.counter = 0;
         return Select;

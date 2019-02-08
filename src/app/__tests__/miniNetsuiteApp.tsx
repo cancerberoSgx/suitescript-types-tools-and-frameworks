@@ -5,12 +5,12 @@ import { App, Route, RouteHandlerParams } from '../app';
 import { ServerRequest, ServerResponse } from 'N/http';
 import { recordViewRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
-import { findRecordRoute } from '../searchView/findRecordRoute';
+import { findRecordRoute } from '../routes/findRecordRoute';
 import { listRecordTypesRoute, listRecordTypesResultRoute } from "../searchView/listRecordTypesRoute";
 import { setSublistFieldValueRoute } from '../routes/setSublistFieldValueRoute';
 import { debuggerRoute, addMiniDebuggerRoutes } from './miniDebuggerApp';
 import { renderInHTMLDocument } from '../../jsx/renderInHTMLDocument';
-import { searchViewRoute } from '../searchView/searchView';
+import { searchViewRoute } from "../searchView/searchViewRoute";
 
 // example application using ./app framework. It implements a simple MainPage route (see appTestMainPage and then uses built in routes like recordView and searchView)
 export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse) {

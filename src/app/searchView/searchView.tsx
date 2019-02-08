@@ -2,14 +2,11 @@ import { ReactLike } from "../../jsx/createElement";
 import { StatelessComponent } from '../../jsx/StatelessComponent';
 import { getSearchRecordTypes } from '../../search/getSearchRecordTypes';
 import { Select } from '../../jsx/util/Select';
-import { RouteHandlerParams, App, Route } from '../app';
+import { RouteHandlerParams } from '../app';
 import { Bind } from '../../jsx/util/Bind';
-import { renderInHTMLDocument } from '../../jsx/renderInHTMLDocument';
-import { typedSearchColumnValues, } from '../../search/typedSearch/generated/TypedSearchColumnValues';
-import { typedSearchFilterValues } from '../../search/typedSearch/generated/TypedSearchFilterValues';
-import { create, CreateSearchColumnOptions } from 'N/search'
-import { map, toArray } from '../../search/results';
-import { printNativeError } from '../../misc/misc';
+import { PageRange } from 'N/search'
+import { array } from '../../misc/misc';
+import { ClassRule, Styles, Style } from '../../jsx/Style';
 
 interface Props extends RouteHandlerParams {
   type?: string
@@ -18,7 +15,12 @@ interface Props extends RouteHandlerParams {
   filters: Filter[]
   filter?: string
   userColumns?: string[]
+  userFilters?: string[]
   results?: Result[]
+  pageSize?: number
+  pageRanges?: PageRange[]
+  currentPage?: number
+  pageCount?: number
 }
 interface Column extends ColumnValue {
   name: string
@@ -26,70 +28,136 @@ interface Column extends ColumnValue {
 interface Filter extends FilterValue {
   name: string
 }
-interface Result { id: string , columns: string[]}
-interface ColumnValue { id: string, type: string, label: string }
-interface FilterValue { id: string, type: string, label: string }
+interface Result { id: string, columns: string[] }
+export interface ColumnValue { id: string, type: string, label: string }
+export interface FilterValue { id: string, type: string, label: string }
+
+
+
+const results: ClassRule = {
+  textAlign: 'left'
+}
+const resultColumns: ClassRule = {
+  selectorPostfix: ' td',
+  borderRightStyle: 'solid',
+  borderRightColor: '#ededed'
+}
+const pagination: ClassRule = {
+}
+const { styles, classes } = Styles({ results, resultColumns, pagination })
+
+
+
 export class SearchView extends StatelessComponent<Props> {
   render() {
 
     return <div>
-      <script>{getUserColumns.toString()}</script>
+
+      <Style classes={styles}></Style>
+
+      <script>{getUserColumns.toString()};{search.toString()}</script>
+
       <Bind name="SearchView" data={{ ...this.props, columns: [], filters: [], results: [] }}></Bind>
 
       <div>
-        Search Type2: <Select selected={this.props.type} options={getSearchRecordTypes()} firstOption="Select Record Type" onChange={type => {
+        Search Type: <Select selected={this.props.type} options={getSearchRecordTypes()} firstOption="Select Record Type" onChange={type => {
           if (!type) { return }
           const props = getBindDataOrThrow<Props>('SearchView')
           window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...props.currentParams, type } });
         }}></Select>
       </div>
-
-      <div>
+      {/* <div>
         Columns: <Select selected={this.props.column} options={this.props.columns} firstOption={`Select ${this.props.type} Column`} onChange={column => {
           if (!column) { return }
           window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...getBindDataOrThrow<Props>('SearchView').currentParams, column } });
         }}></Select>
       </div>
-
       <div>
         Filters: <Select selected={this.props.filter} options={this.props.filters} firstOption={`Select ${this.props.type} Filter`} onChange={filter => {
           if (!filter) { return }
           window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...getBindDataOrThrow<Props>('SearchView').currentParams, filter } });
         }}></Select>
-      </div>
+      </div> */}
 
-      This search columns:
-<ul>
+
+      Columns:
+        <ul>
         {(this.props.userColumns || []).map((c, i) =>
           <li>
-            <Select select-attrs={{'data-user-column': i+''}} selected={c} options={this.props.columns} firstOption={`Select ${this.props.type} Column`} onChange={column => {
-              
-            }}></Select>
+            <Select select-attrs={{ 'data-user-column': i + '' }} selected={c} options={this.props.columns} firstOption={`Select ${this.props.type} Column`}></Select>
           </li>)}
-        <button onClick={e => {
-const select =           document.querySelectorAll<HTMLSelectElement>('[data-user-column]').item(0)
-select.parentElement!.appendChild(select.cloneNode(true))
-        // const userColumns: string[] = getUserColumns();
-        //   window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...getBindDataOrThrow<Props>('SearchView').currentParams, userColumns: [...(userColumns || []), '__new__'] } });
-        }}>Add Column</button>
-
-
       </ul>
-      {<button onClick={e => {
-        const userColumns: string[] = getUserColumns()
-        window.location.href = buildRouteUrl({ routeName: 'searchView', params: { ...getBindDataOrThrow<Props>('SearchView').currentParams, userColumns } });
-      }}>Search</button>}
+      <button onClick={e => {
+        const selects = document.querySelectorAll<HTMLSelectElement>('[data-user-column]')
+        if (selects.length === 0) { return }
+        const select = selects.item(selects.length - 1)
+        const li = select.parentElement!
+        li.parentElement!.appendChild(li.cloneNode(true))
+      }}>Add Column</button>
 
 
-      Results: <ul>
-        {(this.props.results || []).map(r => <li>{r.id}, columns: [{r.columns.join(', ')}]</li>)}
+      Filters:
+        <ul>
+        {(this.props.userFilters || []).map((c, i) =>
+          <li>
+            <Select select-attrs={{ 'data-user-filter': i + '' }} selected={c} options={this.props.filters} firstOption={`Select ${this.props.type} filter`}></Select>
+          </li>)}
       </ul>
+      <button onClick={e => {
+        const selects = document.querySelectorAll<HTMLSelectElement>('[data-user-filter]')
+        if (selects.length === 0) { return }
+        const select = selects.item(selects.length - 1)
+        const li = select.parentElement!
+        li.parentElement!.appendChild(li.cloneNode(true))
+      }}>Add Filter</button>
+
+
+      <div>
+        <button onClick={search}>Search</button>
+      </div>
+
+      <div className={classes.pagination}>
+        <label>Page Size: <input type="number" id="searchViewPageSize" value={this.props.pageSize || 10}></input></label>
+
+        {/* Page count: {this.props.pageCount||0} */}
+
+        <Select select-attrs={{ 'data-current-page': "" }} selected={this.props.currentPage + ''} options={array(this.props.pageCount || 0).map(i => ({ id: i + '', name: `Page ${i} of ${this.props.pageCount||0}` }))} onChange={search} firstOption="Current Page"></Select>
+      </div>
+
+
+      {this.props.results ? <div>
+        Results
+        <table className={`${classes.results} ${classes.resultColumns}`}>
+          <thead><tr><th>id</th>{this.props.userColumns!.map(c => <th>{c}</th>)}</tr></thead>
+          <tbody>{this.props.results!.map(r => <tr>
+            <td>{r.id}</td>
+            {r.columns.map(c => <td>{c}</td>)}
+          </tr>)}</tbody>
+        </table>
+      </div>
+      : ''}
+
     </div>
 
   }
 }
 
+function search() {
+  const userColumns: string[] = getUserColumns()
+  const pageSize = document.querySelector<HTMLInputElement>(`#searchViewPageSize`)!.value
 
+  const currentPageS = document.querySelector<HTMLSelectElement>('[data-current-page]')!
+  const currentPage = currentPageS.selectedOptions.length ? currentPageS.selectedOptions[0].value : '0'
+  document.querySelectorAll<HTMLSelectElement>('[data-user-column]')
+  window.location.href = buildRouteUrl({
+    routeName: 'searchView', params: {
+      ...getBindDataOrThrow<Props>('SearchView').currentParams,
+      userColumns,
+      pageSize,
+      currentPage,
+    }
+  });
+}
 function getUserColumns() {
   const userColumns: string[] = [];
   document.querySelectorAll<HTMLSelectElement>('[data-user-column]').forEach(e => {
@@ -102,32 +170,4 @@ function getUserColumns() {
 
 
 
-export function searchViewRoute(app: App): Route {
-  return {
-    name: 'searchView',
-    handler(o) {
-      const { type } = o.params;
-      const columns = ((type ? ((typedSearchColumnValues as any)[type] || []) : []) as ColumnValue[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name))
-      const filters = ((type ? ((typedSearchFilterValues as any)[type] || []) : []) as FilterValue[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name))
-      const userColumns = ((o.params.userColumns || '').trim().split(',') as string[]).filter(f=>!!f)
-      // console.log('userColumns'+JSON.stringify(userColumns)+'<br/><br/>');
-      let finalColumns: CreateSearchColumnOptions[] = userColumns.filter(n=>n!=='__new__').map(name=>({name}))
-      let results: Result[] = []
-      if (type && finalColumns.length) {
-        // console.log('finalColumns'+JSON.stringify(finalColumns)+'<br/><br/>');
-        // finalColumns = []
-        try {
-          results = toArray(create({ type, columns: finalColumns }).run(), 10)
-          .map(r => ({ id: r.id + '', columns: finalColumns.map(c=>r.getValue(c)+'') }))
-          // console.log('results: ' +JSON.stringify(results)+'<br/><br/>');
-        } catch (error) {
-          return `${printNativeError(error).replace(/\n/gmi, '<br/>')}`
-        }
-       
 
-        
-      }
-      return renderInHTMLDocument(<SearchView {...o.params} columns={columns} filters={filters} userColumns={userColumns} results={results}></SearchView>)
-    }
-  }
-};

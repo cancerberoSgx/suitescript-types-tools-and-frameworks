@@ -22,7 +22,7 @@ define(["require", "exports", "../misc/arrayPrototypeFind", "../jsx/createElemen
         };
         App.prototype.dispatch = function (d) {
             this.currentDispatchOptions = d;
-            var params = __assign({}, this.getParamsWithoutPrefix(d.request), { renderLink: this.renderLink.bind(this), currentUrl: this.getCurrentRealUrlSearchFragment() });
+            var params = __assign({}, this.getParamsWithoutPrefix(d.request), { renderLink: this.renderLink.bind(this), currentUrl: encodeURIComponent(this.getCurrentRealUrlSearchFragment()) });
             params.currentParams = __assign({}, params, { currentParams: undefined });
             var routeName = params["" + browserCode_1.ROUTEPARAMNAME_NOPREFIX];
             var route;

@@ -2,25 +2,108 @@ import { writeFileSync } from 'fs';
 import { equal } from 'assert';
 import { renderWithAmdFiles, fixDefine } from '../renderWithAmdFiles';
 import { renderWithAmdFilesTest1 } from './renderWithAmdFilesTest1';
-
+import { ReactLike } from '../createElement';
+import { renderInDOM } from '../renderInHtml';
+import { array } from '../../misc/misc';
 
 function renderWithAmdFilesTest() {
-    const s2 = renderWithAmdFiles(renderWithAmdFilesTest1(), {
-        files: [
-            { name: 'createElement', path: 'output/jsx/createElement.js' },
-            { name: 'elementImpl', path: 'output/jsx/elementImpl.js' },
-            // { name: 'renderWithAmdFilesTest1', path: 'output/__experiments__/renderWithAmdFilesTest1.js' }
-            { name: 'Select', path: 'output/jsx/util/Select.js' },
+  const html = renderWithAmdFiles(renderWithAmdFilesTest1(), {
+    files: [
+      { name: 'createElement', path: 'jsx/createElement.js' },
+      { name: 'elementImpl', path: 'jsx/elementImpl.js' },
+      { name: 'Select', path: 'jsx/util/Select.js' },
+      { name: 'StatelessComponent', path: 'jsx/StatelessComponent.js' },
+      { name: 'Bind', path: 'jsx/util/Bind.js' },
+      { name: 'formatDate', path: 'misc/formatDate.js' },
+      { name: 'misc', path: 'misc/misc.js' },
+      { name: 'renderInHtml', path: 'jsx/renderInHtml.js' }
+    ],
+    asHtmlDocument: true,
+    basePath: 'output',
 
-            { name: 'StatelessComponent', path: 'output/jsx/StatelessComponent.js' },
-            { name: 'Bind', path: 'output/jsx/util/Bind.js' },
-            { name: 'formatDate', path: 'output/misc/formatDate.js' },
-            { name: 'misc', path: 'output/misc/misc.js' },
-            { name: 'renderInHtml', path: 'output/jsx/renderInHtml.js' }
-        ]
-    });
-    writeFileSync('src/jsx/__tests__/test.html', s2);
-    const s = fixDefine(`define(['./sd/foo'], (foo)=>{})`, ['foo', 'bar'], 'foo');
-    equal(s, `define("foo", ["foo"], (foo)=>{})`);
+  });
+  writeFileSync('src/jsx/__tests__/test.html', html);
 }
-renderWithAmdFilesTest();
+
+
+function fixDefineTest() {
+  const s = fixDefine(`define(['./sd/foo'], (foo)=>{})`, ['foo', 'bar'], 'foo');
+  equal(s, `define("foo", ["foo"], (foo)=>{})`);
+}
+
+
+function Custom1(props: { name: string }) {
+  return <div>
+    <div id="b"></div>
+    <button onClick={e => {
+      renderInDOM(<Custom2 options={array(5).map(i => i * Math.random() + 1)}></Custom2>, '#a')
+    }}>click me {props.name}</button>
+    <div id="a"></div>
+  </div>;
+}
+function Custom2(props: { options: any[] }) {
+  return <select multiple={true} onChange={e => {
+    renderInDOM(<Custom1 name={e.currentTarget.selectedOptions[0].value + ''}></Custom1>, '#b')
+  }}>{props.options.map(o => <option value={o}>{o}</option>)}</select>
+}
+function renderWithAmdFilesTest2() {
+  const html = renderWithAmdFiles(<Custom1 name="seba"></Custom1>, {
+    files: [
+      { name: 'createElement', path: 'jsx/createElement.js' },
+      { name: 'elementImpl', path: 'jsx/elementImpl.js' },
+      { name: 'renderInHtml', path: 'jsx/renderInHtml.js' },
+      { name: 'misc', path: 'misc/misc.js' },
+    ],
+    asHtmlDocument: true,
+    basePath: 'output',
+    extraCode: [`${Custom2.toString()}`, `${Custom1.toString()}`]
+  });
+  writeFileSync('src/jsx/__tests__/test.html', html)
+}
+
+// renderWithAmdFilesTest2();
+
+
+function renderWithAmdFilesTest3() {
+  const html = renderWithAmdFiles(<Custom1 name="seba"></Custom1>, {
+    files: [
+      'jsx/createElement.js',
+      'jsx/elementImpl.js',
+      'jsx/renderInHtml.js',
+      'misc/misc.js',
+    ],
+    asHtmlDocument: true,
+    basePath: 'output',
+    extraCode: [Custom2, Custom1]
+  });
+  writeFileSync('src/jsx/__tests__/test.html', html)
+}
+
+renderWithAmdFilesTest3();
+
+
+
+function renderWithAmdFilesTest4() {
+  const Comp1 = (props: { foo: string }) => <div>
+    <button onClick={e => {
+      renderInDOM(<select onChange={e=>{
+        alert('changed')
+      }}>
+      <option>change me</option>
+      <option>please</option>
+      </select>, '#placeholder1')
+    }}>{props.foo}</button>
+    <div id="placeholder1"></div>
+  </div>
+  const html = renderWithAmdFiles(<Comp1 foo="bar"></Comp1>, {
+    files: [
+      'jsx/createElement.js',
+      'jsx/elementImpl.js',
+      'jsx/renderInHtml.js',
+    ],
+    asHtmlDocument: true,
+    basePath: 'output',
+  });
+  writeFileSync('src/jsx/__tests__/test.html', html)
+}
+// renderWithAmdFilesTest4();

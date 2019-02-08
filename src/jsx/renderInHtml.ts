@@ -2,6 +2,10 @@ import { ReactLike } from "./createElement";
 import { RenderConfig } from './jsx';
 
 export function renderInHTMLDocument(e: JSX.Element): string {
+  return wrapInHtml(ReactLike.render(e, { indent: true, indentLevel: 1, renderClientCode: true }))
+}
+
+export function wrapInHtml(s: string): string {
   return `
   <!DOCTYPE html>
 <html>
@@ -12,7 +16,7 @@ export function renderInHTMLDocument(e: JSX.Element): string {
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  ${ReactLike.render(e, { indent: true, indentLevel: 1, renderClientCode: true })}
+${s}
 </body>
 </html>
 `;

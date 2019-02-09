@@ -28,6 +28,7 @@ export interface RecordViewSettings {
   showSublistLines?: boolean
   seeValues?: boolean
   showAllFields?: boolean
+  inlineEdit?: boolean
 }
 
 

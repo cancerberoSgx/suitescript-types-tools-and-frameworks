@@ -42,13 +42,10 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
   }
 
   componentWillUpdate() {
-
+    this.updateOptionsWithState()
   }
 
   public render() {
-
-
-    this.updateOptionsWithState()
 
     if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
       (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
@@ -88,9 +85,11 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
                 <li>
                   <label><input type="checkbox" checked={this.state.showSublistLines} onChange={e => this.setRecord({ id: record.id, type: record.type, showSublistLines: e.currentTarget.checked })}></input>Show Sublists lines?</label>
                 </li>
+                <li>
+                  <label><input type="checkbox" checked={this.state.inlineEdit} onChange={e => this.setRecord({ id: record.id, type: record.type, inlineEdit: e.currentTarget.checked })}></input>Edit inline?</label>
+                </li>
               </ul>
               </div>
-              {/* <div>settings: {JSON.stringify({ seeValues: this.props.seeValues, showAllFields: this.props.showAllFields, showSublistLines: this.props.showSublistLines })}</div> */}
 
               <h3>Fields (#{record.fields.length})</h3>
               <RecordFields {...{ record, ...this.state }}  ></RecordFields>
@@ -124,28 +123,22 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
       this.setState({ ...this.state, ...o })
       Object.keys(o).forEach(k => this.state[k] = o[k])
     }
-    // debugger
   }
   protected updateOptionsWithState<T extends Partial<State> = {}>(options: T = this.decodeOptions()) {
-    debugger
     const newOptions: T = {} as any
-    Object.keys(this.state).filter(k => options[k] != this.state[k] && this.getOptionNames().indexOf(k) !== -1).forEach(k => {
+    Object.keys(this.state).filter(k => options[k] != this.state[k] && this.getRouteOptionNames().indexOf(k) !== -1).forEach(k => {
       newOptions[k] = this.state[k]
     })
-
-
     if (Object.keys(newOptions).length) {
-      // console.log(Object.keys(this.state).length, Object.keys(newOptions).length);
       const level = Object.keys(this.props.match.params).length
       const index = getPosition(this.props.match.url, '/', level + 1)
       const prefix = this.props.match.url.substring(0, index)
       const newPath = prefix + '/' + this.encodeOptions({ ...options, ...newOptions })
-      debugger
       this.props.history.push(newPath)
     }
   }
-  protected getOptionNames() {
-    return ['showAllFields', 'showSublistLines', 'seeValues']
+  public getRouteOptionNames() {
+    return ['showAllFields', 'showSublistLines', 'seeValues', 'inlineEdit']
   }
 
 }

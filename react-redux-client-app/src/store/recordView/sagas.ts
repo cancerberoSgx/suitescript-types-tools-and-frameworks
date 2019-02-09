@@ -2,12 +2,13 @@ import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 import { RecordViewActionTypes } from './types'
 import { fetchError, fetchSuccess, fetchRecord, showRecord } from './actions'
 import { getUrlApi } from '../../utils/callApi'
+import { buildRouteUrl } from '../../utils/browserCode';
 
-declare function buildRouteUrl(config: RenderLinkOptions): string;
-interface RenderLinkOptions {
-  routeName: string;
-  params: { [k: string]: any };
-}
+// declare function buildRouteUrl(config: RenderLinkOptions): string;
+// interface RenderLinkOptions {
+//   routeName: string;
+//   params: { [k: string]: any };
+// }
 
 function* handleFetch(action: ReturnType<typeof fetchRecord>) {
   try {
@@ -22,7 +23,6 @@ function* handleFetch(action: ReturnType<typeof fetchRecord>) {
       yield put(showRecord(res))
     }
   } catch (err) {
-    debugger
     if (err instanceof Error) {
       yield put(fetchError(err.stack!))
     } else {

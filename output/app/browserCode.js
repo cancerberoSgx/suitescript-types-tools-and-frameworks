@@ -23,8 +23,14 @@ define(["require", "exports"], function (require, exports) {
     exports.SCRIPTLETURLPREFIX = SCRIPTLETURLPREFIX_;
     /** this function is meant to be evaluated in the browser and also in the server! */
     function buildUrl(config) {
+        function getParamUrl(v) {
+            if (typeof v === 'boolean' && !v) {
+                return '';
+            }
+            return v;
+        }
         var clean = "" + SCRIPTLETURLPREFIX_ + config.currentUrlSearchFragment.substring(0, config.currentUrlSearchFragment.indexOf("&" + ROUTEPARAMNAME_ + "=")) + "&" + ROUTEPARAMNAME_ + "=" + config.routeName;
-        var newParams = clean + "&" + Object.keys(config.params).map(function (p) { return p + "=" + config.params[p]; }).join('&');
+        var newParams = clean + "&" + Object.keys(config.params).map(function (p) { return p + "=" + getParamUrl(config.params[p]); }).join('&');
         return newParams;
     }
     exports.buildUrl = buildUrl;

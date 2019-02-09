@@ -1,7 +1,10 @@
 import { Reducer } from 'redux'
-import { RecordViewState, RecordViewActionTypes, FetchRecordOptions, ShowRecordOptions } from './types'
+import { RecordViewState, RecordViewActionTypes, FetchRecordOptions, ShowRecordOptions, RecordViewSettings } from './types'
 
 const initialState: RecordViewState = {
+  seeValues: false,
+  showAllFields: false,
+  showSublistLines: false
 }
 const reducer: Reducer<RecordViewState> = (state = initialState, action) => {
   switch (action.type) {

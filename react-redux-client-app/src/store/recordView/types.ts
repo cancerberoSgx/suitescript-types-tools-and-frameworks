@@ -1,12 +1,12 @@
 export const enum RecordViewActionTypes {
   FETCH = '@@recordView/FETCH',
   SHOW = '@@recordView/SHOW',
-
   FETCH_REQUEST = '@@recordView/FETCH_REQUEST',
   FETCH_SUCCESS = '@@recordView/FETCH_SUCCESS',
   FETCH_ERROR = '@@recordView/FETCH_ERROR',
 }
-export interface RecordViewState {
+
+export interface RecordViewState extends RecordViewSettings {
   readonly type?: string
   readonly id?: string
   readonly loading?: boolean
@@ -14,31 +14,29 @@ export interface RecordViewState {
   readonly error?: string
 }
 
-// export interface Record {
-//   id: string,
-//   type: string
-//   fields: any[]
-//   sublists: any[] // frmo metadata
-// }
-
-
-export interface FetchRecordOptions {
-  id: string, type: string, showSublistLines?: boolean, seeValues?: boolean, showAllFields?: boolean
+export interface FetchRecordOptions extends RecordViewSettings {
+  id: string,
+  type: string,
 }
-export interface ShowRecordOptions {
+
+export interface ShowRecordOptions extends RecordViewSettings {
   record: Record;
-  seeValues?: boolean;
-  showAllFields?: boolean;
-  messageFromRedirect?: string;
-  showSublistLines?: boolean;
   error?: string
 }
+
+export interface RecordViewSettings {
+  showSublistLines?: boolean
+  seeValues?: boolean
+  showAllFields?: boolean
+}
+
+
 
 
 // untyped record  - i.e basically the info that is in xml=T without the values
 export interface Record extends Base {
-  fields: Field[]
-  sublists: Sublist[]
+  fields: ValuedField[]
+  sublists: ValuedSublist[]
   type: string
 }
 

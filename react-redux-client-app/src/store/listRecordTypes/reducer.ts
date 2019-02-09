@@ -4,7 +4,7 @@ import { getSearchRecordTypes } from '../../nstypes/search';
 
 const initialState: ListRecordTypesState = {
   recordTypes: getSearchRecordTypes(),
-  pageSize: 10
+  pageSize: 5
 }
 
 const reducer: Reducer<ListRecordTypesState> = (state = initialState, action) => {
@@ -23,6 +23,4 @@ const reducer: Reducer<ListRecordTypesState> = (state = initialState, action) =>
   }
 }
 
-// Instead of using default export, we use named exports. That way we can group these exports
-// inside the `index.js` folder.
 export { reducer as listRecordTypesReducer }

@@ -30,7 +30,8 @@
     "build": "react-scripts-parcel build",
     "test": "react-scripts-parcel test --env=jsdom",
     "eject": "react-scripts-parcel eject",
-    "url": "npx ts-node -P tsconfig-node.json scripts/getNsUrlFromIndex.ts"
+    "url": "npx ts-node -P tsconfig-node.json scripts/getNsUrlFromIndex.ts",
+    "mock": "rm -rf dist/ajaxResponseMocks && cp -rf test/ajaxResponseMocks dist"
   },
   "browserslist": {
     "development": [

@@ -2,13 +2,8 @@ import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 import { ListRecordTypesActionTypes } from './types'
 import { fetchError, fetchSuccess, fetchListRecord, showListRecord } from './actions'
 import callApi, { getUrlApi } from '../../utils/callApi'
-import { buildRouteUrl } from '../../utils/browserCode';
+import { buildRouteUrl } from '../../utils/buildRouteUrl';
 
-// declare function buildRouteUrl(config: RenderLinkOptions): string;
-// interface RenderLinkOptions {
-//   routeName: string;
-//   params: { [k: string]: any };
-// }
 function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
   try {
     const url = buildRouteUrl({
@@ -32,15 +27,10 @@ function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
   }
 }
 
-// This is our watcher function. We use `take*()` functions to watch Redux for a specific action
-// type, and run our saga, for example the `handleFetch()` saga above.
 function* watchFetchRequest() {
   yield takeEvery(ListRecordTypesActionTypes.FETCH_LIST, handleFetch)
 }
 
-// We can also use `fork()` here to split our saga into multiple watchers.
 export function* listRecordTypesSaga() {
   yield all([fork(watchFetchRequest)])
 }
-
-// export default listRecordTypesSaga

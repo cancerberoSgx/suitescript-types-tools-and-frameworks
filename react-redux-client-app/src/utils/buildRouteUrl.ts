@@ -11,9 +11,9 @@ interface RenderLinkOptions {
   params: Params;
 }
 
-interface RenderFragmentOptions extends RenderLinkOptions {
-  selector: string;
-}
+// interface RenderFragmentOptions extends RenderLinkOptions {
+//   selector: string;
+// }
 
 interface BuildUrlOptions extends RenderLinkOptions {
   /** the part of the current url with the search query with a routeParamName parameter present like `?script=293&deploy=1&compid=TSTDRV1844288&h=192074825c3ca8751438&routeParamName=mainPage&name=lau` */
@@ -33,22 +33,22 @@ function getParamUrl(v: any): string {
   return v
 }
 
-/** this function is meant to be evaluated in the browser! */
-function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
-  const url = buildRouteUrl(config);
-  const parent = document.querySelector(config.selector);
-  if (!parent) {
-    return // TODO: log?
-  }
-  parent.innerHTML = `<div>Loading new content...</div>`
-  fetch(url)
-    .then(function (response) {
-      return response.text();
-    })
-    .then(function (html) {
-      parent.innerHTML = html;
-    });
-}
+// /** this function is meant to be evaluated in the browser! */
+// function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
+//   const url = buildRouteUrl(config);
+//   const parent = document.querySelector(config.selector);
+//   if (!parent) {
+//     return // TODO: log?
+//   }
+//   parent.innerHTML = `<div>Loading new content...</div>`
+//   fetch(url)
+//     .then(function (response) {
+//       return response.text();
+//     })
+//     .then(function (html) {
+//       parent.innerHTML = html;
+//     });
+// }
 
 export function buildRouteUrl(config: RenderLinkOptions): string {
   const params: Params = {};

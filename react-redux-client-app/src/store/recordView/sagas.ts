@@ -2,7 +2,7 @@ import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 import { RecordViewActionTypes } from './types'
 import { fetchError, fetchSuccess, fetchRecord, showRecord } from './actions'
 import { getUrlApi } from '../../utils/callApi'
-import { buildRouteUrl } from '../../utils/browserCode';
+import { buildRouteUrl } from '../../utils/buildRouteUrl';
 
 // declare function buildRouteUrl(config: RenderLinkOptions): string;
 // interface RenderLinkOptions {

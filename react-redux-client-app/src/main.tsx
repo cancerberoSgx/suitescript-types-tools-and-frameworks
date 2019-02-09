@@ -9,6 +9,7 @@ import Routes from './routes'
 import { ApplicationState } from './store'
 import { ThemeColors } from './store/layout'
 import * as themes from './styles/theme'
+import Header from './components/layout/Header';
 
 // Separate props from state and props from dispatch to their own interfaces.
 interface PropsFromState {

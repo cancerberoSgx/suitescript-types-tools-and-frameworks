@@ -1,8 +1,8 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 import { ListRecordTypesActionTypes } from './types'
 import { fetchError, fetchSuccess, fetchListRecord, showListRecord } from './actions'
-import callApi from '../../utils/callApi'
-import { callApi2 } from '../../utils/getRoute';
+import callApi, { getUrlApi } from '../../utils/callApi'
+// import { callApi2 } from '../../utils/getRoute';
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT || 'https://api.opendota.com'
 declare function buildRouteUrl(config: RenderLinkOptions): string;
@@ -13,17 +13,11 @@ interface RenderLinkOptions {
 function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
   try {
     // To call async functions, use redux-saga's `call()`.
-
-    const t = action.type
-    const config = {
+    const url = buildRouteUrl({
       routeName: 'listRecordTypesJson',
       params: { type: action.payload },
-    }
-    // const res = yield call(getRoute, config)
-    const url = buildRouteUrl(config)
-
-    const res = yield call(callApi2, 'get', url)
-
+    })
+    const res = yield call(getUrlApi, 'get', url)
 
     if (res.error) {
       yield put(fetchError(res.error))

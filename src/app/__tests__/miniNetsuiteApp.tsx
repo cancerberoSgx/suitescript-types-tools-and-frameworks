@@ -81,6 +81,13 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
 
         &nbsp; and &nbsp;
 
+        <a target="_blank" href={props.renderLink({
+          routeName: 'recordView',
+          params: { id: '7', jsonMetadataOutput: true, type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
+        })}>record json link</a>
+
+        &nbsp; and &nbsp;
+
         <button onClick={e => fetchAndRenderHtml({
           routeName: 'recordView',
           params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false },

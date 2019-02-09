@@ -54,6 +54,11 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                             params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
                         }) }, "record view link"),
                     "\u00A0 and \u00A0",
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'recordView',
+                            params: { id: '7', jsonMetadataOutput: true, type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
+                        }) }, "record json link"),
+                    "\u00A0 and \u00A0",
                     createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({
                             routeName: 'recordView',
                             params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false },

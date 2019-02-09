@@ -1,27 +1,21 @@
-import * as React from 'react'
-import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-import moment from 'moment'
-
-import styled from '../../utils/styled'
-import Page from '../../components/layout/Page'
-import Container from '../../components/layout/Container'
-import DataTable from '../../components/layout/DataTable'
-import LoadingOverlay from '../../components/data/LoadingOverlay'
-import LoadingOverlayInner from '../../components/data/LoadingOverlayInner'
-import LoadingSpinner from '../../components/data/LoadingSpinner'
-
-import { ApplicationState, ConnectedReduxProps } from '../../store'
-// import { Team } from '../../store/teams/types'
-import { fetchRequest, fetchListRecord } from '../../store/listRecordTypes/actions'
+import * as React from 'react';
+import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
+import LoadingOverlay from '../../components/data/LoadingOverlay';
+import LoadingOverlayInner from '../../components/data/LoadingOverlayInner';
+import LoadingSpinner from '../../components/data/LoadingSpinner';
+import Container from '../../components/layout/Container';
+import Page from '../../components/layout/Page';
+import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { ListRecordTypeResult } from '../../store/listRecordTypes';
-// import callApi from '../../utils/callApi';
+import { fetchListRecord } from '../../store/listRecordTypes/actions';
+import styled from '../../utils/styled';
+import SearchResults from '../../components/search/SearchResults';
+import { RouteComponentProps } from 'react-router';
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
-  loading: boolean
-  // data: ListRecordTypeResult[]
+  loading?: boolean
   type?: string
   results?: ListRecordTypeResult[]
   errors?: string
@@ -31,39 +25,45 @@ interface PropsFromState {
 // We can use `typeof` here to map our dispatch types to the props, like so.
 interface PropsFromDispatch {
   // fetchRequest: typeof fetchRequest
-  listRecord: typeof fetchListRecord
+  fetchListRecord: typeof fetchListRecord
+}
+interface RouteParams {
+  type?: string
 }
 
 // Combine both state + dispatch props - as well as any props we want to pass - in a union type.
-type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps
+type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
-interface RenderLinkOptions {
-  routeName: string;
-  params: { [k: string]: any };
-}
-declare function buildRouteUrl(config: RenderLinkOptions): string;
-function getRoute(config: RenderLinkOptions) {
-  const url = buildRouteUrl(config)
-
-  return fetch(url)
-    .then(function (response) {
-      return response.json();
-    })
-}
 class ListRecordTypesIndexPage extends React.Component<AllProps> {
 
   public render() {
-    const { loading } = this.props
 
-    // if (this.props.results) {
-    //   console.log(this.props.results, typeof this.props.results);
-    //   debugger
-    // }
+    // TODO: we need to do this to connect the router, probably we want a mapRouteProps and change the name since the state also has a 'type'
+    if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
+      this.props.fetchListRecord(this.props.match.params.type)
+    }
+
+    const { loading, type } = this.props
 
     return (
       <Page>
-
         <Container>
+          <div>
+            Record Types:
+            <select onChange={e => {
+              const type = e.currentTarget.selectedOptions[0].value
+              if (type) {
+                // this.props.fetchListRecord(type)
+                this.props.history.push('/listRecordTypes/' + type)
+              }
+            }}>
+
+              <option selected={!this.props.type}>Select a Record Type</option>
+              {this.props.recordTypes.map(r =>
+                <option selected={this.props.type === r} value={r}>{r}</option>
+              )}
+            </select>
+          </div>
           <TableWrapper>
             {loading && (
               <LoadingOverlay>
@@ -72,24 +72,10 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
                 </LoadingOverlayInner>
               </LoadingOverlay>
             )}
-
-            Record Types:
-            <select onChange={e => {
-              this.props.listRecord(e.currentTarget.selectedOptions[0].value)
-            }
-            }>
-
-              {this.props.recordTypes.map(r => <option value={r}>{r}</option>)}
-
-            </select>
-
-            {this.props.results ? <div>
-              Results ({this.props.results.length}): <ul>
-                {this.props.results.map(r => <li>{r.id}</li>)}
-              </ul>
-
-            </div> : <div></div>}
-
+            {this.props.results && type && <SearchResults {...this.props} type={type}
+              columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
+              results={this.props.results.map(r => ({ id: r.id, columns: [r.recordType] }))}>
+            </SearchResults>}
           </TableWrapper>
         </Container>
       </Page>
@@ -102,26 +88,24 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
 // Although if necessary, you can always include multiple contexts. Just make sure to
 // separate them from each other to prevent prop conflicts.
 const mapStateToProps = ({ listRecordTypes }: ApplicationState) => ({
-  // loading: listRecordTypes.results
   type: listRecordTypes.type,
   results: listRecordTypes.results,
+  loading: listRecordTypes.loading,
   recordTypes: listRecordTypes.recordTypes
 })
 
 // mapDispatchToProps is especially useful for constraining our actions to the connected component.
 // You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  // fetchRequest: () => dispatch(fetchRequest())
-  listRecord: (type: string) => dispatch(fetchListRecord(type))
-  // listRecord: typeof fetchRequest
+  fetchListRecord: (type: string) => dispatch(fetchListRecord(type))
 })
 
-// Now let's connect our component!
-// With redux v4's improved typings, we can finally omit generics here.
-export default connect(
+
+import { withRouter } from 'react-router-dom'
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListRecordTypesIndexPage)
+)(ListRecordTypesIndexPage))
 
 const TableWrapper = styled('div')`
   position: relative;
@@ -129,25 +113,3 @@ const TableWrapper = styled('div')`
   margin: 0 auto;
   min-height: 200px;
 `
-
-// const TeamDetail = styled('td')`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   min-height: 66px;
-// `
-
-// const TeamLogo = styled('img')`
-//   width: 50px;
-//   height: 50px;
-// `
-
-// const TeamName = styled('div')`
-//   flex: 1 1 auto;
-//   height: 100%;
-//   margin-left: 1rem;
-
-//   a {
-//     color: ${props => props.theme.colors.brand};
-//   }
-// `

@@ -13,6 +13,7 @@ import { teamsReducer } from './teams/reducer'
 import { ListRecordTypesState } from './listRecordTypes/types'
 import { listRecordTypesReducer } from './listRecordTypes/reducer'
 import { listRecordTypesSaga } from './listRecordTypes/sagas';
+import { RecordViewState, recordViewReducer } from './recordView';
 
 // The top-level state object
 export interface ApplicationState {
@@ -20,6 +21,7 @@ export interface ApplicationState {
   heroes: HeroesState
   teams: TeamsState
   listRecordTypes: ListRecordTypesState
+  recordView: RecordViewState
 }
 
 // Additional props for connected React components. This prop is passed by default with `connect()`
@@ -34,7 +36,8 @@ export const rootReducer = combineReducers<ApplicationState>({
   layout: layoutReducer,
   heroes: heroesReducer,
   teams: teamsReducer,
-  listRecordTypes: listRecordTypesReducer
+  listRecordTypes: listRecordTypesReducer,
+  recordView: recordViewReducer
 
 })
 

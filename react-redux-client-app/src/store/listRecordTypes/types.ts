@@ -24,8 +24,10 @@ export interface ListRecordTypesState {
   readonly type?: string
   readonly results?: ListRecordTypeResult[]
   readonly recordTypes: string[]
+  readonly loading?: boolean
 }
 
 export interface ListRecordTypeResult {
-  id: string, recordType: string
+  id: string,
+  recordType: string
 }

@@ -1,5 +1,8 @@
-export function formatDate(date: Date, format: 'YYYY-MM-DD' | 'MM/DD/YYYY') {
-  if(typeof date === 'string'){ // happens when serializing dates to json for testing
+export function formatDate(date: Date, format: 'YYYY-MM-DD' | 'MM/DD/YYYY'): string {
+  // if (!date) {
+  //   return ''
+  // }
+  if (typeof date === 'string') { // happens when serializing dates to json for testing
     date = new Date(date)
   }
   var dd: any = date.getDay();

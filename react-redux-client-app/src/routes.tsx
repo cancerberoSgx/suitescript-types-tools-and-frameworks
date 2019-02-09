@@ -15,7 +15,8 @@ const Routes = () => (
         <Route exact path="/" component={IndexPage} />
         <Route path="/listRecordTypes/:type" component={ListRecordTypesPage} />
         <Route path="/listRecordTypes" component={ListRecordTypesPage} />
-        <Route path="/recordView/:type/:id" component={recordView} />
+        {/* <Route path="/recordView/:type/:id" component={recordView} /> */}
+        <Route path="/recordView/:type/:id/:options" component={recordView} />
         <Route path="/heroes" component={HeroesPage} />
         <Route path="/teams" component={TeamsPage} />
         <Route component={() => <div>Not Found</div>} />

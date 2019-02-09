@@ -1,21 +1,21 @@
 import { Reducer } from 'redux'
-import { ListRecordTypesState, ListRecordTypesActionTypes } from './types'
+import { ListRecordTypesState, ListRecordTypesActionTypes, ShowListOptions, FetchListOptions } from './types'
 import { getSearchRecordTypes } from '../../nstypes/search';
 
-// Type-safe initialState!
 const initialState: ListRecordTypesState = {
-  recordTypes: getSearchRecordTypes()
+  recordTypes: getSearchRecordTypes(),
+  pageSize: 10
 }
 
-// Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
-// everything will remain type-safe.
 const reducer: Reducer<ListRecordTypesState> = (state = initialState, action) => {
   switch (action.type) {
     case ListRecordTypesActionTypes.FETCH_LIST: {
-      return { ...state, type: action.payload, loading: true }
+      const options = action.payload as FetchListOptions
+      return { ...state, ...options, loading: true }
     }
     case ListRecordTypesActionTypes.SHOW_LIST: {
-      return { ...state, results: action.payload, loading: false }
+      const options = action.payload as ShowListOptions
+      return { ...state, ...options, loading: false }
     }
     default: {
       return state

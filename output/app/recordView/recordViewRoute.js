@@ -53,8 +53,8 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
             name: 'recordViewJson',
             contentType: 'json',
             handler: function (o) {
-                var _a = buildMetadata(o), record = _a.record, seeValues = _a.seeValues, error = _a.error, showAllFields = _a.showAllFields, messageFromRedirect = _a.messageFromRedirect, showSublistLines = _a.showSublistLines;
-                return error ? { error: error } : { record: record };
+                var result = buildMetadata(o);
+                return result;
             }
         };
     }

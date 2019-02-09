@@ -11,13 +11,10 @@ interface RenderLinkOptions {
 
 function* handleFetch(action: ReturnType<typeof fetchRecord>) {
   try {
-    // debugger
     const res = yield call(getUrlApi, 'get', buildRouteUrl({
       routeName: 'recordViewJson',
       params: { ...action.payload },
     }))
-    // debugger
-
     if (res.error) {
       yield put(fetchError(res))
     } else {

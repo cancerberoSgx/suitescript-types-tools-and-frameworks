@@ -10,9 +10,9 @@ export function recordViewRoute(app: App): Route {
     // contentType: 'json',
     handler(o) {
 
-const {record, seeValues, error, showAllFields, messageFromRedirect, showSublistLines} = buildMetadata(o)
+      const { record, seeValues, error, showAllFields, messageFromRedirect, showSublistLines } = buildMetadata(o)
 
-if(error){return error}
+      if (error) { return error }
       // if (jsonMetadataOutput) {
       //   this.contentType = 'json'
       //   return metadata
@@ -32,21 +32,21 @@ if(error){return error}
   };
 }
 
-function buildMetadata(o: RouterHandlerOptions): RecordViewProps&{error: string|undefined} {
+function buildMetadata(o: RouterHandlerOptions): RecordViewProps & { error: string | undefined } {
   const { id, type, messageFromRedirect, jsonMetadataOutput } = o.params;
   const seeValues = !!o.params.seeValues;
   const showAllFields = !!o.params.showAllFields;
   const showSublistLines = !!o.params.showSublistLines;
-  let error :string|undefined
+  let error: string | undefined
   if (!id || !type) {
-    error= 'Cannot open record view without an id or type, given id, type: ' + `${id}, ${type}`;
+    error = 'Cannot open record view without an id or type, given id, type: ' + `${id}, ${type}`;
   }
   const record = load({ id, type, isDynamic: true });
   if (!record) {
-    error= 'Record id, type: ' + `${id}, ${type} not be found`;
+    error = 'Record id, type: ' + `${id}, ${type} not be found`;
   }
 
-  return{record: buildRecordViewModel(record, seeValues, showAllFields), error, seeValues, showAllFields, messageFromRedirect, showSublistLines, renderLink: undefined as any, currentUrl: undefined as any, currentParams: undefined as any}
+  return { record: buildRecordViewModel(record, seeValues, showAllFields), error, seeValues, showAllFields, messageFromRedirect, showSublistLines, renderLink: undefined as any, currentUrl: undefined as any, currentParams: undefined as any }
 }
 
 
@@ -55,10 +55,10 @@ export function recordViewJsonRoute(app: App): Route {
     name: 'recordViewJson',
     contentType: 'json',
     handler(o) {
-      
-const {record, seeValues, error, showAllFields, messageFromRedirect, showSublistLines} = buildMetadata(o)
 
-        return error ? {error} : {record}
+      const result = buildMetadata(o)
+
+      return result
     }
   }
 }

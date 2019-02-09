@@ -7,11 +7,11 @@ import LoadingSpinner from '../../components/data/LoadingSpinner';
 import Container from '../../components/layout/Container';
 import Page from '../../components/layout/Page';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
-import styled from '../../utils/styled';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom'
-import { fetchRecord, FetchRecord, Record } from '../../store/recordView';
+import { fetchRecord, FetchRecordOptions, Record } from '../../store/recordView';
 import DataTable from '../../components/layout/DataTable';
+import { TableWrapper } from '../../components/data/LoadingWrapper';
 
 interface PropsFromState {
   loading?: boolean
@@ -19,11 +19,10 @@ interface PropsFromState {
   id?: string
   errors?: string
   record?: Record
-  showSublistLines?: boolean, seeValues?: boolean, showAllFields?: boolean
+  showSublistLines?:
+  boolean, seeValues?:
+  boolean, showAllFields?: boolean
 }
-
-
-
 
 interface PropsFromDispatch {
   fetchRecord: typeof fetchRecord
@@ -38,7 +37,6 @@ type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & Route
 class RecordViewIndexPage extends React.Component<AllProps> {
 
   public render() {
-    // debugger
     if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
       (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
       this.props.fetchRecord({
@@ -65,6 +63,8 @@ class RecordViewIndexPage extends React.Component<AllProps> {
             {record && <div>
               <h1>Record {record.type} - {record.id} </h1>
               {record.name && <h2>{record.name}</h2>}
+
+              <div>settings: {JSON.stringify({ seeValues: this.props.seeValues, showAllFields: this.props.showAllFields, showSublistLines: this.props.showSublistLines })}</div>
 
               <h3>Fields</h3>
               <RecordFields record={record}></RecordFields>
@@ -97,7 +97,7 @@ const mapStateToProps = ({ recordView }: ApplicationState) => ({
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchRecord: (c: FetchRecord) => dispatch(fetchRecord(c))
+  fetchRecord: (c: FetchRecordOptions) => dispatch(fetchRecord(c))
 })
 
 export default withRouter(connect(
@@ -105,9 +105,4 @@ export default withRouter(connect(
   mapDispatchToProps
 )(RecordViewIndexPage))
 
-const TableWrapper = styled('div')`
-  position: relative;
-  max-width: ${props => props.theme.widths.md};
-  margin: 0 auto;
-  min-height: 200px;
-`
+

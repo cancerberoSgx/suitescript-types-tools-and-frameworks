@@ -7,16 +7,19 @@ import LoadingSpinner from '../../components/data/LoadingSpinner';
 import Container from '../../components/layout/Container';
 import Page from '../../components/layout/Page';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
-import { ListRecordTypeResult } from '../../store/listRecordTypes';
+import { ListRecordTypeResult, FetchListOptions } from '../../store/listRecordTypes';
 import { fetchListRecord } from '../../store/listRecordTypes/actions';
 import styled from '../../utils/styled';
 import SearchResults from '../../components/search/SearchResults';
 import { RouteComponentProps } from 'react-router';
+import { withRouter } from 'react-router-dom'
+import { TableWrapper } from '../../components/data/LoadingWrapper';
 
 // Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
   loading?: boolean
   type?: string
+  pageSize: number
   results?: ListRecordTypeResult[]
   errors?: string
   recordTypes: string[]
@@ -40,7 +43,7 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
 
     // TODO: we need to do this to connect the router, probably we want a mapRouteProps and change the name since the state also has a 'type'
     if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
-      this.props.fetchListRecord(this.props.match.params.type)
+      this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
     }
 
     const { loading, type } = this.props
@@ -53,7 +56,6 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
             <select onChange={e => {
               const type = e.currentTarget.selectedOptions[0].value
               if (type) {
-                // this.props.fetchListRecord(type)
                 this.props.history.push('/listRecordTypes/' + type)
               }
             }}>
@@ -84,32 +86,20 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
 
 }
 
-// It's usually good practice to only include one context at a time in a connected component.
-// Although if necessary, you can always include multiple contexts. Just make sure to
-// separate them from each other to prevent prop conflicts.
 const mapStateToProps = ({ listRecordTypes }: ApplicationState) => ({
+  pageSize: listRecordTypes.pageSize,
   type: listRecordTypes.type,
   results: listRecordTypes.results,
   loading: listRecordTypes.loading,
   recordTypes: listRecordTypes.recordTypes
 })
 
-// mapDispatchToProps is especially useful for constraining our actions to the connected component.
-// You can access these via `this.props`.
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  fetchListRecord: (type: string) => dispatch(fetchListRecord(type))
+  fetchListRecord: (options: FetchListOptions) => dispatch(fetchListRecord(options))
 })
 
 
-import { withRouter } from 'react-router-dom'
 export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(ListRecordTypesIndexPage))
-
-const TableWrapper = styled('div')`
-  position: relative;
-  max-width: ${props => props.theme.widths.md};
-  margin: 0 auto;
-  min-height: 200px;
-`

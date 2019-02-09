@@ -22,9 +22,18 @@ export interface RecordViewState {
 // }
 
 
-export interface FetchRecord {
+export interface FetchRecordOptions {
   id: string, type: string, showSublistLines?: boolean, seeValues?: boolean, showAllFields?: boolean
 }
+export interface ShowRecordOptions {
+  record: Record;
+  seeValues?: boolean;
+  showAllFields?: boolean;
+  messageFromRedirect?: string;
+  showSublistLines?: boolean;
+  error?: string
+}
+
 
 // untyped record  - i.e basically the info that is in xml=T without the values
 export interface Record extends Base {

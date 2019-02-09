@@ -20,6 +20,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         app.addRoute(recordViewRoute_1.recordViewRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesResultRoute(app));
+        app.addRoute(listRecordTypesRoute_1.listRecordTypesJsonRoute(app));
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
         app.addRoute(setSublistFieldValueRoute_1.setSublistFieldValueRoute(app));
         app.addRoute(searchViewRoute_1.searchViewRoute(app));
@@ -68,7 +69,12 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                             routeName: 'listRecordTypes',
                             params: { dynamicResultsRender: true, type: 'item' },
                             selector: '#mainView'
-                        }); } }, "listRecordTypes view embedded")),
+                        }); } }, "listRecordTypes view embedded"),
+                    "\u00A0 and \u00A0",
+                    createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
+                            routeName: 'listRecordTypesJson',
+                            params: { type: 'item' },
+                        }) }, "listRecordTypesJson")),
                 createElement_1.ReactLike.createElement("li", null,
                     createElement_1.ReactLike.createElement("a", { href: props.renderLink({
                             routeName: 'debugger',

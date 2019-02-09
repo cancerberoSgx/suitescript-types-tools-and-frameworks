@@ -52,9 +52,14 @@ define(["require", "exports", "../misc/arrayPrototypeFind", "../jsx/createElemen
                 d.response.write(JSON.stringify(result));
             }
             else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
-                d.response.write("<script>\n" + browserCode_1.renderBrowserCode() + "\n" + createElement_1.ReactLike.getClientCode().map(function (c) { return c.code; }).join('\n') + "\n</script>");
+                if (!route.dontPrintBrowserJsCode) {
+                    d.response.write(this.getBrowserJsCode());
+                }
                 d.response.write(result);
             }
+        };
+        App.prototype.getBrowserJsCode = function () {
+            return "<script>\n" + browserCode_1.renderBrowserCode() + "\n" + createElement_1.ReactLike.getClientCode().map(function (c) { return c.code; }).join('\n') + "\n</script>";
         };
         /** set a default route in case url has no routeName param */
         App.prototype.setNoRouteParamRoute = function (r) {

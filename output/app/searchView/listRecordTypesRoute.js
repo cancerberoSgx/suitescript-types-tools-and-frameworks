@@ -28,6 +28,30 @@ define(["require", "exports", "../../jsx/createElement", "../../search/typedSear
         };
     }
     exports.listRecordTypesRoute = listRecordTypesRoute;
+    function listRecordTypesJsonRoute(app) {
+        return {
+            name: 'listRecordTypesJson',
+            contentType: 'json',
+            handler: function (o) {
+                var type = o.params.type;
+                var pageSize = parseInt(o.params.pageSize || '20', 10);
+                var counter = 0;
+                var results = type ? typedSearchOperations_1.filter({
+                    type: type,
+                    columns: []
+                }, function (r) { return (((counter++) > pageSize) || !r) ? false : true; }) : [];
+                return {
+                    results: results.map(function (r) { return ({
+                        id: r.id,
+                        recordType: r.recordType,
+                    }); })
+                };
+                // return ReactLike.render(<ListRecordTypes pageSize={pageSize} {...o.params} type={type} results={results}
+                // ></ListRecordTypes>)
+            }
+        };
+    }
+    exports.listRecordTypesJsonRoute = listRecordTypesJsonRoute;
     function listRecordTypesResultRoute(app) {
         return {
             name: 'listRecordTypesResult',

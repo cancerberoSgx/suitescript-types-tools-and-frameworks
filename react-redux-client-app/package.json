@@ -1,0 +1,60 @@
+{
+  "name": "react-redux-typescript-example",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-plugin-emotion": "^9.2.11",
+    "connected-react-router": "^4.5.0",
+    "create-react-app-parcel-typescript": "0.0.5",
+    "dotenv-expand": "^4.2.0",
+    "emotion": "^9.2.12",
+    "emotion-theming": "^9.2.9",
+    "history": "^4.7.2",
+    "http2": "^3.3.7",
+    "moment": "^2.22.2",
+    "polished": "^2.3.0",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-emotion": "^9.2.12",
+    "react-redux": "^5.1.1",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-saga": "^0.16.2",
+    "typeface-ibm-plex-mono": "^0.0.61",
+    "typeface-ibm-plex-sans": "^0.0.61",
+    "typesafe-actions": "^2.0.4"
+  },
+  "scripts": {
+    "start": "react-scripts-parcel start",
+    "build": "react-scripts-parcel build",
+    "test": "react-scripts-parcel test --env=jsdom",
+    "eject": "react-scripts-parcel eject",
+    "url": "npx ts-node -P tsconfig-node.json scripts/getNsUrlFromIndex.ts"
+  },
+  "browserslist": {
+    "development": [
+      "last 2 chrome versions",
+      "last 2 firefox versions",
+      "last 2 edge versions"
+    ],
+    "production": [
+      ">1%",
+      "Firefox ESR",
+      "not ie <= 11",
+      "not op_mini all"
+    ]
+  },
+  "devDependencies": {
+    "@types/history": "^4.7.2",
+    "@types/node": "^10.12.10",
+    "@types/react": "^16.6.0",
+    "@types/react-dom": "^16.0.10",
+    "@types/react-redux": "^6.0.10",
+    "@types/react-router-dom": "^4.3.1",
+    "babel-core": "^6.26.3",
+    "tslint": "^5.11.0",
+    "tslint-config-blvd": "^1.2.1",
+    "typescript": "^3.1.3"
+  }
+}

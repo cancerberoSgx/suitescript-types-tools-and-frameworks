@@ -6,7 +6,7 @@ import { ServerRequest, ServerResponse } from 'N/http';
 import { recordViewRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
 import { findRecordRoute } from '../routes/findRecordRoute';
-import { listRecordTypesRoute, listRecordTypesResultRoute } from "../searchView/listRecordTypesRoute";
+import { listRecordTypesRoute, listRecordTypesResultRoute, listRecordTypesJsonRoute } from "../searchView/listRecordTypesRoute";
 import { setSublistFieldValueRoute } from '../routes/setSublistFieldValueRoute';
 import { debuggerRoute, addMiniDebuggerRoutes } from './miniDebuggerApp';
 import { renderInHTMLDocument } from '../../jsx/renderInHtml';
@@ -27,6 +27,7 @@ export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse
 
   app.addRoute(listRecordTypesRoute(app))
   app.addRoute(listRecordTypesResultRoute(app))
+  app.addRoute(listRecordTypesJsonRoute(app))
 
   app.addRoute(setFieldValueRoute(app))
 
@@ -100,6 +101,14 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
           params: { dynamicResultsRender: true, type: 'item' },
           selector: '#mainView'
         })}>listRecordTypes view embedded</button>
+
+        &nbsp; and &nbsp;
+
+        <a target="_blank" href={props.renderLink({
+          routeName: 'listRecordTypesJson',
+          params: { type: 'item' },
+        })}>listRecordTypesJson</a>
+
       </li>
 
       <li>
@@ -154,7 +163,7 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
             jsFiles: encodeURIComponent(JSON.stringify([`https://127.0.0.1:8080/src.7ed060e2.js`])), 
           },
         })}>serve SPA dummy index.html passing <a href="https://127.0.0.1:8080/src.7ed060e2.js">.js</a> and <a href="https://172.20.10.7:8080/src.7ed060e2.css">.css</a> file urls as params</a><br></br>
-        
+
         <a target="_blank" href={props.renderLink({
           routeName: 'serveSPAIndex',
           params: { 

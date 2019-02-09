@@ -36,6 +36,7 @@ export interface Route {
   name: string
   handler(handler: RouterHandlerOptions): any
   contentType?: 'json' | 'html'
+  dontPrintBrowserJsCode?: boolean
 }
 
 
@@ -86,12 +87,18 @@ export class App implements IApp {
       d.response.write(JSON.stringify(result))
     }
     else if (result && typeof result === 'string' && !route.contentType || route.contentType === 'html') {
-      d.response.write(`<script>
-${renderBrowserCode()}
-${ReactLike.getClientCode().map(c => c.code).join('\n')}
-</script>`)
+      if(!route.dontPrintBrowserJsCode){
+        d.response.write(this.getBrowserJsCode())
+      }
       d.response.write(result)
     }
+  }
+
+  getBrowserJsCode(): string {
+    return `<script>
+${renderBrowserCode()}
+${ReactLike.getClientCode().map(c => c.code).join('\n')}
+</script>`;
   }
 
   /** set a default route in case url has no routeName param */

@@ -12,6 +12,7 @@ import { fetchListRecord } from '../../store/listRecordTypes/actions';
 import styled from '../../utils/styled';
 import { string } from 'prop-types';
 import DataTable from '../layout/DataTable';
+import { Link } from 'react-router-dom';
 
 interface PropsFromState {
   type: string
@@ -37,7 +38,7 @@ interface Filter extends FilterValue {
   value?: string
   operator?: string
 }
-interface Result { id: string, columns: string[] }
+interface Result { id: string, type: string, columns: string[] }
 interface ColumnValue { id: string, type: string, label: string }
 interface FilterValue { id: string, type: string, label: string }
 
@@ -63,7 +64,7 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
       <DataTable columns={['Id', ...columns.map(c => c.id + ' - ' + c.label)]}>
         {results.map(r =>
           <tr>
-            <td>{r.id}</td>
+            <td><Link to={`/recordView/${r.type}/${r.id}`}>{r.id}</Link></td>
             {r.columns.map(c => <td>{c} </td>)}
           </tr>)}
       </DataTable>

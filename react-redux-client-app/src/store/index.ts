@@ -14,6 +14,7 @@ import { ListRecordTypesState } from './listRecordTypes/types'
 import { listRecordTypesReducer } from './listRecordTypes/reducer'
 import { listRecordTypesSaga } from './listRecordTypes/sagas';
 import { RecordViewState, recordViewReducer } from './recordView';
+import { recordViewSaga } from './recordView/sagas';
 
 // The top-level state object
 export interface ApplicationState {
@@ -45,5 +46,5 @@ export const rootReducer = combineReducers<ApplicationState>({
 // "generator function", which you can read about here:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*
 export function* rootSaga() {
-  yield all([fork(heroesSaga), fork(teamsSaga), fork(listRecordTypesSaga)])
+  yield all([fork(heroesSaga), fork(teamsSaga), fork(listRecordTypesSaga), fork(recordViewSaga)])
 }

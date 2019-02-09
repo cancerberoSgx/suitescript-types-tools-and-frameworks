@@ -9,7 +9,8 @@ const reducer: Reducer<RecordViewState> = (state = initialState, action) => {
       return { ...state, type: action.payload.type, id: action.payload.id, loading: true }
     }
     case RecordViewActionTypes.SHOW: {
-      return { ...state, record: action.payload.record, loading: false }
+      // debugger
+      return { ...state, record: action.payload.record, error: action.payload.error, loading: false }
     }
     default: {
       return state

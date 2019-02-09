@@ -11,6 +11,7 @@ export interface RecordViewState {
   readonly id?: string
   readonly loading?: boolean
   readonly record?: Record
+  readonly error?: string
 }
 
 // export interface Record {
@@ -21,6 +22,9 @@ export interface RecordViewState {
 // }
 
 
+export interface FetchRecord {
+  id: string, type: string, showSublistLines?: boolean, seeValues?: boolean, showAllFields?: boolean
+}
 
 // untyped record  - i.e basically the info that is in xml=T without the values
 export interface Record extends Base {

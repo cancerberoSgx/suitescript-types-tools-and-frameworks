@@ -18,6 +18,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         app.addRoute(mainPageRoute(app));
         app.addRoute(findRecordRoute_1.findRecordRoute(app));
         app.addRoute(recordViewRoute_1.recordViewRoute(app));
+        app.addRoute(recordViewRoute_1.recordViewJsonRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesResultRoute(app));
         app.addRoute(listRecordTypesRoute_1.listRecordTypesJsonRoute(app));
@@ -55,8 +56,8 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
                         }) }, "record view link"),
                     "\u00A0 and \u00A0",
                     createElement_1.ReactLike.createElement("a", { target: "_blank", href: props.renderLink({
-                            routeName: 'recordView',
-                            params: { id: '7', jsonMetadataOutput: true, type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
+                            routeName: 'recordViewJson',
+                            params: { id: '7', type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
                         }) }, "record json link"),
                     "\u00A0 and \u00A0",
                     createElement_1.ReactLike.createElement("button", { onClick: function (e) { return fetchAndRenderHtml({

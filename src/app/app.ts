@@ -17,7 +17,7 @@ export interface RouteHandlerParams {
   // renderLink(config: RenderLinkOptions & { forgetCurrentRouteParams?: boolean }): string
 }
 
-interface RouterHandlerOptions extends DispatchOptions {
+export interface RouterHandlerOptions extends DispatchOptions {
   params: RouteHandlerParams&Params
 }
 

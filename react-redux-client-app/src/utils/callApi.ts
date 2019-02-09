@@ -11,6 +11,7 @@ export default function callApi(method: string, url: string, path: string, data?
 
 
 export function getUrlApi(method: string, url: string) {
+  // debugger
   return fetch(url, {
     method,
     headers: {

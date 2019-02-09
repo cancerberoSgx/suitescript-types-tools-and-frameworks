@@ -74,7 +74,7 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
             )}
             {this.props.results && type && <SearchResults {...this.props} type={type}
               columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
-              results={this.props.results.map(r => ({ id: r.id, columns: [r.recordType] }))}>
+              results={this.props.results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
             </SearchResults>}
           </TableWrapper>
         </Container>

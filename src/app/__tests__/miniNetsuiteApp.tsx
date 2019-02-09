@@ -3,7 +3,7 @@ import { ReactLikeChild } from '../../jsx/jsx';
 import { Bind } from '../../jsx/util/Bind';
 import { App, Route, RouteHandlerParams } from '../app';
 import { ServerRequest, ServerResponse } from 'N/http';
-import { recordViewRoute } from '../recordView/recordViewRoute';
+import { recordViewRoute, recordViewJsonRoute } from '../recordView/recordViewRoute';
 import { setFieldValueRoute } from '../routes/setFieldValueRoute';
 import { findRecordRoute } from '../routes/findRecordRoute';
 import { listRecordTypesRoute, listRecordTypesResultRoute, listRecordTypesJsonRoute } from "../searchView/listRecordTypesRoute";
@@ -24,6 +24,7 @@ export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse
   app.addRoute(findRecordRoute(app))
 
   app.addRoute(recordViewRoute(app))
+  app.addRoute(recordViewJsonRoute(app))
 
   app.addRoute(listRecordTypesRoute(app))
   app.addRoute(listRecordTypesResultRoute(app))
@@ -82,8 +83,8 @@ export const MainPage = (props: MainPageProps, children: ReactLikeChild[]) => {
         &nbsp; and &nbsp;
 
         <a target="_blank" href={props.renderLink({
-          routeName: 'recordView',
-          params: { id: '7', jsonMetadataOutput: true, type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
+          routeName: 'recordViewJson',
+          params: { id: '7',  type: 'commercecategory', showSublistLines: true, seeValues: true, showAllFields: false }
         })}>record json link</a>
 
         &nbsp; and &nbsp;

@@ -13,6 +13,7 @@ import { fetchRecord, FetchRecordOptions, Record, RecordViewSettings, RecordView
 import { TableWrapper } from '../../components/data/LoadingWrapper';
 import { RecordFields } from './recordFields';
 import { tryTo } from '../../utils/misc';
+import DataTable from '../../components/layout/DataTable';
 
 interface RecordViewStateProps extends RecordViewState {
 }
@@ -91,8 +92,32 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
               </ul>
               </div>
 
+
+              {
+                record.fields.length < 5 && <div>weba</div>}
+
+
               <h3>Fields (#{record.fields.length})</h3>
               <RecordFields {...{ record, ...this.state }}  ></RecordFields>
+
+              <h3>Sublists</h3>
+              <ul>
+                {record.sublists.map(s => <li>{s.id}
+                  <DataTable columns={s.fields.map(f => f.id)}>
+                    {/* <p>{s.fields.map(f => f.id)}</p> */}
+                    {s.lines.map(line => {
+
+                      {
+                        line.rows.map(r => <tr>
+                          <td>{123}</td>
+                        </tr>
+                        )
+                      }
+                    })}
+                  </DataTable>
+
+                </li>)}
+              </ul>
             </div>}
           </TableWrapper>
         </Container>
@@ -140,7 +165,6 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
   public getRouteOptionNames() {
     return ['showAllFields', 'showSublistLines', 'seeValues', 'inlineEdit']
   }
-
 }
 function getPosition(string: string, subString: string, index: number) {
   return string.split(subString, index).join(subString).length;

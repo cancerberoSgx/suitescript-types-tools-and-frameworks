@@ -51,7 +51,7 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
       <DataTable columns={['Id', ...columns.map(c => c.id + ' - ' + c.label)]}>
         {results.map(r =>
           <tr>
-            <td><Link to={`/recordView/${r.type}/${r.id}`}># {r.id}</Link></td>
+            <td><Link to={`/recordView/${r.type}/${r.id}/{}`}># {r.id}</Link></td>
             {r.columns.map(c => <td>{c} </td>)}
           </tr>)}
       </DataTable>

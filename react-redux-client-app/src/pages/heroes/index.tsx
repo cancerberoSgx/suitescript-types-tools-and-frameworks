@@ -113,7 +113,11 @@ export default connect(
   mapDispatchToProps
 )(HeroesIndexPage)
 
-const TableWrapper = styled('div')`
+const TableWrapper = styled('div')
+
+
+
+  `
   position: relative;
   max-width: ${props => props.theme.widths.md};
   margin: 0 auto;

@@ -128,6 +128,7 @@ function InputElementEditor(props: any) {
   const f = props.field
   const inputType = f.type === 'date' ? 'date' : f.type === 'datetime' ? 'datetime-local' : ['float', 'integer'].indexOf(f.type) !== -1 ? 'number' : f.type === 'checkbox' ? 'checkbox' : 'text';
   const inputValue = (typeof f.value === 'undefined' || f.value === null) ? '' : (f.type === 'date' && typeof (f.value as any).getDay !== 'undefined') ? formatDate(f.value as any, 'YYYY-MM-DD') : (f.value + '');
+  // debugger
   return <input disabled={f.isReadonly} type={inputType} value={inputValue} checked={f.type === 'checkbox' && !!f.value}>
   </input>;
 }

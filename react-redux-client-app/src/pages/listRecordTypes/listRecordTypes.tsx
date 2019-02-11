@@ -10,6 +10,7 @@ import SearchResults from '../../components/search/SearchResults';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom'
 import { Loading } from '../../components/data/Loading';
+import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
 
 interface PropsFromState {
   loading?: boolean
@@ -25,20 +26,46 @@ interface PropsFromDispatch {
 }
 interface RouteParams {
   type?: string
+  options?: string
+}
+interface S {
+  type?: string
+  pageSize?: number
 }
 
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
 // TODO: use OptionsUrlPage
-class ListRecordTypesIndexPage extends React.Component<AllProps> {
+class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, S> {
+  getRouteOptionNames(): string[] {
+    return []//['pageSize']
+  }
+
+  componentWillUpdate() {
+
+    if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
+      // this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
+      // this.setState({ type: this.props.match.params.type, pageSize: this.props.pageSize })
+      // debugger
+      this.changeOptions({ type: this.props.match.params.type });
+    }
+    // super.componentWillMount()
+  }
+
+  // componentWillMount() {
+  //   // TODO: we need to do this to connect the router, probably we want a mapRouteProps and change the name since the state also has a 'type'
+  //   if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
+  //     this.setState({ type: this.props.match.params.type, pageSize: this.props.pageSize })
+  //     this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
+  //   }
+  //   super.componentWillMount()
+  // }
+  constructor(p: AllProps, s: S) {
+    super(p, s)
+    this.state = { type: p.type, pageSize: p.pageSize }
+  }
 
   public render() {
-
-    // TODO: we need to do this to connect the router, probably we want a mapRouteProps and change the name since the state also has a 'type'
-    if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
-      this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
-    }
-
     const { type } = this.props
 
     return (
@@ -49,7 +76,9 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
             <select onChange={e => {
               const type = e.currentTarget.selectedOptions[0].value
               if (type) {
-                this.props.history.push('/listRecordTypes/' + type)
+                this.changeOptions({ type });
+                // this.props.history.push('/listRecordTypes/' + type)
+                // this.changeOptions({ type })
               }
             }}>
 
@@ -71,6 +100,14 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
     )
   }
 
+
+  private changeOptions(v: { type: string }) {
+    // const v = { type: this.props.match.params.type, pageSize: this.props.pageSize };
+    const t = { ...this.state, ...v };
+    this.setState(t);
+    this.updateOptionsWithState(t);
+    this.props.fetchListRecord({ ...v, pageSize: this.state.pageSize || this.props.pageSize });
+  }
 }
 
 const mapStateToProps = ({ listRecordTypes }: ApplicationState) => ({

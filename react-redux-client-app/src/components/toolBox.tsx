@@ -1,12 +1,9 @@
+import { mix } from 'polished';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Dispatch } from 'redux';
-import { ApplicationState } from '../store';
+import { minWidth } from '../styles/media';
 import styled from '../styles/theme/definition';
-import { maxWidth, minWidth } from '../styles/media';
-import { lighten, stripUnit, darken, mix } from 'polished';
-import { PagePadding } from './layout/Page';
+import { PagePadding, PagePaddingTopLeft } from './layout/Page';
 
 interface P { className?: string }
 interface S {
@@ -28,23 +25,23 @@ class ToolBox extends React.Component<P, S> {
   }
 }
 
-const Wrapper = styled(PagePadding)`
+const Wrapper = styled(PagePaddingTopLeft)`
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   border-radius: 3px;
   width: 95%;
-  left: 0px;
-  top: 0px;
+  pointer-events: painted;
 
   & .content {
     display: none;
     border-radius: 6px;
-    width: 100%;
+    width: 5%;
+    padding: 0;
+    margin: 0;
   }
 
-
   & .button {
-    display: inline-block;
+    position: absolute;
     padding: 0.25rem 0.5rem;
     border: 1px solid ${props => props.theme.colors.white};
     border-radius: 3px;
@@ -55,17 +52,20 @@ const Wrapper = styled(PagePadding)`
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
-    opacity: 0.7;
+    opacity: 0.8;
   }
 
   &.active {
     .content {
+      width: 100%;
       display: block;
       background: ${props => mix(0.4, props.theme.colors.brand, props.theme.colors.background)};
       ${props => minWidth(props).md`1em`}
       padding: 1em;
+      margin: 0.3em;
     }
     .button {
+      position: static;
       opacity: 1;
       background-color: ${props => props.theme.colors.brand};
       color: ${props => props.theme.colors.white};

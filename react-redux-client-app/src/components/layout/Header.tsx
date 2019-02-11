@@ -1,10 +1,10 @@
-import * as React from 'react'
-import { NavLink } from 'react-router-dom'
-import styled from '../../styles/theme/definition'
-import { LayoutContainer } from '../LayoutContainer'
-import { Container } from './Container'
-import { css } from 'emotion'
-import { maxWidth, minWidth } from '../../styles/media';
+import { css } from 'emotion';
+import { complement, readableColor } from 'polished';
+import * as React from 'react';
+import { NavLink } from 'react-router-dom';
+import styled from '../../styles/theme/definition';
+import { LayoutContainer } from '../LayoutContainer';
+import { Container } from './Container';
 
 interface HeaderProps {
   title: string
@@ -21,22 +21,21 @@ const Header: React.SFC<HeaderProps> = ({ title }) => (
           Home
         </HeaderNavLink>
         <HeaderNavLink to="/listRecordTypes" activeClassName={HeaderLinkActive}>
-          list record types
+          List Types
         </HeaderNavLink>
-        <HeaderNavLink to="/heroes" activeClassName={HeaderLinkActive}>
-          Test1
+        <HeaderNavLink to={`/recordView/commercecategory/2/{"seeValues"%3Atrue%2C"showSublistLines"%3Atrue}"`} activeClassName={HeaderLinkActive}>
+          A Record
         </HeaderNavLink>
-        <HeaderNavLink to="/teams" activeClassName={HeaderLinkActive}>
-          Test2
+        <HeaderNavLink to="/search" activeClassName={HeaderLinkActive}>
+          Search
         </HeaderNavLink>
       </HeaderNav>
       <HeaderRight>
         <LayoutContainer>
           {({ theme, setTheme }) => (
             <React.Fragment>
-              <CurrentTheme>Current theme: {theme}</CurrentTheme>
               <ThemeSwitcherButton onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
-                Switch theme
+                Switch to {theme === 'light' ? 'dark' : 'light'} theme
               </ThemeSwitcherButton>
             </React.Fragment>
           )}
@@ -60,8 +59,13 @@ const HeaderInner = styled(Container)`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  & > div:first-child {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  overflow: hidden;
+  & > * *  {
     overflow-x: hidden;
+    overflow-y: hidden;
+    overflow: hidden;
   }
 
 `
@@ -96,26 +100,27 @@ const Title = styled('h2')`
   font-weight: 500;
 `
 
-const CurrentTheme = styled('span')`
-  margin-right: 1rem;
-`
+// const CurrentTheme = styled('span')`
+//   margin-right: 1rem;
+// `
 
 const ThemeSwitcherButton = styled('button')`
   display: inline-block;
   padding: 0.25rem 0.5rem;
-  border: 1px solid ${props => props.theme.colors.white};
+  border: 1px solid ${props => props.theme.colors.brand};
   border-radius: 3px;
-  background-color: ${props => props.theme.colors.white};
-  color: ${props => props.theme.colors.brand};
+  background-color: ${props => props.theme.colors.background}
+  color: ${props => readableColor(props.theme.colors.background)};
   font-size: 0.8rem;
   text-transform: uppercase;
+  -weight: 700;
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover,
   &:focus {
-    background-color: transparent;
-    color: ${props => props.theme.colors.white};
+    background-color:  ${props => complement(props.theme.colors.background)};
+    color: ${props => readableColor(complement(props.theme.colors.background))};
   }
 `

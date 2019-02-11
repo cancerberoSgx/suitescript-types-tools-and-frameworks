@@ -27,14 +27,11 @@ export class RichTextFieldInputContentEditableSpan extends React.Component<P, E>
   }
 }
 
-
-function RichTextEditor(props: RecordFieldEditorInputProps<String>) {
-  return
-}
 const RichTextEditorStyle = (styled('span')`
 border: 3px solid blue;
 width: 100%;
-height: 200px;
+min-height: 60px;
+max-height: 100px;
 display: block;
 overflow: scroll
 `)

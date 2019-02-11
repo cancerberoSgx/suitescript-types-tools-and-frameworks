@@ -2,7 +2,7 @@
 import { Global, css } from '@emotion/core'
 import * as React from 'react';
 import { Theme } from './theme/definition';
-import { maxWidth } from './media';
+import { maxWidth, minWidth } from './media';
 import { withTheme } from 'emotion-theming';
 
 class C extends React.Component<{ theme?: Theme }> {
@@ -36,6 +36,9 @@ ul {
   ${maxWidth(p).md`
   padding-left: 0;
   `};
+  ${minWidth(p).md`
+  padding-left: 0.7em;
+  `};
 }
 
 a {
@@ -45,8 +48,10 @@ a {
 body {
   width: 100%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  // overflow-y: scroll;
 }
+
+
 
 a {
   color: inherit;

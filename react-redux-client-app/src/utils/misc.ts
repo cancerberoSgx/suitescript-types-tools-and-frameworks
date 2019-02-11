@@ -19,6 +19,10 @@ export function dedup<T>(a: T[], p: (a: T, b: T) => boolean): T[] {
   return a.reduce((x, y) => x.find(i => p(i, y)) ? x : [...x, y] as T[], [] as T[])
 }
 
+export function getPosition(string: string, subString: string, index: number) {
+  return string.split(subString, index).join(subString).length;
+}
+
 
 export function objectKeys<Field extends EmptyObject = EmptyObject>(o: Field): StringKeyOf<Field>[] {
   return Object.keys(o) as StringKeyOf<Field>[]

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { getPosition } from '../pages/recordView/recordView';
 import { decodeOptions, encodeOptions } from '../utils/urlUtil';
+import { getPosition } from '../utils/misc';
 
 /**
  * abstract component supporting options object as route parameter. Extenders must implement method getRouteOptionNames
@@ -36,7 +36,8 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
     // remove extraneous options
     Object.keys(options).filter(k => this.getRouteOptionNames().indexOf(k) === -1).forEach(k => { delete options[k] })
     Object.keys(this.state)
-      .filter(k => options[k] != this.state[k] && this.getRouteOptionNames().indexOf(k) !== -1).forEach(k => {
+      .filter(k => options[k] != this.state[k] && this.getRouteOptionNames().indexOf(k) !== -1)
+      .forEach(k => {
         newOptions[k] = this.state[k];
       });
     if (Object.keys(newOptions).length) {

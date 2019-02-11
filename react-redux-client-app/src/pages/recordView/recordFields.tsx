@@ -1,17 +1,20 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
 import * as React from 'react';
-import DataTable from '../../components/layout/DataTable';
-import { RecordViewState, Field, ValuedField, RecordViewSettings } from '../../store/recordView';
-import { tryTo } from '../../utils/misc';
+import { DataTable } from '../../components/layout/DataTable';
+import { RecordViewSettings, RecordViewState, ValuedField } from '../../store/recordView';
 import { formatDate, formatDateTime } from '../../utils/formatDate';
-import styled from '../../styles/theme/definition';
+import { tryTo } from '../../utils/misc';
 import { TextAreaFieldInput } from './RecordFieldInputTextArea';
 import { RichTextFieldInputContentEditableSpan } from './RichTextFieldInputContentEditableSpan';
 
 export class RecordFields extends React.Component<RecordViewState> {
   render() {
     if (!this.props.record) { return <div></div> }
-    return <div>
-      <DataTable columns={[...['fieldId'], ...(this.props.seeValues ? ['value'] : []), ...['label', 'type', 'flags']]}>
+    return <div className="container-overflow-x">
+      <DataTable showFilter={true} columns={[...['fieldId'], ...(this.props.seeValues ? ['value'] : []), ...['label', 'type', 'flags']]}
+        widths={this.props.seeValues ? ['10%', '50%', '20%', '10%', '10%'] : ['10%', '50%', '20%', '20%']}
+      >
         {this.props.record.fields.map(f => <tr key={f.id}>
           <td>{f.id}</td>
           {this.props.seeValues && <td><RecordFieldEditor {...{ ...this.props, field: f }}></RecordFieldEditor></td>}
@@ -21,7 +24,7 @@ export class RecordFields extends React.Component<RecordViewState> {
           </td>
         </tr>)}
       </DataTable>
-    </div>;
+    </div >;
   }
 }
 
@@ -35,7 +38,7 @@ export class RecordFieldEditor<T> extends React.Component<FEProps, FEState> {
   render() {
     const f = this.props.field
     if (!this.props.record) { return <div></div> }
-    return <div>
+    return <div css={{ maxWidth: '300px' }}>
 
       {this.state.focused && this.props.inlineEdit &&
         <button onClick={e => { alert(`Saving ${this.getValue()}`) }}>Save</button>

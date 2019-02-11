@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
-import DataTable from '../layout/DataTable';
+import { DataTable } from '../layout/DataTable';
 import { I } from '../misc';
 
 interface PropsFromState {

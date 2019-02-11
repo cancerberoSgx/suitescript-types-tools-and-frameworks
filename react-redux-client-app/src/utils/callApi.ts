@@ -19,8 +19,6 @@ export function getUrlApi(method: string, url: string) {
   return fetchJson(method, url)
 }
 function fetchJson(method: string, url: string) {
-  // try {
-  // debugger
   let aux: any
   const p = fetch(url, {
     method,
@@ -30,52 +28,24 @@ function fetchJson(method: string, url: string) {
     },
   })
     .then(res => {
-      // res2 = res
-
-      // const text = res.
       return res.text()
     })
     .then(text => {
       aux = text
-      // debugger
       try {
         return Promise.resolve(JSON.parse(text))
       } catch (error) {
-
         throw { error, responseText: aux }
-        // if ((aux || '').trim().startsWith('<')) {
-        // throw aux
-        // }
-        // throw error
-        // throw new Error(aux)
       }
-      // const parsed = tryTo(()=>JSON.parse(text))
-      // return Promise.resolve()
     })
 
-  //@ts-ignore
-  // p.catch((err, a, b) => {
-  // console.log(res2);
-  // debugger
-
-
-  // return Promise.reject({ error: aux })
-  // })
-  //@ts-ignore
-  // (e, a, b) => {
-  // debugger
-  // })
-  // } catch (error) {
-  //   debugger
-  //   Promise.resolve({ error: aux + '' })
-  // }
   return p
-
 }
+
 export function getUrlApiMock(method: string, url: string) {
 
-  if (url.includes('__app__routeParamName=recordViewJson') && url.includes('__app__seeValues=true') && url.includes('__app__seeValues=true')) {
-    url = `ajaxResponseMocks/__app__routeParamName=recordViewJson&__app__id=2&__app__type=commercecategory&__app__seeValues=true.json`
+  if (url.includes('__app__routeParamName=recordViewJson') && url.includes('__app__type=item')) {
+    url = `ajaxResponseMocks/__app__routeParamName=recordViewJson&__app__id=465&__app__type=inventoryitem&__app__showAllFields=&__app__showSublistLines=true&__app__seeValues=true.json`
   }
 
   else if (url.includes('__app__routeParamName=recordViewJson') && url.includes('__app__seeValues=true')) {

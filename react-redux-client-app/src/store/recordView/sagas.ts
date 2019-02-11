@@ -16,6 +16,7 @@ function* handleFetch(action: ReturnType<typeof fetchRecord>) {
       routeName: 'recordViewJson',
       params: { ...action.payload },
     }))
+    // debugger
     if (res.error) {
       yield put(fetchError(res))
     } else {
@@ -23,11 +24,13 @@ function* handleFetch(action: ReturnType<typeof fetchRecord>) {
       yield put(showRecord(res))
     }
   } catch (err) {
-    if (err instanceof Error) {
-      yield put(fetchError(err.stack!))
-    } else {
-      yield put(fetchError('An unknown error occurred.'))
-    }
+    // debugger
+    yield put(fetchError(err))
+    // if (err instanceof Error) {
+    // yield put(fetchError(err.stack!))
+    // } else {
+    // yield put(fetchError('An unknown error occurred.'))
+    // }
   }
 }
 

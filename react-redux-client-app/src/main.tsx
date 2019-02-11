@@ -1,14 +1,15 @@
-import * as React from 'react'
-import { Provider, connect } from 'react-redux'
-import { ConnectedRouter } from 'connected-react-router'
-import { Store } from 'redux'
-import { History } from 'history'
-import { ThemeProvider } from 'emotion-theming'
-import Routes from './routes'
-import { ApplicationState } from './store'
-import { ThemeColors } from './store/layout'
-import * as themes from './styles/theme/'
+import { ConnectedRouter } from 'connected-react-router';
+import { ThemeProvider } from 'emotion-theming';
+import { History } from 'history';
+import * as React from 'react';
+import { connect, Provider } from 'react-redux';
+import { Store } from 'redux';
+import Routes from './routes';
+import { ApplicationState } from './store';
+import { ThemeColors } from './store/layout';
+import * as themes from './styles/theme/';
 import styled from './styles/theme/definition';
+import { ThemeGlobals } from './styles/themeGlobals';
 
 interface PropsFromState {
   theme: ThemeColors
@@ -34,6 +35,7 @@ class Main extends React.Component<AllProps> {
         <ConnectedRouter history={history}>
           <ThemeProvider theme={themes[theme]}>
             <Root>
+              <ThemeGlobals />
               <Routes />
             </Root>
           </ThemeProvider>
@@ -43,6 +45,17 @@ class Main extends React.Component<AllProps> {
   }
 }
 
+const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: ${props => props.theme.colors.background};
+  color: ${props => props.theme.colors.body};
+  font-family: ${props => props.theme.fonts.body};
+`;
+
+
 const mapStateToProps = ({ layout }: ApplicationState) => ({
   theme: layout.theme
 })
@@ -51,20 +64,3 @@ export default connect<PropsFromState, PropsFromDispatch, OwnProps, ApplicationS
   mapStateToProps
 )(Main)
 
-
-
-// the Root component is important to make the theme work!
-
-interface RootProps {
-  className?: string
-}
-const Root: React.SFC<RootProps> = ({ children }) => <Wrapper>{children}</Wrapper>
-const Wrapper = styled('div')`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  background-color: ${props => props.theme.colors.background};
-  color: ${props => props.theme.colors.body};
-  font-family: ${props => props.theme.fonts.body};
-`

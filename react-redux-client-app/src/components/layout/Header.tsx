@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from '../../styles/theme/definition'
-import LayoutContainer from '../../containers/LayoutContainer'
-import Container from './Container'
+import { LayoutContainer } from '../../containers/LayoutContainer'
+import { Container } from './Container'
 import { css } from 'emotion'
+import { maxWidth, minWidth } from '../../styles/media';
 
 interface HeaderProps {
   title: string
@@ -50,7 +51,7 @@ export default Header
 const Wrapper = styled('header')`
   padding: 0.5rem 1.5rem;
   background-color: ${props => props.theme.colors.brand};
-  color: ${props => props.theme.colors.white};
+  // color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.headings};
 `
 
@@ -59,10 +60,10 @@ const HeaderInner = styled(Container)`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    flex-direction: row;
+  & > div:first-child {
+    overflow-x: hidden;
   }
+
 `
 
 const HeaderLeft = styled('div')`

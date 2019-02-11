@@ -1,21 +1,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import LoadingOverlay from '../../components/data/LoadingOverlay';
-import LoadingOverlayInner from '../../components/data/LoadingOverlayInner';
-import LoadingSpinner from '../../components/data/LoadingSpinner';
-import Container from '../../components/layout/Container';
-import Page from '../../components/layout/Page';
+import { Container } from '../../components/layout/Container';
+import { Page } from '../../components/layout/Page';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { ListRecordTypeResult, FetchListOptions } from '../../store/listRecordTypes';
 import { fetchListRecord } from '../../store/listRecordTypes/actions';
-import styled from '../../styles/theme/definition';
 import SearchResults from '../../components/search/SearchResults';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom'
-import { TableWrapper } from '../../components/data/LoadingWrapper';
+import { Loading } from '../../components/data/Loading';
 
-// Separate state props + dispatch props to their own interfaces.
 interface PropsFromState {
   loading?: boolean
   type?: string
@@ -25,18 +20,16 @@ interface PropsFromState {
   recordTypes: string[]
 }
 
-// We can use `typeof` here to map our dispatch types to the props, like so.
 interface PropsFromDispatch {
-  // fetchRequest: typeof fetchRequest
   fetchListRecord: typeof fetchListRecord
 }
 interface RouteParams {
   type?: string
 }
 
-// Combine both state + dispatch props - as well as any props we want to pass - in a union type.
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
+// TODO: use OptionsUrlPage
 class ListRecordTypesIndexPage extends React.Component<AllProps> {
 
   public render() {
@@ -46,7 +39,7 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
       this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
     }
 
-    const { loading, type } = this.props
+    const { type } = this.props
 
     return (
       <Page>
@@ -66,19 +59,13 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
               )}
             </select>
           </div>
-          <TableWrapper>
-            {loading && (
-              <LoadingOverlay>
-                <LoadingOverlayInner>
-                  <LoadingSpinner />
-                </LoadingOverlayInner>
-              </LoadingOverlay>
-            )}
-            {this.props.results && type && <SearchResults {...this.props} type={type}
-              columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
-              results={this.props.results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
-            </SearchResults>}
-          </TableWrapper>
+          <Loading {...this.props}>
+            {this.props.results && type &&
+              <SearchResults {...this.props} type={type}
+                columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
+                results={this.props.results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
+              </SearchResults>}
+          </Loading>
         </Container>
       </Page>
     )

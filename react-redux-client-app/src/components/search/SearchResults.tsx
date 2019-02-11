@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import DataTable from '../layout/DataTable';
+import { I } from '../misc';
 
 interface PropsFromState {
   type: string
@@ -24,12 +25,15 @@ interface PropsFromState {
 interface Column extends ColumnValue {
   // name: string
 }
-interface Filter extends FilterValue {
-  // name: string
-  value?: string
-  operator?: string
-}
-interface Result { id: string, type: string, columns: string[] }
+// interface Filter extends FilterValue {
+//   // name: string
+//   value?: string
+//   operator?: string
+// }
+type ResultColumn = {
+  type?: string, value: string
+} | string
+interface Result { id: string, type: string, columns: ResultColumn[] }
 interface ColumnValue { id: string, type: string, label: string }
 interface FilterValue { id: string, type: string, label: string }
 
@@ -51,14 +55,26 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
       <DataTable columns={['Id', ...columns.map(c => c.id + ' - ' + c.label)]}>
         {results.map(r =>
           <tr>
-            <td><Link to={`/recordView/${r.type}/${r.id}/{}`}># {r.id}</Link></td>
-            {r.columns.map(c => <td>{c} </td>)}
+            <td><Link to={`/recordView/${r.type}/${r.id}/{}`}># {r.id}</Link></td >
+            {r.columns.map(c => c + '').map(c => <td><ColumnResult c={c}></ColumnResult></td>)}
           </tr>)}
       </DataTable>
     )
   }
 
 }
+
+
+class ColumnResult extends React.Component<{ c: ResultColumn }> {
+  render() {
+    const c = this.props.c
+    return <I>{typeof c === 'string' ? c : c + ''}</I>
+  }
+}
+
+
+
+
 
 const mapStateToProps = ({ }: ApplicationState) => ({
 })

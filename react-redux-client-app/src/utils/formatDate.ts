@@ -21,3 +21,14 @@ export function formatDate(date: Date, format: 'YYYY-MM-DD' | 'MM/DD/YYYY'): str
     return `${mm}/${dd}/${yyyy}`;
   }
 }
+
+export function formatDateTime(date: Date, format: 'YYYY-MM-DDTHH:MMZ'): string {
+  if (typeof date === 'string') { // happens when serializing dates to json for testing
+    date = new Date(date)
+  }
+  let hh = `${date.getHours()}`.length < 2 ? `0${date.getHours()}` : `${date.getHours()}`
+  let mm = `${date.getMinutes()}`.length < 2 ? `0${date.getMinutes()}` : `${date.getMinutes()}`
+  // let ss = `${date.getSeconds()}`.length == 1 ? `0${date.getSeconds()}` : `${date.getSeconds()}`.length > 2 ? `00` : `${date.getSeconds()}`
+  return `${formatDate(date, 'YYYY-MM-DD')}T${hh}:${mm}`
+}
+

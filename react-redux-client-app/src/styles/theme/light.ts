@@ -1,6 +1,6 @@
 import { Theme } from './definition'
 import brandColors from '../colors/brandColors'
-import { darken } from 'polished'
+import { darken, lighten, shade, tint } from 'polished'
 
 const lightTheme: Theme = {
   colors: {
@@ -11,7 +11,7 @@ const lightTheme: Theme = {
     white: brandColors.white,
     borders: darken(0.05, brandColors.gray5),
     tableOdd: darken(0.025, brandColors.gray5),
-    brand: brandColors.red,
+    brand: tint(0.2, brandColors.red),
     attrs: {
       str: '#f44336',
       agi: '#39d402',

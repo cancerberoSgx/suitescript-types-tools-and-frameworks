@@ -9,7 +9,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-define(["require", "exports", "../../jsx/createElement", "N/record", "./recordView", "./buildRecordViewModel"], function (require, exports, createElement_1, record_1, recordView_1, buildRecordViewModel_1) {
+define(["require", "exports", "../../jsx/createElement", "N/record", "./recordView", "./buildRecordViewModel", "../../search/typedSearch/typedSearchOperations"], function (require, exports, createElement_1, record_1, recordView_1, buildRecordViewModel_1, typedSearchOperations_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     function recordViewRoute(app) {
@@ -34,13 +34,24 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
     }
     exports.recordViewRoute = recordViewRoute;
     function buildMetadata(o) {
-        var _a = o.params, id = _a.id, type = _a.type, messageFromRedirect = _a.messageFromRedirect, jsonMetadataOutput = _a.jsonMetadataOutput;
+        var _a = o.params, id = _a.id, type = _a.type, messageFromRedirect = _a.messageFromRedirect;
+        var findRecord = !!o.params.findRecord;
         var seeValues = !!o.params.seeValues;
         var showAllFields = !!o.params.showAllFields;
         var showSublistLines = !!o.params.showSublistLines;
         var error;
         if (!id || !type) {
             error = 'Cannot open record view without an id or type, given id, type: ' + (id + ", " + type);
+        }
+        if (findRecord) {
+            var result = typedSearchOperations_1.find({
+                type: type,
+                columns: [],
+                filters: [{ name: 'internalid', values: id, operator: 'anyOf' }]
+            }, function (r) { return true; });
+            if (result) {
+                type = result.recordType;
+            }
         }
         var record = record_1.load({ id: id, type: type, isDynamic: true });
         if (!record) {
@@ -53,8 +64,7 @@ define(["require", "exports", "../../jsx/createElement", "N/record", "./recordVi
             name: 'recordViewJson',
             contentType: 'json',
             handler: function (o) {
-                var result = buildMetadata(o);
-                return result;
+                return buildMetadata(o);
             }
         };
     }

@@ -4,8 +4,9 @@ import IndexPage from './pages/index';
 import ListRecordTypesPage from './pages/listRecordTypes';
 import Header from './components/layout/Header';
 import recordView from './pages/recordView';
+import { ThemeGlobals } from './styles/themeGlobals';
 
-const Routes = () => (
+const Routes = (props: any) => (
   <div>
     <Header title="Mini NetSuite UI" />
     <HashRouter>

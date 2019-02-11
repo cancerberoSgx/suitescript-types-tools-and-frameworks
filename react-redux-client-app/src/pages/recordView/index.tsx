@@ -1,21 +1,26 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import LoadingOverlay from '../../components/data/LoadingOverlay';
-import LoadingOverlayInner from '../../components/data/LoadingOverlayInner';
-import LoadingSpinner from '../../components/data/LoadingSpinner';
-import Container from '../../components/layout/Container';
-import Page from '../../components/layout/Page';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom'
 import { fetchRecord, FetchRecordOptions, Record, RecordViewSettings, RecordViewState } from '../../store/recordView';
-import { TableWrapper } from '../../components/data/LoadingWrapper';
 import { RecordFields } from './recordFields';
 import DataTable from '../../components/layout/DataTable';
-import ToolBox from '../../components/ToolBox';
-import { OptionsUrlPage } from '../../components/optionsUrlPage';
-import styled from '../../styles/theme/definition';
+import ToolBox from '../../components/toolBox';
+import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
+import { Loading } from '../../components/data/Loading';
+import { Page } from '../../components/layout/Page';
+import { Container } from '../../components/layout/Container';
+import styled from 'react-emotion';
+import { withTheme } from 'emotion-theming';;
+import { RecordSublists } from './recordSublists';
+import { Count, NoWrap } from '../../components/misc';
+import { ErrorComponent } from '../../components/search/errorComponent';
+import { decodeOptions } from '../../utils/urlUtil';
+import { Settings } from 'http2';
 
 interface RecordViewStateProps extends RecordViewState {
 }
@@ -28,11 +33,11 @@ interface RouteParams {
   options?: string
 }
 export interface State extends RecordViewSettings {
+  findRecord?: boolean
 }
-type RecordViewAllProps = RecordViewStateProps & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
+export type RecordViewAllProps = RecordViewStateProps & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
-
-class RecordViewIndexPage extends OptionsUrlPage<RecordViewAllProps, State> {
+class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State, State> {
 
   state: State = {}
 
@@ -41,102 +46,96 @@ class RecordViewIndexPage extends OptionsUrlPage<RecordViewAllProps, State> {
     this.state = { showAllFields: props.showAllFields, showSublistLines: props.showSublistLines, seeValues: props.seeValues }
   }
 
-  componentWillMount() {
-    this.updateStateWithOptions()
-  }
-
   componentWillUpdate() {
     this.updateOptionsWithState()
   }
 
-  public render() {
-
+  componentWillMount() {
+    // super.componentWillMount()
     if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
       (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
       this.setRecord({
         id: this.props.match.params.id!,
         type: this.props.match.params.type!,
+        ...this.getOptions()
       })
+      // this.updateStateWithOptions()
     }
-    const { loading, record } = this.props
+    // else {
+    // }
+  }
+
+  public render() {
+    const { record } = this.props
+    // debugger
     return (
       <Page>
         <Container>
-          <TableWrapper>
 
-            {loading && (
-              <LoadingOverlay>
-                <LoadingOverlayInner>
-                  <LoadingSpinner />
-                </LoadingOverlayInner>
-              </LoadingOverlay>
-            )}
+          {this.props.error ? <ErrorComponent {...this.props.error}></ErrorComponent> : ''}
+
+          <Loading {...this.props}>
             {record && <div>
 
-              <ToolBox>
+
+              <RecordViewToolBox>
                 <ul>
                   <li>
-                    <label><input type="checkbox" checked={this.state.seeValues} onChange={e => this.setRecord({ id: record.id, type: record.type, seeValues: e.currentTarget.checked })}></input>See Values?</label>
+                    <NoWrap><label><input type="checkbox" checked={this.state.seeValues}
+                      onChange={e => this.setRecord({ id: record.id, type: record.type, seeValues: e.currentTarget.checked })}></input>See Values?</label>
+                    </NoWrap>
                   </li>
                   <li>
-                    <label><input type="checkbox" checked={!this.state.showAllFields} onChange={e => {
-                      this.setRecord({ id: record.id, type: record.type, showAllFields: !e.currentTarget.checked });
-                    }}></input>Hide Internal Fields?</label>
-                  </li>
+                    <NoWrap>
+                      <label><input type="checkbox" checked={!this.state.showAllFields}
+                        onChange={e => {
+                          this.setRecord({ id: record.id, type: record.type, showAllFields: !e.currentTarget.checked });
+                        }}></input>Hide Internal Fields?</label>
+                    </NoWrap></li>
                   <li>
-                    <label><input type="checkbox" checked={this.state.showSublistLines} onChange={e => this.setRecord({ id: record.id, type: record.type, showSublistLines: e.currentTarget.checked })}></input>Show Sublists lines?</label>
-                  </li>
+                    <NoWrap>
+                      <label><input type="checkbox" checked={this.state.showSublistLines}
+                        onChange={e => this.setRecord({ id: record.id, type: record.type, showSublistLines: e.currentTarget.checked })}></input>Show Sublists Lines?</label>
+                    </NoWrap></li>
                   <li>
-                    <label><input type="checkbox" checked={this.state.inlineEdit} onChange={e => this.setRecord({ id: record.id, type: record.type, inlineEdit: e.currentTarget.checked })}></input>Edit inline?</label>
-                  </li>
+                    <NoWrap><label><input type="checkbox" checked={this.state.inlineEdit}
+                      onChange={e => this.setRecord({ id: record.id, type: record.type, inlineEdit: e.currentTarget.checked })}></input>Edit Inline?</label>
+                    </NoWrap></li>
                 </ul>
-              </ToolBox>
+              </RecordViewToolBox>
 
 
               <h1>{record.type} {record.id} </h1>
 
-              <h3>Fields (#{record.fields.length})</h3>
+              <h2>Fields <Count>{record.fields.length}</Count></h2>
               <RecordFields {...{ record, ...this.state }}  ></RecordFields>
 
-              <h3>Sublists</h3>
-              <ul>
-                {record.sublists.map(s => <li>
-                  <h5>
-                    {s.name && s.name != s.id ? `${s.name} (${s.id})` : s.id} {s.lineCount ? `(#${s.lineCount} lines)` : ''}
-                  </h5>
-                  <DataTable columns={s.fields.map(f => f.id)}>
-                    {s.lines.map(line => <tr>
-                      {line.rows.map(r => <td>{r.value || r.text}</td>)}
-                    </tr>
-                    )}
-                  </DataTable>
-
-                </li>)}
-              </ul>
-
-
+              <h2>Sublists <Count>{record.sublists.length}</Count></h2>
+              <RecordSublists {...this.props} setRecord={this.setRecord.bind(this)}></RecordSublists>
             </div>}
-          </TableWrapper>
+
+          </Loading>
         </Container>
       </Page>
     )
   }
 
 
-  private renderToolBox(record: Record) {
-    return;
-  }
 
-  protected setRecord(v: FetchRecordOptions): void {
-    this.setState({ ...this.state, ...v })
+  protected setRecord(v: FetchRecordOptions & Settings): void {
+    const t = { ...this.state, ...v }
+    this.setState(t)
+    this.updateOptionsWithState(t)
+    // debugger
     this.props.fetchRecord(v)
   }
 
 
   public getRouteOptionNames() {
-    return ['showAllFields', 'showSublistLines', 'seeValues', 'inlineEdit']
+    return ['showAllFields', 'showSublistLines', 'seeValues', 'inlineEdit', 'findRecord']
   }
 }
+
 export function getPosition(string: string, subString: string, index: number) {
   return string.split(subString, index).join(subString).length;
 }
@@ -144,6 +143,7 @@ export function getPosition(string: string, subString: string, index: number) {
 const mapStateToProps = ({ recordView }: ApplicationState) => ({
   type: recordView.type,
   id: recordView.id,
+  error: recordView.error,
   record: recordView.record,
   loading: recordView.loading,
 })
@@ -152,9 +152,19 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchRecord: (c: FetchRecordOptions) => dispatch(fetchRecord(c))
 })
 
-export default withRouter(connect(
+export default withRouter((connect(
   mapStateToProps,
   mapDispatchToProps
-)(RecordViewIndexPage))
+)(RecordViewIndexPage)))
 
 
+
+const RecordViewToolBox = styled(ToolBox)`
+li {
+  display: inline;
+  padding-right: 1em;
+}
+ul {
+  margin: 0
+}
+`

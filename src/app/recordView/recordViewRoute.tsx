@@ -4,6 +4,7 @@ import { load } from 'N/record';
 import { RecordView } from './recordView';
 import { buildRecordViewModel } from "./buildRecordViewModel";
 import { RecordViewProps } from './recordViewTypes';
+import { find } from '../../search/typedSearch/typedSearchOperations';
 export function recordViewRoute(app: App): Route {
   return {
     name: 'recordView',
@@ -33,13 +34,24 @@ export function recordViewRoute(app: App): Route {
 }
 
 function buildMetadata(o: RouterHandlerOptions): RecordViewProps & { error: string | undefined } {
-  const { id, type, messageFromRedirect, jsonMetadataOutput } = o.params;
+  let { id, type, messageFromRedirect } = o.params;
+  const findRecord = !!o.params.findRecord;
   const seeValues = !!o.params.seeValues;
   const showAllFields = !!o.params.showAllFields;
   const showSublistLines = !!o.params.showSublistLines;
   let error: string | undefined
   if (!id || !type) {
     error = 'Cannot open record view without an id or type, given id, type: ' + `${id}, ${type}`;
+  }
+  if (findRecord) {
+    const result = find({
+      type: type as any,
+      columns: [],
+      filters: [{ name: 'internalid', values: id, operator: 'anyOf' }]
+    }, r => true);
+    if (result) {
+      type = result.recordType
+    }
   }
   const record = load({ id, type, isDynamic: true });
   if (!record) {
@@ -55,10 +67,7 @@ export function recordViewJsonRoute(app: App): Route {
     name: 'recordViewJson',
     contentType: 'json',
     handler(o) {
-
-      const result = buildMetadata(o)
-
-      return result
+      return buildMetadata(o)
     }
   }
 }

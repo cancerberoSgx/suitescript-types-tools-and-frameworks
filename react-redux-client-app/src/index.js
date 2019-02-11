@@ -15,8 +15,7 @@ import configureStore from './configureStore'
 import 'typeface-ibm-plex-sans'
 import './styles'
 
-// We use hash history because this example is going to be hosted statically.
-// Normally you would use browser history.
+// We use hash history because is hosted in a suitelet url with fixed parameters
 const history = createHashHistory()
 
 const initialState = window.initialReduxState

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from '../../styles/theme/definition'
-import { media } from '../../styles/media';
+import { maxWidth, minWidth } from '../../styles/media';
 
 interface DataTableProps {
   columns: string[]
@@ -37,7 +37,7 @@ const Wrapper = styled('table')`
         // padding: 1rem;
 
         padding: ${props => props.theme.containerPadding};
-        ${props => media(props).md`padding: 2px`}
+        ${props => maxWidth(props).md`padding: 2px`}
 
         // @media (max-width: ${props => props.theme.breakpoints.md}) {
         //   padding: 0;
@@ -56,14 +56,11 @@ const Wrapper = styled('table')`
       }
 
       td {
-        // padding: 0.5rem 1rem;
-        padding: ${props => props.theme.containerPadding};
-        ${props => media(props).md`padding: 2px`}
-        // @media (max-width: ${props => props.theme.breakpoints.md}) {
-          // padding: 0;
-          // padding: ${props => props.theme.containerPadding};
-        // }
-        font-size: 0.85rem;
+        ${props => maxWidth(props).md`
+          padding: 0.1em;
+          font-size: 0.81rem;`}
+        ${props => minWidth(props).md`padding: 0.5em;
+        font-size: 0.89rem;`}
       }
     }
   }

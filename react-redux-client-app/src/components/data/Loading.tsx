@@ -1,6 +1,26 @@
-import * as React from 'react'
-import { keyframes } from 'react-emotion'
+
+import * as React from 'react';
 import styled from '../../styles/theme/definition'
+import { keyframes } from 'react-emotion'
+import { transparentize } from 'polished'
+
+const LoadingOverlayInner = styled('div')`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+`
+
+const LoadingOverlay = styled('div')`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: ${props => transparentize(0.25, props.theme.colors.background)};
+`
+
 
 const LoadingSpinner: React.SFC = () => (
   <Spinner>
@@ -8,9 +28,6 @@ const LoadingSpinner: React.SFC = () => (
     <div className="cube2" />
   </Spinner>
 )
-
-export default LoadingSpinner
-
 const CubeMove = keyframes`
   25% {
     transform: translateX(42px) rotate(-90deg) scale(0.5);
@@ -29,7 +46,6 @@ const CubeMove = keyframes`
     -webkit-transform: rotate(-360deg);
   }
 `
-
 const Spinner = styled('div')`
   margin: 100px auto;
   width: 40px;
@@ -54,3 +70,24 @@ const Spinner = styled('div')`
     animation-delay: -0.9s;
   }
 `
+
+
+
+export const Loading = (props: { loading?: boolean, children?: JSX.Element | string }) =>
+  <LoadingWrapper>
+    {props.loading && (
+      <LoadingOverlay>
+        <LoadingOverlayInner>
+          <LoadingSpinner />
+        </LoadingOverlayInner>
+      </LoadingOverlay>
+    )}
+    {props.children}
+  </LoadingWrapper>
+
+
+const LoadingWrapper = styled('div')`
+  position: relative;
+  margin: 0 auto;
+  min-height: 200px;
+`;

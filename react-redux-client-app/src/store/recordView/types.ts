@@ -11,7 +11,7 @@ export interface RecordViewState extends RecordViewSettings {
   readonly id?: string
   readonly loading?: boolean
   readonly record?: Record
-  readonly error?: string
+  readonly error?: ErrorOptions
 }
 
 export interface FetchRecordOptions extends RecordViewSettings {
@@ -21,7 +21,12 @@ export interface FetchRecordOptions extends RecordViewSettings {
 
 export interface ShowRecordOptions extends RecordViewSettings {
   record: Record;
-  error?: string
+  error?: ErrorOptions
+}
+
+export interface ErrorOptions {
+  error?: Error,
+  responseText: string
 }
 
 export interface RecordViewSettings {
@@ -29,6 +34,7 @@ export interface RecordViewSettings {
   seeValues?: boolean
   showAllFields?: boolean
   inlineEdit?: boolean
+  findRecord?: boolean
 }
 
 
@@ -74,12 +80,12 @@ interface Valued {
 export interface ValuedField extends Field, Valued {
 }
 
-interface Row extends Valued {
+export interface SublistRow extends Valued {
   field: Field;
 }
 
 interface SublistLine extends Valued {
-  rows: Row[];
+  rows: SublistRow[];
 }
 
 export interface ValuedSublist extends Sublist {

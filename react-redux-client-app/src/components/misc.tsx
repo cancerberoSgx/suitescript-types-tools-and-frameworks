@@ -3,6 +3,8 @@ import { jsx, css } from '@emotion/core'
 import * as React from 'react';
 import styled from 'react-emotion';
 import { ReactNodeLike } from 'prop-types';
+import { LinkProps, Link as RLink } from 'react-router-dom';
+import { encodeOptions } from '../utils/urlUtil';
 
 export const I = styled.div`display: inline`
 
@@ -21,3 +23,10 @@ export const Count = (props: Props) =>
     (#{props.children})
   </I>
 
+
+
+
+export function Link<O={}>(props: { options: O } & LinkProps & Props) {
+  const to = `${props.to}/${encodeOptions(props.options)}`
+  return <RLink to={to}>{props.children}</RLink>
+}

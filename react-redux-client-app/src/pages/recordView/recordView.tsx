@@ -82,20 +82,29 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
                 <ul>
                   <li>
                     <NoWrap><label><input type="checkbox" checked={this.state.seeValues}
-                      onChange={e => this.setRecord({ id: record.id, type: record.type, seeValues: e.currentTarget.checked })}></input>See Values?</label>
+                      onChange={e => this.setRecord({
+                        id: record.id, type: record.type,
+                        ...this.getOptions(), seeValues: e.currentTarget.checked
+                      })}></input>See Values?</label>
                     </NoWrap>
                   </li>
                   <li>
                     <NoWrap>
                       <label><input type="checkbox" checked={!this.state.showAllFields}
                         onChange={e => {
-                          this.setRecord({ id: record.id, type: record.type, showAllFields: !e.currentTarget.checked });
+                          this.setRecord({
+                            id: record.id, type: record.type,
+                            ...this.getOptions(), showAllFields: !e.currentTarget.checked
+                          });
                         }}></input>Hide Internal Fields?</label>
                     </NoWrap></li>
                   <li>
                     <NoWrap>
                       <label><input type="checkbox" checked={this.state.showSublistLines}
-                        onChange={e => this.setRecord({ id: record.id, type: record.type, showSublistLines: e.currentTarget.checked })}></input>Show Sublists Lines?</label>
+                        onChange={e => this.setRecord({
+                          id: record.id, type: record.type,
+                          ...this.getOptions(), showSublistLines: e.currentTarget.checked
+                        })}></input>Show Sublists Lines?</label>
                     </NoWrap></li>
                   <li>
                     <NoWrap><label><input type="checkbox" checked={this.state.inlineEdit}
@@ -152,7 +161,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchRecord: (c: FetchRecordOptions) => dispatch(fetchRecord(c))
 })
 
-export default withRouter((connect(
+export const RecordView = withRouter((connect(
   mapStateToProps,
   mapDispatchToProps
 )(RecordViewIndexPage)))

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { getPosition } from '../pages/recordView/index';
+import { getPosition } from '../pages/recordView/recordView';
 import { decodeOptions, encodeOptions } from '../utils/urlUtil';
 
 /**
@@ -22,12 +22,12 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
   protected getOptions(): Options {
     return decodeOptions(this.props.match.params.options)
   }
+
   protected updateStateWithOptions(options: Options = decodeOptions(this.props.match.params.options)) {
     const o: Options = {} as any;
     Object.keys(options).filter(k => options[k] != this.state[k]).forEach(k => { o[k] = options[k]; });
     if (Object.keys(o).length) {
       this.setState({ ...this.state as any, ...o as any });
-      // Object.keys(o).forEach(k => this.state[k] = o[k]);
     }
   }
 

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from '../../styles/theme/definition'
-import { LayoutContainer } from '../../containers/LayoutContainer'
+import { LayoutContainer } from '../LayoutContainer'
 import { Container } from './Container'
 import { css } from 'emotion'
 import { maxWidth, minWidth } from '../../styles/media';

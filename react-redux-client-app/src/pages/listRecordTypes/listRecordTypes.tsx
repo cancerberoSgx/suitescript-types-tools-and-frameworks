@@ -86,7 +86,7 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 })
 
 
-export default withRouter(connect(
+export const ListRecordTypes = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
 )(ListRecordTypesIndexPage))

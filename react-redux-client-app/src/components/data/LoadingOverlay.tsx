@@ -1,4 +1,4 @@
-import styled from '../../utils/styled'
+import styled from '../../styles/theme/definition'
 import { transparentize } from 'polished'
 
 const LoadingOverlay = styled('div')`

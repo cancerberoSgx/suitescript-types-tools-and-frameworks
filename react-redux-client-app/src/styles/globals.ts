@@ -1,4 +1,7 @@
 import { css } from 'react-emotion'
+import { media } from './media';
+import { defaultBreakpoints } from './theme/commonValues';
+// import { defaultBreakpoints } from './theme/commonValues';
 
 export default css`
   body {
@@ -36,4 +39,17 @@ export default css`
     font-size: 85%;
     border-collapse: collapse;
   }
+
+  h4 {
+    ${media(defaultBreakpoints).md`margin-bottom: 6px`}
+  }
+  h5 {
+    font-size: 1.09em;
+    ${media(defaultBreakpoints).md`margin-bottom: 4px`}
+  }
+
+  ul {
+    ${media(defaultBreakpoints).md`padding-left: 0`}
+  }
+
 `

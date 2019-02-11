@@ -1,7 +1,7 @@
 import * as React from 'react'
 import Page from '../components/layout/Page'
 import Container from '../components/layout/Container'
-import styled from '../utils/styled'
+import styled from '../styles/theme/definition'
 
 export default () => (
   <Page>
@@ -15,7 +15,7 @@ export default () => (
 )
 
 const PageContent = styled('article')`
-  max-width: ${props => props.theme.widths.md};
+  // max-width: ${props => props.theme.widths.md};
   margin: 0 auto;
   line-height: 1.6;
 

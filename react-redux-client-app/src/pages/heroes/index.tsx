@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
-import styled from '../../utils/styled'
+import styled from '../../styles/theme/definition'
 import Page from '../../components/layout/Page'
 import Container from '../../components/layout/Container'
 import DataTable from '../../components/layout/DataTable'
@@ -113,13 +113,9 @@ export default connect(
   mapDispatchToProps
 )(HeroesIndexPage)
 
-const TableWrapper = styled('div')
-
-
-
-  `
+const TableWrapper = styled('div')`
   position: relative;
-  max-width: ${props => props.theme.widths.md};
+  // max-width: ${props => props.theme.widths.md};
   margin: 0 auto;
   min-height: 200px;
 `

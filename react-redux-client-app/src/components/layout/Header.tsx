@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { NavLink } from 'react-router-dom'
-import styled from '../../utils/styled'
+import styled from '../../styles/theme/definition'
 import LayoutContainer from '../../containers/LayoutContainer'
 import Container from './Container'
 import { css } from 'emotion'

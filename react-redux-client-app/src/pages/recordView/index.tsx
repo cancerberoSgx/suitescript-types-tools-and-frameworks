@@ -12,8 +12,10 @@ import { withRouter } from 'react-router-dom'
 import { fetchRecord, FetchRecordOptions, Record, RecordViewSettings, RecordViewState } from '../../store/recordView';
 import { TableWrapper } from '../../components/data/LoadingWrapper';
 import { RecordFields } from './recordFields';
-import { tryTo } from '../../utils/misc';
 import DataTable from '../../components/layout/DataTable';
+import ToolBox from '../../components/ToolBox';
+import { OptionsUrlPage } from '../../components/optionsUrlPage';
+import styled from '../../styles/theme/definition';
 
 interface RecordViewStateProps extends RecordViewState {
 }
@@ -25,11 +27,12 @@ interface RouteParams {
   id?: string
   options?: string
 }
-interface State extends RecordViewSettings {
+export interface State extends RecordViewSettings {
 }
 type RecordViewAllProps = RecordViewStateProps & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
-class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
+
+class RecordViewIndexPage extends OptionsUrlPage<RecordViewAllProps, State> {
 
   state: State = {}
 
@@ -55,13 +58,12 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
         type: this.props.match.params.type!,
       })
     }
-
     const { loading, record } = this.props
-
     return (
       <Page>
         <Container>
           <TableWrapper>
+
             {loading && (
               <LoadingOverlay>
                 <LoadingOverlayInner>
@@ -70,54 +72,49 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
               </LoadingOverlay>
             )}
             {record && <div>
-              <h1>Record {record.type} - {record.id} </h1>
-              {record.name !== record.id && <h2>{record.name}</h2>}
 
-              <div><ul>
-                <li>
-                  <label><input type="checkbox" checked={this.state.seeValues} onChange={e => this.setRecord({ id: record.id, type: record.type, seeValues: e.currentTarget.checked })}></input>See Values?</label>
-                </li>
-                <li>
-                  <label><input type="checkbox" checked={!this.state.showAllFields} onChange={e => {
-                    this.setRecord({ id: record.id, type: record.type, showAllFields: !e.currentTarget.checked })
-                  }
-                  }></input>Hide Internal Fields?</label>
-                </li>
-                <li>
-                  <label><input type="checkbox" checked={this.state.showSublistLines} onChange={e => this.setRecord({ id: record.id, type: record.type, showSublistLines: e.currentTarget.checked })}></input>Show Sublists lines?</label>
-                </li>
-                <li>
-                  <label><input type="checkbox" checked={this.state.inlineEdit} onChange={e => this.setRecord({ id: record.id, type: record.type, inlineEdit: e.currentTarget.checked })}></input>Edit inline?</label>
-                </li>
-              </ul>
-              </div>
+              <ToolBox>
+                <ul>
+                  <li>
+                    <label><input type="checkbox" checked={this.state.seeValues} onChange={e => this.setRecord({ id: record.id, type: record.type, seeValues: e.currentTarget.checked })}></input>See Values?</label>
+                  </li>
+                  <li>
+                    <label><input type="checkbox" checked={!this.state.showAllFields} onChange={e => {
+                      this.setRecord({ id: record.id, type: record.type, showAllFields: !e.currentTarget.checked });
+                    }}></input>Hide Internal Fields?</label>
+                  </li>
+                  <li>
+                    <label><input type="checkbox" checked={this.state.showSublistLines} onChange={e => this.setRecord({ id: record.id, type: record.type, showSublistLines: e.currentTarget.checked })}></input>Show Sublists lines?</label>
+                  </li>
+                  <li>
+                    <label><input type="checkbox" checked={this.state.inlineEdit} onChange={e => this.setRecord({ id: record.id, type: record.type, inlineEdit: e.currentTarget.checked })}></input>Edit inline?</label>
+                  </li>
+                </ul>
+              </ToolBox>
 
 
-              {
-                record.fields.length < 5 && <div>weba</div>}
-
+              <h1>{record.type} {record.id} </h1>
 
               <h3>Fields (#{record.fields.length})</h3>
               <RecordFields {...{ record, ...this.state }}  ></RecordFields>
 
               <h3>Sublists</h3>
               <ul>
-                {record.sublists.map(s => <li>{s.id}
+                {record.sublists.map(s => <li>
+                  <h5>
+                    {s.name && s.name != s.id ? `${s.name} (${s.id})` : s.id} {s.lineCount ? `(#${s.lineCount} lines)` : ''}
+                  </h5>
                   <DataTable columns={s.fields.map(f => f.id)}>
-                    {/* <p>{s.fields.map(f => f.id)}</p> */}
-                    {s.lines.map(line => {
-
-                      {
-                        line.rows.map(r => <tr>
-                          <td>{123}</td>
-                        </tr>
-                        )
-                      }
-                    })}
+                    {s.lines.map(line => <tr>
+                      {line.rows.map(r => <td>{r.value || r.text}</td>)}
+                    </tr>
+                    )}
                   </DataTable>
 
                 </li>)}
               </ul>
+
+
             </div>}
           </TableWrapper>
         </Container>
@@ -126,47 +123,21 @@ class RecordViewIndexPage extends React.Component<RecordViewAllProps, State> {
   }
 
 
+  private renderToolBox(record: Record) {
+    return;
+  }
+
   protected setRecord(v: FetchRecordOptions): void {
     this.setState({ ...this.state, ...v })
     this.props.fetchRecord(v)
   }
 
 
-  protected decodeOptions<T extends Partial<State> = {}>(op = this.props.match.params.options): T {
-    if (op) {
-      return tryTo(() => JSON.parse(decodeURIComponent(op || '{}'))) || {} as any
-    }
-    return {} as any
-  }
-  protected encodeOptions<T extends Partial<State> = {}>(options: T): string | {} {
-    return tryTo(() => encodeURIComponent(JSON.stringify(options))) || {}
-  }
-  protected updateStateWithOptions<T extends Partial<State> = {}>(options: T = this.decodeOptions()) {
-    const o: T = {} as any
-    Object.keys(options).filter(k => options[k] != this.state[k]).forEach(k => { o[k] = options[k] })
-    if (Object.keys(o).length) {
-      this.setState({ ...this.state, ...o })
-      Object.keys(o).forEach(k => this.state[k] = o[k])
-    }
-  }
-  protected updateOptionsWithState<T extends Partial<State> = {}>(options: T = this.decodeOptions()) {
-    const newOptions: T = {} as any
-    Object.keys(this.state).filter(k => options[k] != this.state[k] && this.getRouteOptionNames().indexOf(k) !== -1).forEach(k => {
-      newOptions[k] = this.state[k]
-    })
-    if (Object.keys(newOptions).length) {
-      const level = Object.keys(this.props.match.params).length
-      const index = getPosition(this.props.match.url, '/', level + 1)
-      const prefix = this.props.match.url.substring(0, index)
-      const newPath = prefix + '/' + this.encodeOptions({ ...options, ...newOptions })
-      this.props.history.push(newPath)
-    }
-  }
   public getRouteOptionNames() {
     return ['showAllFields', 'showSublistLines', 'seeValues', 'inlineEdit']
   }
 }
-function getPosition(string: string, subString: string, index: number) {
+export function getPosition(string: string, subString: string, index: number) {
   return string.split(subString, index).join(subString).length;
 }
 

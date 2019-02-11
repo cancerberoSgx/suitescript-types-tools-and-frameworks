@@ -1,4 +1,4 @@
-import { Theme } from '../../utils/styled'
+import { Theme } from './definition'
 import brandColors from '../colors/brandColors'
 import { darken } from 'polished'
 

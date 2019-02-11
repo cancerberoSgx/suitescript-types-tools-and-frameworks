@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { keyframes } from 'react-emotion'
-import styled from '../../utils/styled'
+import styled from '../../styles/theme/definition'
 
 const LoadingSpinner: React.SFC = () => (
   <Spinner>

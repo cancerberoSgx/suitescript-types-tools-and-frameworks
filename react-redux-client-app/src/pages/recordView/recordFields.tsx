@@ -3,23 +3,21 @@ import DataTable from '../../components/layout/DataTable';
 import { RecordViewState, Field, ValuedField, RecordViewSettings } from '../../store/recordView';
 import { tryTo } from '../../utils/misc';
 import { formatDate } from '../../utils/formatDate';
-import styled from '../../utils/styled';
+import styled from '../../styles/theme/definition';
 
 export class RecordFields extends React.Component<RecordViewState> {
   render() {
     if (!this.props.record) { return <div></div> }
     return <div>
-      <DataTable columns={[...['fieldId', 'label', 'type', 'flags'], ...(this.props.seeValues ? ['value'] : []), ...['help']]}>
+      <DataTable columns={[...['fieldId'], ...(this.props.seeValues ? ['value'] : []), ...['label', 'type', 'flags']]}>
         {this.props.record.fields.map(f => <tr>
           <td>{f.id}</td>
+          {this.props.seeValues && <td><RecordFieldEditor {...{ ...this.props, field: f }}></RecordFieldEditor></td>}
           <td>{f.name}</td>
           <td>{f.type}</td>
           <td>{f.isDisplay && 'display '}{f.isMandatory && 'mandatory '}{f.isReadonly && 'readonly '}{f.isVisible && 'visible'}
           </td>
-          {this.props.seeValues && <td><RecordFieldEditor {...{ ...this.props, field: f }}></RecordFieldEditor></td>}
-          <td>TODO</td>
         </tr>)}
-
       </DataTable>
     </div>;
   }
@@ -31,8 +29,6 @@ type FEState = RecordViewSettings & { focused?: boolean }
 export class RecordFieldEditor<T> extends React.Component<FEProps, FEState> {
 
   state: FEState = {}
-  // constructor(p: FEProps, e: FEState) {
-  //   super(p, e) }
 
   render() {
     const f = this.props.field
@@ -102,8 +98,9 @@ export interface RecordFieldEditorInputProps<T> {
   // getValue():T
 }
 
-
-export class TextAreaFieldInput<P extends RecordFieldEditorInputProps<string> = RecordFieldEditorInputProps<string>, E extends { value: string } = { value: string }> extends React.Component<P, E> {
+interface E { value: string }
+type P = RecordFieldEditorInputProps<string>
+export class TextAreaFieldInput extends React.Component<P, E> {
   constructor(p: P, e: E) {
     super(p, e)
     this.props.valueInquirer.getValue = () => this.state.value

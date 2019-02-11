@@ -9,7 +9,7 @@ import Page from '../../components/layout/Page';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { ListRecordTypeResult, FetchListOptions } from '../../store/listRecordTypes';
 import { fetchListRecord } from '../../store/listRecordTypes/actions';
-import styled from '../../utils/styled';
+import styled from '../../styles/theme/definition';
 import SearchResults from '../../components/search/SearchResults';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom'

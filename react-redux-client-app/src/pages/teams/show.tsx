@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 import { RouteComponentProps } from 'react-router'
-import styled, { Theme } from '../../utils/styled'
+import styled, { Theme } from '../../styles/theme/definition'
 
 import Page from '../../components/layout/Page'
 import Container from '../../components/layout/Container'
@@ -12,8 +12,8 @@ import LoadingSpinner from '../../components/data/LoadingSpinner'
 import { ApplicationState, ConnectedReduxProps } from '../../store'
 import { TeamSelectedPayload } from '../../store/teams/types'
 import { selectTeam, clearSelected } from '../../store/teams/actions'
-import { darken, transparentize } from '../../../node_modules/polished'
-import { Themed } from '../../../node_modules/react-emotion'
+import { darken, transparentize } from 'polished'
+import { Themed } from 'react-emotion'
 import DataTable from '../../components/layout/DataTable'
 import { Dispatch } from 'redux';
 
@@ -261,7 +261,7 @@ const StatNumber = styled('p')`
 
 const TableWrapper = styled('div')`
   position: relative;
-  max-width: ${props => props.theme.widths.md};
+  // max-width: ${props => props.theme.widths.md};
   margin: 0 auto;
   margin-top: 3rem;
   min-height: 200px;

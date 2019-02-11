@@ -28,13 +28,7 @@ export interface Theme {
     h4: string
   }
   containerPadding: string
-  breakpoints: {
-    xs: string
-    sm: string
-    md: string
-    lg: string
-    xl: string
-  }
+  breakpoints: Breakpoints
   widths: {
     md: string
     lg: string
@@ -46,3 +40,13 @@ export interface Theme {
 }
 
 export default styled as CreateStyled<Theme>
+
+export interface Breakpoints {
+  xs: string
+  sm: string
+  md: string
+  lg: string
+  xl: string
+}
+
+

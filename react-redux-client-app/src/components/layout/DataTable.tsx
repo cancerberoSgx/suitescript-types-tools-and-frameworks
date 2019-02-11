@@ -1,5 +1,6 @@
 import * as React from 'react'
-import styled from '../../utils/styled'
+import styled from '../../styles/theme/definition'
+import { media } from '../../styles/media';
 
 interface DataTableProps {
   columns: string[]
@@ -31,9 +32,17 @@ const Wrapper = styled('table')`
   thead {
     tr {
       th {
-        padding: 1rem;
         text-align: left;
         border-bottom: 2px solid ${props => props.theme.colors.borders};
+        // padding: 1rem;
+
+        padding: ${props => props.theme.containerPadding};
+        ${props => media(props).md`padding: 2px`}
+
+        // @media (max-width: ${props => props.theme.breakpoints.md}) {
+        //   padding: 0;
+        //   // padding: ${props => props.theme.containerPadding};
+        // }
       }
     }
   }
@@ -47,9 +56,16 @@ const Wrapper = styled('table')`
       }
 
       td {
-        padding: 0.5rem 1rem;
+        // padding: 0.5rem 1rem;
+        padding: ${props => props.theme.containerPadding};
+        ${props => media(props).md`padding: 2px`}
+        // @media (max-width: ${props => props.theme.breakpoints.md}) {
+          // padding: 0;
+          // padding: ${props => props.theme.containerPadding};
+        // }
         font-size: 0.85rem;
       }
     }
   }
+
 `

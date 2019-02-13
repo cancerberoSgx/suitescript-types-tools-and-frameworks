@@ -1,7 +1,7 @@
 // /** @jsx jsx */
 // import { jsx } from '@emotion/core';
 import * as React from 'react';
-import { DataTable } from '../../components/layout/DataTable';
+import { DataTable } from '../../components/data/DataTable';
 import { RecordViewState } from '../../store/recordView';
 import { RecordFieldEditor } from './recordField';
 

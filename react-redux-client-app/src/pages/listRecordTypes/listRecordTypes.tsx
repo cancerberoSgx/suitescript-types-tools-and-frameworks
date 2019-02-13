@@ -6,12 +6,12 @@ import { Page } from '../../components/layout/Page';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { ListRecordTypeResult, FetchListOptions } from '../../store/listRecordTypes';
 import { fetchListRecord } from '../../store/listRecordTypes/actions';
-import SearchResults from '../../components/search/SearchResults';
+import SearchResults from '../../components/data/SearchResults';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom'
 import { Loading } from '../../components/data/Loading';
 import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
-import { ErrorComponent } from '../../components/errorComponent';
+import { ErrorComponent } from '../../components/data/errorComponent';
 import { ErrorOptions } from '../../store/commonTypes';
 
 interface PropsFromState {

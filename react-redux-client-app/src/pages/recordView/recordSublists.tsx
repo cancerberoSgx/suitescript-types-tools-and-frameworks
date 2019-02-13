@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DataTable } from '../../components/layout/DataTable';
+import { DataTable } from '../../components/data/DataTable';
 import { Count, I, Link } from '../../components/misc';
 import { FetchRecordOptions, SublistRow as SublistRowModel } from '../../store/recordView';
 import { decodeOptions } from '../../utils/routeUrl/urlOptions';

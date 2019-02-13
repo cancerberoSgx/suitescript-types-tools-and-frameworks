@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import * as React from 'react';
-import { ErrorOptions } from '../store/commonTypes';
+import { ErrorOptions } from '../../store/commonTypes';
 
 
 export class ErrorComponent extends React.Component<ErrorOptions> {

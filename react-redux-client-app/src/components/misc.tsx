@@ -24,8 +24,6 @@ export const Count = (props: Props) =>
   </I>
 
 
-
-
 export function Link<O={}>(props: { options: O } & LinkProps & Props) {
   const to = `${props.to}/${encodeOptions(props.options)}`
   return <RLink to={to}>{props.children}</RLink>

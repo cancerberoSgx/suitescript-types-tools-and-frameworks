@@ -1,38 +1,58 @@
 import { tryTo } from './misc';
 
-// tiny library that performs safe eval() using sandboxed iframes, like described here: https://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/
-
-// TODO :make this a separate project
-// TODO: synchronize messages and callbacks/promises
 
 
-// Usage:
+/*
 
-// <textarea id="code">1+1</textarea>
-// <button onClick={async e => {
-//   // @ts-ignore
-//   const { result, error } = await safeEval<any>(document.querySelector<HTMLTextAreaElement>('#code').value)
-//   console.log(`safe eval result 1 ${result} error: ${error && error.message}`)
-//   // alternatively to promises you can also use callback functions
-//   safeEval<any>(document.querySelector<HTMLTextAreaElement>('#code')!.value,
-//     ({ result, error }) => console.log(`safe eval result 2 ${result} error: ${error && error.message}`))
+# What
 
-// }}>safe eval text area code</button>
-// <button onClick={async e => {
-//   const { result, error } = await safeEval<number>(`Math.random()*Math.random()`)
-//   console.log(`safe eval result 3 ${result} error: ${error && error.message}`)
-// }}>safe eval Math.random()*Math.random()</button>
+tiny library that performs safe eval() using sandboxed iframes, as described here: https://www.html5rocks.com/en/tutorials/security/sandboxed-iframes/
 
+# Usage:
+
+```
+import {safeEval} from 'eval-iframe-sandbox'
+(async () => {
+  const { result, error } = await safeEval<number>(`Math.random()*Math.random()`)
+  console.log(`safe eval result: `, result, 'error: ', error)
+
+  // alternatively instead promises you can also use callback functions
+  safeEval<any>((`Math.random()*Math.random()`),
+    ({ result, error }) => console.log(`safe eval result: `, result, 'error: ', error))
+})()
+
+with TS / React:
+```
+import { safeEval } from 'eval-iframe-sandbox';
+const Evaluator = (props: {}) => <div>
+  <textarea id="code">{`
+({
+  a: alert('hacker msg') || 'alert not shown',
+  b: 2
+})
+ `.trim()}
+  </textarea>
+  <button onClick={async e => {
+    const code = document.querySelector<HTMLTextAreaElement>('#code')!.value
+    const { result, error } = await safeEval<any>(code)
+    console.log(`safe eval result:`, result, 'error:', error)
+  }}>eval</button>
+</div>
+
+``
+*/
+
+interface Error { message?: string, asString: string, stack?: string, name?: string }
+interface Result<T> { result?: T, error?: Error }
 
 let counter = 0
-export async function safeEval<T=any>(code: string, callback?: (result: T) => void): Promise<{ result?: T, error?: { message: string, asString: string, stack: string } }> {
+export async function safeEval<T=any>(code: string, callback?: (result: T) => void): Promise<Result<T>> {
   await install()
   uniqueCallback = callback
   const p = new Promise<T>(resolve => {
     uniquePromiseResolve = resolve
   })
   if (frame && frame.contentWindow) {
-    // debugger
     frame.contentWindow.postMessage({ code, id: counter++ }, '*')
   }
   return p
@@ -51,26 +71,17 @@ async function install(): Promise<void> {
     ) {
       let parsed: any
       try {
-        // debugger
         parsed = JSON.parse(e.data)
       } catch (ex) {
-        parsed = { error: { message: ex.message, stack: ex.stack, asString: ex + '' } }
+        parsed = { error: { message: ex.message, stack: ex.stack, asString: ex + '', name: ex.name } }
       }
       uniqueCallback && uniqueCallback(parsed)
       uniquePromiseResolve && uniquePromiseResolve(parsed)
     }
     else {
-      console.log('WARNING: safeEval security checking not passed for message id', e.data.id, 'Message:', e)
+      console.warn('WARNING: safeEval security checking not passed for message id', e.data.id, 'Message:', e)
     }
   })
-
-  // // we perform a first eval to make sure following work OK
-
-  // return new Promise(resolve => {
-  //   setTimeout(() => {
-  //     resolve()
-  //   }, 200);
-  // })
 }
 
 let uniquePromiseResolve: ((result: any) => void) | undefined
@@ -105,17 +116,17 @@ function frameFn() {
     var mainWindow = e.source
     var result: any
     try {
-      // debugger
       result = { result: eval(e.data.code) }
     }
     catch (ex) {
-      result = { error: { message: ex.message, stack: ex.stack, asString: ex + '' } }
+      console.error('safeEval error while evaluating expression ' + e.data.code, 'Error: ', ex)
+      result = { error: { message: ex.message, stack: ex.stack, asString: ex + '', name: ex.name } }
     }
     let transferable: string
     try {
       transferable = JSON.stringify(result)
     } catch (ex) {
-      result = { error: { message: ex.message, stack: ex.stack, asString: ex + '' } }
+      result = { error: { message: ex.message, stack: ex.stack, asString: ex + '', name: ex.name } }
       transferable = JSON.stringify(result)
     }
     mainWindow && mainWindow.postMessage(transferable, e.origin as any)

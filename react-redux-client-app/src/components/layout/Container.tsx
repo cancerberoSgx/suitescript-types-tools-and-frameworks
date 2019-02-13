@@ -1,15 +1,11 @@
-import styled, { Theme } from '../../styles/theme/definition'
-import { maxWidth } from '../../styles/media';
+import { styled } from '../../styles/theme'
+import { maxWidth, minWidth } from '../../styles/media';
 
 export const Container = styled('div')`
   margin: 0 auto;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
   & > div .container-overflow-x{
-    overflow-x: hidden;
-  }
-  & > div .container-overflow-x:hover {
     overflow-x: scroll;
   }
 
@@ -17,7 +13,15 @@ export const Container = styled('div')`
 
   ${props => maxWidth(props).lg`max-width: ${props.theme.widths.lg};`}
 
-  ${props => maxWidth(props).md`
+  ${props => minWidth(props).md`
+
+  overflow-x: hidden;
+  & > div .container-overflow-x{
+    overflow-x: hidden;
+  }
+  & > div .container-overflow-x:hover, & > div .container-overflow-x:focus {
+    overflow-x: scroll;
+  }
 
   `}
 

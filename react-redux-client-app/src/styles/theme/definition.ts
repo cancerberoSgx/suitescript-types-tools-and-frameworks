@@ -1,4 +1,4 @@
-import styled, { CreateStyled } from 'react-emotion'
+import styledEmotion, { CreateStyled } from 'react-emotion'
 
 export interface Theme {
   colors: {
@@ -27,7 +27,6 @@ export interface Theme {
     h3: string
     h4: string
   }
-  containerPadding: string
   breakpoints: Breakpoints
   widths: {
     md: string
@@ -37,10 +36,18 @@ export interface Theme {
   heights: {
     header: string
   }
+  paddings: {
+    small: Paddings
+    large: Paddings
+  }
 }
 
-export default styled as CreateStyled<Theme>
+export const styled: CreateStyled<Theme> = styledEmotion
 
+interface Paddings {
+  li: string
+  container: string
+}
 export interface Breakpoints {
   xs: string
   sm: string

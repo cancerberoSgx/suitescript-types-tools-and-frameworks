@@ -1,7 +1,6 @@
 import * as React from 'react'
-import styled from '../../styles/theme/definition'
+import { styled } from '../../styles/theme'
 import { maxWidth, minWidth } from '../../styles/media';
-import { Props } from '../misc';
 import { ReactNodeArray } from 'prop-types';
 
 interface DataTableProps {

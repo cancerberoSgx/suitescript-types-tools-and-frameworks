@@ -8,7 +8,7 @@ import Routes from './routes';
 import { ApplicationState } from './store';
 import { ThemeColors } from './store/layout';
 import * as themes from './styles/theme/';
-import styled from './styles/theme/definition';
+import { styled } from './styles/theme';
 import { ThemeGlobals } from './styles/themeGlobals';
 
 interface PropsFromState {

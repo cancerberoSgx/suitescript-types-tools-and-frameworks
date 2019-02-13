@@ -5,8 +5,8 @@ import { DataTable } from '../../components/layout/DataTable';
 import { RecordViewSettings, RecordViewState, ValuedField } from '../../store/recordView';
 import { formatDate, formatDateTime } from '../../utils/formatDate';
 import { tryTo } from '../../utils/misc';
-import { TextAreaFieldInput } from './RecordFieldInputTextArea';
-import { RichTextFieldInputContentEditableSpan } from './RichTextFieldInputContentEditableSpan';
+import { RecordFieldInputTextArea } from './RecordFieldInputTextArea';
+import { RecordFieldInputRichText } from './RecordFieldInputRichText';
 
 export class RecordFields extends React.Component<RecordViewState> {
   render() {
@@ -92,11 +92,11 @@ export class RecordFieldEditor<T> extends React.Component<FEProps, FEState> {
 
     else if (f.type === 'textarea') {
       input =
-        <TextAreaFieldInput {...inputProps} />
+        <RecordFieldInputTextArea {...inputProps} />
     }
 
     else if (f.type === 'richtext') {
-      input = <RichTextFieldInputContentEditableSpan {...inputProps} />
+      input = <RecordFieldInputRichText {...inputProps} />
     }
 
     else {

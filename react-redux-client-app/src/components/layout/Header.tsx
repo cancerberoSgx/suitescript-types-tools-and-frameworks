@@ -3,7 +3,7 @@ import { css } from 'emotion';
 import { complement, readableColor } from 'polished';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from '../../styles/theme/definition';
+import { styled } from '../../styles/theme/definition';
 import { LayoutContainer } from '../LayoutContainer';
 import { Container } from './Container';
 import { jsx } from '@emotion/core';

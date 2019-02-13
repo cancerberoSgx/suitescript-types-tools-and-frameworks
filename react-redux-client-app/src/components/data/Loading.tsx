@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import styled from '../../styles/theme/definition'
+import { styled } from '../../styles/theme'
 import { keyframes } from 'react-emotion'
 import { transparentize } from 'polished'
 

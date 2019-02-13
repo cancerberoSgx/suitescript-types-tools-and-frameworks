@@ -1,4 +1,4 @@
-const brandColors = {
+export const brandColors = {
   black: '#000000',
   gray75: '#2e2e2c',
   gray60: '#666666',
@@ -13,5 +13,3 @@ const brandColors = {
   red: '#eb5558',
   green: '#9ee79a'
 }
-
-export default brandColors

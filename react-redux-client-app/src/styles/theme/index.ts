@@ -1,2 +1,3 @@
-export { default as dark } from './dark'
-export { default as light } from './light'
+export * from './dark'
+export * from './light'
+export * from './definition'

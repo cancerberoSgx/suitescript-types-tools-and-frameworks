@@ -13,7 +13,6 @@ export function buildRouteUrl(config: RenderLinkOptions): string {
   return url;
 }
 
-
 interface BuildUrlOptions extends RenderLinkOptions {
   /** the part of the current url with the search query with a routeParamName parameter present like `?script=293&deploy=1&compid=TSTDRV1844288&h=192074825c3ca8751438&routeParamName=mainPage&name=lau`. default value is location.search */
   currentUrlSearchFragment?: string;
@@ -30,54 +29,3 @@ function getParamUrl(v: any): string {
   return v
 }
 
-
-
-
-// function paramsToUrl(params: Params, filter: (p: string) => boolean = s => true): string {
-//   return Object.keys(params).filter(filter).map(p => `${p}=${params[p]}`).join('&')
-// }
-// interface RenderFragmentOptions extends RenderLinkOptions {
-//   selector: string;
-// }
-// /** this function is meant to be evaluated in the browser! */
-// function fetchAndRenderHtmlFragment(config: RenderFragmentOptions) {
-//   const url = buildRouteUrl(config);
-//   const parent = document.querySelector(config.selector);
-//   if (!parent) {
-//     return // TODO: log?
-//   }
-//   parent.innerHTML = `<div>Loading new content...</div>`
-//   fetch(url)
-//     .then(function (response) {
-//       return response.text();
-//     })
-//     .then(function (html) {
-//       parent.innerHTML = html;
-//     });
-// }
-
-// function buildParams(p: ParamsText): Params {
-// var params : Params = {}
-// Object.keys(p).forEach(k=>{params[k]= get})
-// return params[]
-// }
-// export function renderBrowserCode() {
-//   // @ts-ignore
-//   const assign = __assign.toString()
-//   const s = `
-// var ROUTEPARAMNAME_ = "${ROUTEPARAMNAME_}";
-// var ROUTEPARAMPREFIX_ = "${ROUTEPARAMPREFIX_}";
-// var SCRIPTLETURLPREFIX_ = "${SCRIPTLETURLPREFIX_}";
-// var __assign = ${assign}
-// ${buildRouteUrl.toString()}
-// ${buildUrl.toString()}
-// ${fetchAndRenderHtmlFragment.toString()}
-// function fetchAndRenderHtml(config){
-//   return fetchAndRenderHtmlFragment(config)
-// }
-// function buildLink(config){
-//   return buildRouteUrl(config)
-// }
-// `.trim()
-//   return s
-// }

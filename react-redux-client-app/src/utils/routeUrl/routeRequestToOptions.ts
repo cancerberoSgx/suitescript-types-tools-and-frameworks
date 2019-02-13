@@ -1,18 +1,7 @@
 import { RouteRequest } from '../../utils/routeUrl/parseRouteUrl';
 import { encodeOptions } from './urlOptions';
-// export const apiRequest = (options: ApiRequestOptions) => {
-// const request = parseRouteUrl(options.routeUrlParams)
-// debugger
-// if (request.name === 'recordViewJson') {
-//   return action(ListRecordTypesActionTypes.FETCH_LIST, { type: request.params.type, pageSize: 5 })
-// }
-// if (request.name === 'recordView') {
-//   return action(RecordViewActionTypes.FETCH, { type: request.params.type, id: request.params.id })
-// }
-// else {
-//   return action<ApiActionTypes.API_ERROR, ErrorOptions>(ApiActionTypes.API_ERROR, { error: new Error(`Api operation name not supported or invalid: ${request.name}`), responseText: '' })
-// }
-// }
+
+/** responsible of associage a route app request params to a local client url (if any) */
 export function routeRequestToOptions(request: RouteRequest): string {
   if (request.name === 'listRecordTypesJson') {
     // http://localhost:1234/#/api/__app__routeParamName=listRecordTypesJson&&__app__type=inventoryitem
@@ -25,7 +14,7 @@ export function routeRequestToOptions(request: RouteRequest): string {
     return `/recordView/${request.params.type || ''}/${request.params.id || ''}/${encodeOptions({ seeValues: !!request.params.seeValues, showSublistLines: !!request.params.showSublistLines, showAllFields: !!request.params.showAllFields })}`;
   }
   else {
-    // use custom error page and mssg /apiErrorAction and cutom apiState
+    // TODO: make notfound path configurable
     return `/notFound/`;
   }
 }

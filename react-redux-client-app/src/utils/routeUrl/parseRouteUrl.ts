@@ -21,7 +21,6 @@ export type RouteParams = {
 
 export type KnownRouteNames = 'listRecordTypes' | 'recordView' | 'recordViewJson' | 'listRecordTypesJson'
 
-
 function parseParamsText(s: string, exclude: string[] = []): RouteParams {
   const r = {};
   s.split('&')

@@ -1,32 +1,38 @@
 /** @jsx */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { safeEval } from '../../utils/safeEval';
+
+
+// import { safeEval } from '../../utils/safeEval';
+// const Evaluator = (props: {}) => <div>
+//   <textarea id="code">{`
+// ({
+//   a: alert('hacker msg') || 'alert not shown',
+//   b: 2
+// })
+//  `.trim()}
+//   </textarea>
+//   <button onClick={async e => {
+//     const code = document.querySelector<HTMLTextAreaElement>('#code')!.value
+//     const { result, error } = await safeEval<any>(code)
+//     console.log(`safe eval result:`, result, 'error:', error)
+//   }}>eval</button>
+// </div>
+
+// (async () => {
+//   const { result, error } = await safeEval<number>(`Math.random()*Math.random()`)
+//   console.log(`safe eval result: `, result, 'error: ', error)
+
+//   // alternatively instead promises you can also use callback functions
+//   safeEval<any>((`Math.random()*Math.random()`),
+//     ({ result, error }) => console.log(`safe eval result: `, result, 'error: ', error))
+// })()
 
 export class ExampleLinks extends React.Component<{}, {}> {
   render() {
-
-
-
-
-
     return <div>
 
-      <textarea id="code">1+1</textarea>
-      <button onClick={async e => {
-        // @ts-ignore
-        const { result, error } = await safeEval<any>(document.querySelector<HTMLTextAreaElement>('#code').value)
-        console.log(`safe eval result 1 ${result} error: ${error && error.message}`)
-        // alternatively to promises you can also use callback functions
-        safeEval<any>(document.querySelector<HTMLTextAreaElement>('#code')!.value,
-          ({ result, error }) => console.log(`safe eval result 2 ${result} error: ${error && error.message}`))
-
-      }}>safe eval text area code</button>
-      <button onClick={async e => {
-        const { result, error } = await safeEval<number>(`Math.random()*Math.random()`)
-        console.log(`safe eval result 3 ${result} error: ${error && error.message}`)
-      }}>safe eval Math.random()*Math.random()</button>
-
+      {/* <Evaluator></Evaluator> */}
 
 
       <h1>Example links</h1>

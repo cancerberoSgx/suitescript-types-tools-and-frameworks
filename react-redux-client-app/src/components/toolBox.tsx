@@ -2,7 +2,7 @@ import { mix } from 'polished';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { minWidth } from '../styles/media';
-import styled from '../styles/theme/definition';
+import { styled } from '../styles/theme';
 import { PagePadding, PagePaddingTopLeft } from './layout/Page';
 
 interface P { className?: string }

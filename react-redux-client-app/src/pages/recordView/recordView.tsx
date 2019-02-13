@@ -10,7 +10,7 @@ import { Container } from '../../components/layout/Container';
 import { Page } from '../../components/layout/Page';
 import { Count, NoWrap } from '../../components/misc';
 import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
-import { ErrorComponent } from '../../components/search/errorComponent';
+import { ErrorComponent } from '../../components/errorComponent';
 import ToolBox from '../../components/toolBox';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { fetchRecord, FetchRecordOptions, RecordViewSettings, RecordViewState } from '../../store/recordView';

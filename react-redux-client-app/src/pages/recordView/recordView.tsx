@@ -39,6 +39,7 @@ export type RecordViewAllProps = RecordViewStateProps & PropsFromDispatch & Conn
 
 class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State, State> {
 
+
   state: State = {}
 
   constructor(props: RecordViewAllProps, state: State) {
@@ -46,25 +47,44 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
     this.state = { showAllFields: props.showAllFields, showSublistLines: props.showSublistLines, seeValues: props.seeValues }
   }
 
-  async componentWillUpdate() {
-    // this.updateOptionsWithState()
-    await this.syncStateAndOptions()
-    await super.componentWillUpdate()
-  }
-  protected async syncStateAndOptions() {
+  protected async executeActionForNewOptions(options: State): Promise<void> {
     if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
       (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
       this.setRecord({
         id: this.props.match.params.id!,
         type: this.props.match.params.type!,
-        ...(await this.getOptions())
+        ...(await this.getOptions()), ...options
       })
     }
+
+    // this.setRecord({
+    //   id: this.props.match.params.id!,
+    //   type: this.props.match.params.type!,
+    //   ...(await this.getOptions())
+    // })
+
+    // throw new Error('Method not implemented.');
   }
-  async componentWillMount() {
-    await this.syncStateAndOptions()
-    await super.componentWillMount()
-  }
+
+  // async componentWillUpdate() {
+  //   // this.updateOptionsWithState()
+  //   await this.syncStateAndOptions()
+  //   await super.componentWillUpdate()
+  // }
+  // protected async syncStateAndOptions() {
+  //   if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
+  //     (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
+  //     this.setRecord({
+  //       id: this.props.match.params.id!,
+  //       type: this.props.match.params.type!,
+  //       ...(await this.getOptions())
+  //     })
+  //   }
+  // }
+  // async componentWillMount() {
+  //   await this.syncStateAndOptions()
+  //   await super.componentWillMount()
+  // }
 
   public render() {
     const { record } = this.props
@@ -132,7 +152,7 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
     const t = { ...this.state, ...v }
     this.setState(t)
     await this.updateOptionsWithState(t)
-    this.props.fetchRecord(v)
+    this.props.fetchRecord(t)
   }
 
   public getRouteOptionNames() {

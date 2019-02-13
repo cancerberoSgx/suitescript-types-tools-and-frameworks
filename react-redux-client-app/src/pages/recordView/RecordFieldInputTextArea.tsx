@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { RecordFieldEditorInputProps } from './recordFields';
+import { RecordFieldEditorInputProps } from "./recordField";
 import { MultiLineTextEditor } from './RecordViewStyles';
 
 interface E {
@@ -14,11 +14,12 @@ export class RecordFieldInputTextArea extends React.Component<P, E> {
   }
   render() {
     const f = this.props.field;
-    return <TextAreaEditorStyle onFocus={e => {
-      this.props.onChangeFocus(true);
-    }}
+    return <TextAreaEditorStyle
+      onFocus={e => {
+        this.props.onChangeFocus(e);
+      }}
       onBlur={e => {
-        this.props.onChangeFocus(true);
+        this.props.onChangeFocus(e);
       }}
       onChange={e => this.setState({ ...this.state, value: e.currentTarget.value })}
       disabled={f.isReadonly}

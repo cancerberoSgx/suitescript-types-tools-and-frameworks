@@ -25,69 +25,53 @@ interface PropsFromDispatch {
   fetchListRecord: typeof fetchListRecord
 }
 interface RouteParams {
-  type?: string
+  // type?: string
   options?: string
 }
 interface S {
   type?: string
-  pageSize?: number
+  pageSize: number
 }
+interface Options extends S {
 
+}
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
-// TODO: use OptionsUrlPage
-class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, S> {
-  getRouteOptionNames(): string[] {
-    return []//['pageSize']
-  }
+class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options> {
 
-  async componentWillUpdate() {
-
-    // if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
-    //   // this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
-    //   // this.setState({ type: this.props.match.params.type, pageSize: this.props.pageSize })
-    //   // debugger
-    //   this.changeOptions({ type: this.props.match.params.type });
-    // }
-    // super.componentWillMount()
-  }
-
-  // componentWillMount() {
-  //   // TODO: we need to do this to connect the router, probably we want a mapRouteProps and change the name since the state also has a 'type'
-  //   if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
-  //     this.setState({ type: this.props.match.params.type, pageSize: this.props.pageSize })
-  //     this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
-  //   }
-  //   super.componentWillMount()
-  // }
   constructor(p: AllProps, s: S) {
     super(p, s)
-    this.state = { type: p.type, pageSize: p.pageSize }
+    this.state = { type: p.type, pageSize: p.pageSize || 5 }
   }
 
+  private renderCounter = 0
   public render() {
-    // debugger
-    const { type } = this.props
-
+    this.renderCounter++
+    const { type } = this.state
+    // console.log('render', this.state);
     return (
       <Page>
         <Container>
           <div>
+            renderCounter: {this.renderCounter}<br />
             Record Types:
-            <select onChange={e => {
+            <select onChange={async e => {
               const type = e.currentTarget.selectedOptions[0].value
               if (type) {
-                this.changeOptions({ type });
-                // this.props.history.push('/listRecordTypes/' + type)
-                // this.changeOptions({ type })
+                this.setState({ ...this.state, type })
               }
             }}>
-
-              <option selected={!this.props.type}>Select a Record Type</option>
+              <option selected={!type}>Select a Record Type</option>
               {this.props.recordTypes.map(r =>
-                <option selected={this.props.type === r} value={r}>{r}</option>
+                <option selected={type === r} value={r}>{r}</option>
               )}
             </select>
+
+            Page Size: <input type="number" value={this.state.pageSize + ''}
+              onChange={async e => {
+                this.setState({ ...this.state, pageSize: e.currentTarget.valueAsNumber })
+              }}>
+            </input>
           </div>
           <Loading {...this.props}>
             {this.props.results && type &&
@@ -97,18 +81,28 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, S> {
               </SearchResults>}
           </Loading>
         </Container>
-      </Page>
+      </Page >
     )
   }
 
+  protected async executeActionForNewOptions(newOptions: Options) {
+    const type = newOptions.type || this.state.type
+    if (!type) {
+      return
+    }
+    const fetchListRecordOptions: FetchListOptions = {
+      type,
+      pageSize: newOptions.pageSize || this.state.pageSize
+    }
+    // console.log('listRecordTypes executeActionForNewOptions', { newOptions, fetchListRecordOptions });
+    this.props.fetchListRecord(fetchListRecordOptions);
 
-  private changeOptions(v: { type: string }) {
-    // const v = { type: this.props.match.params.type, pageSize: this.props.pageSize };
-    const t = { ...this.state, ...v };
-    this.setState(t);
-    this.updateOptionsWithState(t);
-    this.props.fetchListRecord({ ...v, pageSize: this.state.pageSize || this.props.pageSize });
   }
+
+  getRouteOptionNames(): string[] {
+    return ['type', 'pageSize']
+  }
+
 }
 
 const mapStateToProps = ({ listRecordTypes }: ApplicationState) => ({

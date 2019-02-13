@@ -10,6 +10,7 @@ function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
       routeName: 'listRecordTypesJson',
       params: { type: action.payload.type, pageSize: action.payload.pageSize },
     })
+    // console.trace('listRecordTypes sagas ' + url)
     const res = yield call(getUrlApi, 'get', url)
 
     if (res.error) {

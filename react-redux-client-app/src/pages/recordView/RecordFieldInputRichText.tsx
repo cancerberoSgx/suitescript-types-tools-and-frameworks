@@ -1,4 +1,4 @@
-import { RecordFieldEditorInputProps } from './recordFields';
+import { RecordFieldEditorInputProps } from "./recordField";
 import * as React from 'react';
 import { styled } from '../../styles/theme'
 import { MultiLineTextEditor } from './RecordViewStyles';
@@ -17,12 +17,23 @@ export class RecordFieldInputRichText extends React.Component<P, E> {
     return <RichTextEditorStyle contentEditable={!f.isReadonly}
       dangerouslySetInnerHTML={{ __html: f.value + '' }}
       onFocus={e => {
-        this.props.onChangeFocus(true);
+        this.props.onChangeFocus(e);
       }}
       onBlur={e => {
-        this.props.onChangeFocus(true);
+        this.props.onChangeFocus(e);
+        this.setState({ ...this.state, value: e.currentTarget.innerHTML })
       }}
-      onChange={e => this.setState({ ...this.state, value: e.currentTarget.innerHTML })}
+      onKeyUp={e => {
+        this.setState({ ...this.state, value: e.currentTarget.innerHTML })
+      }}
+      onPaste={e => {
+        this.setState({ ...this.state, value: e.currentTarget.innerHTML })
+      }}
+      onInput={e => {
+        this.setState({ ...this.state, value: e.currentTarget.innerHTML })
+      }}
+
+    // onChange={e => { debugger; this.setState({ ...this.state, value: e.currentTarget.innerHTML }) }}
     ></RichTextEditorStyle>
   }
 }

@@ -52,6 +52,10 @@ interface Column {
 export type SearchViewAllProps = SearchViewStateProps & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
 class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State, State> {
+  protected async executeActionForNewOptions(options: State): Promise<void> {
+    // throw new Error('Method not implemented.');
+  }
+
 
   constructor(props: SearchViewAllProps, state: State) {
     super(props, state)
@@ -60,25 +64,25 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
     }
   }
 
-  async componentWillUpdate() {
-    // this.updateOptionsWithState()
-    this.syncStateAndOptions()
-    await super.componentWillUpdate()
-  }
-  protected syncStateAndOptions() {
-    // if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
-    //   (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
-    //   this.setRecord({
-    //     id: this.props.match.params.id!,
-    //     type: this.props.match.params.type!,
-    //     ...this.getOptions()
-    //   })
-    // }
-  }
-  async componentWillMount() {
-    this.syncStateAndOptions()
-    await super.componentWillMount()
-  }
+  // async componentWillUpdate() {
+  //   // this.updateOptionsWithState()
+  //   this.syncStateAndOptions()
+  //   await super.componentWillUpdate()
+  // }
+  // protected syncStateAndOptions() {
+  //   // if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
+  //   //   (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
+  //   //   this.setRecord({
+  //   //     id: this.props.match.params.id!,
+  //   //     type: this.props.match.params.type!,
+  //   //     ...this.getOptions()
+  //   //   })
+  //   // }
+  // }
+  // async componentWillMount() {
+  //   this.syncStateAndOptions()
+  //   await super.componentWillMount()
+  // }
 
   public render() {
     const { } = this.props

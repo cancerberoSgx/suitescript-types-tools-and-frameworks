@@ -83,6 +83,14 @@ a {
   color: ${p.theme.colors.body};
 }
 
+// select {
+//   width: 100%;
+//   // overflow: scroll;
+//   // option {
+//     // max-width: 100%
+//   // }
+// }
+
 `}
     />
 

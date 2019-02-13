@@ -1,56 +1,129 @@
-import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import { decodeOptions, encodeOptions } from '../utils/routeUrl/urlOptions';
-import { getPosition } from '../utils/misc';
+import * as React from 'react'
+import { RouteComponentProps } from 'react-router'
+import { decodeOptions, encodeOptions } from '../utils/routeUrl/urlOptions'
+import { getPosition } from '../utils/misc'
 
 /**
  * abstract component supporting options object as route parameter. Extenders must implement method getRouteOptionNames
  */
-export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ options?: string }>, S extends any, Options = {}> extends React.Component<P, S> {
-  constructor(p: P, s: S) { super(p, s); this.state = s }
+export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ options?: string }>, S extends any, Options extends Partial<S>> extends React.Component<P, S> {
 
-  abstract getRouteOptionNames(): string[];
+  constructor(p: P, s: S) {
+    super(p, s)
+    this.state = s
+  }
 
+  protected abstract getRouteOptionNames(): string[]
+
+  protected abstract async executeActionForNewOptions(options: Partial<Options>): Promise<void>
   async componentWillMount() {
-    await this.updateStateWithOptions()
+    // console.log('componentWillMount', this.state, this.props, await this.getOptions());
+    await this.syncStateWithUrlOptions({ dontUpdateOptionsWithState: true })
   }
-
   async componentWillUpdate() {
-    await this.updateOptionsWithState()
+    // console.log('componentWillUpdate', this.state, this.props, await this.getOptions());
+    await this.syncStateWithUrlOptions({ dontUpdateStateWithOptions: true })
   }
 
-  protected getOptions(): Promise<Options> {
-    return decodeOptions(this.props.match.params.options)
+
+  protected async getOptions(): Promise<Options> {
+    //TODO: look if the string changed from last time, cache!
+    return await decodeOptions(this.props.match.params.options)
   }
 
-  protected async updateStateWithOptions(options?: Options) {
-    let realOptions: Options = options || (await decodeOptions(this.props.match.params.options))
-    // if (!options) { }
-    // const realOptions = options || (await decodeOptions(this.props.match.params.options))
-    const o: Options = {} as any;
-    Object.keys(realOptions).filter(k => realOptions[k] != this.state[k]).forEach(k => { o[k] = realOptions[k]; });
+  /** returns options in url not found in state (the state just updated with these) */
+  protected async updateStateWithOptions(options?: Options): Promise<Options> {
+    const o = await this.getUrlOptionsNotInState(options)
     if (Object.keys(o).length) {
-      this.setState({ ...this.state as any, ...o as any });
+      this.setState({ ...this.state, ...o })
+    }
+    return o
+  }
+
+  protected async getUrlOptionsNotInState(options?: Options): Promise<Options> {
+    let realOptions: Options = options || (await this.getOptions())
+    const o: Options = {} as any
+    Object.keys(realOptions)
+      .filter(k => realOptions[k] != this.state[k])
+      .forEach(k => {
+        o[k] = realOptions[k]
+      })
+    return o
+  }
+
+
+  /** returns options in state that were not found in url options (the url options was just updated with these) */
+  protected async updateOptionsWithState(options?: Options): Promise<Options> {
+    const newOptions = await this.getStateOptionsNotInUrl(options)
+    await this.setOptions(newOptions)
+    return newOptions
+  }
+
+  protected async setOptions(options: Options): Promise<void> {
+    const newPath = await this.getOptionsUrlPath(options)
+    if (newPath) {
+      // console.log('setOptions push', newPath)
+      this.props.history.replace(newPath)
     }
   }
 
-  protected async updateOptionsWithState(options?: Options) {
-    let realOptions: Options = options || (await decodeOptions(this.props.match.params.options))
-    const newOptions: Options = {} as any
-    // remove extraneous options
-    Object.keys(realOptions).filter(k => this.getRouteOptionNames().indexOf(k) === -1).forEach(k => { delete realOptions[k] })
-    Object.keys(this.state)
-      .filter(k => realOptions[k] != this.state[k] && this.getRouteOptionNames().indexOf(k) !== -1)
+  /** assumes options are already in the current url, and they are the last route fragment: ex: /item/6/{opt:1} */
+  protected async getOptionsUrlPath(options: Options): Promise<string | undefined> {
+    if (Object.keys(options).length) {
+      const level = Object.keys(this.props.match.params).length
+      const index = getPosition(this.props.match.url, '/', level + 1)
+      const prefix = this.props.match.url.substring(0, index)
+      const newPath = prefix + '/' + encodeOptions({ ...await this.getOptions(), ...options })
+      return newPath
+    }
+  }
+
+  protected async getStateOptionsNotInUrl(options?: Options): Promise<Options> {
+    let realOptions: Options = options || (await this.getOptions())
+    const newOptions: Options = {} as Options
+    Object.keys(realOptions)  // remove extraneous options that might be in url
+      .filter(k => this.getRouteOptionNames().indexOf(k) === -1)
+      .forEach(k => { delete realOptions[k] })
+    Object.keys(this.getStateOptions())
+      .filter(k => realOptions[k] != this.state[k])
       .forEach(k => {
-        newOptions[k] = this.state[k];
-      });
+        newOptions[k] = this.state[k]
+      })
+    return newOptions
+  }
+
+  protected getStateOptions() {
+    const options: Options = {} as Options
+    Object.keys(this.state)
+      .filter(k => this.getRouteOptionNames().indexOf(k) !== -1)
+      .forEach(k => {
+        options[k] = this.state[k]
+      })
+    return options
+  }
+
+  private async syncStateWithUrlOptions(config?: {
+    // newOptions?: Options,
+    dontUpdateOptionsWithState?: boolean, dontUpdateStateWithOptions?: boolean
+  }) {
+    // let v = config.newOptions
+    if (!config) {
+      config = {
+        // newOptions: await this.getUrlOptionsNotInState()
+      }
+    }
+
+    let newOptions: Options = {} as Options
+    if (!config.dontUpdateStateWithOptions) {
+      newOptions = { ...newOptions, ...await this.updateStateWithOptions() }
+    }
+    if (!config.dontUpdateOptionsWithState) {
+      newOptions = { ...newOptions, ...await this.updateOptionsWithState() }
+    }
     if (Object.keys(newOptions).length) {
-      const level = Object.keys(this.props.match.params).length;
-      const index = getPosition(this.props.match.url, '/', level + 1);
-      const prefix = this.props.match.url.substring(0, index);
-      const newPath = prefix + '/' + encodeOptions({ ...realOptions as any, ...newOptions as any });
-      // console.log('optionsUrlComponent push', newPath);
-      this.props.history.replace(newPath);
+      console.log('executeActionForNewOptions', newOptions);
+
+      this.executeActionForNewOptions(newOptions)
     }
   }
 }

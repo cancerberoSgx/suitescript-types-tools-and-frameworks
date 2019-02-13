@@ -22,7 +22,7 @@ const Header: React.SFC<HeaderProps> = ({ title }) => (
         <HeaderNavLink exact to="/" activeClassName={HeaderLinkActive}>
           Home
         </HeaderNavLink>
-        <HeaderNavLink to="/listRecordTypes" activeClassName={HeaderLinkActive}>
+        <HeaderNavLink to="/listRecordTypes/{}" activeClassName={HeaderLinkActive}>
           List Types
         </HeaderNavLink>
         <HeaderNavLink to="/search/{}" activeClassName={HeaderLinkActive}>

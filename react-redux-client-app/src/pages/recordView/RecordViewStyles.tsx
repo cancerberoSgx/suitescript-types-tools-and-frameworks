@@ -1,10 +1,17 @@
 import { styled } from '../../styles/theme'
 
-export const MultiLineTextEditor = (styled('span')`
+
+
+export const RecordFieldInputEditorBase = styled('span')`
 width: 100%;
+`
+export const RecordFieldInputEditorContainer = styled('span')`
+width: 100%;
+`
+
+export const MultiLineTextEditor = styled(RecordFieldInputEditorBase)`
 height: 50px;
-display: block;
 resize: both;
 overflow: auto;
 border: 1px solid ${props => props.theme.colors.borders};
-`)
+`

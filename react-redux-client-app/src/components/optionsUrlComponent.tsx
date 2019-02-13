@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import { decodeOptions, encodeOptions } from '../utils/urlUtil';
+import { decodeOptions, encodeOptions } from '../utils/routeUrl/urlOptions';
 import { getPosition } from '../utils/misc';
 
 /**
@@ -11,32 +11,36 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
 
   abstract getRouteOptionNames(): string[];
 
-  componentWillMount() {
-    this.updateStateWithOptions()
+  async componentWillMount() {
+    await this.updateStateWithOptions()
   }
 
-  componentWillUpdate() {
-    this.updateOptionsWithState()
+  async componentWillUpdate() {
+    await this.updateOptionsWithState()
   }
 
-  protected getOptions(): Options {
+  protected getOptions(): Promise<Options> {
     return decodeOptions(this.props.match.params.options)
   }
 
-  protected updateStateWithOptions(options: Options = decodeOptions(this.props.match.params.options)) {
+  protected async updateStateWithOptions(options?: Options) {
+    let realOptions: Options = options || (await decodeOptions(this.props.match.params.options))
+    // if (!options) { }
+    // const realOptions = options || (await decodeOptions(this.props.match.params.options))
     const o: Options = {} as any;
-    Object.keys(options).filter(k => options[k] != this.state[k]).forEach(k => { o[k] = options[k]; });
+    Object.keys(realOptions).filter(k => realOptions[k] != this.state[k]).forEach(k => { o[k] = realOptions[k]; });
     if (Object.keys(o).length) {
       this.setState({ ...this.state as any, ...o as any });
     }
   }
 
-  protected updateOptionsWithState(options: Options = decodeOptions(this.props.match.params.options)) {
+  protected async updateOptionsWithState(options?: Options) {
+    let realOptions: Options = options || (await decodeOptions(this.props.match.params.options))
     const newOptions: Options = {} as any
     // remove extraneous options
-    Object.keys(options).filter(k => this.getRouteOptionNames().indexOf(k) === -1).forEach(k => { delete options[k] })
+    Object.keys(realOptions).filter(k => this.getRouteOptionNames().indexOf(k) === -1).forEach(k => { delete realOptions[k] })
     Object.keys(this.state)
-      .filter(k => options[k] != this.state[k] && this.getRouteOptionNames().indexOf(k) !== -1)
+      .filter(k => realOptions[k] != this.state[k] && this.getRouteOptionNames().indexOf(k) !== -1)
       .forEach(k => {
         newOptions[k] = this.state[k];
       });
@@ -44,8 +48,9 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
       const level = Object.keys(this.props.match.params).length;
       const index = getPosition(this.props.match.url, '/', level + 1);
       const prefix = this.props.match.url.substring(0, index);
-      const newPath = prefix + '/' + encodeOptions({ ...options as any, ...newOptions as any });
-      this.props.history.push(newPath);
+      const newPath = prefix + '/' + encodeOptions({ ...realOptions as any, ...newOptions as any });
+      // console.log('optionsUrlComponent push', newPath);
+      this.props.history.replace(newPath);
     }
   }
 }

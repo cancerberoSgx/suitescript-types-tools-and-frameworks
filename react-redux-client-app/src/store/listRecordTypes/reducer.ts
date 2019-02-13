@@ -10,6 +10,7 @@ const initialState: ListRecordTypesState = {
 const reducer: Reducer<ListRecordTypesState> = (state = initialState, action) => {
   switch (action.type) {
     case ListRecordTypesActionTypes.FETCH_LIST: {
+      // debugger
       const options = action.payload as FetchListOptions
       return { ...state, ...options, loading: true }
     }

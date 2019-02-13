@@ -17,6 +17,7 @@ interface PropsFromState {
 
 interface PropsFromDispatch {
   [key: string]: any
+
 }
 
 interface OwnProps {

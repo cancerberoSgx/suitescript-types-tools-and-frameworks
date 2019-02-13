@@ -1,3 +1,4 @@
+/** @jsx */
 import { css } from 'emotion';
 import { complement, readableColor } from 'polished';
 import * as React from 'react';
@@ -5,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import styled from '../../styles/theme/definition';
 import { LayoutContainer } from '../LayoutContainer';
 import { Container } from './Container';
+import { jsx } from '@emotion/core';
 
 interface HeaderProps {
   title: string
@@ -16,19 +18,20 @@ const Header: React.SFC<HeaderProps> = ({ title }) => (
       <HeaderLeft>
         <Title>{title}</Title>
       </HeaderLeft>
-      <HeaderNav>
+      <HeaderNav >
         <HeaderNavLink exact to="/" activeClassName={HeaderLinkActive}>
           Home
         </HeaderNavLink>
         <HeaderNavLink to="/listRecordTypes" activeClassName={HeaderLinkActive}>
           List Types
         </HeaderNavLink>
-        <HeaderNavLink to={`/recordView/commercecategory/2/{"seeValues"%3Atrue%2C"showSublistLines"%3Atrue}"`} activeClassName={HeaderLinkActive}>
-          A Record
-        </HeaderNavLink>
-        <HeaderNavLink to="/search" activeClassName={HeaderLinkActive}>
+        <HeaderNavLink to="/search/{}" activeClassName={HeaderLinkActive}>
           Search
         </HeaderNavLink>
+        <HeaderNavLink to="/exampleLinks/" activeClassName={HeaderLinkActive}>
+          Example Links
+        </HeaderNavLink>
+
       </HeaderNav>
       <HeaderRight>
         <LayoutContainer>
@@ -85,10 +88,12 @@ const HeaderNav = styled('nav')`
 
 const HeaderNavLink = styled(NavLink)`
   margin: 0 1rem;
+  text-decoration: none;
 `
 
 const HeaderLinkActive = css`
   text-decoration: underline;
+  font-weight: 800;
 `
 
 const HeaderRight = styled('div')`

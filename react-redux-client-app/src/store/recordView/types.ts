@@ -1,3 +1,5 @@
+import { ErrorOptions } from '../commonTypes';
+
 export const enum RecordViewActionTypes {
   FETCH = '@@recordView/FETCH',
   SHOW = '@@recordView/SHOW',
@@ -24,10 +26,6 @@ export interface ShowRecordOptions extends RecordViewSettings {
   error?: ErrorOptions
 }
 
-export interface ErrorOptions {
-  error?: Error,
-  responseText: string
-}
 
 export interface RecordViewSettings {
   showSublistLines?: boolean

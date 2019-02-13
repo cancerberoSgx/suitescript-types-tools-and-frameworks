@@ -2,7 +2,7 @@ import * as React from 'react';
 import { DataTable } from '../../components/layout/DataTable';
 import { Count, I, Link } from '../../components/misc';
 import { FetchRecordOptions, SublistRow as SublistRowModel } from '../../store/recordView';
-import { decodeOptions } from '../../utils/urlUtil';
+import { decodeOptions } from '../../utils/routeUrl/urlOptions';
 import { RecordViewAllProps } from './recordView';
 
 type RecordSublistsProps = RecordViewAllProps & { setRecord(v: FetchRecordOptions): void }

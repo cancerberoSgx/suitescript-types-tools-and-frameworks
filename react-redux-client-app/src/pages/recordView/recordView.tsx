@@ -46,24 +46,24 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
     this.state = { showAllFields: props.showAllFields, showSublistLines: props.showSublistLines, seeValues: props.seeValues }
   }
 
-  componentWillUpdate() {
+  async componentWillUpdate() {
     // this.updateOptionsWithState()
-    this.syncStateAndOptions()
-    super.componentWillUpdate()
+    await this.syncStateAndOptions()
+    await super.componentWillUpdate()
   }
-  protected syncStateAndOptions() {
+  protected async syncStateAndOptions() {
     if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
       (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
       this.setRecord({
         id: this.props.match.params.id!,
         type: this.props.match.params.type!,
-        ...this.getOptions()
+        ...(await this.getOptions())
       })
     }
   }
-  componentWillMount() {
-    this.syncStateAndOptions()
-    super.componentWillMount()
+  async componentWillMount() {
+    await this.syncStateAndOptions()
+    await super.componentWillMount()
   }
 
   public render() {
@@ -128,10 +128,10 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
     )
   }
 
-  protected setRecord(v: FetchRecordOptions & RecordViewSettings): void {
+  protected async setRecord(v: FetchRecordOptions & RecordViewSettings): Promise<void> {
     const t = { ...this.state, ...v }
     this.setState(t)
-    this.updateOptionsWithState(t)
+    await this.updateOptionsWithState(t)
     this.props.fetchRecord(v)
   }
 

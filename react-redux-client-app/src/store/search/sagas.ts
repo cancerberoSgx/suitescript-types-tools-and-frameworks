@@ -1,6 +1,6 @@
 import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
-import { RecordViewActionTypes } from './types'
-import { fetchError, fetchSuccess, fetchRecord, showRecord } from './actions'
+import { SearchActionTypes } from './types'
+import { fetchError, fetchSearch, showSearch } from './actions'
 import { getUrlApi } from '../../utils/callApi'
 import { buildRouteUrl } from '../../utils/routeUrl/buildRouteUrl';
 
@@ -10,18 +10,18 @@ import { buildRouteUrl } from '../../utils/routeUrl/buildRouteUrl';
 //   params: { [k: string]: any };
 // }
 
-function* handleFetch(action: ReturnType<typeof fetchRecord>) {
+function* handleFetch(action: ReturnType<typeof fetchSearch>) {
   try {
     const res = yield call(getUrlApi, 'get', buildRouteUrl({
-      routeName: 'recordViewJson',
+      routeName: 'searchJson',
       params: { ...action.payload },
     }))
     // debugger
     if (res.error) {
       yield put(fetchError(res))
     } else {
-      yield put(fetchSuccess(res))
-      yield put(showRecord(res))
+      // yield put(fetchSuccess(res))
+      yield put(showSearch(res))
     }
   } catch (err) {
     // debugger
@@ -35,10 +35,10 @@ function* handleFetch(action: ReturnType<typeof fetchRecord>) {
 }
 
 function* watchFetchRequest() {
-  yield takeEvery(RecordViewActionTypes.FETCH, handleFetch)
+  yield takeEvery(SearchActionTypes.SEARCH, handleFetch)
 }
 
-export function* recordViewSaga() {
+export function* searchSaga() {
   yield all([fork(watchFetchRequest)])
 }
 

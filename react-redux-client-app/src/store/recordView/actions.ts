@@ -1,6 +1,7 @@
 import { action } from 'typesafe-actions'
 
-import { RecordViewActionTypes, Record, FetchRecordOptions, ShowRecordOptions, ErrorOptions } from './types'
+import { RecordViewActionTypes, Record, FetchRecordOptions, ShowRecordOptions } from './types'
+import { ErrorOptions } from '../commonTypes';
 
 export const fetchRequest = () => action(RecordViewActionTypes.FETCH_REQUEST)
 

@@ -41,14 +41,14 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, S> {
     return []//['pageSize']
   }
 
-  componentWillUpdate() {
+  async componentWillUpdate() {
 
-    if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
-      // this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
-      // this.setState({ type: this.props.match.params.type, pageSize: this.props.pageSize })
-      // debugger
-      this.changeOptions({ type: this.props.match.params.type });
-    }
+    // if (this.props.match.params.type && this.props.match.params.type !== this.props.type) {
+    //   // this.props.fetchListRecord({ type: this.props.match.params.type, pageSize: this.props.pageSize })
+    //   // this.setState({ type: this.props.match.params.type, pageSize: this.props.pageSize })
+    //   // debugger
+    //   this.changeOptions({ type: this.props.match.params.type });
+    // }
     // super.componentWillMount()
   }
 
@@ -66,6 +66,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, S> {
   }
 
   public render() {
+    // debugger
     const { type } = this.props
 
     return (

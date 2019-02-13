@@ -4,7 +4,7 @@ import * as React from 'react';
 import styled from 'react-emotion';
 import { ReactNodeLike } from 'prop-types';
 import { LinkProps, Link as RLink } from 'react-router-dom';
-import { encodeOptions } from '../utils/urlUtil';
+import { encodeOptions } from '../utils/routeUrl/urlOptions';
 
 export const I = styled.div`display: inline`
 

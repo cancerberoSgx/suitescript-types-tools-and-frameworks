@@ -51,7 +51,7 @@ export type RecordType = ("account" | "accountingPeriod" | "advInterCompanyJourn
 
 export const SearchRecordTypeValues = ["account", "accountingPeriod", "accountingTransaction", "billingAccount", "billingSchedule", "bin", "budget", "calendarEvent", "campaign", "charge", "classification", "commercecategory", "contact", "contactCategory", "contactRole", "costCategory", "consolidatedExchangeRate", "couponCode", "currencyRate", "customer", "customerCategory", "customerMessage", "customerStatus", "customList", "customRecord", "department", "employee", "entityGroup", "expenseCategory", "fairValuePrice", "file", "folder", "giftCertificate", "globalAccountMapping", "hcmJob", "inboundShipment", "inventoryNumber", "item", "itemAccountMapping", "itemDemandPlan", "itemRevision", "itemSupplyPlan", "issue", "job", "jobStatus", "jobType", "location", "manufacturingCostTemplate", "manufacturingOperationTask", "manufacturingRouting", "message", "nexus", "note", "noteType", "opportunity", "otherNameCategory", "partner", "partnerCategory", "paycheck", "paymentMethod", "payrollItem", "phoneCall", "priceLevel", "pricingGroup", "projectTask", "promotionCode", "resourceAllocation", "revRecSchedule", "revRecTemplate", "salesRole", "salesTaxItem", "solution", "siteCategory", "subsidiary", "supportCase", "task", "taxGroup", "taxType", "term", "timeBill", "timeSheet", "topic", "transaction", "unitsType", "usage", "vendor", "vendorCategory", "winLossReason"]
 export function getSearchRecordTypes() {
-  return SearchRecordTypeValues
+  return SearchRecordTypeValues.map(t => t.toLowerCase())
 }
 
 

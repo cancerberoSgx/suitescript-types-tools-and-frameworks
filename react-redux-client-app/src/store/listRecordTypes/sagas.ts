@@ -2,7 +2,7 @@ import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
 import { ListRecordTypesActionTypes } from './types'
 import { fetchError, fetchSuccess, fetchListRecord, showListRecord } from './actions'
 import callApi, { getUrlApi } from '../../utils/callApi'
-import { buildRouteUrl } from '../../utils/buildRouteUrl';
+import { buildRouteUrl } from '../../utils/routeUrl/buildRouteUrl';
 
 function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
   try {

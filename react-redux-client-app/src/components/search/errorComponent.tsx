@@ -1,13 +1,11 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { ErrorOptions } from '../../store/recordView';
 import * as React from 'react';
-// import css from '@emotion/css';
+import { ErrorOptions } from '../../store/commonTypes';
 
 
 export class ErrorComponent extends React.Component<ErrorOptions> {
   public render() {
-    // debugger
     return (<div>
       <div>
         Error: {this.props.error && (this.props.error + '')}

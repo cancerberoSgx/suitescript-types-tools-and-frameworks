@@ -1,5 +1,6 @@
 import { Reducer } from 'redux'
-import { RecordViewState, RecordViewActionTypes, FetchRecordOptions, ShowRecordOptions, RecordViewSettings, ErrorOptions } from './types'
+import { RecordViewState, RecordViewActionTypes, FetchRecordOptions, ShowRecordOptions } from './types'
+import { ErrorOptions } from '../commonTypes';
 
 const initialState: RecordViewState = {
   seeValues: false,

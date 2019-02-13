@@ -16,15 +16,43 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
   protected abstract getRouteOptionNames(): string[]
 
   protected abstract async executeActionForNewOptions(options: Partial<Options>): Promise<void>
+
   async componentWillMount() {
     // console.log('componentWillMount', this.state, this.props, await this.getOptions());
+    // debugger
     await this.syncStateWithUrlOptions({ dontUpdateOptionsWithState: true })
   }
   async componentWillUpdate() {
     // console.log('componentWillUpdate', this.state, this.props, await this.getOptions());
+    // debugger
     await this.syncStateWithUrlOptions({ dontUpdateStateWithOptions: true })
   }
 
+  private async syncStateWithUrlOptions(config: { dontUpdateOptionsWithState?: boolean, dontUpdateStateWithOptions?: boolean } = {}) {
+
+    let newOptions: Options = {} as Options
+    if (!config.dontUpdateStateWithOptions) {
+      newOptions = { ...newOptions, ...await this.updateStateWithOptions() }
+    }
+    if (!config.dontUpdateOptionsWithState) {
+      newOptions = { ...newOptions, ...await this.updateOptionsWithState() }
+    }
+    newOptions = { ...newOptions, }
+    // debugger
+    if (Object.keys(newOptions).length) {
+      // console.log('executeActionForNewOptions', newOptions);
+      this.executeActionForNewOptions({ ...newOptions })
+    }
+  }
+  /** subclasses can override to add extra options before calling executeActionForNewOptions. For
+   * example, if some options are taken from other parts of the url besides :options.
+   *
+   * Subclasses that consume all its options from the :options route param dont need this.
+   *
+   * TODO: probably that use case (if ts the only one) we can implement generically */
+  protected async getExtraUrlOptions(): Promise<Partial<S>> {
+    return {}
+  }
 
   protected async getOptions(): Promise<Options> {
     //TODO: look if the string changed from last time, cache!
@@ -41,7 +69,7 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
   }
 
   protected async getUrlOptionsNotInState(options?: Options): Promise<Options> {
-    let realOptions: Options = options || (await this.getOptions())
+    let realOptions: Options = options || { ...await this.getOptions(), ...await this.getExtraUrlOptions() }
     const o: Options = {} as any
     Object.keys(realOptions)
       .filter(k => realOptions[k] != this.state[k])
@@ -102,30 +130,6 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
     return options
   }
 
-  private async syncStateWithUrlOptions(config?: {
-    // newOptions?: Options,
-    dontUpdateOptionsWithState?: boolean, dontUpdateStateWithOptions?: boolean
-  }) {
-    // let v = config.newOptions
-    if (!config) {
-      config = {
-        // newOptions: await this.getUrlOptionsNotInState()
-      }
-    }
-
-    let newOptions: Options = {} as Options
-    if (!config.dontUpdateStateWithOptions) {
-      newOptions = { ...newOptions, ...await this.updateStateWithOptions() }
-    }
-    if (!config.dontUpdateOptionsWithState) {
-      newOptions = { ...newOptions, ...await this.updateOptionsWithState() }
-    }
-    if (Object.keys(newOptions).length) {
-      console.log('executeActionForNewOptions', newOptions);
-
-      this.executeActionForNewOptions(newOptions)
-    }
-  }
 }
 
 

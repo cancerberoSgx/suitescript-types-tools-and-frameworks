@@ -16,7 +16,6 @@ import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { fetchRecord, FetchRecordOptions, RecordViewSettings, RecordViewState } from '../../store/recordView';
 import { RecordFields } from './recordFields';
 import { RecordSublists } from './recordSublists';
-;
 
 interface RecordViewStateProps extends RecordViewState {
 }
@@ -31,60 +30,48 @@ interface RouteParams {
   options?: string
 }
 
-export interface State extends RecordViewSettings {
-  findRecord?: boolean
+export interface State extends RecordViewState, RecordViewSettings {
 }
 
 export type RecordViewAllProps = RecordViewStateProps & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
 class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State, State> {
 
-
-  state: State = {}
-
   constructor(props: RecordViewAllProps, state: State) {
     super(props, state)
-    this.state = { showAllFields: props.showAllFields, showSublistLines: props.showSublistLines, seeValues: props.seeValues }
+    this.state = {
+      showAllFields: props.showAllFields,
+      showSublistLines: props.showSublistLines,
+      seeValues: props.seeValues,
+      // heads up : we don't want state.type and id to have the url this.props.match.params, not yet, since state will be old, executeActionForNewOptions will call
+      // type: this.props.type || this.props.match.params.type,
+      // id: this.props.id || this.props.match.params.id
+    }
+  }
+
+  protected async getExtraUrlOptions(): Promise<Partial<State>> {
+    var extra: Partial<State> = {} as any
+    if (this.props.match.params.type && this.props.match.params.type !== this.state.type) {
+      extra = { ...extra, type: this.props.match.params.type }
+    }
+    if (this.props.match.params.id && this.props.match.params.id !== this.state.id) {
+      extra = { ...extra, id: this.props.match.params.id }
+    }
+    return extra
   }
 
   protected async executeActionForNewOptions(options: State): Promise<void> {
-    if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
-      (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
-      this.setRecord({
+    if (options.id && options.type) {
+      this.props.fetchRecord({
         id: this.props.match.params.id!,
         type: this.props.match.params.type!,
         ...(await this.getOptions()), ...options
       })
     }
 
-    // this.setRecord({
-    //   id: this.props.match.params.id!,
-    //   type: this.props.match.params.type!,
-    //   ...(await this.getOptions())
-    // })
-
-    // throw new Error('Method not implemented.');
   }
 
-  // async componentWillUpdate() {
-  //   // this.updateOptionsWithState()
-  //   await this.syncStateAndOptions()
-  //   await super.componentWillUpdate()
-  // }
-  // protected async syncStateAndOptions() {
-  //   if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
-  //     (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
-  //     this.setRecord({
-  //       id: this.props.match.params.id!,
-  //       type: this.props.match.params.type!,
-  //       ...(await this.getOptions())
-  //     })
-  //   }
-  // }
-  // async componentWillMount() {
-  //   await this.syncStateAndOptions()
-  //   await super.componentWillMount()
-  // }
+
 
   public render() {
     const { record } = this.props
@@ -98,36 +85,32 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
                 <ul>
                   <li>
                     <NoWrap><label><input type="checkbox" checked={this.state.seeValues}
-                      onChange={e => this.setRecord({
-                        id: record.id, type: record.type,
-                        ...this.getOptions(), seeValues: e.currentTarget.checked
-                      })}></input>See Values?</label>
+                      onChange={e => this.setState({
+                        ...this.state, seeValues: e.currentTarget.checked
+                      })}>
+                    </input>See Values?</label>
                     </NoWrap>
                   </li>
                   <li>
                     <NoWrap>
                       <label><input type="checkbox" checked={!this.state.showAllFields}
                         onChange={e => {
-                          this.setRecord({
-                            id: record.id, type: record.type,
-                            ...this.getOptions(), showAllFields: !e.currentTarget.checked
-                          });
-                        }}></input>Hide Internal Fields?</label>
+                          this.setState({ ...this.state, showAllFields: !e.currentTarget.checked });
+                        }}>
+                      </input>Hide Internal Fields?</label>
                     </NoWrap></li>
                   <li>
                     <NoWrap>
                       <label><input type="checkbox" checked={this.state.showSublistLines}
-                        onChange={e => this.setRecord({
-                          id: record.id, type: record.type,
-                          ...this.getOptions(), showSublistLines: e.currentTarget.checked
-                        })}></input>Show Sublists Lines?</label>
+                        onChange={e => this.setState({ ...this.state, showSublistLines: e.currentTarget.checked })}>
+                      </input>Show Sublists Lines?</label>
                     </NoWrap></li>
                   <li>
                     <NoWrap><label><input type="checkbox" checked={this.state.inlineEdit}
-                      onChange={e =>
-                        this.setRecord({
-                          id: record.id, type: record.type, inlineEdit: e.currentTarget.checked
-                        })}></input>Edit Inline?</label>
+                      onChange={e => this.setState({
+                        ...this.state, inlineEdit: e.currentTarget.checked
+                      })}>
+                    </input>Edit Inline?</label>
                     </NoWrap></li>
                 </ul>
               </RecordViewToolBox>
@@ -139,20 +122,17 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
               <RecordFields {...{ record, ...this.state }}  ></RecordFields>
 
               <h2>Sublists <Count>{record.sublists.length}</Count></h2>
-              <RecordSublists {...{ ...this.props, ...this.state }} setRecord={this.setRecord.bind(this)}></RecordSublists>
+              <RecordSublists {...{ ...this.props, ...this.state }}
+                setRecord={(...args) => {
+                  // this.setRecord.bind(this)
+                  throw 'Not implemented'
+                }}></RecordSublists>
             </div>}
 
           </Loading>
         </Container>
       </Page>
     )
-  }
-
-  protected async setRecord(v: FetchRecordOptions & RecordViewSettings): Promise<void> {
-    const t = { ...this.state, ...v }
-    this.setState(t)
-    await this.updateOptionsWithState(t)
-    this.props.fetchRecord(t)
   }
 
   public getRouteOptionNames() {
@@ -168,7 +148,7 @@ const RecordViewToolBox = styled(ToolBox)`
     padding-right: 1em;
   }
   ul {
-    margin: 0
+    margin: 0;
   }
 `
 

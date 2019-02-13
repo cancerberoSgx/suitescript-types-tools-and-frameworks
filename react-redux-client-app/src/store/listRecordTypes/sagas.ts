@@ -4,6 +4,8 @@ import { fetchError, fetchSuccess, fetchListRecord, showListRecord } from './act
 import callApi, { getUrlApi } from '../../utils/callApi'
 import { buildRouteUrl } from '../../utils/routeUrl/buildRouteUrl';
 
+
+//TODO: this should be generic with the url as parameter the url
 function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
   try {
     const url = buildRouteUrl({
@@ -12,6 +14,7 @@ function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
     })
     // console.trace('listRecordTypes sagas ' + url)
     const res = yield call(getUrlApi, 'get', url)
+    // debugger
 
     if (res.error) {
       yield put(fetchError(res))
@@ -20,11 +23,13 @@ function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
       yield put(showListRecord(res))
     }
   } catch (err) {
-    if (err instanceof Error) {
-      yield put(fetchError(err.stack!))
-    } else {
-      yield put(fetchError('An unknown error occurred.'))
-    }
+    // debugger
+    yield put(fetchError(err))
+    // if (err instanceof Error) {
+    // yield put(fetchError(err.stack!))
+    // } else {
+    // yield put(fetchError('An unknown error occurred.'))
+    // }
   }
 }
 

@@ -11,11 +11,11 @@ const reducer: Reducer<RecordViewState> = (state = initialState, action) => {
   switch (action.type) {
     case RecordViewActionTypes.FETCH: {
       const options = action.payload as FetchRecordOptions
-      return { ...state, ...options, loading: true }
+      return { ...state, ...options, error: undefined, loading: true }
     }
     case RecordViewActionTypes.SHOW: {
       const options = action.payload as ShowRecordOptions
-      return { ...state, ...options, loading: false }
+      return { ...state, ...options, error: undefined, loading: false }
     }
     case RecordViewActionTypes.FETCH_ERROR: {
       const options = action.payload as ErrorOptions

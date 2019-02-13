@@ -11,14 +11,16 @@ import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom'
 import { Loading } from '../../components/data/Loading';
 import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
+import { ErrorComponent } from '../../components/errorComponent';
+import { ErrorOptions } from '../../store/commonTypes';
 
 interface PropsFromState {
   loading?: boolean
   type?: string
   pageSize: number
   results?: ListRecordTypeResult[]
-  errors?: string
   recordTypes: string[]
+  error?: ErrorOptions
 }
 
 interface PropsFromDispatch {
@@ -48,10 +50,11 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
   public render() {
     this.renderCounter++
     const { type } = this.state
-    // console.log('render', this.state);
+    console.log('render', this.state);
     return (
       <Page>
         <Container>
+
           <div>
             renderCounter: {this.renderCounter}<br />
             Record Types:
@@ -73,13 +76,14 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
               }}>
             </input>
           </div>
-          <Loading {...this.props}>
-            {this.props.results && type &&
+          {!this.props.error && <Loading {...this.props}>
+            {this.props.results && type ?
               <SearchResults {...this.props} type={type}
                 columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
                 results={this.props.results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
-              </SearchResults>}
-          </Loading>
+              </SearchResults> : ''}
+          </Loading>}
+          {this.props.error && <ErrorComponent {...this.props.error}></ErrorComponent>}
         </Container>
       </Page >
     )
@@ -110,7 +114,8 @@ const mapStateToProps = ({ listRecordTypes }: ApplicationState) => ({
   type: listRecordTypes.type,
   results: listRecordTypes.results,
   loading: listRecordTypes.loading,
-  recordTypes: listRecordTypes.recordTypes
+  recordTypes: listRecordTypes.recordTypes,
+  error: listRecordTypes.error,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

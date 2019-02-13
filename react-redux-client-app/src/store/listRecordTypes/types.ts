@@ -1,3 +1,5 @@
+import { ErrorOptions } from '../commonTypes';
+
 export const enum ListRecordTypesActionTypes {
   FETCH_LIST = '@@listRecordTypes/FETCH_LIST',
   SHOW_LIST = '@@listRecordTypes/SHOW_LIST',
@@ -13,6 +15,7 @@ export interface ListRecordTypesState {
   readonly recordTypes: string[]
   readonly loading?: boolean
   readonly pageSize: number
+  readonly error?: ErrorOptions
 }
 
 export interface ListRecordTypeResult {

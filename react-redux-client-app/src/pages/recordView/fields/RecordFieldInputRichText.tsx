@@ -1,7 +1,7 @@
 import { RecordFieldEditorInputProps } from "./recordField";
 import * as React from 'react';
-import { styled } from '../../styles/theme'
-import { MultiLineTextEditor } from './RecordViewStyles';
+import { styled } from '../../../styles/theme'
+import { MultiLineTextEditor } from '../RecordViewStyles';
 interface E {
   value: string;
 }
@@ -34,8 +34,12 @@ export class RecordFieldInputRichText extends React.Component<P, E> {
       }}
 
     // onChange={e => { debugger; this.setState({ ...this.state, value: e.currentTarget.innerHTML }) }}
+
     ></RichTextEditorStyle>
   }
 }
 
-const RichTextEditorStyle = MultiLineTextEditor.withComponent('span')
+const RichTextEditorStyle = styled.span`
+${props => MultiLineTextEditor(props).styles};
+width: ${props => (props as any).type === 'checkbox' ? 'auto' : 'inherit'}
+`

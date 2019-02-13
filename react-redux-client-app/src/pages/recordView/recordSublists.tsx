@@ -4,6 +4,8 @@ import { Count, I, Link } from '../../components/misc';
 import { FetchRecordOptions, SublistRow as SublistRowModel } from '../../store/recordView';
 import { decodeOptions } from '../../utils/routeUrl/urlOptions';
 import { RecordViewAllProps } from './recordView';
+import { RecordFieldEditor } from './fields/recordField';
+// import { Container22 } from './RecordViewStyles';
 
 type RecordSublistsProps = RecordViewAllProps & { setRecord(v: FetchRecordOptions): void }
 interface S { }
@@ -16,6 +18,7 @@ export class RecordSublists extends React.Component<RecordSublistsProps> {
     return <ul >
       {record.sublists.map(s => <li key={s.id}>
         <h3>
+          {/* <Container22 color="red">skjdhfksjdfh</Container22> */}
           {s.name && s.name != s.id ? `${s.name} (${s.id})` : s.id} {s.lineCount ? <Count>{s.lineCount} lines</Count> : ''}
         </h3>
         <div className="container-overflow-x">
@@ -37,11 +40,19 @@ class SublistRow extends React.Component<P, S> {
   constructor(p: P, s: S) { super(p, s) }
   render() {
     const r = this.props.row
-    return <I>{r.value || r.text}
-      {r.field.type === 'select' &&
-        <Link to={`/recordView/${r.field.id}/${r.value}`}
-          options={{ ...decodeOptions(this.props.match.params.options), findRecord: true }}>
-          &nbsp;(find)</Link>
+    return <I>
+      {/* {r.value || r.text} */}
+      <RecordFieldEditor {...this.props} field={{ ...r.field, value: r.value || r.text, text: r.text || r.value + '' }}
+        extraFieldEditorControls={
+          r.field.type === 'select' ?
+            [
+              props => <Link to={`/recordView/${r.field.id}/${r.value}`}
+                options={{ ...decodeOptions(this.props.match.params.options), findRecord: true }}>
+                &nbsp;(find)</Link>
+            ] :
+            []
+        } />
+      {
       }
     </I>
   }

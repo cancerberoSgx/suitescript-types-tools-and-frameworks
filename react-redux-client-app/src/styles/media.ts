@@ -1,6 +1,7 @@
 import { Theme, Breakpoints } from './theme/definition';
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 import { ClassNames } from '@emotion/core';
+import { themeCommon } from './theme/themeCommon';
 
 /**
 Shortcut to write media queries with emotion. Supports emotion css() mode or plain CSS string.
@@ -73,11 +74,12 @@ function queryMapWidthCss(theme: Theme): BreakpointBuilder {
     types.forEach(type => {
       queryMap![type] = queryMap![type] || {}
       queryMap![type].className = Object.keys(breakpoints).reduce((acc, label) => {
-        acc[label] = (...args: any[]) => css`
+        acc[label] = (...args: any[]) => css(`
 @media (${type}: ${breakpoints[label]}) {
   ${css(...args)}
 }
-        `.trim()
+        `.trim())
+        // debugger
         return acc
       }, {} as BreakpointBuilder)
       queryMap![type].text = Object.keys(breakpoints).reduce((acc, label) => {
@@ -93,3 +95,26 @@ function queryMapWidthCss(theme: Theme): BreakpointBuilder {
 
   return queryMap as any
 }
+
+
+
+// const facepaint = require('facepaint').default
+// debugger
+// const mq = facepaint(Object.keys(themeCommon.breakpoints).map(k => `@media(min-width: ${themeCommon.breakpoints[k]})`))
+
+// console.log(mq)
+
+// const myClassName = css(mq({
+//   backgroundColor: 'hotpink',
+//   textAlign: 'center',
+//   width: ['25%', '50%', '75%', '100%'],
+//   '& .foo': {
+//     color: ['red', 'green', 'blue', 'darkorchid'],
+//     '& img': {
+//       height: [10, 15, 20, 25]
+//     }
+//   }
+// }))
+
+
+// console.log(myClassName.styles);

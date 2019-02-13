@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { RecordFieldEditorInputProps } from "./recordField";
-import { MultiLineTextEditor } from './RecordViewStyles';
+import { MultiLineTextEditor } from '../RecordViewStyles';
+import { styled } from '../../../styles/theme';
 
 interface E {
   value: string;
@@ -23,9 +24,16 @@ export class RecordFieldInputTextArea extends React.Component<P, E> {
       }}
       onChange={e => this.setState({ ...this.state, value: e.currentTarget.value })}
       disabled={f.isReadonly}
-      defaultValue={f.value + ''}>
-    </TextAreaEditorStyle>;
+      defaultValue={f.value + ''}
+
+      {...this.props} />
   }
 }
 
-const TextAreaEditorStyle = MultiLineTextEditor.withComponent('textarea')
+// const TextAreaEditorStyle = MultiLineTextEditor
+
+const TextAreaEditorStyle = styled.textarea`
+${props => MultiLineTextEditor(props)}
+`
+
+// ${MultiLineTextEditor};

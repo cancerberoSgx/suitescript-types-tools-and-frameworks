@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { styled } from '../../styles/theme'
-import { keyframes } from 'react-emotion'
+import { keyframes } from '@emotion/core'
 import { transparentize } from 'polished'
 
 const LoadingOverlayInner = styled('div')`

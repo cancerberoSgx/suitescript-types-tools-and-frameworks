@@ -10,6 +10,8 @@ import { SearchState, searchReducer } from './search';
 // import { ApiState, apiReducer } from './api';
 import { ErrorOptions } from './commonTypes';
 import { searchSaga } from './search/sagas';
+import { RouterState, connectRouter } from 'connected-react-router';
+import { History } from 'history';
 // import { apiSaga } from './api/sagas';
 
 export interface ApplicationState {
@@ -18,6 +20,7 @@ export interface ApplicationState {
   recordView: RecordViewState
   search: SearchState
   common?: CommonAppState
+  router: RouterState
 }
 interface CommonAppState {
   readonly loading?: boolean
@@ -28,12 +31,13 @@ export interface ConnectedReduxProps<A extends Action = AnyAction> {
   dispatch: Dispatch<A>
 }
 
-export const rootReducer = compose(combineReducers<ApplicationState>({
+export const rootReducer = (history: History) => compose(combineReducers<ApplicationState>({
   layout: layoutReducer,
   listRecordTypes: listRecordTypesReducer,
   recordView: recordViewReducer,
   search: searchReducer,
   // appState: apiReducer,
+  router: connectRouter(history)
 }))
 
 export function* rootSaga() {

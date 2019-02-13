@@ -1,12 +1,12 @@
 /** @jsx */
-import { css } from 'emotion';
+// import { css } from 'emotion';
 import { complement, readableColor } from 'polished';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { styled } from '../../styles/theme/definition';
 import { LayoutContainer } from '../LayoutContainer';
 import { Container } from './Container';
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 
 interface HeaderProps {
   title: string
@@ -19,16 +19,16 @@ const Header: React.SFC<HeaderProps> = ({ title }) => (
         <Title>{title}</Title>
       </HeaderLeft>
       <HeaderNav >
-        <HeaderNavLink exact to="/" activeClassName={HeaderLinkActive}>
+        <HeaderNavLink exact to="/" activeClassName={HeaderLinkActive.name}>
           Home
         </HeaderNavLink>
-        <HeaderNavLink to="/listRecordTypes/{}" activeClassName={HeaderLinkActive}>
+        <HeaderNavLink to="/listRecordTypes/{}" activeClassName={HeaderLinkActive.name}>
           List Types
         </HeaderNavLink>
-        <HeaderNavLink to="/search/{}" activeClassName={HeaderLinkActive}>
+        <HeaderNavLink to="/search/{}" activeClassName={HeaderLinkActive.name}>
           Search
         </HeaderNavLink>
-        <HeaderNavLink to="/exampleLinks/" activeClassName={HeaderLinkActive}>
+        <HeaderNavLink to="/exampleLinks/" activeClassName={HeaderLinkActive.name}>
           Example Links
         </HeaderNavLink>
 
@@ -65,7 +65,7 @@ const HeaderInner = styled(Container)`
   overflow-x: hidden;
   overflow-y: hidden;
   overflow: hidden;
-  & > * *  {
+  & > * * {
     overflow-x: hidden;
     overflow-y: hidden;
     overflow: hidden;

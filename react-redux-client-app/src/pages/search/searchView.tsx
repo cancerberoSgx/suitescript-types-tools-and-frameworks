@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { withRouter } from 'react-router-dom';
@@ -51,7 +51,8 @@ interface Column {
 }
 export type SearchViewAllProps = SearchViewStateProps & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
-class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State, State> {
+
+class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State, Partial<State>> {
   protected async executeActionForNewOptions(options: State): Promise<void> {
     // throw new Error('Method not implemented.');
   }
@@ -63,26 +64,6 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
       recordTypes: getSearchRecordTypes()
     }
   }
-
-  // async componentWillUpdate() {
-  //   // this.updateOptionsWithState()
-  //   this.syncStateAndOptions()
-  //   await super.componentWillUpdate()
-  // }
-  // protected syncStateAndOptions() {
-  //   // if ((this.props.match.params.type && this.props.match.params.type !== this.props.type) ||
-  //   //   (this.props.match.params.id && this.props.match.params.id !== this.props.id)) {
-  //   //   this.setRecord({
-  //   //     id: this.props.match.params.id!,
-  //   //     type: this.props.match.params.type!,
-  //   //     ...this.getOptions()
-  //   //   })
-  //   // }
-  // }
-  // async componentWillMount() {
-  //   this.syncStateAndOptions()
-  //   await super.componentWillMount()
-  // }
 
   public render() {
     const { } = this.props
@@ -145,7 +126,7 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
                 {this.state.columns.map(c => <option value={c.id}>{c.label}</option>)}
               </select></label>}
 
-              {this.state.selectedRecordType && <SearchEditor {...this.props} type={this.state.selectedRecordType!}></SearchEditor>}
+              {this.state.selectedRecordType && this.state.columns && <SearchEditor {...this.props} type={this.state.selectedRecordType!} columns={this.state.columns} filters={[]} ></SearchEditor>}
             </div>}
 
           </Loading>

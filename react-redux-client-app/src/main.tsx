@@ -21,7 +21,7 @@ interface PropsFromDispatch {
 }
 
 interface OwnProps {
-  store: Store<ApplicationState>
+  // store: Store<ApplicationState>
   history: History
 }
 
@@ -32,16 +32,14 @@ class Main extends React.Component<AllProps> {
     const { store, history, theme } = this.props
 
     return (
-      <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <ThemeProvider theme={themes[theme]}>
-            <Root>
-              <ThemeGlobals />
-              <Routes />
-            </Root>
-          </ThemeProvider>
-        </ConnectedRouter>
-      </Provider>
+      <ConnectedRouter history={history}>
+        <ThemeProvider theme={themes[theme]}>
+          <Root>
+            <ThemeGlobals />
+            <Routes />
+          </Root>
+        </ThemeProvider>
+      </ConnectedRouter>
     )
   }
 }

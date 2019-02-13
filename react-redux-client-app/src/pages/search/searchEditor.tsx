@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { SearchViewAllProps } from './searchView';
 
-type P = SearchViewAllProps & { type: string }
-interface S {
-  type: string
+type P = SearchViewAllProps & {
+  type: string,
   columns: Column[]
   filters: Filter[]
+}
+interface S {
+  type: string
+  userColumns: Column[]
+  userFilter: Column[]
 }
 
 interface Column {
@@ -18,17 +22,22 @@ interface Filter {
 export class SearchEditor extends React.Component<P, S> {
   constructor(p: P, s: S) {
     super(p, s)
-    this.state = { type: p.type, columns: [], filters: [] }
+    this.state = { type: p.type, userColumns: [], userFilter: [] }
   }
   render() {
-    const { columns, filters } = this.state
+    const { userColumns } = this.state
     return <div>
       <h3>Type: {this.state.type}</h3>
       <h3>Columns</h3>
+
       <button onClick={e => {
-        this.setState({ ...this.state, columns: [...columns, { id: '__new__', }] })
+        this.setState({ ...this.state, userColumns: [...userColumns, { ...this.props.columns[0] }] })
       }}>New Column</button>
-      <ul>{columns.map(c => <li><ColumnEditor {...this.props} column={c}></ColumnEditor></li>)}
+
+      <ul>{userColumns.map(c =>
+        <li>
+          <ColumnEditor {...this.props} column={c} />
+        </li>)}
       </ul>
     </div>
   }

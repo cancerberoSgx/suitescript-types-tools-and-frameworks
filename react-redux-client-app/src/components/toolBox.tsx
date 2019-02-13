@@ -60,7 +60,6 @@ const Wrapper = styled(PagePaddingTopLeft)`
       width: 100%;
       display: block;
       background: ${props => mix(0.4, props.theme.colors.brand, props.theme.colors.background)};
-      ${props => minWidth(props).md`1em`}
       padding: 1em;
       margin: 0.3em;
     }

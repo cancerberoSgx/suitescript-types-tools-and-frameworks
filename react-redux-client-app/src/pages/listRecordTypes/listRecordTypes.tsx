@@ -22,20 +22,17 @@ interface PropsFromState {
   recordTypes: string[]
   error?: ErrorOptions
 }
-
 interface PropsFromDispatch {
   fetchListRecord: typeof fetchListRecord
 }
 interface RouteParams {
-  // type?: string
   options?: string
 }
 interface S {
   type?: string
   pageSize: number
 }
-interface Options extends S {
-
+interface Options extends Partial<S> {
 }
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
@@ -46,9 +43,9 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
     this.state = { type: p.type, pageSize: p.pageSize || 5 }
   }
 
-  private renderCounter = 0
+  // private renderCounter = 0
   public render() {
-    this.renderCounter++
+    // this.renderCounter++
     const { type } = this.state
     console.log('render', this.state);
     return (
@@ -56,7 +53,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
         <Container>
 
           <div>
-            renderCounter: {this.renderCounter}<br />
+            {/* renderCounter: {this.renderCounter}<br /> */}
             Record Types:
             <select onChange={async e => {
               const type = e.currentTarget.selectedOptions[0].value
@@ -100,7 +97,6 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
     }
     // console.log('listRecordTypes executeActionForNewOptions', { newOptions, fetchListRecordOptions });
     this.props.fetchListRecord(fetchListRecordOptions);
-
   }
 
   getRouteOptionNames(): string[] {
@@ -121,7 +117,6 @@ const mapStateToProps = ({ listRecordTypes }: ApplicationState) => ({
 const mapDispatchToProps = (dispatch: Dispatch) => ({
   fetchListRecord: (options: FetchListOptions) => dispatch(fetchListRecord(options))
 })
-
 
 export const ListRecordTypes = withRouter(connect(
   mapStateToProps,

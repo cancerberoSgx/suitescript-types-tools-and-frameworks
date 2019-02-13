@@ -28,9 +28,12 @@ export default function configureStore(
   // we'll be passing from our entry point.
 
   store = createStore(
-    connectRouter(history)(rootReducer),
+    rootReducer(history),
+    // connectRouter(history)(rootReducer(history)),
     initialState,
+    // composeEnhancers(applyMiddleware(sagaMiddleware))
     composeEnhancers(applyMiddleware(routerMiddleware(history), sagaMiddleware))
+    // applyMiddleware(routerMiddleware(history), sagaMiddleware)
   ) as any
 
   // Don't forget to run the root saga, and return the store object.

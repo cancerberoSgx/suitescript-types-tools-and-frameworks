@@ -46,12 +46,16 @@ define(["require", "exports", "../../jsx/renderInHtml", "../../search/typedSearc
         var pageSize = parseInt(o.params.pageSize || '10') || 0;
         var currentPage = parseInt(o.params.currentPage || '1') || 1;
         try {
-            var columns_1 = (type ? (TypedSearchColumnValues_1.typedSearchColumnValues[type] || []) : []).map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); }).sort(function (a, b) { return a.name.localeCompare(b.name); });
+            var columns_1 = (type ? (TypedSearchColumnValues_1.typedSearchColumnValues[type] || []) : [])
+                .map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); })
+                .sort(function (a, b) { return a.name.localeCompare(b.name); });
             var userColumns_1 = (o.params.userColumns || '')
                 .trim().split(',')
                 .map(function (f) { return (f === '__new__' && columns_1.length) ? columns_1[0].id : f; })
                 .filter(function (f) { return !!f; }).map(function (name) { return ({ name: name }); });
-            var filters = (type ? (TypedSearchFilterValues_1.typedSearchFilterValues[type] || []) : []).map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); }).sort(function (a, b) { return a.name.localeCompare(b.name); });
+            var filters = (type ? (TypedSearchFilterValues_1.typedSearchFilterValues[type] || []) : [])
+                .map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); })
+                .sort(function (a, b) { return a.name.localeCompare(b.name); });
             var userFilters = (misc_1.tryTo(function () { return JSON.parse(o.params.userFilters || '[]'); }) || []);
             // .map(f => (f.id === '__new__' && filters.length) ? {...filters[0], operator: } : f)
             // .filter(f => !!f).map(name => {
@@ -61,22 +65,15 @@ define(["require", "exports", "../../jsx/renderInHtml", "../../search/typedSearc
             // if(!operatorTypes){
             // return 
             // }
-            // return 
-            // { id: name, name: name, operator: filter, value: '' }
-            // })
             if (type) {
                 var resultSet = search_1.create({ type: type, columns: userColumns_1 }).runPaged({ pageSize: pageSize });
                 var resultSetData = resultSet.fetch({ index: currentPage }).data;
                 var results = resultSetData.map(function (r) { return ({
                     id: r.id + '',
+                    recordType: r.recordType,
                     columns: userColumns_1.map(function (c) { return r.getValue(c) + ''; })
                 }); });
                 return __assign({}, o.params, { columns: columns_1, filters: filters, userFilters: userFilters, userColumns: userColumns_1.map(function (c) { return c.name; }), results: results, pageSize: pageSize, pageRanges: resultSet.pageRanges, currentPage: currentPage, pageCount: resultSet.pageRanges.length, type: type });
-                // return renderInHTMLDocument(
-                //   <SearchView {...o.params} columns={columns} filters={filters} userFilters={userFilters}
-                //     userColumns={userColumns.map(c=>c.name)} results={results} pageSize={pageSize}
-                //     pageRanges={resultSet.pageRanges} currentPage={currentPage} pageCount={resultSet.pageRanges.length}></SearchView>
-                // );
             }
             else {
                 return __assign({}, o.params, { columns: columns_1, filters: filters });

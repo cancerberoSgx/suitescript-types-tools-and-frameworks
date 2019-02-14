@@ -1,6 +1,9 @@
 /** @jsx */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
+import { BootstrapTable1 } from '../../experiments/react-bootstrap-table-next1';
+import { ExposedFunctionTable } from '../../experiments/react-bootstrap-table-next-ExposedFunctionTable';
+import { ClearAllFilters } from '../../experiments/react-bootstrap-table-next-clearallfilters';
 
 
 // import { safeEval } from '../../utils/safeEval';
@@ -53,6 +56,19 @@ export class ExampleLinks extends React.Component<{}, {}> {
             /recordView/item/2235/{'{}'}
           </Link>
         </li>
+      </ul>
+
+      <h3>react-bootstrap-table-next experiments</h3>
+      <ul>
+        <li>
+          BootstrapTable1
+          <BootstrapTable1></BootstrapTable1></li>
+        <li>
+          ExposedFunctionTable
+          <ExposedFunctionTable></ExposedFunctionTable></li>
+        <li>
+          ClearAllFilters
+          <ClearAllFilters></ClearAllFilters></li>
       </ul>
     </div>
   }

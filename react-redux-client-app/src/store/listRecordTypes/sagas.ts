@@ -9,7 +9,7 @@ import { buildRouteUrl } from '../../utils/routeUrl/buildRouteUrl';
 function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
   try {
     const url = buildRouteUrl({
-      routeName: 'listRecordTypesJson',
+      routeName: 'searchViewJson',
       params: { type: action.payload.type, pageSize: action.payload.pageSize },
     })
     // console.trace('listRecordTypes sagas ' + url)

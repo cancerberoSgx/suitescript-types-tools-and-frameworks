@@ -14,17 +14,17 @@ export function searchViewRoute(app: App): Route {
     name: 'searchView',
     handler(o) {
       const { type, error, columns, filters, userFilters, userColumns, results, pageSize, pageRanges, currentPage, pageCount } = getSearchResults(o)
-      if(error){
+      if (error) {
         return error.errorAsHtmlString
       }
-      else if(!type){
+      else if (!type) {
         return renderInHTMLDocument(
-          <SearchView {...o.params} columns={columns||[] as any} filters={filters||[]}></SearchView>
+          <SearchView {...o.params} columns={columns || [] as any} filters={filters || []}></SearchView>
         );
       }
       else {
         return renderInHTMLDocument(
-          <SearchView {...o.params} columns={columns||[] as any} filters={filters||[]} userFilters={userFilters}
+          <SearchView {...o.params} columns={columns || [] as any} filters={filters || []} userFilters={userFilters}
             userColumns={userColumns} results={results} pageSize={pageSize}
             pageRanges={pageRanges} currentPage={currentPage} pageCount={pageCount}></SearchView>
         );
@@ -45,7 +45,7 @@ export function searchViewJsonRoute(app: App): Route {
 }
 
 
-interface SearchResult{ columns?: CreateSearchColumnOptions[], filters?: Filter[], userFilters?: Filter[], userColumns?: string[], results?: { id: string, columns: string[] }[], pageSize?: number, pageRanges?: PageRange[], currentPage?: number, pageCount?: number, error?: SearchError, type?: string }
+interface SearchResult { columns?: CreateSearchColumnOptions[], filters?: Filter[], userFilters?: Filter[], userColumns?: string[], results?: { id: string, columns: string[] }[], pageSize?: number, pageRanges?: PageRange[], currentPage?: number, pageCount?: number, error?: SearchError, type?: string }
 
 function getSearchResults(o: RouterHandlerOptions): SearchResult {
   const { type } = o.params;
@@ -53,14 +53,18 @@ function getSearchResults(o: RouterHandlerOptions): SearchResult {
   const currentPage = parseInt(o.params.currentPage || '1') || 1;
   try {
 
-    const columns = ((type ? ((typedSearchColumnValues as any)[type] || []) : []) as ColumnValue[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name));
+    const columns = ((type ? ((typedSearchColumnValues as any)[type] || []) : []) as ColumnValue[])
+      .map(c => ({ ...c, name: `${c.id} - ${c.label}` }))
+      .sort((a, b) => a.name.localeCompare(b.name));
 
     const userColumns: CreateSearchColumnOptions[] = ((o.params.userColumns || '')
       .trim().split(',') as string[])
       .map(f => (f === '__new__' && columns.length) ? columns[0].id : f)
       .filter(f => !!f).map(name => ({ name }))
 
-    const filters: Filter[] = ((type ? ((typedSearchFilterValues as any)[type] || []) : []) as Filter[]).map(c => ({ ...c, name: `${c.id} - ${c.label}` })).sort((a, b) => a.name.localeCompare(b.name))
+    const filters: Filter[] = ((type ? ((typedSearchFilterValues as any)[type] || []) : []) as Filter[])
+      .map(c => ({ ...c, name: `${c.id} - ${c.label}` }))
+      .sort((a, b) => a.name.localeCompare(b.name))
 
     const userFilters: Filter[] = (tryTo(() => JSON.parse(o.params.userFilters || '[]')) || [])
 
@@ -74,31 +78,24 @@ function getSearchResults(o: RouterHandlerOptions): SearchResult {
     // return 
     // }
 
-
-    // return 
-    // { id: name, name: name, operator: filter, value: '' }
-    // })
-
     if (type) {
-
       const resultSet = create({ type, columns: userColumns }).runPaged({ pageSize });
       const resultSetData = resultSet.fetch({ index: currentPage }).data;
       const results = resultSetData.map(r => ({
         id: r.id + '',
+        recordType: r.recordType,
         columns: userColumns.map(c => r.getValue(c) + '')
       }));
-
-      return { ...o.params, columns, filters, userFilters, userColumns: userColumns.map(c => c.name), results, pageSize, pageRanges: resultSet.pageRanges, currentPage, pageCount: resultSet.pageRanges.length, type }
-      // return renderInHTMLDocument(
-      //   <SearchView {...o.params} columns={columns} filters={filters} userFilters={userFilters}
-      //     userColumns={userColumns.map(c=>c.name)} results={results} pageSize={pageSize}
-      //     pageRanges={resultSet.pageRanges} currentPage={currentPage} pageCount={resultSet.pageRanges.length}></SearchView>
-      // );
+      return {
+        ...o.params, columns, filters, userFilters,
+        userColumns: userColumns.map(c => c.name), results, pageSize,
+        pageRanges: resultSet.pageRanges, currentPage,
+        pageCount: resultSet.pageRanges.length, type
+      }
     }
     else {
       return { ...o.params, columns, filters }
     }
-
   }
   catch (error) {
     return { error: { errorAsHtmlString: `${printNativeError(error).replace(/\n/gmi, '<br/>')}`, message: error.message, type: error.type, name: error.name, stack: printNativeErrorStack(error) } }

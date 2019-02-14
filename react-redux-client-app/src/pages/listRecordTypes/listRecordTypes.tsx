@@ -54,10 +54,11 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
     // this.renderCounter++
     const { type } = this.state
     // debugger
-    // console.log('render', this.state);
+    console.log('render', this.state, this.props);
     return (
       <Page>
         <Container>
+
 
           <div>
             {/* renderCounter: {this.renderCounter}<br /> */}

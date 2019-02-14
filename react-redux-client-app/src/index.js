@@ -16,6 +16,16 @@ import configureStore from './configureStore'
 import { ConnectedRouter } from 'connected-react-router';
 import { ApplicationState } from './store'
 
+
+import $ from 'jquery'
+window.jQuery = $
+// import popper from "popper.js"
+window.popper = {}
+import bootstrap from '../node_modules/bootstrap/dist/js/bootstrap.bundle.js'
+// import bootstrap from "bootstrap"
+require("../node_modules/bootstrap/dist/css/bootstrap.css")
+console.log($, bootstrap, jQuery, popper)
+
 import 'typeface-ibm-plex-sans'
 // import './styles'
 

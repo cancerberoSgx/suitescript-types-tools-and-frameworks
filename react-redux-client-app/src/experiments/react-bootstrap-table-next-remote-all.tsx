@@ -46,8 +46,10 @@ const NoDataIndication = () => (
   </div>
 );
 
-const RemoteAll = ({ data, page, sizePerPage, onTableChange, totalSize, loading }: any) => (
-  <div>
+const RemoteAll = (props: BootstrapTableProps) => {
+
+  const { data, page, sizePerPage, onTableChange, totalSize, loading } = props
+  return <div>
     <BootstrapTable
       remote
       keyField="id"
@@ -62,9 +64,8 @@ const RemoteAll = ({ data, page, sizePerPage, onTableChange, totalSize, loading 
       overlay={overlayFactory({ spinner: true, background: 'rgba(112,192,152,0.3)', })}
       noDataIndication={() => <NoDataIndication />}
     />
-    {/* <Code>{ sourceCode }</Code> */}
   </div>
-);
+}
 
 RemoteAll.propTypes = {
   data: PropTypes.array.isRequired,

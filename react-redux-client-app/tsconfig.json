@@ -10,7 +10,7 @@
     "jsx": "react",
     "moduleResolution": "node",
     // "esModuleInterop": true,
-    "declaration": true,
+    // "declaration": true,
     "rootDir": "src",
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,

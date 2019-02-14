@@ -1,3 +1,7 @@
+
+/// <reference types="react-router" />
+/// <reference types="react-router-dom/node_modules/@types/react-router" />
+
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -216,4 +220,5 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export const ListRecordTypes = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListRecordTypesIndexPage as any) as any) //TODO
+  //@ts-ignore
+)(ListRecordTypesIndexPage)) //TODO

@@ -18,7 +18,7 @@ const columns = [{
   dataField: 'name',
   text: 'Product Name',
   filter: textFilter({
-    getFilter: (filter) => {
+    getFilter: filter => {
       nameFilter = filter;
     }
   })
@@ -36,6 +36,7 @@ const columns = [{
   formatter: (cell: any) => cell.toString(),
   filter: dateFilter({
     getFilter: (filter: any) => {
+      debugger
       stockDateFilter = filter;
     }
   })

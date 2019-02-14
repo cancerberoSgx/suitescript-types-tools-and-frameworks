@@ -9,12 +9,12 @@
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "search.exclude": {
-    "public": true,
-    ".cache": true,
-    "dist": true,
-    "build": true,
-    "test": true,
-    "node_modules": true
+    "**/public": true,
+    "**/.cache": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/test": true,
+    "**/node_modules": true
   },
   "[javascript]": {
     "editor.formatOnSave": true

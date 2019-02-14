@@ -53,13 +53,10 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
   public render() {
     // this.renderCounter++
     const { type } = this.state
-    // debugger
     console.log('render', this.state, this.props);
     return (
       <Page>
         <Container>
-
-
           <div>
             {/* renderCounter: {this.renderCounter}<br /> */}
             Record Types:
@@ -98,18 +95,47 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
               }}>
             </input>
           </div>
-          {!this.props.error && <Loading {...this.props}>
-            {this.props.results && type ?
-              <SearchResults {...this.props} type={type}
-                columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
-                results={this.props.results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
-              </SearchResults> : ''}
-          </Loading>}
+          {!this.props.error &&
+            <Loading {...this.props}>
+              {this.props.results && type && <div>
+
+                <div>
+                  <SearchResults {...this.props} type={type}
+                    columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
+                    results={this.props.results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
+                  </SearchResults> : ''}
+
+                </div>
+                <If c={this.props.results && type}>{e => this.renderBT()}</If>
+              </div>
+              }
+            </Loading>}
           {this.props.error && <ErrorComponent {...this.props.error}></ErrorComponent>}
         </Container>
       </Page >
     )
   }
+
+
+
+  renderBT() {
+
+    const columns = [
+      {
+        dataField: 'id',
+        text: 'Id',
+        sort: true
+      },
+      {
+        dataField: 'type',
+        text: 'Type',
+        sort: false
+      }
+    ]
+    return <div></div>
+
+  }
+
 
   protected async executeActionForNewOptions(newOptions: Options) {
     const type = newOptions.type || this.state.type
@@ -120,7 +146,6 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
       type,
       pageSize: newOptions.pageSize || this.state.pageSize
     }
-    debugger
     // console.log('listRecordTypes executeActionForNewOptions', { newOptions, fetchListRecordOptions });
     this.props.fetchListRecord(fetchListRecordOptions);
   }
@@ -147,4 +172,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export const ListRecordTypes = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListRecordTypesIndexPage))
+)(ListRecordTypesIndexPage as any) as any) //TODO

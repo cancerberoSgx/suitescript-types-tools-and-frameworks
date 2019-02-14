@@ -1,3 +1,11 @@
+ideas:
+
+ * node_modules/table is a serious library to render tables in ascii - could be interesting as an alternative to cvs.
+ * is it possible to produce excel format tanbles in the browser?
+
+
+research on resact tables:
+
 https://github.com/therj/reactable-tutorial
 https://codesandbox.io/s/2w2xw6m6ly?from-embed
 https://codesandbox.io/s/mm9z5vm72j

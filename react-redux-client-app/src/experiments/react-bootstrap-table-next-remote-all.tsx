@@ -41,7 +41,7 @@ const cellEditProps = {
 const NoDataIndication = () => (
   <div className="spinner">
     NO DATA
-  
+
   <p>No dataaaaa</p>
   </div>
 );

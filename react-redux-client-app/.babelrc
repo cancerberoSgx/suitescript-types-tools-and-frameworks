@@ -1,4 +1,14 @@
 {
-  "presets": ["react-app"],
-  "plugins": ["babel-plugin-emotion", "transform-inline-environment-variables"]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry"
+      }
+    ]
+  ],
+  "plugins": [
+    "babel-plugin-emotion",
+    "transform-inline-environment-variables"
+  ]
 }

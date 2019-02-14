@@ -25,7 +25,7 @@ export function listRecordTypesJsonRoute(app: App): Route {
     name: 'listRecordTypesJson',
     contentType: 'json',
     handler(o) {
-      const { type } = o.params
+      const { type, columns } = o.params
       const pageSize = parseInt(o.params.pageSize || '20', 10)
       let counter = 0
       const results = type ? filter({

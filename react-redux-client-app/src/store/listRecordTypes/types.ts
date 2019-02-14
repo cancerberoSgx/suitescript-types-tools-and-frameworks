@@ -24,7 +24,11 @@ export interface ListRecordTypeResult {
 }
 
 
-export interface FetchListOptions { type: string, pageSize: number }
+export interface FetchListOptions {
+  type: string,
+  pageSize: number
+  columns?: string[]
+}
 
 export interface ShowListOptions {
   results: ListRecordTypeResult[]

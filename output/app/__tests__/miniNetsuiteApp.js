@@ -25,6 +25,7 @@ define(["require", "exports", "../../jsx/createElement", "../../jsx/util/Bind", 
         app.addRoute(setFieldValueRoute_1.setFieldValueRoute(app));
         app.addRoute(setSublistFieldValueRoute_1.setSublistFieldValueRoute(app));
         app.addRoute(searchViewRoute_1.searchViewRoute(app));
+        app.addRoute(searchViewRoute_1.searchViewJsonRoute(app));
         miniDebuggerApp_1.addMiniDebuggerRoutes(app);
         app.addRoute(serveFileRoute_1.serveFileRoute(app));
         app.addRoute(serveSPAIndexRoute_1.serveSPAIndexRoute(app));

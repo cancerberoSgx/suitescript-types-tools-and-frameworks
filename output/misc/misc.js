@@ -65,9 +65,13 @@ define(["require", "exports", "./arrayPrototypeFind"], function (require, export
     }());
     exports.TypedMapImpl = TypedMapImpl;
     function printNativeError(error) {
-        return (error && error.type) + ", " + (error && error.name) + "\nCause: " + (error && error.message) + "\nStack Trace:\n" + ((error.stack && Array.isArray(error.stack)) ? error.stack.map(function (s) { return repeat(2, ' ') + s; }).join('\n') : error.stack);
+        return (error && error.type) + ", " + (error && error.name) + "\nCause: " + (error && error.message) + "\nStack Trace:\n" + printNativeErrorStack(error) + "\n";
     }
     exports.printNativeError = printNativeError;
+    function printNativeErrorStack(error) {
+        return "" + ((error.stack && Array.isArray(error.stack)) ? error.stack.map(function (s) { return repeat(2, ' ') + s; }).join('\n') : error.stack);
+    }
+    exports.printNativeErrorStack = printNativeErrorStack;
     // strings
     function escapeHtmlAttribute(code) {
         return code.replace(/\"/gmi, '&quot;');

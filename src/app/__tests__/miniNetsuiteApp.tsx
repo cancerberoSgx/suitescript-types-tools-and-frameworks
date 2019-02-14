@@ -10,7 +10,7 @@ import { listRecordTypesRoute, listRecordTypesResultRoute, listRecordTypesJsonRo
 import { setSublistFieldValueRoute } from '../routes/setSublistFieldValueRoute';
 import { debuggerRoute, addMiniDebuggerRoutes } from './miniDebuggerApp';
 import { renderInHTMLDocument } from '../../jsx/renderInHtml';
-import { searchViewRoute } from "../searchView/searchViewRoute";
+import { searchViewRoute, searchViewJsonRoute } from "../searchView/searchViewRoute";
 import { serveFileRoute } from '../routes/serveFileRoute';
 import { serveSPAIndexRoute } from '../routes/serveSPAIndexRoute';
 
@@ -35,6 +35,7 @@ export function miniNetSuiteApp(request: ServerRequest, response: ServerResponse
   app.addRoute(setSublistFieldValueRoute(app))
 
   app.addRoute(searchViewRoute(app))
+  app.addRoute(searchViewJsonRoute(app))
 
   addMiniDebuggerRoutes(app)
   app.addRoute(serveFileRoute(app))

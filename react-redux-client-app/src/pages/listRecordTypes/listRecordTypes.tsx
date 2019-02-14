@@ -13,6 +13,8 @@ import { Loading } from '../../components/data/Loading';
 import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
 import { ErrorComponent } from '../../components/data/errorComponent';
 import { ErrorOptions } from '../../store/commonTypes';
+import { If, F as Frag } from '../../components/misc';
+import { typedSearchColumnValues } from '../../nstypes/TypedSearchColumnValues';
 
 interface PropsFromState {
   loading?: boolean
@@ -31,6 +33,7 @@ interface RouteParams {
 interface S {
   type?: string
   pageSize: number
+  columns?: string[]
 }
 interface Options extends Partial<S> {
 }
@@ -40,14 +43,18 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
 
   constructor(p: AllProps, s: S) {
     super(p, s)
-    this.state = { type: p.type, pageSize: p.pageSize || 5 }
+    this.state = {
+      type: p.type, pageSize: p.pageSize || 5
+      // , columns: []
+    }
   }
 
   // private renderCounter = 0
   public render() {
     // this.renderCounter++
     const { type } = this.state
-    console.log('render', this.state);
+    // debugger
+    // console.log('render', this.state);
     return (
       <Page>
         <Container>
@@ -66,6 +73,23 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                 <option selected={type === r} value={r}>{r}</option>
               )}
             </select>
+
+            <If c={type}>
+              {type => <Frag>
+                Columns: <select multiple={true}
+                  onChange={e => {
+                    // this.setState({
+                    //   ...this.state, columns: Array.from(e.currentTarget.selectedOptions).map(o => o.value)
+                    // })
+                  }}>
+                  {typedSearchColumnValues[type].map(c =>
+                    <option
+                      selected={(this.state.columns || []).includes(c.id)}
+                      value={c.id}>{c.id} ({c.label})</option>)
+                  }
+                </select>
+              </Frag>}
+            </If>
 
             Page Size: <input type="number" value={this.state.pageSize + ''}
               onChange={async e => {
@@ -95,12 +119,13 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
       type,
       pageSize: newOptions.pageSize || this.state.pageSize
     }
+    debugger
     // console.log('listRecordTypes executeActionForNewOptions', { newOptions, fetchListRecordOptions });
     this.props.fetchListRecord(fetchListRecordOptions);
   }
 
   getRouteOptionNames(): string[] {
-    return ['type', 'pageSize']
+    return ['type', 'pageSize', 'columns']
   }
 
 }

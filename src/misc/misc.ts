@@ -75,9 +75,12 @@ export function printNativeError(error: NativeError) {
   return `${error && error.type}, ${error && error.name}
 Cause: ${error && error.message}
 Stack Trace:
-${(error.stack && Array.isArray(error.stack)) ? error.stack.map(s => repeat(2, ' ') + s).join('\n') : error.stack}`
-}
+${printNativeErrorStack(error)}
+`}
 
+export function printNativeErrorStack(error: NativeError) {
+  return `${(error.stack && Array.isArray(error.stack)) ? error.stack.map(s => repeat(2, ' ') + s).join('\n') : error.stack}`
+}
 
 // strings
 

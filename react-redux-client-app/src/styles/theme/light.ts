@@ -1,5 +1,5 @@
 import { darken, tint } from 'polished';
-import { brandColors } from '../colors/brandColors';
+import { brandColors } from './brandColors';
 import { Theme } from './definition';
 import { themeCommon } from './themeCommon';
 

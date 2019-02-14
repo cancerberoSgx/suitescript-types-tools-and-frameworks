@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { BootstrapTable1 } from '../../experiments/react-bootstrap-table-next1';
 import { ExposedFunctionTable } from '../../experiments/react-bootstrap-table-next-ExposedFunctionTable';
 import { ClearAllFilters } from '../../experiments/react-bootstrap-table-next-clearallfilters';
+import { RemoteAllTestContainer } from '../../experiments/react-bootstrap-table-next-remote-all';
 
 
 // import { safeEval } from '../../utils/safeEval';
@@ -69,6 +70,9 @@ export class ExampleLinks extends React.Component<{}, {}> {
         <li>
           ClearAllFilters
           <ClearAllFilters></ClearAllFilters></li>
+        <li>
+          RemoteAll
+          <RemoteAllTestContainer></RemoteAllTestContainer></li>
       </ul>
     </div>
   }

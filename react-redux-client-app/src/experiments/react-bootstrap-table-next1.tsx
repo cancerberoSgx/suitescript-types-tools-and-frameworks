@@ -1,8 +1,6 @@
 import * as React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
-import '../../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.css';
 import { array } from '../utils/misc';
-
 
 const products = array(20).map(i => ({ id: i, name: Math.random() + '', price: Math.random }))
 const columns = [{

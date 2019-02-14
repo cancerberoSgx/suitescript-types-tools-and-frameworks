@@ -1,6 +1,5 @@
-class BootstrapTable<FieldIds extends string> extends React.Component<BootstrapTableProps<FieldIds>, TODO>{
 
-}
+class BootstrapTable<FieldIds extends string> extends React.Component<BootstrapTableProps<FieldIds>, TODO>{ }
 
 type Row<FieldId extends string, Type extends any=any> = { [fieldName in FieldId]: RowFieldValue }
 
@@ -24,8 +23,8 @@ interface BootstrapTableProps<fieldIds extends string> extends PaginationTablePr
   data: Row<fieldIds>[]
   columns: Column<fieldIds>[]
   defaultSorted?: Sorted[]
-  filter: TODO
-  pagination: Pagination
+  filter?: TODO
+  pagination?: Pagination
   cellEdit?: CellEdit<CellEditProps>
   onTableChange?: onTableChange
   overlay?: Overlay
@@ -43,7 +42,6 @@ type TODO = any
 interface Pagination extends TODO {
 
 }
-declare function paginationFactory(options?: PaginationOptions): Pagination
 
 interface PaginationOptions {
   page: number,
@@ -103,7 +101,6 @@ interface Sorted {
   defaultField: string
   order: string
 }
-declare function filterFactory(options?: FilterOptions): Filter
 
 interface FilterOptions {
   page: number,
@@ -116,12 +113,12 @@ interface FilterOptions {
 interface Filter<Type extends TODO = TODO> {
   filterVal: FilterVal,
   filterType: FilterType,
-  comparator(a: Type, b: Type): TODO
+  comparator: PredefinedComparatorTypes //| (a: Type, b: Type): TODO
 }
 type FilterVal = string | TODO
 type FilterType = 'TEXT' | TODO
-enum Comparator { LIKE, TODO }
-
+type PredefinedComparatorTypes = 'LIKE' | 'EQ' | TODO
+type PredefinedComparators = { [type in PredefinedComparatorTypes]: TODO }
 
 
 
@@ -132,29 +129,24 @@ interface Overlay {
 }
 type Color = string
 
+interface TextFilterProps { caseSensitive?: true, getFilter?(filter: Filter<TODO>): TODO }
 
 declare module 'react-bootstrap-table-next' {
   export default BootstrapTable
 }
 
+
 declare module "react-bootstrap-table2-filter" {
-  // filterFactory, { textFilter, dateFilter }
-  export default paginationFactory
-
-
-  export function textFilter(props: {
-    getFilter(filter: Filter<TODO>): TODO
-  }): ColumnFilter
-  export function dateFilter(props: {
-    getFilter(filter: Filter<TODO>): TODO
-  }): ColumnFilter
-
-
+  export default function filterFactory(options?: FilterOptions): Filter
+  export function textFilter(props: TextFilterProps): ColumnFilter
+  export function dateFilter(props: { getFilter(filter: Filter<TODO>): TODO }): ColumnFilter
+  export var Comparator: PredefinedComparators
 }
 declare module "react-bootstrap-table2-paginator" {
-  // paginationFactory
-  export default paginationFactory
+  export default function paginationFactory(options?: PaginationOptions): Pagination
 }
-declare module "react-bootstrap-table2-editor"
-declare module "react-bootstrap-table2-overlay"
-declare module "jquery"
+// declare module "react-bootstrap-table2-editor"{
+
+// }
+// declare module "react-bootstrap-table2-overlay"
+// declare module "jquery"

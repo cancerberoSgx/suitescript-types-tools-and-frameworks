@@ -15,6 +15,10 @@ import { ErrorComponent } from '../../components/data/errorComponent';
 import { ErrorOptions } from '../../store/commonTypes';
 import { If, F as Frag } from '../../components/misc';
 import { typedSearchColumnValues } from '../../nstypes/TypedSearchColumnValues';
+import BootstrapTable from 'react-bootstrap-table-next';
+import filterFactory, { textFilter, dateFilter } from 'react-bootstrap-table2-filter';
+import { array } from '../../utils/misc';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
 interface PropsFromState {
   loading?: boolean
@@ -58,6 +62,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
       <Page>
         <Container>
           <div>
+            {/* <div>{this.renderBT()}</div> */}
             {/* renderCounter: {this.renderCounter}<br /> */}
             Record Types:
             <select onChange={async e => {
@@ -120,19 +125,58 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
 
   renderBT() {
 
-    const columns = [
-      {
-        dataField: 'id',
-        text: 'Id',
-        sort: true
-      },
-      {
-        dataField: 'type',
-        text: 'Type',
-        sort: false
-      }
-    ]
-    return <div></div>
+    let type: any;
+    let priceFilter: any;
+    let stockDateFilter: any;
+
+    const columns = [{
+      dataField: 'id',
+      text: 'Internal Id'
+    },
+    {
+      dataField: 'type',
+      text: 'Record Type',
+      filter: textFilter({
+        getFilter: (filter: Filter) => {
+          type = filter;
+        }
+      })
+    }, {
+      dataField: 'price',
+      text: 'Price',
+      filter: textFilter({
+        getFilter: (filter: any) => {
+          priceFilter = filter;
+        }
+      })
+    }, {
+      dataField: 'inStockDate',
+      text: 'InStock Date',
+      formatter: (cell: any) => cell.toString(),
+      filter: dateFilter({
+        getFilter: (filter: any) => {
+          stockDateFilter = filter;
+        }
+      })
+    }];
+    const handleClick = () => {
+      type('');
+      priceFilter('');
+      stockDateFilter();
+    };
+    const products = array(200).map(i => ({ id: i, name: Math.random() + '', price: '$' + Math.random(), inStockDate: new Date(Math.random() * 1000000) }))
+    return <div>
+      <button className="btn btn-lg btn-primary" onClick={handleClick}> Clear all filters </button>
+      <BootstrapTable
+        keyField="id"
+        data={products}
+        pagination={paginationFactory()}
+        columns={columns}
+        filter={filterFactory()}
+      />
+    </div>
+
+
 
   }
 

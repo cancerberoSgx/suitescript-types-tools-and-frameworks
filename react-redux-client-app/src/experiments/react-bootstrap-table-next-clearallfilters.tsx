@@ -18,7 +18,7 @@ const columns = [{
   dataField: 'name',
   text: 'Product Name',
   filter: textFilter({
-    getFilter: (filter: any) => {
+    getFilter: (filter) => {
       nameFilter = filter;
     }
   })

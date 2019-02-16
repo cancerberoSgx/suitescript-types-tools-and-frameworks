@@ -5,6 +5,9 @@ import { Dispatch } from 'redux';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { DataTable } from './DataTable';
 import { I } from '../misc';
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+import filterFactory from 'react-bootstrap-table2-filter';
 
 interface PropsFromState {
   type: string
@@ -51,12 +54,28 @@ class ListRecordTypesIndexPage extends React.Component<AllProps> {
     if (!results) {
       return <div>No results</div>
     }
+    // const columns = this.state.columns.map(c=>({
+    //   dataField: c.id,
+    //   text: `${c.id} (${c.label})}`
+    // })) as Column[]
+    // const data: Row[] = this.props.results || []
+    // return <BootstrapTable
+    //   keyField="id"
+    //   data={data}
+    //   pagination={paginationFactory(
+    //     // {sizePerPage: this.state.pageSize, page: this.state.page}
+    //     )}
+    //   columns={columns}
+    //   filter={filterFactory()}
+    // />
+
     return (
+
       <DataTable columns={['Id', ...columns.map(c => c.id + ' - ' + c.label)]}>
-        {results.map(r =>
-          <tr>
+        {results.map((r, i) =>
+          <tr key={i}>
             <td><Link to={`/recordView/${r.type}/${r.id}/{}`}># {r.id}</Link></td >
-            {r.columns.map(c => c + '').map(c => <td><ColumnResult c={c}></ColumnResult></td>)}
+            {r.columns.map(c => c + '').map((c, j) => <td key={j}><ColumnResult c={c}></ColumnResult></td>)}
           </tr>)}
       </DataTable>
     )

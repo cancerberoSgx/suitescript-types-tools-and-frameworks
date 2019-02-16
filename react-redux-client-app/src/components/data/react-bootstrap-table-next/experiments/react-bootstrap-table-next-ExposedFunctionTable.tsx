@@ -3,7 +3,7 @@ import * as React from 'react';
 import BootstrapTable from 'react-bootstrap-table-next';
 import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
-import { array } from '../utils/misc';
+import { array } from '../../../../utils/misc';
 
 const columns = [{
   dataField: 'id',

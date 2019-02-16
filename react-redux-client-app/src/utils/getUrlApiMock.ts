@@ -19,7 +19,7 @@ export function getUrlApiMock(method: string, url: string) {
     url = `ajaxResponseMocks/__app__routeParamName=listRecordTypesJson&__app__type=commercecategory&__app__pageSize=5.json`;
   }
   else if (url.includes('__app__routeParamName=searchViewJson')) {
-    url = `ajaxResponseMocks/__app__type=item&__app__routeParamName=searchViewJson&__app__userColumns=created&__app__pageSize=5&__app__currentPage=1&__app__userFilters=.json`;
+    url = `ajaxResponseMocks/__app__routeParamName=searchViewJson&__app__type=item&__app__pageSize=16.json`;
   }
   return fetchJson(method, url);
 }

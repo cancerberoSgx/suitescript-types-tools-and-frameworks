@@ -1,9 +1,9 @@
 /** @jsx */
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { BootstrapTable1 } from '../../experiments/react-bootstrap-table-next1';
-import { ExposedFunctionTable } from '../../experiments/react-bootstrap-table-next-ExposedFunctionTable';
-import { ClearAllFilters } from '../../experiments/react-bootstrap-table-next-clearallfilters';
+import { BootstrapTable1 } from '../../components/data/react-bootstrap-table-next/experiments/react-bootstrap-table-next1';
+import { ExposedFunctionTable } from '../../components/data/react-bootstrap-table-next/experiments/react-bootstrap-table-next-ExposedFunctionTable';
+import { ClearAllFilters } from '../../components/data/react-bootstrap-table-next/experiments/react-bootstrap-table-next-clearallfilters';
 // import { RemoteAllTestContainer } from '../../experiments/react-bootstrap-table-next-remote-all';
 
 
@@ -61,12 +61,12 @@ export class ExampleLinks extends React.Component<{}, {}> {
 
       <h3>react-bootstrap-table-next experiments</h3>
       <ul>
-        <li>
+        {/* <li>
           BootstrapTable1
           <BootstrapTable1></BootstrapTable1></li>
         <li>
           ExposedFunctionTable
-          <ExposedFunctionTable></ExposedFunctionTable></li>
+          <ExposedFunctionTable></ExposedFunctionTable></li> */}
         <li>
           ClearAllFilters
           <ClearAllFilters></ClearAllFilters></li>

@@ -1,6 +1,8 @@
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core';
 
-/// <reference types="react-router" />
-/// <reference types="react-router-dom/node_modules/@types/react-router" />
+// / <reference types="react-router" />
+// / <reference types="react-router-dom/node_modules/@types/react-router" />
 
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -19,10 +21,11 @@ import { ErrorComponent } from '../../components/data/errorComponent';
 import { ErrorOptions } from '../../store/commonTypes';
 import { If, F as Frag } from '../../components/misc';
 import { typedSearchColumnValues } from '../../nstypes/TypedSearchColumnValues';
-import BootstrapTable from 'react-bootstrap-table-next';
+import BootstrapTable, { Column, Row } from 'react-bootstrap-table-next';
 import filterFactory, { textFilter, dateFilter } from 'react-bootstrap-table2-filter';
 import { array } from '../../utils/misc';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import SearchResults2 from '../../components/data/SearchResults2';
 
 interface PropsFromState {
   loading?: boolean
@@ -41,18 +44,21 @@ interface RouteParams {
 interface S {
   type?: string
   pageSize: number
+  page: number
   columns?: string[]
 }
 interface Options extends Partial<S> {
 }
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
+
+
 class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options> {
 
   constructor(p: AllProps, s: S) {
     super(p, s)
     this.state = {
-      type: p.type, pageSize: p.pageSize || 5
+      type: p.type, pageSize: p.pageSize || 5, page: 1
       // , columns: []
     }
   }
@@ -65,125 +71,78 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
     return (
       <Page>
         <Container>
-          <div>
-            {/* <div>{this.renderBT()}</div> */}
-            {/* renderCounter: {this.renderCounter}<br /> */}
-            Record Types:
-            <select onChange={async e => {
+          <div css={css`& h4 {display: inline; margin-left: 1em}`}>
+            <h4>
+              Record Types:
+            </h4>
+            <select value={!type ? '' : this.props.recordTypes.find(t => t === type)} onChange={async e => {
               const type = e.currentTarget.selectedOptions[0].value
               if (type) {
-                this.setState({ ...this.state, type })
+                this.setState({ type })
               }
             }}>
-              <option selected={!type}>Select a Record Type</option>
+              <option>Select a Record Type</option>
               {this.props.recordTypes.map(r =>
-                <option selected={type === r} value={r}>{r}</option>
+                <option value={r} key={r}>{r}</option>
               )}
             </select>
 
             <If c={type}>
-              {type => <Frag>
-                Columns: <select multiple={true}
-                  onChange={e => {
-                    // this.setState({
-                    //   ...this.state, columns: Array.from(e.currentTarget.selectedOptions).map(o => o.value)
-                    // })
-                  }}>
-                  {typedSearchColumnValues[type].map(c =>
-                    <option
-                      selected={(this.state.columns || []).includes(c.id)}
-                      value={c.id}>{c.id} ({c.label})</option>)
-                  }
-                </select>
-              </Frag>}
+              {type => {
+                const columns = [{ id: 'id', label: 'Id' }, { id: 'recordType', label: 'Record Type' },
+                ...typedSearchColumnValues[type]].sort((a, b) => a.id.localeCompare(b.id))
+
+                return <span>
+                  <h4>
+                    Columns:
+                </h4>
+                  <select multiple={true}
+                    onChange={e => {
+                      const selected = e.currentTarget.selectedOptions.length ? Array.from(e.currentTarget.selectedOptions).map(o => o.value) : []
+                      debugger
+                      if (selected.length) {
+                        this.setState({ columns: selected })
+                      }
+                    }}>
+                    {columns.map(c =>
+                      <option
+                        defaultChecked={(this.state.columns || []).includes(c.id)}
+                        value={c.id} key={c.id}>{c.id} ({c.label})</option>)
+                    }
+                  </select>
+                </span>
+              }}
             </If>
 
-            Page Size: <input type="number" value={this.state.pageSize + ''}
-              onChange={async e => {
-                this.setState({ ...this.state, pageSize: e.currentTarget.valueAsNumber })
-              }}>
-            </input>
+            <span>
+              <h4>
+                Page Size:
+              </h4>
+              <input type="number" value={this.state.pageSize + ''}
+                onChange={async e => {
+                  this.setState({ ...this.state, pageSize: e.currentTarget.valueAsNumber })
+                }}>
+              </input>
+            </span>
           </div>
+
           {!this.props.error &&
-            <Loading {...this.props}>
-              {this.props.results && type && <div>
-
-                <div>
-                  <SearchResults {...this.props} type={type}
-                    columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
-                    results={this.props.results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
-                  </SearchResults> : ''}
-
-                </div>
-                <If c={this.props.results && type}>{e => this.renderBT()}</If>
-              </div>
-              }
+            <Loading {...this.props}><div>
+              <If c={this.props.results}>{results => <div>
+                {/* {this.renderBT()} */}
+                <SearchResults2 {...this.props} type={type!} columns={this.state.columns!} results={results}></SearchResults2>
+                <SearchResults {...this.props} type={type!}
+                  columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
+                  results={results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
+                </SearchResults>
+              </div>}</If>
+            </div>
             </Loading>}
           {this.props.error && <ErrorComponent {...this.props.error}></ErrorComponent>}
         </Container>
       </Page >
     )
   }
-
-
-
-  renderBT() {
-
-    let type: any;
-    let priceFilter: any;
-    let stockDateFilter: any;
-
-    const columns = [{
-      dataField: 'id',
-      text: 'Internal Id'
-    },
-    {
-      dataField: 'type',
-      text: 'Record Type',
-      filter: textFilter({
-        getFilter: (filter: Filter) => {
-          type = filter;
-        }
-      })
-    }, {
-      dataField: 'price',
-      text: 'Price',
-      filter: textFilter({
-        getFilter: (filter: any) => {
-          priceFilter = filter;
-        }
-      })
-    }, {
-      dataField: 'inStockDate',
-      text: 'InStock Date',
-      formatter: (cell: any) => cell.toString(),
-      filter: dateFilter({
-        getFilter: (filter: any) => {
-          stockDateFilter = filter;
-        }
-      })
-    }];
-    const handleClick = () => {
-      type('');
-      priceFilter('');
-      stockDateFilter();
-    };
-    const products = array(200).map(i => ({ id: i, name: Math.random() + '', price: '$' + Math.random(), inStockDate: new Date(Math.random() * 1000000) }))
-    return <div>
-      <button className="btn btn-lg btn-primary" onClick={handleClick}> Clear all filters </button>
-      <BootstrapTable
-        keyField="id"
-        data={products}
-        pagination={paginationFactory()}
-        columns={columns}
-        filter={filterFactory()}
-      />
-    </div>
-
-
-
-  }
-
 
   protected async executeActionForNewOptions(newOptions: Options) {
     const type = newOptions.type || this.state.type
@@ -220,5 +179,5 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export const ListRecordTypes = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-  //@ts-ignore
+  // @ts-igno re
 )(ListRecordTypesIndexPage)) //TODO

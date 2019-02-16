@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import BootstrapTable from 'react-bootstrap-table-next';
+import BootstrapTable, {BootstrapTableProps} from 'react-bootstrap-table-next';
 import filterFactory, { textFilter, dateFilter, Comparator } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import cellEditFactory from 'react-bootstrap-table2-editor';
-import { array } from '../utils/misc';
+import { array } from '../../../../utils/misc';
 import PropTypes from 'prop-types';
 import overlayFactory from 'react-bootstrap-table2-overlay';
 

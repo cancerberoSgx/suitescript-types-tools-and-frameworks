@@ -35,6 +35,16 @@ export function Link<O={}>(props: { options: O } & LinkProps & Props) {
 }
 
 
+export function Js(props: {children: (...args: any[]) => any }) {
+  const r = props.children()
+  console.log(r);
+
+  return r ? <F>{r}</F> : <F></F>
+}
+
+
+
+
 
 /** if as statement. children need to be in a function and the function accepts a parameter which value is given condition `c` but casted to NotFalsy<C> so there's no need of type guards in the body. Example:
 ```

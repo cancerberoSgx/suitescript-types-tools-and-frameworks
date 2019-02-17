@@ -1,4 +1,3 @@
-import { readFileSync } from 'fs';
 import { getUrlApiMock } from './getUrlApiMock';
 
 export default function callApi(method: string, url: string, path: string, data?: any) {
@@ -20,15 +19,18 @@ export function getUrlApi(method: string, url: string) {
 }
 
 export function fetchJson(method: string, url: string): Promise<any> {
-  if(ENABLE_AJAX_MOCK){
+  if(ENABLE_AJAX_MOCK && location.href.startsWith('http://localhost/')){
     try {
       const file = `test/${getUrlApiMock(method, url)}`
-      const text = readFileSync(file).toString()
+      const text = require('fs').readFileSync(file).toString()
       const result= JSON.parse(text)
       return Promise.resolve(result)
     } catch (error) {
       throw { error }
     }
+  }
+  else if(ENABLE_AJAX_MOCK) {
+    url = getUrlApiMock(method, url)
   }
   let aux: any
   const p = fetch(url, {

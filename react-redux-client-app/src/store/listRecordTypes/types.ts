@@ -1,6 +1,6 @@
 import { ErrorOptions } from '../commonTypes';
 
-export const enum ListRecordTypesActionTypes {
+export enum ListRecordTypesActionTypes {
   FETCH_LIST = '@@listRecordTypes/FETCH_LIST',
   SHOW_LIST = '@@listRecordTypes/SHOW_LIST',
 

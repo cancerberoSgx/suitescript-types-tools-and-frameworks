@@ -3,12 +3,12 @@ import { ListRecordTypesState, ListRecordTypesActionTypes, ShowListOptions, Fetc
 import { getSearchRecordTypes } from '../../nstypes/search';
 import { ErrorOptions } from '../commonTypes';
 
-const initialState: ListRecordTypesState = {
+export const listRecordTypesInitialState: ListRecordTypesState = {
   recordTypes: getSearchRecordTypes(),
   pageSize: 5
 }
 
-const reducer: Reducer<ListRecordTypesState> = (state = initialState, action) => {
+const reducer: Reducer<ListRecordTypesState> = (state = listRecordTypesInitialState, action) => {
   switch (action.type) {
     case ListRecordTypesActionTypes.FETCH_LIST: {
       // debugger

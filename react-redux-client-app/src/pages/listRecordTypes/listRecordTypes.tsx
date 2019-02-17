@@ -128,7 +128,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
 
           {!this.props.error &&
             <Loading {...this.props}><div>
-              <If c={this.props.results}>{results => <div>
+              <If<ListRecordTypeResult[]> c={this.props.results}>{results => <div>
                 {/* {this.renderBT()} */}
                 <SearchResults2 {...this.props} type={type!} columns={this.state.columns!} results={results}></SearchResults2>
                 <SearchResults {...this.props} type={type!}

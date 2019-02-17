@@ -2,12 +2,12 @@ import { Reducer } from 'redux'
 import { RecordViewState, RecordViewActionTypes, FetchRecordOptions, ShowRecordOptions } from './types'
 import { ErrorOptions } from '../commonTypes';
 
-const initialState: RecordViewState = {
+export const recordViewInitialState: RecordViewState = {
   seeValues: false,
   showAllFields: false,
   showSublistLines: false
 }
-const reducer: Reducer<RecordViewState> = (state = initialState, action) => {
+const reducer: Reducer<RecordViewState> = (state = recordViewInitialState, action) => {
   switch (action.type) {
     case RecordViewActionTypes.FETCH: {
       const options = action.payload as FetchRecordOptions

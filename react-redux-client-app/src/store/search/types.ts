@@ -1,6 +1,6 @@
 import { ErrorOptions } from '../commonTypes';
 
-export const enum SearchActionTypes {
+export enum SearchActionTypes {
   SEARCH = '@@Search/SEARCH',
   SHOW = '@@Search/SHOW',
   // TYPE_SELECTED = '@@Search/TYPE_SELECTED',

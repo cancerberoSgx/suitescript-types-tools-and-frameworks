@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { connect } from 'react-redux'
 
-import { ApplicationState } from '../store'
-import { ThemeColors } from '../store/layout'
-import * as layoutActions from '../store/layout/actions'
+import { ApplicationState } from '../../store'
+import { ThemeColors } from '../../store/layout'
+import * as layoutActions from '../../store/layout/actions'
 import { Dispatch } from 'redux';
 
 interface PropsFromState {

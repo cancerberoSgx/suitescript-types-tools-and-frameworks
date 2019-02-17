@@ -4,7 +4,7 @@ import { complement, readableColor } from 'polished';
 import * as React from 'react';
 import { NavLink } from 'react-router-dom';
 import { styled } from '../../styles/theme/definition';
-import { LayoutContainer } from '../LayoutContainer';
+import { LayoutContainer } from './LayoutContainer';
 import { Container } from './Container';
 import { jsx, css } from '@emotion/core';
 
@@ -53,7 +53,6 @@ export default Header
 const Wrapper = styled('header')`
   padding: 0.5rem 1.5rem;
   background-color: ${props => props.theme.colors.brand};
-  // color: ${props => props.theme.colors.white};
   font-family: ${props => props.theme.fonts.headings};
 `
 
@@ -104,10 +103,6 @@ const Title = styled('h2')`
   margin: 0;
   font-weight: 500;
 `
-
-// const CurrentTheme = styled('span')`
-//   margin-right: 1rem;
-// `
 
 const ThemeSwitcherButton = styled('button')`
   display: inline-block;

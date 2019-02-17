@@ -1,4 +1,4 @@
-import { tryTo } from './misc';
+import { readFileSync } from 'fs';
 import { getUrlApiMock } from './getUrlApiMock';
 
 export default function callApi(method: string, url: string, path: string, data?: any) {
@@ -12,14 +12,24 @@ export default function callApi(method: string, url: string, path: string, data?
   }).then(res => res.json())
 }
 
-
 export function getUrlApi(method: string, url: string) {
-  if (ENABLE_AJAX_MOCK) {
-    return getUrlApiMock(method, url)
-  }
+  // if (ENABLE_AJAX_MOCK) {
+  //   url =  getUrlApiMock(method, url)
+  // }
   return fetchJson(method, url)
 }
-export function fetchJson(method: string, url: string) {
+
+export function fetchJson(method: string, url: string): Promise<any> {
+  if(ENABLE_AJAX_MOCK){
+    try {
+      const file = `test/${getUrlApiMock(method, url)}`
+      const text = readFileSync(file).toString()
+      const result= JSON.parse(text)
+      return Promise.resolve(result)
+    } catch (error) {
+      throw { error }
+    }
+  }
   let aux: any
   const p = fetch(url, {
     method,
@@ -28,11 +38,11 @@ export function fetchJson(method: string, url: string) {
       'Content-Type': 'application/json'
     },
   })
-    .then(res => {
-      return res.text()
-    })
-    .then(text => {
-      aux = text
+  .then(res => {
+    return res.text()
+  })
+  .then(text => {
+    aux = text
       try {
         return Promise.resolve(JSON.parse(text))
       } catch (error) {
@@ -43,7 +53,7 @@ export function fetchJson(method: string, url: string) {
   return p
 }
 
-const ENABLE_AJAX_MOCK = !location.href.includes('forms.netsuite.com')
+const ENABLE_AJAX_MOCK = !location.href.includes('forms.netsuite.com')// ? 'ns' : location.host.includes('localhost') ? ''
 if (ENABLE_AJAX_MOCK) {
 
 }

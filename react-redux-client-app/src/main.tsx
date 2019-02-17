@@ -27,7 +27,7 @@ interface OwnProps {
 
 type AllProps = PropsFromState & PropsFromDispatch & OwnProps
 
-class Main extends React.Component<AllProps> {
+export class Main extends React.Component<AllProps> {
   public render() {
     const { store, history, theme } = this.props
 

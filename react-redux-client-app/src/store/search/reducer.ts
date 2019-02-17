@@ -2,10 +2,10 @@ import { Reducer } from 'redux'
 import { SearchState, SearchActionTypes, ShowSearchOptions, FetchSearchOptions } from './types'
 import { ErrorOptions } from '../commonTypes';
 
-const initialState: SearchState = {
+export const searchInitialState: SearchState = {
 
 }
-const reducer: Reducer<SearchState> = (state = initialState, action) => {
+const reducer: Reducer<SearchState> = (state = searchInitialState, action) => {
   switch (action.type) {
     case SearchActionTypes.SEARCH: {
       const options = action.payload as FetchSearchOptions

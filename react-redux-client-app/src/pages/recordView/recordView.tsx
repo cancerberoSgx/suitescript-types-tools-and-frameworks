@@ -70,9 +70,6 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
     }
 
   }
-
-
-
   public render() {
     const { record } = this.props
     return (
@@ -115,7 +112,6 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
                 </ul>
               </RecordViewToolBox>
 
-
               <h1>{record.type} {record.id} </h1>
 
               <h2>Fields <Count>{record.fields.length}</Count></h2>
@@ -124,7 +120,6 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
               <h2>Sublists <Count>{record.sublists.length}</Count></h2>
               <RecordSublists {...{ ...this.props, ...this.state }}
                 setRecord={(...args) => {
-                  // this.setRecord.bind(this)
                   throw 'Not implemented'
                 }}></RecordSublists>
             </div>}
@@ -151,7 +146,6 @@ const RecordViewToolBox = styled(ToolBox)`
     margin: 0;
   }
 `
-
 
 const mapStateToProps = ({ recordView }: ApplicationState) => ({
   type: recordView.type,

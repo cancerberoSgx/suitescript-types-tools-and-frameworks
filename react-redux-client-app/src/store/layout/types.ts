@@ -7,7 +7,7 @@ export type ThemeColors = 'light' | 'dark'
 // Define however naming conventions you'd like for your action types, but
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
-export const enum LayoutActionTypes {
+export enum LayoutActionTypes {
   SET_THEME = '@@layout/SET_THEME'
 }
 

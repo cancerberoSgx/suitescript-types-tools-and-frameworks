@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { minWidth } from '../styles/media';
 import { styled } from '../styles/theme';
 import { PagePadding, PagePaddingTopLeft } from './layout/Page';
+import { Children } from './misc';
 
-interface P { className?: string }
+interface P { className?: string, children: Children }
 interface S {
   active?: boolean
 }
@@ -18,7 +19,7 @@ class ToolBox extends React.Component<P, S> {
       <Wrapper className={(this.state.active ? 'active ' : '') + (this.props.className || '')}>
         <button className="button" onClick={e => this.setState({ ...this.state, active: !this.state.active })}>{this.state.active ? 'Hide Settings' : 'Show Settings'}</button>
         <div className="content">
-          {...this.props.children as any[]}
+          {this.props.children}
         </div>
       </Wrapper>
     )

@@ -5,10 +5,14 @@
   "scripts": {
     "start": "npm run mock && react-scripts-parcel start",
     "build": "npx parcel build public/index.html --detailed-report",
-    "test": "react-scripts-parcel test --env=jsdom",
+    "test": "npx jest --runInBand",
+    "test-watch": "npx jest --runInBand --watch",
     "eject": "react-scripts-parcel eject",
     "url": "npx ts-node -P tsconfig-node.json scripts/getNsUrlFromIndex.ts",
     "mock": "rm -rf dist/ajaxResponseMocks && cp -rf test/ajaxResponseMocks dist"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./scripts/setupTests.js"
   },
   "browserslist": {
     "development": [
@@ -44,29 +48,36 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.1",
-    "typeface-ibm-plex-mono": "^0.0.61",
-    "typeface-ibm-plex-sans": "^0.0.61",
     "typesafe-actions": "^3.1.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/enzyme": "^3.1.18",
     "@types/history": "^4.7.2",
+    "@types/jest": "^24.0.5",
     "@types/node": "^11.9.4",
     "@types/react": "^16.8.2",
     "@types/react-dom": "^16.8.1",
     "@types/react-redux": "^7.0.1",
     "@types/react-router": "^4.4.4",
     "@types/react-router-dom": "^4.3.1",
-    "babel-core": "^6.26.3",
     "babel-plugin-emotion": "^10.0.7",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
-    "babel-preset-react-app": "^7.0.1",
     "dotenv-expand": "^4.2.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
     "http2": "^3.3.7",
+    "jest": "^24.1.0",
     "react-scripts-parcel": "0.0.38",
     "redux-devtools-extension": "^2.13.8",
     "tslint": "^5.12.1",
     "tslint-config-blvd": "^1.2.1",
-    "typescript": "^3.3.3"
+    "typescript": "^3.3.3",
+    "whatwg-fetch": "^3.0.0"
   }
 }

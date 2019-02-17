@@ -1,14 +1,8 @@
-import { all, call, fork, put, takeEvery } from 'redux-saga/effects'
-import { RecordViewActionTypes } from './types'
-import { fetchError, fetchSuccess, fetchRecord, showRecord } from './actions'
-import { getUrlApi } from '../../utils/callApi'
+import { all, call, fork, put, takeEvery } from 'redux-saga/effects';
+import { getUrlApi } from '../../utils/callApi';
 import { buildRouteUrl } from '../../utils/routeUrl/buildRouteUrl';
-
-// declare function buildRouteUrl(config: RenderLinkOptions): string;
-// interface RenderLinkOptions {
-//   routeName: string;
-//   params: { [k: string]: any };
-// }
+import { fetchError, fetchRecord, fetchSuccess, showRecord } from './actions';
+import { RecordViewActionTypes } from './types';
 
 function* handleFetch(action: ReturnType<typeof fetchRecord>) {
   try {
@@ -16,7 +10,6 @@ function* handleFetch(action: ReturnType<typeof fetchRecord>) {
       routeName: 'recordViewJson',
       params: { ...action.payload },
     }))
-    // debugger
     if (res.error) {
       yield put(fetchError(res))
     } else {
@@ -24,13 +17,7 @@ function* handleFetch(action: ReturnType<typeof fetchRecord>) {
       yield put(showRecord(res))
     }
   } catch (err) {
-    // debugger
     yield put(fetchError(err))
-    // if (err instanceof Error) {
-    // yield put(fetchError(err.stack!))
-    // } else {
-    // yield put(fetchError('An unknown error occurred.'))
-    // }
   }
 }
 

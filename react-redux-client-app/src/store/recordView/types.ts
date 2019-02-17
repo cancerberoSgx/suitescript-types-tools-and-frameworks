@@ -1,6 +1,6 @@
 import { ErrorOptions } from '../commonTypes';
 
-export const enum RecordViewActionTypes {
+export enum RecordViewActionTypes {
   FETCH = '@@recordView/FETCH',
   SHOW = '@@recordView/SHOW',
   FETCH_REQUEST = '@@recordView/FETCH_REQUEST',

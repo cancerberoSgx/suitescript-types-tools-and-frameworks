@@ -1,6 +1,6 @@
 import { ErrorOptions } from '../commonTypes';
 
-export const enum ApiActionTypes {
+export enum ApiActionTypes {
   API_REQUEST = '@@Api/API_REQUEST',
   // API_RESPONSE = '@@Api/API_RESPONSE',
   API_ERROR = '@@Api/API_ERROR',

@@ -3,6 +3,7 @@ import * as React from 'react';
 import { styled } from '../../styles/theme'
 import { keyframes } from '@emotion/core'
 import { transparentize } from 'polished'
+import { Children } from '../misc';
 
 const LoadingOverlayInner = styled('div')`
   display: flex;
@@ -71,9 +72,7 @@ const Spinner = styled('div')`
   }
 `
 
-
-
-export const Loading = (props: { loading?: boolean, children?: JSX.Element | string }) =>
+export const Loading = (props: { loading?: boolean, children?: Children }) =>
   <LoadingWrapper>
     {props.loading && (
       <LoadingOverlay>

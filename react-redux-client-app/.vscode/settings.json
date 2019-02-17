@@ -8,7 +8,7 @@
     "**/public": true,
     "**/.cache": true,
     "**/dist": true,
-    "**/build": true,
+    // "**/build": true,
     "**/test": true,
     "**/node_modules": true
   },
@@ -18,9 +18,9 @@
     "**/dist/**": true
   },
   "files.exclude": {
-    "**/.cache/**": true,
-    "**/build/**": true,
-    "**/dist/**": true,
-    "**/node_modules/**": true
+    // "**/.cache/**": true,
+    // "**/build/**": true,
+    // "**/dist/**": true,
+    // "**/node_modules/**": true
   }
 }

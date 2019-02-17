@@ -93,10 +93,12 @@ export class ErrorComponent extends React.Component<ErrorOptions> {
 
 ```
 */
-export function If<C extends any>(props: { c: C, children: (...args: NotFalsy<C>[]) => JSX.Element }) {
-  const { c } = props
+export function If<T extends any = any
+// , R = any extends T ? (T extends any ? T : T): T
+>(props: { c: any, p?: T, children: (...args: NotFalsy<T>[]) => JSX.Element }) {
+  const { c, p } = props
   if (isNotFalsy(c))
-    return props.children.apply(null, [c])
+    return props.children.apply(null, [...(p ? [p] : []), c ])
   else {
     return null
   }

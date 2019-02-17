@@ -11,4 +11,6 @@ import '../node_modules/react-bootstrap-table2-filter/dist/react-bootstrap-table
 import '../node_modules/react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.css';
 // import '../node_modules/react-bootstrap-table2-overlay/dist/react-bootstrap-table2-overlay.css';
 false && console.log(jQuery, bootstrap, jQuery)
+
+import 'whatwg-fetch'
 import 'typeface-ibm-plex-sans'

@@ -6,11 +6,12 @@
     "start": "npm run mock && react-scripts-parcel start",
     "build": "npx parcel build public/index.html --detailed-report",
     "test": "npx jest --runInBand",
-    "test-clean": "rm -rf build/ dist/ .cache && npx jest --clearCache && npm test",
+    "test-clean": "npm run clean && npx jest --clearCache && npm test",
+    "clean": "rm -rf build/ dist/ .cache",
     "test-watch": "npx jest --runInBand --watch",
     "eject": "react-scripts-parcel eject",
     "url": "npx ts-node -P tsconfig-node.json scripts/getNsUrlFromIndex.ts",
-    "mock": "rm -rf dist/ajaxResponseMocks && cp -rf test/ajaxResponseMocks dist"
+    "mock": "mkdir -p dist && rm -rf dist/ajaxResponseMocks && cp -rf test/ajaxResponseMocks dist"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./scripts/setupTests.js"
@@ -49,7 +50,6 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-saga": "^1.0.1",
-    "typeface-ibm-plex-sans": "^0.0.61",
     "typesafe-actions": "^3.1.0"
   },
   "devDependencies": {
@@ -63,7 +63,7 @@
     "@types/history": "^4.7.2",
     "@types/jest": "^24.0.5",
     "@types/node": "^11.9.4",
-    "@types/react": "^16.8.2",
+    "@types/react": "^16.8.1",
     "@types/react-dom": "^16.8.1",
     "@types/react-redux": "^7.0.1",
     "@types/react-router": "^4.4.4",

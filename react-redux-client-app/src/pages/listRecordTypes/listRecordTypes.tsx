@@ -67,10 +67,10 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
   public render() {
     // this.renderCounter++
     const { type } = this.state
-    console.log('render', this.state, this.props);
+    // console.log('render', this.state, this.props);
     return (
       <Page>
-        <Container>
+        <Container className="list-record-types">
           <div css={css`& h4 {display: inline; margin-left: 1em}`}>
             <h4>
               Record Types:

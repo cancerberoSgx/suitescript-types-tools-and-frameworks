@@ -19,7 +19,6 @@ ${normalize}
 body {
   width: 100%;
   overflow-x: hidden;
-  // overflow-y: scroll;
 }
 
 a {
@@ -64,32 +63,18 @@ h5 {
 }
 
 ul {
-  // padding-left: 0;
   margin-left: ${p.theme.paddings.large.container};
   ${maxWidth(p).md(`padding-left: 0;`)};
   ${minWidth(p).md(`padding-left: 0.7em;`)};
-  // list-style-type: square;
 }
 
-
 li {
-  // padding: ${p.theme.paddings.small.li};
-  // margin: 0;
   ${maxWidth(p).md(`padding: ${p.theme.paddings.small.li};`)};
-  // ${minWidth(p).md(`padding: ${p.theme.paddings.large.li};`)};
 }
 
 a {
   color: ${p.theme.colors.body};
 }
-
-// select {
-//   width: 100%;
-//   // overflow: scroll;
-//   // option {
-//     // max-width: 100%
-//   // }
-// }
 
 `}
     />

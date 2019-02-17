@@ -83,9 +83,9 @@ margin-bottom: 0;
   tbody {
     tr {
       border-top: 1px solid ${props => props.theme.colors.borders};
-      &:nth-child(even) {
-        background: ${props => props.theme.colors.tableOdd};
-      }
+      // &:nth-child(even) {
+      //   background: ${props => props.theme.colors.tableOdd};
+      // }
       td {
         ${props => maxWidth(props).md`padding: 0.1em; font-size: 0.81rem;`}
         ${props => minWidth(props).md`padding: 0.5em; font-size: 0.89rem;`}

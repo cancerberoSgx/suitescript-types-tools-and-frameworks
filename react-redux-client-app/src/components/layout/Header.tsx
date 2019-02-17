@@ -14,11 +14,11 @@ interface HeaderProps {
 
 const Header: React.SFC<HeaderProps> = ({ title }) => (
   <Wrapper>
-    <HeaderInner>
+    <HeaderInner className="header">
       <HeaderLeft>
         <Title>{title}</Title>
       </HeaderLeft>
-      <HeaderNav >
+      <HeaderNav className="navbar">
         <HeaderNavLink exact to="/" activeClassName={HeaderLinkActive.name}>
           Home
         </HeaderNavLink>

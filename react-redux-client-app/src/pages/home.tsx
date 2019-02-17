@@ -6,7 +6,7 @@ import { styled } from '../styles/theme'
 export default () => (
   <Page>
     <Container>
-      <PageContent>
+      <PageContent className="home">
         <h1>Welcome</h1>
         <p>This is a client app written with React, Redux and TypeScript to test how well it runs in NS
           and experience how easy is to represent NS data in UI using modern HTML technologies and standards
@@ -34,11 +34,9 @@ export default () => (
 const PageContent = styled('article')`
   margin: 0 auto;
   line-height: 1.6;
-
   a {
     color: ${props => props.theme.colors.brand};
   }
-
   h1,
   h2,
   h3,

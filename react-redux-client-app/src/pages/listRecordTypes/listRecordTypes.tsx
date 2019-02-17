@@ -43,8 +43,8 @@ interface RouteParams {
 }
 interface S {
   type?: string
-  pageSize: number
-  page: number
+  pageSize?: number
+  page?: number
   columns?: string[]
 }
 interface Options extends Partial<S> {
@@ -58,7 +58,8 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
   constructor(p: AllProps, s: S) {
     super(p, s)
     this.state = {
-      type: p.type, pageSize: p.pageSize || 5, page: 1
+      // type: p.type,
+      //  pageSize: p.pageSize || 5, page: 1
       // , columns: []
     }
   }
@@ -151,7 +152,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
     }
     const fetchListRecordOptions: FetchListOptions = {
       type,
-      pageSize: newOptions.pageSize || this.state.pageSize
+      pageSize: newOptions.pageSize || this.state.pageSize || 5
     }
     // console.log('listRecordTypes executeActionForNewOptions', { newOptions, fetchListRecordOptions });
     this.props.fetchListRecord(fetchListRecordOptions);

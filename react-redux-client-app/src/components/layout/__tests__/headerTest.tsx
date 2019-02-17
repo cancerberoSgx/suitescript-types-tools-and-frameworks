@@ -22,27 +22,37 @@ describe('header', () => {
   });
 
   it('nav bar links should change page on click', async done => {
+
     expect(wrapper.find('.page .home').length).toBeGreaterThan(0)
     expect(wrapper.find('.page .list-record-types').length).toBe(0)
     expect(wrapper.find('.page .search').length).toBe(0)
+    expect(wrapper.find('.page .record-view').length).toBe(0)
 
     await click(wrapper.find('.header .navbar a.list-record-types'))
-
     expect(wrapper.find('.page .home').length).toBe(0)
     expect(wrapper.find('.page .list-record-types').length).toBeGreaterThan(0)
     expect(wrapper.find('.page .search').length).toBe(0)
-
+    expect(wrapper.find('.page .record-view').length).toBe(0)
 
     await click(wrapper.find('.header .navbar a.search'))
-    await click(wrapper.find('.header .navbar a.search'))
-
     expect(wrapper.find('.page .home').length).toBe(0)
     expect(wrapper.find('.page .list-record-types').length).toBe(0)
     expect(wrapper.find('.page .search').length).toBeGreaterThan(0)
+    expect(wrapper.find('.page .record-view').length).toBe(0)
 
+    await click(wrapper.find('.header .navbar a.record-view'))
+    expect(wrapper.find('.page .home').length).toBe(0)
+    expect(wrapper.find('.page .list-record-types').length).toBe(0)
+    expect(wrapper.find('.page .search').length).toBe(0)
+    expect(wrapper.find('.page .record-view').length).toBeGreaterThan(0)
+
+    await click(wrapper.find('.header .navbar a.home'))
+    expect(wrapper.find('.page .home').length).toBeGreaterThan(0)
+    expect(wrapper.find('.page .list-record-types').length).toBe(0)
+    expect(wrapper.find('.page .search').length).toBe(0)
+    expect(wrapper.find('.page .record-view').length).toBe(0)
 
     done()
-
   });
 
 });

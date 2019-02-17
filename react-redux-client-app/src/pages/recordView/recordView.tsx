@@ -74,7 +74,7 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
     const { record } = this.props
     return (
       <Page>
-        <Container>
+        <Container className="record-view">
           {this.props.error ? <ErrorComponent {...this.props.error}></ErrorComponent> : ''}
           <Loading {...this.props}>
             {record && <div>

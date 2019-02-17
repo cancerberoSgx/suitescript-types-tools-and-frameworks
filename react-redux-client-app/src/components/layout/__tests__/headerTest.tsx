@@ -23,13 +23,23 @@ describe('header', () => {
 
   it('nav bar links should change page on click', async done => {
     expect(wrapper.find('.page .home').length).toBeGreaterThan(0)
-    expect(wrapper.find('.page .list-record-types').filterWhere(n => n.exists()).length).toBe(0)
+    expect(wrapper.find('.page .list-record-types').length).toBe(0)
+    expect(wrapper.find('.page .search').length).toBe(0)
 
-    await click(wrapper.find('.header .navbar a').findWhere(p => p.text().toLowerCase().includes('list types')))
+    await click(wrapper.find('.header .navbar a.list-record-types'))
 
-    wrapper.update()
-    expect(wrapper.find('.page .home').filterWhere(n => n.exists()).length).toBe(0)
-    expect(wrapper.find('.page .list-record-types').filterWhere(n => n.exists()).length).toBeGreaterThan(0)
+    expect(wrapper.find('.page .home').length).toBe(0)
+    expect(wrapper.find('.page .list-record-types').length).toBeGreaterThan(0)
+    expect(wrapper.find('.page .search').length).toBe(0)
+
+
+    await click(wrapper.find('.header .navbar a.search'))
+    await click(wrapper.find('.header .navbar a.search'))
+
+    expect(wrapper.find('.page .home').length).toBe(0)
+    expect(wrapper.find('.page .list-record-types').length).toBe(0)
+    expect(wrapper.find('.page .search').length).toBeGreaterThan(0)
+
 
     done()
 

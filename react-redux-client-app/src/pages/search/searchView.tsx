@@ -19,11 +19,6 @@ import { FetchRecordOptions } from '../../store/recordView';
 import { FetchSearchOptions, fetchSearch } from '../../store/search';
 import { typedSearchColumnValues } from '../../nstypes/TypedSearchColumnValues';
 import { ColumnEditor, SearchEditor } from './searchEditor';
-// import { ErrorOptions } from '../../store/recordView';
-// import { fetchRecord, FetchRecordOptions, SearchViewSettings, SearchViewState } from '../../store/SearchView';
-// import { RecordFields } from './recordFields';
-// import { RecordSublists } from './recordSublists';
-;
 
 interface SearchViewStateProps {
   loading?: boolean
@@ -32,7 +27,6 @@ interface SearchViewStateProps {
 }
 
 interface PropsFromDispatch {
-  // fetchRecord: typeof fetchRecord
 }
 
 interface RouteParams {
@@ -44,7 +38,6 @@ export interface State {
   selectedRecordType?: string
   columns?: Column[]
   selectedColumn?: string
-  // findRecord?: boolean
 }
 interface Column {
   id: string, label: string, type: string
@@ -54,7 +47,7 @@ export type SearchViewAllProps = SearchViewStateProps & PropsFromDispatch & Conn
 
 class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State, Partial<State>> {
   protected async executeActionForNewOptions(options: State): Promise<void> {
-    // throw new Error('Method not implemented.');
+    throw new Error('Method not implemented.');
   }
 
 
@@ -69,7 +62,7 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
     const { } = this.props
     return (
       <Page>
-        <Container>
+        <Container className="search">
           {this.props.error ? <ErrorComponent {...this.props.error}></ErrorComponent> : ''}
           <Loading {...this.props}>
             {<div>
@@ -103,7 +96,7 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
 
               <h1>Search</h1>
 
-              <label>Type: <select onChange={e => {
+              <label>Type: <select defaultValue={this.state.selectedRecordType || ''} onChange={e => {
                 const selectedRecordType = e.currentTarget.selectedOptions[0].value
                 if (selectedRecordType) {
                   this.setState({ ...this.state, columns: typedSearchColumnValues[selectedRecordType], selectedRecordType })
@@ -114,16 +107,17 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
                 }
               }}>
 
-                <option selected={!this.state.selectedRecordType}>Select a Record Type</option>
+                <option>Select a Record Type</option>
                 {this.state.recordTypes.map(r =>
-                  <option selected={this.state.selectedRecordType === r} value={r}>{r}</option>
+                  <option key={r}  value={r}>{r}</option>
                 )}
               </select>
               </label>
 
-              {this.state.columns && <label>Columns: <select>
-                <option selected={!this.state.selectedRecordType}>Select a Record Type</option>
-                {this.state.columns.map(c => <option value={c.id}>{c.label}</option>)}
+              {this.state.columns && <label>Columns: <select defaultValue={this.state.selectedColumn}>
+                <option>Select a Record Type</option>
+                {this.state.columns.map(c =>
+                   <option  key={c.id} value={c.id}>{c.label}</option>)}
               </select></label>}
 
               {this.state.selectedRecordType && this.state.columns && <SearchEditor {...this.props} type={this.state.selectedRecordType!} columns={this.state.columns} filters={[]} ></SearchEditor>}

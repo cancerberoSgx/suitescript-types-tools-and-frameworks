@@ -19,17 +19,21 @@ const Header: React.SFC<HeaderProps> = ({ title }) => (
         <Title>{title}</Title>
       </HeaderLeft>
       <HeaderNav className="navbar">
-        <HeaderNavLink exact to="/" activeClassName={HeaderLinkActive.name}>
+        <HeaderNavLink className="home" exact to="/" activeClassName={HeaderLinkActive.name}>
           Home
         </HeaderNavLink>
-        <HeaderNavLink to="/listRecordTypes/{}" activeClassName={HeaderLinkActive.name}>
+        <HeaderNavLink className="list-record-types" to="/listRecordTypes/{}" activeClassName={HeaderLinkActive.name}>
           List Types
         </HeaderNavLink>
-        <HeaderNavLink to="/search/{}" activeClassName={HeaderLinkActive.name}>
+        <HeaderNavLink className="search" to="/search/{}" activeClassName={HeaderLinkActive.name}>
           Search
         </HeaderNavLink>
-        <HeaderNavLink to="/exampleLinks/" activeClassName={HeaderLinkActive.name}>
+        <HeaderNavLink className="example-links" to="/exampleLinks/" activeClassName={HeaderLinkActive.name}>
           Example Links
+        </HeaderNavLink>
+
+        <HeaderNavLink className="record-view" to="/recordView/inventoryitem/465/{}" activeClassName={HeaderLinkActive.name}>
+          Record
         </HeaderNavLink>
 
       </HeaderNav>

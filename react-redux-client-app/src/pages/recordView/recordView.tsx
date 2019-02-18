@@ -89,9 +89,9 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
                     <NoWrap>
                       <label className="showAllFields"><input type="checkbox" defaultChecked={!this.state.showAllFields}
                         onChange={e => {
-                          console.log('STATEEEE showAllFields: '+(!e.currentTarget.checked) + ' - ' +print(e.currentTarget) + ' - attrChecked: ' + e.currentTarget.getAttribute('checked')+'\'');
-
-                          this.setState({ showAllFields: !e.currentTarget.checked });
+                          // debugger
+                          // console.log('STATEEEE showAllFields: '+(!e.target.checked) + ' - ' +print(e.target) + ' - attrChecked: ' + e.target.getAttribute('checked')+'\'');
+                          this.setState({ showAllFields: !e.target.checked });
                         }}>
                       </input>Hide Internal Fields?</label>
                     </NoWrap></li>

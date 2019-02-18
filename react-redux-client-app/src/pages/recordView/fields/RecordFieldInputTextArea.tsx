@@ -26,7 +26,8 @@ export class RecordFieldInputTextArea extends React.Component<P, E> {
       disabled={f.isReadonly}
       defaultValue={f.value + ''}
 
-      {...this.props} />
+      // {...this.props}
+      />
   }
 }
 

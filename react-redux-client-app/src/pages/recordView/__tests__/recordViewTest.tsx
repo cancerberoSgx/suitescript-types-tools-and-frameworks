@@ -81,14 +81,12 @@ describe('RecordView', () => {
       expect(location.href).not.toContain(hash);
     }
 
-    // it('seeValues setting change location', async done => {
-    //   await test('seeValues', '{%22seeValues%22%3Atrue}', false);
-    //   done()
-    // });
+    it('seeValues setting change location', async done => {
+      await test('seeValues', '%22seeValues%22%3Atrue', false);
+      done()
+    });
     it('showAllFields setting change location', async done => {
-      // console.log(location.href);
-
-      await test('showAllFields', '{%22showAllFields%22%3Afalse}', true);
+      await test('showAllFields', '%22showAllFields%22%3Atrue', true);
       done()
     });
 

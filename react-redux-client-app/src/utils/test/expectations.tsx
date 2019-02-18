@@ -46,11 +46,17 @@ export function expectAttributeToBe(w: ElementOrWrapper, name: string, value: st
   }
 }
 
+
 export function expectCheckedToBe(w: ElementOrWrapper, checked: boolean, msg = '') {
+  function nullAttr (value: any) {
+    return value===null||value===undefined
+  }
   // const v = value=>checked ? value : (value===null||value==='')
-  const v: Predicate = checked ? (value=>value!==null&&value!==undefined) : (value=>value==='' || value)
+  // const v: Predicate = checked ? (value=>(typeof value === 'string' && !!value)) : (value=> !value);
+  const v: Predicate = checked ? (value=>!nullAttr(value)) : (value=>nullAttr(value));
 
   return expectAttributeToBe(w, 'checked', v, msg||`expected element ${print(w)} ${checked?'':'not'} to be checked. ${msg}`)
 }
-// export function isChecked(w: ElementOrWrapper)
+
+// export function isChecked(w:)
 

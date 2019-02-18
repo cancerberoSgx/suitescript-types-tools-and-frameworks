@@ -1,8 +1,14 @@
 import { ReactWrapper } from 'enzyme';
-const wrapperFind = 1;
+import { exists } from './expectations';
+
 export function find(wrapper: ReactWrapper, selector?: string): Element[] {
-  return Array.from(selector ? wrapper.getDOMNode().querySelectorAll(selector) : wrapper.map(w => w.getDOMNode())).filter(n => n);
+  const els: Element[] = []
+  wrapper.filterWhere(exists)
+    .map(w => selector ? w.getDOMNode().querySelectorAll(selector) : [w.getDOMNode()])
+    .forEach(a => { els.push(...Array.from(a)) })
+  return els
 }
+
 export function findOne(wrapper: ReactWrapper, selector?: string): Element {
   const r = find(wrapper, selector);
   if (r.length) {
@@ -11,6 +17,7 @@ export function findOne(wrapper: ReactWrapper, selector?: string): Element {
   else
     throw new Error('Cannot find ' + selector);
 }
+
 export function findAscendantOrSelf(e: Element, p: (e: Element) => boolean): Element | undefined {
   if (p(e)) {
     return e;

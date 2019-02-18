@@ -23,6 +23,10 @@ export function asArray<T>(selectors: T | T[]): T[] {
 }
 
 
+export function flat<T>(arr: T[][]): T[] {
+  return arr.length ? arr.reduce((a, b) => a.concat(b)) : []
+}
+
 export function getPosition(string: string, subString: string, index: number) {
   return string.split(subString, index).join(subString).length;
 }

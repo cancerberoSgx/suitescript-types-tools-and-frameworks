@@ -60,15 +60,16 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
   }
 
   protected async executeActionForNewOptions(options: State): Promise<void> {
-    if (options.id && options.type) {
+
+    // if (options.id && options.type) {
       this.props.fetchRecord({
         id: this.props.match.params.id!,
         type: this.props.match.params.type!,
         ...(await this.getOptions()), ...options
       })
-    }
-
+    // }
   }
+
   public render() {
     const { record } = this.props
     return (
@@ -88,10 +89,7 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
                   <li>
                     <NoWrap>
                       <label className="showAllFields"><input type="checkbox" defaultChecked={!this.state.showAllFields}
-                        onChange={e => {
-                          // debugger
-                          // console.log('STATEEEE showAllFields: '+(!e.target.checked) + ' - ' +print(e.target) + ' - attrChecked: ' + e.target.getAttribute('checked')+'\'');
-                          this.setState({ showAllFields: !e.target.checked });
+                        onChange={e => {this.setState({ showAllFields: !e.target.checked });
                         }}>
                       </input>Hide Internal Fields?</label>
                     </NoWrap></li>

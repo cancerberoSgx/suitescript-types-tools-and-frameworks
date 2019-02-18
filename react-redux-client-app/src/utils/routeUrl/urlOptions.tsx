@@ -2,14 +2,28 @@ import { tryTo } from '../misc';
 import { safeEval } from '../safeEval';
 
 export async function decodeOptions<Options = {}>(op: string = '{}'): Promise<Options> {
-  let decoded: Options | undefined = tryTo(() => JSON.parse(decodeURIComponent(op)))
-  if (!decoded) {
-    const { result, error } = await safeEval(`(${decodeURIComponent(op)})`)
-    if (result) {
-      decoded = result
+  try {
+    let decoded: Options | undefined = tryTo(() => JSON.parse(decodeURIComponent(op)))
+    // console.warn({decoded});
+
+    if (!decoded) {
+      const { result, error } = await safeEval(`(${decodeURIComponent(op)})`)
+      // console.warn({result, error});
+
+      if (result) {
+        decoded = result
+      }
+      if(error){
+        console.error('decodeOptions safeEval error ', error);
+        // throw error
+      }
     }
+    return decoded || {} as Options
+  } catch (error) {
+    console.error('decodeOptions', error);
+    throw error
   }
-  return decoded || {} as Options
+
 }
 
 export function encodeOptions<Options = {}>(options: Options): string | {} {

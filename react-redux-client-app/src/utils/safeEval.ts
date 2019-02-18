@@ -1,4 +1,5 @@
 import { tryTo } from './misc';
+import { IS_JSDOM } from './getUrlApiMock';
 
 
 
@@ -47,6 +48,9 @@ interface Result<T> { result?: T, error?: Error }
 
 let counter = 0
 export async function safeEval<T=any>(code: string, callback?: (result: T) => void): Promise<Result<T>> {
+  if(IS_JSDOM) {
+    return Promise.resolve(tryTo(()=>JSON.parse(doEval(code))))
+  }
   await install()
   uniqueCallback = callback
   const p = new Promise<T>(resolve => {
@@ -105,6 +109,7 @@ const frameHtml = `
  <head>
    <title></title>
    <script>
+   ${doEval.toString()}
     ${frameFn.toString()}
     frameFn()
    </script>
@@ -114,21 +119,26 @@ const frameHtml = `
 function frameFn() {
   window.addEventListener('message', function (e) {
     var mainWindow = e.source
-    var result: any
-    try {
-      result = { result: eval(e.data.code) }
-    }
-    catch (ex) {
-      console.error('safeEval error while evaluating expression ' + e.data.code, 'Error: ', ex)
-      result = { error: { message: ex.message, stack: ex.stack, asString: ex + '', name: ex.name } }
-    }
-    let transferable: string
+    var transferable = doEval(e.data.code)
+    mainWindow && mainWindow.postMessage(transferable, e.origin as any)
+  })
+}
+function doEval(code: string) {
+  var result: any;
+  try {
+    result = { result: eval(code) };
+  }
+  catch (ex) {
+    console.error('safeEval error while evaluating expression ' + code, 'Error: ', ex);
+    result = { error: { message: ex.message, stack: ex.stack, asString: ex + '', name: ex.name } };
+  }
+  let transferable: string
     try {
       transferable = JSON.stringify(result)
     } catch (ex) {
       result = { error: { message: ex.message, stack: ex.stack, asString: ex + '', name: ex.name } }
       transferable = JSON.stringify(result)
     }
-    mainWindow && mainWindow.postMessage(transferable, e.origin as any)
-  })
+    return transferable
 }
+

@@ -1,4 +1,4 @@
-import { getUrlApiMock } from './getUrlApiMock';
+import { getUrlApiMock, ENABLE_AJAX_MOCK } from './getUrlApiMock';
 
 export default function callApi(method: string, url: string, path: string, data?: any) {
   return fetch(url + '/api' + path, {
@@ -51,7 +51,3 @@ function fetchJson(method: string, url: string): Promise<any> {
   return p
 }
 
-const ENABLE_AJAX_MOCK = !location.href.includes('forms.netsuite.com')// ? 'ns' : location.host.includes('localhost') ? ''
-if (ENABLE_AJAX_MOCK) {
-
-}

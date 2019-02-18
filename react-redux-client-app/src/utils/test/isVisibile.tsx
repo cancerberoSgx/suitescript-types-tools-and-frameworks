@@ -1,8 +1,9 @@
 import { findAscendantOrSelf } from "./find";
-import { ElementOrWrapper, asElement } from "./elementOrWrapper";
+import { ElementOrWrapper, asElement, asElements } from "./elementOrWrapper";
 import { print } from "./text";
-export function expectToBeHidden(e: ElementOrWrapper) {
-  const v = isVisible(e);
+
+export function expectToBeHidden(e: ElementOrWrapper, one = false) {
+  const v = isHidden(e, one);
   if (v) {
     fail(`Expected ${print(e)} to be hidden`);
   }
@@ -10,8 +11,9 @@ export function expectToBeHidden(e: ElementOrWrapper) {
     expect(`${print(e)} is hidden`).toBe(`${print(e)} is hidden`);
   }
 }
-export function expectToBeVisible(e: ElementOrWrapper) {
-  const v = isVisible(e);
+
+export function expectToBeVisible(e: ElementOrWrapper, one = true) {
+  const v = isVisible(e, one);
   if (!v) {
     fail(`Expected ${print(e)} to be visible`);
   }
@@ -19,6 +21,7 @@ export function expectToBeVisible(e: ElementOrWrapper) {
     expect(`${print(e)} is visible`).toBe(`${print(e)} is visible`);
   }
 }
+
 function isVisibleEl(r: ElementOrWrapper): boolean {
   const e = asElement(r);
   if (!e) {
@@ -31,11 +34,41 @@ function isVisibleEl(r: ElementOrWrapper): boolean {
     style.display !== 'none' &&
     style.visibility !== 'hidden';
 }
-export function isVisible(r: ElementOrWrapper): boolean {
-  const e = asElement(r);
-  if (!e)
-    return false;
-  return !findAscendantOrSelf(e, a => !isVisibleEl(a));
+
+/**
+ * @param one if true, will return true if just one el is visible. Otherwhise return true if all els are visible
+ */
+export function isVisible(r: ElementOrWrapper, one = false): boolean {
+  // console.log(asElements(r).length);
+  if (one) {
+    return !!asElements(r).find(e => !!findAscendantOrSelf(e, a => isVisibleEl(a)))
+  }
+  else {
+    return !asElements(r).find(e => !findAscendantOrSelf(e, a => !isVisibleEl(a)))
+  }
+
+  // const e = asElements(r);
+  // if (!e)
+  //   return false;
+  // return !findAscendantOrSelf(e, a => !isVisibleEl(a));
+}
+
+/**
+ * @param one if true, will return true if just one el is hidden. Otherwhise return true if all els are hidden
+ */
+export function isHidden(r: ElementOrWrapper, one = false): boolean {
+  // console.log(asElements(r).length);
+  if (one) {
+    return !!asElements(r).find(e => !!findAscendantOrSelf(e, a => !isVisibleEl(a)))
+  }
+  else {
+    return !asElements(r).find(e => !!findAscendantOrSelf(e, a => !!isVisibleEl(a)))
+  }
+
+  // const e = asElements(r);
+  // if (!e)
+  //   return false;
+  // return !findAscendantOrSelf(e, a => !isVisibleEl(a));
 }
 
 

@@ -9,14 +9,14 @@ export class RecordFields extends React.Component<RecordViewState> {
   render() {
     if (!this.props.record) { return <div></div> }
     return <div className="container-overflow-x">
-      <DataTable showFilter={true} columns={[
+      <DataTable className="record-fields" showFilter={true} columns={[
         ...['fieldId'],
         ...(this.props.seeValues ? ['value'] : []),
         ...['label', 'type', 'flags']
       ]}
         widths={this.props.seeValues ? ['10%', '50%', '20%', '10%', '10%'] : ['10%', '50%', '20%', '20%']}
       >
-        {this.props.record.fields.map(f => <tr key={f.id}>
+        {this.props.record.fields.map(f => <tr key={f.id} className="field">
           <td>{f.id}</td>
           {this.props.seeValues && <td>fields<RecordFieldEditor {...{ ...this.props, field: f }} />
           </td>}

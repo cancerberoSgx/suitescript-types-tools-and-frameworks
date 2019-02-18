@@ -55,8 +55,12 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
   }
 
   protected async getOptions(): Promise<Options> {
+    // console.log('getOptions1', this.props.match.params.options);
+
     //TODO: look if the string changed from last time, cache!
-    return await decodeOptions(this.props.match.params.options)
+    const options = await decodeOptions<Options>(this.props.match.params.options)
+    // console.log('getOptions', this.props.match.params.options, options);
+    return options
   }
 
   /** returns options in url not found in state (the state just updated with these) */

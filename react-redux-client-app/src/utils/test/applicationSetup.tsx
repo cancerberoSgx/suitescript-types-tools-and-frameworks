@@ -38,8 +38,8 @@ export async function setupApplicationWrapper(path?: string): Promise<{
 }> {
   let history: History = createHashHistory();
   // console.log('histroy', 'hash: ' + history.location.hash, 'path: ' + path, 'pred: ' + (path && history.location.hash !== path));
-  // path &&
-  // history.location.hash !== path &&
+  path &&
+  history.location.hash !== path &&
   history.push(path||'/');
   const initialState: ApplicationState = getInitialApplicationState(history);
   const store = configureStore(history, initialState);
@@ -50,6 +50,7 @@ export async function setupApplicationWrapper(path?: string): Promise<{
   const oldEl = document.getElementById('root-test');
   oldEl && oldEl.remove();
   const rootEl = document.createElement('div');
+  document.body.innerHTML=''
   rootEl.setAttribute('id', 'root-test');
   document.body.appendChild(rootEl);
   const wrapper = mount(app, { attachTo: rootEl });

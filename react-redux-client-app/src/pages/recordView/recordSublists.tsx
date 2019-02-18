@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { DataTable } from '../../components/data/DataTable';
-import { Count, I, Link } from '../../components/misc';
+import { Count, I, Link, F } from '../../components/misc';
 import { FetchRecordOptions, SublistRow as SublistRowModel } from '../../store/recordView';
 import { decodeOptions } from '../../utils/routeUrl/urlOptions';
 import { RecordViewAllProps } from './recordView';
@@ -22,9 +22,13 @@ export class RecordSublists extends React.Component<RecordSublistsProps> {
           {s.name && s.name != s.id ? `${s.name} (${s.id})` : s.id} {s.lineCount ? <Count>{s.lineCount} lines</Count> : ''}
         </h3>
         <div className="container-overflow-x">
-          <DataTable columns={s.fields.map(f => `${f.id} (${f.type})`)}>
-            {this.props.showSublistLines && s.lines.map((line, i) => <tr key={s.id + i}>
-              {line.rows.map(r => <td key={s.id + i + r.field.id}><SublistRow {...this.props} row={r}></SublistRow></td>)}
+          <DataTable className="sublist" columns={s.fields.map(f => `${f.id} (${f.type})`)}>
+            {this.props.showSublistLines && s.lines.map((line, i) =>
+            <tr className="line" key={s.id + i}>
+              {line.rows.map(r =>
+              <td  className="field"  key={s.id + i + r.field.id}>
+              <SublistRow {...this.props} row={r}></SublistRow>
+              </td>)}
             </tr>)}
           </DataTable>
         </div>
@@ -40,21 +44,16 @@ class SublistRow extends React.Component<P, S> {
   constructor(p: P, s: S) { super(p, s) }
   render() {
     const r = this.props.row
-    return <I>
-      {/* {r.value || r.text} */}
-      <RecordFieldEditor {...this.props} field={{ ...r.field, value: r.value || r.text, text: r.text || r.value + '' }}
-        extraFieldEditorControls={
-          r.field.type === 'select' ?
-            [
-              props => <Link to={`/recordView/${r.field.id}/${r.value}`}
-                options={{ ...decodeOptions(this.props.match.params.options), findRecord: true }}>
-                &nbsp;(find)</Link>
-            ] :
-            []
-        } />
-      {
-      }
-    </I>
+    return <RecordFieldEditor {...this.props} field={{ ...r.field, value: r.value || r.text, text: r.text || r.value + '' }}
+      extraFieldEditorControls={
+        r.field.type === 'select' ?
+          [
+            props => <Link to={`/recordView/${r.field.id}/${r.value}`}
+              options={{ ...decodeOptions(this.props.match.params.options), findRecord: true }}>
+              &nbsp;(find)</Link>
+          ] :
+          []
+      } />
   }
 
 }

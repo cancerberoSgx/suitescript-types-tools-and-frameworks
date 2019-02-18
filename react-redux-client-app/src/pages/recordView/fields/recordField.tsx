@@ -38,7 +38,7 @@ export class RecordFieldEditor<T> extends React.Component<FEProps<T>, FEState> {
     if (!this.props.record) {
       return <div></div>;
     }
-    return <RecordFieldInputEditorContainer>container
+    return <RecordFieldInputEditorContainer className="field-editor">
       {this.state.focused &&
         <div data-type="record-field-editor-control">
           {this.props.inlineEdit && <button onClick={e => {

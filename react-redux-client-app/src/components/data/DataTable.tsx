@@ -3,7 +3,7 @@ import { styled } from '../../styles/theme'
 import { maxWidth, minWidth } from '../../styles/media';
 import { ReactNodeArray } from 'prop-types';
 
-interface DataTableProps {
+interface DataTableProps extends React.HTMLAttributes<HTMLTableElement> {
   columns: string[]
   widths?: string[]
   children: React.ReactNode

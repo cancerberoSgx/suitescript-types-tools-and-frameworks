@@ -26,20 +26,23 @@ export class RecordFieldInputSelect extends React.Component<P, E> {
     const f = this.props.field;
     if ((f.type === 'multiselect' || f.type === 'select') && f.selectOptions && f.selectOptions.length) {
       const values: Value[] = (Array.isArray(f.value) ? f.value : [f.value]).filter(v => v)
+      const multiple = f.type === 'multiselect'
+
       return <RecordFieldInputSelectEl
-        multiple={f.type === 'multiselect'}
+        multiple={multiple}
         disabled={f.isReadonly}
+        defaultValue={multiple ? values.map(v => v + '') : values[0] + ''}
         onFocus={e => this.props.onChangeFocus(e)}
         onBlur={e => this.props.onChangeFocus(e)}
         onChange={e => {
-          const value = f.type === 'multiselect' ? Array.from(e.currentTarget.selectedOptions).map(o => o.value) : e.currentTarget.selectedOptions.length ? e.currentTarget.selectedOptions[0].value : ''
+          const value = multiple ? Array.from(e.currentTarget.selectedOptions).map(o => o.value) : e.currentTarget.selectedOptions.length ? e.currentTarget.selectedOptions[0].value : ''
           this.setState({ ...this.state, value })
         }}
       >
         {(typeof f.value === 'undefined' || f.value === null) ?
-          <option>Not Defined</option> :
+          <option key="0">Not Defined</option> :
           f.selectOptions.map(o =>
-            <option selected={values.indexOf(o.value) !== -1} value={o.value}>
+            <option key={o.value} value={o.value}>
               {Array.isArray(o.text) ? o.text.join(', ') : o.text || (o.value && tryTo(() => o.value.toString()))}
             </option>)}
       </RecordFieldInputSelectEl>

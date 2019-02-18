@@ -37,10 +37,10 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
     if (!config.dontUpdateOptionsWithState) {
       newOptions = { ...newOptions, ...await this.updateOptionsWithState() }
     }
-    newOptions = { ...newOptions, }
+    // newOptions = { ...newOptions, }
     // debugger
     if (Object.keys(newOptions).length) {
-      // console.log('executeActionForNewOptions', newOptions);
+      console.log('executeActionForNewOptions', newOptions);
       this.executeActionForNewOptions({ ...newOptions })
     }
   }

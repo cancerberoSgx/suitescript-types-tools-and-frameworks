@@ -29,3 +29,13 @@ export function print(e: ElementOrWrapper) {
     return 'undefined';
   }
 }
+
+export function html(e: ElementOrWrapper) {
+  const r = asElement(e);
+  if (r) {
+    return r.outerHTML
+  }
+  else {
+    return 'undefined';
+  }
+}

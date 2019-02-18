@@ -16,6 +16,7 @@ import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { fetchRecord, FetchRecordOptions, RecordViewSettings, RecordViewState } from '../../store/recordView';
 import { RecordFields } from './recordFields';
 import { RecordSublists } from './recordSublists';
+import { print } from '../../utils/test';
 
 interface RecordViewStateProps extends RecordViewState {
 }
@@ -40,9 +41,9 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
   constructor(props: RecordViewAllProps, state: State) {
     super(props, state)
     this.state = {
-      showAllFields: props.showAllFields,
-      showSublistLines: props.showSublistLines,
-      seeValues: props.seeValues,
+      // showAllFields: props.showAllFields,
+      // showSublistLines: props.showSublistLines,
+      // seeValues: props.seeValues,
       // HEADS UP: dont init the state so it gets updated with route options
     }
   }
@@ -79,31 +80,31 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
               <RecordViewToolBox className="RecordViewToolBox">
                 <ul>
                   <li>
-                    <NoWrap><label className="seeValues"><input type="checkbox" checked={this.state.seeValues}
-                      onChange={e => this.setState({
-                       seeValues: e.currentTarget.checked
-                      })}>
+                    <NoWrap><label className="seeValues"><input type="checkbox" defaultChecked={this.state.seeValues}
+                      onChange={e => this.setState({ seeValues: e.currentTarget.checked })}>
                     </input>See Values?</label>
                     </NoWrap>
                   </li>
                   <li>
                     <NoWrap>
-                      <label className="showAllFields"><input type="checkbox" checked={!this.state.showAllFields}
+                      <label className="showAllFields"><input type="checkbox" defaultChecked={!this.state.showAllFields}
                         onChange={e => {
-                          this.setState({showAllFields: !e.currentTarget.checked });
+                          console.log('STATEEEE showAllFields: '+(!e.currentTarget.checked) + ' - ' +print(e.currentTarget) + ' - attrChecked: ' + e.currentTarget.getAttribute('checked')+'\'');
+
+                          this.setState({ showAllFields: !e.currentTarget.checked });
                         }}>
                       </input>Hide Internal Fields?</label>
                     </NoWrap></li>
                   <li>
                     <NoWrap>
-                      <label className="showSublistLines" ><input type="checkbox" checked={this.state.showSublistLines}
-                        onChange={e => this.setState({showSublistLines: e.currentTarget.checked })}>
+                      <label className="showSublistLines" ><input type="checkbox" defaultChecked={this.state.showSublistLines}
+                        onChange={e => this.setState({ showSublistLines: e.currentTarget.checked })}>
                       </input>Show Sublists Lines?</label>
                     </NoWrap></li>
                   <li>
-                    <NoWrap><label className="inlineEdit" ><input type="checkbox" checked={this.state.inlineEdit}
+                    <NoWrap><label className="inlineEdit" ><input type="checkbox" defaultChecked={this.state.inlineEdit}
                       onChange={e => this.setState({
-                       inlineEdit: e.currentTarget.checked
+                        inlineEdit: e.currentTarget.checked
                       })}>
                     </input>Edit Inline?</label>
                     </NoWrap></li>

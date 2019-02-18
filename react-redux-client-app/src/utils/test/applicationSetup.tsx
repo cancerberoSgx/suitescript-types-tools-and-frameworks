@@ -38,7 +38,9 @@ export async function setupApplicationWrapper(path?: string): Promise<{
 }> {
   let history: History = createHashHistory();
   // console.log('histroy', 'hash: ' + history.location.hash, 'path: ' + path, 'pred: ' + (path && history.location.hash !== path));
-  path && history.location.hash !== path && history.push(path);
+  // path &&
+  // history.location.hash !== path &&
+  history.push(path||'/');
   const initialState: ApplicationState = getInitialApplicationState(history);
   const store = configureStore(history, initialState);
   const app = <Provider store={store}><Main history={history} theme={'light'}></Main></Provider>;

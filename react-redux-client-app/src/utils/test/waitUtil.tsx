@@ -1,5 +1,4 @@
-const waitUtil = 1;
-type Predicate = (...args: any[]) => boolean;
+export type Predicate = (...args: any[]) => boolean;
 export function waitFor(p: Predicate, timeout = 1000, interval = 100): Promise<void> {
   return new Promise((resolve, reject) => {
     const i = setInterval(() => {

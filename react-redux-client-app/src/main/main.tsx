@@ -5,11 +5,11 @@ import * as React from 'react';
 import { connect, Provider } from 'react-redux';
 import { Store } from 'redux';
 import Routes from './routes';
-import { ApplicationState } from './store';
-import { ThemeColors } from './store/layout';
-import * as themes from './styles/theme/';
-import { styled } from './styles/theme';
-import { ThemeGlobals } from './styles/themeGlobals';
+import { ApplicationState } from '../store';
+import { ThemeColors } from '../store/layout';
+import * as themes from '../styles/theme';
+import { styled } from '../styles/theme';
+import { ThemeGlobals } from '../styles/themeGlobals';
 
 interface PropsFromState {
   theme: ThemeColors
@@ -53,7 +53,6 @@ const Root = styled.div`
   color: ${props => props.theme.colors.body};
   font-family: ${props => props.theme.fonts.body};
 `;
-
 
 const mapStateToProps = ({ layout }: ApplicationState) => ({
   theme: layout.theme

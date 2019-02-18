@@ -3,7 +3,7 @@ import createSagaMiddleware from 'redux-saga'
 import { connectRouter, routerMiddleware } from 'connected-react-router'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import { History } from 'history'
-import { ApplicationState, rootReducer, rootSaga } from './store'
+import { ApplicationState, rootReducer, rootSaga } from '../store'
 
 let store: Store<ApplicationState> | undefined
 

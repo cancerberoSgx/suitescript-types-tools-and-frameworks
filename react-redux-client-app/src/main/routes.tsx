@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import IndexPage from './pages/home';
-import Header from './components/layout/Header';
-import { ListRecordTypes } from './pages/listRecordTypes/listRecordTypes';
-import { RecordView } from './pages/recordView/recordView';
-import { SearchView } from './pages/search/searchView';
-import { parseRouteUrl } from './utils/routeUrl/parseRouteUrl';
-import { routeRequestToOptions } from './utils/routeUrl/routeRequestToOptions';
-import { ExampleLinks } from './pages/exampleLinks/exampleLinks';
+import IndexPage from '../pages/home';
+import Header from '../components/layout/Header';
+import { ListRecordTypes } from '../pages/listRecordTypes/listRecordTypes';
+import { RecordView } from '../pages/recordView/recordView';
+import { SearchView } from '../pages/search/searchView';
+import { parseRouteUrl } from '../utils/routeUrl/parseRouteUrl';
+import { routeRequestToOptions } from '../utils/routeUrl/routeRequestToOptions';
+import { ExampleLinks } from '../pages/exampleLinks/exampleLinks';
 
 const Routes = (props: any) => (
   <div>

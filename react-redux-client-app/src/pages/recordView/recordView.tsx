@@ -43,9 +43,7 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
       showAllFields: props.showAllFields,
       showSublistLines: props.showSublistLines,
       seeValues: props.seeValues,
-      // heads up : we don't want state.type and id to have the url this.props.match.params, not yet, since state will be old, executeActionForNewOptions will call
-      // type: this.props.type || this.props.match.params.type,
-      // id: this.props.id || this.props.match.params.id
+      // HEADS UP: dont init the state so it gets updated with route options
     }
   }
 
@@ -81,31 +79,31 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
               <RecordViewToolBox>
                 <ul>
                   <li>
-                    <NoWrap><label><input type="checkbox" checked={this.state.seeValues}
+                    <NoWrap><label className="seeValues"><input type="checkbox" checked={this.state.seeValues}
                       onChange={e => this.setState({
-                        ...this.state, seeValues: e.currentTarget.checked
+                       seeValues: e.currentTarget.checked
                       })}>
                     </input>See Values?</label>
                     </NoWrap>
                   </li>
                   <li>
                     <NoWrap>
-                      <label><input type="checkbox" checked={!this.state.showAllFields}
+                      <label className="showAllFields"><input type="checkbox" checked={!this.state.showAllFields}
                         onChange={e => {
-                          this.setState({ ...this.state, showAllFields: !e.currentTarget.checked });
+                          this.setState({showAllFields: !e.currentTarget.checked });
                         }}>
                       </input>Hide Internal Fields?</label>
                     </NoWrap></li>
                   <li>
                     <NoWrap>
-                      <label><input type="checkbox" checked={this.state.showSublistLines}
-                        onChange={e => this.setState({ ...this.state, showSublistLines: e.currentTarget.checked })}>
+                      <label className="showSublistLines" ><input type="checkbox" checked={this.state.showSublistLines}
+                        onChange={e => this.setState({showSublistLines: e.currentTarget.checked })}>
                       </input>Show Sublists Lines?</label>
                     </NoWrap></li>
                   <li>
-                    <NoWrap><label><input type="checkbox" checked={this.state.inlineEdit}
+                    <NoWrap><label className="inlineEdit" ><input type="checkbox" checked={this.state.inlineEdit}
                       onChange={e => this.setState({
-                        ...this.state, inlineEdit: e.currentTarget.checked
+                       inlineEdit: e.currentTarget.checked
                       })}>
                     </input>Edit Inline?</label>
                     </NoWrap></li>

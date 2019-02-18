@@ -18,6 +18,10 @@ export function indent(i: number = 1, tabSize = 2): string {
 export function dedup<T>(a: T[], p: (a: T, b: T) => boolean): T[] {
   return a.reduce((x, y) => x.find(i => p(i, y)) ? x : [...x, y] as T[], [] as T[])
 }
+export function asArray<T>(selectors: T | T[]): T[] {
+  return Array.isArray(selectors) ? selectors : [selectors];
+}
+
 
 export function getPosition(string: string, subString: string, index: number) {
   return string.split(subString, index).join(subString).length;

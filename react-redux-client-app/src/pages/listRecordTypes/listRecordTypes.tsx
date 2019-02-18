@@ -58,9 +58,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
   constructor(p: AllProps, s: S) {
     super(p, s)
     this.state = {
-      // type: p.type,
-      //  pageSize: p.pageSize || 5, page: 1
-      // , columns: []
+      // HEADS UP: dont init the state so it gets updated with route options
     }
   }
 
@@ -154,14 +152,12 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
       type,
       pageSize: newOptions.pageSize || this.state.pageSize || 5
     }
-    // console.log('listRecordTypes executeActionForNewOptions', { newOptions, fetchListRecordOptions });
     this.props.fetchListRecord(fetchListRecordOptions);
   }
 
   getRouteOptionNames(): string[] {
     return ['type', 'pageSize', 'columns']
   }
-
 }
 
 const mapStateToProps = ({ listRecordTypes }: ApplicationState) => ({
@@ -180,5 +176,4 @@ const mapDispatchToProps = (dispatch: Dispatch) => ({
 export const ListRecordTypes = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-  // @ts-igno re
-)(ListRecordTypesIndexPage)) //TODO
+)(ListRecordTypesIndexPage))

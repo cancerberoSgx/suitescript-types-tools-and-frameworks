@@ -76,7 +76,7 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
           {this.props.error ? <ErrorComponent {...this.props.error}></ErrorComponent> : ''}
           <Loading {...this.props}>
             {record && <div>
-              <RecordViewToolBox>
+              <RecordViewToolBox className="RecordViewToolBox">
                 <ul>
                   <li>
                     <NoWrap><label className="seeValues"><input type="checkbox" checked={this.state.seeValues}

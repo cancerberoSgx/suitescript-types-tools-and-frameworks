@@ -75,6 +75,7 @@
     "enzyme-adapter-react-16": "^1.9.1",
     "http2": "^3.3.7",
     "jest": "^24.1.0",
+    "p-map": "^2.0.0",
     "react-scripts-parcel": "0.0.38",
     "redux-devtools-extension": "^2.13.8",
     "tslint": "^5.12.1",

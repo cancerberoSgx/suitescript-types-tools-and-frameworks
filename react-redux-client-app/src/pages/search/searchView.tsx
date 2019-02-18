@@ -36,10 +36,10 @@ interface RouteParams {
 export interface State {
   recordTypes: string[]
   selectedRecordType?: string
-  columns?: Column[]
+  columns?: SearchColumn[]
   selectedColumn?: string
 }
-interface Column {
+export interface SearchColumn {
   id: string, label: string, type: string
 }
 export type SearchViewAllProps = SearchViewStateProps & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>

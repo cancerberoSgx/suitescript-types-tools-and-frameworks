@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { RouteComponentProps } from 'react-router'
 import { decodeOptions, encodeOptions } from '../utils/routeUrl/urlOptions'
-import { getPosition } from '../utils/misc'
+import { getPosition, tryTo } from '../utils/misc'
 
 /**
  * abstract component supporting options object as route parameter. Extenders must implement method getRouteOptionNames
@@ -75,16 +75,16 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
       // debugger
       const currentOptions = await this.getOptions()
       const extraOptions = await this.getExtraUrlOptions()
-    let realOptions: Options = options || { ...currentOptions||{}, ...extraOptions||{} }
-    // debugger
-    const o: Options = {} as any
-    Object.keys(realOptions)
-      // .filter(k => JSON.stringify(realOptions[k] || '') != JSON.stringify(this.state[k]) || '')
-      .filter(k => realOptions[k] != this.state[k])
-      .forEach(k => {
-        o[k] = realOptions[k]
-      })
-    return o
+      let realOptions: Options = options || { ...currentOptions || {}, ...extraOptions || {} }
+      // debugger
+      const o: Options = {} as any
+      Object.keys(realOptions)
+        .filter(k => this.equals(realOptions[k], this.state[k]))//  JSON.stringify(realOptions[k] || '') != JSON.stringify(this.state[k]) || '')
+        // .filter(k => realOptions[k] != this.state[k])
+        .forEach(k => {
+          o[k] = realOptions[k]
+        })
+      return o
     } catch (error) {
       // debugger
       throw error
@@ -125,12 +125,19 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
       .filter(k => this.getRouteOptionNames().indexOf(k) === -1)
       .forEach(k => { delete realOptions[k] })
     Object.keys(this.getStateOptions())
-    .filter(k => realOptions[k] != this.state[k])
-      // .filter(k => JSON.stringify(realOptions[k] || '') != JSON.stringify(this.state[k]) || '')
+      // .filter(k => realOptions[k] != this.state[k])
+      .filter(k => this.equals(realOptions[k], this.state[k]))//JSON.stringify(realOptions[k] || '') != JSON.stringify(this.state[k]) || '')
       .forEach(k => {
         newOptions[k] = this.state[k]
       })
     return newOptions
+  }
+  protected equals(a: any, b: any): boolean {
+    const r = tryTo(()=>JSON.stringify(a || '') != JSON.stringify(b || ''))
+    if(typeof r ==='undefined'){
+      return a!=b
+    }
+    return r
   }
 
   protected getStateOptions() {

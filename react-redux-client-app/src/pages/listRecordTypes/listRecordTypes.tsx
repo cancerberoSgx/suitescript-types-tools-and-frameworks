@@ -26,6 +26,7 @@ import filterFactory, { textFilter, dateFilter } from 'react-bootstrap-table2-fi
 import { array } from '../../utils/misc';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import SearchResults2 from '../../components/data/SearchResults2';
+import { SearchColumn } from '../search/searchView';
 
 interface PropsFromState {
   loading?: boolean
@@ -68,6 +69,10 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
   public render() {
     // this.renderCounter++
     const { type } = this.state
+    const columns = !type? undefined: [
+      // { id: 'id', label: 'Id' },
+      // { id: 'recordType', label: 'Record Type' },
+    ...typedSearchColumnValues[type]].sort((a, b) => a.id.localeCompare(b.id))
     // console.log('render', this.state, this.props);
     return (
       <Page>
@@ -79,7 +84,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
             <select value={!type ? '' : this.props.recordTypes.find(t => t === type)} onChange={async e => {
               const type = e.currentTarget.selectedOptions[0].value
               if (type) {
-                this.setState({ type })
+                this.setState({ type, userColumns: ['id'] })
               }
             }}>
               <option>Select a Record Type</option>
@@ -87,12 +92,10 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                 <option value={r} key={r}>{r}</option>
               )}
             </select>
+            </div>
 
-            <If c={type}>
-              {type => {
-                const columns = [{ id: 'id', label: 'Id' }, { id: 'recordType', label: 'Record Type' },
-                ...typedSearchColumnValues[type]].sort((a, b) => a.id.localeCompare(b.id))
-
+            <If<SearchColumn[]> c={columns}>
+              {columns => {
                 return <div>
                   <h4>
                     Columns:
@@ -126,11 +129,11 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                 }}>
               </input>
             </div>
-          </div>
+          {/* </div> */}
 
           {!this.props.error &&
             <Loading {...this.props}><div>
-              <If<ListRecordTypeResult[]> c={this.props.results}>{results => {
+              <If<ListRecordTypeResult[]> c={type && columns && this.props.results} p={this.props.results}>{results => {
                 const formattedResults = results.map(r => {
                   const resultColumns = this.props.resultColumns || this.state.userColumns
                   if (!resultColumns || !this.state.userColumns) { return r }
@@ -145,7 +148,11 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                   return { ...r, columns: undefined }
                 })
                 return <div>
-                  <SearchResults2 {...this.props} type={type!} userColumns={this.state.userColumns!} results={formattedResults}></SearchResults2>
+                  <SearchResults2 {...this.props} type={type!}
+                  userColumns={this.state.userColumns!}
+                  results={formattedResults}
+                  columns={columns!}
+                  ></SearchResults2>
                   {/* <SearchResults {...this.props} type={type!}
                     columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
                     results={results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
@@ -170,17 +177,24 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
     //   type,
     //   pageSize: newOptions.pageSize || this.state.pageSize || 5
     // }
-
     const type = newOptions.type || this.state.type
-    const userColumns = type !== this.state.type ? [] : //if type changed - reset the columns if not error!
-      (newOptions.userColumns || this.state.userColumns || [])
-        .filter(c => ['id', 'recordType'].indexOf(c) === -1)
+    // let userColumns: string[] = ['id', 'recordType']
+    // debugger
+    // if( type == this.state.type && type==this.props.type){
+      // let userColumns: string[] = newOptions.userColumns || this.state.userColumns ||  ['id', 'recordType']
+    // }
+
+    // this.state = {...this.state, userColumns, type, ...newOptions}
+    // const userColumns =( type !== this.state.type || type!==this.props.type) ? ['id', 'recordType'] : //if type changed - reset the columns if not error!
+      // (newOptions.userColumns || this.state.userColumns ||  ['id', 'recordType'])
+
     if (type) {
+      // debugger
       this.props.fetchListRecord({
         ...newOptions,
         type,
         pageSize: newOptions.pageSize || this.state.pageSize || 5,
-        userColumns
+        userColumns: (newOptions.userColumns || this.state.userColumns||[]) .filter(c => ['id', 'recordType'].indexOf(c) === -1)
       });
     }
   }

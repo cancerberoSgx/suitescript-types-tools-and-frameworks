@@ -1,11 +1,8 @@
 /// <reference types="react" />
 
+type RowFieldValue = string | number | Date | TODO;
 
-
-declare type RowFieldValue = string | number | Date | TODO;
-
-
-declare type TODO = any;
+type TODO = any;
 
 interface Pagination extends TODO {
 }
@@ -20,7 +17,7 @@ interface PaginationProps {
   handleSizePerPage?: (event: {page: number, onSizePerPageChange: ()=>void}, newSizePerPage: number)=>void
 }
 
-declare type PaginationProvider = React.Component<{
+type PaginationProvider = React.Component<{
   pagination: Pagination;
   children: React.Component<{
     paginationProps: PaginationProps;
@@ -47,7 +44,8 @@ interface CellEditProps {
   onStartEdit?: (row: TODO, column: TODO, rowIndex: TODO, columnIndex: TODO) => TODO
 }
 
-declare type onTableChange = (type: TableChangeType, event: TableChangeEvent) => TODO;
+type onTableChange = (type: TableChangeType, event: TableChangeEvent) => TODO;
+
 interface TableChangeEvent {
   page: number;
   sizePerPage: number;
@@ -57,14 +55,14 @@ interface TableChangeEvent {
   cellEdit: CellEdit;
 }
 
-declare type TableChangeType = 'cellEdit' | TODO;
-declare type SortOrder = 'asc' | 'desc' | TODO;
+type TableChangeType = 'cellEdit' | TODO;
+
+type SortOrder = 'asc' | 'desc' | TODO;
+
 interface Sorted {
   defaultField?: string;
   order?: string;
 }
-
-
 
 
 interface FilterOptions {
@@ -80,12 +78,10 @@ interface Filter<Type extends TODO=TODO> {
   comparator: PredefinedComparatorTypes;
 }
 
-
 interface FilterProps<Type extends TODO> { //TODO: is thihs the same as Filter?
   getFilter?(filter: FilterFunction<Type>): TODO;
   defaultValue?: Type
 }
-
 
 interface TextFilterProps extends FilterProps<TODO/* a concreate type*/> {
   caseSensitive?: true;
@@ -94,16 +90,15 @@ interface TextFilterProps extends FilterProps<TODO/* a concreate type*/> {
 interface DateFilterProps extends FilterProps<TODO/* a concreate type*/> {
 }
 
-
 type FilterFunction<Type extends TODO> = (val: Type) => TODO
 
-declare type FilterVal = string | TODO;
+type FilterVal = string | TODO;
 
-declare type FilterType = 'TEXT' | TODO;
+type FilterType = 'TEXT' | TODO;
 
-declare type PredefinedComparatorTypes = 'LIKE' | 'EQ' | TODO;
+type PredefinedComparatorTypes = 'LIKE' | 'EQ' | TODO;
 
-declare type PredefinedComparators = {
+type PredefinedComparators = {
   [type in PredefinedComparatorTypes]: TODO;
 };
 
@@ -122,9 +117,9 @@ interface OverlayOptions {
   background: Color;
 }
 
-declare type Color = string;
-type Overlay = TODO
+type Color = string;
 
+type Overlay = TODO
 
 
 declare module 'react-bootstrap-table-next' {

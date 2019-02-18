@@ -5,16 +5,20 @@ import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { array } from '../../../../utils/misc';
 
-const columns = [{
-  dataField: 'id',
-  text: 'Product ID'
-}, {
-  dataField: 'name',
-  text: 'Product Name'
-}, {
-  dataField: 'price',
-  text: 'Product Price'
-}];
+const columns = [
+  {
+    dataField: 'id',
+    text: 'Product ID'
+  },
+  {
+    dataField: 'name',
+    text: 'Product Name'
+  },
+  {
+    dataField: 'price',
+    text: 'Product Price'
+  }
+];
 
 const products = array(200).map(i => ({ id: i, name: Math.random() + '', price: '$' + Math.random() }))
 

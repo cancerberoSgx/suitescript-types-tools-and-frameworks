@@ -48,11 +48,11 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
     return {}
   }
 
-  private lastOptionsParams: string|undefined
-  private lastOptions: Options|undefined
+  private lastOptionsParams: string | undefined
+  private lastOptions: Options | undefined
   protected async getOptions(): Promise<Options> {
     const p = this.props.match.params.options
-    if(p!==this.lastOptionsParams || !this.lastOptions){
+    if (p !== this.lastOptionsParams || !this.lastOptions) {
       const options = await decodeOptions<Options>(p)
       this.lastOptions = options
       this.lastOptionsParams = p
@@ -71,14 +71,25 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
   }
 
   protected async getUrlOptionsNotInState(options?: Options): Promise<Options> {
-    let realOptions: Options = options || { ...await this.getOptions(), ...await this.getExtraUrlOptions() }
+    try {
+      // debugger
+      const currentOptions = await this.getOptions()
+      const extraOptions = await this.getExtraUrlOptions()
+    let realOptions: Options = options || { ...currentOptions||{}, ...extraOptions||{} }
+    // debugger
     const o: Options = {} as any
     Object.keys(realOptions)
+      // .filter(k => JSON.stringify(realOptions[k] || '') != JSON.stringify(this.state[k]) || '')
       .filter(k => realOptions[k] != this.state[k])
       .forEach(k => {
         o[k] = realOptions[k]
       })
     return o
+    } catch (error) {
+      // debugger
+      throw error
+    }
+
   }
 
 
@@ -114,7 +125,8 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
       .filter(k => this.getRouteOptionNames().indexOf(k) === -1)
       .forEach(k => { delete realOptions[k] })
     Object.keys(this.getStateOptions())
-      .filter(k => realOptions[k] != this.state[k])
+    .filter(k => realOptions[k] != this.state[k])
+      // .filter(k => JSON.stringify(realOptions[k] || '') != JSON.stringify(this.state[k]) || '')
       .forEach(k => {
         newOptions[k] = this.state[k]
       })

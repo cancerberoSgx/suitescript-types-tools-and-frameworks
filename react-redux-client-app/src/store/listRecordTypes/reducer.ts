@@ -17,7 +17,7 @@ const reducer: Reducer<ListRecordTypesState> = (state = listRecordTypesInitialSt
     }
     case ListRecordTypesActionTypes.SHOW_LIST: {
       const options = action.payload as ShowListOptions
-      return { ...state, ...options, error: undefined, loading: false }
+      return { ...state, ...options, resultColumns: options.userColumns, error: undefined, loading: false }
     }
     case ListRecordTypesActionTypes.FETCH_ERROR: {
       const options = action.payload as ErrorOptions

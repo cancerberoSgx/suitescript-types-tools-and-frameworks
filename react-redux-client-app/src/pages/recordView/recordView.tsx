@@ -60,13 +60,13 @@ class RecordViewIndexPage extends OptionsUrlComponent<RecordViewAllProps, State,
   }
 
   protected async executeActionForNewOptions(options: State): Promise<void> {
-
     // if (options.id && options.type) {
-      this.props.fetchRecord({
+      const newOptions = {
         id: this.props.match.params.id!,
         type: this.props.match.params.type!,
         ...(await this.getOptions()), ...options
-      })
+      }
+      this.props.fetchRecord(newOptions)
     // }
   }
 

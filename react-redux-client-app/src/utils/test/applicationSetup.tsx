@@ -20,8 +20,8 @@ const REUSE_SAME_WRAPPER = false
 export async function getApplicationWrapper(path?: string, forceNewWrapperCreation = false): Promise<ReactWrapper> {
   const reuse = REUSE_SAME_WRAPPER && currentWrapper && currentHistory && !forceNewWrapperCreation
   if(!reuse && currentWrapper){
-    // console.log('detach');
-    currentWrapper.detach()
+      // console.log('detach');
+      currentWrapper.detach()
   }
   const r = reuse ?
     { wrapper: currentWrapper, history: currentHistory } :
@@ -38,7 +38,7 @@ export async function getApplicationWrapper(path?: string, forceNewWrapperCreati
   currentWrapper!.update();
   return currentWrapper!;
 }
-let currentHistory: History | undefined
+export let currentHistory: History | undefined
 let currentWrapper: ReactWrapper | undefined
 
 export function getInitialApplicationState(history: History): ApplicationState {
@@ -62,8 +62,8 @@ async function setupApplicationWrapper(): Promise<{
   initialState: ApplicationState;
   store: Store;
 }> {
-  // console.log('setupApplicationWrapper');
-  let history: History = createHashHistory();
+  console.log('setupApplicationWrapper');
+  const history: History = createHashHistory();
   const initialState: ApplicationState = getInitialApplicationState(history);
   const store = configureStore(history, initialState);
   const app = <Provider store={store}><Main history={history} theme={'light'}></Main></Provider>;

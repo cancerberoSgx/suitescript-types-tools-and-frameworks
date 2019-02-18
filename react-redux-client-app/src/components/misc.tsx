@@ -29,9 +29,10 @@ export const Count = (props: Props) =>
   </I>
 
 
-export function Link<O={}>(props: { options: O } & LinkProps & Props) {
-  const to = `${props.to}/${encodeOptions(props.options)}`
-  return <RLink to={to}>{props.children}</RLink>
+export function Link(props: {to: string} & Props) {
+  return <a href={`${location.pathname}${location.search}#${props.to}`}>{props.children}</a>
+  // const to = `${props.to}/${encodeOptions(props.options)}`
+  // return <a to={to}>{props.children}</a>
 }
 
 

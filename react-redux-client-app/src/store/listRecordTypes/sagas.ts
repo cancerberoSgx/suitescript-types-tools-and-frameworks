@@ -10,11 +10,9 @@ function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
   try {
     const url = buildRouteUrl({
       routeName: 'searchViewJson',
-      params: { type: action.payload.type, pageSize: action.payload.pageSize },
+      params: { type: action.payload.type, pageSize: action.payload.pageSize, userColumns: action.payload.userColumns||[] },
     })
-    // console.trace('listRecordTypes sagas ' + url)
     const res = yield call(getUrlApi, 'get', url)
-    // debugger
 
     if (res.error) {
       yield put(fetchError(res))

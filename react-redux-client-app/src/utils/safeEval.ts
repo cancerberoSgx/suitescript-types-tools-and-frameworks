@@ -47,6 +47,8 @@ interface Error { message?: string, asString: string, stack?: string, name?: str
 interface Result<T> { result?: T, error?: Error }
 
 let counter = 0
+
+const DONT_REUTILIZE_FRAME= false
 export async function safeEval<T=any>(code: string, callback?: (result: T) => void): Promise<Result<T>> {
   if(IS_JSDOM) {
     return Promise.resolve(tryTo(()=>JSON.parse(doEval(code))))
@@ -63,7 +65,7 @@ export async function safeEval<T=any>(code: string, callback?: (result: T) => vo
 }
 
 async function install(): Promise<void> {
-  if (frame) { return Promise.resolve() }
+  if (!DONT_REUTILIZE_FRAME && frame) { return Promise.resolve() }
   frame = await buildIframe()
   window.addEventListener('message', function (e) {
     if (
@@ -72,18 +74,19 @@ async function install(): Promise<void> {
       frame.getAttribute('sandbox') === 'allow-scripts' &&
       frame.getAttribute('srcdoc') === frameHtml &&
       !frame.contentDocument
-    ) {
-      let parsed: any
-      try {
-        parsed = JSON.parse(e.data)
+      ) {
+        let parsed: any
+        try {
+          parsed = JSON.parse(e.data)
       } catch (ex) {
         parsed = { error: { message: ex.message, stack: ex.stack, asString: ex + '', name: ex.name } }
       }
+
       uniqueCallback && uniqueCallback(parsed)
       uniquePromiseResolve && uniquePromiseResolve(parsed)
     }
     else {
-      console.warn('WARNING: safeEval security checking not passed for message id', e.data.id, 'Message:', e)
+      console.warn('WARNING: safeEval security checking not passed for message id', e.data.id, 'Message:', e, ` e.origin === "null": `,  e.origin === "null", ` e.source === frame.contentWindow: ${ e.source === frame.contentWindow}, frame.getAttribute('sandbox') === 'allow-scripts': ${frame.getAttribute('sandbox') === 'allow-scripts'}, frame.getAttribute('srcdoc') === frameHtml: ${frame.getAttribute('srcdoc') === frameHtml}, !frame.contentDocument: ${!frame.contentDocument}`)
     }
   })
 }
@@ -94,12 +97,17 @@ let frame: HTMLIFrameElement
 
 function buildIframe(): Promise<HTMLIFrameElement> {
   return new Promise<HTMLIFrameElement>(resolve => {
+    const old = document.getElementById('safe-eval-iframe')
+    if(old){
+      old.remove()
+    }
     const iframe = document.createElement('iframe')
     iframe.srcdoc = frameHtml
     iframe.style.display = 'none'
     iframe.setAttribute('sandbox', 'allow-scripts')
+    iframe.setAttribute('id', 'safe-eval-iframe')
     iframe.onload = e => { resolve(iframe) }
-    document.body.appendChild(iframe)
+    document.head.appendChild(iframe)
   })
 }
 
@@ -126,7 +134,7 @@ function frameFn() {
 function doEval(code: string) {
   var result: any;
   try {
-    result = { result: eval(code) };
+    result = { result: eval(`${code}`) };
   }
   catch (ex) {
     console.error('safeEval error while evaluating expression ' + code, 'Error: ', ex);

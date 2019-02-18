@@ -10,10 +10,12 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
 import { typedSearchColumnValues } from '../../nstypes/TypedSearchColumnValues';
 import cellEditFactory from 'react-bootstrap-table2-editor'
+
 interface PropsFromState {
   type: string
-  columns: string[]
+  // columns: string[]
   results: Row[]
+  userColumns?: string[]
 }
 // type ResultColumn = {
 //   type?: string, value: string
@@ -31,23 +33,40 @@ interface State {
 }
 class ListRecordTypesIndexPage extends React.Component<AllProps, State> {
 
-  constructor(p: AllProps, s: State){
+  constructor(p: AllProps, s: State) {
     super(p, s)
-    this.state = {sizePerPage: 10, page: 1 }
+    this.state = { sizePerPage: 10, page: 1 }
   }
   public render() {
-    const columns = [{ dataField: 'id', text: 'id (Id)', sort: true,
-    filter: textFilter() }, { dataField: 'recordType', text: 'recordType (Record Type)' , sort: true,
-    filter: textFilter()}, ...(this.props.columns||[]).map(c=>({dataField: c, text: c, sort: true}))]
+    const columns = [
+      {
+        dataField: 'id',
+        text: 'id (Id)',
+        sort: true,
+        filter: textFilter()
+      },
+      {
+        dataField: 'recordType',
+        text: 'recordType (Record Type)',
+        sort: true,
+        filter: textFilter()
+      },
+      ...(this.props.userColumns || [])
+        .map(c => ({
+          dataField: c,
+          text: c,
+          sort: true,
+          filter: textFilter()
+        }))
+    ]
 
-    // const data: Row[] = this.props.results || []
     return <BootstrapTable
       keyField="id"
       data={this.props.results}
       pagination={paginationFactory({ sizePerPage: this.state.sizePerPage, page: this.state.page })}
       columns={columns}
       filter={filterFactory()}
-      cellEdit={ cellEditFactory({ mode: 'click' }) }
+      cellEdit={cellEditFactory({ mode: 'click' })}
 
     />
   }

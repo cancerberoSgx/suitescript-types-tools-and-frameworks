@@ -7,10 +7,8 @@ export const fetchSuccess = (data: ListRecordTypeResult[]) => action(ListRecordT
 export const fetchError = (message: string) => action(ListRecordTypesActionTypes.FETCH_ERROR, message)
 
 export const fetchListRecord = (options: FetchListOptions) => {
-  // debugger;
   return action(ListRecordTypesActionTypes.FETCH_LIST, options)
 }
 export const showListRecord = (options: ShowListOptions) => {
-  // debugger;
   return action(ListRecordTypesActionTypes.SHOW_LIST, options)
 }

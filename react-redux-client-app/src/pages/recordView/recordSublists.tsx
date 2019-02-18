@@ -48,8 +48,9 @@ class SublistRow extends React.Component<P, S> {
       extraFieldEditorControls={
         r.field.type === 'select' ?
           [
-            props => <Link to={`/recordView/${r.field.id}/${r.value}`}
-              options={{ ...decodeOptions(this.props.match.params.options), findRecord: true }}>
+            props => <Link to={`/recordView/${r.field.id}/${r.value}/${JSON.stringify({ ...decodeOptions(this.props.match.params.options), findRecord: true })}`}
+              // options={{ ...decodeOptions(this.props.match.params.options), findRecord: true }}
+              >
               &nbsp;(find)</Link>
           ] :
           []

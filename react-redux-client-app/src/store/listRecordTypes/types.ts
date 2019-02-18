@@ -12,6 +12,8 @@ export enum ListRecordTypesActionTypes {
 export interface ListRecordTypesState {
   readonly type?: string
   readonly results?: ListRecordTypeResult[]
+  /** userColumns are the columns shown in the UI while resultColumns are the real userColumns in the response (it can differ when mocking responses*/
+  readonly resultColumns?: string[]
   readonly recordTypes: string[]
   readonly loading?: boolean
   readonly pageSize: number
@@ -21,15 +23,17 @@ export interface ListRecordTypesState {
 export interface ListRecordTypeResult {
   id: string,
   recordType: string
+  columns: string[]
 }
 
 
 export interface FetchListOptions {
   type: string,
   pageSize: number
-  columns?: string[]
+  userColumns?: string[]
 }
 
 export interface ShowListOptions {
-  results: ListRecordTypeResult[]
+  readonly results: ListRecordTypeResult[]
+  readonly userColumns: string[]
 }

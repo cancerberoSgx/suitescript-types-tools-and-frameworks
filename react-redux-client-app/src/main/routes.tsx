@@ -17,7 +17,10 @@ const Routes = (props: any) => (
         <Route exact path="/" component={IndexPage} />
         <Route path="/listRecordTypes/:options" component={ListRecordTypes} />
         {/* <Route path="/listRecordTypes" component={ListRecordTypes} /> */}
+
+        {/* <Route path="recordView/:type/:id/:options" component={RecordView} /> */}
         <Route path="/recordView/:type/:id/:options" component={RecordView} />
+
         <Route path="/search/:options" component={SearchView} />
         <Route path="/exampleLinks" component={ExampleLinks} />
         <Route path="/api/:routeParams" render={props => {

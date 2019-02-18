@@ -11,7 +11,7 @@
     "test-watch": "npx jest --watch",
     "eject": "react-scripts-parcel eject",
     "url": "npx ts-node -P tsconfig-node.json scripts/getNsUrlFromIndex.ts",
-    "mock": "mkdir -p dist && rm -rf dist/ajaxResponseMocks && cp -rf test/ajaxResponseMocks dist"
+    "mock": "rm -rf dist/ajaxResponseMocks; mkdir -p dist; cp -rf test/ajaxResponseMocks dist"
   },
   "jest": {
     "setupFilesAfterEnv": [

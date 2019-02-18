@@ -1,9 +1,7 @@
 /** @jsx */
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import { BootstrapTable1 } from '../../components/data/react-bootstrap-table-next/experiments/react-bootstrap-table-next1';
-import { ExposedFunctionTable } from '../../components/data/react-bootstrap-table-next/experiments/react-bootstrap-table-next-ExposedFunctionTable';
 import { ClearAllFilters } from '../../components/data/react-bootstrap-table-next/experiments/react-bootstrap-table-next-clearallfilters';
+import { Link } from '../../components/misc';
 // import { RemoteAllTestContainer } from '../../experiments/react-bootstrap-table-next-remote-all';
 
 
@@ -34,9 +32,9 @@ import { ClearAllFilters } from '../../components/data/react-bootstrap-table-nex
 
 export class ExampleLinks extends React.Component<{}, {}> {
   render() {
+
     return <div>
 
-      {/* <Evaluator></Evaluator> */}123
 
 
       <h1>Example links</h1>
@@ -49,7 +47,13 @@ export class ExampleLinks extends React.Component<{}, {}> {
         <li>
           <Link to={`/recordView/commercecategory/2/{showSublistLines:true,seeValues:true}`}>
             /recordView/commercecategory/2/{'{'}showSublistLines:true,seeValues:true{'}'} (unescaped - non JSON options)
-          </Link>
+          </Link><br></br>
+          <Link to={`/recordView/commercecategory/2/{showSublistLines:true,seeValues:true}`}>
+            /recordView/commercecategory/2/{'{'}showSublistLines:true,seeValues:true{'}'} (unescaped - non JSON options)
+          </Link><br></br>
+
+
+          <a href={`${location.pathname}${location.search}#/recordView/commercecategory/2/{showSublistLines:true,seeValues:true}`}>clickckck</a>
         </li>
 
         <li>
@@ -57,7 +61,24 @@ export class ExampleLinks extends React.Component<{}, {}> {
             /recordView/item/2235/{'{}'}
           </Link>
         </li>
+
+
+        <li>
+          <Link  to={`/listRecordTypes/{type:"item",userColumns:["baseprice","created","displayname","itemid","onlineprice","parent","type"],pageSize:38}`}>
+  /listRecordTypes/{'{'}type:"item",userColumns:["baseprice","created","displayname","itemid","onlineprice","parent","type"],pageSize:38}
+          </Link>
+        </li>
+        <li>
+          <Link to={`/listRecordTypes/{"type"%3A"item"%2C"userColumns"%3A["baseprice"%2C"created"%2C"displayname"%2C"itemid"%2C"onlineprice"%2C"parent"%2C"type"]%2C"pageSize"%3A38}`}>
+  /listRecordTypes/{'{'}"type"%3A"item"%2C"userColumns"%3A["baseprice"%2C"created"%2C"displayname"%2C"itemid"%2C"onlineprice"%2C"parent"%2C"type"]%2C"pageSize"%3A38}
+          </Link>
+        </li>
+
+
       </ul>
+
+      http://localhost:1234/#
+
 
       <h3>react-bootstrap-table-next experiments</h3>
       <ul>

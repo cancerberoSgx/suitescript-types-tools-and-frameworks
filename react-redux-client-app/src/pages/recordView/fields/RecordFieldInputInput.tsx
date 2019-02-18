@@ -14,7 +14,6 @@ type P<T extends Type> = RecordFieldEditorInputProps<T>;
 export class RecordFieldInputInput<T extends Type> extends React.Component<P<T>, E<T>> {
   constructor(p: P<T>, e: E<T>) {
     super(p, e);
-    // this.state = {value: }
     this.props.valueInquirer.getValue = () => this.state.value;
   }
   render() {
@@ -22,9 +21,9 @@ export class RecordFieldInputInput<T extends Type> extends React.Component<P<T>,
     const inputType = this.getTypeForInput(f);
     const inputValue = this.getValueForInput(f);
 
-    return <RecordFieldInputInputEl defaultValue={inputValue} disabled={f.isReadonly} type={inputType}
+    return <RecordFieldInputInputEl defaultValue={f.type !== 'checkbox' ? inputValue : ''} disabled={f.isReadonly} type={inputType} defaultChecked={f.type === 'checkbox' && !!f.value}
       name={f.id}
-      checked={f.type === 'checkbox' && !!f.value}
+      // checked={f.type === 'checkbox' && !!f.value}
       onFocus={e => this.props.onChangeFocus(e)}
       onBlur={e => this.props.onChangeFocus(e)}
       onChange={e => {

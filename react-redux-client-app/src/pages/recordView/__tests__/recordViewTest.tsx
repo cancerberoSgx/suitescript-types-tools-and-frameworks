@@ -1,6 +1,5 @@
 import { ReactWrapper } from 'enzyme';
-import { click, expectAttributeToBe, expectToBeHidden, expectToBeVisible, expectToHaveLength, getApplicationWrapper, check as setChecked, expectCheckedToBe, wait, print, html, find, isVisible, isHidden } from "../../../utils/test/";
-import pMap from 'p-map'
+import { check as setChecked, click, expectCheckedToBe, expectToBeHidden, expectToBeVisible, expectToHaveLength, getApplicationWrapper } from "../../../utils/test/";
 
 describe('RecordView', () => {
 
@@ -42,7 +41,6 @@ describe('RecordView', () => {
       done()
     })
 
-
     async function test(c: string, hash: string, checked: boolean) {
       expectToBeHidden(wrapper.find(`.${c} input`))
 
@@ -52,12 +50,10 @@ describe('RecordView', () => {
       expect(location.href).not.toContain(hash);
 
       await setChecked(wrapper.find(`.${c} input`), !checked);
-      // await wait(200)
       expectCheckedToBe(wrapper.find(`.${c} input`), !checked);
       expect(location.href).toContain(hash);
 
       await setChecked(wrapper.find(`.${c} input`), checked);
-      // await wait(200)
       expectCheckedToBe(wrapper.find(`.${c} input`), checked);
       expect(location.href).not.toContain(hash);
     }
@@ -78,12 +74,7 @@ describe('RecordView', () => {
       await test('inlineEdit', '%22inlineEdit%22%3Atrue', false)
       done()
     });
-
-
   })
-
-
 });
 
 
-// https://www.youtube.com/watch?v=G-LTz7-5eWI

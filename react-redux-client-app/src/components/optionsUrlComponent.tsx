@@ -18,13 +18,9 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
   protected abstract async executeActionForNewOptions(options: Partial<Options>): Promise<void>
 
   async componentWillMount() {
-    // console.log('componentWillMount', this.state, this.props, await this.getOptions());
-    // debugger
     await this.syncStateWithUrlOptions({ dontUpdateOptionsWithState: true })
   }
   async componentWillUpdate() {
-    // console.log('componentWillUpdate', this.state, this.props, await this.getOptions());
-    // debugger
     await this.syncStateWithUrlOptions({ dontUpdateStateWithOptions: true })
   }
 
@@ -37,8 +33,6 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
     if (!config.dontUpdateOptionsWithState) {
       newOptions = { ...newOptions, ...await this.updateOptionsWithState() }
     }
-    // newOptions = { ...newOptions, }
-    // debugger
     if (Object.keys(newOptions).length) {
       // console.log('executeActionForNewOptions', newOptions);
       this.executeActionForNewOptions({ ...newOptions })
@@ -54,13 +48,17 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
     return {}
   }
 
+  private lastOptionsParams: string|undefined
+  private lastOptions: Options|undefined
   protected async getOptions(): Promise<Options> {
-    // console.log('getOptions1', this.props.match.params.options);
-
-    //TODO: look if the string changed from last time, cache!
-    const options = await decodeOptions<Options>(this.props.match.params.options)
-    // console.log('getOptions', this.props.match.params.options, options);
-    return options
+    const p = this.props.match.params.options
+    if(p!==this.lastOptionsParams || !this.lastOptions){
+      const options = await decodeOptions<Options>(p)
+      this.lastOptions = options
+      this.lastOptionsParams = p
+      return options
+    }
+    return this.lastOptions
   }
 
   /** returns options in url not found in state (the state just updated with these) */
@@ -94,7 +92,6 @@ export abstract class OptionsUrlComponent<P extends RouteComponentProps<{ option
   protected async setOptions(options: Options): Promise<void> {
     const newPath = await this.getOptionsUrlPath(options)
     if (newPath) {
-      // console.log('setOptions push', newPath)
       this.props.history.replace(newPath)
     }
   }

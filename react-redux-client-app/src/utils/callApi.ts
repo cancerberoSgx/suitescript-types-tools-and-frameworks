@@ -1,4 +1,4 @@
-import { getUrlApiMock, ENABLE_AJAX_MOCK } from './getUrlApiMock';
+import { getUrlApiMock, ENABLE_AJAX_MOCK, IS_JSDOM } from './getUrlApiMock';
 
 export default function callApi(method: string, url: string, path: string, data?: any) {
   return fetch(url + '/api' + path, {
@@ -11,18 +11,21 @@ export default function callApi(method: string, url: string, path: string, data?
   }).then(res => res.json())
 }
 
+const mockJSDOMMocks: {[k:string]:any} = {}
 export function getUrlApi(method: string, url: string): Promise<any> {
-  if (ENABLE_AJAX_MOCK && location.href.startsWith('http://localhost/')) { // jest - run in node domjs
+  if (IS_JSDOM) { // jest - run in node domjs
     try {
+      if(mockJSDOMMocks[url]){return Promise.resolve(mockJSDOMMocks[url])}
       const file = `test/${getUrlApiMock(method, url)}`
       const text = require('fs').readFileSync(file).toString()
       const result = JSON.parse(text)
+      mockJSDOMMocks[url] = result
       return Promise.resolve(result)
     } catch (error) {
       throw { error }
     }
   }
-  else if (ENABLE_AJAX_MOCK) { // npm start - runs app locally
+  else if (ENABLE_AJAX_MOCK && !IS_JSDOM) { // npm start - runs app locally
     url = getUrlApiMock(method, url)
   }
   return fetchJson(method, url)

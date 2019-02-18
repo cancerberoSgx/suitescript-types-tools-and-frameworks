@@ -1,5 +1,4 @@
-import { ReactWrapper } from 'enzyme';
-import { getApplicationWrapper, expectToContainText, expectToExist, click, text, html, expectToBeVisible, isVisible, find, wait, print, expectToBeHidden, expectToNotExist } from "../../utils/test/";
+import { expectToBeVisible, expectToNotExist, find, getApplicationWrapper } from "../../utils/test/";
 
 describe('routes', () => {
 
@@ -18,7 +17,7 @@ describe('routes', () => {
     done()
   });
 
-  it('options support json syntax without scaping',  async done=>{
+  it('options support json syntax without scaping turn on',  async done=>{
     const wrapper = await getApplicationWrapper('/recordView/inventoryitem/465/{seeValues:true,showAllFields:true,showSublistLines:true}')
     expect(find(wrapper, 'Page .home')).toHaveLength(0)
     expectToBeVisible(wrapper.find('Page .record-view .record-fields .field-editor input'))
@@ -27,7 +26,7 @@ describe('routes', () => {
     done()
   })
 
-  it('options support json syntax without scaping',  async done=>{
+  it('options support json syntax without scaping turn off',  async done=>{
     const wrapper = await getApplicationWrapper('/recordView/inventoryitem/465/{seeValues:false,showAllFields:false,showSublistLines:false}')
     expectToNotExist(wrapper, 'Page .home')
     expectToNotExist(wrapper.find('Page .record-view .record-fields .field-editor input'))
@@ -36,8 +35,5 @@ describe('routes', () => {
     done()
   })
 
-  // xit('',  async done=>{
-  //   done()
-  // })
 });
 

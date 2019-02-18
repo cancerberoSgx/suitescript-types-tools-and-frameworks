@@ -31,7 +31,7 @@ export function expectToNotExist(wrapper: ReactWrapper, selectors?: string | str
 function expectExistance(wrapper: ReactWrapper, selectors: string | string[], dontExist=false) {
   const wps: ReactWrapper[] = selectors ? asArray(selectors).map(s => wrapper.find(s!)) : [wrapper]
   const els = flat(wps.map(w => asElements(w)))
-  if (dontExist ? !els.length : els.length) {
+  if (dontExist && !els.length || !dontExist && els.length) {
     expect(true).toBe(true)
   }
   else {

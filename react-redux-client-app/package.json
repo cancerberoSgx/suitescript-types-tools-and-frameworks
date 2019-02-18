@@ -6,7 +6,7 @@
     "start": "npm run mock && react-scripts-parcel start",
     "build": "npx parcel build public/index.html --detailed-report",
     "test": "npx jest",
-    "test-clean": "npm run clean && npx jest --clearCache && npm test",
+    "test-clean": "npm run clean && npx jest --clearCache && npx jest --no-cache --clearMocks",
     "clean": "rm -rf build/ dist/ .cache",
     "test-watch": "npx jest --watch",
     "eject": "react-scripts-parcel eject",

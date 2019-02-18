@@ -1,4 +1,4 @@
-import { expectToBeVisible, expectToNotExist, find, getApplicationWrapper, currentHistory, wait } from "../../utils/test/";
+import { expectToBeVisible, expectToNotExist, find, getApplicationWrapper, currentHistory, wait, expectToBeHidden } from "../../utils/test/";
 
 describe('routes', () => {
 
@@ -37,12 +37,15 @@ describe('routes', () => {
 
   it('options support json syntax not first time nav',  async done=>{
     const wrapper = await getApplicationWrapper('/search/{}')
-    expectToNotExist(wrapper, 'Page .record-view')
-    currentHistory!.push('/recordView/inventoryitem/465/{}')
+    expectToNotExist(wrapper.find('Page .record-view'))
+    expectToBeVisible(wrapper.find('Page .search'))
+    currentHistory!.push('/recordView/inventoryitem/465/{seeValues:true,showAllFields:true,showSublistLines:true}')
     await wait(10)
     wrapper.update()
-    expectToBeVisible(wrapper.find('Page .record-view .record-fields'))
-    expectToBeVisible(wrapper.find('Page .record-view .sublist'))
+    expectToNotExist(wrapper, 'Page .home')
+    expectToBeVisible(wrapper.find('Page .record-view .record-fields .field-editor input'))
+    expectToBeVisible(wrapper.find('Page .record-view .sublist .line .field-editor input'))
+    expectToBeVisible(wrapper.find('Page .record-view .record-fields .field').findWhere(w=>w.text().includes('_eml_nkey_')))
     done()
   })
 

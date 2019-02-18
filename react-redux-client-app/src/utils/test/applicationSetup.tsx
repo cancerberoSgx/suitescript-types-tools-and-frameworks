@@ -62,7 +62,7 @@ async function setupApplicationWrapper(): Promise<{
   initialState: ApplicationState;
   store: Store;
 }> {
-  console.log('setupApplicationWrapper');
+  // console.log('setupApplicationWrapper');
   const history: History = createHashHistory();
   const initialState: ApplicationState = getInitialApplicationState(history);
   const store = configureStore(history, initialState);

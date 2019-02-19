@@ -46,9 +46,9 @@ const NoDataIndication = () => (
   </div>
 );
 
-const RemoteAll = (props: BootstrapTableProps) => {
+const RemoteAll = (props: Partial<BootstrapTableProps>) => {
 
-  const { data, page, sizePerPage, onTableChange, totalSize, loading } = props
+  const { data = [], page, sizePerPage, onTableChange, totalSize, loading } = props
   return <div>
     <BootstrapTable
       remote

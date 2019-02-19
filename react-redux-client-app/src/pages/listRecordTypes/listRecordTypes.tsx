@@ -1,48 +1,42 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
-
-// / <reference types="react-router" />
-// / <reference types="react-router-dom/node_modules/@types/react-router" />
-
-import * as React from 'react';
+import { css, jsx } from '@emotion/core';
 import { connect } from 'react-redux';
+import { RouteComponentProps } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { Dispatch } from 'redux';
+import { ErrorComponent } from '../../components/data/errorComponent';
+import { Loading } from '../../components/data/Loading';
+import { SearchResults } from '../../components/data/searchResults/searchResults';
+import SearchResultsOld from '../../components/data/SearchResultsOld';
 import { Container } from '../../components/layout/Container';
 import { Page } from '../../components/layout/Page';
-import { ApplicationState, ConnectedReduxProps } from '../../store';
-import { ListRecordTypeResult, FetchListOptions } from '../../store/listRecordTypes';
-import { fetchListRecord } from '../../store/listRecordTypes/actions';
-import SearchResults from '../../components/data/SearchResults';
-import { RouteComponentProps } from 'react-router';
-import { withRouter } from 'react-router-dom'
-import { Loading } from '../../components/data/Loading';
+import { If } from '../../components/misc';
 import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
-import { ErrorComponent } from '../../components/data/errorComponent';
-import { ErrorOptions } from '../../store/commonTypes';
-import { If, F as Frag } from '../../components/misc';
 import { typedSearchColumnValues } from '../../nstypes/TypedSearchColumnValues';
-import BootstrapTable, { Column, Row } from 'react-bootstrap-table-next';
-import filterFactory, { textFilter, dateFilter } from 'react-bootstrap-table2-filter';
-import { array } from '../../utils/misc';
-import paginationFactory from 'react-bootstrap-table2-paginator';
-import SearchResults2 from '../../components/data/SearchResults2';
+import { ApplicationState, ConnectedReduxProps } from '../../store';
+import { ErrorOptions } from '../../store/commonTypes';
+import { FetchListOptions, ListRecordTypeResult } from '../../store/listRecordTypes';
+import { fetchListRecord } from '../../store/listRecordTypes/actions';
 import { SearchColumn } from '../search/searchView';
+
 
 interface PropsFromState {
   loading?: boolean
   type?: string
-  // pageSize: number
   results?: ListRecordTypeResult[]
   resultColumns?: string[]
   recordTypes: string[]
   error?: ErrorOptions
 }
+
 interface PropsFromDispatch {
   fetchListRecord: typeof fetchListRecord
 }
+
 interface RouteParams {
   options?: string
 }
+
 interface S {
   type?: string
   pageSize?: number
@@ -50,8 +44,10 @@ interface S {
   userColumns?: string[]
   resultColumns?: string[]
 }
+
 interface Options extends Partial<S> {
 }
+
 type AllProps = PropsFromState & PropsFromDispatch & ConnectedReduxProps & RouteComponentProps<RouteParams>
 
 class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options> {
@@ -70,10 +66,7 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
     // this.renderCounter++
     const { type } = this.state
     const columns = !type? undefined: [
-      // { id: 'id', label: 'Id' },
-      // { id: 'recordType', label: 'Record Type' },
     ...typedSearchColumnValues[type]].sort((a, b) => a.id.localeCompare(b.id))
-    // console.log('render', this.state, this.props);
     return (
       <Page>
         <Container className="list-record-types">
@@ -111,7 +104,6 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                     <option>Select a Column</option>
                     {columns.map(c =>
                       <option
-                        // defaultChecked={(this.state.columns || []).includes(c.id)}
                         value={c.id} key={c.id}>{c.id} ({c.label})</option>)
                     }
                   </select>
@@ -129,7 +121,6 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                 }}>
               </input>
             </div>
-          {/* </div> */}
 
           {!this.props.error &&
             <Loading {...this.props}><div>
@@ -138,7 +129,6 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                   const resultColumns = this.props.resultColumns || this.state.userColumns
                   if (!resultColumns || !this.state.userColumns) { return r }
                   r.columns
-                    // .filter(c=>this.state.userColumns!.includes(c))
                     .forEach((s, i) => {
                       const name = resultColumns[i]
                       if (name) {
@@ -148,15 +138,15 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
                   return { ...r, columns: undefined }
                 })
                 return <div>
-                  <SearchResults2 {...this.props} type={type!}
+                  <SearchResults {...this.props} type={type!}
                   userColumns={this.state.userColumns!}
                   results={formattedResults}
                   columns={columns!}
-                  ></SearchResults2>
-                  {/* <SearchResults {...this.props} type={type!}
+                  ></SearchResults>
+                  {/* <SearchResultsOld {...this.props} type={type!}
                     columns={[{ label: 'Record Type', id: 'recordType', type: 'select' }]}
                     results={results.map(r => ({ id: r.id, type: r.recordType, columns: [r.recordType] }))}>
-                  </SearchResults> */}
+                  </SearchResultsOld> */}
                 </div>
               }
               }</If>
@@ -169,27 +159,8 @@ class ListRecordTypesIndexPage extends OptionsUrlComponent<AllProps, S, Options>
   }
 
   protected async executeActionForNewOptions(newOptions: Options) {
-    // const type = newOptions.type || this.state.type
-    // if (!type) {
-    //   return
-    // }
-    // const fetchListRecordOptions: FetchListOptions = {
-    //   type,
-    //   pageSize: newOptions.pageSize || this.state.pageSize || 5
-    // }
     const type = newOptions.type || this.state.type
-    // let userColumns: string[] = ['id', 'recordType']
-    // debugger
-    // if( type == this.state.type && type==this.props.type){
-      // let userColumns: string[] = newOptions.userColumns || this.state.userColumns ||  ['id', 'recordType']
-    // }
-
-    // this.state = {...this.state, userColumns, type, ...newOptions}
-    // const userColumns =( type !== this.state.type || type!==this.props.type) ? ['id', 'recordType'] : //if type changed - reset the columns if not error!
-      // (newOptions.userColumns || this.state.userColumns ||  ['id', 'recordType'])
-
     if (type) {
-      // debugger
       this.props.fetchListRecord({
         ...newOptions,
         type,

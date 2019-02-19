@@ -21,17 +21,17 @@ interface PaginationProps {
   /** the pagination bar size, default is 5 */
   paginationSize?: number
   /** display pagination information */
-  showTotal? : boolean
+  showTotal?: boolean
   /** A numeric array is also available: [5, 10]. the purpose of above example is custom the text. Example:
 
   ```
   [ {  text: '5', value: 5}, {  text: '10', value: 10}, {  text: 'All', value: products.length} ]
   ```
   */
-  sizePerPageList?: {text: string, value :number}[]
+  sizePerPageList?: { text: string, value: number }[]
   /**hide the going to first and last page button */
   withFirstAndLast?: boolean
- ,/** always show the next and previous page button */
+  ,/** always show the next and previous page button */
   alwaysShowAllBtns?: boolean
   /** the text of first page button */
   firstPageText?: string
@@ -50,15 +50,15 @@ interface PaginationProps {
   /**  the title of last page button */
   lastPageTitle?: string
   /**hide the size per page dropdown */
-  hideSizePerPage?:boolean
+  hideSizePerPage?: boolean
   /**hide pagination bar when only one page, default is false */
   hidePageListOnlyOnePage?: boolean
   /** callback function when page was changing */
-  onPageChange?: (page:number, sizePerPage:number) => any, //
+  onPageChange?: (page: number, sizePerPage: number) => any, //
   /**  callback function when page size was changing */
   onSizePerPageChange?: (sizePerPage: number, page: number) => number //
   /** custom the pagination total */
-  paginationTotalRenderer?: (from:number, to:number, size:number) => TODO//{ ... }  // custom the pagination total
+  paginationTotalRenderer?: (from: number, to: number, size: number) => TODO//{ ... }  // custom the pagination total
 
 
   sizePerPageRenderer?: SizePerPageRenderer;
@@ -71,12 +71,12 @@ type PaginationProvider = React.Component<{
   pagination: Pagination;
   children: React.Component<{
     paginationProps: PaginationProps;
-    paginationTableProps: PaginationTableProps;
+    paginationTableProps: PaginationProps;
   }>;
 }>;
 
-interface PaginationTableProps extends TODO {
-}
+// interface PaginationTableProps extends TODO {
+// }
 
 interface SizePerPageRenderer {
   options: TODO[];
@@ -115,7 +115,7 @@ interface TableChangeNewState {
   data?: RowT[]
 }
 
-type TableChangeType = 'cellEdit' |'filter'|'pagination'|'sort'
+type TableChangeType = 'cellEdit' | 'filter' | 'pagination' | 'sort'
 
 type SortOrder = 'asc' | 'desc' | TODO;
 
@@ -189,7 +189,7 @@ interface NumberFilterProps extends FilterProps<TODO/* a concrete type*/> {
   defaultValue?: { number: number, comparator: PredefinedComparatorTypes },
 }
 
-interface RemoteProps{
+interface RemoteProps {
   filter?: boolean
   pagination?: boolean
   sort?: boolean
@@ -209,16 +209,7 @@ type FilterFunction<Type extends TODO> = (val: Type) => TODO
 type FilterVal = string | TODO;
 
 type FilterType = 'TEXT' | TODO;
-/**TODO
-var LIKE = exports.LIKE = 'LIKE';
-var EQ = exports.EQ = '=';
-var NE = exports.NE = '!=';
-var GT = exports.GT = '>';
-var GE = exports.GE = '>=';
-var LT = exports.LT = '<';
-var LE = exports.LE = '<=';
-*/
-type PredefinedComparatorTypes = 'LIKE' | 'EQ' | TODO;
+declare enum PredefinedComparatorTypes  {LIKE = 'LIKE', EQ='=', NE='!=', GT='>', GE='>=', LT='<', LE='<='}
 
 type PredefinedComparators = {
   [type in PredefinedComparatorTypes]: TODO;
@@ -244,11 +235,20 @@ type Color = string;
 type Overlay = TODO
 
 
+// SELECT AND EXPAND
+
+interface SelectRowOptions { mode: 'checkbox', clickToSelect: boolean }
+interface ExpandRowOptions { renderer: (row: any) => JSX.Element, showExpandColumn?: boolean }
+
+
+
+
+
 declare module 'react-bootstrap-table-next' {
 
   export default class BootstrapTable<FieldIds extends string> extends React.Component<BootstrapTableProps<FieldIds>, TODO> {
   }
-  export interface BootstrapTableProps<fieldIds extends string = string> extends PaginationTableProps, PaginationProps {
+  export interface BootstrapTableProps<fieldIds extends string = string> extends PaginationProps {
     /** which column has unique values, ie, 'id' */
     keyField: string;
     /**Accepts a single Array object, please see columns definition for more detail. */
@@ -279,7 +279,7 @@ remote={ { pagination: true, filter: false, sort: false } }
 ```
 
 There is a special case for remote pagination, even you only specified the pagination need to handle as remote, react-bootstrap-table2 will handle all the table changes(filter, sort etc) as remote mode, because react-bootstrap-table2 only know the data of current page, but filtering, searching or sort need to work on overall data. */
-    remote?: boolean|RemoteProps;
+    remote?: boolean | RemoteProps;
     /**true to indicate your bootstrap version is 4. Default version is 3. */
     bootstrap4?: boolean
     /**noDataIndication should be a callback function which return anything that will be showed in the table when data is empty. */
@@ -309,7 +309,7 @@ overlay={ overlayFactory({ spinner: true, background: 'rgba(192,192,192,0.3)' })
      */
     overlay?: Overlay;
     /** Same as HTML caption tag, you can set it as String or a React JSX. */
-    caption?: string|JSX.Element
+    caption?: string | JSX.Element
     /**Same as bootstrap .table-striped class for adding zebra-stripes to a table. */
     striped?: boolean
     defaultSorted?: Sorted[];
@@ -317,6 +317,10 @@ overlay={ overlayFactory({ spinner: true, background: 'rgba(192,192,192,0.3)' })
     pagination?: Pagination;
     cellEdit?: CellEdit<CellEditProps>;
     onTableChange?: onTableChange;
+
+
+    selectRow?: SelectRowOptions
+    expandRow?: ExpandRowOptions
   }
 
   /**Definition of columns props on BootstrapTable
@@ -350,7 +354,7 @@ dataField: 'address.city'
 
 There's only one different for dummy column than normal column, which is dummy column will compare the whole row value instead of cell value when call shouldComponentUpdate. */
     isDummyField?: boolean
-/**hidden allow you to hide column when true given. */
+    /**hidden allow you to hide column when true given. */
     hidden?: boolean
     /**Enable the column sort via a true value given. */
     sort?: boolean;
@@ -361,53 +365,53 @@ There's only one different for dummy column than normal column, which is dummy c
     formatter?: (cell: TODO, row: TODO, rowIndex: number, formatExtraData: any) => string
     filter?: TODO;
 
-//     column.headerFormatter - [Function]
-// headerFormatter allow you to customize the header column and only accept a callback function which take three arguments and a JSX/String are expected for return.
-// column: current column object itself
-// colIndex: index of current column
-// components: an object which contain all of other react element, like sort caret or filter etc.
-// The third argument: components have following specified properties:
-// {
-//   sortElement, // sort caret element, it will not be undefined when you enable sort on this column
-//   filterElement // filter element, it will not be undefined when you enable column.filter on this column
-// }
+    //     column.headerFormatter - [Function]
+    // headerFormatter allow you to customize the header column and only accept a callback function which take three arguments and a JSX/String are expected for return.
+    // column: current column object itself
+    // colIndex: index of current column
+    // components: an object which contain all of other react element, like sort caret or filter etc.
+    // The third argument: components have following specified properties:
+    // {
+    //   sortElement, // sort caret element, it will not be undefined when you enable sort on this column
+    //   filterElement // filter element, it will not be undefined when you enable column.filter on this column
+    // }
 
-/** only work when column.sort is enable. sortFunc allow you to define your sorting algorithm. This callback function accept six arguments:
-```
-{
-  // omit...
-  sort: true,
-  sortFunc: (a, b, order, dataField, rowA, rowB) => {
-    if (order === 'asc') return a - b;
-    else return b - a;
+    /** only work when column.sort is enable. sortFunc allow you to define your sorting algorithm. This callback function accept six arguments:
+    ```
+    {
+      // omit...
+      sort: true,
+      sortFunc: (a, b, order, dataField, rowA, rowB) => {
+        if (order === 'asc') return a - b;
+        else return b - a;
+      }
+    } ```
+    */
+    sortFunc?<T>(a: T, b: T, order: 'asc' | 'desc', rowA: Row, rowB: Row): number
+    /**
+    Sometimes, if the cell/column value that you don't want to filter on them, you can define filterValue to return a actual value you wanna be filtered:
+
+    Parameters
+
+     * cell: The value of current cell.
+     * row: The value of current row.
+     * Return value
+
+    A final String value you want to be filtered.
+
+    ```
+    {
+      dataField: 'price',
+      text: 'Product Price',
+      filter: textFilter(),
+      filterValue: (cell, row) => owners[cell]
+    }
+    ```
+    */
+    filterValue?<T>(cell: T, row: TODO): any
   }
-} ```
-*/
-sortFunc?<T>  (a:T, b:T, order: 'asc'|'desc', rowA: Row, rowB: Row):number
-/**
-Sometimes, if the cell/column value that you don't want to filter on them, you can define filterValue to return a actual value you wanna be filtered:
 
-Parameters
-
- * cell: The value of current cell.
- * row: The value of current row.
- * Return value
-
-A final String value you want to be filtered.
-
-```
-{
-  dataField: 'price',
-  text: 'Product Price',
-  filter: textFilter(),
-  filterValue: (cell, row) => owners[cell]
-}
-```
-*/
-filterValue?<T>(cell: T, row: TODO): any
-  }
-
-  export type Row =RowT
+  export type Row = RowT
 }
 type RowT<Type extends TODO = TODO, FieldId extends string=string> = {
   [fieldName in FieldId]: RowFieldValue;

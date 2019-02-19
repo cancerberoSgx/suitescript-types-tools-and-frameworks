@@ -12,6 +12,8 @@ import { getSortFunctionFor } from './sort';
 import { getFormatterFor } from './formatter';
 import { getFilterFor } from './filter';
 import { formatDate, formatDateTime } from '../../../utils/formatDate';
+import css from '@emotion/css';
+import { Global } from '@emotion/core';
 
 interface PropsFromState {
   type: string
@@ -61,16 +63,19 @@ class ListRecordTypesIndexPage extends React.Component<AllProps, State> {
 
     const data = normalizeData(this.props.results, this.props.columns)
 
-    return <BootstrapTable
-    keyField="id"
-    data={data}
-    columns={columns}
-    pagination={paginationFactory({ sizePerPage: this.state.sizePerPage, page: this.state.page })}
-      filter={filterFactory()}
-      cellEdit={cellEditFactory({ mode: 'click' })}
-      striped={true}
-      loading={true}
-    />
+    return <div>
+      {Style}
+      <BootstrapTable
+      keyField="id"
+      data={data}
+      columns={columns}
+      pagination={paginationFactory({ sizePerPage: this.state.sizePerPage, page: this.state.page })}
+        filter={filterFactory()}
+        cellEdit={cellEditFactory({ mode: 'click' })}
+        striped={true}
+        loading={true}
+      />
+    </div>
   }
 }
 
@@ -85,8 +90,11 @@ function normalizeData(data: RowT<any, string>[], columns: SearchColumn[]) {
       if (r[c.id] && typeIsNumeric(c.type)) {
         r[c.id] = { label: r[c.id]+'', value: parseFloat(r[c.id]) || r[c.id] }
       }
-      if (r[c.id] && typeIsDateLike(c.type)) {
+      else if (r[c.id] && typeIsDateLike(c.type)) {
         r[c.id] = { label: r[c.id]+'', value: new Date(r[c.id]) }
+      }
+      else {
+        r[c.id] = { label: r[c.id]+'', value: r[c.id]+'' }
       }
     })
   })
@@ -108,3 +116,13 @@ export const SearchResults = connect(
   mapDispatchToProps
 )(ListRecordTypesIndexPage)
 
+const Style = <Global styles={`
+  .react-bootstrap-table-sort-order{
+    background-color: green;
+    // border: 2px solid green;
+    &.dropup {
+      background-color: red;
+      // border: 2px solid red;
+    }
+  }
+}`}></Global>

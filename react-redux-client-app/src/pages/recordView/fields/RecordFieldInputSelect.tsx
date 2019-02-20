@@ -56,6 +56,6 @@ export class RecordFieldInputSelect extends React.Component<P, E> {
 
 
 export const RecordFieldInputSelectEl = styled.select`
-resize: ${props => (props as any).multiple ? 'both' : 'inherit'};
-${props => (props as any).multiple ? MultiLineTextEditor : RecordFieldInputEditorBase};
+  resize: ${props => (props as any).multiple ? 'both' : 'inherit'};
+  ${props => (props as any).multiple ? MultiLineTextEditor : RecordFieldInputEditorBase};
 `

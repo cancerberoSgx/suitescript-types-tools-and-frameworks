@@ -1,4 +1,6 @@
 import { expectToBeVisible, expectToNotExist, find, getApplicationWrapper, currentHistory, wait, expectToBeHidden } from "../../utils/test/";
+import { ReactWrapper } from 'enzyme';
+import { navigate } from '../../utils/test/history';
 
 describe('routes', () => {
 
@@ -39,9 +41,7 @@ describe('routes', () => {
     const wrapper = await getApplicationWrapper('/search/{}')
     expectToNotExist(wrapper.find('Page .record-view'))
     expectToBeVisible(wrapper.find('Page .search'))
-    currentHistory!.push('/recordView/inventoryitem/465/{seeValues:true,showAllFields:true,showSublistLines:true}')
-    await wait(10)
-    wrapper.update()
+    await navigate(wrapper, '/recordView/inventoryitem/465/{seeValues:true,showAllFields:true,showSublistLines:true}');
     expectToNotExist(wrapper, 'Page .home')
     expectToBeVisible(wrapper.find('Page .record-view .record-fields .field-editor input'))
     expectToBeVisible(wrapper.find('Page .record-view .sublist .line .field-editor input'))
@@ -50,4 +50,3 @@ describe('routes', () => {
   })
 
 });
-

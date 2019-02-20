@@ -24,17 +24,17 @@ describe('RecordView', () => {
         expectToHaveLength(wrapper.find(`.${c} input`), 1, c)
         expectToBeHidden(wrapper.find(`.${c} input`))
       })
-      expect(wrapper.find(`.RecordViewToolBox .button`)).toHaveLength(1)
-      expectToBeVisible(wrapper.find(`.RecordViewToolBox .button`))
+      expect(wrapper.find(`.tool-box .button`)).toHaveLength(1)
+      expectToBeVisible(wrapper.find(`.tool-box .button`))
       done()
     })
 
     it('settings visibility toggles when button settings is clicked', async done => {
-      await click(wrapper.find(`.RecordViewToolBox .button`))
+      await click(wrapper.find(`.tool-box .button`))
       classes.forEach(c => {
         expectToBeVisible(wrapper.find(`.${c} input`))
       })
-      await click(wrapper.find(`.RecordViewToolBox .button`))
+      await click(wrapper.find(`.tool-box .button`))
       classes.forEach(c => {
         expectToBeHidden(wrapper.find(`.${c} input`))
       })
@@ -44,7 +44,7 @@ describe('RecordView', () => {
     async function test(c: string, hash: string, checked: boolean) {
       expectToBeHidden(wrapper.find(`.${c} input`))
 
-      await click(wrapper.find(`.RecordViewToolBox .button`))
+      await click(wrapper.find(`.tool-box .button`))
       expectToBeVisible(wrapper.find(`.${c} input`))
       expectCheckedToBe(wrapper.find(`.${c} input`), checked);
       expect(location.href).not.toContain(hash);

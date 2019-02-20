@@ -11,7 +11,7 @@ import { Page } from '../../components/layout/Page';
 import { Count, NoWrap } from '../../components/misc';
 import { OptionsUrlComponent } from '../../components/optionsUrlComponent';
 import { ErrorComponent } from '../../components/data/errorComponent';
-import ToolBox from '../../components/toolBox';
+import {ToolBox} from '../../components/toolBox';
 import { ApplicationState, ConnectedReduxProps } from '../../store';
 import { ErrorOptions } from '../../store/commonTypes';
 import { getSearchRecordTypes } from '../../nstypes/search';
@@ -66,7 +66,7 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
           {this.props.error ? <ErrorComponent {...this.props.error}></ErrorComponent> : ''}
           <Loading {...this.props}>
             {<div>
-              <SearchViewToolBox>
+              <ToolBox>
                 <ul>
                   <li>
                     <NoWrap><label><input type="checkbox"
@@ -91,7 +91,7 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
                       ></input>Hide Internal Fields?</label>
                     </NoWrap></li>
                 </ul>
-              </SearchViewToolBox>
+              </ToolBox>
 
 
               <h1>Search</h1>
@@ -140,19 +140,6 @@ class SearchViewIndexPage extends OptionsUrlComponent<SearchViewAllProps, State,
     return []//'showAllFields', 'showSublistLines', 'seeValues', 'inlineEdit', 'findRecord']
   }
 }
-
-const SearchViewToolBox = styled(ToolBox)`
-  left: 0px;
-  top: 0px;
-  li {
-    display: inline;
-    padding-right: 1em;
-  }
-  ul {
-    margin: 0
-  }
-`
-
 
 const mapStateToProps = ({ search }: ApplicationState) => ({
   ...search

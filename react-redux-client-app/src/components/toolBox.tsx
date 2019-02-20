@@ -1,30 +1,30 @@
 import { mix } from 'polished';
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { minWidth } from '../styles/media';
 import { styled } from '../styles/theme';
-import { PagePadding, PagePaddingTopLeft } from './layout/Page';
+import { PagePaddingTopLeft } from './layout/Page';
 import { Children } from './misc';
 
-interface P { className?: string, children: Children }
-interface S {
+interface Props {
+  className?: string,
+  children: Children
+}
+
+interface State {
   active?: boolean
 }
-class ToolBox extends React.Component<P, S> {
 
-  state: S = {}
+export const ToolBox = connect()(class extends React.Component<Props, State> {
+  state: State = {}
   public render() {
-
-    return (
-      <Wrapper className={(this.state.active ? 'active ' : '') + (this.props.className || '')}>
-        <button className="button" onClick={e => this.setState({ ...this.state, active: !this.state.active })}>{this.state.active ? 'Hide Settings' : 'Show Settings'}</button>
-        <div className="content">
-          {this.props.children}
-        </div>
-      </Wrapper>
-    )
+    return <Wrapper className={(this.state.active ? 'active ' : '') + (this.props.className || '') + ' tool-box'}>
+      <button className="button" onClick={e => this.setState({ ...this.state, active: !this.state.active })}>{this.state.active ? 'Hide Settings' : 'Show Settings'}</button>
+      <div className="content">
+        {this.props.children}
+      </div>
+    </Wrapper>
   }
-}
+})
 
 const Wrapper = styled(PagePaddingTopLeft)`
   position: fixed;
@@ -72,12 +72,16 @@ const Wrapper = styled(PagePaddingTopLeft)`
     }
   }
 
+  // for lists
+  left: 0px;
+  top: 0px;
+  li {
+    display: inline;
+    padding-right: 1em;
+  }
+  ul {
+    margin: 0;
+  }
 }
-
 `
-
-
-
-export default connect(
-)(ToolBox)
 

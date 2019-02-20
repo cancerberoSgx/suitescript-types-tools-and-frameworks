@@ -50,7 +50,7 @@ interface SearchResult { columns?: CreateSearchColumnOptions[], filters?: Filter
 function getSearchResults(o: RouterHandlerOptions): SearchResult {
   const { type } = o.params;
   const pageSize = parseInt(o.params.pageSize || '10') || 0;
-  const currentPage = parseInt(o.params.currentPage || '1') || 1;
+  const currentPage = parseInt(typeof o.params.currentPage==='undefined' ? '0' : o.params.currentPage==='' ? '0' : o.params.currentPage) || 0;
   try {
 
     const columns = ((type ? ((typedSearchColumnValues as any)[type] || []) : []) as ColumnValue[])
@@ -67,7 +67,6 @@ function getSearchResults(o: RouterHandlerOptions): SearchResult {
       .sort((a, b) => a.name.localeCompare(b.name))
 
     const userFilters: Filter[] = (tryTo(() => JSON.parse(o.params.userFilters || '[]')) || [])
-
 
     // .map(f => (f.id === '__new__' && filters.length) ? {...filters[0], operator: } : f)
     // .filter(f => !!f).map(name => {
@@ -87,10 +86,17 @@ function getSearchResults(o: RouterHandlerOptions): SearchResult {
         columns: userColumns.map(c => r.getValue(c) + '')
       }));
       return {
-        ...o.params, columns, filters, userFilters,
-        userColumns: userColumns.map(c => c.name), results, pageSize,
-        pageRanges: resultSet.pageRanges, currentPage,
-        pageCount: resultSet.pageRanges.length, type
+        ...o.params, 
+        columns, 
+        filters, 
+        userFilters,
+        userColumns: userColumns.map(c => c.name), 
+        results, 
+        pageSize,
+        pageRanges: resultSet.pageRanges, 
+        currentPage,
+        pageCount: resultSet.pageRanges.length, 
+        type
       }
     }
     else {

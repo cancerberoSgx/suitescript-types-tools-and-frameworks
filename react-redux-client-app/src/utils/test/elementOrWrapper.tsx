@@ -7,14 +7,14 @@ export function isReactWrapper(e: any): e is ReactWrapper {
 
 export type ElementOrWrapper = Element | ReactWrapper | null | undefined;
 
-export function asElement(e: ElementOrWrapper): Element | null | undefined {
+export function asElement<T>(e: ElementOrWrapper): T | null | undefined {
   if (isReactWrapper(e)) {
     return e
       // .findWhere(e=>!!e.getDOMNode()).first()
-      .getDOMNode();
+      .getDOMNode() as any
   }
   else {
-    return e;
+    return e as any
   }
 }
 

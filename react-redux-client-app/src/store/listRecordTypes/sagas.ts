@@ -7,6 +7,8 @@ import { buildRouteUrl } from '../../utils/routeUrl/buildRouteUrl';
 
 //TODO: this should be generic with the url as parameter the url
 function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
+  console.log('handle fetch searchViewJson', action.payload);
+
   try {
     const url = buildRouteUrl({
       routeName: 'searchViewJson',
@@ -14,6 +16,7 @@ function* handleFetch(action: ReturnType<typeof fetchListRecord>) {
     })
     const res = yield call(getUrlApi, 'get', url)
 
+    // debugger
     if (res.error) {
       yield put(fetchError(res))
     } else {

@@ -1,18 +1,7 @@
-define(["require", "exports"], function (require, exports) {
+define(["require", "exports", "misc-utils-of-mine-generic", "misc-utils-of-mine-generic"], function (require, exports, misc_utils_of_mine_generic_1, misc_utils_of_mine_generic_2) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    function find(a, predicate) {
-        for (var i = 0; i < a.length; i++) {
-            var v = a[i];
-            if (predicate(v, i, a)) {
-                return v;
-            }
-        }
-    }
-    exports.find = find;
-    function installArrayPrototypeFind() {
-        Array.prototype.find = typeof Array.prototype.find === 'undefined' ? function (predicate) { return find(this, predicate); } : Array.prototype.find;
-    }
-    exports.installArrayPrototypeFind = installArrayPrototypeFind;
-    installArrayPrototypeFind();
+    misc_utils_of_mine_generic_1.installArrayPrototypeFind();
+    exports.find = misc_utils_of_mine_generic_2.arrayPrototypeFind;
+    exports.installArrayPrototypeFind = misc_utils_of_mine_generic_2.installArrayPrototypeFind;
 });

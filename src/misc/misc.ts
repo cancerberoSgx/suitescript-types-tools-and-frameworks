@@ -1,56 +1,17 @@
 import { NativeError } from '../nstypes';
-import { StringKeyOf, ValueOfStringKey } from './typesUtil';
 import { installArrayPrototypeFind } from './arrayPrototypeFind';
 
 installArrayPrototypeFind()
 // collections
 
-export function array<T=number>(n: number, sample?: T): T[] {
-  const a: (T | number)[] = []
-  for (let i = 0; i < n; i++) {
-    a.push(typeof sample === 'undefined' ? i : sample)
-  }
-  return a as T[]
-}
-export function repeat(n: number, s: string): string {
-  return array(n, s).join('')
-}
-export function indent(i: number = 1, tabSize = 2): string {
-  return repeat(i * tabSize, ' ')
-}
-export function dedup<T>(a: T[], p: (a:T, b: T)=>boolean) :T[]{
-  return a.reduce((x, y) => x.find(i=>p(i, y))? x : [...x, y] as T[], [] as T[])
-}
+import {repeat} from 'misc-utils-of-mine-generic'
+import { EmptyObject, StringKeyOf, ValueOfStringKey } from 'misc-utils-of-mine-typescript';
+export * from 'misc-utils-of-mine-generic'
 
 
-export function objectKeys<Field extends EmptyObject = EmptyObject>(o: Field): StringKeyOf<Field>[] {
-  return Object.keys(o) as StringKeyOf<Field>[]
-}
-
-
-
-let uniqueCounter = 0
-export function unique(s='unique'){
-return s+uniqueCounter++
-}
-
-
-
-
-export function checkThrow<T>(r?: T, msg = 'Throwing on undefined value'): T {
-  if (!r) { throw new Error(msg) }
-  return r
-}
-export function tryTo<F extends (...args: any[]) => any>(f: F): ReturnType<F> | undefined {
-  try {
-    return f()
-  } catch (error) {
-  }
-}
 
 
 export type MapStringKeySameTypeValues<T extends any = any> = { [key: string]: T }
-export type EmptyObject = {}
 export interface TypedMap<PropTypes extends EmptyObject> {
   get<T extends StringKeyOf<PropTypes>>(name: T): ValueOfStringKey<PropTypes, T>
   set<T extends StringKeyOf<PropTypes>>(name: T, value: ValueOfStringKey<PropTypes, T>): void
@@ -81,15 +42,3 @@ ${printNativeErrorStack(error)}
 export function printNativeErrorStack(error: NativeError) {
   return `${(error.stack && Array.isArray(error.stack)) ? error.stack.map(s => repeat(2, ' ') + s).join('\n') : error.stack}`
 }
-
-// strings
-
-
-export function escapeHtmlAttribute(code: string) {
-  return code.replace(/\"/gmi, '&quot;');
-}
-export function unEscapeHtmlAttribute(code: string) {
-  return code.replace(/\&quot\;/gmi, '"');
-}
-
-

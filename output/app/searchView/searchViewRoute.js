@@ -44,7 +44,7 @@ define(["require", "exports", "../../jsx/renderInHtml", "../../search/typedSearc
     function getSearchResults(o) {
         var type = o.params.type;
         var pageSize = parseInt(o.params.pageSize || '10') || 0;
-        var currentPage = parseInt(o.params.currentPage || '1') || 1;
+        var currentPage = parseInt(typeof o.params.currentPage === 'undefined' ? '0' : o.params.currentPage === '' ? '0' : o.params.currentPage) || 0;
         try {
             var columns_1 = (type ? (TypedSearchColumnValues_1.typedSearchColumnValues[type] || []) : [])
                 .map(function (c) { return (__assign({}, c, { name: c.id + " - " + c.label })); })
@@ -73,7 +73,10 @@ define(["require", "exports", "../../jsx/renderInHtml", "../../search/typedSearc
                     recordType: r.recordType,
                     columns: userColumns_1.map(function (c) { return r.getValue(c) + ''; })
                 }); });
-                return __assign({}, o.params, { columns: columns_1, filters: filters, userFilters: userFilters, userColumns: userColumns_1.map(function (c) { return c.name; }), results: results, pageSize: pageSize, pageRanges: resultSet.pageRanges, currentPage: currentPage, pageCount: resultSet.pageRanges.length, type: type });
+                return __assign({}, o.params, { columns: columns_1,
+                    filters: filters,
+                    userFilters: userFilters, userColumns: userColumns_1.map(function (c) { return c.name; }), results: results,
+                    pageSize: pageSize, pageRanges: resultSet.pageRanges, currentPage: currentPage, pageCount: resultSet.pageRanges.length, type: type });
             }
             else {
                 return __assign({}, o.params, { columns: columns_1, filters: filters });

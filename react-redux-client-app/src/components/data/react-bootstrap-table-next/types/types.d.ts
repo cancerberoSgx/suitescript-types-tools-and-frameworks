@@ -362,7 +362,7 @@ There's only one different for dummy column than normal column, which is dummy c
      *
      * Attention: Don't use any state data or any external data in formatter function, please pass them via formatExtraData. In addition, please make formatter function as pure function as possible as you can.
     */
-    formatter?: (cell: TODO, row: TODO, rowIndex: number, formatExtraData: any) => string
+    formatter?: (cell: TODO, row: TODO, rowIndex: number, formatExtraData: any) => string | JSX.Element
     filter?: TODO;
 
     //     column.headerFormatter - [Function]

@@ -312,6 +312,8 @@ overlay={ overlayFactory({ spinner: true, background: 'rgba(192,192,192,0.3)' })
     caption?: string | JSX.Element
     /**Same as bootstrap .table-striped class for adding zebra-stripes to a table. */
     striped?: boolean
+    /**Same as bootstrap .table-hover class for adding mouse hover effect (grey background color) on table rows. */
+    hover?: boolean
     defaultSorted?: Sorted[];
     filter?: FilterProps<TODO>;
     pagination?: Pagination;
